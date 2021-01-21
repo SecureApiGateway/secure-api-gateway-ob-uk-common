@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+
+    Copyright © 2020 ForgeRock AS (obst@forgerock.com)
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.forgerock.securebanking</groupId>
+        <artifactId>securebanking-openbanking-uk</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>securebanking-openbanking-uk-obie-datamodel</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>securebanking-openbanking-uk-obie-datamodel</name>
+    <description>
+        A Java based set of data model classes, generated from the Open Banking swagger specifications:
+        https://www.openbanking.org.uk/read-write-apis/
+    </description>
+
+    <url>
+        https://github.com/SecureBankingAcceleratorToolkit/securebanking-openbanking-uk/securebanking-openbanking-uk-obie-datamodel
+    </url>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+        </dependency>
+
+        <!-- Jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-joda</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+
+        <!-- Bean Validation API support -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+        </dependency>
+
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <!-- Need to format and then check the license as when regenerated the new files will not have the
+                license headers in -->
+                <executions>
+                    <execution>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>format</goal>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <!-- Swagger code generation. Note that instructions for this profile are in the main README.md and must be kept in sync. -->
+            <id>code-gen</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.openapitools</groupId>
+                        <artifactId>openapi-generator-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                                <configuration>
+                                    <!-- Only one input file is supported. Uncomment the relevant spec as required -->
+                                    <inputSpec>
+                                        ${project.basedir}/src/main/resources/specification/account-info-swagger.yaml
+                                    </inputSpec>
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/aggregated-polling-swagger.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/callback-urls-swagger.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/confirmation-funds-swagger.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/event-notifications-swagger.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/event-subscriptions-swagger.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/events-swagger.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/payment-initiation-swagger.yaml</inputSpec>-->
+                                    <output>${project.build.directory}/generated-sources/swagger</output>
+                                    <generatorName>spring</generatorName>
+                                    <!-- Change the package here as per the chosen spec above -->
+                                    <modelPackage>
+                                        com.forgerock.securebanking.openbanking.uk.forgerock.datamodel.account
+                                    </modelPackage>
+                                    <generateApis>false</generateApis>
+                                    <configOptions>
+                                        <dateLibrary>joda</dateLibrary>
+                                    </configOptions>
+                                    <addCompileSourceRoot>false</addCompileSourceRoot>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <scm>
+        <connection>scm:git:git@github.com:SecureBankingAcceleratorToolkit/securebanking-openbanking-uk.git
+        </connection>
+        <developerConnection>scm:git:git@github.com:SecureBankingAcceleratorToolkit/securebanking-openbanking-uk.git
+        </developerConnection>
+        <url>scm:git:git@github.com:SecureBankingAcceleratorToolkit/securebanking-openbanking-uk.git</url>
+        <tag>HEAD</tag>
+    </scm>
+</project>
