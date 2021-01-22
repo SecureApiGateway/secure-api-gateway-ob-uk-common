@@ -81,6 +81,13 @@
                 <type>test-jar</type>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>com.forgerock.securebanking</groupId>
+                <artifactId>securebanking-openbanking-uk-forgerock-datamodel</artifactId>
+                <version>${securebanking-openbanking-forgerock-datamodel.version}</version>
+                <type>test-jar</type>
+                <scope>test</scope>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
