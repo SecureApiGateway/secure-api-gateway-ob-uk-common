@@ -19,8 +19,7 @@ import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.payment.*;
 
 import static org.joda.time.DateTime.now;
-import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
-import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent3DataAuthorisation;
 import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent4DataAuthorisation;
@@ -64,6 +63,22 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBWriteDomesticConsent4DataSCASupportData())
                 .readRefundAccount(OBWriteDomesticStandingOrderConsent5Data.ReadRefundAccountEnum.NO);
+    }
+
+    public static OBDomesticStandingOrder1 aValidOBDomesticStandingOrder1() {
+        DateTime now = now();
+        return (new OBDomesticStandingOrder1())
+                .frequency(FREQUENCY)
+                .reference(REFERENCE)
+                .numberOfPayments(NUMBER_OF_PAYMENTS)
+                .firstPaymentDateTime(now)
+                .recurringPaymentDateTime(now)
+                .finalPaymentDateTime(now)
+                .firstPaymentAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
+                .recurringPaymentAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
+                .finalPaymentAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
+                .debtorAccount(aValidOBCashAccount3())
+                .creditorAccount(aValidOBCashAccount3());
     }
 
     public static OBWriteDomesticStandingOrder3DataInitiation aValidOBWriteDomesticStandingOrder3DataInitiation() {

@@ -80,6 +80,19 @@ public class OBWriteDomesticScheduledConsentTestDataFactory {
                 .readRefundAccount(OBWriteDomesticScheduledConsent4Data.ReadRefundAccountEnum.NO);
     }
 
+    public static OBDomesticScheduled1 aValidOBDomesticScheduled1() {
+        return (new OBDomesticScheduled1())
+                .instructionIdentification(INSTRUCTION_IDENTIFICATION)
+                .endToEndIdentification(END_TO_END_IDENTIFICATION)
+                .localInstrument(LOCAL_INSTRUMENT)
+                .requestedExecutionDateTime(DateTime.now())
+                .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
+                .debtorAccount(aValidOBCashAccount3())
+                .creditorAccount(aValidOBCashAccount3())
+                .creditorPostalAddress(aValidOBPostalAddress6())
+                .remittanceInformation(aValidOBRemittanceInformation1());
+    }
+
     public static OBDomesticScheduled2 aValidOBDomesticScheduled2() {
         return (new OBDomesticScheduled2())
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)

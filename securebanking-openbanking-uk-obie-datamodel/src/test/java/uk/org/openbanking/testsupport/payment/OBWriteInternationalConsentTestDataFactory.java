@@ -80,6 +80,24 @@ public class OBWriteInternationalConsentTestDataFactory {
                 .readRefundAccount(OBWriteInternationalConsent5Data.ReadRefundAccountEnum.NO);
     }
 
+    public static OBInternational1 aValidOBInternational1() {
+        return (new OBInternational1())
+                .instructionIdentification(INSTRUCTION_IDENTIFICATION)
+                .endToEndIdentification(END_TO_END_IDENTIFICATION)
+                .localInstrument(LOCAL_INSTRUMENT)
+                .instructionPriority(OBPriority2Code.NORMAL)
+                .purpose(PURPOSE)
+                .chargeBearer(OBChargeBearerType1Code.SHARED)
+                .currencyOfTransfer(CURRENCY)
+                .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
+                .exchangeRateInformation(aValidOBExchangeRate1())
+                .debtorAccount(aValidOBCashAccount3())
+                .creditor(aValidOBPartyIdentification43())
+                .creditorAgent(aValidOBBranchAndFinancialInstitutionIdentification3())
+                .creditorAccount(aValidOBCashAccount3())
+                .remittanceInformation(aValidOBRemittanceInformation1());
+    }
+
     public static OBInternational2 aValidOBInternational2() {
         return (new OBInternational2())
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
