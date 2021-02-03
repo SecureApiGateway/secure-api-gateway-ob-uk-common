@@ -106,6 +106,24 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
                 .readRefundAccount(OBWriteInternationalStandingOrderConsent6Data.ReadRefundAccountEnum.NO);
     }
 
+    public static OBInternationalStandingOrder1 aValidOBInternationalStandingOrder1() {
+        DateTime now = DateTime.now();
+        return (new OBInternationalStandingOrder1())
+                .frequency(FREQUENCY)
+                .reference(REFERENCE)
+                .numberOfPayments(NUMBER_OF_PAYMENTS)
+                .firstPaymentDateTime(now)
+                .finalPaymentDateTime(now)
+                .purpose(PURPOSE)
+                .chargeBearer(OBChargeBearerType1Code.SHARED)
+                .currencyOfTransfer(CURRENCY)
+                .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
+                .debtorAccount(aValidOBCashAccount3())
+                .creditor(aValidOBPartyIdentification43())
+                .creditorAgent(aValidOBBranchAndFinancialInstitutionIdentification3())
+                .creditorAccount(aValidOBCashAccount3());
+    }
+
     public static OBInternationalStandingOrder2 aValidOBInternationalStandingOrder2() {
         DateTime now = DateTime.now();
         return (new OBInternationalStandingOrder2())

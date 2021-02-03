@@ -90,6 +90,18 @@ public class OBWriteDomesticConsentTestDataFactory {
                 .readRefundAccount(OBWriteDomesticConsent4Data.ReadRefundAccountEnum.NO);
     }
 
+    public static  OBDomestic1 aValidOBDomestic1() {
+        return (new OBDomestic1())
+                .instructionIdentification(INSTRUCTION_IDENTIFICATION)
+                .endToEndIdentification(END_TO_END_IDENTIFICATION)
+                .localInstrument(LOCAL_INSTRUMENT)
+                .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
+                .debtorAccount(aValidOBCashAccount3())
+                .creditorAccount(aValidOBCashAccount3())
+                .creditorPostalAddress(aValidOBPostalAddress6())
+                .remittanceInformation(aValidOBRemittanceInformation1());
+    }
+
     public static OBDomestic2 aValidOBDomestic2() {
         return (new OBDomestic2())
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
