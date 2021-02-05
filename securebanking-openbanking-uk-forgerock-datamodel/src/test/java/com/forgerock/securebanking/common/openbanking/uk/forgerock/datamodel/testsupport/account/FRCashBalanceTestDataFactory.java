@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport;
+package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRCashBalance;
 import org.joda.time.DateTime;
@@ -28,10 +28,20 @@ import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamo
 public class FRCashBalanceTestDataFactory {
 
     /**
-     * @return a valid instance of {@link FRCashBalance}
+     * @return a valid instance of {@link FRCashBalance}.
      */
     public static FRCashBalance aValidFRCashBalance() {
         return aValidFRCashBalanceBuilder()
+                .build();
+    }
+
+    /**
+     * @param accountId The ID of the {@link FRCashBalance FRCashBalance's} account.
+     * @return a valid instance of {@link FRCashBalance}.
+     */
+    public static FRCashBalance aValidFRCashBalance(String accountId) {
+        return aValidFRCashBalanceBuilder()
+                .accountId(accountId)
                 .build();
     }
 
