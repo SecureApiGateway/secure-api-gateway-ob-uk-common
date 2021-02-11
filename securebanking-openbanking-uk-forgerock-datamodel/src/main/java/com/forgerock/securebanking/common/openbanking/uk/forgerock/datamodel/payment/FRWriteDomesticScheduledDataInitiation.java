@@ -34,7 +34,7 @@ import org.joda.time.DateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class FRWriteDomesticScheduledDataInitiation {
+public class FRWriteDomesticScheduledDataInitiation implements FRDomesticDataInitiation {
 
     private String instructionIdentification;
     private String endToEndIdentification;
