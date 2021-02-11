@@ -33,7 +33,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class FRWriteDomesticDataInitiation {
+public class FRWriteDomesticDataInitiation implements FRDomesticDataInitiation {
 
     private String instructionIdentification;
     private String endToEndIdentification;

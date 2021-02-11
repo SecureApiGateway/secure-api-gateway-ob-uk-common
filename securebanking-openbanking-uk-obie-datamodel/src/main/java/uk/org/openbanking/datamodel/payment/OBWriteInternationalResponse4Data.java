@@ -33,7 +33,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -45,7 +44,7 @@ import java.util.Objects;
 /**
  * OBWriteInternationalResponse4Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T11:45:24.725+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T11:45:24.725+01:00", comments = "updated at 2020-12-23T13:31:35.768Z")
 public class OBWriteInternationalResponse4Data {
     @JsonProperty("InternationalPaymentId")
     private String internationalPaymentId = null;
@@ -110,6 +109,9 @@ public class OBWriteInternationalResponse4Data {
 
     @JsonProperty("ExpectedSettlementDateTime")
     private DateTime expectedSettlementDateTime = null;
+
+    @JsonProperty("Refund")
+    private OBWriteInternationalResponse4DataRefund refund = null;
 
     @JsonProperty("Charges")
     private List<OBWriteDomesticConsentResponse3DataCharges> charges = null;
@@ -267,6 +269,25 @@ public class OBWriteInternationalResponse4Data {
         this.expectedSettlementDateTime = expectedSettlementDateTime;
     }
 
+    public OBWriteInternationalResponse4Data refund(OBWriteInternationalResponse4DataRefund refund) {
+        this.refund = refund;
+        return this;
+    }
+
+    /**
+     * Get refund
+     * @return refund
+     **/
+    @Valid
+    @ApiModelProperty(value = "")
+    public OBWriteInternationalResponse4DataRefund getRefund() {
+        return refund;
+    }
+
+    public void setRefund(OBWriteInternationalResponse4DataRefund refund) {
+        this.refund = refund;
+    }
+
     public OBWriteInternationalResponse4Data charges(List<OBWriteDomesticConsentResponse3DataCharges> charges) {
         this.charges = charges;
         return this;
@@ -358,7 +379,7 @@ public class OBWriteInternationalResponse4Data {
 
 
     @Override
-    public boolean equals(java.lang.Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -409,7 +430,7 @@ public class OBWriteInternationalResponse4Data {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(java.lang.Object o) {
+    private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }
