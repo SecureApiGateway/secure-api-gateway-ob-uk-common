@@ -23,11 +23,7 @@ import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.pay
 public class FRAccountIdentifierTestDataFactory {
 
     public static FRAccountIdentifier aValidFRAccountIdentifier() {
-        return FRAccountIdentifier.builder()
-                .schemeName("UK.OBIE.SortCodeAccountNumber")
-                .identification("40400411290112")
-                .name("Mr A Jones")
-                .build();
+        return aValidFRAccountIdentifierBuilder().build();
     }
 
     public static FRAccountIdentifier aValidFRAccountIdentifier2() {
@@ -36,5 +32,12 @@ public class FRAccountIdentifierTestDataFactory {
                 .identification("40400422390112")
                 .name("Mrs B Smith")
                 .build();
+    }
+
+    public static FRAccountIdentifier.FRAccountIdentifierBuilder aValidFRAccountIdentifierBuilder() {
+        return FRAccountIdentifier.builder()
+                .schemeName("UK.OBIE.SortCodeAccountNumber")
+                .identification("40400411290112")
+                .name("Mr A Jones");
     }
 }

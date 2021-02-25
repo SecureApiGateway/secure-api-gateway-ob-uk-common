@@ -26,8 +26,6 @@ import static com.forgerock.securebanking.openbanking.uk.common.api.meta.OBGroup
 public enum IntentType {
 
     ACCOUNT_REQUEST("AR_", AISP),
-    PAYMENT_SINGLE_REQUEST("PR_", PISP),
-
     ACCOUNT_ACCESS_CONSENT("AAC_", AISP),
 
     PAYMENT_DOMESTIC_CONSENT("PDC_", PISP),
@@ -46,6 +44,15 @@ public enum IntentType {
     IntentType(String intentIdPrefix, OBGroupName obGroupName) {
         this.intentIdPrefix = intentIdPrefix;
         this.obGroupName = obGroupName;
+    }
+
+    public static IntentType identify(String intentId) {
+        for (IntentType type : IntentType.values()) {
+            if (intentId.startsWith(type.intentIdPrefix)) {
+                return type;
+            }
+        }
+        return null;
     }
 
     public OBGroupName getObGroupName() {
