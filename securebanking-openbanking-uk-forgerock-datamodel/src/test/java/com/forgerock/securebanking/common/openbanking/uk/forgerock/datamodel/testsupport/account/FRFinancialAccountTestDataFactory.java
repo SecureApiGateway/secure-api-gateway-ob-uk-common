@@ -32,6 +32,10 @@ import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamo
 public class FRFinancialAccountTestDataFactory {
 
     public static FRFinancialAccount aValidFRFinancialAccount() {
+        return aValidFRFinancialAccountBuilder().build();
+    }
+
+    public static FRFinancialAccount.FRFinancialAccountBuilder aValidFRFinancialAccountBuilder() {
         return FRFinancialAccount.builder()
                 .accountId("1234")
                 .status(ENABLED)
@@ -47,8 +51,6 @@ public class FRFinancialAccountTestDataFactory {
                 .servicer(FRAccountServicer.builder()
                         .schemeName("UK.OBIE.SortCodeAccountNumber")
                         .identification("9876")
-                        .build())
-                .build();
+                        .build());
     }
-
 }

@@ -36,8 +36,8 @@
     </url>
 
     <properties>
-        <securebanking-openbanking-uk-obie-datamodel.version>1.0.0-SNAPSHOT
-        </securebanking-openbanking-uk-obie-datamodel.version>
+        <securebanking-openbanking-uk-obie-datamodel.version>1.0.0-SNAPSHOT</securebanking-openbanking-uk-obie-datamodel.version>
+        <securebanking-openbanking-uk-common.version>1.0.0-SNAPSHOT</securebanking-openbanking-uk-common.version>
     </properties>
 
     <dependencies>
@@ -46,6 +46,12 @@
             <groupId>com.forgerock.securebanking</groupId>
             <artifactId>securebanking-openbanking-uk-obie-datamodel</artifactId>
             <version>${securebanking-openbanking-uk-obie-datamodel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.forgerock.securebanking</groupId>
+            <artifactId>securebanking-openbanking-uk-common</artifactId>
+            <version>${securebanking-openbanking-uk-common.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- External dependencies -->
