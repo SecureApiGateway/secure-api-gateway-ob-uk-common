@@ -16,11 +16,15 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.tpp.Tpp;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.joda.time.DateTime;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class FRInternationalPaymentConsent implements FRPaymentConsent {
 

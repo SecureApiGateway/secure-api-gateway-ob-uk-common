@@ -15,9 +15,22 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 /**
  * Represents the values that are common across the various domestic payment "initiation" objects.
  */
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        property = "type"
+)
+@JsonSubTypes({
+        @Type(value = FRWriteDomesticDataInitiation.class, name = "FRWriteDomesticDataInitiation"),
+        @Type(value = FRWriteDomesticScheduledDataInitiation.class, name = "FRWriteDomesticScheduledDataInitiation"),
+        @Type(value = FRWriteDomesticStandingOrderDataInitiation.class, name = "FRWriteDomesticStandingOrderDataInitiation")
+})
 public interface FRDomesticDataInitiation {
 
     FRAccountIdentifier getDebtorAccount();

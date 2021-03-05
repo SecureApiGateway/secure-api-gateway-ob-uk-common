@@ -15,9 +15,20 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.tpp.Tpp;
 import org.joda.time.DateTime;
 
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        property = "type"
+)
+@JsonSubTypes({
+        @Type(value = FRDomesticPaymentConsent.class, name = "FRDomesticPaymentConsent"),
+        @Type(value = FRInternationalPaymentConsent.class, name = "FRInternationalPaymentConsent")
+})
 public interface FRPaymentConsent {
 
     String getId();
