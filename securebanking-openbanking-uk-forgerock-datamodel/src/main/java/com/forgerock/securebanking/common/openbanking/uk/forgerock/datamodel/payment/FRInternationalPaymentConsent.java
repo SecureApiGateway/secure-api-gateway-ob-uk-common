@@ -15,7 +15,6 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.tpp.Tpp;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,7 +31,6 @@ public class FRInternationalPaymentConsent implements FRPaymentConsent {
     private FRConsentStatusCode status;
     private String accountId;
     private String userId;
-    private Tpp pisp;
     private String pispId;
     private String pispName;
     private FRInternationalDataInitiation initiation;

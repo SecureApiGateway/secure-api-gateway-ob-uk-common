@@ -18,7 +18,6 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.pa
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.tpp.Tpp;
 import org.joda.time.DateTime;
 
 @JsonTypeInfo(
@@ -45,10 +44,6 @@ public interface FRPaymentConsent {
 
     void setUserId(String userId);
 
-    Tpp getPisp();
-
-    void setPisp(Tpp tpp);
-
     String getPispId();
 
     String getPispName();
@@ -58,8 +53,4 @@ public interface FRPaymentConsent {
     DateTime getCreated();
 
     DateTime getStatusUpdate();
-
-    default boolean isNew() {
-        return getId() == null;
-    }
 }
