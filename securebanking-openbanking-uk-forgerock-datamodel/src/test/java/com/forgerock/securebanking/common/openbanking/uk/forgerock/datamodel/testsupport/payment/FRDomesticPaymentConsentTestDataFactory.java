@@ -22,7 +22,6 @@ import java.util.UUID;
 
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.payment.FRPaymentRiskTestDataFactory.aValidFRPaymentRisk;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.payment.FRWriteDomesticDataInitiationTestDataFactory.aValidFRWriteDomesticDataInitiation;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.tpp.TppTestDataFactory.aValidTpp;
 
 /**
  * Test data factory for {@link FRDomesticPaymentConsent}.
@@ -39,7 +38,6 @@ public class FRDomesticPaymentConsentTestDataFactory {
                 .status(FRConsentStatusCode.AWAITINGAUTHORISATION)
                 .accountId(UUID.randomUUID().toString())
                 .userId(UUID.randomUUID().toString())
-                .pisp(aValidTpp())
                 .pispId(UUID.randomUUID().toString())
                 .pispName("Tpp Name")
                 .initiation(aValidFRWriteDomesticDataInitiation())
