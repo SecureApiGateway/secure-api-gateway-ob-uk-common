@@ -15,9 +15,22 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 /**
  * Represents the values that are common across the various international payment "initiation" objects.
  */
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        property = "type"
+)
+@JsonSubTypes({
+        @Type(value = FRWriteInternationalDataInitiation.class, name = "FRWriteInternationalDataInitiation"),
+        @Type(value = FRWriteInternationalScheduledDataInitiation.class, name = "FRWriteInternationalScheduledDataInitiation"),
+        @Type(value = FRWriteInternationalStandingOrderDataInitiation.class, name = "FRWriteInternationalStandingOrderDataInitiation")
+})
 public interface FRInternationalDataInitiation {
 
     String getPurpose();
