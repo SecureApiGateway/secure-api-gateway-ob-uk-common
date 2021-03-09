@@ -15,26 +15,24 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
-/**
- * Representation of an account. This model is only useful for the demo
- */
+import java.util.List;
+
 @Data
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
-public class FRBankAccount {
+public class FRAccountWithBalance extends FRAccount {
 
-    private String id;
-    private String userId;
-    private FRFinancialAccount account;
-    private String latestStatementId;
-    private DateTime created;
-    private DateTime updated;
+    private List<FRCashBalance> balances;
 
+    public FRAccountWithBalance(FRAccount account, List<FRCashBalance> balances) {
+        super(account.getId(),
+                account.getUserId(),
+                account.getAccount(),
+                account.getLatestStatementId(),
+                account.getCreated(),
+                account.getUpdated());
+        this.balances = balances;
+    }
 }

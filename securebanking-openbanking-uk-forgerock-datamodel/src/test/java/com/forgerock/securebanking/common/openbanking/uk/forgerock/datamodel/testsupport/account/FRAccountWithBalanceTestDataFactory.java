@@ -15,10 +15,10 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.account;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRBankAccount;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRBankAccountWithBalance;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRCashBalance;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRFinancialAccount;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRAccount;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRAccountWithBalance;
 
 import java.util.List;
 
@@ -27,19 +27,19 @@ import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamo
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.account.FRFinancialAccountTestDataFactory.aValidFRFinancialAccountBuilder;
 
 /**
- * Test data factory for {@link FRBankAccountWithBalance}.
+ * Test data factory for {@link FRAccountWithBalance}.
  */
-public class FRBankAccountWithBalanceTestDataFactory {
+public class FRAccountWithBalanceTestDataFactory {
 
-    public static FRBankAccountWithBalance aValidFRBankAccountWithBalance() {
+    public static FRAccountWithBalance aValidFRAccountWithBalance() {
         FRFinancialAccount financialAccount = aValidFRFinancialAccountBuilder()
                 .accounts(List.of(aValidFRAccountIdentifier()))
                 .build();
-        FRBankAccount bankAccount = FRBankAccount.builder()
+        FRAccount bankAccount = FRAccount.builder()
                 .id("123456")
                 .account(financialAccount)
                 .build();
         List<FRCashBalance> balances = List.of(aValidFRCashBalance());
-        return new FRBankAccountWithBalance(bankAccount, balances);
+        return new FRAccountWithBalance(bankAccount, balances);
     }
 }

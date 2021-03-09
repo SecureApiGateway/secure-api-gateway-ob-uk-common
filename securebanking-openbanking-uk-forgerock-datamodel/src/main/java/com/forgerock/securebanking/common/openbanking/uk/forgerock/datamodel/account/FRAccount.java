@@ -19,8 +19,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
+import org.joda.time.DateTime;
 
 @Data
 @Builder
@@ -28,10 +27,10 @@ import java.util.Date;
 @AllArgsConstructor
 public class FRAccount {
 
-    private String id;
-    private String userID;
+    private String id; // set to the same value as accountId in FRFinancialAccount
+    private String userId;
     private FRFinancialAccount account;
     private String latestStatementId;
-    private Date created;
-    private Date updated;
+    private DateTime created;
+    private DateTime updated;
 }

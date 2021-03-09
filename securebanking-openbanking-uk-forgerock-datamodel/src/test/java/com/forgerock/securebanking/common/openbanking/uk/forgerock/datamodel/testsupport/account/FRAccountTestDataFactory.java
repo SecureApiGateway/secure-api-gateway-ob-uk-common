@@ -33,7 +33,7 @@ public class FRAccountTestDataFactory {
     public static FRAccount.FRAccountBuilder aValidFRAccountBuilder() {
         return FRAccount.builder()
                 .id(UUID.randomUUID().toString())
-                .userID(UUID.randomUUID().toString())
+                .userId(UUID.randomUUID().toString())
                 .account(aValidFRFinancialAccount())
                 .latestStatementId(UUID.randomUUID().toString());
     }
