@@ -15,6 +15,8 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRAmount;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -59,10 +61,12 @@ public class FRCreditLine {
             return value;
         }
 
+        @JsonValue
         public String toString() {
             return value;
         }
 
+        @JsonCreator
         public static FRLimitType fromValue(String value) {
             return Stream.of(values())
                     .filter(type -> type.getValue().equals(value))
