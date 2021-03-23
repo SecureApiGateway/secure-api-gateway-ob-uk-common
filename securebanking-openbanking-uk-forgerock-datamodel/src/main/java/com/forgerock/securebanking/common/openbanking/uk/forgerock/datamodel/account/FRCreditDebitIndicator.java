@@ -15,6 +15,9 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import java.util.stream.Stream;
 
 public enum FRCreditDebitIndicator {
@@ -31,10 +34,12 @@ public enum FRCreditDebitIndicator {
         return value;
     }
 
+    @JsonValue
     public String toString() {
         return value;
     }
 
+    @JsonCreator
     public static FRCreditDebitIndicator fromValue(String value) {
         return Stream.of(values())
                 .filter(type -> type.getValue().equals(value))

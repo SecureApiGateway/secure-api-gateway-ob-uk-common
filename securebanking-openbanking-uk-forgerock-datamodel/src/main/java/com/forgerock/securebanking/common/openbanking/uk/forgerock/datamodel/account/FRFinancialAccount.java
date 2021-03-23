@@ -15,6 +15,8 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRAccountIdentifier;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,7 +41,6 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 @Builder
 public class FRFinancialAccount {
-
     private String accountId;
     private FRAccountStatusCode status;
     private DateTime statusUpdateDateTime;
@@ -70,10 +71,12 @@ public class FRFinancialAccount {
             return value;
         }
 
+        @JsonValue
         public String toString() {
             return value;
         }
 
+        @JsonCreator
         public static FRAccountStatusCode fromValue(String value) {
             return Stream.of(values())
                     .filter(type -> type.getValue().equals(value))
@@ -96,10 +99,12 @@ public class FRFinancialAccount {
             return value;
         }
 
+        @JsonValue
         public String toString() {
             return value;
         }
 
+        @JsonCreator
         public static FRAccountTypeCode fromValue(String value) {
             return Stream.of(values())
                     .filter(type -> type.getValue().equals(value))
@@ -128,10 +133,12 @@ public class FRFinancialAccount {
             return value;
         }
 
+        @JsonValue
         public String toString() {
             return value;
         }
 
+        @JsonCreator
         public static FRAccountSubTypeCode fromValue(String value) {
             return Stream.of(values())
                     .filter(type -> type.getValue().equals(value))

@@ -34,9 +34,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class FRAccountIdentifier {
-
     private String schemeName;
     private String identification;
     private String name;
     private String secondaryIdentification;
+
 }
