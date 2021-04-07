@@ -63,9 +63,7 @@ public class OBRiskTest {
                 "\"BuildingNumber\":\"27\"," +
                 "\"PostCode\":\"GU31 2ZZ\"," +
                 "\"TownName\":\"Sparsholt\"," +
-                "\"CountrySubDivision\":[" +
-                "\"Wessex\"" +
-                "]," +
+                "\"CountrySubDivision\":\"Wessex\"," +
                 "\"Country\":\"UK\"" +
                 "}" +
                 "}";
@@ -95,9 +93,7 @@ public class OBRiskTest {
                 "\"BuildingNumber\":\"27\"," +
                 "\"PostCode\":\"GU31 2ZZ\"," +
                 "\"TownName\":\"Sparsholt\"," +
-                "\"CountrySubDivision\":[" +
-                "\"Wessex\"" +
-                "]," +
+                "\"CountrySubDivision\":\"Wessex\"," +
                 "\"Country\":\"UK\"" +
                 "}" +
                 "}";
@@ -128,9 +124,7 @@ public class OBRiskTest {
                 "\"BuildingNumber\":\"27\"," +
                 "\"PostCode\":\"GU31 2ZZ\"," +
                 "\"TownName\":\"Sparsholt\"," +
-                "\"CountrySubDivision\":[" +
-                "\"Wessex\"" +
-                "]," +
+                "\"CountrySubDivision\":\"Wessex\"," +
                 "\"Country\":\"UK\"" +
                 "}" +
                 "}";

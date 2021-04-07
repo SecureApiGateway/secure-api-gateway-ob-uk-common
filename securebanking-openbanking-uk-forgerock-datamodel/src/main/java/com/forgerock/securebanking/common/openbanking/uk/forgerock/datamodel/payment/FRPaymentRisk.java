@@ -62,7 +62,7 @@ public class FRPaymentRisk {
         private String buildingNumber;
         private String postCode;
         private String townName;
-        private List<String> countrySubDivision;
+        private String countrySubDivision;
         private String country;
     }
 }
