@@ -50,6 +50,15 @@ public class OBExchangeRateTestDataFactory {
                 .expirationDateTime(DateTime.now().plusDays(1));
     }
 
+    public static OBWriteInternationalConsentResponse6DataExchangeRateInformation aValidOBWriteInternationalConsentResponse6DataExchangeRateInformation() {
+        return (new OBWriteInternationalConsentResponse6DataExchangeRateInformation())
+                .unitCurrency(CURRENCY)
+                .exchangeRate(BigDecimal.TEN)
+                .rateType(OBWriteInternationalConsentResponse6DataExchangeRateInformation.RateTypeEnum.AGREED)
+                .contractIdentification(CONTRACT_IDENTIFICATION)
+                .expirationDateTime(DateTime.now().plusDays(1));
+    }
+
     public static OBExchangeRate1 aValidOBExchangeRate1() {
         return (new OBExchangeRate1())
                 .unitCurrency(CURRENCY)
