@@ -39,11 +39,24 @@ public class FRExchangeRateConverter {
                 .build();
     }
 
+    public static FRExchangeRateInformation toFRExchangeRateInformation(OBWriteInternationalConsentResponse6DataExchangeRateInformation exchangeRateInformation) {
+        return exchangeRateInformation == null ? null : FRExchangeRateInformation.builder()
+                .unitCurrency(exchangeRateInformation.getUnitCurrency())
+                .exchangeRate(exchangeRateInformation.getExchangeRate())
+                .rateType(toFRRateType(exchangeRateInformation.getRateType()))
+                .contractIdentification(exchangeRateInformation.getContractIdentification())
+                .build();
+    }
+
     public static FRExchangeRateInformation.FRRateType toFRRateType(OBExchangeRateType2Code obExchangeRateType2Code) {
         return obExchangeRateType2Code == null ? null : FRExchangeRateInformation.FRRateType.valueOf(obExchangeRateType2Code.name());
     }
 
     public static FRExchangeRateInformation.FRRateType toFRRateType(OBWriteInternational3DataInitiationExchangeRateInformation.RateTypeEnum rateType) {
+        return rateType == null ? null : FRExchangeRateInformation.FRRateType.valueOf(rateType.name());
+    }
+
+    public static FRExchangeRateInformation.FRRateType toFRRateType(OBWriteInternationalConsentResponse6DataExchangeRateInformation.RateTypeEnum rateType) {
         return rateType == null ? null : FRExchangeRateInformation.FRRateType.valueOf(rateType.name());
     }
 
