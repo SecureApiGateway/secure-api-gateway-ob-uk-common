@@ -38,20 +38,23 @@ public class OBWriteFileConsentTestDataFactory {
     }
 
     public static OBWriteFileConsent3Data aValidOBWriteFileConsent3Data() {
-        DateTime now = DateTime.now();
-        return (new OBWriteFileConsent3Data())
-                .initiation((new OBWriteFile2DataInitiation())
-                        .fileType("UK.OBIE.pain.001.001.08")
-                        .fileHash("m5ah/h1UjLvJYMxqAoZmj9dKdjZnsGNm+yMkJp/KuqQ")
-                        .fileReference("GB2OK238")
-                        .numberOfTransactions("1")
-                        .controlSum(BigDecimal.ONE)
-                        .requestedExecutionDateTime(now)
-                        .localInstrument("UK.OBIE.CHAPS")
-                        .debtorAccount(aValidOBWriteDomestic2DataInitiationDebtorAccount())
-                        .remittanceInformation(aValidOBWriteDomestic2DataInitiationRemittanceInformation())
-                        .supplementaryData(new OBSupplementaryData1()))
+        return new OBWriteFileConsent3Data()
+                .initiation(aValidOBWriteFile2DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent3DataAuthorisation())
                 .scASupportData(aValidOBWriteDomesticConsent3DataSCASupportData());
+    }
+
+    public static OBWriteFile2DataInitiation aValidOBWriteFile2DataInitiation() {
+        return new OBWriteFile2DataInitiation()
+                .fileType("UK.OBIE.pain.001.001.08")
+                .fileHash("m5ah/h1UjLvJYMxqAoZmj9dKdjZnsGNm+yMkJp/KuqQ")
+                .fileReference("GB2OK238")
+                .numberOfTransactions("1")
+                .controlSum(BigDecimal.ONE)
+                .requestedExecutionDateTime(DateTime.now())
+                .localInstrument("UK.OBIE.CHAPS")
+                .debtorAccount(aValidOBWriteDomestic2DataInitiationDebtorAccount())
+                .remittanceInformation(aValidOBWriteDomestic2DataInitiationRemittanceInformation())
+                .supplementaryData(new OBSupplementaryData1());
     }
 }
