@@ -18,6 +18,8 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRPartyData;
 import uk.org.openbanking.datamodel.account.*;
 
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountPostalAddressConverter.*;
+
 public class FRPartyConverter {
 
     // FR to OB
@@ -30,7 +32,7 @@ public class FRPartyConverter {
                 .emailAddress(party.getEmailAddress())
                 .phone(party.getPhone())
                 .mobile(party.getMobile())
-                .address(FRAccountPostalAddressConverter.toOBPostalAddress8List(party.getAddresses()));
+                .address(toOBPostalAddress8List(party.getAddresses()));
     }
 
     public static OBParty2 toOBParty2(FRPartyData party) {
@@ -47,7 +49,7 @@ public class FRPartyConverter {
                 .phone(party.getPhone())
                 .mobile(party.getMobile())
                 .relationships(toOBPartyRelationships1(party.getRelationship()))
-                .address(FRAccountPostalAddressConverter.toOBPostalAddress8List(party.getAddresses()));
+                .address(toOBParty2AddressList(party.getAddresses()));
     }
 
     public static OBExternalPartyType1Code toOBExternalPartyType1Code(FRPartyData.FRPartyType partyType) {
@@ -56,7 +58,7 @@ public class FRPartyConverter {
 
     public static OBPartyRelationships1 toOBPartyRelationships1(FRPartyData.FRRelationship relationship) {
         return relationship == null ? null : new OBPartyRelationships1()
-                .account(new OBRelationship1()
+                .account(new OBPartyRelationships1Account()
                         .related(relationship.getRelated())
                         .id(relationship.getId()));
     }
@@ -76,7 +78,7 @@ public class FRPartyConverter {
                 .phone(party.getPhone())
                 .mobile(party.getMobile())
                 .relationship(toFRRelationship(party.getRelationships()))
-                .addresses(FRAccountPostalAddressConverter.toFRPostalAddressList(party.getAddress()))
+                .addresses(toFRPostalAddressList(party.getAddress()))
                 .build();
     }
 

@@ -16,10 +16,14 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRDirectDebitData;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRDirectDebitData.FRDirectDebitStatus;
 import uk.org.openbanking.datamodel.account.OBDirectDebit1;
 import uk.org.openbanking.datamodel.account.OBExternalDirectDebitStatus1Code;
 import uk.org.openbanking.datamodel.account.OBReadDirectDebit2DataDirectDebit;
+
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.toFRAmount;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount0;
 
 
 /**
@@ -36,7 +40,7 @@ public class FRDirectDebitConverter {
                 .directDebitStatusCode(toOBExternalDirectDebitStatus1Code(directDebitData.getDirectDebitStatusCode()))
                 .name(directDebitData.getName())
                 .previousPaymentDateTime(directDebitData.getPreviousPaymentDateTime())
-                .previousPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(directDebitData.getPreviousPaymentAmount()));
+                .previousPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(directDebitData.getPreviousPaymentAmount()));
     }
 
     public static OBReadDirectDebit2DataDirectDebit toOBReadDirectDebit2DataDirectDebit(FRDirectDebitData directDebitData) {
@@ -48,10 +52,10 @@ public class FRDirectDebitConverter {
                 .name(directDebitData.getName())
                 .previousPaymentDateTime(directDebitData.getPreviousPaymentDateTime())
                 .frequency(directDebitData.getFrequency())
-                .previousPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount0(directDebitData.getPreviousPaymentAmount()));
+                .previousPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount0(directDebitData.getPreviousPaymentAmount()));
     }
 
-    public static OBExternalDirectDebitStatus1Code toOBExternalDirectDebitStatus1Code(FRDirectDebitData.FRDirectDebitStatus status) {
+    public static OBExternalDirectDebitStatus1Code toOBExternalDirectDebitStatus1Code(FRDirectDebitStatus status) {
         return status == null ? null : OBExternalDirectDebitStatus1Code.valueOf(status.name());
     }
 
@@ -64,7 +68,7 @@ public class FRDirectDebitConverter {
                 .directDebitStatusCode(toFRDirectDebitStatus(obDirectDebit.getDirectDebitStatusCode()))
                 .name(obDirectDebit.getName())
                 .previousPaymentDateTime(obDirectDebit.getPreviousPaymentDateTime())
-                .previousPaymentAmount(FRAmountConverter.toFRAmount(obDirectDebit.getPreviousPaymentAmount()))
+                .previousPaymentAmount(toFRAmount(obDirectDebit.getPreviousPaymentAmount()))
                 .build();
     }
 
@@ -77,11 +81,11 @@ public class FRDirectDebitConverter {
                 .name(obDirectDebit.getName())
                 .previousPaymentDateTime(obDirectDebit.getPreviousPaymentDateTime())
                 .frequency(obDirectDebit.getFrequency())
-                .previousPaymentAmount(FRAmountConverter.toFRAmount(obDirectDebit.getPreviousPaymentAmount()))
+                .previousPaymentAmount(toFRAmount(obDirectDebit.getPreviousPaymentAmount()))
                 .build();
     }
 
-    public static FRDirectDebitData.FRDirectDebitStatus toFRDirectDebitStatus(OBExternalDirectDebitStatus1Code status) {
-        return status == null ? null : FRDirectDebitData.FRDirectDebitStatus.valueOf(status.name());
+    public static FRDirectDebitStatus toFRDirectDebitStatus(OBExternalDirectDebitStatus1Code status) {
+        return status == null ? null : FRDirectDebitStatus.valueOf(status.name());
     }
 }

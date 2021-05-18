@@ -27,6 +27,7 @@
 
 
 package uk.org.openbanking.datamodel.fund;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 

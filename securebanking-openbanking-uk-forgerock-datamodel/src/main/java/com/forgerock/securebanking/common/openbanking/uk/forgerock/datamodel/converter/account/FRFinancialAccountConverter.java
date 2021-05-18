@@ -16,13 +16,16 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRFinancialAccount;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRAccountIdentifier;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRAccountIdentifier;
 import uk.org.openbanking.datamodel.account.*;
 
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBCashAccount1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountServicerConverter.*;
 
 public class FRFinancialAccountConverter {
 
@@ -32,8 +35,8 @@ public class FRFinancialAccountConverter {
                 .accountId(account.getAccountId())
                 .currency(account.getCurrency())
                 .nickname(account.getNickname())
-                .account(FRAccountIdentifierConverter.toOBCashAccount1(account.getAccounts().get(0)))
-                .servicer(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification2(account.getServicer()));
+                .account(toOBCashAccount1(account.getAccounts().get(0)))
+                .servicer(toOBBranchAndFinancialInstitutionIdentification2(account.getServicer()));
     }
 
     public static OBAccount2 toOBAccount2(FRFinancialAccount account) {
@@ -45,7 +48,7 @@ public class FRFinancialAccountConverter {
                 .description(account.getDescription())
                 .nickname(account.getNickname())
                 .account(toOBCashAccount3List(account.getAccounts()))
-                .servicer(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification4(account.getServicer()));
+                .servicer(toOBBranchAndFinancialInstitutionIdentification4(account.getServicer()));
 
     }
 
@@ -58,7 +61,7 @@ public class FRFinancialAccountConverter {
                 .description(account.getDescription())
                 .nickname(account.getNickname())
                 .account(toOBCashAccount5List(account.getAccounts()))
-                .servicer(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification5(account.getServicer()));
+                .servicer(toOBBranchAndFinancialInstitutionIdentification5(account.getServicer()));
     }
 
     public static OBAccount6 toOBAccount6(FRFinancialAccount account) {
@@ -73,8 +76,8 @@ public class FRFinancialAccountConverter {
                 .nickname(account.getNickname())
                 .openingDate(account.getOpeningDate())
                 .maturityDate(account.getMaturityDate())
-                .account(toOBAccount3AccountList(account.getAccounts()))
-                .servicer(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification50(account.getServicer()));
+                .account(toOBAccount4AccountList(account.getAccounts()))
+                .servicer(toOBBranchAndFinancialInstitutionIdentification50(account.getServicer()));
     }
 
     public static OBAccountStatus1Code toOBAccountStatus1Code(FRFinancialAccount.FRAccountStatusCode status) {
@@ -92,6 +95,12 @@ public class FRFinancialAccountConverter {
     public static List<OBCashAccount3> toOBCashAccount3List(List<FRAccountIdentifier> accounts) {
         return accounts == null ? null : accounts.stream()
                 .map(FRAccountIdentifierConverter::toOBCashAccount3)
+                .collect(Collectors.toList());
+    }
+
+    public static List<OBAccount4Account> toOBAccount4AccountList(List<FRAccountIdentifier> accounts) {
+        return accounts == null ? null : accounts.stream()
+                .map(FRAccountIdentifierConverter::toOBAccount4Account)
                 .collect(Collectors.toList());
     }
 
@@ -117,7 +126,7 @@ public class FRFinancialAccountConverter {
                 .description(account.getDescription())
                 .nickname(account.getNickname())
                 .accounts(toFRAccountIdentifierList(account.getAccount(), FRAccountIdentifierConverter::toFRAccountIdentifier))
-                .servicer(FRAccountServicerConverter.toFRAccountServicer(account.getServicer()))
+                .servicer(toFRAccountServicer(account.getServicer()))
                 .build();
     }
 
@@ -134,7 +143,7 @@ public class FRFinancialAccountConverter {
                 .openingDate(account.getOpeningDate())
                 .maturityDate(account.getMaturityDate())
                 .accounts(toFRAccountIdentifierList(account.getAccount(), FRAccountIdentifierConverter::toFRAccountIdentifier))
-                .servicer(FRAccountServicerConverter.toFRAccountServicer(account.getServicer()))
+                .servicer(toFRAccountServicer(account.getServicer()))
                 .build();
     }
 

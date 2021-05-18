@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package uk.org.openbanking.datamodel.payment;
+
 public enum OBExternalAccountIdentification2Code {
     /**
      * An identifier used internationally by financial institutions to uniquely identify the account of a customer at

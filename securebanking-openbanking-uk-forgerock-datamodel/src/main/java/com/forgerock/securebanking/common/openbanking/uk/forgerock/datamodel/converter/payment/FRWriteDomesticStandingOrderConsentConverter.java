@@ -18,9 +18,17 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDomesticStandingOrderConsent;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDomesticStandingOrderConsentData;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDomesticStandingOrderDataInitiation;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter;
 import uk.org.openbanking.datamodel.payment.*;
+
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRDataAuthorisationConverter.toFRDataAuthorisation;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPermissionConverter.toFRPermission;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRReadRefundAccountConverter.toFRReadRefundAccount;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toFRRisk;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentSupplementaryDataConverter.toFRSupplementaryData;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentSupplementaryDataConverter.toOBSupplementaryData1;
 
 public class FRWriteDomesticStandingOrderConsentConverter {
 
@@ -28,78 +36,78 @@ public class FRWriteDomesticStandingOrderConsentConverter {
     public static FRWriteDomesticStandingOrderConsent toFRWriteDomesticStandingOrderConsent(OBWriteDomesticStandingOrderConsent1 obWriteDomesticStandingOrderConsent1) {
         return obWriteDomesticStandingOrderConsent1 == null ? null : FRWriteDomesticStandingOrderConsent.builder()
                 .data(toFRWriteDomesticStandingOrderConsent(obWriteDomesticStandingOrderConsent1.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(obWriteDomesticStandingOrderConsent1.getRisk()))
+                .risk(toFRRisk(obWriteDomesticStandingOrderConsent1.getRisk()))
                 .build();
     }
 
     public static FRWriteDomesticStandingOrderConsent toFRWriteDomesticStandingOrderConsent(OBWriteDomesticStandingOrderConsent2 obWriteDomesticStandingOrderConsent2) {
         return obWriteDomesticStandingOrderConsent2 == null ? null : FRWriteDomesticStandingOrderConsent.builder()
                 .data(toFRWriteDomesticStandingOrderConsent(obWriteDomesticStandingOrderConsent2.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(obWriteDomesticStandingOrderConsent2.getRisk()))
+                .risk(toFRRisk(obWriteDomesticStandingOrderConsent2.getRisk()))
                 .build();
     }
 
     public static FRWriteDomesticStandingOrderConsent toFRWriteDomesticStandingOrderConsent(OBWriteDomesticStandingOrderConsent3 obWriteDomesticStandingOrderConsent3) {
         return obWriteDomesticStandingOrderConsent3 == null ? null : FRWriteDomesticStandingOrderConsent.builder()
                 .data(toFRWriteDomesticStandingOrderConsent(obWriteDomesticStandingOrderConsent3.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(obWriteDomesticStandingOrderConsent3.getRisk()))
+                .risk(toFRRisk(obWriteDomesticStandingOrderConsent3.getRisk()))
                 .build();
     }
 
     public static FRWriteDomesticStandingOrderConsent toFRWriteDomesticStandingOrderConsent(OBWriteDomesticStandingOrderConsent4 obWriteDomesticStandingOrderConsent4) {
         return obWriteDomesticStandingOrderConsent4 == null ? null : FRWriteDomesticStandingOrderConsent.builder()
                 .data(toFRWriteDomesticStandingOrderConsent(obWriteDomesticStandingOrderConsent4.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(obWriteDomesticStandingOrderConsent4.getRisk()))
+                .risk(toFRRisk(obWriteDomesticStandingOrderConsent4.getRisk()))
                 .build();
     }
 
     public static FRWriteDomesticStandingOrderConsent toFRWriteDomesticStandingOrderConsent(OBWriteDomesticStandingOrderConsent5 obWriteDomesticStandingOrderConsent5) {
         return obWriteDomesticStandingOrderConsent5 == null ? null : FRWriteDomesticStandingOrderConsent.builder()
                 .data(toFRWriteDomesticStandingOrderConsent(obWriteDomesticStandingOrderConsent5.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(obWriteDomesticStandingOrderConsent5.getRisk()))
+                .risk(toFRRisk(obWriteDomesticStandingOrderConsent5.getRisk()))
                 .build();
     }
 
     public static FRWriteDomesticStandingOrderConsentData toFRWriteDomesticStandingOrderConsent(OBWriteDataDomesticStandingOrderConsent1 data) {
         return data == null ? null : FRWriteDomesticStandingOrderConsentData.builder()
-                .permission(FRPermissionConverter.toFRPermission(data.getPermission()))
+                .permission(toFRPermission(data.getPermission()))
                 .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
+                .authorisation(toFRDataAuthorisation(data.getAuthorisation()))
                 .build();
     }
 
     public static FRWriteDomesticStandingOrderConsentData toFRWriteDomesticStandingOrderConsent(OBWriteDataDomesticStandingOrderConsent2 data) {
         return data == null ? null : FRWriteDomesticStandingOrderConsentData.builder()
-                .permission(FRPermissionConverter.toFRPermission(data.getPermission()))
+                .permission(toFRPermission(data.getPermission()))
                 .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
+                .authorisation(toFRDataAuthorisation(data.getAuthorisation()))
                 .build();
     }
 
     public static FRWriteDomesticStandingOrderConsentData toFRWriteDomesticStandingOrderConsent(OBWriteDataDomesticStandingOrderConsent3 data) {
         return data == null ? null : FRWriteDomesticStandingOrderConsentData.builder()
-                .permission(FRPermissionConverter.toFRPermission(data.getPermission()))
+                .permission(toFRPermission(data.getPermission()))
                 .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
+                .authorisation(toFRDataAuthorisation(data.getAuthorisation()))
                 .build();
     }
 
     public static FRWriteDomesticStandingOrderConsentData toFRWriteDomesticStandingOrderConsent(OBWriteDomesticStandingOrderConsent4Data data) {
         return data == null ? null : FRWriteDomesticStandingOrderConsentData.builder()
-                .permission(FRPermissionConverter.toFRPermission(data.getPermission()))
+                .permission(toFRPermission(data.getPermission()))
                 .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .scASupportData(FRDataSCASupportDataConverter.toFRDataSCASupportData(data.getScASupportData()))
+                .authorisation(toFRDataAuthorisation(data.getAuthorisation()))
+                .scASupportData(toFRDataSCASupportData(data.getScASupportData()))
                 .build();
     }
 
     public static FRWriteDomesticStandingOrderConsentData toFRWriteDomesticStandingOrderConsent(OBWriteDomesticStandingOrderConsent5Data data) {
         return data == null ? null : FRWriteDomesticStandingOrderConsentData.builder()
-                .permission(FRPermissionConverter.toFRPermission(data.getPermission()))
-                .readRefundAccount(FRReadRefundAccountConverter.toFRReadRefundAccount(data.getReadRefundAccount()))
+                .permission(toFRPermission(data.getPermission()))
+                .readRefundAccount(toFRReadRefundAccount(data.getReadRefundAccount()))
                 .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .scASupportData(FRDataSCASupportDataConverter.toFRDataSCASupportData(data.getScASupportData()))
+                .authorisation(toFRDataAuthorisation(data.getAuthorisation()))
+                .scASupportData(toFRDataSCASupportData(data.getScASupportData()))
                 .build();
     }
 
@@ -111,11 +119,11 @@ public class FRWriteDomesticStandingOrderConsentConverter {
                 .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
                 .recurringPaymentDateTime(initiation.getRecurringPaymentDateTime())
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
-                .firstPaymentAmount(FRAmountConverter.toFRAmount(initiation.getFirstPaymentAmount()))
-                .recurringPaymentAmount(FRAmountConverter.toFRAmount(initiation.getRecurringPaymentAmount()))
-                .finalPaymentAmount(FRAmountConverter.toFRAmount(initiation.getFinalPaymentAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getCreditorAccount()))
+                .firstPaymentAmount(toFRAmount(initiation.getFirstPaymentAmount()))
+                .recurringPaymentAmount(toFRAmount(initiation.getRecurringPaymentAmount()))
+                .finalPaymentAmount(toFRAmount(initiation.getFinalPaymentAmount()))
+                .debtorAccount(toFRAccountIdentifier(initiation.getDebtorAccount()))
+                .creditorAccount(toFRAccountIdentifier(initiation.getCreditorAccount()))
                 .build();
     }
 
@@ -127,12 +135,12 @@ public class FRWriteDomesticStandingOrderConsentConverter {
                 .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
                 .recurringPaymentDateTime(initiation.getRecurringPaymentDateTime())
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
-                .firstPaymentAmount(FRAmountConverter.toFRAmount(initiation.getFirstPaymentAmount()))
-                .recurringPaymentAmount(FRAmountConverter.toFRAmount(initiation.getRecurringPaymentAmount()))
-                .finalPaymentAmount(FRAmountConverter.toFRAmount(initiation.getFinalPaymentAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getCreditorAccount()))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
+                .firstPaymentAmount(toFRAmount(initiation.getFirstPaymentAmount()))
+                .recurringPaymentAmount(toFRAmount(initiation.getRecurringPaymentAmount()))
+                .finalPaymentAmount(toFRAmount(initiation.getFinalPaymentAmount()))
+                .debtorAccount(toFRAccountIdentifier(initiation.getDebtorAccount()))
+                .creditorAccount(toFRAccountIdentifier(initiation.getCreditorAccount()))
+                .supplementaryData(toFRSupplementaryData(initiation.getSupplementaryData()))
                 .build();
     }
 
@@ -144,12 +152,12 @@ public class FRWriteDomesticStandingOrderConsentConverter {
                 .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
                 .recurringPaymentDateTime(initiation.getRecurringPaymentDateTime())
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
-                .firstPaymentAmount(FRAmountConverter.toFRAmount(initiation.getFirstPaymentAmount()))
-                .recurringPaymentAmount(FRAmountConverter.toFRAmount(initiation.getRecurringPaymentAmount()))
-                .finalPaymentAmount(FRAmountConverter.toFRAmount(initiation.getFinalPaymentAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getCreditorAccount()))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
+                .firstPaymentAmount(toFRAmount(initiation.getFirstPaymentAmount()))
+                .recurringPaymentAmount(toFRAmount(initiation.getRecurringPaymentAmount()))
+                .finalPaymentAmount(toFRAmount(initiation.getFinalPaymentAmount()))
+                .debtorAccount(toFRAccountIdentifier(initiation.getDebtorAccount()))
+                .creditorAccount(toFRAccountIdentifier(initiation.getCreditorAccount()))
+                .supplementaryData(toFRSupplementaryData(initiation.getSupplementaryData()))
                 .build();
     }
 
@@ -161,12 +169,12 @@ public class FRWriteDomesticStandingOrderConsentConverter {
                 .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
                 .recurringPaymentDateTime(initiation.getRecurringPaymentDateTime())
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
-                .firstPaymentAmount(FRAmountConverter.toFRAmount(initiation.getFirstPaymentAmount()))
-                .recurringPaymentAmount(FRAmountConverter.toFRAmount(initiation.getRecurringPaymentAmount()))
-                .finalPaymentAmount(FRAmountConverter.toFRAmount(initiation.getFinalPaymentAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getCreditorAccount()))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
+                .firstPaymentAmount(toFRAmount(initiation.getFirstPaymentAmount()))
+                .recurringPaymentAmount(toFRAmount(initiation.getRecurringPaymentAmount()))
+                .finalPaymentAmount(toFRAmount(initiation.getFinalPaymentAmount()))
+                .debtorAccount(toFRAccountIdentifier(initiation.getDebtorAccount()))
+                .creditorAccount(toFRAccountIdentifier(initiation.getCreditorAccount()))
+                .supplementaryData(toFRSupplementaryData(initiation.getSupplementaryData()))
                 .build();
     }
 
@@ -179,12 +187,28 @@ public class FRWriteDomesticStandingOrderConsentConverter {
                 .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
                 .recurringPaymentDateTime(initiation.getRecurringPaymentDateTime())
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
-                .firstPaymentAmount(FRAmountConverter.toOBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount(initiation.getFirstPaymentAmount()))
-                .recurringPaymentAmount(FRAmountConverter.toOBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount(initiation.getRecurringPaymentAmount()))
-                .finalPaymentAmount(FRAmountConverter.toOBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount(initiation.getFinalPaymentAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBWriteDomesticStandingOrder3DataInitiationDebtorAccount(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBWriteDomesticStandingOrder3DataInitiationCreditorAccount(initiation.getCreditorAccount()))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
+                .firstPaymentAmount(toOBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount(initiation.getFirstPaymentAmount()))
+                .recurringPaymentAmount(toOBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount(initiation.getRecurringPaymentAmount()))
+                .finalPaymentAmount(toOBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount(initiation.getFinalPaymentAmount()))
+                .debtorAccount(toOBWriteDomesticStandingOrder3DataInitiationDebtorAccount(initiation.getDebtorAccount()))
+                .creditorAccount(toOBWriteDomesticStandingOrder3DataInitiationCreditorAccount(initiation.getCreditorAccount()))
+                .supplementaryData(toOBSupplementaryData1(initiation.getSupplementaryData()));
+    }
+
+    public static OBWriteDomesticStandingOrderConsentResponse6DataInitiation toOBWriteDomesticStandingOrderConsentResponse6DataInitiation(FRWriteDomesticStandingOrderDataInitiation initiation) {
+        return initiation == null ? null : new OBWriteDomesticStandingOrderConsentResponse6DataInitiation()
+                .frequency(initiation.getFrequency())
+                .reference(initiation.getReference())
+                .numberOfPayments(initiation.getNumberOfPayments())
+                .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
+                .recurringPaymentDateTime(initiation.getRecurringPaymentDateTime())
+                .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
+                .firstPaymentAmount(toOBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount(initiation.getFirstPaymentAmount()))
+                .recurringPaymentAmount(toOBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount(initiation.getRecurringPaymentAmount()))
+                .finalPaymentAmount(toOBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount(initiation.getFinalPaymentAmount()))
+                .debtorAccount(toOBWriteDomestic2DataInitiationDebtorAccount(initiation.getDebtorAccount()))
+                .creditorAccount(toOBWriteDomesticStandingOrder3DataInitiationCreditorAccount(initiation.getCreditorAccount()))
+                .supplementaryData(toOBSupplementaryData1(initiation.getSupplementaryData()));
     }
 
     public static OBDomesticStandingOrder1 toOBDomesticStandingOrder1(FRWriteDomesticStandingOrderDataInitiation initiation) {
@@ -195,11 +219,11 @@ public class FRWriteDomesticStandingOrderConsentConverter {
                 .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
                 .recurringPaymentDateTime(initiation.getRecurringPaymentDateTime())
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
-                .firstPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getFirstPaymentAmount()))
-                .recurringPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getRecurringPaymentAmount()))
-                .finalPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getFinalPaymentAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getCreditorAccount()));
+                .firstPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(initiation.getFirstPaymentAmount()))
+                .recurringPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(initiation.getRecurringPaymentAmount()))
+                .finalPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(initiation.getFinalPaymentAmount()))
+                .debtorAccount(toOBCashAccount3(initiation.getDebtorAccount()))
+                .creditorAccount(toOBCashAccount3(initiation.getCreditorAccount()));
     }
 
     public static OBDomesticStandingOrder2 toOBDomesticStandingOrder2(FRWriteDomesticStandingOrderDataInitiation initiation) {
@@ -210,12 +234,12 @@ public class FRWriteDomesticStandingOrderConsentConverter {
                 .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
                 .recurringPaymentDateTime(initiation.getRecurringPaymentDateTime())
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
-                .firstPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getFirstPaymentAmount()))
-                .recurringPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getRecurringPaymentAmount()))
-                .finalPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getFinalPaymentAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getCreditorAccount()))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
+                .firstPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(initiation.getFirstPaymentAmount()))
+                .recurringPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(initiation.getRecurringPaymentAmount()))
+                .finalPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(initiation.getFinalPaymentAmount()))
+                .debtorAccount(toOBCashAccount3(initiation.getDebtorAccount()))
+                .creditorAccount(toOBCashAccount3(initiation.getCreditorAccount()))
+                .supplementaryData(toOBSupplementaryData1(initiation.getSupplementaryData()));
     }
 
     public static OBDomesticStandingOrder3 toOBDomesticStandingOrder3(FRWriteDomesticStandingOrderDataInitiation initiation) {
@@ -226,11 +250,11 @@ public class FRWriteDomesticStandingOrderConsentConverter {
                 .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
                 .recurringPaymentDateTime(initiation.getRecurringPaymentDateTime())
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
-                .firstPaymentAmount(FRAmountConverter.toOBDomesticStandingOrder3FirstPaymentAmount(initiation.getFirstPaymentAmount()))
-                .recurringPaymentAmount(FRAmountConverter.toOBDomesticStandingOrder3RecurringPaymentAmount(initiation.getRecurringPaymentAmount()))
-                .finalPaymentAmount(FRAmountConverter.toOBDomesticStandingOrder3FinalPaymentAmount(initiation.getFinalPaymentAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccountDebtor4(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccountCreditor3(initiation.getCreditorAccount()))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
+                .firstPaymentAmount(toOBDomesticStandingOrder3FirstPaymentAmount(initiation.getFirstPaymentAmount()))
+                .recurringPaymentAmount(toOBDomesticStandingOrder3RecurringPaymentAmount(initiation.getRecurringPaymentAmount()))
+                .finalPaymentAmount(toOBDomesticStandingOrder3FinalPaymentAmount(initiation.getFinalPaymentAmount()))
+                .debtorAccount(toOBCashAccountDebtor4(initiation.getDebtorAccount()))
+                .creditorAccount(toOBCashAccountCreditor3(initiation.getCreditorAccount()))
+                .supplementaryData(toOBSupplementaryData1(initiation.getSupplementaryData()));
     }
 }

@@ -15,51 +15,85 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment;
 
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDataDomesticScheduled;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDataDomesticStandingOrder;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDomesticScheduled;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDomesticStandingOrder;
 import uk.org.openbanking.datamodel.payment.*;
+
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toFRRisk;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toOBRisk1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteDomesticScheduledConsentConverter.toOBDomesticScheduled2;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteDomesticStandingOrderConsentConverter.*;
 
 public class FRWriteDomesticStandingOrderConverter {
 
     public static FRWriteDomesticStandingOrder toFRWriteDomesticStandingOrder(OBWriteDomesticStandingOrder1 obWriteDomesticStandingOrder1) {
         return obWriteDomesticStandingOrder1 == null ? null : FRWriteDomesticStandingOrder.builder()
                 .data(toFRWriteDataDomesticStandingOrder(obWriteDomesticStandingOrder1.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(obWriteDomesticStandingOrder1.getRisk()))
+                .risk(toFRRisk(obWriteDomesticStandingOrder1.getRisk()))
                 .build();
     }
 
     public static FRWriteDomesticStandingOrder toFRWriteDomesticStandingOrder(OBWriteDomesticStandingOrder2 obWriteDomesticStandingOrder2) {
         return obWriteDomesticStandingOrder2 == null ? null : FRWriteDomesticStandingOrder.builder()
                 .data(toFRWriteDataDomesticStandingOrder(obWriteDomesticStandingOrder2.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(obWriteDomesticStandingOrder2.getRisk()))
+                .risk(toFRRisk(obWriteDomesticStandingOrder2.getRisk()))
                 .build();
     }
 
     public static FRWriteDomesticStandingOrder toFRWriteDomesticStandingOrder(OBWriteDomesticStandingOrder3 obWriteDomesticStandingOrder3) {
         return obWriteDomesticStandingOrder3 == null ? null : FRWriteDomesticStandingOrder.builder()
                 .data(toFRWriteDataDomesticStandingOrder(obWriteDomesticStandingOrder3.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(obWriteDomesticStandingOrder3.getRisk()))
+                .risk(toFRRisk(obWriteDomesticStandingOrder3.getRisk()))
                 .build();
     }
 
     public static FRWriteDataDomesticStandingOrder toFRWriteDataDomesticStandingOrder(OBWriteDataDomesticStandingOrder1 data) {
         return data == null ? null : FRWriteDataDomesticStandingOrder.builder()
                 .consentId(data.getConsentId())
-                .initiation(FRWriteDomesticStandingOrderConsentConverter.toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
+                .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
                 .build();
     }
 
     public static FRWriteDataDomesticStandingOrder toFRWriteDataDomesticStandingOrder(OBWriteDataDomesticStandingOrder2 data) {
         return data == null ? null : FRWriteDataDomesticStandingOrder.builder()
                 .consentId(data.getConsentId())
-                .initiation(FRWriteDomesticStandingOrderConsentConverter.toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
+                .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
                 .build();
     }
 
     public static FRWriteDataDomesticStandingOrder toFRWriteDataDomesticStandingOrder(OBWriteDataDomesticStandingOrder3 data) {
         return data == null ? null : FRWriteDataDomesticStandingOrder.builder()
                 .consentId(data.getConsentId())
-                .initiation(FRWriteDomesticStandingOrderConsentConverter.toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
+                .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
                 .build();
+    }
+
+    public static FRWriteDataDomesticStandingOrder toFRWriteDataDomesticStandingOrder(OBWriteDomesticStandingOrder3Data data) {
+        return data == null ? null : FRWriteDataDomesticStandingOrder.builder()
+                .consentId(data.getConsentId())
+                .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
+                .build();
+    }
+
+    public static FRWriteDataDomesticStandingOrder toFRWriteDomesticStandingOrder(OBWriteDataDomesticStandingOrder3 data) {
+        return data == null ? null : FRWriteDataDomesticStandingOrder.builder()
+                .consentId(data.getConsentId())
+                .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
+                .build();
+    }
+
+    //FR to OB
+    public static OBWriteDomesticStandingOrder3 toOBWriteDomesticDomesticStandingOrder3(FRWriteDomesticStandingOrder domesticStandingOrderPayment) {
+        return domesticStandingOrderPayment == null ? null : new OBWriteDomesticStandingOrder3()
+                .data(toOBWriteDataDomesticDomesticStandingOrder3(domesticStandingOrderPayment.getData()))
+                .risk(toOBRisk1(domesticStandingOrderPayment.getRisk()));
+    }
+
+    public static OBWriteDomesticStandingOrder3Data toOBWriteDataDomesticDomesticStandingOrder3(FRWriteDataDomesticStandingOrder data) {
+        return data == null ? null : new OBWriteDomesticStandingOrder3Data()
+                .consentId(data.getConsentId())
+                .initiation(toOBWriteDomesticStandingOrder3DataInitiation(data.getInitiation()));
     }
 }

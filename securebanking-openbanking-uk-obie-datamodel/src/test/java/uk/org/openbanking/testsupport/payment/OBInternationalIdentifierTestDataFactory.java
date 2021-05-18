@@ -91,4 +91,10 @@ public class OBInternationalIdentifierTestDataFactory {
                 .name(CREDITOR_NAME)
                 .postalAddress(aValidOBPostalAddress6());
     }
+
+    public static OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor aValidOBWriteInternationalScheduledConsentResponse6DataInitiationCreditor() {
+        return (new OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor())
+                .name(CREDITOR_NAME)
+                .postalAddress(aValidOBPostalAddress6());
+    }
 }

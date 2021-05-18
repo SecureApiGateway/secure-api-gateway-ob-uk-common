@@ -15,40 +15,66 @@
  */
 package uk.org.openbanking.datamodel.discovery;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
-/**
- * Represents a list of supported Open Banking API endpoints across all of the API "groups" (e.g. PISP, AISP etc.).
- */
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class GenericOBDiscoveryAPILinks implements OBDiscoveryAPILinks {
     private Map<String, String> links = new HashMap<>();
+
+    public GenericOBDiscoveryAPILinks() {
+    }
+
+    public GenericOBDiscoveryAPILinks(Map<String, String> links) {
+        this.links = links;
+    }
 
     public GenericOBDiscoveryAPILinks addLink(String reference, String endpoint) {
         links.put(reference, endpoint);
         return this;
     }
 
-    public GenericOBDiscoveryAPILinks addAllLinks(Map<String, String> newLinks) {
-        if (newLinks == null) {
-            return this;
-        }
-        links.putAll(newLinks);
-        return this;
+    public Collection<String> getLinkValues() {
+        return new ArrayList(links.values());
     }
 
-    public Collection<String> getLinkValues() {
-        return new ArrayList<>(links.values());
-    };
+    public Map<String, String> getLinks() {
+        return links;
+    }
+
+    public void setLinks(Map<String, String> links) {
+        this.links = links;
+    }
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof GenericOBDiscoveryAPILinks)) return false;
+        GenericOBDiscoveryAPILinks that = (GenericOBDiscoveryAPILinks) o;
+        return Objects.equals(links, that.links);
+    }
+
+    public int hashCode() {
+        return Objects.hash(links);
+    }
+
+    public String toString() {
+        return "GenericOBDiscoveryAPILinks{" +
+                "links='" + links + '\'' +
+                '}';
+    }
+
+    public static GenericOBDiscoveryAPILinksBuilder builder() {
+        return new GenericOBDiscoveryAPILinksBuilder();
+    }
+
+    public static class GenericOBDiscoveryAPILinksBuilder {
+        private Map<String, String> links;
+
+        public GenericOBDiscoveryAPILinksBuilder links(Map<String, String> links) {
+            this.links = links;
+            return this;
+        }
+
+        public GenericOBDiscoveryAPILinks build() {
+            return new GenericOBDiscoveryAPILinks(this.links);
+        }
+    }
 }

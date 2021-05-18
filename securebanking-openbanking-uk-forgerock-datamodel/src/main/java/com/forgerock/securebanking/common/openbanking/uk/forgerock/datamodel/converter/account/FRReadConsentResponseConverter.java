@@ -20,14 +20,23 @@ import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.acc
 import uk.org.openbanking.datamodel.account.OBReadConsentResponse1;
 import uk.org.openbanking.datamodel.account.OBReadConsentResponse1Data;
 
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountRiskConverter.toFRAccountRisk;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountRiskConverter.toOBRisk2;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRExternalPermissionsCodeConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRExternalRequestStatusCodeConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRLinksConverter.toFRLinks;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRLinksConverter.toLinks;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRMetaConverter.toFRMeta;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRMetaConverter.toMeta;
+
 public class FRReadConsentResponseConverter {
 
     public static FRReadConsentResponse toFRReadConsentResponse(OBReadConsentResponse1 response) {
         return response == null ? null : FRReadConsentResponse.builder()
                 .data(toFRReadConsentResponseData(response.getData()))
-                .risk(FRAccountRiskConverter.toFRAccountRisk(response.getRisk()))
-                .links(FRLinksConverter.toFRLinks(response.getLinks()))
-                .meta(FRMetaConverter.toFRMeta(response.getMeta()))
+                .risk(toFRAccountRisk(response.getRisk()))
+                .links(toFRLinks(response.getLinks()))
+                .meta(toFRMeta(response.getMeta()))
                 .build();
     }
 
@@ -35,9 +44,9 @@ public class FRReadConsentResponseConverter {
         return data == null ? null : FRReadConsentResponseData.builder()
                 .consentId(data.getConsentId())
                 .creationDateTime(data.getCreationDateTime())
-                .status(FRExternalRequestStatusCodeConverter.toFRExternalRequestStatusCode(data.getStatus()))
+                .status(toFRExternalRequestStatusCode(data.getStatus()))
                 .statusUpdateDateTime(data.getStatusUpdateDateTime())
-                .permissions(FRExternalPermissionsCodeConverter.toFRExternalPermissionsCodeList(data.getPermissions()))
+                .permissions(toFRExternalPermissionsCodeList(data.getPermissions()))
                 .expirationDateTime(data.getExpirationDateTime())
                 .transactionFromDateTime(data.getTransactionFromDateTime())
                 .transactionToDateTime(data.getTransactionToDateTime())
@@ -48,18 +57,18 @@ public class FRReadConsentResponseConverter {
     public static OBReadConsentResponse1 toOBReadConsentResponse1(FRReadConsentResponse accountAccessConsent) {
         return accountAccessConsent == null ? null : new OBReadConsentResponse1()
                 .data(toOBReadConsentResponse1Data(accountAccessConsent.getData()))
-                .risk(FRAccountRiskConverter.toOBRisk2(accountAccessConsent.getRisk()))
-                .links(FRLinksConverter.toLinks(accountAccessConsent.getLinks()))
-                .meta(FRMetaConverter.toMeta(accountAccessConsent.getMeta()));
+                .risk(toOBRisk2(accountAccessConsent.getRisk()))
+                .links(toLinks(accountAccessConsent.getLinks()))
+                .meta(toMeta(accountAccessConsent.getMeta()));
     }
 
     public static OBReadConsentResponse1Data toOBReadConsentResponse1Data(FRReadConsentResponseData data) {
         return data == null ? null : new OBReadConsentResponse1Data()
         .consentId(data.getConsentId())
         .creationDateTime(data.getCreationDateTime())
-        .status(FRExternalRequestStatusCodeConverter.toOBExternalRequestStatus1Code(data.getStatus()))
+        .status(toOBExternalRequestStatus1Code(data.getStatus()))
         .statusUpdateDateTime(data.getStatusUpdateDateTime())
-        .permissions(FRExternalPermissionsCodeConverter.toOBExternalPermissions1CodeList(data.getPermissions()))
+        .permissions(toOBExternalPermissions1CodeList(data.getPermissions()))
         .expirationDateTime(data.getExpirationDateTime())
         .transactionFromDateTime(data.getTransactionFromDateTime())
         .transactionToDateTime(data.getTransactionToDateTime());

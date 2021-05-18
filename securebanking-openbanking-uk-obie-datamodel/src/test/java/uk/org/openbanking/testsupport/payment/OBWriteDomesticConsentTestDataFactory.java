@@ -27,8 +27,8 @@ import static uk.org.openbanking.testsupport.payment.OBPostalAddress6TestDataFac
 import static uk.org.openbanking.testsupport.payment.OBRemittanceInformationTestDataFactory.aValidOBRemittanceInformation1;
 import static uk.org.openbanking.testsupport.payment.OBRemittanceInformationTestDataFactory.aValidOBWriteDomestic2DataInitiationRemittanceInformation;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
+import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent3DataSCASupportData;
-import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent4DataSCASupportData;
 
 /**
  * Test data factory for the various "OBWriteDomesticConsent" classes.
@@ -86,7 +86,7 @@ public class OBWriteDomesticConsentTestDataFactory {
         return (new OBWriteDomesticConsent4Data())
                 .initiation(aValidOBWriteDomestic2DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
-                .scASupportData(aValidOBWriteDomesticConsent4DataSCASupportData())
+                .scASupportData(aValidOBSCASupportData1())
                 .readRefundAccount(OBWriteDomesticConsent4Data.ReadRefundAccountEnum.NO);
     }
 

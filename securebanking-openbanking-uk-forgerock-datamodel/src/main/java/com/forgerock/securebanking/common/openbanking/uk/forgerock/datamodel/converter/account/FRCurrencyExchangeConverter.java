@@ -16,8 +16,9 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRCurrencyExchange;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter;
 import uk.org.openbanking.datamodel.account.OBCurrencyExchange5;
+
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.*;
 
 public class FRCurrencyExchangeConverter {
 
@@ -30,7 +31,7 @@ public class FRCurrencyExchangeConverter {
         .exchangeRate(currencyExchange.getExchangeRate())
         .contractIdentification(currencyExchange.getContractIdentification())
         .quotationDate(currencyExchange.getQuotationDate())
-        .instructedAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(currencyExchange.getInstructedAmount()));
+        .instructedAmount(toOBCurrencyExchange5InstructedAmount(currencyExchange.getInstructedAmount()));
     }
 
     // OB to FR
@@ -42,7 +43,7 @@ public class FRCurrencyExchangeConverter {
                 .exchangeRate(currencyExchange.getExchangeRate())
                 .contractIdentification(currencyExchange.getContractIdentification())
                 .quotationDate(currencyExchange.getQuotationDate())
-                .instructedAmount(FRAmountConverter.toFRAmount(currencyExchange.getInstructedAmount()))
+                .instructedAmount(toFRAmount(currencyExchange.getInstructedAmount()))
                 .build();
     }
 }

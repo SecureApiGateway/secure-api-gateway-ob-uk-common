@@ -18,12 +18,21 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteInternationalStandingOrderConsent;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteInternationalStandingOrderConsentData;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteInternationalStandingOrderDataInitiation;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter;
 import uk.org.openbanking.datamodel.account.OBCashAccount3;
 import uk.org.openbanking.datamodel.payment.*;
 
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRChargeBearerConverter.toFRChargeBearerType;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRChargeBearerConverter.toOBChargeBearerType1Code;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRDataAuthorisationConverter.toFRDataAuthorisation;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toFRRisk;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentSupplementaryDataConverter.toFRSupplementaryData;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentSupplementaryDataConverter.toOBSupplementaryData1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPermissionConverter.toFRPermission;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRReadRefundAccountConverter.toFRReadRefundAccount;
 import static uk.org.openbanking.datamodel.service.converter.payment.CountryCodeHelper.determineCountryCode;
 
 public class FRWriteInternationalStandingOrderConsentConverter {
@@ -32,78 +41,78 @@ public class FRWriteInternationalStandingOrderConsentConverter {
     public static FRWriteInternationalStandingOrderConsent toFRWriteInternationalStandingOrderConsent(OBWriteInternationalStandingOrderConsent1 obWriteInternationalStandingOrderConsent1) {
         return obWriteInternationalStandingOrderConsent1 == null ? null : FRWriteInternationalStandingOrderConsent.builder()
                 .data(toFRWriteInternationalStandingOrderConsentData(obWriteInternationalStandingOrderConsent1.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(obWriteInternationalStandingOrderConsent1.getRisk()))
+                .risk(toFRRisk(obWriteInternationalStandingOrderConsent1.getRisk()))
                 .build();
     }
 
     public static FRWriteInternationalStandingOrderConsent toFRWriteInternationalStandingOrderConsent(OBWriteInternationalStandingOrderConsent2 obWriteInternationalStandingOrderConsent2) {
         return obWriteInternationalStandingOrderConsent2 == null ? null : FRWriteInternationalStandingOrderConsent.builder()
                 .data(toFRWriteInternationalStandingOrderConsentData(obWriteInternationalStandingOrderConsent2.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(obWriteInternationalStandingOrderConsent2.getRisk()))
+                .risk(toFRRisk(obWriteInternationalStandingOrderConsent2.getRisk()))
                 .build();
     }
 
     public static FRWriteInternationalStandingOrderConsent toFRWriteInternationalStandingOrderConsent(OBWriteInternationalStandingOrderConsent3 obWriteInternationalStandingOrderConsent3) {
         return obWriteInternationalStandingOrderConsent3 == null ? null : FRWriteInternationalStandingOrderConsent.builder()
                 .data(toFRWriteInternationalStandingOrderConsentData(obWriteInternationalStandingOrderConsent3.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(obWriteInternationalStandingOrderConsent3.getRisk()))
+                .risk(toFRRisk(obWriteInternationalStandingOrderConsent3.getRisk()))
                 .build();
     }
 
     public static FRWriteInternationalStandingOrderConsent toFRWriteInternationalStandingOrderConsent(OBWriteInternationalStandingOrderConsent5 obWriteInternationalStandingOrderConsent5) {
         return obWriteInternationalStandingOrderConsent5 == null ? null : FRWriteInternationalStandingOrderConsent.builder()
                 .data(toFRWriteInternationalStandingOrderConsentData(obWriteInternationalStandingOrderConsent5.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(obWriteInternationalStandingOrderConsent5.getRisk()))
+                .risk(toFRRisk(obWriteInternationalStandingOrderConsent5.getRisk()))
                 .build();
     }
 
     public static FRWriteInternationalStandingOrderConsent toFRWriteInternationalStandingOrderConsent(OBWriteInternationalStandingOrderConsent6 obWriteInternationalStandingOrderConsent6) {
         return obWriteInternationalStandingOrderConsent6 == null ? null : FRWriteInternationalStandingOrderConsent.builder()
                 .data(toFRWriteInternationalStandingOrderConsentData(obWriteInternationalStandingOrderConsent6.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(obWriteInternationalStandingOrderConsent6.getRisk()))
+                .risk(toFRRisk(obWriteInternationalStandingOrderConsent6.getRisk()))
                 .build();
     }
 
     public static FRWriteInternationalStandingOrderConsentData toFRWriteInternationalStandingOrderConsentData(OBWriteDataInternationalStandingOrderConsent1 data) {
         return data == null ? null : FRWriteInternationalStandingOrderConsentData.builder()
-                .permission(FRPermissionConverter.toFRPermission(data.getPermission()))
+                .permission(toFRPermission(data.getPermission()))
                 .initiation(toFRWriteInternationalStandingOrderDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
+                .authorisation(toFRDataAuthorisation(data.getAuthorisation()))
                 .build();
     }
 
     public static FRWriteInternationalStandingOrderConsentData toFRWriteInternationalStandingOrderConsentData(OBWriteDataInternationalStandingOrderConsent2 data) {
         return data == null ? null : FRWriteInternationalStandingOrderConsentData.builder()
-                .permission(FRPermissionConverter.toFRPermission(data.getPermission()))
+                .permission(toFRPermission(data.getPermission()))
                 .initiation(toFRWriteInternationalStandingOrderDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
+                .authorisation(toFRDataAuthorisation(data.getAuthorisation()))
                 .build();
     }
 
     public static FRWriteInternationalStandingOrderConsentData toFRWriteInternationalStandingOrderConsentData(OBWriteDataInternationalStandingOrderConsent3 data) {
         return data == null ? null : FRWriteInternationalStandingOrderConsentData.builder()
-                .permission(FRPermissionConverter.toFRPermission(data.getPermission()))
+                .permission(toFRPermission(data.getPermission()))
                 .initiation(toFRWriteInternationalStandingOrderDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
+                .authorisation(toFRDataAuthorisation(data.getAuthorisation()))
                 .build();
     }
 
     public static FRWriteInternationalStandingOrderConsentData toFRWriteInternationalStandingOrderConsentData(OBWriteInternationalStandingOrderConsent5Data data) {
         return data == null ? null : FRWriteInternationalStandingOrderConsentData.builder()
-                .permission(FRPermissionConverter.toFRPermission(data.getPermission()))
+                .permission(toFRPermission(data.getPermission()))
                 .initiation(toFRWriteInternationalStandingOrderDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .scASupportData(FRDataSCASupportDataConverter.toFRDataSCASupportData(data.getScASupportData()))
+                .authorisation(toFRDataAuthorisation(data.getAuthorisation()))
+                .scASupportData(toFRDataSCASupportData(data.getScASupportData()))
                 .build();
     }
 
     public static FRWriteInternationalStandingOrderConsentData toFRWriteInternationalStandingOrderConsentData(OBWriteInternationalStandingOrderConsent6Data data) {
         return data == null ? null : FRWriteInternationalStandingOrderConsentData.builder()
-                .permission(FRPermissionConverter.toFRPermission(data.getPermission()))
-                .readRefundAccount(FRReadRefundAccountConverter.toFRReadRefundAccount(data.getReadRefundAccount()))
+                .permission(toFRPermission(data.getPermission()))
+                .readRefundAccount(toFRReadRefundAccount(data.getReadRefundAccount()))
                 .initiation(toFRWriteInternationalStandingOrderDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .scASupportData(FRDataSCASupportDataConverter.toFRDataSCASupportData(data.getScASupportData()))
+                .authorisation(toFRDataAuthorisation(data.getAuthorisation()))
+                .scASupportData(toFRDataSCASupportData(data.getScASupportData()))
                 .build();
     }
 
@@ -116,14 +125,14 @@ public class FRWriteInternationalStandingOrderConsentConverter {
                 .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
                 .purpose(initiation.getPurpose())
-                .chargeBearer(FRChargeBearerConverter.toFRChargeBearerType(initiation.getChargeBearer()))
+                .chargeBearer(toFRChargeBearerType(initiation.getChargeBearer()))
                 .currencyOfTransfer(initiation.getCurrencyOfTransfer())
                 .destinationCountryCode(determineCountryCode(creditorAccount.getSchemeName(), creditorAccount.getIdentification())) // default value to prevent validation error
-                .instructedAmount(FRAmountConverter.toFRAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toFRFinancialCreditor(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(creditorAccount))
+                .instructedAmount(toFRAmount(initiation.getInstructedAmount()))
+                .debtorAccount(toFRAccountIdentifier(initiation.getDebtorAccount()))
+                .creditor(toFRFinancialCreditor(initiation.getCreditor()))
+                .creditorAgent(toFRFinancialAgent(initiation.getCreditorAgent()))
+                .creditorAccount(toFRAccountIdentifier(creditorAccount))
                 .build();
     }
 
@@ -136,15 +145,15 @@ public class FRWriteInternationalStandingOrderConsentConverter {
                 .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
                 .purpose(initiation.getPurpose())
-                .chargeBearer(FRChargeBearerConverter.toFRChargeBearerType(initiation.getChargeBearer()))
+                .chargeBearer(toFRChargeBearerType(initiation.getChargeBearer()))
                 .currencyOfTransfer(initiation.getCurrencyOfTransfer())
                 .destinationCountryCode(determineCountryCode(creditorAccount.getSchemeName(), creditorAccount.getIdentification())) // default value to prevent validation error
-                .instructedAmount(FRAmountConverter.toFRAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toFRFinancialCreditor(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(creditorAccount))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
+                .instructedAmount(toFRAmount(initiation.getInstructedAmount()))
+                .debtorAccount(toFRAccountIdentifier(initiation.getDebtorAccount()))
+                .creditor(toFRFinancialCreditor(initiation.getCreditor()))
+                .creditorAgent(toFRFinancialAgent(initiation.getCreditorAgent()))
+                .creditorAccount(toFRAccountIdentifier(creditorAccount))
+                .supplementaryData(toFRSupplementaryData(initiation.getSupplementaryData()))
                 .build();
     }
 
@@ -157,15 +166,15 @@ public class FRWriteInternationalStandingOrderConsentConverter {
                 .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
                 .purpose(initiation.getPurpose())
-                .chargeBearer(FRChargeBearerConverter.toFRChargeBearerType(initiation.getChargeBearer()))
+                .chargeBearer(toFRChargeBearerType(initiation.getChargeBearer()))
                 .currencyOfTransfer(initiation.getCurrencyOfTransfer())
                 .destinationCountryCode(determineCountryCode(creditorAccount.getSchemeName(), creditorAccount.getIdentification())) // default value to prevent validation error
-                .instructedAmount(FRAmountConverter.toFRAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toFRFinancialCreditor(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(creditorAccount))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
+                .instructedAmount(toFRAmount(initiation.getInstructedAmount()))
+                .debtorAccount(toFRAccountIdentifier(initiation.getDebtorAccount()))
+                .creditor(toFRFinancialCreditor(initiation.getCreditor()))
+                .creditorAgent(toFRFinancialAgent(initiation.getCreditorAgent()))
+                .creditorAccount(toFRAccountIdentifier(creditorAccount))
+                .supplementaryData(toFRSupplementaryData(initiation.getSupplementaryData()))
                 .build();
     }
 
@@ -178,15 +187,36 @@ public class FRWriteInternationalStandingOrderConsentConverter {
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
                 .purpose(initiation.getPurpose())
                 .extendedPurpose(initiation.getExtendedPurpose())
-                .chargeBearer(FRChargeBearerConverter.toFRChargeBearerType(initiation.getChargeBearer()))
+                .chargeBearer(toFRChargeBearerType(initiation.getChargeBearer()))
                 .currencyOfTransfer(initiation.getCurrencyOfTransfer())
                 .destinationCountryCode(initiation.getDestinationCountryCode())
-                .instructedAmount(FRAmountConverter.toFRAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toFRFinancialCreditor(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getCreditorAccount()))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
+                .instructedAmount(toFRAmount(initiation.getInstructedAmount()))
+                .debtorAccount(toFRAccountIdentifier(initiation.getDebtorAccount()))
+                .creditor(toFRFinancialCreditor(initiation.getCreditor()))
+                .creditorAgent(toFRFinancialAgent(initiation.getCreditorAgent()))
+                .creditorAccount(toFRAccountIdentifier(initiation.getCreditorAccount()))
+                .supplementaryData(toFRSupplementaryData(initiation.getSupplementaryData()))
+                .build();
+    }
+
+    public static FRWriteInternationalStandingOrderDataInitiation toFRWriteInternationalStandingOrderDataInitiation(OBWriteInternationalStandingOrderConsentResponse7DataInitiation initiation) {
+        return initiation == null ? null : FRWriteInternationalStandingOrderDataInitiation.builder()
+                .frequency(initiation.getFrequency())
+                .reference(initiation.getReference())
+                .numberOfPayments(initiation.getNumberOfPayments())
+                .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
+                .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
+                .purpose(initiation.getPurpose())
+                .extendedPurpose(initiation.getExtendedPurpose())
+                .chargeBearer(toFRChargeBearerType(initiation.getChargeBearer()))
+                .currencyOfTransfer(initiation.getCurrencyOfTransfer())
+                .destinationCountryCode(initiation.getDestinationCountryCode())
+                .instructedAmount(toFRAmount(initiation.getInstructedAmount()))
+                .debtorAccount(toFRAccountIdentifier(initiation.getDebtorAccount()))
+                .creditor(toFRFinancialCreditor(initiation.getCreditor()))
+                .creditorAgent(toFRFinancialAgent(initiation.getCreditorAgent()))
+                .creditorAccount(toFRAccountIdentifier(initiation.getCreditorAccount()))
+                .supplementaryData(toFRSupplementaryData(initiation.getSupplementaryData()))
                 .build();
     }
 
@@ -200,15 +230,35 @@ public class FRWriteInternationalStandingOrderConsentConverter {
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
                 .purpose(initiation.getPurpose())
                 .extendedPurpose(initiation.getExtendedPurpose())
-                .chargeBearer(FRChargeBearerConverter.toOBChargeBearerType1Code(initiation.getChargeBearer()))
+                .chargeBearer(toOBChargeBearerType1Code(initiation.getChargeBearer()))
                 .currencyOfTransfer(initiation.getCurrencyOfTransfer())
                 .destinationCountryCode(initiation.getDestinationCountryCode())
-                .instructedAmount(FRAmountConverter.toOBWriteDomestic2DataInitiationInstructedAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBWriteDomesticStandingOrder3DataInitiationDebtorAccount(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toOBWriteInternational3DataInitiationCreditor(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBWriteInternationalStandingOrder4DataInitiationCreditorAgent(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBWriteInternationalStandingOrder4DataInitiationCreditorAccount(initiation.getCreditorAccount()))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
+                .instructedAmount(toOBWriteDomestic2DataInitiationInstructedAmount(initiation.getInstructedAmount()))
+                .debtorAccount(toOBWriteDomesticStandingOrder3DataInitiationDebtorAccount(initiation.getDebtorAccount()))
+                .creditor(toOBWriteInternationalScheduledConsentResponse6DataInitiationCreditor(initiation.getCreditor()))
+                .creditorAgent(toOBWriteInternationalStandingOrder4DataInitiationCreditorAgent(initiation.getCreditorAgent()))
+                .creditorAccount(toOBWriteInternationalStandingOrder4DataInitiationCreditorAccount(initiation.getCreditorAccount()))
+                .supplementaryData(toOBSupplementaryData1(initiation.getSupplementaryData()));
+    }
+
+    public static OBWriteInternationalStandingOrderConsentResponse7DataInitiation toOBWriteInternationalStandingOrderConsentResponse7DataInitiation(FRWriteInternationalStandingOrderDataInitiation initiation) {
+        return initiation == null ? null : new OBWriteInternationalStandingOrderConsentResponse7DataInitiation()
+                .frequency(initiation.getFrequency())
+                .reference(initiation.getReference())
+                .numberOfPayments(initiation.getNumberOfPayments())
+                .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
+                .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
+                .purpose(initiation.getPurpose())
+                .extendedPurpose(initiation.getExtendedPurpose())
+                .chargeBearer(toOBChargeBearerType1Code(initiation.getChargeBearer()))
+                .currencyOfTransfer(initiation.getCurrencyOfTransfer())
+                .destinationCountryCode(initiation.getDestinationCountryCode())
+                .instructedAmount(toOBWriteDomestic2DataInitiationInstructedAmount(initiation.getInstructedAmount()))
+                .debtorAccount(toOBWriteDomestic2DataInitiationDebtorAccount(initiation.getDebtorAccount()))
+                .creditor(toOBWriteInternationalScheduledConsentResponse6DataInitiationCreditor(initiation.getCreditor()))
+                .creditorAgent(toOBWriteInternationalStandingOrder4DataInitiationCreditorAgent(initiation.getCreditorAgent()))
+                .creditorAccount(toOBWriteInternationalStandingOrder4DataInitiationCreditorAccount(initiation.getCreditorAccount()))
+                .supplementaryData(toOBSupplementaryData1(initiation.getSupplementaryData()));
     }
 
     public static OBInternationalStandingOrder1 toOBInternationalStandingOrder1(FRWriteInternationalStandingOrderDataInitiation initiation) {
@@ -219,13 +269,13 @@ public class FRWriteInternationalStandingOrderConsentConverter {
                 .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
                 .purpose(initiation.getPurpose())
-                .chargeBearer(FRChargeBearerConverter.toOBChargeBearerType1Code(initiation.getChargeBearer()))
+                .chargeBearer(toOBChargeBearerType1Code(initiation.getChargeBearer()))
                 .currencyOfTransfer(initiation.getCurrencyOfTransfer())
-                .instructedAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toOBPartyIdentification43(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification3(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getCreditorAccount()));
+                .instructedAmount(toOBActiveOrHistoricCurrencyAndAmount(initiation.getInstructedAmount()))
+                .debtorAccount(toOBCashAccount3(initiation.getDebtorAccount()))
+                .creditor(toOBPartyIdentification43(initiation.getCreditor()))
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification3(initiation.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount3(initiation.getCreditorAccount()));
     }
 
     public static OBInternationalStandingOrder2 toOBInternationalStandingOrder2(FRWriteInternationalStandingOrderDataInitiation initiation) {
@@ -236,14 +286,14 @@ public class FRWriteInternationalStandingOrderConsentConverter {
                 .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
                 .purpose(initiation.getPurpose())
-                .chargeBearer(FRChargeBearerConverter.toOBChargeBearerType1Code(initiation.getChargeBearer()))
+                .chargeBearer(toOBChargeBearerType1Code(initiation.getChargeBearer()))
                 .currencyOfTransfer(initiation.getCurrencyOfTransfer())
-                .instructedAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toOBPartyIdentification43(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification3(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getCreditorAccount()))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
+                .instructedAmount(toOBActiveOrHistoricCurrencyAndAmount(initiation.getInstructedAmount()))
+                .debtorAccount(toOBCashAccount3(initiation.getDebtorAccount()))
+                .creditor(toOBPartyIdentification43(initiation.getCreditor()))
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification3(initiation.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount3(initiation.getCreditorAccount()))
+                .supplementaryData(toOBSupplementaryData1(initiation.getSupplementaryData()));
     }
 
     public static OBInternationalStandingOrder3 toOBInternationalStandingOrder3(FRWriteInternationalStandingOrderDataInitiation initiation) {
@@ -254,13 +304,14 @@ public class FRWriteInternationalStandingOrderConsentConverter {
                 .firstPaymentDateTime(initiation.getFirstPaymentDateTime())
                 .finalPaymentDateTime(initiation.getFinalPaymentDateTime())
                 .purpose(initiation.getPurpose())
-                .chargeBearer(FRChargeBearerConverter.toOBChargeBearerType1Code(initiation.getChargeBearer()))
+                .chargeBearer(toOBChargeBearerType1Code(initiation.getChargeBearer()))
                 .currencyOfTransfer(initiation.getCurrencyOfTransfer())
-                .instructedAmount(FRAmountConverter.toOBDomestic2InstructedAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccountDebtor4(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toOBPartyIdentification43(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification6(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccountCreditor3(initiation.getCreditorAccount()))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
+                .instructedAmount(toOBDomestic2InstructedAmount(initiation.getInstructedAmount()))
+                .debtorAccount(toOBCashAccountDebtor4(initiation.getDebtorAccount()))
+                .creditor(toOBPartyIdentification43(initiation.getCreditor()))
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification6(initiation.getCreditorAgent()))
+                .creditorAccount(toOBCashAccountCreditor3(initiation.getCreditorAccount()))
+                .supplementaryData(toOBSupplementaryData1(initiation.getSupplementaryData()));
     }
+
 }

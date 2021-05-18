@@ -24,6 +24,8 @@ import uk.org.openbanking.datamodel.payment.OBWriteDomestic2;
 
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toFRRisk;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toOBRisk1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteDomesticConsentConverter.toFRWriteDomesticDataInitiation;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteDomesticConsentConverter.toOBDomestic2;
 
 public class FRWriteDomesticConverter {
 
@@ -45,14 +47,14 @@ public class FRWriteDomesticConverter {
     public static FRWriteDataDomestic toFRWriteDataDomestic(OBWriteDataDomestic1 data) {
         return data == null ? null : FRWriteDataDomestic.builder()
                 .consentId(data.getConsentId())
-                .initiation(FRWriteDomesticConsentConverter.toFRWriteDomesticDataInitiation(data.getInitiation()))
+                .initiation(toFRWriteDomesticDataInitiation(data.getInitiation()))
                 .build();
     }
 
     public static FRWriteDataDomestic toFRWriteDataDomestic(OBWriteDataDomestic2 data) {
         return data == null ? null : FRWriteDataDomestic.builder()
                 .consentId(data.getConsentId())
-                .initiation(FRWriteDomesticConsentConverter.toFRWriteDomesticDataInitiation(data.getInitiation()))
+                .initiation(toFRWriteDomesticDataInitiation(data.getInitiation()))
                 .build();
     }
 
@@ -66,6 +68,6 @@ public class FRWriteDomesticConverter {
     public static OBWriteDataDomestic2 toOBWriteDataDomestic2(FRWriteDataDomestic data) {
         return data == null ? null : new OBWriteDataDomestic2()
                 .consentId(data.getConsentId())
-                .initiation(FRWriteDomesticConsentConverter.toOBDomestic2(data.getInitiation()));
+                .initiation(toOBDomestic2(data.getInitiation()));
     }
 }

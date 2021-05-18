@@ -20,6 +20,9 @@ import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.pay
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRFinancialAgent;
 import uk.org.openbanking.datamodel.account.*;
 
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountPostalAddressConverter.toOBPostalAddress6;
+
+
 public class FRAccountServicerConverter {
 
     // FR to OB
@@ -40,7 +43,7 @@ public class FRAccountServicerConverter {
                 .schemeName(creditorAgent.getSchemeName())
                 .identification(creditorAgent.getIdentification())
                 .name(creditorAgent.getName())
-                .postalAddress(FRAccountPostalAddressConverter.toOBPostalAddress6(creditorAgent.getPostalAddress()));
+                .postalAddress(toOBPostalAddress6(creditorAgent.getPostalAddress()));
     }
 
     public static OBBranchAndFinancialInstitutionIdentification4 toOBBranchAndFinancialInstitutionIdentification4(FRAccountServicer servicer) {
@@ -66,7 +69,7 @@ public class FRAccountServicerConverter {
                 .schemeName(creditorAgent.getSchemeName())
                 .identification(creditorAgent.getIdentification())
                 .name(creditorAgent.getName())
-                .postalAddress(FRAccountPostalAddressConverter.toOBPostalAddress6(creditorAgent.getPostalAddress()));
+                .postalAddress(toOBPostalAddress6(creditorAgent.getPostalAddress()));
     }
 
     public static OBBranchAndFinancialInstitutionIdentification60 toOBBranchAndFinancialInstitutionIdentification60(FRFinancialAgent creditorAgent) {
@@ -74,7 +77,7 @@ public class FRAccountServicerConverter {
                 .schemeName(creditorAgent.getSchemeName())
                 .identification(creditorAgent.getIdentification())
                 .name(creditorAgent.getName())
-                .postalAddress(FRAccountPostalAddressConverter.toOBPostalAddress6(creditorAgent.getPostalAddress()));
+                .postalAddress(toOBPostalAddress6(creditorAgent.getPostalAddress()));
     }
 
     public static OBBranchAndFinancialInstitutionIdentification61 toOBBranchAndFinancialInstitutionIdentification61(FRFinancialAgent creditorAgent) {
@@ -82,7 +85,7 @@ public class FRAccountServicerConverter {
                 .schemeName(creditorAgent.getSchemeName())
                 .identification(creditorAgent.getIdentification())
                 .name(creditorAgent.getName())
-                .postalAddress(FRAccountPostalAddressConverter.toOBPostalAddress6(creditorAgent.getPostalAddress()));
+                .postalAddress(toOBPostalAddress6(creditorAgent.getPostalAddress()));
     }
 
     public static OBBranchAndFinancialInstitutionIdentification62 toOBBranchAndFinancialInstitutionIdentification62(FRFinancialAgent creditorAgent) {
@@ -90,7 +93,7 @@ public class FRAccountServicerConverter {
                 .schemeName(creditorAgent.getSchemeName())
                 .identification(creditorAgent.getIdentification())
                 .name(creditorAgent.getName())
-                .postalAddress(FRAccountPostalAddressConverter.toOBPostalAddress6(creditorAgent.getPostalAddress()));
+                .postalAddress(toOBPostalAddress6(creditorAgent.getPostalAddress()));
     }
 
     public static OBExternalFinancialInstitutionIdentification2Code toOBExternalFinancialInstitutionIdentification2Code(String schemeName) {

@@ -27,8 +27,8 @@ import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTe
 import static uk.org.openbanking.testsupport.payment.OBRemittanceInformationTestDataFactory.aValidOBRemittanceInformation1;
 import static uk.org.openbanking.testsupport.payment.OBRemittanceInformationTestDataFactory.aValidOBWriteDomestic2DataInitiationRemittanceInformation;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
+import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent3DataSCASupportData;
-import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent4DataSCASupportData;
 
 /**
  * Test data factory for the various "OBWriteInternationalScheduledConsent" classes.
@@ -106,7 +106,7 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
                 .permission(OBWriteInternationalScheduledConsent5Data.PermissionEnum.CREATE)
                 .initiation(aValidOBWriteInternationalScheduled3DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
-                .scASupportData(aValidOBWriteDomesticConsent4DataSCASupportData())
+                .scASupportData(aValidOBSCASupportData1())
                 .readRefundAccount(OBWriteInternationalScheduledConsent5Data.ReadRefundAccountEnum.NO);
     }
 
