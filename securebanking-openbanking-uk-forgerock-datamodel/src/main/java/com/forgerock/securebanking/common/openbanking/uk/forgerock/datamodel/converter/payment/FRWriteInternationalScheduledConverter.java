@@ -17,7 +17,16 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteInternationalScheduled;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteInternationalScheduledData;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalScheduled1;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalScheduled2;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled1;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled2;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled3;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled3Data;
+
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toFRRisk;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toOBRisk1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteInternationalScheduledConsentConverter.*;
 
 public class FRWriteInternationalScheduledConverter {
 
@@ -25,42 +34,42 @@ public class FRWriteInternationalScheduledConverter {
     public static FRWriteInternationalScheduled toFRWriteInternationalScheduled(OBWriteInternationalScheduled1 internationalScheduledPayment) {
         return internationalScheduledPayment == null ? null : FRWriteInternationalScheduled.builder()
                 .data(toFRWriteInternationalScheduledData(internationalScheduledPayment.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(internationalScheduledPayment.getRisk()))
+                .risk(toFRRisk(internationalScheduledPayment.getRisk()))
                 .build();
     }
 
     public static FRWriteInternationalScheduled toFRWriteInternationalScheduled(OBWriteInternationalScheduled2 internationalScheduledPayment) {
         return internationalScheduledPayment == null ? null : FRWriteInternationalScheduled.builder()
                 .data(toFRWriteInternationalScheduledData(internationalScheduledPayment.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(internationalScheduledPayment.getRisk()))
+                .risk(toFRRisk(internationalScheduledPayment.getRisk()))
                 .build();
     }
 
     public static FRWriteInternationalScheduled toFRWriteInternationalScheduled(OBWriteInternationalScheduled3 internationalScheduledPayment) {
         return internationalScheduledPayment == null ? null : FRWriteInternationalScheduled.builder()
                 .data(toFRWriteInternationalScheduledData(internationalScheduledPayment.getData()))
-                .risk(FRPaymentRiskConverter.toFRRisk(internationalScheduledPayment.getRisk()))
+                .risk(toFRRisk(internationalScheduledPayment.getRisk()))
                 .build();
     }
 
     public static FRWriteInternationalScheduledData toFRWriteInternationalScheduledData(OBWriteDataInternationalScheduled1 data) {
         return data == null ? null : FRWriteInternationalScheduledData.builder()
                 .consentId(data.getConsentId())
-                .initiation(FRWriteInternationalScheduledConsentConverter.toFRWriteInternationalScheduledDataInitiation(data.getInitiation()))
+                .initiation(toFRWriteInternationalScheduledDataInitiation(data.getInitiation()))
                 .build();
     }
 
     public static FRWriteInternationalScheduledData toFRWriteInternationalScheduledData(OBWriteDataInternationalScheduled2 data) {
         return data == null ? null : FRWriteInternationalScheduledData.builder()
                 .consentId(data.getConsentId())
-                .initiation(FRWriteInternationalScheduledConsentConverter.toFRWriteInternationalScheduledDataInitiation(data.getInitiation()))
+                .initiation(toFRWriteInternationalScheduledDataInitiation(data.getInitiation()))
                 .build();
     }
 
     public static FRWriteInternationalScheduledData toFRWriteInternationalScheduledData(OBWriteInternationalScheduled3Data data) {
         return data == null ? null : FRWriteInternationalScheduledData.builder()
                 .consentId(data.getConsentId())
-                .initiation(FRWriteInternationalScheduledConsentConverter.toFRWriteInternationalScheduledDataInitiation(data.getInitiation()))
+                .initiation(toFRWriteInternationalScheduledDataInitiation(data.getInitiation()))
                 .build();
     }
 
@@ -68,12 +77,24 @@ public class FRWriteInternationalScheduledConverter {
     public static OBWriteInternationalScheduled2 toOBWriteInternationalScheduled2(FRWriteInternationalScheduled internationalScheduledPayment) {
         return internationalScheduledPayment == null ? null : new OBWriteInternationalScheduled2()
                 .data(toOBWriteDataInternationalScheduled2(internationalScheduledPayment.getData()))
-                .risk(FRPaymentRiskConverter.toOBRisk1(internationalScheduledPayment.getRisk()));
+                .risk(toOBRisk1(internationalScheduledPayment.getRisk()));
     }
 
     public static OBWriteDataInternationalScheduled2 toOBWriteDataInternationalScheduled2(FRWriteInternationalScheduledData data) {
         return data == null ? null : new OBWriteDataInternationalScheduled2()
                 .consentId(data.getConsentId())
-                .initiation(FRWriteInternationalScheduledConsentConverter.toOBInternationalScheduled2(data.getInitiation()));
+                .initiation(toOBInternationalScheduled2(data.getInitiation()));
+    }
+
+    public static OBWriteInternationalScheduled3 toOBWriteInternationalScheduled3(FRWriteInternationalScheduled internationalScheduledPayment) {
+        return internationalScheduledPayment == null ? null : new OBWriteInternationalScheduled3()
+                .data(toOBWriteDataInternationalScheduled3(internationalScheduledPayment.getData()))
+                .risk(toOBRisk1(internationalScheduledPayment.getRisk()));
+    }
+
+    public static OBWriteInternationalScheduled3Data toOBWriteDataInternationalScheduled3(FRWriteInternationalScheduledData data) {
+        return data == null ? null : new OBWriteInternationalScheduled3Data()
+                .consentId(data.getConsentId())
+                .initiation(toOBWriteInternationalScheduled3DataInitiation(data.getInitiation()));
     }
 }

@@ -15,7 +15,9 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.OBDomestic1;
+import uk.org.openbanking.datamodel.payment.OBDomestic2;
+import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiation;
 
 import static uk.org.openbanking.datamodel.service.converter.payment.OBAccountConverter.toOBCashAccount3;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBAccountConverter.toOBWriteDomestic2DataInitiationCreditorAccount;
@@ -77,19 +79,6 @@ public class OBDomesticConverter {
                 .supplementaryData(initiation.getSupplementaryData());
     }
 
-    public static OBWriteDomestic2DataInitiation toOBWriteDomestic2DataInitiation(OBDomestic1 initiation) {
-        return initiation == null ? null : (new OBWriteDomestic2DataInitiation())
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .instructedAmount(toOBWriteDomestic2DataInitiationInstructedAmount(initiation.getInstructedAmount()))
-                .debtorAccount(toOBWriteDomestic2DataInitiationDebtorAccount(initiation.getDebtorAccount()))
-                .creditorAccount(toOBWriteDomestic2DataInitiationCreditorAccount(initiation.getCreditorAccount()))
-                .creditorPostalAddress(initiation.getCreditorPostalAddress())
-                .remittanceInformation(toOBWriteDomestic2DataInitiationRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(null);
-    }
-
     public static OBWriteDomestic2DataInitiation toOBWriteDomestic2DataInitiation(OBDomestic2 obDomestic2) {
         return obDomestic2 == null ? null : (new OBWriteDomestic2DataInitiation())
                 .instructionIdentification(obDomestic2.getInstructionIdentification())
@@ -103,7 +92,7 @@ public class OBDomesticConverter {
                 .supplementaryData(obDomestic2.getSupplementaryData());
     }
 
-    public static OBWriteDomestic2DataInitiation toOBWriteDomestic2DataInitiation(OBWriteDomestic2DataInitiation initiation) {
+    public static OBWriteDomestic2DataInitiation toOBWriteDomestic2DataInitiation(OBDomestic1 initiation) {
         return initiation == null ? null : (new OBWriteDomestic2DataInitiation())
                 .instructionIdentification(initiation.getInstructionIdentification())
                 .endToEndIdentification(initiation.getEndToEndIdentification())
@@ -113,6 +102,6 @@ public class OBDomesticConverter {
                 .creditorAccount(toOBWriteDomestic2DataInitiationCreditorAccount(initiation.getCreditorAccount()))
                 .creditorPostalAddress(initiation.getCreditorPostalAddress())
                 .remittanceInformation(toOBWriteDomestic2DataInitiationRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(initiation.getSupplementaryData());
+                .supplementaryData(null);
     }
 }

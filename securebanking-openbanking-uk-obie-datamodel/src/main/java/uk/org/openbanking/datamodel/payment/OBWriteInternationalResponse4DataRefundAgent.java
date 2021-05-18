@@ -28,19 +28,23 @@
 
 package uk.org.openbanking.datamodel.payment;
 
+import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
+import uk.org.openbanking.datamodel.payment.OBPostalAddress6;
+import javax.validation.constraints.*;
 import javax.validation.Valid;
-import javax.validation.constraints.Size;
-import java.util.Objects;
 
 /**
  * Set of elements used to uniquely and unambiguously identify a financial institution or a branch of a financial institution.
  */
 @ApiModel(description = "Set of elements used to uniquely and unambiguously identify a financial institution or a branch of a financial institution.")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-23T13:31:35.768Z")
+
 
 
 public class OBWriteInternationalResponse4DataRefundAgent {

@@ -17,12 +17,14 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRFinancialAgent;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRFinancialCreditor;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountServicerConverter;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentPostalAddressConverter;
 import uk.org.openbanking.datamodel.account.*;
 import uk.org.openbanking.datamodel.payment.OBBranchAndFinancialInstitutionIdentification3;
 import uk.org.openbanking.datamodel.payment.OBBranchAndFinancialInstitutionIdentification6;
 import uk.org.openbanking.datamodel.payment.*;
+
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountServicerConverter.toOBExternalFinancialInstitutionIdentification2Code;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentPostalAddressConverter.toFRPostalAddress;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentPostalAddressConverter.toOBPostalAddress6;
 
 public class FRFinancialInstrumentConverter {
 
@@ -30,14 +32,21 @@ public class FRFinancialInstrumentConverter {
     public static FRFinancialCreditor toFRFinancialCreditor(OBPartyIdentification43 creditor) {
         return creditor == null ? null : FRFinancialCreditor.builder()
                 .name(creditor.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toFRPostalAddress(creditor.getPostalAddress()))
+                .postalAddress(toFRPostalAddress(creditor.getPostalAddress()))
                 .build();
     }
 
     public static FRFinancialCreditor toFRFinancialCreditor(OBWriteInternational3DataInitiationCreditor creditor) {
         return creditor == null ? null : FRFinancialCreditor.builder()
                 .name(creditor.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toFRPostalAddress(creditor.getPostalAddress()))
+                .postalAddress(toFRPostalAddress(creditor.getPostalAddress()))
+                .build();
+    }
+
+    public static FRFinancialCreditor toFRFinancialCreditor(OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor creditor) {
+        return creditor == null ? null : FRFinancialCreditor.builder()
+                .name(creditor.getName())
+                .postalAddress(toFRPostalAddress(creditor.getPostalAddress()))
                 .build();
     }
 
@@ -46,7 +55,7 @@ public class FRFinancialInstrumentConverter {
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
+                .postalAddress(toFRPostalAddress(agent.getPostalAddress()))
                 .build();
     }
 
@@ -62,7 +71,7 @@ public class FRFinancialInstrumentConverter {
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
+                .postalAddress(toFRPostalAddress(agent.getPostalAddress()))
                 .build();
     }
 
@@ -71,7 +80,7 @@ public class FRFinancialInstrumentConverter {
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
+                .postalAddress(toFRPostalAddress(agent.getPostalAddress()))
                 .build();
     }
 
@@ -87,7 +96,7 @@ public class FRFinancialInstrumentConverter {
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
+                .postalAddress(toFRPostalAddress(agent.getPostalAddress()))
                 .build();
     }
 
@@ -96,7 +105,7 @@ public class FRFinancialInstrumentConverter {
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
+                .postalAddress(toFRPostalAddress(agent.getPostalAddress()))
                 .build();
     }
 
@@ -105,7 +114,7 @@ public class FRFinancialInstrumentConverter {
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
+                .postalAddress(toFRPostalAddress(agent.getPostalAddress()))
                 .build();
     }
 
@@ -114,7 +123,7 @@ public class FRFinancialInstrumentConverter {
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
+                .postalAddress(toFRPostalAddress(agent.getPostalAddress()))
                 .build();
     }
 
@@ -123,7 +132,7 @@ public class FRFinancialInstrumentConverter {
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
+                .postalAddress(toFRPostalAddress(agent.getPostalAddress()))
                 .build();
     }
 
@@ -131,7 +140,13 @@ public class FRFinancialInstrumentConverter {
     public static OBWriteInternational3DataInitiationCreditor toOBWriteInternational3DataInitiationCreditor(FRFinancialCreditor creditor) {
         return creditor == null ? null : new OBWriteInternational3DataInitiationCreditor()
                 .name(creditor.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toOBPostalAddress6(creditor.getPostalAddress()));
+                .postalAddress(toOBPostalAddress6(creditor.getPostalAddress()));
+    }
+
+    public static OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor toOBWriteInternationalScheduledConsentResponse6DataInitiationCreditor(FRFinancialCreditor creditor) {
+        return creditor == null ? null : new OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor()
+                .name(creditor.getName())
+                .postalAddress(toOBPostalAddress6(creditor.getPostalAddress()));
     }
 
     public static OBWriteInternational3DataInitiationCreditorAgent toOBWriteInternational3DataInitiationCreditorAgent(FRFinancialAgent agent) {
@@ -139,7 +154,7 @@ public class FRFinancialInstrumentConverter {
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toOBPostalAddress6(agent.getPostalAddress()));
+                .postalAddress(toOBPostalAddress6(agent.getPostalAddress()));
     }
 
     public static OBWriteInternationalStandingOrder4DataInitiationCreditorAgent toOBWriteInternationalStandingOrder4DataInitiationCreditorAgent(FRFinancialAgent agent) {
@@ -147,12 +162,12 @@ public class FRFinancialInstrumentConverter {
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toOBPostalAddress6(agent.getPostalAddress()));
+                .postalAddress(toOBPostalAddress6(agent.getPostalAddress()));
     }
 
     public static OBBranchAndFinancialInstitutionIdentification2 toOBBranchAndFinancialInstitutionIdentification2(FRFinancialAgent agent) {
         return agent == null ? null : new OBBranchAndFinancialInstitutionIdentification2()
-                .schemeName(FRAccountServicerConverter.toOBExternalFinancialInstitutionIdentification2Code(agent.getSchemeName()))
+                .schemeName(toOBExternalFinancialInstitutionIdentification2Code(agent.getSchemeName()))
                 .identification(agent.getIdentification());
     }
 
@@ -161,7 +176,7 @@ public class FRFinancialInstrumentConverter {
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toOBPostalAddress6(agent.getPostalAddress()));
+                .postalAddress(toOBPostalAddress6(agent.getPostalAddress()));
     }
 
     public static OBBranchAndFinancialInstitutionIdentification4 toOBBranchAndFinancialInstitutionIdentification4(FRFinancialAgent agent) {
@@ -187,13 +202,13 @@ public class FRFinancialInstrumentConverter {
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toOBPostalAddress6(agent.getPostalAddress()));
+                .postalAddress(toOBPostalAddress6(agent.getPostalAddress()));
     }
 
     public static OBPartyIdentification43 toOBPartyIdentification43(FRFinancialCreditor creditor) {
         return creditor == null ? null : new OBPartyIdentification43()
                 .name(creditor.getName())
-                .postalAddress(FRPaymentPostalAddressConverter.toOBPostalAddress6(creditor.getPostalAddress()));
+                .postalAddress(toOBPostalAddress6(creditor.getPostalAddress()));
     }
 
 }

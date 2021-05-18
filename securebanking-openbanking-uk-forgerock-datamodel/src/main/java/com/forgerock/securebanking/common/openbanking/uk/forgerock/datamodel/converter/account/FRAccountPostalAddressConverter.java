@@ -17,6 +17,7 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRPostalAddress;
 import uk.org.openbanking.datamodel.account.OBAddressTypeCode;
+import uk.org.openbanking.datamodel.account.OBParty2Address;
 import uk.org.openbanking.datamodel.account.OBPostalAddress6;
 import uk.org.openbanking.datamodel.account.OBPostalAddress8;
 
@@ -26,13 +27,26 @@ import java.util.stream.Collectors;
 public class FRAccountPostalAddressConverter {
 
     // OB to FR
-    public static List<FRPostalAddress> toFRPostalAddressList(List<OBPostalAddress8> addresses) {
+    public static List<FRPostalAddress> toFRPostalAddressList(List<OBParty2Address> addresses) {
         return addresses == null ? null : addresses.stream()
                 .map(a -> toFRPostalAddress(a))
                 .collect(Collectors.toList());
     }
 
     public static FRPostalAddress toFRPostalAddress(OBPostalAddress8 address) {
+        return address == null ? null : FRPostalAddress.builder()
+                .addressType(toAddressTypeCode(address.getAddressType()))
+                .streetName(address.getStreetName())
+                .buildingNumber(address.getBuildingNumber())
+                .postCode(address.getPostCode())
+                .townName(address.getTownName())
+                .countrySubDivision(address.getCountrySubDivision())
+                .country(address.getCountry())
+                .addressLine(address.getAddressLine())
+                .build();
+    }
+
+    public static FRPostalAddress toFRPostalAddress(OBParty2Address address) {
         return address == null ? null : FRPostalAddress.builder()
                 .addressType(toAddressTypeCode(address.getAddressType()))
                 .streetName(address.getStreetName())
@@ -67,7 +81,13 @@ public class FRAccountPostalAddressConverter {
     // FR to OB
     public static List<OBPostalAddress8> toOBPostalAddress8List(List<FRPostalAddress> addresses) {
         return addresses == null ? null : addresses.stream()
-                .map(a -> toOBPostalAddress8(a))
+                .map(FRAccountPostalAddressConverter::toOBPostalAddress8)
+                .collect(Collectors.toList());
+    }
+
+    public static List<OBParty2Address> toOBParty2AddressList(List<FRPostalAddress> addresses) {
+        return addresses == null ? null : addresses.stream()
+                .map(FRAccountPostalAddressConverter::toOBParty2Address)
                 .collect(Collectors.toList());
     }
 
@@ -87,6 +107,18 @@ public class FRAccountPostalAddressConverter {
 
     public static OBPostalAddress8 toOBPostalAddress8(FRPostalAddress address) {
         return address == null ? null : new OBPostalAddress8()
+                .addressType(toOBAddressTypeCode(address.getAddressType()))
+                .addressLine(address.getAddressLine())
+                .streetName(address.getStreetName())
+                .buildingNumber(address.getBuildingNumber())
+                .postCode(address.getPostCode())
+                .townName(address.getTownName())
+                .countrySubDivision(address.getCountrySubDivision())
+                .country(address.getCountry());
+    }
+
+    private static OBParty2Address toOBParty2Address(FRPostalAddress address) {
+        return address == null ? null : new OBParty2Address()
                 .addressType(toOBAddressTypeCode(address.getAddressType()))
                 .addressLine(address.getAddressLine())
                 .streetName(address.getStreetName())

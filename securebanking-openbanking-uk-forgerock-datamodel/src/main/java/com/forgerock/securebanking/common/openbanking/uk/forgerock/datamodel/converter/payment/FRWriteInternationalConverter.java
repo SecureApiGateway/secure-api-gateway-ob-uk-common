@@ -17,12 +17,16 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteInternational;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteInternationalData;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternational1;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternational2;
+import uk.org.openbanking.datamodel.payment.OBWriteInternational1;
+import uk.org.openbanking.datamodel.payment.OBWriteInternational2;
+import uk.org.openbanking.datamodel.payment.OBWriteInternational3;
+import uk.org.openbanking.datamodel.payment.OBWriteInternational3Data;
 
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toFRRisk;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toOBRisk1;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteInternationalConsentConverter.toFRWriteInternationalDataInitiation;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteInternationalConsentConverter.toOBInternational2;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteInternationalConsentConverter.*;
 
 public class FRWriteInternationalConverter {
 
@@ -80,5 +84,17 @@ public class FRWriteInternationalConverter {
         return data == null ? null : new OBWriteDataInternational2()
                 .consentId(data.getConsentId())
                 .initiation(toOBInternational2(data.getInitiation()));
+    }
+
+    public static OBWriteInternational3 toOBWriteInternational3(FRWriteInternational internationalPayment) {
+        return internationalPayment == null ? null : new OBWriteInternational3()
+                .data(toOBWriteInternational3Data(internationalPayment.getData()))
+                .risk(toOBRisk1(internationalPayment.getRisk()));
+    }
+
+    public static OBWriteInternational3Data toOBWriteInternational3Data(FRWriteInternationalData data) {
+        return data == null ? null : new OBWriteInternational3Data()
+                .consentId(data.getConsentId())
+                .initiation(toOBWriteInternational3DataInitiation(data.getInitiation()));
     }
 }

@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package uk.org.openbanking.datamodel.payment;
+
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.ApiModel;

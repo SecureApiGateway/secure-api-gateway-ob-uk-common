@@ -66,14 +66,6 @@ public class OBAccountConverter {
         return toAccount(new OBWriteDomestic2DataInitiationDebtorAccount(), debtorAccount);
     }
 
-    public static OBWriteDomestic2DataInitiationDebtorAccount toOBWriteDomestic2DataInitiationDebtorAccount(OBWriteDomestic2DataInitiationDebtorAccount debtorAccount) {
-        return toAccount(new OBWriteDomestic2DataInitiationDebtorAccount(), debtorAccount);
-    }
-
-    public static OBWriteDomestic2DataInitiationCreditorAccount toOBWriteDomestic2DataInitiationCreditorAccount(OBWriteDomestic2DataInitiationCreditorAccount creditorAccount) {
-        return toAccount(new OBWriteDomestic2DataInitiationCreditorAccount(), creditorAccount);
-    }
-
     public static OBWriteDomestic2DataInitiationCreditorAccount toOBWriteDomestic2DataInitiationCreditorAccount(OBCashAccount3 creditorAccount) {
         return toAccount(new OBWriteDomestic2DataInitiationCreditorAccount(), creditorAccount);
     }

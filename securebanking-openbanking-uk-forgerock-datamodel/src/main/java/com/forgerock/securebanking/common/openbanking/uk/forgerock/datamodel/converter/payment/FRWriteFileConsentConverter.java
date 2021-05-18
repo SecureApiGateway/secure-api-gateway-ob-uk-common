@@ -19,7 +19,26 @@ import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.pay
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteFileConsentData;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteFileDataInitiation;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.OBFile1;
+import uk.org.openbanking.datamodel.payment.OBFile2;
+import uk.org.openbanking.datamodel.payment.OBWriteDataFileConsent1;
+import uk.org.openbanking.datamodel.payment.OBWriteDataFileConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteFile2DataInitiation;
+import uk.org.openbanking.datamodel.payment.OBWriteFileConsent1;
+import uk.org.openbanking.datamodel.payment.OBWriteFileConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteFileConsent3;
+import uk.org.openbanking.datamodel.payment.OBWriteFileConsent3Data;
+
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toFRAccountIdentifier;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBCashAccount3;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationDebtorAccount;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRDataAuthorisationConverter.toFRDataAuthorisation;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRRemittanceInformationConverter.toFRRemittanceInformation;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRRemittanceInformationConverter.toOBRemittanceInformation1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRRemittanceInformationConverter.toOBWriteDomestic2DataInitiationRemittanceInformation;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentSupplementaryDataConverter.toFRSupplementaryData;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentSupplementaryDataConverter.toOBSupplementaryData1;
 
 public class FRWriteFileConsentConverter {
 
@@ -45,22 +64,22 @@ public class FRWriteFileConsentConverter {
     public static FRWriteFileConsentData toFRWriteFileConsentData(OBWriteDataFileConsent1 data) {
         return data == null ? null : FRWriteFileConsentData.builder()
                 .initiation(toFRWriteFileDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
+                .authorisation(toFRDataAuthorisation(data.getAuthorisation()))
                 .build();
     }
 
     public static FRWriteFileConsentData toFRWriteFileConsentData(OBWriteDataFileConsent2 data) {
         return data == null ? null : FRWriteFileConsentData.builder()
                 .initiation(toFRWriteFileDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
+                .authorisation(toFRDataAuthorisation(data.getAuthorisation()))
                 .build();
     }
 
     public static FRWriteFileConsentData toFRWriteFileConsentData(OBWriteFileConsent3Data data) {
         return data == null ? null : FRWriteFileConsentData.builder()
                 .initiation(toFRWriteFileDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .scASupportData(FRDataSCASupportDataConverter.toFRDataSCASupportData(data.getScASupportData()))
+                .authorisation(toFRDataAuthorisation(data.getAuthorisation()))
+                .scASupportData(toFRDataSCASupportData(data.getScASupportData()))
                 .build();
     }
 
@@ -74,7 +93,7 @@ public class FRWriteFileConsentConverter {
                 .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
                 .localInstrument(initiation.getLocalInstrument())
                 .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
+                .remittanceInformation(toFRRemittanceInformation(initiation.getRemittanceInformation()))
                 .build();
     }
 
@@ -88,8 +107,8 @@ public class FRWriteFileConsentConverter {
                 .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
                 .localInstrument(initiation.getLocalInstrument())
                 .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
+                .remittanceInformation(toFRRemittanceInformation(initiation.getRemittanceInformation()))
+                .supplementaryData(toFRSupplementaryData(initiation.getSupplementaryData()))
                 .build();
     }
 
@@ -103,8 +122,8 @@ public class FRWriteFileConsentConverter {
                 .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
                 .localInstrument(initiation.getLocalInstrument())
                 .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
+                .remittanceInformation(toFRRemittanceInformation(initiation.getRemittanceInformation()))
+                .supplementaryData(toFRSupplementaryData(initiation.getSupplementaryData()))
                 .build();
     }
 
@@ -118,9 +137,9 @@ public class FRWriteFileConsentConverter {
                 .controlSum(initiation.getControlSum())
                 .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
                 .localInstrument(initiation.getLocalInstrument())
-                .debtorAccount(FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationDebtorAccount(initiation.getDebtorAccount()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBWriteDomestic2DataInitiationRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
+                .debtorAccount(toOBWriteDomestic2DataInitiationDebtorAccount(initiation.getDebtorAccount()))
+                .remittanceInformation(toOBWriteDomestic2DataInitiationRemittanceInformation(initiation.getRemittanceInformation()))
+                .supplementaryData(toOBSupplementaryData1(initiation.getSupplementaryData()));
     }
 
     public static OBFile1 toOBFile1(FRWriteFileDataInitiation initiation) {
@@ -132,8 +151,8 @@ public class FRWriteFileConsentConverter {
                 .controlSum(initiation.getControlSum())
                 .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
                 .localInstrument(initiation.getLocalInstrument())
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation1(initiation.getRemittanceInformation()));
+                .debtorAccount(toOBCashAccount3(initiation.getDebtorAccount()))
+                .remittanceInformation(toOBRemittanceInformation1(initiation.getRemittanceInformation()));
     }
 
     public static OBFile2 toOBFile2(FRWriteFileDataInitiation initiation) {
@@ -145,8 +164,8 @@ public class FRWriteFileConsentConverter {
                 .controlSum(initiation.getControlSum())
                 .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
                 .localInstrument(initiation.getLocalInstrument())
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation1(initiation.getRemittanceInformation()))
-                .supplementaryData(FRPaymentSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
+                .debtorAccount(toOBCashAccount3(initiation.getDebtorAccount()))
+                .remittanceInformation(toOBRemittanceInformation1(initiation.getRemittanceInformation()))
+                .supplementaryData(toOBSupplementaryData1(initiation.getSupplementaryData()));
     }
 }

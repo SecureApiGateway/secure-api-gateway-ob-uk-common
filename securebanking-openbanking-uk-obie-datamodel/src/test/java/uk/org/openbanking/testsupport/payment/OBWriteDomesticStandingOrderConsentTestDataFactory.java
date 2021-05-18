@@ -24,8 +24,8 @@ import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent3DataAuthorisation;
 import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent4DataAuthorisation;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
+import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent3DataSCASupportData;
-import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent4DataSCASupportData;
 
 /**
  * Test data factory for the various "OBWriteDomesticStandingOrderConsent" classes.
@@ -61,7 +61,7 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
                 .permission(OBWriteDomesticStandingOrderConsent5Data.PermissionEnum.CREATE)
                 .initiation(aValidOBWriteDomesticStandingOrder3DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
-                .scASupportData(aValidOBWriteDomesticConsent4DataSCASupportData())
+                .scASupportData(aValidOBSCASupportData1())
                 .readRefundAccount(OBWriteDomesticStandingOrderConsent5Data.ReadRefundAccountEnum.NO);
     }
 

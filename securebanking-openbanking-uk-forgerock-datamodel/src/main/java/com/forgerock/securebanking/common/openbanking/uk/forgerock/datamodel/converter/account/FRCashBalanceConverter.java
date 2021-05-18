@@ -15,17 +15,15 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRBalanceType;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRCashBalance;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRCreditLine;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter;
-import uk.org.openbanking.datamodel.account.OBBalanceType1Code;
-import uk.org.openbanking.datamodel.account.OBCashBalance1;
-import uk.org.openbanking.datamodel.account.OBCreditLine1;
-import uk.org.openbanking.datamodel.account.OBExternalLimitType1Code;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRBalanceType;
+import uk.org.openbanking.datamodel.account.*;
 
 import java.util.List;
 
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRCreditDebitIndicatorConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.*;
 import static java.util.stream.Collectors.toList;
 
 public class FRCashBalanceConverter {
@@ -34,11 +32,21 @@ public class FRCashBalanceConverter {
     public static OBCashBalance1 toOBCashBalance1(FRCashBalance balance) {
         return balance == null ? null : new OBCashBalance1()
                 .accountId(balance.getAccountId())
-                .creditDebitIndicator(FRCreditDebitIndicatorConverter.toOBCreditDebitCode(balance.getCreditDebitIndicator()))
+                .creditDebitIndicator(toOBCreditDebitCode(balance.getCreditDebitIndicator()))
                 .type(toOBBalanceType1Code(balance.getType()))
                 .dateTime(balance.getDateTime())
-                .amount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(balance.getAmount()))
+                .amount(toOBActiveOrHistoricCurrencyAndAmount(balance.getAmount()))
                 .creditLine(toCreditLineList(balance.getCreditLines()));
+    }
+
+    public static OBReadBalance1DataBalance toOBReadBalance1DataBalance(FRCashBalance balance) {
+        return balance == null ? null : new OBReadBalance1DataBalance()
+                .accountId(balance.getAccountId())
+                .creditDebitIndicator(toOBCreditDebitCode2(balance.getCreditDebitIndicator()))
+                .type(toOBBalanceType1Code(balance.getType()))
+                .dateTime(balance.getDateTime())
+                .amount(toOBReadBalance1DataAmount(balance.getAmount()))
+                .creditLine(toOBReadBalance1DataCreditLineList(balance.getCreditLines()));
     }
 
     public static OBBalanceType1Code toOBBalanceType1Code(FRBalanceType type) {
@@ -51,25 +59,42 @@ public class FRCashBalanceConverter {
                 .collect(toList());
     }
 
+    public static List<OBReadBalance1DataCreditLine> toOBReadBalance1DataCreditLineList(List<FRCreditLine> creditLines) {
+        return creditLines == null ? null : creditLines.stream()
+                .map(c -> toOBReadBalance1DataCreditLine(c))
+                .collect(toList());
+    }
+
     public static OBCreditLine1 toOBCreditLine1(FRCreditLine creditLine) {
         return creditLine == null ? null : new OBCreditLine1()
                 .included(creditLine.getIncluded())
                 .type(toOBExternalLimitType1Code(creditLine.getType()))
-                .amount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(creditLine.getAmount()));
+                .amount(toOBActiveOrHistoricCurrencyAndAmount(creditLine.getAmount()));
+    }
+
+    public static OBReadBalance1DataCreditLine toOBReadBalance1DataCreditLine(FRCreditLine creditLine) {
+        return creditLine == null ? null : new OBReadBalance1DataCreditLine()
+                .included(creditLine.getIncluded())
+                .type(toOBReadBalance1DataCreditLineType(creditLine.getType()))
+                .amount(toOBReadBalance1DataAmount1(creditLine.getAmount()));
     }
 
     public static OBExternalLimitType1Code toOBExternalLimitType1Code(FRCreditLine.FRLimitType type) {
         return type == null ? null : OBExternalLimitType1Code.valueOf(type.name());
     }
 
+    public static OBReadBalance1DataCreditLine.TypeEnum toOBReadBalance1DataCreditLineType(FRCreditLine.FRLimitType type) {
+        return type == null ? null : OBReadBalance1DataCreditLine.TypeEnum.valueOf(type.name());
+    }
+
     // OB to FR
     public static FRCashBalance toFRCashBalance(OBCashBalance1 balance) {
         return balance == null ? null : FRCashBalance.builder()
                 .accountId(balance.getAccountId())
-                .creditDebitIndicator(FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator(balance.getCreditDebitIndicator()))
+                .creditDebitIndicator(toFRCreditDebitIndicator(balance.getCreditDebitIndicator()))
                 .type(toFRBalanceType(balance.getType()))
                 .dateTime(balance.getDateTime())
-                .amount(FRAmountConverter.toFRAmount(balance.getAmount()))
+                .amount(toFRAmount(balance.getAmount()))
                 .creditLines(toFRCreditLineList(balance.getCreditLine()))
                 .build();
     }
@@ -88,7 +113,7 @@ public class FRCashBalanceConverter {
         return creditLine == null ? null : FRCreditLine.builder()
                 .included(creditLine.isIncluded())
                 .type(toFRLimitType(creditLine.getType()))
-                .amount(FRAmountConverter.toFRAmount(creditLine.getAmount()))
+                .amount(toFRAmount(creditLine.getAmount()))
                 .build();
     }
 

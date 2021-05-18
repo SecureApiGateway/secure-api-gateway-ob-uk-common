@@ -16,9 +16,25 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRAccountBeneficiary;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter;
-import uk.org.openbanking.datamodel.account.*;
+import uk.org.openbanking.datamodel.account.OBBeneficiary1;
+import uk.org.openbanking.datamodel.account.OBBeneficiary2;
+import uk.org.openbanking.datamodel.account.OBBeneficiary3;
+import uk.org.openbanking.datamodel.account.OBBeneficiary4;
+import uk.org.openbanking.datamodel.account.OBBeneficiary5;
+import uk.org.openbanking.datamodel.account.OBBeneficiaryType1Code;
+
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification2;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification3;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification6;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification60;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountSupplementaryDataConverter.toFRSupplementaryData;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountSupplementaryDataConverter.toOBSupplementaryData1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toFRAccountIdentifier;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBCashAccount1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBCashAccount3;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBCashAccount5;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBCashAccount50;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter.toFRFinancialAgent;
 
 public class FRAccountBeneficiaryConverter {
 
@@ -28,8 +44,8 @@ public class FRAccountBeneficiaryConverter {
                 .accountId(beneficiary.getAccountId())
                 .beneficiaryId(beneficiary.getBeneficiaryId())
                 .reference(beneficiary.getReference())
-                .servicer(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification2(beneficiary.getCreditorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount1(beneficiary.getCreditorAccount()));
+                .servicer(toOBBranchAndFinancialInstitutionIdentification2(beneficiary.getCreditorAccount()))
+                .creditorAccount(toOBCashAccount1(beneficiary.getCreditorAccount()));
     }
 
     public static OBBeneficiary2 toOBBeneficiary2(FRAccountBeneficiary beneficiary) {
@@ -37,8 +53,8 @@ public class FRAccountBeneficiaryConverter {
                 .accountId(beneficiary.getAccountId())
                 .beneficiaryId(beneficiary.getBeneficiaryId())
                 .reference(beneficiary.getReference())
-                .creditorAgent(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification3(beneficiary.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(beneficiary.getCreditorAccount()));
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification3(beneficiary.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount3(beneficiary.getCreditorAccount()));
     }
 
     public static OBBeneficiary3 toOBBeneficiary3(FRAccountBeneficiary beneficiary) {
@@ -46,8 +62,8 @@ public class FRAccountBeneficiaryConverter {
                 .accountId(beneficiary.getAccountId())
                 .beneficiaryId(beneficiary.getBeneficiaryId())
                 .reference(beneficiary.getReference())
-                .creditorAgent(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification6(beneficiary.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount5(beneficiary.getCreditorAccount()));
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification6(beneficiary.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount5(beneficiary.getCreditorAccount()));
     }
 
     public static OBBeneficiary4 toOBBeneficiary4(FRAccountBeneficiary beneficiary) {
@@ -55,9 +71,9 @@ public class FRAccountBeneficiaryConverter {
                 .accountId(beneficiary.getAccountId())
                 .beneficiaryId(beneficiary.getBeneficiaryId())
                 .reference(beneficiary.getReference())
-                .supplementaryData(FRAccountSupplementaryDataConverter.toOBSupplementaryData1(beneficiary.getSupplementaryData()))
-                .creditorAgent(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification60(beneficiary.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount50(beneficiary.getCreditorAccount()));
+                .supplementaryData(toOBSupplementaryData1(beneficiary.getSupplementaryData()))
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification60(beneficiary.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount50(beneficiary.getCreditorAccount()));
     }
 
     public static OBBeneficiary5 toOBBeneficiary5(FRAccountBeneficiary beneficiary) {
@@ -66,9 +82,9 @@ public class FRAccountBeneficiaryConverter {
                 .beneficiaryId(beneficiary.getBeneficiaryId())
                 .beneficiaryType(toOBBeneficiaryType1Code(beneficiary.getBeneficiaryType()))
                 .reference(beneficiary.getReference())
-                .supplementaryData(FRAccountSupplementaryDataConverter.toOBSupplementaryData1(beneficiary.getSupplementaryData()))
-                .creditorAgent(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification60(beneficiary.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount50(beneficiary.getCreditorAccount()));
+                .supplementaryData(toOBSupplementaryData1(beneficiary.getSupplementaryData()))
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification60(beneficiary.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount50(beneficiary.getCreditorAccount()));
     }
 
     public static OBBeneficiaryType1Code toOBBeneficiaryType1Code(FRAccountBeneficiary.FRBeneficiaryType beneficiaryType) {
@@ -81,8 +97,8 @@ public class FRAccountBeneficiaryConverter {
                 .accountId(beneficiary.getAccountId())
                 .beneficiaryId(beneficiary.getBeneficiaryId())
                 .reference(beneficiary.getReference())
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(beneficiary.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(beneficiary.getCreditorAccount()))
+                .creditorAgent(toFRFinancialAgent(beneficiary.getCreditorAgent()))
+                .creditorAccount(toFRAccountIdentifier(beneficiary.getCreditorAccount()))
                 .build();
     }
 
@@ -92,9 +108,9 @@ public class FRAccountBeneficiaryConverter {
                 .beneficiaryId(beneficiary.getBeneficiaryId())
                 .beneficiaryType(toFRBeneficiaryType(beneficiary.getBeneficiaryType()))
                 .reference(beneficiary.getReference())
-                .supplementaryData(FRAccountSupplementaryDataConverter.toFRSupplementaryData(beneficiary.getSupplementaryData()))
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(beneficiary.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(beneficiary.getCreditorAccount()))
+                .supplementaryData(toFRSupplementaryData(beneficiary.getSupplementaryData()))
+                .creditorAgent(toFRFinancialAgent(beneficiary.getCreditorAgent()))
+                .creditorAccount(toFRAccountIdentifier(beneficiary.getCreditorAccount()))
                 .build();
     }
 

@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package uk.org.openbanking.datamodel.account;
+
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.ApiModel;
@@ -45,7 +46,7 @@ public class OBSupplementaryData1   {
   }
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -73,7 +74,7 @@ public class OBSupplementaryData1   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

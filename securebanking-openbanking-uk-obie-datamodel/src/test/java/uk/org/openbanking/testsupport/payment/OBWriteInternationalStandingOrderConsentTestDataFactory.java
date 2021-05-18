@@ -23,8 +23,8 @@ import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
+import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent3DataSCASupportData;
-import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent4DataSCASupportData;
 
 /**
  * Test data factory for the various "OBWriteInternationalStandingOrderConsent" classes.
@@ -102,7 +102,7 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
                 .permission(OBWriteInternationalStandingOrderConsent6Data.PermissionEnum.CREATE)
                 .initiation(aValidOBWriteInternationalStandingOrder4DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
-                .scASupportData(aValidOBWriteDomesticConsent4DataSCASupportData())
+                .scASupportData(aValidOBSCASupportData1())
                 .readRefundAccount(OBWriteInternationalStandingOrderConsent6Data.ReadRefundAccountEnum.NO);
     }
 
@@ -197,7 +197,7 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
                 .destinationCountryCode("GB")
                 .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
                 .debtorAccount(aValidOBWriteDomesticStandingOrder3DataInitiationDebtorAccount())
-                .creditor(OBInternationalIdentifierTestDataFactory.aValidOBWriteInternational3DataInitiationCreditor())
+                .creditor(aValidOBWriteInternationalScheduledConsentResponse6DataInitiationCreditor())
                 .creditorAgent(aValidOBWriteInternationalStandingOrder4DataInitiationCreditorAgent())
                 .creditorAccount(aValidOBWriteInternationalStandingOrder4DataInitiationCreditorAccount())
                 .supplementaryData(new OBSupplementaryData1());

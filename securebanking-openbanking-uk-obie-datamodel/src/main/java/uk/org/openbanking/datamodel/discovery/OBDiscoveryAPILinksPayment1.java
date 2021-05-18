@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package uk.org.openbanking.datamodel.discovery;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 

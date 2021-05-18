@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package uk.org.openbanking.datamodel.error;
+
 /**
  * This interface allows you to extend the enum OB standard error code
  */

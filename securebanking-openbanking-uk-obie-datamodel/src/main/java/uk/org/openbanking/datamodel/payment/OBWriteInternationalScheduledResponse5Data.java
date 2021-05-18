@@ -44,7 +44,7 @@ import java.util.Objects;
 /**
  * OBWriteInternationalScheduledResponse5Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T14:14:13.501+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T14:14:13.501+01:00", comments = "updated at 2020-12-23T13:31:35.768Z")
 public class OBWriteInternationalScheduledResponse5Data {
     @JsonProperty("InternationalScheduledPaymentId")
     private String internationalScheduledPaymentId = null;
@@ -107,7 +107,7 @@ public class OBWriteInternationalScheduledResponse5Data {
     private DateTime expectedSettlementDateTime = null;
 
     @JsonProperty("Refund")
-    private OBWriteInternationalRefundResponse1DataRefund refund = null;
+    private OBWriteInternationalResponse4DataRefund refund = null;
 
     @JsonProperty("Charges")
     private List<OBWriteDomesticConsentResponse4DataCharges> charges = null;
@@ -265,23 +265,22 @@ public class OBWriteInternationalScheduledResponse5Data {
         this.expectedSettlementDateTime = expectedSettlementDateTime;
     }
 
-    public OBWriteInternationalScheduledResponse5Data refund(OBWriteInternationalRefundResponse1DataRefund refund) {
+    public OBWriteInternationalScheduledResponse5Data refund(OBWriteInternationalResponse4DataRefund refund) {
         this.refund = refund;
         return this;
     }
 
     /**
      * Get refund
-     *
      * @return refund
      **/
     @Valid
     @ApiModelProperty(value = "")
-    public OBWriteInternationalRefundResponse1DataRefund getRefund() {
+    public OBWriteInternationalResponse4DataRefund getRefund() {
         return refund;
     }
 
-    public void setRefund(OBWriteInternationalRefundResponse1DataRefund refund) {
+    public void setRefund(OBWriteInternationalResponse4DataRefund refund) {
         this.refund = refund;
     }
 
@@ -376,7 +375,7 @@ public class OBWriteInternationalScheduledResponse5Data {
 
 
     @Override
-    public boolean equals(java.lang.Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -429,7 +428,7 @@ public class OBWriteInternationalScheduledResponse5Data {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(java.lang.Object o) {
+    private String toIndentedString(Object o) {
         if (o == null) {
             return "null";
         }

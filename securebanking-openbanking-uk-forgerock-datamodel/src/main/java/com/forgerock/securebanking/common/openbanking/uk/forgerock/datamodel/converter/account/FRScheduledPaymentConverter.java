@@ -16,13 +16,24 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRScheduledPaymentData;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRScheduledPaymentData.FRScheduleType;
 import uk.org.openbanking.datamodel.account.OBExternalScheduleType1Code;
 import uk.org.openbanking.datamodel.account.OBScheduledPayment1;
 import uk.org.openbanking.datamodel.account.OBScheduledPayment2;
 import uk.org.openbanking.datamodel.account.OBScheduledPayment3;
+
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toFRAccountIdentifier;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBCashAccount3;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBCashAccount5;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBCashAccount51;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.toAccountOBActiveOrHistoricCurrencyAndAmount;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.toFRAmount;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter.toFRFinancialAgent;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification4;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification5;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification51;
 
 public class FRScheduledPaymentConverter {
 
@@ -34,9 +45,9 @@ public class FRScheduledPaymentConverter {
                 .scheduledPaymentDateTime(scheduledPayment.getScheduledPaymentDateTime())
                 .scheduledType(toFRScheduleType(scheduledPayment.getScheduledType()))
                 .reference(scheduledPayment.getReference())
-                .instructedAmount(FRAmountConverter.toFRAmount(scheduledPayment.getInstructedAmount()))
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(scheduledPayment.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(scheduledPayment.getCreditorAccount()))
+                .instructedAmount(toFRAmount(scheduledPayment.getInstructedAmount()))
+                .creditorAgent(toFRFinancialAgent(scheduledPayment.getCreditorAgent()))
+                .creditorAccount(toFRAccountIdentifier(scheduledPayment.getCreditorAccount()))
                 .build();
     }
 
@@ -48,14 +59,14 @@ public class FRScheduledPaymentConverter {
                 .scheduledType(toFRScheduleType(scheduledPayment.getScheduledType()))
                 .reference(scheduledPayment.getReference())
                 .debtorReference(scheduledPayment.getDebtorReference())
-                .instructedAmount(FRAmountConverter.toFRAmount(scheduledPayment.getInstructedAmount()))
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(scheduledPayment.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(scheduledPayment.getCreditorAccount()))
+                .instructedAmount(toFRAmount(scheduledPayment.getInstructedAmount()))
+                .creditorAgent(toFRFinancialAgent(scheduledPayment.getCreditorAgent()))
+                .creditorAccount(toFRAccountIdentifier(scheduledPayment.getCreditorAccount()))
                 .build();
     }
 
-    public static FRScheduledPaymentData.FRScheduleType toFRScheduleType(OBExternalScheduleType1Code scheduledType) {
-        return scheduledType == null ? null : FRScheduledPaymentData.FRScheduleType.valueOf(scheduledType.name());
+    public static FRScheduleType toFRScheduleType(OBExternalScheduleType1Code scheduledType) {
+        return scheduledType == null ? null : FRScheduleType.valueOf(scheduledType.name());
     }
 
     // FR to OB
@@ -66,9 +77,9 @@ public class FRScheduledPaymentConverter {
                 .scheduledPaymentDateTime(scheduledPaymentData.getScheduledPaymentDateTime())
                 .scheduledType(toOBExternalScheduleType1Code(scheduledPaymentData.getScheduledType()))
                 .reference(scheduledPaymentData.getReference())
-                .instructedAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(scheduledPaymentData.getInstructedAmount()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification4(scheduledPaymentData.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(scheduledPaymentData.getCreditorAccount()));
+                .instructedAmount(toOBActiveOrHistoricCurrencyAndAmount(scheduledPaymentData.getInstructedAmount()))
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification4(scheduledPaymentData.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount3(scheduledPaymentData.getCreditorAccount()));
     }
 
     public static OBScheduledPayment2 toOBScheduledPayment2(FRScheduledPaymentData scheduledPaymentData) {
@@ -78,9 +89,9 @@ public class FRScheduledPaymentConverter {
                 .scheduledPaymentDateTime(scheduledPaymentData.getScheduledPaymentDateTime())
                 .scheduledType(toOBExternalScheduleType1Code(scheduledPaymentData.getScheduledType()))
                 .reference(scheduledPaymentData.getReference())
-                .instructedAmount(FRAmountConverter.toAccountOBActiveOrHistoricCurrencyAndAmount(scheduledPaymentData.getInstructedAmount()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification5(scheduledPaymentData.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount5(scheduledPaymentData.getCreditorAccount()));
+                .instructedAmount(toAccountOBActiveOrHistoricCurrencyAndAmount(scheduledPaymentData.getInstructedAmount()))
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification5(scheduledPaymentData.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount5(scheduledPaymentData.getCreditorAccount()));
     }
 
     public static OBScheduledPayment3 toOBScheduledPayment3(FRScheduledPaymentData scheduledPaymentData) {
@@ -91,12 +102,12 @@ public class FRScheduledPaymentConverter {
                 .scheduledType(toOBExternalScheduleType1Code(scheduledPaymentData.getScheduledType()))
                 .reference(scheduledPaymentData.getReference())
                 .debtorReference(scheduledPaymentData.getDebtorReference())
-                .instructedAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount1(scheduledPaymentData.getInstructedAmount()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification51(scheduledPaymentData.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount51(scheduledPaymentData.getCreditorAccount()));
+                .instructedAmount(toOBActiveOrHistoricCurrencyAndAmount1(scheduledPaymentData.getInstructedAmount()))
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification51(scheduledPaymentData.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount51(scheduledPaymentData.getCreditorAccount()));
     }
 
-    public static OBExternalScheduleType1Code toOBExternalScheduleType1Code(FRScheduledPaymentData.FRScheduleType scheduledType) {
+    public static OBExternalScheduleType1Code toOBExternalScheduleType1Code(FRScheduleType scheduledType) {
         return scheduledType == null ? null : OBExternalScheduleType1Code.valueOf(scheduledType.name());
     }
 

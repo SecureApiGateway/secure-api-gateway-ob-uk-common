@@ -29,6 +29,10 @@ public class FRCreditDebitIndicatorConverter {
         return indicator == null ? null : OBCreditDebitCode1.valueOf(indicator.name());
     }
 
+    public static OBCreditDebitCode2 toOBCreditDebitCode2(FRCreditDebitIndicator indicator) {
+        return indicator == null ? null : OBCreditDebitCode2.valueOf(indicator.name());
+    }
+
     public static OBTransaction5.CreditDebitIndicatorEnum toOBTransaction5CreditDebitIndicatorEnum(FRCreditDebitIndicator indicator) {
         return indicator == null ? null : OBTransaction5.CreditDebitIndicatorEnum.valueOf(indicator.name());
     }
@@ -41,12 +45,20 @@ public class FRCreditDebitIndicatorConverter {
         return indicator == null ? null : OBStatementInterest2.CreditDebitIndicatorEnum.valueOf(indicator.name());
     }
 
+    public static OBCreditDebitCode0 toOBCreditDebitCode0(FRCreditDebitIndicator indicator) {
+        return indicator == null ? null : OBCreditDebitCode0.valueOf(indicator.name());
+    }
+
     // OB to FR
     public static FRCreditDebitIndicator toFRCreditDebitIndicator(OBCreditDebitCode indicator) {
         return indicator == null ? null : FRCreditDebitIndicator.valueOf(indicator.name());
     }
 
     public static FRCreditDebitIndicator toFRCreditDebitIndicator(OBCreditDebitCode1 indicator) {
+        return indicator == null ? null : FRCreditDebitIndicator.valueOf(indicator.name());
+    }
+
+    public static FRCreditDebitIndicator toFRCreditDebitIndicator(OBCreditDebitCode2 indicator) {
         return indicator == null ? null : FRCreditDebitIndicator.valueOf(indicator.name());
     }
 
@@ -59,6 +71,10 @@ public class FRCreditDebitIndicatorConverter {
     }
 
     public static FRCreditDebitIndicator toFRCreditDebitIndicator(OBTransaction5.CreditDebitIndicatorEnum indicator) {
+        return indicator == null ? null : FRCreditDebitIndicator.valueOf(indicator.name());
+    }
+
+    public static FRCreditDebitIndicator toFRCreditDebitIndicator(OBCreditDebitCode0 indicator) {
         return indicator == null ? null : FRCreditDebitIndicator.valueOf(indicator.name());
     }
 }

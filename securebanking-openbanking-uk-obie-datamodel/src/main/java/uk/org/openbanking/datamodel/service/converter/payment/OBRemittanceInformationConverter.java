@@ -31,10 +31,4 @@ public class OBRemittanceInformationConverter {
                 .unstructured(remittanceInformation.getUnstructured())
                 .reference(remittanceInformation.getReference());
     }
-
-    public static OBWriteDomestic2DataInitiationRemittanceInformation toOBWriteDomestic2DataInitiationRemittanceInformation(OBWriteDomestic2DataInitiationRemittanceInformation remittanceInformation) {
-        return remittanceInformation == null ? null : (new OBWriteDomestic2DataInitiationRemittanceInformation())
-                .unstructured(remittanceInformation.getUnstructured())
-                .reference(remittanceInformation.getReference());
-    }
 }

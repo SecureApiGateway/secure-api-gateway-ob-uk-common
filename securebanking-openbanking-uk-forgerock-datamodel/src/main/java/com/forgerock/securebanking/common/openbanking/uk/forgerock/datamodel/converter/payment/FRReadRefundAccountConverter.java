@@ -16,7 +16,12 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRReadRefundAccount;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4Data;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4Data;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent5Data;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsent5Data;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5Data;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent6Data;
 
 public class FRReadRefundAccountConverter {
 

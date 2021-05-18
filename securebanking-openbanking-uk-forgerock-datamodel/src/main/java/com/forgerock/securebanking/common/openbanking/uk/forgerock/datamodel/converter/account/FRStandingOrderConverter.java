@@ -16,10 +16,27 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRStandingOrderData;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter;
-import uk.org.openbanking.datamodel.account.*;
+import uk.org.openbanking.datamodel.account.OBExternalStandingOrderStatus1Code;
+import uk.org.openbanking.datamodel.account.OBStandingOrder1;
+import uk.org.openbanking.datamodel.account.OBStandingOrder2;
+import uk.org.openbanking.datamodel.account.OBStandingOrder3;
+import uk.org.openbanking.datamodel.account.OBStandingOrder4;
+import uk.org.openbanking.datamodel.account.OBStandingOrder5;
+import uk.org.openbanking.datamodel.account.OBStandingOrder6;
+
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountSupplementaryDataConverter.toFRSupplementaryData;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountSupplementaryDataConverter.toOBSupplementaryData1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toFRAccountIdentifier;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBCashAccount1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBCashAccount3;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBCashAccount5;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBCashAccount51;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter.toFRFinancialAgent;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification2;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification4;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification5;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification51;
 
 public class FRStandingOrderConverter {
 
@@ -31,13 +48,13 @@ public class FRStandingOrderConverter {
                 .frequency(standingOrder.getFrequency())
                 .reference(standingOrder.getReference())
                 .firstPaymentDateTime(standingOrder.getFirstPaymentDateTime())
-                .firstPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFirstPaymentAmount()))
+                .firstPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFirstPaymentAmount()))
                 .nextPaymentDateTime(standingOrder.getNextPaymentDateTime())
-                .nextPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getNextPaymentAmount()))
+                .nextPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getNextPaymentAmount()))
                 .finalPaymentDateTime(standingOrder.getFinalPaymentDateTime())
-                .finalPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFinalPaymentAmount()))
-                .servicer(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification2(standingOrder.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount1(standingOrder.getCreditorAccount()));
+                .finalPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFinalPaymentAmount()))
+                .servicer(toOBBranchAndFinancialInstitutionIdentification2(standingOrder.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount1(standingOrder.getCreditorAccount()));
     }
 
     public static OBStandingOrder2 toOBStandingOrder2(FRStandingOrderData standingOrder) {
@@ -47,14 +64,14 @@ public class FRStandingOrderConverter {
                 .frequency(standingOrder.getFrequency())
                 .reference(standingOrder.getReference())
                 .firstPaymentDateTime(standingOrder.getFirstPaymentDateTime())
-                .firstPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFirstPaymentAmount()))
+                .firstPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFirstPaymentAmount()))
                 .nextPaymentDateTime(standingOrder.getNextPaymentDateTime())
-                .nextPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getNextPaymentAmount()))
+                .nextPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getNextPaymentAmount()))
                 .finalPaymentDateTime(standingOrder.getFinalPaymentDateTime())
-                .finalPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFinalPaymentAmount()))
+                .finalPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFinalPaymentAmount()))
                 .standingOrderStatusCode(toOBExternalStandingOrderStatus1Code(standingOrder.getStandingOrderStatusCode()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification2(standingOrder.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount1(standingOrder.getCreditorAccount()));
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification2(standingOrder.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount1(standingOrder.getCreditorAccount()));
     }
 
     public static OBStandingOrder3 toOBStandingOrder3(FRStandingOrderData standingOrder) {
@@ -67,11 +84,11 @@ public class FRStandingOrderConverter {
                 .nextPaymentDateTime(standingOrder.getNextPaymentDateTime())
                 .finalPaymentDateTime(standingOrder.getFinalPaymentDateTime())
                 .standingOrderStatusCode(toOBExternalStandingOrderStatus1Code(standingOrder.getStandingOrderStatusCode()))
-                .firstPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFirstPaymentAmount()))
-                .nextPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getNextPaymentAmount()))
-                .finalPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFinalPaymentAmount()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification4(standingOrder.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(standingOrder.getCreditorAccount()));
+                .firstPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFirstPaymentAmount()))
+                .nextPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getNextPaymentAmount()))
+                .finalPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFinalPaymentAmount()))
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification4(standingOrder.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount3(standingOrder.getCreditorAccount()));
     }
 
     public static OBStandingOrder4 toOBStandingOrder4(FRStandingOrderData standingOrder) {
@@ -84,12 +101,12 @@ public class FRStandingOrderConverter {
                 .nextPaymentDateTime(standingOrder.getNextPaymentDateTime())
                 .finalPaymentDateTime(standingOrder.getFinalPaymentDateTime())
                 .standingOrderStatusCode(toOBExternalStandingOrderStatus1Code(standingOrder.getStandingOrderStatusCode()))
-                .firstPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFirstPaymentAmount()))
-                .nextPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getNextPaymentAmount()))
-                .finalPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFinalPaymentAmount()))
-                .supplementaryData(FRAccountSupplementaryDataConverter.toOBSupplementaryData1(standingOrder.getSupplementaryData()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification4(standingOrder.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(standingOrder.getCreditorAccount()));
+                .firstPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFirstPaymentAmount()))
+                .nextPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getNextPaymentAmount()))
+                .finalPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFinalPaymentAmount()))
+                .supplementaryData(toOBSupplementaryData1(standingOrder.getSupplementaryData()))
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification4(standingOrder.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount3(standingOrder.getCreditorAccount()));
     }
 
     public static OBStandingOrder5 toOBStandingOrder5(FRStandingOrderData standingOrder) {
@@ -102,12 +119,12 @@ public class FRStandingOrderConverter {
                 .nextPaymentDateTime(standingOrder.getNextPaymentDateTime())
                 .finalPaymentDateTime(standingOrder.getFinalPaymentDateTime())
                 .standingOrderStatusCode(toOBExternalStandingOrderStatus1Code(standingOrder.getStandingOrderStatusCode()))
-                .firstPaymentAmount(FRAmountConverter.toAccountOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFirstPaymentAmount()))
-                .nextPaymentAmount(FRAmountConverter.toAccountOBActiveOrHistoricCurrencyAndAmount(standingOrder.getNextPaymentAmount()))
-                .finalPaymentAmount(FRAmountConverter.toAccountOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFinalPaymentAmount()))
-                .supplementaryData(FRAccountSupplementaryDataConverter.toOBSupplementaryData1(standingOrder.getSupplementaryData()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification5(standingOrder.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount5(standingOrder.getCreditorAccount()));
+                .firstPaymentAmount(toAccountOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFirstPaymentAmount()))
+                .nextPaymentAmount(toAccountOBActiveOrHistoricCurrencyAndAmount(standingOrder.getNextPaymentAmount()))
+                .finalPaymentAmount(toAccountOBActiveOrHistoricCurrencyAndAmount(standingOrder.getFinalPaymentAmount()))
+                .supplementaryData(toOBSupplementaryData1(standingOrder.getSupplementaryData()))
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification5(standingOrder.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount5(standingOrder.getCreditorAccount()));
     }
 
     public static OBStandingOrder6 toOBStandingOrder6(FRStandingOrderData standingOrder) {
@@ -122,13 +139,13 @@ public class FRStandingOrderConverter {
                 .finalPaymentDateTime(standingOrder.getFinalPaymentDateTime())
                 .numberOfPayments(standingOrder.getNumberOfPayments())
                 .standingOrderStatusCode(toOBExternalStandingOrderStatus1Code(standingOrder.getStandingOrderStatusCode()))
-                .firstPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount2(standingOrder.getFirstPaymentAmount()))
-                .nextPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount3(standingOrder.getNextPaymentAmount()))
-                .lastPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount11(standingOrder.getLastPaymentAmount()))
-                .finalPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount4(standingOrder.getFinalPaymentAmount()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification51(standingOrder.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount51(standingOrder.getCreditorAccount()))
-                .supplementaryData(FRAccountSupplementaryDataConverter.toOBSupplementaryData1(standingOrder.getSupplementaryData()));
+                .firstPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount2(standingOrder.getFirstPaymentAmount()))
+                .nextPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount3(standingOrder.getNextPaymentAmount()))
+                .lastPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount11(standingOrder.getLastPaymentAmount()))
+                .finalPaymentAmount(toOBActiveOrHistoricCurrencyAndAmount4(standingOrder.getFinalPaymentAmount()))
+                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification51(standingOrder.getCreditorAgent()))
+                .creditorAccount(toOBCashAccount51(standingOrder.getCreditorAccount()))
+                .supplementaryData(toOBSupplementaryData1(standingOrder.getSupplementaryData()));
     }
 
     public static OBExternalStandingOrderStatus1Code toOBExternalStandingOrderStatus1Code(FRStandingOrderData.FRStandingOrderStatus standingOrderStatusCode) {
@@ -146,12 +163,12 @@ public class FRStandingOrderConverter {
                 .nextPaymentDateTime(obStandingOrder.getNextPaymentDateTime())
                 .finalPaymentDateTime(obStandingOrder.getFinalPaymentDateTime())
                 .standingOrderStatusCode(toFRStandingOrderStatus(obStandingOrder.getStandingOrderStatusCode()))
-                .firstPaymentAmount(FRAmountConverter.toFRAmount(obStandingOrder.getFirstPaymentAmount()))
-                .nextPaymentAmount(FRAmountConverter.toFRAmount(obStandingOrder.getNextPaymentAmount()))
-                .finalPaymentAmount(FRAmountConverter.toFRAmount(obStandingOrder.getFinalPaymentAmount()))
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(obStandingOrder.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(obStandingOrder.getCreditorAccount()))
-                .supplementaryData(FRAccountSupplementaryDataConverter.toFRSupplementaryData(obStandingOrder.getSupplementaryData()))
+                .firstPaymentAmount(toFRAmount(obStandingOrder.getFirstPaymentAmount()))
+                .nextPaymentAmount(toFRAmount(obStandingOrder.getNextPaymentAmount()))
+                .finalPaymentAmount(toFRAmount(obStandingOrder.getFinalPaymentAmount()))
+                .creditorAgent(toFRFinancialAgent(obStandingOrder.getCreditorAgent()))
+                .creditorAccount(toFRAccountIdentifier(obStandingOrder.getCreditorAccount()))
+                .supplementaryData(toFRSupplementaryData(obStandingOrder.getSupplementaryData()))
                 .build();
     }
 
@@ -167,13 +184,13 @@ public class FRStandingOrderConverter {
                 .finalPaymentDateTime(obStandingOrder.getFinalPaymentDateTime())
                 .numberOfPayments(obStandingOrder.getNumberOfPayments())
                 .standingOrderStatusCode(toFRStandingOrderStatus(obStandingOrder.getStandingOrderStatusCode()))
-                .firstPaymentAmount(FRAmountConverter.toFRAmount(obStandingOrder.getFirstPaymentAmount()))
-                .nextPaymentAmount(FRAmountConverter.toFRAmount(obStandingOrder.getNextPaymentAmount()))
-                .lastPaymentAmount(FRAmountConverter.toFRAmount(obStandingOrder.getLastPaymentAmount()))
-                .finalPaymentAmount(FRAmountConverter.toFRAmount(obStandingOrder.getFinalPaymentAmount()))
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(obStandingOrder.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(obStandingOrder.getCreditorAccount()))
-                .supplementaryData(FRAccountSupplementaryDataConverter.toFRSupplementaryData(obStandingOrder.getSupplementaryData()))
+                .firstPaymentAmount(toFRAmount(obStandingOrder.getFirstPaymentAmount()))
+                .nextPaymentAmount(toFRAmount(obStandingOrder.getNextPaymentAmount()))
+                .lastPaymentAmount(toFRAmount(obStandingOrder.getLastPaymentAmount()))
+                .finalPaymentAmount(toFRAmount(obStandingOrder.getFinalPaymentAmount()))
+                .creditorAgent(toFRFinancialAgent(obStandingOrder.getCreditorAgent()))
+                .creditorAccount(toFRAccountIdentifier(obStandingOrder.getCreditorAccount()))
+                .supplementaryData(toFRSupplementaryData(obStandingOrder.getSupplementaryData()))
                 .build();
     }
 

@@ -17,10 +17,9 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDataFile;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteFile;
-import uk.org.openbanking.datamodel.payment.OBWriteDataFile1;
-import uk.org.openbanking.datamodel.payment.OBWriteDataFile2;
-import uk.org.openbanking.datamodel.payment.OBWriteFile1;
-import uk.org.openbanking.datamodel.payment.OBWriteFile2;
+import uk.org.openbanking.datamodel.payment.*;
+
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteFileConsentConverter.*;
 
 public class FRWriteFileConverter {
 
@@ -40,26 +39,39 @@ public class FRWriteFileConverter {
     public static FRWriteDataFile toFRWriteDataFile(OBWriteDataFile1 data) {
         return data == null ? null : FRWriteDataFile.builder()
                 .consentId(data.getConsentId())
-                .initiation(FRWriteFileConsentConverter.toFRWriteFileDataInitiation(data.getInitiation()))
+                .initiation(toFRWriteFileDataInitiation(data.getInitiation()))
                 .build();
     }
 
     public static FRWriteDataFile toFRWriteDataFile(OBWriteDataFile2 data) {
         return data == null ? null : FRWriteDataFile.builder()
                 .consentId(data.getConsentId())
-                .initiation(FRWriteFileConsentConverter.toFRWriteFileDataInitiation(data.getInitiation()))
+                .initiation(toFRWriteFileDataInitiation(data.getInitiation()))
+                .build();
+    }
+
+    public static FRWriteDataFile toFRWriteDataFile(OBWriteFile2Data data) {
+        return data == null ? null : FRWriteDataFile.builder()
+                .consentId(data.getConsentId())
+                .initiation(toFRWriteFileDataInitiation(data.getInitiation()))
                 .build();
     }
 
     // FR to OB
     public static OBWriteFile2 toOBWriteFile2(FRWriteFile filePayment) {
         return filePayment == null ? null : new OBWriteFile2()
-                .data(toOBWriteDataFile2(filePayment.getData()));
+                .data(toOBWriteFile2Data(filePayment.getData()));
     }
 
     public static OBWriteDataFile2 toOBWriteDataFile2(FRWriteDataFile data) {
         return data == null ? null : new OBWriteDataFile2()
                 .consentId(data.getConsentId())
-                .initiation(FRWriteFileConsentConverter.toOBFile2(data.getInitiation()));
+                .initiation(toOBFile2(data.getInitiation()));
+    }
+
+    public static OBWriteFile2Data toOBWriteFile2Data(FRWriteDataFile data) {
+        return data == null ? null : new OBWriteFile2Data()
+                .consentId(data.getConsentId())
+                .initiation(toOBWriteFile2DataInitiation(data.getInitiation()));
     }
 }

@@ -15,7 +15,11 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.*;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRAccountIdentifier;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRFinancialAgent;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRFinancialCreditor;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRDomesticResponseDataRefund;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRInternationalResponseDataRefund;
 import uk.org.openbanking.datamodel.payment.*;
 
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentPostalAddressConverter.toOBPostalAddress6;
@@ -46,6 +50,13 @@ public class FRResponseDataRefundConverter {
         return refund == null ? null : new OBWriteInternationalResponse5DataRefund()
                 .account(toOBWriteDomesticResponse5DataRefundAccount(refund.getAccount()))
                 .creditor(toOBWriteInternationalResponse5DataRefundCreditor(refund.getCreditor()))
+                .agent(toOBWriteInternationalResponse5DataRefundAgent(refund.getAgent()));
+    }
+
+    public static OBWriteInternationalStandingOrderResponse7DataRefund toOBWriteInternationalStandingOrderResponse7DataRefund(FRInternationalResponseDataRefund refund) {
+        return refund == null ? null : new OBWriteInternationalStandingOrderResponse7DataRefund()
+                .account(toOBWriteDomesticResponse5DataRefundAccount(refund.getAccount()))
+                .creditor(toOBWriteInternationalStandingOrderResponse7DataRefundCreditor(refund.getCreditor()))
                 .agent(toOBWriteInternationalResponse5DataRefundAgent(refund.getAgent()));
     }
 
@@ -80,6 +91,12 @@ public class FRResponseDataRefundConverter {
 
     private static OBWriteInternationalResponse5DataRefundCreditor toOBWriteInternationalResponse5DataRefundCreditor(FRFinancialCreditor creditor) {
         return creditor == null ? null : new OBWriteInternationalResponse5DataRefundCreditor()
+                .name(creditor.getName())
+                .postalAddress(toOBPostalAddress6(creditor.getPostalAddress()));
+    }
+
+    private static OBWriteInternationalStandingOrderResponse7DataRefundCreditor toOBWriteInternationalStandingOrderResponse7DataRefundCreditor(FRFinancialCreditor creditor) {
+        return creditor == null ? null : new OBWriteInternationalStandingOrderResponse7DataRefundCreditor()
                 .name(creditor.getName())
                 .postalAddress(toOBPostalAddress6(creditor.getPostalAddress()));
     }
