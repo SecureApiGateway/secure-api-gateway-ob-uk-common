@@ -76,7 +76,7 @@ public class FRFinancialAccountConverter {
                 .nickname(account.getNickname())
                 .openingDate(account.getOpeningDate())
                 .maturityDate(account.getMaturityDate())
-                .account(toOBAccount4AccountList(account.getAccounts()))
+                .account(toOBAccount6AccountList(account.getAccounts()))
                 .servicer(toOBBranchAndFinancialInstitutionIdentification50(account.getServicer()));
     }
 
@@ -101,6 +101,12 @@ public class FRFinancialAccountConverter {
     public static List<OBAccount4Account> toOBAccount4AccountList(List<FRAccountIdentifier> accounts) {
         return accounts == null ? null : accounts.stream()
                 .map(FRAccountIdentifierConverter::toOBAccount4Account)
+                .collect(Collectors.toList());
+    }
+
+    private static List<OBAccount6Account> toOBAccount6AccountList(List<FRAccountIdentifier> accounts) {
+        return accounts == null ? null : accounts.stream()
+                .map(FRAccountIdentifierConverter::toOBAccount6Account)
                 .collect(Collectors.toList());
     }
 

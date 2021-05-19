@@ -145,6 +145,10 @@ public class FRAccountIdentifierConverter {
         return FRModelMapper.map(account, OBAccount4Account.class);
     }
 
+    public static OBAccount6Account toOBAccount6Account(FRAccountIdentifier account) {
+        return FRModelMapper.map(account, OBAccount6Account.class);
+    }
+
     public static OBWriteDomestic2DataInitiationCreditorAccount toOBWriteDomestic2DataInitiationCreditorAccount(FRAccountIdentifier account) {
         return FRModelMapper.map(account, OBWriteDomestic2DataInitiationCreditorAccount.class);
     }
@@ -197,6 +201,15 @@ public class FRAccountIdentifierConverter {
     }
 
     public static FRAccountIdentifier toFRAccountIdentifier(OBAccount4Account account) {
+        return account == null ? null : FRAccountIdentifier.builder()
+                .schemeName(account.getSchemeName())
+                .identification(account.getIdentification())
+                .name(account.getName())
+                .secondaryIdentification(account.getSecondaryIdentification())
+                .build();
+    }
+
+    public static FRAccountIdentifier toFRAccountIdentifier(OBAccount6Account account) {
         return account == null ? null : FRAccountIdentifier.builder()
                 .schemeName(account.getSchemeName())
                 .identification(account.getIdentification())

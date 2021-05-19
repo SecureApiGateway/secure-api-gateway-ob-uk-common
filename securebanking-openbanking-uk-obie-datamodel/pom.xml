@@ -167,22 +167,16 @@
                                 </goals>
                                 <configuration>
                                     <!-- Only one input file is supported. Uncomment the relevant spec as required -->
-                                    <inputSpec>
-                                        ${project.basedir}/src/main/resources/specification/account-info-swagger.yaml
-                                    </inputSpec>
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/aggregated-polling-swagger.yaml</inputSpec>-->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/callback-urls-swagger.yaml</inputSpec>-->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/confirmation-funds-swagger.yaml</inputSpec>-->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/event-notifications-swagger.yaml</inputSpec>-->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/event-subscriptions-swagger.yaml</inputSpec>-->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/events-swagger.yaml</inputSpec>-->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/payment-initiation-swagger.yaml</inputSpec>-->
+                                    <inputSpec>${project.basedir}/src/main/resources/specification/account-info-openapi.yaml</inputSpec>
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/confirmation-funds-openapi.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/event-notifications-openapi.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/events-openapi.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/payment-initiation-openapi.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/vrp-openapi.yaml</inputSpec>-->
                                     <output>${project.build.directory}/generated-sources/swagger</output>
                                     <generatorName>spring</generatorName>
                                     <!-- Change the package here as per the chosen spec above -->
-                                    <modelPackage>
-                                        com.forgerock.securebanking.openbanking.uk.forgerock.datamodel.account
-                                    </modelPackage>
+                                    <modelPackage>uk.org.openbanking.datamodel.account</modelPackage>
                                     <generateApis>false</generateApis>
                                     <configOptions>
                                         <dateLibrary>joda</dateLibrary>
