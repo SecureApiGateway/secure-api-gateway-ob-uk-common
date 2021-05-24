@@ -77,7 +77,7 @@ public class OBWriteInternationalConsentTestDataFactory {
                 .initiation(aValidOBWriteInternational3DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1())
-                .readRefundAccount(OBWriteInternationalConsent5Data.ReadRefundAccountEnum.NO);
+                .readRefundAccount(OBReadRefundAccountEnum.NO);
     }
 
     public static OBInternational1 aValidOBInternational1() {
@@ -122,7 +122,7 @@ public class OBWriteInternationalConsentTestDataFactory {
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
                 .localInstrument(LOCAL_INSTRUMENT)
-                .instructionPriority(OBWriteInternational3DataInitiation.InstructionPriorityEnum.NORMAL)
+                .instructionPriority(OBPriority2Code.NORMAL)
                 .purpose(PURPOSE)
                 .extendedPurpose("Extended purpose")
                 .chargeBearer(OBChargeBearerType1Code.SHARED)

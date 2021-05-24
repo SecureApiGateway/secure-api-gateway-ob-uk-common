@@ -17,7 +17,6 @@ package uk.org.openbanking.datamodel.payment;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
 import uk.org.openbanking.datamodel.account.Links;
 import uk.org.openbanking.datamodel.account.Meta;
 
@@ -28,18 +27,17 @@ import java.util.Objects;
 /**
  * OBWriteFundsConfirmationResponse1
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-01-28T11:15:38.268Z")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
 
 public class OBWriteFundsConfirmationResponse1   {
   @JsonProperty("Data")
-  private OBWriteFundsConfirmationResponse1Data data = null;
+  private OBWriteFundsConfirmationResponse1Data data;
 
   @JsonProperty("Links")
-  private Links links = null;
+  private Links links;
 
   @JsonProperty("Meta")
-  private Meta meta = null;
+  private Meta meta;
 
   public OBWriteFundsConfirmationResponse1 data(OBWriteFundsConfirmationResponse1Data data) {
     this.data = data;
@@ -49,12 +47,10 @@ public class OBWriteFundsConfirmationResponse1   {
   /**
    * Get data
    * @return data
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @NotNull
-
   @Valid
-
   public OBWriteFundsConfirmationResponse1Data getData() {
     return data;
   }
@@ -70,13 +66,11 @@ public class OBWriteFundsConfirmationResponse1   {
 
   /**
    * Get links
+   *
    * @return links
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
+   */
+  @ApiModelProperty(value = "")
   @Valid
-
   public Links getLinks() {
     return links;
   }
@@ -92,13 +86,11 @@ public class OBWriteFundsConfirmationResponse1   {
 
   /**
    * Get meta
+   *
    * @return meta
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
+   */
+  @ApiModelProperty(value = "")
   @Valid
-
   public Meta getMeta() {
     return meta;
   }
@@ -131,7 +123,7 @@ public class OBWriteFundsConfirmationResponse1   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OBWriteFundsConfirmationResponse1 {\n");
-
+    
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");

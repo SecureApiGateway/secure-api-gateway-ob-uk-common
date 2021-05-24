@@ -50,7 +50,7 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
 
     public static OBWriteDomesticStandingOrderConsent4Data aValidOBWriteDomesticStandingOrderConsent4Data() {
         return (new OBWriteDomesticStandingOrderConsent4Data())
-                .permission(OBWriteDomesticStandingOrderConsent4Data.PermissionEnum.CREATE)
+                .permission(OBExternalPermissions2Code.CREATE)
                 .initiation(aValidOBWriteDomesticStandingOrder3DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent3DataAuthorisation())
                 .scASupportData(aValidOBWriteDomesticConsent3DataSCASupportData());
@@ -58,11 +58,11 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
 
     public static OBWriteDomesticStandingOrderConsent5Data aValidOBWriteDomesticStandingOrderConsent5Data() {
         return (new OBWriteDomesticStandingOrderConsent5Data())
-                .permission(OBWriteDomesticStandingOrderConsent5Data.PermissionEnum.CREATE)
+                .permission(OBExternalPermissions2Code.CREATE)
                 .initiation(aValidOBWriteDomesticStandingOrder3DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1())
-                .readRefundAccount(OBWriteDomesticStandingOrderConsent5Data.ReadRefundAccountEnum.NO);
+                .readRefundAccount(OBReadRefundAccountEnum.NO);
     }
 
     public static OBDomesticStandingOrder1 aValidOBDomesticStandingOrder1() {

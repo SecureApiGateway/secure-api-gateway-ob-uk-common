@@ -29,7 +29,7 @@ public class OBExchangeRateTestDataFactory {
         return (new OBWriteInternational2DataInitiationExchangeRateInformation())
                 .unitCurrency(CURRENCY)
                 .exchangeRate(BigDecimal.TEN)
-                .rateType(OBWriteInternational2DataInitiationExchangeRateInformation.RateTypeEnum.AGREED)
+                .rateType(OBExchangeRateType2Code.AGREED)
                 .contractIdentification(CONTRACT_IDENTIFICATION);
     }
 
@@ -37,7 +37,7 @@ public class OBExchangeRateTestDataFactory {
         return (new OBWriteInternational3DataInitiationExchangeRateInformation())
                 .unitCurrency(CURRENCY)
                 .exchangeRate(BigDecimal.TEN)
-                .rateType(OBWriteInternational3DataInitiationExchangeRateInformation.RateTypeEnum.AGREED)
+                .rateType(OBExchangeRateType2Code.AGREED)
                 .contractIdentification(CONTRACT_IDENTIFICATION);
     }
 
@@ -45,7 +45,7 @@ public class OBExchangeRateTestDataFactory {
         return (new OBWriteInternationalConsentResponse4DataExchangeRateInformation())
                 .unitCurrency(CURRENCY)
                 .exchangeRate(BigDecimal.TEN)
-                .rateType(OBWriteInternationalConsentResponse4DataExchangeRateInformation.RateTypeEnum.AGREED)
+                .rateType(OBExchangeRateType2Code.AGREED)
                 .contractIdentification(CONTRACT_IDENTIFICATION)
                 .expirationDateTime(DateTime.now().plusDays(1));
     }
@@ -54,7 +54,7 @@ public class OBExchangeRateTestDataFactory {
         return (new OBWriteInternationalConsentResponse6DataExchangeRateInformation())
                 .unitCurrency(CURRENCY)
                 .exchangeRate(BigDecimal.TEN)
-                .rateType(OBWriteInternationalConsentResponse6DataExchangeRateInformation.RateTypeEnum.AGREED)
+                .rateType(OBExchangeRateType2Code.AGREED)
                 .contractIdentification(CONTRACT_IDENTIFICATION)
                 .expirationDateTime(DateTime.now().plusDays(1));
     }
