@@ -18,9 +18,6 @@ package uk.org.openbanking.datamodel.payment;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-
 /**
  * Specifies the payment context
  */

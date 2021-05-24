@@ -65,7 +65,7 @@ public class OBWriteDomesticScheduledConsentTestDataFactory {
 
     public static OBWriteDomesticScheduledConsent3Data aValidOBWriteDomesticScheduledConsent3Data() {
         return (new OBWriteDomesticScheduledConsent3Data())
-                .permission(OBWriteDomesticScheduledConsent3Data.PermissionEnum.CREATE)
+                .permission(OBExternalPermissions2Code.CREATE)
                 .initiation(aValidOBWriteDomesticScheduled2DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent3DataAuthorisation())
                 .scASupportData(aValidOBWriteDomesticConsent3DataSCASupportData());
@@ -73,11 +73,11 @@ public class OBWriteDomesticScheduledConsentTestDataFactory {
 
     public static OBWriteDomesticScheduledConsent4Data aValidOBWriteDomesticScheduledConsent4Data() {
         return (new OBWriteDomesticScheduledConsent4Data())
-                .permission(OBWriteDomesticScheduledConsent4Data.PermissionEnum.CREATE)
+                .permission(OBExternalPermissions2Code.CREATE)
                 .initiation(aValidOBWriteDomesticScheduled2DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1())
-                .readRefundAccount(OBWriteDomesticScheduledConsent4Data.ReadRefundAccountEnum.NO);
+                .readRefundAccount(OBReadRefundAccountEnum.NO);
     }
 
     public static OBDomesticScheduled1 aValidOBDomesticScheduled1() {

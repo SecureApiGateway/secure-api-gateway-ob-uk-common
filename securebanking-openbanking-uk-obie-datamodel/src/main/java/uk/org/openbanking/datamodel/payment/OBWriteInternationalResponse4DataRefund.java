@@ -28,18 +28,12 @@
 
 package uk.org.openbanking.datamodel.payment;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticResponse4DataRefundAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalResponse4DataRefundAgent;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalResponse4DataRefundCreditor;
-import javax.validation.constraints.*;
+
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 /**
  * OBWriteInternationalResponse4DataRefund

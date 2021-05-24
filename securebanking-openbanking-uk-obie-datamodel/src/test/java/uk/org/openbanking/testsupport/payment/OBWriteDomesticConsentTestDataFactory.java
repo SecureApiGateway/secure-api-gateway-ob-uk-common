@@ -87,7 +87,7 @@ public class OBWriteDomesticConsentTestDataFactory {
                 .initiation(aValidOBWriteDomestic2DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1())
-                .readRefundAccount(OBWriteDomesticConsent4Data.ReadRefundAccountEnum.NO);
+                .readRefundAccount(OBReadRefundAccountEnum.NO);
     }
 
     public static  OBDomestic1 aValidOBDomestic1() {

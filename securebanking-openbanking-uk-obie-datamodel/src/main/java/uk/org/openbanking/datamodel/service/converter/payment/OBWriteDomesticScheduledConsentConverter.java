@@ -89,14 +89,14 @@ public class OBWriteDomesticScheduledConsentConverter {
 
     public static OBWriteDataDomesticScheduledConsent1 toOBWriteDataDomesticScheduledConsent1(OBWriteDomesticScheduledConsent3Data data) {
         return data == null ? null : (new OBWriteDataDomesticScheduledConsent1())
-                .permission(toOBExternalPermissions2Code(data.getPermission()))
+                .permission(data.getPermission())
                 .initiation(toOBDomesticScheduled1(data.getInitiation()))
                 .authorisation(toOBAuthorisation1(data.getAuthorisation()));
     }
 
     public static OBWriteDataDomesticScheduledConsent1 toOBWriteDataDomesticScheduledConsent1(OBWriteDomesticScheduledConsent4Data data) {
         return data == null ? null : (new OBWriteDataDomesticScheduledConsent1())
-                .permission(toOBExternalPermissions2Code(data.getPermission()))
+                .permission(data.getPermission())
                 .initiation(toOBDomesticScheduled1(data.getInitiation()))
                 .authorisation(toOBAuthorisation1(data.getAuthorisation()));
     }
@@ -110,7 +110,7 @@ public class OBWriteDomesticScheduledConsentConverter {
 
     public static OBWriteDomesticScheduledConsent3Data toOBWriteDomesticScheduledConsent3Data(OBWriteDataDomesticScheduledConsent1 data) {
         return data == null ? null : (new OBWriteDomesticScheduledConsent3Data())
-                .permission(toOBWriteDomesticScheduledConsent3DataPermission(data.getPermission()))
+                .permission(data.getPermission())
                 .initiation(toOBWriteDomesticScheduled2DataInitiation(data.getInitiation()))
                 .authorisation(toOBWriteDomesticConsent3DataAuthorisation(data.getAuthorisation()))
                 .scASupportData(null);
@@ -118,7 +118,7 @@ public class OBWriteDomesticScheduledConsentConverter {
 
     public static OBWriteDomesticScheduledConsent4Data toOBWriteDomesticScheduledConsent4Data(OBWriteDataDomesticScheduledConsent1 data) {
         return data == null ? null : (new OBWriteDomesticScheduledConsent4Data())
-                .permission(toOBWriteDomesticScheduledConsent4DataPermission(data.getPermission()))
+                .permission(data.getPermission())
                 .readRefundAccount(null)
                 .initiation(toOBWriteDomesticScheduled2DataInitiation(data.getInitiation()))
                 .authorisation(toOBWriteDomesticConsent4DataAuthorisation(data.getAuthorisation()))
@@ -127,7 +127,7 @@ public class OBWriteDomesticScheduledConsentConverter {
 
     public static OBWriteDomesticScheduledConsent4Data toOBWriteDomesticScheduledConsent4Data(OBWriteDataDomesticScheduledConsent2 data) {
         return data == null ? null : (new OBWriteDomesticScheduledConsent4Data())
-                .permission(toOBWriteDomesticScheduledConsent4DataPermission(data.getPermission()))
+                .permission(data.getPermission())
                 .readRefundAccount(null)
                 .initiation(toOBWriteDomesticScheduled2DataInitiation(data.getInitiation()))
                 .authorisation(toOBWriteDomesticConsent4DataAuthorisation(data.getAuthorisation()))
@@ -136,7 +136,7 @@ public class OBWriteDomesticScheduledConsentConverter {
 
     public static OBWriteDomesticScheduledConsent3Data toOBWriteDomesticScheduledConsent3Data(OBWriteDataDomesticScheduledConsent2 data) {
         return data == null ? null : (new OBWriteDomesticScheduledConsent3Data())
-                .permission(toOBWriteDomesticScheduledConsent3DataPermission(data.getPermission()))
+                .permission(data.getPermission())
                 .initiation(toOBWriteDomesticScheduled2DataInitiation(data.getInitiation()))
                 .authorisation(toOBWriteDomesticConsent3DataAuthorisation(data.getAuthorisation()));
     }
@@ -152,21 +152,4 @@ public class OBWriteDomesticScheduledConsentConverter {
                 .consentId(data.getConsentId())
                 .initiation(toOBWriteDomesticScheduled2DataInitiation(data.getInitiation()));
     }
-
-    public static OBExternalPermissions2Code toOBExternalPermissions2Code(OBWriteDomesticScheduledConsent3Data.PermissionEnum permission) {
-        return permission == null ? null : OBExternalPermissions2Code.valueOf(permission.name());
-    }
-
-    private static OBExternalPermissions2Code toOBExternalPermissions2Code(OBWriteDomesticScheduledConsent4Data.PermissionEnum permission) {
-        return permission == null ? null : OBExternalPermissions2Code.valueOf(permission.name());
-    }
-
-    public static OBWriteDomesticScheduledConsent3Data.PermissionEnum toOBWriteDomesticScheduledConsent3DataPermission(OBExternalPermissions2Code permission) {
-        return permission == null ? null : OBWriteDomesticScheduledConsent3Data.PermissionEnum.valueOf(permission.name());
-    }
-
-    public static OBWriteDomesticScheduledConsent4Data.PermissionEnum toOBWriteDomesticScheduledConsent4DataPermission(OBExternalPermissions2Code permission) {
-        return permission == null ? null : OBWriteDomesticScheduledConsent4Data.PermissionEnum.valueOf(permission.name());
-    }
-
 }
