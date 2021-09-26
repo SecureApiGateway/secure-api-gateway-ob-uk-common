@@ -23,7 +23,7 @@
     <groupId>com.forgerock.securebanking.uk</groupId>
     <artifactId>securebanking-openbanking-uk</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>Secure Banking access Toolkit library for Open Banking UK specs</name>
     <url>https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk</url>
 
