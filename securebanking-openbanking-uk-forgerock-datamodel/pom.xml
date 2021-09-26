@@ -16,41 +16,40 @@
     limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.forgerock.securebanking.uk</groupId>
+    <artifactId>securebanking-openbanking-uk-forgerock-datamodel</artifactId>
+    <packaging>jar</packaging>
+    <name>securebanking-openbanking-uk-forgerock-datamodel</name>
+    <url>
+        https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk/securebanking-openbanking-uk-forgerock-datamodel
+    </url>
+
     <parent>
-        <groupId>com.forgerock.securebanking</groupId>
+        <groupId>com.forgerock.securebanking.uk</groupId>
         <artifactId>securebanking-openbanking-uk</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>securebanking-openbanking-uk-forgerock-datamodel</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-
-    <name>securebanking-openbanking-uk-forgerock-datamodel</name>
-    <url>
-        https://github.com/SecureBankingAcceleratorToolkit/securebanking-openbanking-common-uk/securebanking-openbanking-uk-forgerock-domain
-    </url>
-
     <properties>
-        <securebanking-openbanking-uk-obie-datamodel.version>1.0.0-SNAPSHOT</securebanking-openbanking-uk-obie-datamodel.version>
-        <securebanking-openbanking-uk-common.version>1.0.0-SNAPSHOT</securebanking-openbanking-uk-common.version>
+        <!-- Mandatory property to find the license header when build the module from module -->
+        <main.basedir.license>${project.parent.basedir}</main.basedir.license>
     </properties>
 
     <dependencies>
         <!-- ForgeRock dependencies -->
         <dependency>
-            <groupId>com.forgerock.securebanking</groupId>
+            <groupId>com.forgerock.securebanking.uk</groupId>
             <artifactId>securebanking-openbanking-uk-obie-datamodel</artifactId>
-            <version>${securebanking-openbanking-uk-obie-datamodel.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.forgerock.securebanking</groupId>
+            <groupId>com.forgerock.securebanking.uk</groupId>
             <artifactId>securebanking-openbanking-uk-common</artifactId>
-            <version>${securebanking-openbanking-uk-common.version}</version>
+            <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>
 
@@ -87,21 +86,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>com.mycila</groupId>
-                <artifactId>license-maven-plugin</artifactId>
-                <!-- Need to format and then check the license as when regenerated the new files will not have the
-                license headers in -->
-                <executions>
-                    <execution>
-                        <phase>process-sources</phase>
-                        <goals>
-                            <goal>format</goal>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
