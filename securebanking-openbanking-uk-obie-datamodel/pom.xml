@@ -20,7 +20,6 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.forgerock.securebanking.uk</groupId>
     <artifactId>securebanking-openbanking-uk-obie-datamodel</artifactId>
     <packaging>jar</packaging>
     <name>securebanking-openbanking-uk-obie-datamodel</name>
@@ -35,7 +34,7 @@
     <parent>
         <groupId>com.forgerock.securebanking.uk</groupId>
         <artifactId>securebanking-openbanking-uk</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
