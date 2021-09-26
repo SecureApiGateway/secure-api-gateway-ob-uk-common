@@ -6,9 +6,9 @@ This is a 'Bill of Materials' project that allows projects dependent on `secureb
 ```
    <dependencyManagement>
         <dependencies>
-            <!-- Secure Banking Open Banking common dependencies -->
+            <!-- Secure Banking: Open Banking UK common dependencies BOM -->
             <dependency>
-                <groupId>com.forgerock.securebanking</groupId>
+                <groupId>com.forgerock.securebanking.uk</groupId>
                 <artifactId>securebanking-openbanking-uk-bom</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
                 <type>pom</type>

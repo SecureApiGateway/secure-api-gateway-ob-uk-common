@@ -9,9 +9,9 @@ Import into your dependenciesManagement sections like this (use the latest relea
 ```
    <dependencyManagement>
         <dependencies>
-            <!-- Secure Banking Open Banking common dependencies -->
+            <!-- Secure Banking: Open Banking UK common dependencies -->
             <dependency>
-                <groupId>com.forgerock.securebanking</groupId>
+                <groupId>com.forgerock.securebanking.uk</groupId>
                 <artifactId>securebanking-openbanking-uk-bom</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
                 <type>pom</type>
