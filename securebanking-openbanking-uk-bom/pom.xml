@@ -28,7 +28,7 @@
 
     <description>
         Secure Banking: Open Banking Uk Bill of Materials, keep track of version numbers and ensure that all
-        dependencies (both direct and transitive) are at the same version.
+        dependencies are at the same version.
     </description>
     <url>
         https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk/securebanking-openbanking-uk-bom
@@ -39,12 +39,6 @@
         <url>http://www.forgerock.org</url>
     </organization>
     <inceptionYear>2020</inceptionYear>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <mycila-license-maven-plugin.version>4.1</mycila-license-maven-plugin.version>
-    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -84,47 +78,8 @@
                 <type>test-jar</type>
                 <scope>test</scope>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <plugins>
-            <!-- Licence checker defined here as bom does not inherit from parent pom -->
-            <plugin>
-                <groupId>com.mycila</groupId>
-                <artifactId>license-maven-plugin</artifactId>
-                <version>${mycila-license-maven-plugin.version}</version>
-                <configuration>
-                    <licenseSets>
-                        <licenseSet>
-                            <header>com/mycila/maven/plugin/license/templates/APACHE-2.txt</header>
-                            <excludes>
-                                <exclude>**/README</exclude>
-                                <exclude>src/test/resources/**</exclude>
-                                <exclude>src/main/resources/**</exclude>
-                            </excludes>
-                        </licenseSet>
-                    </licenseSets>
-                    <properties>
-                        <owner>ForgeRock AS</owner>
-                        <email>obst@forgerock.com</email>
-                    </properties>
-                    <mapping>
-                        <java>JAVADOC_STYLE</java>
-                    </mapping>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>process-sources</phase>
-                        <goals>
-                            <goal>format</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 
     <distributionManagement>
         <repository>
