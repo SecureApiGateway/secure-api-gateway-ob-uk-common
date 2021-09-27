@@ -2,8 +2,7 @@ name: merge-master
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
 
 jobs:
   build:
@@ -25,8 +24,31 @@ jobs:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven2-${{ hashFiles('**/pom.xml') }}
 
-      - name: Build project with Maven # build the project
-        run: mvn -B clean verify --file pom.xml # this command executes each default lifecycle phase in order (validate, compile, test, package, etc), before executing verify.
+      - name: Get version
+        run: |
+          echo "VERSION=$( mvn help:evaluate -Dexpression=project.version -q -DforceStdout )" >> $GITHUB_ENV
+          echo "Version is $VERSION"
+        id: get_version
+
+      - name: Set up snapshot forgerock maven repository
+        if: contains( env.VERSION, 'SNAPSHOT')
+        uses: actions/setup-java@v1
+        with: # running setup-java and overwrites the settings.xml
+          java-version: "14"
+          architecture: x64
+          server-id: maven.forgerock.org-community-snapshots # Value of the distributionManagement/repository/id field of the pom.xml
+          server-username: MAVEN_REPO_USERNAME # env variable for username in deploy
+          server-password: MAVEN_REPO_TOKEN # env variable for token in deploy
+
+      - name: Check integrity # build the project
+        run: mvn -B verify --file pom.xml # this command executes each default lifecycle phase in order (validate, compile, test, package, etc), before executing verify.
+
+      - name: Release snapshot package to forgerock maven snapshot repository
+        if: contains(env.VERSION, 'SNAPSHOT')
+        run: mvn -B deploy --file pom.xml
+        env:
+          MAVEN_REPO_USERNAME: ${{ secrets.FR_ARTIFACTORY_USER }}
+          MAVEN_REPO_TOKEN: ${{ secrets.FR_ARTIFACTORY_TOKEN }}
 
       - uses: codecov/codecov-action@v1
         with:
