@@ -179,12 +179,4 @@
         </profile>
     </profiles>
 
-    <scm>
-        <connection>scm:git:git@github.com:SecureBankingAcceleratorToolkit/securebanking-openbanking-uk.git
-        </connection>
-        <developerConnection>scm:git:git@github.com:SecureBankingAcceleratorToolkit/securebanking-openbanking-uk.git
-        </developerConnection>
-        <url>scm:git:git@github.com:SecureBankingAcceleratorToolkit/securebanking-openbanking-uk.git</url>
-        <tag>HEAD</tag>
-    </scm>
 </project>

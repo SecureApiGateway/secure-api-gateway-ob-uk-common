@@ -30,7 +30,8 @@
         Secure Banking: Open Banking Uk Bill of Materials, keep track of version numbers and ensure that all
         dependencies (both direct and transitive) are at the same version.
     </description>
-    <url>https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk/securebanking-openbanking-uk-bom
+    <url>
+        https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk/securebanking-openbanking-uk-bom
     </url>
 
     <organization>
@@ -137,5 +138,14 @@
             <url>https://maven.forgerock.org:443/repo/community</url>
         </snapshotRepository>
     </distributionManagement>
+
+    <scm>
+        <connection>scm:git:git@github.com:SecureBankingAccessToolkit/securebanking-openbanking-uk.git
+        </connection>
+        <developerConnection>scm:git:git@github.com:SecureBankingAccessToolkit/securebanking-openbanking-uk.git
+        </developerConnection>
+        <url>https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk.git</url>
+        <tag>HEAD</tag>
+    </scm>
 
 </project>

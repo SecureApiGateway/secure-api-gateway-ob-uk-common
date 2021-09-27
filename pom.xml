@@ -39,11 +39,11 @@
     </properties>
 
     <scm>
-        <connection>scm:git:git@github.com:SecureBankingAcceleratorToolkit/securebanking-openbanking-uk.git
+        <connection>scm:git:git@github.com:SecureBankingAccessToolkit/securebanking-openbanking-uk.git
         </connection>
-        <developerConnection>scm:git:git@github.com:SecureBankingAcceleratorToolkit/securebanking-openbanking-uk.git
+        <developerConnection>scm:git:git@github.com:SecureBankingAccessToolkit/securebanking-openbanking-uk.git
         </developerConnection>
-        <url>https://github.com/SecureBankingAcceleratorToolkit/securebanking-openbanking-uk.git</url>
+        <url>https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk.git</url>
         <tag>HEAD</tag>
     </scm>
 
