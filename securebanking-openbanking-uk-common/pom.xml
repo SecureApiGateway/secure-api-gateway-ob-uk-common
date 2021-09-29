@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-Copyright © 2020-2021 ForgeRock AS (obst@forgerock.com)
+    Copyright © 2020-2021 ForgeRock AS (obst@forgerock.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -34,14 +34,11 @@ Copyright © 2020-2021 ForgeRock AS (obst@forgerock.com)
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-<<<<<<< HEAD
     <properties>
         <!-- property to run individualy the module with no license issues -->
         <legal.path.header>../legal/LICENSE-HEADER.txt</legal.path.header>
     </properties>
 
-=======
->>>>>>> master
     <dependencies>
         <!-- ForgeRock dependencies -->
 
