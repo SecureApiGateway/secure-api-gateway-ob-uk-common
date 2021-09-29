@@ -1,5 +1,5 @@
 /**
- * Copyright © 2021 ForgeRock AS (obst@forgerock.com)
+ * Copyright © 2020-2021 ForgeRock AS (obst@forgerock.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.util.stream.Stream;
 
@@ -50,10 +53,13 @@ public enum FRExternalPermissionsCode {
         return value;
     }
 
+    @Override
+    @JsonValue
     public String toString() {
         return value;
     }
 
+    @JsonCreator
     public static FRExternalPermissionsCode fromValue(String value) {
         return Stream.of(values())
                 .filter(type -> type.getValue().equals(value))

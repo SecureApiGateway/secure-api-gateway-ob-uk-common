@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 
-    Copyright © 2021 ForgeRock AS (obst@forgerock.com)
+    Copyright © 2020-2021 ForgeRock AS (obst@forgerock.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -34,9 +34,14 @@
     <parent>
         <groupId>com.forgerock.securebanking.uk</groupId>
         <artifactId>securebanking-openbanking-uk</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+
+    <properties>
+        <!-- property to run individualy the module with no license issues -->
+        <legal.path.header>../legal/LICENSE-HEADER.txt</legal.path.header>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -92,7 +97,7 @@
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
+            <artifactId>hibernate-validator-cdi</artifactId>
         </dependency>
         <dependency>
             <groupId>javax.xml.bind</groupId>
