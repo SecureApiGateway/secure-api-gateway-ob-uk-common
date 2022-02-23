@@ -23,7 +23,7 @@ import uk.org.openbanking.datamodel.account.*;
 import java.util.List;
 
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRCreditDebitIndicatorConverter.*;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAmountConverter.*;
 import static java.util.stream.Collectors.toList;
 
 public class FRCashBalanceConverter {

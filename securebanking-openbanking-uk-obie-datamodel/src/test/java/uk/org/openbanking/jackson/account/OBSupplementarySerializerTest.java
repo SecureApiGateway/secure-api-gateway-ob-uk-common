@@ -17,7 +17,7 @@ package uk.org.openbanking.jackson.account;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
-import uk.org.openbanking.datamodel.payment.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 import java.io.IOException;
 

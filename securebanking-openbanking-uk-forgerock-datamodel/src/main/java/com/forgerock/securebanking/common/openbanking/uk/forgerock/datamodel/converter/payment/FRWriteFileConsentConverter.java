@@ -18,7 +18,7 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteFileConsent;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteFileConsentData;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteFileDataInitiation;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter;
 import uk.org.openbanking.datamodel.payment.OBFile1;
 import uk.org.openbanking.datamodel.payment.OBFile2;
 import uk.org.openbanking.datamodel.payment.OBWriteDataFileConsent1;
@@ -29,16 +29,16 @@ import uk.org.openbanking.datamodel.payment.OBWriteFileConsent2;
 import uk.org.openbanking.datamodel.payment.OBWriteFileConsent3;
 import uk.org.openbanking.datamodel.payment.OBWriteFileConsent3Data;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toFRAccountIdentifier;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBCashAccount3;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationDebtorAccount;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toFRAccountIdentifier;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toOBCashAccount3;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationDebtorAccount;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRDataAuthorisationConverter.toFRDataAuthorisation;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRRemittanceInformationConverter.toFRRemittanceInformation;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRRemittanceInformationConverter.toOBRemittanceInformation1;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRRemittanceInformationConverter.toOBWriteDomestic2DataInitiationRemittanceInformation;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentSupplementaryDataConverter.toFRSupplementaryData;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentSupplementaryDataConverter.toOBSupplementaryData1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRemittanceInformationConverter.toFRRemittanceInformation;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRemittanceInformationConverter.toOBRemittanceInformation1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRemittanceInformationConverter.toOBWriteDomestic2DataInitiationRemittanceInformation;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRSupplementaryDataConverter.toFRSupplementaryData;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRSupplementaryDataConverter.toOBSupplementaryData1;
 
 public class FRWriteFileConsentConverter {
 

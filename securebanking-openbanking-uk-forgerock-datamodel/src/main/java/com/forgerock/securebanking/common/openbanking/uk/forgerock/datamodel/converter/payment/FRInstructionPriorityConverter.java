@@ -15,7 +15,7 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRInstructionPriority;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRInstructionPriority;
 import uk.org.openbanking.datamodel.payment.OBPriority2Code;
 
 public class FRInstructionPriorityConverter {

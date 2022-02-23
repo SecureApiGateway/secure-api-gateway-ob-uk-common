@@ -71,6 +71,10 @@ public enum OBExternalPermissions1Code {
     this.value = value;
   }
 
+  public String getValue() {
+    return value;
+  }
+
   @Override
   @JsonValue
   public String toString() {

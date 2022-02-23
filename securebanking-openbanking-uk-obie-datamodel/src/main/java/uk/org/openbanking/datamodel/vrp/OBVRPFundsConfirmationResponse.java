@@ -26,8 +26,7 @@ import java.util.Objects;
  * The confirmation of funds response contains the result of a funds availability check.
  */
 @ApiModel(description = "The confirmation of funds response contains the result of a funds availability check.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-21T09:44:44.818881+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
 public class OBVRPFundsConfirmationResponse {
     @JsonProperty("Data")
     private OBVRPFundsConfirmationResponseData data;
@@ -39,7 +38,6 @@ public class OBVRPFundsConfirmationResponse {
 
     /**
      * Get data
-     *
      * @return data
      */
     @ApiModelProperty(value = "")

@@ -15,8 +15,8 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRChargeBearerType;
-import uk.org.openbanking.datamodel.payment.OBChargeBearerType1Code;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRChargeBearerType;
+import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 
 public class FRChargeBearerConverter {
 

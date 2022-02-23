@@ -15,6 +15,7 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment;
 
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDataDomestic;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDomestic;
 import uk.org.openbanking.datamodel.payment.OBWriteDataDomestic1;
@@ -22,8 +23,6 @@ import uk.org.openbanking.datamodel.payment.OBWriteDataDomestic2;
 import uk.org.openbanking.datamodel.payment.OBWriteDomestic1;
 import uk.org.openbanking.datamodel.payment.OBWriteDomestic2;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toFRRisk;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toOBRisk1;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteDomesticConsentConverter.toFRWriteDomesticDataInitiation;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteDomesticConsentConverter.toOBDomestic2;
 
@@ -33,14 +32,14 @@ public class FRWriteDomesticConverter {
     public static FRWriteDomestic toFRWriteDomestic(OBWriteDomestic1 obWriteDomestic1) {
         return obWriteDomestic1 == null ? null : FRWriteDomestic.builder()
                 .data(toFRWriteDataDomestic(obWriteDomestic1.getData()))
-                .risk(toFRRisk(obWriteDomestic1.getRisk()))
+                .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomestic1.getRisk()))
                 .build();
     }
 
     public static FRWriteDomestic toFRWriteDomestic(OBWriteDomestic2 obWriteDomestic2) {
         return obWriteDomestic2 == null ? null : FRWriteDomestic.builder()
                 .data(toFRWriteDataDomestic(obWriteDomestic2.getData()))
-                .risk(toFRRisk(obWriteDomestic2.getRisk()))
+                .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomestic2.getRisk()))
                 .build();
     }
 
@@ -62,7 +61,7 @@ public class FRWriteDomesticConverter {
     public static OBWriteDomestic2 toOBWriteDomestic2(FRWriteDomestic domesticPayment) {
         return domesticPayment == null ? null : new OBWriteDomestic2()
                 .data(toOBWriteDataDomestic2(domesticPayment.getData()))
-                .risk(toOBRisk1(domesticPayment.getRisk()));
+                .risk(FRRiskConverter.toOBRisk1(domesticPayment.getRisk()));
     }
 
     public static OBWriteDataDomestic2 toOBWriteDataDomestic2(FRWriteDataDomestic data) {

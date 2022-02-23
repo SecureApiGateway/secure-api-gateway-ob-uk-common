@@ -21,16 +21,16 @@ import uk.org.openbanking.datamodel.account.OBReadDataResponse1;
 import uk.org.openbanking.datamodel.account.OBReadResponse1;
 import uk.org.openbanking.datamodel.account.OBRisk2;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountRiskConverter.toOBRisk2;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRExternalPermissionsCodeConverter.toFRExternalPermissionsCodeList;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRExternalPermissionsCodeConverter.toOBExternalPermissions1CodeList;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRExternalRequestStatusCodeConverter.toFRExternalRequestStatusCode;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRExternalRequestStatusCodeConverter.toOBExternalRequestStatus1Code;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRLinksConverter.toFRLinks;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRLinksConverter.toLinks;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRMetaConverter.toFRMeta;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRMetaConverter.toMeta;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountRiskConverter.toFRAccountRisk;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRLinksConverter.toFRLinks;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRLinksConverter.toLinks;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRMetaConverter.toFRMeta;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRMetaConverter.toMeta;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toFRAccountRisk;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toOBRisk2;
 
 public class FRReadResponseConverter {
 
@@ -38,7 +38,7 @@ public class FRReadResponseConverter {
     public static FRReadResponse toFRReadResponse(OBReadResponse1 response) {
         return response == null ? null : FRReadResponse.builder()
                 .data(toFRReadDataResponse(response.getData()))
-                .risk(toFRAccountRisk((OBRisk2)response.getRisk()))
+                .risk(toFRAccountRisk((OBRisk2) response.getRisk()))
                 .links(toFRLinks(response.getLinks()))
                 .meta(toFRMeta(response.getMeta()))
                 .build();

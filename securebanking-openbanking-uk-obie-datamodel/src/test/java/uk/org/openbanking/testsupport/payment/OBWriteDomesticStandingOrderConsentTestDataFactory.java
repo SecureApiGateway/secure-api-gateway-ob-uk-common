@@ -16,6 +16,7 @@
 package uk.org.openbanking.testsupport.payment;
 
 import org.joda.time.DateTime;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
 
 import static org.joda.time.DateTime.now;

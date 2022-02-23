@@ -18,7 +18,7 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRCurrencyExchange;
 import uk.org.openbanking.datamodel.account.OBCurrencyExchange5;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAmountConverter.*;
 
 public class FRCurrencyExchangeConverter {
 

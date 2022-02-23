@@ -16,7 +16,9 @@
 package uk.org.openbanking.datamodel.service.converter.account;
 
 import uk.org.openbanking.datamodel.account.*;
-import uk.org.openbanking.datamodel.payment.OBExternalAccountIdentification2Code;
+import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification2;
+import uk.org.openbanking.datamodel.common.OBCashAccount3;
+import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification2Code;
 
 /**
  * Convert OB beneficiary data-model in different version

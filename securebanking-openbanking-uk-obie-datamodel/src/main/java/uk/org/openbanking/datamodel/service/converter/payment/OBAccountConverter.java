@@ -15,9 +15,9 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.account.OBCashAccount3;
+import uk.org.openbanking.datamodel.common.OBCashAccount3;
 import uk.org.openbanking.datamodel.account.OBCashAccount5;
-import uk.org.openbanking.datamodel.payment.OBCashAccountCreditor3;
+import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.payment.OBCashAccountDebtor4;
 import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiationCreditorAccount;
 import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiationDebtorAccount;

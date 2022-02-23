@@ -15,9 +15,9 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRPostalAddress;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRPostalAddress;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRPostalAddress.AddressTypeCode.RESIDENTIAL;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRPostalAddress.AddressTypeCode.RESIDENTIAL;
 
 /**
  * Test data factory for {@link FRPostalAddress}.

@@ -30,7 +30,7 @@ package uk.org.openbanking.datamodel.fund;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.payment.OBActiveOrHistoricCurrencyAndAmount;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;

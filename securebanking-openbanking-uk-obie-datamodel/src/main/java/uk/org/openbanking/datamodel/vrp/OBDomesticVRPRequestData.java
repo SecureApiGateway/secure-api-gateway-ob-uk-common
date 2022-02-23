@@ -26,8 +26,7 @@ import java.util.Objects;
 /**
  * OBDomesticVRPRequestData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-21T09:44:44.818881+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
 public class OBDomesticVRPRequestData {
     @JsonProperty("ConsentId")
     private String consentId;
@@ -48,13 +47,12 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Identifier for the Domestic VRP Consent that this payment is made under.
-     *
      * @return consentId
      */
     @ApiModelProperty(required = true, value = "Identifier for the Domestic VRP Consent that this payment is made under.")
     @NotNull
 
-    @Size(max = 128)
+    @Size(min = 1, max = 128)
     public String getConsentId() {
         return consentId;
     }
@@ -69,11 +67,10 @@ public class OBDomesticVRPRequestData {
     }
 
     /**
-     * ^ The authentication method that was used to authenicate the PSU.   | OBVRPAuthenticationMethods - Namespaced Enumeration
-     *
+     * Get psUAuthenticationMethod
      * @return psUAuthenticationMethod
      */
-    @ApiModelProperty(required = true, value = "^ The authentication method that was used to authenicate the PSU.   | OBVRPAuthenticationMethods - Namespaced Enumeration")
+    @ApiModelProperty(required = true, value = "")
     @NotNull
 
 
@@ -92,7 +89,6 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get initiation
-     *
      * @return initiation
      */
     @ApiModelProperty(required = true, value = "")
@@ -115,7 +111,6 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get instruction
-     *
      * @return instruction
      */
     @ApiModelProperty(required = true, value = "")

@@ -21,21 +21,17 @@ import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.pay
 import uk.org.openbanking.datamodel.payment.*;
 import uk.org.openbanking.datamodel.payment.paymentsetup.OBPaymentSetup1;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter.*;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.toFRAmount;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.toOBWriteDomestic2DataInitiationInstructedAmount;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentPostalAddressConverter.toFRPostalAddress;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentPostalAddressConverter.toOBPostalAddress6;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAmountConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toFRPaymentRisk;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRPostalAddressConverter.toFRPostalAddress;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRPostalAddressConverter.toOBPostalAddress6;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRemittanceInformationConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRSupplementaryDataConverter.toFRSupplementaryData;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRSupplementaryDataConverter.toOBSupplementaryData1;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRDataAuthorisationConverter.toFRDataAuthorisation;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRReadRefundAccountConverter.toFRReadRefundAccount;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRRemittanceInformationConverter.toFRRemittanceInformation;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRRemittanceInformationConverter.toOBRemittanceInformation1;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRRemittanceInformationConverter.toOBWriteDomestic2DataInitiationRemittanceInformation;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toFRRisk;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentSupplementaryDataConverter.toFRSupplementaryData;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentSupplementaryDataConverter.toOBSupplementaryData1;
 
 public class FRWriteDomesticConsentConverter {
 
@@ -43,28 +39,28 @@ public class FRWriteDomesticConsentConverter {
     public static FRWriteDomesticConsent toFRWriteDomesticConsent(OBWriteDomesticConsent1 obWriteDomesticConsent1) {
         return obWriteDomesticConsent1 == null ? null : FRWriteDomesticConsent.builder()
                 .data(toFRWriteDomesticConsentData(obWriteDomesticConsent1.getData()))
-                .risk(toFRRisk(obWriteDomesticConsent1.getRisk()))
+                .risk(toFRPaymentRisk(obWriteDomesticConsent1.getRisk()))
                 .build();
     }
 
     public static FRWriteDomesticConsent toFRWriteDomesticConsent(OBWriteDomesticConsent2 obWriteDomesticConsent2) {
         return obWriteDomesticConsent2 == null ? null : FRWriteDomesticConsent.builder()
                 .data(toFRWriteDomesticConsentData(obWriteDomesticConsent2.getData()))
-                .risk(toFRRisk(obWriteDomesticConsent2.getRisk()))
+                .risk(toFRPaymentRisk(obWriteDomesticConsent2.getRisk()))
                 .build();
     }
 
     public static FRWriteDomesticConsent toFRWriteDomesticConsent(OBWriteDomesticConsent3 obWriteDomesticConsent3) {
         return obWriteDomesticConsent3 == null ? null : FRWriteDomesticConsent.builder()
                 .data(toFRWriteDomesticConsentData(obWriteDomesticConsent3.getData()))
-                .risk(toFRRisk(obWriteDomesticConsent3.getRisk()))
+                .risk(toFRPaymentRisk(obWriteDomesticConsent3.getRisk()))
                 .build();
     }
 
     public static FRWriteDomesticConsent toFRWriteDomesticConsent(OBWriteDomesticConsent4 obWriteDomesticConsent4) {
         return obWriteDomesticConsent4 == null ? null : FRWriteDomesticConsent.builder()
                 .data(toFRWriteDomesticConsentData(obWriteDomesticConsent4.getData()))
-                .risk(toFRRisk(obWriteDomesticConsent4.getRisk()))
+                .risk(toFRPaymentRisk(obWriteDomesticConsent4.getRisk()))
                 .build();
     }
 
@@ -143,7 +139,7 @@ public class FRWriteDomesticConsentConverter {
     public static FRWriteDomesticConsent toFRWriteDomesticConsent(OBPaymentSetup1 obPaymentSetup1) {
         return obPaymentSetup1 == null ? null : FRWriteDomesticConsent.builder()
                 .data(toFRWriteDomesticConsentData(obPaymentSetup1.getData()))
-                .risk(toFRRisk(obPaymentSetup1.getRisk()))
+                .risk(toFRPaymentRisk(obPaymentSetup1.getRisk()))
                 .build();
     }
 

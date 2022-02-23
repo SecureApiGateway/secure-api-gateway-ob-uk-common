@@ -17,15 +17,10 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteInternationalScheduled;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteInternationalScheduledData;
-import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalScheduled1;
-import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalScheduled2;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled1;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled2;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled3;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled3Data;
+import uk.org.openbanking.datamodel.payment.*;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toFRRisk;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toOBRisk1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toFRPaymentRisk;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toOBRisk1;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteInternationalScheduledConsentConverter.*;
 
 public class FRWriteInternationalScheduledConverter {
@@ -34,21 +29,21 @@ public class FRWriteInternationalScheduledConverter {
     public static FRWriteInternationalScheduled toFRWriteInternationalScheduled(OBWriteInternationalScheduled1 internationalScheduledPayment) {
         return internationalScheduledPayment == null ? null : FRWriteInternationalScheduled.builder()
                 .data(toFRWriteInternationalScheduledData(internationalScheduledPayment.getData()))
-                .risk(toFRRisk(internationalScheduledPayment.getRisk()))
+                .risk(toFRPaymentRisk(internationalScheduledPayment.getRisk()))
                 .build();
     }
 
     public static FRWriteInternationalScheduled toFRWriteInternationalScheduled(OBWriteInternationalScheduled2 internationalScheduledPayment) {
         return internationalScheduledPayment == null ? null : FRWriteInternationalScheduled.builder()
                 .data(toFRWriteInternationalScheduledData(internationalScheduledPayment.getData()))
-                .risk(toFRRisk(internationalScheduledPayment.getRisk()))
+                .risk(toFRPaymentRisk(internationalScheduledPayment.getRisk()))
                 .build();
     }
 
     public static FRWriteInternationalScheduled toFRWriteInternationalScheduled(OBWriteInternationalScheduled3 internationalScheduledPayment) {
         return internationalScheduledPayment == null ? null : FRWriteInternationalScheduled.builder()
                 .data(toFRWriteInternationalScheduledData(internationalScheduledPayment.getData()))
-                .risk(toFRRisk(internationalScheduledPayment.getRisk()))
+                .risk(toFRPaymentRisk(internationalScheduledPayment.getRisk()))
                 .build();
     }
 

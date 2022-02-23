@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import uk.org.openbanking.datamodel.account.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 import java.io.IOException;
 

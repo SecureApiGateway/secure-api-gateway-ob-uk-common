@@ -17,6 +17,8 @@ package uk.org.openbanking.datamodel.account;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.Links;
+import uk.org.openbanking.datamodel.common.Meta;
 
 import javax.validation.Valid;
 import java.util.Objects;

@@ -16,15 +16,16 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.fund;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.funds.FRFundsConfirmationConsentData;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAccountIdentifierConverter;
 import uk.org.openbanking.datamodel.fund.OBFundsConfirmationConsent1;
+
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toFRAccountIdentifier;
 
 public class FRFundsConfirmationConsentConverter {
 
     public static FRFundsConfirmationConsentData toFRFundsConfirmationConsentData(OBFundsConfirmationConsent1 obFundsConfirmationConsent) {
         return obFundsConfirmationConsent == null ? null : FRFundsConfirmationConsentData.builder()
                 .expirationDateTime(obFundsConfirmationConsent.getData().getExpirationDateTime())
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(obFundsConfirmationConsent.getData().getDebtorAccount()))
+                .debtorAccount(toFRAccountIdentifier(obFundsConfirmationConsent.getData().getDebtorAccount()))
                 .build();
     }
 }

@@ -17,9 +17,8 @@ package uk.org.openbanking.datamodel.vrp;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.payment.OBBranchAndFinancialInstitutionIdentification6;
-import uk.org.openbanking.datamodel.payment.OBCashAccountCreditor3;
-import uk.org.openbanking.datamodel.payment.OBRemittanceInformation1;
+import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
+import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
 
 import javax.validation.Valid;
 import java.util.Objects;
@@ -27,20 +26,19 @@ import java.util.Objects;
 /**
  * OBDomesticVRPInitiation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-21T09:44:44.818881+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
 public class OBDomesticVRPInitiation {
     @JsonProperty("DebtorAccount")
     private OBCashAccountDebtorWithName debtorAccount;
 
     @JsonProperty("CreditorAgent")
-    private OBBranchAndFinancialInstitutionIdentification6 creditorAgent; // use existing one for Payments, rather than duplicating it for VRPs
+    private OBBranchAndFinancialInstitutionIdentification6 creditorAgent;
 
     @JsonProperty("CreditorAccount")
-    private OBCashAccountCreditor3 creditorAccount; // use existing one for Payments, rather than duplicating it for VRPs
+    private OBCashAccountCreditor3 creditorAccount;
 
     @JsonProperty("RemittanceInformation")
-    private OBRemittanceInformation1 remittanceInformation; // use existing RemittanceInformation1, rather than duplicating it for VRPs
+    private OBDomesticVRPInitiationRemittanceInformation remittanceInformation;
 
     public OBDomesticVRPInitiation debtorAccount(OBCashAccountDebtorWithName debtorAccount) {
         this.debtorAccount = debtorAccount;
@@ -49,7 +47,6 @@ public class OBDomesticVRPInitiation {
 
     /**
      * Get debtorAccount
-     *
      * @return debtorAccount
      */
     @ApiModelProperty(value = "")
@@ -71,7 +68,6 @@ public class OBDomesticVRPInitiation {
 
     /**
      * Get creditorAgent
-     *
      * @return creditorAgent
      */
     @ApiModelProperty(value = "")
@@ -93,7 +89,6 @@ public class OBDomesticVRPInitiation {
 
     /**
      * Get creditorAccount
-     *
      * @return creditorAccount
      */
     @ApiModelProperty(value = "")
@@ -108,25 +103,24 @@ public class OBDomesticVRPInitiation {
         this.creditorAccount = creditorAccount;
     }
 
-    public OBDomesticVRPInitiation remittanceInformation(OBRemittanceInformation1 remittanceInformation) {
+    public OBDomesticVRPInitiation remittanceInformation(OBDomesticVRPInitiationRemittanceInformation remittanceInformation) {
         this.remittanceInformation = remittanceInformation;
         return this;
     }
 
     /**
      * Get remittanceInformation
-     *
      * @return remittanceInformation
      */
     @ApiModelProperty(value = "")
 
     @Valid
 
-    public OBRemittanceInformation1 getRemittanceInformation() {
+    public OBDomesticVRPInitiationRemittanceInformation getRemittanceInformation() {
         return remittanceInformation;
     }
 
-    public void setRemittanceInformation(OBRemittanceInformation1 remittanceInformation) {
+    public void setRemittanceInformation(OBDomesticVRPInitiationRemittanceInformation remittanceInformation) {
         this.remittanceInformation = remittanceInformation;
     }
 

@@ -17,46 +17,38 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteInternationalStandingOrder;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteInternationalStandingOrderData;
-import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalStandingOrder1;
-import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalStandingOrder2;
-import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalStandingOrder3;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder1;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder2;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder3;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4Data;
+import uk.org.openbanking.datamodel.payment.*;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toFRRisk;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toFRPaymentRisk;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteInternationalStandingOrderConsentConverter.toFRWriteInternationalStandingOrderDataInitiation;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteInternationalStandingOrderConsentConverter.toOBWriteInternationalStandingOrder4DataInitiation;
 
 public class FRWriteInternationalStandingOrderConverter {
 
     public static FRWriteInternationalStandingOrder toFRWriteInternationalStandingOrder(OBWriteInternationalStandingOrder1 internationalStandingOrder) {
         return internationalStandingOrder == null ? null : FRWriteInternationalStandingOrder.builder()
                 .data(toFRWriteInternationalStandingOrderData(internationalStandingOrder.getData()))
-                .risk(toFRRisk(internationalStandingOrder.getRisk()))
+                .risk(toFRPaymentRisk(internationalStandingOrder.getRisk()))
                 .build();
     }
 
     public static FRWriteInternationalStandingOrder toFRWriteInternationalStandingOrder(OBWriteInternationalStandingOrder2 internationalStandingOrder) {
         return internationalStandingOrder == null ? null : FRWriteInternationalStandingOrder.builder()
                 .data(toFRWriteInternationalStandingOrderData(internationalStandingOrder.getData()))
-                .risk(toFRRisk(internationalStandingOrder.getRisk()))
+                .risk(toFRPaymentRisk(internationalStandingOrder.getRisk()))
                 .build();
     }
 
     public static FRWriteInternationalStandingOrder toFRWriteInternationalStandingOrder(OBWriteInternationalStandingOrder3 internationalStandingOrder) {
         return internationalStandingOrder == null ? null : FRWriteInternationalStandingOrder.builder()
                 .data(toFRWriteInternationalStandingOrderData(internationalStandingOrder.getData()))
-                .risk(toFRRisk(internationalStandingOrder.getRisk()))
+                .risk(toFRPaymentRisk(internationalStandingOrder.getRisk()))
                 .build();
     }
 
     public static FRWriteInternationalStandingOrder toFRWriteInternationalStandingOrder(OBWriteInternationalStandingOrder4 internationalStandingOrder) {
         return internationalStandingOrder == null ? null : FRWriteInternationalStandingOrder.builder()
                 .data(toFRWriteInternationalStandingOrderData(internationalStandingOrder.getData()))
-                .risk(toFRRisk(internationalStandingOrder.getRisk()))
+                .risk(toFRPaymentRisk(internationalStandingOrder.getRisk()))
                 .build();
     }
 

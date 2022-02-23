@@ -18,6 +18,8 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.pa
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRAccountIdentifier;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRSupplementaryData;
 
 /**
  * Represents the values that are common across the various domestic payment "initiation" objects.

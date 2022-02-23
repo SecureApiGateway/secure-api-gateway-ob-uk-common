@@ -14,8 +14,11 @@
  * limitations under the License.
  */
 package uk.org.openbanking.datamodel.service.converter.account;
+
 import uk.org.openbanking.datamodel.account.*;
-import uk.org.openbanking.datamodel.payment.OBExternalAccountIdentification2Code;
+import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification2;
+import uk.org.openbanking.datamodel.common.OBCashAccount3;
+import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification2Code;
 
 import java.util.Collections;
 
@@ -80,7 +83,8 @@ public class OBAccountConverter {
                 .accountId(account1.getAccountId())
                 .currency(account1.getCurrency())
                 .accountSubType(OBExternalAccountSubType1Code.CURRENTACCOUNT)
-                .accountType(OBExternalAccountType1Code.PERSONAL);;
+                .accountType(OBExternalAccountType1Code.PERSONAL);
+        ;
         if (account1.getNickname() != null) {
             account2.nickname(account1.getNickname());
         }
@@ -110,7 +114,6 @@ public class OBAccountConverter {
     private static OBExternalAccountIdentification2Code toOBExternalAccountIdentification2Code(String obExternalAccountIdentification3Code) {
         return OBExternalAccountIdentification2Code.valueOfReference(obExternalAccountIdentification3Code);
     }
-
 
 
 }

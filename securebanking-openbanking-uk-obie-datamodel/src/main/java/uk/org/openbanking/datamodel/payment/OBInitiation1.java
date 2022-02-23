@@ -18,7 +18,8 @@ package uk.org.openbanking.datamodel.payment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification2;
+import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification2;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -29,8 +30,6 @@ import java.util.Objects;
  * 
  */
 @ApiModel(description = "")
-
-
 public class OBInitiation1 {
   @JsonProperty("InstructionIdentification")
   private String instructionIdentification = null;

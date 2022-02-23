@@ -15,6 +15,7 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.payment.*;
 
 /**

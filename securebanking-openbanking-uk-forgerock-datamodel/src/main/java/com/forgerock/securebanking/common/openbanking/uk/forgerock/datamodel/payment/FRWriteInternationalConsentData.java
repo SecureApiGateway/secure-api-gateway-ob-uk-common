@@ -15,6 +15,9 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment;
 
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRDataAuthorisation;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRDataSCASupportData;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRReadRefundAccount;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

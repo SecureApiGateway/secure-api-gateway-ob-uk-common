@@ -15,7 +15,8 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import uk.org.openbanking.datamodel.account.OBCashAccount3;
+import uk.org.openbanking.datamodel.common.OBCashAccount3;
+import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.payment.*;
 
 /**

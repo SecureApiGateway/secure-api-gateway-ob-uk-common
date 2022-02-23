@@ -15,9 +15,9 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRDataSCASupportData;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRDataSCASupportData.FRAppliedAuthenticationApproach;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRDataSCASupportData.FRRequestedSCAExemptionType;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRDataSCASupportData;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRDataSCASupportData.FRAppliedAuthenticationApproach;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRDataSCASupportData.FRRequestedSCAExemptionType;
 import uk.org.openbanking.datamodel.payment.*;
 
 public class FRDataSCASupportDataConverter {

@@ -15,7 +15,7 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRExchangeRateInformation;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRExchangeRateInformation;
 import uk.org.openbanking.datamodel.payment.*;
 
 public class FRExchangeRateConverter {

@@ -33,7 +33,7 @@ public class GenericOBDiscoveryAPILinks implements OBDiscoveryAPILinks {
     }
 
     public Collection<String> getLinkValues() {
-        return new ArrayList(links.values());
+        return new ArrayList<>(links.values());
     }
 
     public Map<String, String> getLinks() {

@@ -15,6 +15,7 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.payment.*;
 
 import static uk.org.openbanking.datamodel.service.converter.payment.ConverterHelper.copyField;
@@ -117,8 +118,8 @@ public class OBAmountConverter {
         return toAmount(new OBDomesticStandingOrder3FinalPaymentAmount(), amount);
     }
 
-    public static uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount toAccountOBActiveOrHistoricCurrencyAndAmount(OBWriteDomestic2DataInitiationInstructedAmount amount) {
-        return toAmount(new uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount(), amount);
+    public static OBActiveOrHistoricCurrencyAndAmount toAccountOBActiveOrHistoricCurrencyAndAmount(OBWriteDomestic2DataInitiationInstructedAmount amount) {
+        return toAmount(new OBActiveOrHistoricCurrencyAndAmount(), amount);
     }
 
     private static <T, U> T toAmount(T newAmount, U originalAmount) {

@@ -15,9 +15,9 @@
  */
 package uk.org.openbanking.datamodel.service.converter.account;
 
-import uk.org.openbanking.datamodel.account.OBExternalAccountIdentification3Code;
-import uk.org.openbanking.datamodel.account.OBExternalAccountIdentification4Code;
-import uk.org.openbanking.datamodel.payment.OBExternalAccountIdentification2Code;
+import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification3Code;
+import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification4Code;
+import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification2Code;
 
 public class OBExternalAccountIdentificationConverter {
 

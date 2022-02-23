@@ -17,7 +17,7 @@ package uk.org.openbanking.jackson.account;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import uk.org.openbanking.datamodel.account.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 import java.io.IOException;
 

@@ -15,6 +15,7 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
+import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
 import uk.org.openbanking.datamodel.payment.*;
 
 import static uk.org.openbanking.datamodel.service.converter.payment.ConverterHelper.copyField;
