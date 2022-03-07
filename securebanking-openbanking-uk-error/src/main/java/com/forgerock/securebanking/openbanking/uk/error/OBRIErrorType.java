@@ -694,7 +694,23 @@ public enum OBRIErrorType {
             HttpStatus.FORBIDDEN,
             ErrorCode.OBRI_SESSION_EXPIRED,
             "Session has expired"),
-    ;
+
+    REQUEST_VRP_INITIATION_DOESNT_MATCH_CONSENT(
+            HttpStatus.BAD_REQUEST,
+            OBStandardErrorCodes1.UK_OBIE_RESOURCE_CONSENT_MISMATCH,
+            "The provided initiation data differs from that in the matching consent"),
+    REQUEST_VRP_RISK_DOESNT_MATCH_CONSENT(
+            HttpStatus.BAD_REQUEST,
+            OBStandardErrorCodes1.UK_OBIE_RESOURCE_CONSENT_MISMATCH,
+            "The provided risk data differs from that in the matching consent"),
+    REQUEST_VRP_CREDITOR_ACCOUNT_NOT_SPECIFIED(
+            HttpStatus.BAD_REQUEST,
+            OBStandardErrorCodes1.UK_OBIE_RESOURCE_CONSENT_MISMATCH,
+            "Creditor account must be specified in the VRP request when not provided in the consent"),
+    REQUEST_VRP_CONTROL_PARAMETERS_RULES(
+            HttpStatus.BAD_REQUEST,
+            OBStandardErrorCodes1.UK_OBIE_RULES_FAILS_CONTROL_PARAMETERS,
+            "The field '%s' breach a limitation set by '%s'");
 
     private HttpStatus httpStatus;
     private StandardErrorCode code;

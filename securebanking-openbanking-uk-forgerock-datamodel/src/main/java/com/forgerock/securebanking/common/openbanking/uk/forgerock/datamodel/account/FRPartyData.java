@@ -15,7 +15,7 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRPostalAddress;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRPostalAddress;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

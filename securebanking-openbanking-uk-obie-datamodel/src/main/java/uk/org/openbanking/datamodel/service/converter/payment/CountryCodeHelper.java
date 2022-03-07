@@ -15,7 +15,7 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import static uk.org.openbanking.datamodel.account.OBExternalAccountIdentification4Code.IBAN;
+import static uk.org.openbanking.datamodel.common.OBExternalAccountIdentification4Code.IBAN;
 
 /**
  * This class makes a crude attempt to determine the destination country code. If an IBAN is used as the creditor's account identifier, then the country code prefix is used.

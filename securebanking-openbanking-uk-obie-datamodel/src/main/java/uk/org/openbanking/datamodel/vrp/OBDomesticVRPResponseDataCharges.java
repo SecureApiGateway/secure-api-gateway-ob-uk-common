@@ -18,8 +18,8 @@ package uk.org.openbanking.datamodel.vrp;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.payment.OBActiveOrHistoricCurrencyAndAmount;
-import uk.org.openbanking.datamodel.payment.OBChargeBearerType1Code;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -29,17 +29,16 @@ import java.util.Objects;
  * Set of elements used to provide details of a charge for the payment initiation.
  */
 @ApiModel(description = "Set of elements used to provide details of a charge for the payment initiation.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-21T09:44:44.818881+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
 public class OBDomesticVRPResponseDataCharges {
     @JsonProperty("ChargeBearer")
-    private OBChargeBearerType1Code chargeBearer; // use existing class, rather than duplicating for VRPs
+    private OBChargeBearerType1Code chargeBearer;
 
     @JsonProperty("Type")
     private OBExternalPaymentChargeType1Code type;
 
     @JsonProperty("Amount")
-    private OBActiveOrHistoricCurrencyAndAmount amount; // use existing class, rather than duplicating for VRPs
+    private OBActiveOrHistoricCurrencyAndAmount amount;
 
     public OBDomesticVRPResponseDataCharges chargeBearer(OBChargeBearerType1Code chargeBearer) {
         this.chargeBearer = chargeBearer;
@@ -48,7 +47,6 @@ public class OBDomesticVRPResponseDataCharges {
 
     /**
      * Get chargeBearer
-     *
      * @return chargeBearer
      */
     @ApiModelProperty(required = true, value = "")
@@ -71,7 +69,6 @@ public class OBDomesticVRPResponseDataCharges {
 
     /**
      * Get type
-     *
      * @return type
      */
     @ApiModelProperty(required = true, value = "")
@@ -94,7 +91,6 @@ public class OBDomesticVRPResponseDataCharges {
 
     /**
      * Get amount
-     *
      * @return amount
      */
     @ApiModelProperty(required = true, value = "")

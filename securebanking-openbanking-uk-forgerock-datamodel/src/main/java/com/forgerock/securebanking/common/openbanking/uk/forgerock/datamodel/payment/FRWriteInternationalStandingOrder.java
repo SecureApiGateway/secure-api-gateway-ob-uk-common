@@ -15,6 +15,7 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment;
 
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRPaymentRisk;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

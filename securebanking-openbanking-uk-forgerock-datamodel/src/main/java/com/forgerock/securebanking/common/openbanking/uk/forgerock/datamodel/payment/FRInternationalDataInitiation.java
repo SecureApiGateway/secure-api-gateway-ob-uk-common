@@ -18,6 +18,7 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.pa
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.*;
 
 /**
  * Represents the values that are common across the various international payment "initiation" objects.

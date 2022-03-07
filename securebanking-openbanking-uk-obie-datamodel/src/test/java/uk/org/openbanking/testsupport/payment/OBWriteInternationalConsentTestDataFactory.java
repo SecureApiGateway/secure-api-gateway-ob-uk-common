@@ -15,6 +15,8 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
+import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
 
 import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.*;

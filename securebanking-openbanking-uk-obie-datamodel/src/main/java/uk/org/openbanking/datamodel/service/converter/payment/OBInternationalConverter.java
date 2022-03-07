@@ -15,7 +15,7 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.account.OBCashAccount3;
+import uk.org.openbanking.datamodel.common.OBCashAccount3;
 import uk.org.openbanking.datamodel.payment.OBInternational1;
 import uk.org.openbanking.datamodel.payment.OBInternational2;
 import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiation;

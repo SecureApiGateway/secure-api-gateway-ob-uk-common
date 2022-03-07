@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.ValueInstantiationException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import uk.org.openbanking.datamodel.payment.OBRisk1;
+import uk.org.openbanking.datamodel.common.OBRisk1;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -135,6 +135,6 @@ public class OBRiskTest {
 
         // Then
         assertThat(exception.getMessage().contains("Cannot construct instance of " +
-                "`uk.org.openbanking.datamodel.payment.OBExternalPaymentContext1Code`")).isTrue();
+                "`uk.org.openbanking.datamodel.common.OBExternalPaymentContext1Code`")).isTrue();
     }
 }

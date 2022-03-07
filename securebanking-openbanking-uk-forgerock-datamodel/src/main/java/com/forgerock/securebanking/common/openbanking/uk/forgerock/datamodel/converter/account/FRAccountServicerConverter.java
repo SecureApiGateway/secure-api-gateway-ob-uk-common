@@ -16,11 +16,13 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRAccountServicer;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRAccountIdentifier;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRFinancialAgent;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRAccountIdentifier;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRFinancialAgent;
 import uk.org.openbanking.datamodel.account.*;
+import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification2;
+import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountPostalAddressConverter.toOBPostalAddress6;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRPostalAddressConverter.toOBPostalAddress6;
 
 
 public class FRAccountServicerConverter {

@@ -29,8 +29,8 @@ package uk.org.openbanking.datamodel.fund;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.account.OBCashAccount3;
-import uk.org.openbanking.datamodel.account.OBExternalRequestStatus1Code;
+import uk.org.openbanking.datamodel.common.OBCashAccount3;
+import uk.org.openbanking.datamodel.common.OBExternalRequestStatus1Code;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;

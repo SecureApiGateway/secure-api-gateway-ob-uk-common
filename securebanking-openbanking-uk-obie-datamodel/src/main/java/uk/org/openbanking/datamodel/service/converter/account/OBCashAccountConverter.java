@@ -15,8 +15,12 @@
  */
 package uk.org.openbanking.datamodel.service.converter.account;
 
-import uk.org.openbanking.datamodel.account.*;
-import uk.org.openbanking.datamodel.payment.OBExternalAccountIdentification2Code;
+import uk.org.openbanking.datamodel.account.OBCashAccount1;
+import uk.org.openbanking.datamodel.account.OBCashAccount2;
+import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification3Code;
+import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification4Code;
+import uk.org.openbanking.datamodel.common.OBCashAccount3;
+import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification2Code;
 
 
 public class OBCashAccountConverter {
@@ -50,19 +54,19 @@ public class OBCashAccountConverter {
     private static OBExternalAccountIdentification3Code schemeNameToOBExternalAccountIdentification3Code(String schemeName) {
         // Try OBExternalAccountIdentification4Code
         OBExternalAccountIdentification4Code accountId4Code = OBExternalAccountIdentification4Code.fromValue(schemeName);
-        if (accountId4Code!=null) {
+        if (accountId4Code != null) {
             return OBExternalAccountIdentificationConverter.toOBExternalAccountIdentification3(accountId4Code);
         }
 
         // Try OBExternalAccountIdentification3Code
         OBExternalAccountIdentification3Code accountId3Code = OBExternalAccountIdentification3Code.fromValue(schemeName);
-        if (accountId3Code!=null) {
+        if (accountId3Code != null) {
             return accountId3Code;
         }
 
         // Try OBExternalAccountIdentification2Code
         OBExternalAccountIdentification2Code accountId2Code = OBExternalAccountIdentification2Code.valueOfReference(schemeName);
-        if (accountId2Code!=null) {
+        if (accountId2Code != null) {
             return OBExternalAccountIdentificationConverter.toOBExternalAccountIdentification3(accountId2Code);
         }
 
@@ -79,7 +83,7 @@ public class OBCashAccountConverter {
         return new OBCashAccount3()
                 .identification(cashAccount1.getIdentification())
                 .name(cashAccount1.getName())
-                .schemeName((code==null) ? cashAccount1.getSchemeName().toString() : code.toString())
+                .schemeName((code == null) ? cashAccount1.getSchemeName().toString() : code.toString())
                 .secondaryIdentification(cashAccount1.getSecondaryIdentification());
     }
 }

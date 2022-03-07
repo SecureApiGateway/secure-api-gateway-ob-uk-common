@@ -15,8 +15,8 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import uk.org.openbanking.datamodel.payment.OBAddressTypeCode;
-import uk.org.openbanking.datamodel.payment.OBPostalAddress6;
+import uk.org.openbanking.datamodel.common.OBAddressTypeCode;
+import uk.org.openbanking.datamodel.common.OBPostalAddress6;
 
 /**
  * Test data factory for {@link OBPostalAddress6}.

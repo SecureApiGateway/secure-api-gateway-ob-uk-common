@@ -15,7 +15,7 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.payment;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRRemittanceInformation;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRRemittanceInformation;
 
 /**
  * Test data factory for {@link FRRemittanceInformation}

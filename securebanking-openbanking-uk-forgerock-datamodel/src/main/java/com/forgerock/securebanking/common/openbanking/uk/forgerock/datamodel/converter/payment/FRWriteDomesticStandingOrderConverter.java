@@ -15,37 +15,35 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDataDomesticScheduled;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDataDomesticStandingOrder;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDomesticScheduled;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDomesticStandingOrder;
 import uk.org.openbanking.datamodel.payment.*;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toFRRisk;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toOBRisk1;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteDomesticScheduledConsentConverter.toOBDomesticScheduled2;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteDomesticStandingOrderConsentConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toFRPaymentRisk;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toOBRisk1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteDomesticStandingOrderConsentConverter.toFRWriteDomesticStandingOrderDataInitiation;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteDomesticStandingOrderConsentConverter.toOBWriteDomesticStandingOrder3DataInitiation;
 
 public class FRWriteDomesticStandingOrderConverter {
 
     public static FRWriteDomesticStandingOrder toFRWriteDomesticStandingOrder(OBWriteDomesticStandingOrder1 obWriteDomesticStandingOrder1) {
         return obWriteDomesticStandingOrder1 == null ? null : FRWriteDomesticStandingOrder.builder()
                 .data(toFRWriteDataDomesticStandingOrder(obWriteDomesticStandingOrder1.getData()))
-                .risk(toFRRisk(obWriteDomesticStandingOrder1.getRisk()))
+                .risk(toFRPaymentRisk(obWriteDomesticStandingOrder1.getRisk()))
                 .build();
     }
 
     public static FRWriteDomesticStandingOrder toFRWriteDomesticStandingOrder(OBWriteDomesticStandingOrder2 obWriteDomesticStandingOrder2) {
         return obWriteDomesticStandingOrder2 == null ? null : FRWriteDomesticStandingOrder.builder()
                 .data(toFRWriteDataDomesticStandingOrder(obWriteDomesticStandingOrder2.getData()))
-                .risk(toFRRisk(obWriteDomesticStandingOrder2.getRisk()))
+                .risk(toFRPaymentRisk(obWriteDomesticStandingOrder2.getRisk()))
                 .build();
     }
 
     public static FRWriteDomesticStandingOrder toFRWriteDomesticStandingOrder(OBWriteDomesticStandingOrder3 obWriteDomesticStandingOrder3) {
         return obWriteDomesticStandingOrder3 == null ? null : FRWriteDomesticStandingOrder.builder()
                 .data(toFRWriteDataDomesticStandingOrder(obWriteDomesticStandingOrder3.getData()))
-                .risk(toFRRisk(obWriteDomesticStandingOrder3.getRisk()))
+                .risk(toFRPaymentRisk(obWriteDomesticStandingOrder3.getRisk()))
                 .build();
     }
 

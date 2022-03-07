@@ -15,8 +15,8 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.payment;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRExternalPaymentContextCode;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRPaymentRisk;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRExternalPaymentContextCode;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRPaymentRisk;
 
 import static java.util.Collections.singletonList;
 

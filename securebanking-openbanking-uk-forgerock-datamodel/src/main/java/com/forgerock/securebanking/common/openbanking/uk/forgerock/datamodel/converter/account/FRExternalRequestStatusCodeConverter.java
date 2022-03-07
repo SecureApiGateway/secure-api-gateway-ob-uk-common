@@ -16,7 +16,7 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRExternalRequestStatusCode;
-import uk.org.openbanking.datamodel.account.OBExternalRequestStatus1Code;
+import uk.org.openbanking.datamodel.common.OBExternalRequestStatus1Code;
 
 public class FRExternalRequestStatusCodeConverter {
 

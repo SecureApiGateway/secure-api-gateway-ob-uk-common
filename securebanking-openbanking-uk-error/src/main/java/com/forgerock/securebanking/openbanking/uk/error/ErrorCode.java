@@ -121,8 +121,7 @@ public enum ErrorCode implements StandardErrorCode {
     FR_OBRI_IDEMPOTENCY_KEY_REQUEST_BODY_CHANGED("FR.OBRI.idempotency.key.RequestBodyChanged"),
 
     OBRI_PSD2_CERTIFICATE_PRINCIPAL_MISSING("OBRI.PSD2.Certificate.Principal.Missing"),
-    PSD_CERT_MISSING_JWKURI_MSG("OBRI.PSD2.Certificate.Jwkuri.Missing"),
-    ;
+    PSD_CERT_MISSING_JWKURI_MSG("OBRI.PSD2.Certificate.Jwkuri.Missing");
 
     private String value;
 

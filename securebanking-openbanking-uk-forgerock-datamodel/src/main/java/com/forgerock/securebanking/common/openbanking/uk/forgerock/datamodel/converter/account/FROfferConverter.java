@@ -20,7 +20,7 @@ import uk.org.openbanking.datamodel.account.OBExternalOfferType1Code;
 import uk.org.openbanking.datamodel.account.OBOffer1;
 import uk.org.openbanking.datamodel.account.OBReadOffer1DataOffer;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAmountConverter.*;
 
 public class FROfferConverter {
 

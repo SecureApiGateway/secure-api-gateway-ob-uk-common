@@ -19,8 +19,8 @@ import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.pay
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteDomesticScheduled;
 import uk.org.openbanking.datamodel.payment.*;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toFRRisk;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toOBRisk1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toFRPaymentRisk;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toOBRisk1;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteDomesticScheduledConsentConverter.*;
 
 public class FRWriteDomesticScheduledConverter {
@@ -29,14 +29,14 @@ public class FRWriteDomesticScheduledConverter {
     public static FRWriteDomesticScheduled toFRWriteDomesticScheduled(OBWriteDomesticScheduled1 obWriteDomesticScheduled1) {
         return obWriteDomesticScheduled1 == null ? null : FRWriteDomesticScheduled.builder()
                 .data(toFRWriteDataDomesticScheduled(obWriteDomesticScheduled1.getData()))
-                .risk(toFRRisk(obWriteDomesticScheduled1.getRisk()))
+                .risk(toFRPaymentRisk(obWriteDomesticScheduled1.getRisk()))
                 .build();
     }
 
     public static FRWriteDomesticScheduled toFRWriteDomesticScheduled(OBWriteDomesticScheduled2 obWriteDomesticScheduled2) {
         return obWriteDomesticScheduled2 == null ? null : FRWriteDomesticScheduled.builder()
                 .data(toFRWriteDataDomesticScheduled(obWriteDomesticScheduled2.getData()))
-                .risk(toFRRisk(obWriteDomesticScheduled2.getRisk()))
+                .risk(toFRPaymentRisk(obWriteDomesticScheduled2.getRisk()))
                 .build();
     }
 

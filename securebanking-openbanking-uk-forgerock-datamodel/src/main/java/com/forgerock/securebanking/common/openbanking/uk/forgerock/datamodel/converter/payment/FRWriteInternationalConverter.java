@@ -17,15 +17,10 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteInternational;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRWriteInternationalData;
-import uk.org.openbanking.datamodel.payment.OBWriteDataInternational1;
-import uk.org.openbanking.datamodel.payment.OBWriteDataInternational2;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational1;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational2;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3Data;
+import uk.org.openbanking.datamodel.payment.*;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toFRRisk;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRPaymentRiskConverter.toOBRisk1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toFRPaymentRisk;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toOBRisk1;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment.FRWriteInternationalConsentConverter.*;
 
 public class FRWriteInternationalConverter {
@@ -34,21 +29,21 @@ public class FRWriteInternationalConverter {
     public static FRWriteInternational toFRWriteInternational(OBWriteInternational1 internationalPayment) {
         return internationalPayment == null ? null : FRWriteInternational.builder()
                 .data(toFRWriteInternationalData(internationalPayment.getData()))
-                .risk(toFRRisk(internationalPayment.getRisk()))
+                .risk(toFRPaymentRisk(internationalPayment.getRisk()))
                 .build();
     }
 
     public static FRWriteInternational toFRWriteInternational(OBWriteInternational2 internationalPayment) {
         return internationalPayment == null ? null : FRWriteInternational.builder()
                 .data(toFRWriteInternationalData(internationalPayment.getData()))
-                .risk(toFRRisk(internationalPayment.getRisk()))
+                .risk(toFRPaymentRisk(internationalPayment.getRisk()))
                 .build();
     }
 
     public static FRWriteInternational toFRWriteInternational(OBWriteInternational3 internationalPayment) {
         return internationalPayment == null ? null : FRWriteInternational.builder()
                 .data(toFRWriteInternationalData(internationalPayment.getData()))
-                .risk(toFRRisk(internationalPayment.getRisk()))
+                .risk(toFRPaymentRisk(internationalPayment.getRisk()))
                 .build();
     }
 

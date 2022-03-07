@@ -16,8 +16,9 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.fund;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.funds.FRFundsConfirmationData;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.FRAmountConverter;
 import uk.org.openbanking.datamodel.fund.OBFundsConfirmation1;
+
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAmountConverter.toFRAmount;
 
 public class FRFundsConfirmationConverter {
 
@@ -25,7 +26,7 @@ public class FRFundsConfirmationConverter {
         return obFundsConfirmation == null ? null : FRFundsConfirmationData.builder()
                 .consentId(obFundsConfirmation.getData().getConsentId())
                 .reference(obFundsConfirmation.getData().getReference())
-                .instructedAmount(FRAmountConverter.toFRAmount(obFundsConfirmation.getData().getInstructedAmount()))
+                .instructedAmount(toFRAmount(obFundsConfirmation.getData().getInstructedAmount()))
                 .build();
     }
 }

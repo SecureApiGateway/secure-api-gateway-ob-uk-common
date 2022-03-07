@@ -17,9 +17,7 @@ package uk.org.openbanking.datamodel.vrp;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.account.Links;
-import uk.org.openbanking.datamodel.account.Meta;
-import uk.org.openbanking.datamodel.payment.OBRisk1;
+import uk.org.openbanking.datamodel.common.OBRisk1;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -28,20 +26,19 @@ import java.util.Objects;
 /**
  * OBDomesticVRPResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-21T09:44:44.818881+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
 public class OBDomesticVRPResponse {
     @JsonProperty("Data")
     private OBDomesticVRPResponseData data;
 
     @JsonProperty("Risk")
-    private OBRisk1 risk; // use existing OBRisk1 for Payments, rather than duplicating it for VRPs
+    private OBRisk1 risk;
 
     @JsonProperty("Links")
-    private Links links; // use existing acounts Link class, rather than duplicating it for VRPs
+    private Links links;
 
     @JsonProperty("Meta")
-    private Meta meta; // use existing accounts Meta class, rather than duplicating it for VRPs
+    private Object meta;
 
     public OBDomesticVRPResponse data(OBDomesticVRPResponseData data) {
         this.data = data;
@@ -50,7 +47,6 @@ public class OBDomesticVRPResponse {
 
     /**
      * Get data
-     *
      * @return data
      */
     @ApiModelProperty(required = true, value = "")
@@ -73,7 +69,6 @@ public class OBDomesticVRPResponse {
 
     /**
      * Get risk
-     *
      * @return risk
      */
     @ApiModelProperty(required = true, value = "")
@@ -96,7 +91,6 @@ public class OBDomesticVRPResponse {
 
     /**
      * Get links
-     *
      * @return links
      */
     @ApiModelProperty(required = true, value = "")
@@ -112,26 +106,24 @@ public class OBDomesticVRPResponse {
         this.links = links;
     }
 
-    public OBDomesticVRPResponse meta(Meta meta) {
+    public OBDomesticVRPResponse meta(Object meta) {
         this.meta = meta;
         return this;
     }
 
     /**
      * Meta Data relevant to the payload. At present no fields are used for VRP.
-     *
      * @return meta
      */
     @ApiModelProperty(required = true, value = "Meta Data relevant to the payload. At present no fields are used for VRP.")
     @NotNull
 
-    @Valid
 
-    public Meta getMeta() {
+    public Object getMeta() {
         return meta;
     }
 
-    public void setMeta(Meta meta) {
+    public void setMeta(Object meta) {
         this.meta = meta;
     }
 

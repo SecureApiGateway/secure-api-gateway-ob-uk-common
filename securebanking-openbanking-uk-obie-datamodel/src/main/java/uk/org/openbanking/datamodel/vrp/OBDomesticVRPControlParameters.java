@@ -18,7 +18,7 @@ package uk.org.openbanking.datamodel.vrp;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.payment.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -30,8 +30,7 @@ import java.util.Objects;
 /**
  * OBDomesticVRPControlParameters
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-21T09:44:44.818881+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
 public class OBDomesticVRPControlParameters {
     @JsonProperty("ValidFromDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
@@ -42,7 +41,7 @@ public class OBDomesticVRPControlParameters {
     private DateTime validToDateTime;
 
     @JsonProperty("MaximumIndividualAmount")
-    private OBDomesticVRPControlParametersMaximumIndividualAmount maximumIndividualAmount;
+    private OBActiveOrHistoricCurrencyAndAmount maximumIndividualAmount;
 
     @JsonProperty("PeriodicLimits")
     @Valid
@@ -54,10 +53,10 @@ public class OBDomesticVRPControlParameters {
 
     @JsonProperty("PSUAuthenticationMethods")
     @Valid
-    private List<String> psUAuthenticationMethods = null;
+    private List<String> psUAuthenticationMethods = new ArrayList<String>();
 
     @JsonProperty("SupplementaryData")
-    private OBSupplementaryData1 supplementaryData; // use existing OBSupplementaryData1 for Payments
+    private Object supplementaryData;
 
     public OBDomesticVRPControlParameters validFromDateTime(DateTime validFromDateTime) {
         this.validFromDateTime = validFromDateTime;
@@ -65,11 +64,10 @@ public class OBDomesticVRPControlParameters {
     }
 
     /**
-     * ^ Start date time for which the consent remains valid. | ISODateTime
-     *
+     * ^ Start date time for which the consent remains valid.
      * @return validFromDateTime
      */
-    @ApiModelProperty(value = "^ Start date time for which the consent remains valid. | ISODateTime")
+    @ApiModelProperty(value = "^ Start date time for which the consent remains valid.")
 
     @Valid
 
@@ -87,11 +85,10 @@ public class OBDomesticVRPControlParameters {
     }
 
     /**
-     * ^ End date time for which the consent remains valid. | ISODateTime
-     *
+     * ^ End date time for which the consent remains valid.
      * @return validToDateTime
      */
-    @ApiModelProperty(value = "^ End date time for which the consent remains valid. | ISODateTime")
+    @ApiModelProperty(value = "^ End date time for which the consent remains valid.")
 
     @Valid
 
@@ -103,25 +100,24 @@ public class OBDomesticVRPControlParameters {
         this.validToDateTime = validToDateTime;
     }
 
-    public OBDomesticVRPControlParameters maximumIndividualAmount(OBDomesticVRPControlParametersMaximumIndividualAmount maximumIndividualAmount) {
+    public OBDomesticVRPControlParameters maximumIndividualAmount(OBActiveOrHistoricCurrencyAndAmount maximumIndividualAmount) {
         this.maximumIndividualAmount = maximumIndividualAmount;
         return this;
     }
 
     /**
      * Get maximumIndividualAmount
-     *
      * @return maximumIndividualAmount
      */
     @ApiModelProperty(value = "")
 
     @Valid
 
-    public OBDomesticVRPControlParametersMaximumIndividualAmount getMaximumIndividualAmount() {
+    public OBActiveOrHistoricCurrencyAndAmount getMaximumIndividualAmount() {
         return maximumIndividualAmount;
     }
 
-    public void setMaximumIndividualAmount(OBDomesticVRPControlParametersMaximumIndividualAmount maximumIndividualAmount) {
+    public void setMaximumIndividualAmount(OBActiveOrHistoricCurrencyAndAmount maximumIndividualAmount) {
         this.maximumIndividualAmount = maximumIndividualAmount;
     }
 
@@ -140,7 +136,6 @@ public class OBDomesticVRPControlParameters {
 
     /**
      * Get periodicLimits
-     *
      * @return periodicLimits
      */
     @ApiModelProperty(value = "")
@@ -166,11 +161,10 @@ public class OBDomesticVRPControlParameters {
     }
 
     /**
-     * ^ The types of payments that can be made under this VRP consent. This can be used to indicate whether this include sweeping payment or other ecommerce payments.  | OBVRPConsentType - Namespaced Enumeration
-     *
+     * ^ The types of payments that can be made under this VRP consent. This can be used to indicate whether this include sweeping payment or other ecommerce payments.
      * @return vrPType
      */
-    @ApiModelProperty(required = true, value = "^ The types of payments that can be made under this VRP consent. This can be used to indicate whether this include sweeping payment or other ecommerce payments.  | OBVRPConsentType - Namespaced Enumeration")
+    @ApiModelProperty(required = true, value = "^ The types of payments that can be made under this VRP consent. This can be used to indicate whether this include sweeping payment or other ecommerce payments.")
     @NotNull
 
     @Size(min = 1)
@@ -188,19 +182,16 @@ public class OBDomesticVRPControlParameters {
     }
 
     public OBDomesticVRPControlParameters addPsUAuthenticationMethodsItem(String psUAuthenticationMethodsItem) {
-        if (this.psUAuthenticationMethods == null) {
-            this.psUAuthenticationMethods = new ArrayList<String>();
-        }
         this.psUAuthenticationMethods.add(psUAuthenticationMethodsItem);
         return this;
     }
 
     /**
-     * ^ Indicates that the PSU authentication methods supported.  | OBVRPAuthenticationMethods - Namespaced Enumeration
-     *
+     * ^ Indicates that the PSU authentication methods supported.
      * @return psUAuthenticationMethods
      */
-    @ApiModelProperty(value = "^ Indicates that the PSU authentication methods supported.  | OBVRPAuthenticationMethods - Namespaced Enumeration")
+    @ApiModelProperty(required = true, value = "^ Indicates that the PSU authentication methods supported.")
+    @NotNull
 
     @Size(min = 1)
     public List<String> getPsUAuthenticationMethods() {
@@ -211,25 +202,23 @@ public class OBDomesticVRPControlParameters {
         this.psUAuthenticationMethods = psUAuthenticationMethods;
     }
 
-    public OBDomesticVRPControlParameters supplementaryData(OBSupplementaryData1 supplementaryData) {
+    public OBDomesticVRPControlParameters supplementaryData(Object supplementaryData) {
         this.supplementaryData = supplementaryData;
         return this;
     }
 
     /**
      * ^ Additional information that can not be captured in the structured fields and/or any other specific block
-     *
      * @return supplementaryData
      */
     @ApiModelProperty(value = "^ Additional information that can not be captured in the structured fields and/or any other specific block")
 
-    @Valid
 
-    public OBSupplementaryData1 getSupplementaryData() {
+    public Object getSupplementaryData() {
         return supplementaryData;
     }
 
-    public void setSupplementaryData(OBSupplementaryData1 supplementaryData) {
+    public void setSupplementaryData(Object supplementaryData) {
         this.supplementaryData = supplementaryData;
     }
 

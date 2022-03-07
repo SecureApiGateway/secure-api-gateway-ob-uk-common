@@ -18,7 +18,7 @@ package uk.org.openbanking.datamodel.vrp;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.payment.OBActiveOrHistoricCurrencyAndAmount;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -28,8 +28,7 @@ import java.util.Objects;
 /**
  * OBVRPFundsConfirmationResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-21T09:44:44.818881+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
 public class OBVRPFundsConfirmationResponseData {
     @JsonProperty("FundsConfirmationId")
     private String fundsConfirmationId;
@@ -48,7 +47,7 @@ public class OBVRPFundsConfirmationResponseData {
     private OBPAFundsAvailableResult1 fundsAvailableResult;
 
     @JsonProperty("InstructedAmount")
-    private OBActiveOrHistoricCurrencyAndAmount instructedAmount; // use existing one for Payments, rather than duplicating it for VRPs
+    private OBActiveOrHistoricCurrencyAndAmount instructedAmount;
 
     public OBVRPFundsConfirmationResponseData fundsConfirmationId(String fundsConfirmationId) {
         this.fundsConfirmationId = fundsConfirmationId;
@@ -57,13 +56,12 @@ public class OBVRPFundsConfirmationResponseData {
 
     /**
      * Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation resource.
-     *
      * @return fundsConfirmationId
      */
     @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation resource.")
     @NotNull
 
-    @Size(max = 40)
+    @Size(min = 1, max = 40)
     public String getFundsConfirmationId() {
         return fundsConfirmationId;
     }
@@ -79,13 +77,12 @@ public class OBVRPFundsConfirmationResponseData {
 
     /**
      * Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.
-     *
      * @return consentId
      */
     @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.")
     @NotNull
 
-    @Size(max = 128)
+    @Size(min = 1, max = 128)
     public String getConsentId() {
         return consentId;
     }
@@ -101,7 +98,6 @@ public class OBVRPFundsConfirmationResponseData {
 
     /**
      * Date and time at which the resource was created.
-     *
      * @return creationDateTime
      */
     @ApiModelProperty(required = true, value = "Date and time at which the resource was created.")
@@ -124,13 +120,12 @@ public class OBVRPFundsConfirmationResponseData {
 
     /**
      * Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.
-     *
      * @return reference
      */
     @ApiModelProperty(required = true, value = "Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.")
     @NotNull
 
-    @Size(max = 35)
+    @Size(min = 1, max = 35)
     public String getReference() {
         return reference;
     }
@@ -146,7 +141,6 @@ public class OBVRPFundsConfirmationResponseData {
 
     /**
      * Get fundsAvailableResult
-     *
      * @return fundsAvailableResult
      */
     @ApiModelProperty(required = true, value = "")
@@ -169,7 +163,6 @@ public class OBVRPFundsConfirmationResponseData {
 
     /**
      * Get instructedAmount
-     *
      * @return instructedAmount
      */
     @ApiModelProperty(required = true, value = "")

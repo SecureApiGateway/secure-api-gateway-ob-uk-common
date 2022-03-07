@@ -15,9 +15,9 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import uk.org.openbanking.datamodel.payment.OBExternalPaymentContext1Code;
-import uk.org.openbanking.datamodel.payment.OBRisk1;
-import uk.org.openbanking.datamodel.payment.OBRisk1DeliveryAddress;
+import uk.org.openbanking.datamodel.common.OBExternalPaymentContext1Code;
+import uk.org.openbanking.datamodel.common.OBRisk1;
+import uk.org.openbanking.datamodel.common.OBRisk1DeliveryAddress;
 
 import java.util.Collections;
 

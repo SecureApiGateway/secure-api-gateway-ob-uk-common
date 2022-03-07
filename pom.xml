@@ -23,7 +23,7 @@
     <groupId>com.forgerock.securebanking.uk</groupId>
     <artifactId>securebanking-openbanking-uk</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.1.3-SNAPSHOT</version>
     <name>Secure Banking access Toolkit library for Open Banking UK specs</name>
     <url>https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk</url>
 
@@ -55,12 +55,12 @@
         <repository>
             <id>maven.forgerock.org-community</id>
             <name>maven.forgerock.org-releases</name>
-            <url>https://maven.forgerock.org:443/repo/community</url>
+            <url>https://maven.forgerock.org/artifactory/community</url>
         </repository>
         <snapshotRepository>
             <id>maven.forgerock.org-community-snapshots</id>
             <name>maven.forgerock.org-snapshots</name>
-            <url>https://maven.forgerock.org:443/repo/community</url>
+            <url>https://maven.forgerock.org/artifactory/community</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -68,12 +68,12 @@
         <repository>
             <id>maven.forgerock.org-community</id>
             <name>maven.forgerock.org-releases</name>
-            <url>https://maven.forgerock.org:443/repo/community</url>
+            <url>https://maven.forgerock.org/artifactory/community</url>
         </repository>
         <repository>
             <id>maven.forgerock.org-community-snapshots</id>
             <name>maven.forgerock.org-snapshots</name>
-            <url>https://maven.forgerock.org:443/repo/community</url>
+            <url>https://maven.forgerock.org/artifactory/community</url>
         </repository>
         <repository>
             <id>central</id>

@@ -21,13 +21,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * OBDomesticVRPControlParametersPeriodicLimits
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-21T09:44:44.818881+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
 public class OBDomesticVRPControlParametersPeriodicLimits {
     /**
      * ^ Period type for this period limit
@@ -126,7 +127,6 @@ public class OBDomesticVRPControlParametersPeriodicLimits {
 
     /**
      * ^ Period type for this period limit
-     *
      * @return periodType
      */
     @ApiModelProperty(required = true, value = "^ Period type for this period limit")
@@ -148,7 +148,6 @@ public class OBDomesticVRPControlParametersPeriodicLimits {
 
     /**
      * ^ Specifies whether the period starts on the date of consent creation or lines up with a calendar
-     *
      * @return periodAlignment
      */
     @ApiModelProperty(required = true, value = "^ Specifies whether the period starts on the date of consent creation or lines up with a calendar")
@@ -169,14 +168,13 @@ public class OBDomesticVRPControlParametersPeriodicLimits {
     }
 
     /**
-     * ^ A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.
-     *
+     * A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.
      * @return amount
      */
-    @ApiModelProperty(required = true, value = "^ A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.")
+    @ApiModelProperty(required = true, value = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.")
     @NotNull
 
-
+    @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$")
     public String getAmount() {
         return amount;
     }
@@ -191,14 +189,14 @@ public class OBDomesticVRPControlParametersPeriodicLimits {
     }
 
     /**
-     * ^ A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".   | ActiveOrHistoricCurrencyCode
-     *
+     * A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".
      * @return currency
      */
-    @ApiModelProperty(required = true, value = "^ A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".   | ActiveOrHistoricCurrencyCode")
+    @ApiModelProperty(required = true, value = "A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".")
     @NotNull
 
-
+    @Pattern(regexp = "^[A-Z]{3,3}$")
+    @Size(min = 3, max = 3)
     public String getCurrency() {
         return currency;
     }

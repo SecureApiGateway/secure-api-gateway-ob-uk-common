@@ -18,7 +18,7 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRPartyData;
 import uk.org.openbanking.datamodel.account.*;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountPostalAddressConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRPostalAddressConverter.*;
 
 public class FRPartyConverter {
 

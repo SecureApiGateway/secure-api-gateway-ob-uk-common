@@ -17,7 +17,7 @@ package uk.org.openbanking.datamodel.vrp;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.payment.OBRisk1;
+import uk.org.openbanking.datamodel.common.OBRisk1;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -26,14 +26,13 @@ import java.util.Objects;
 /**
  * OBDomesticVRPRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-21T09:44:44.818881+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
 public class OBDomesticVRPRequest {
     @JsonProperty("Data")
     private OBDomesticVRPRequestData data;
 
     @JsonProperty("Risk")
-    private OBRisk1 risk; // use existing OBRisk1, rather than duplicating for VRPs
+    private OBRisk1 risk;
 
     public OBDomesticVRPRequest data(OBDomesticVRPRequestData data) {
         this.data = data;
@@ -42,7 +41,6 @@ public class OBDomesticVRPRequest {
 
     /**
      * Get data
-     *
      * @return data
      */
     @ApiModelProperty(required = true, value = "")
@@ -65,7 +63,6 @@ public class OBDomesticVRPRequest {
 
     /**
      * Get risk
-     *
      * @return risk
      */
     @ApiModelProperty(required = true, value = "")
