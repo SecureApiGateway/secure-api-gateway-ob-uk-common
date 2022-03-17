@@ -15,6 +15,7 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,7 +35,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class FRRemittanceInformation {
-
+    @JsonProperty("Unstructured")
     private String unstructured;
+    @JsonProperty("Reference")
     private String reference;
 }
