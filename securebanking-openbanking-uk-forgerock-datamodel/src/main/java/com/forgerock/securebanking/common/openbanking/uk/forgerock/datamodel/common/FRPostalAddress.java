@@ -15,7 +15,6 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -39,25 +38,15 @@ import java.util.stream.Stream;
 @Builder
 public class FRPostalAddress {
 
-    @JsonProperty("AddressType")
     private AddressTypeCode addressType;
-    @JsonProperty("Department")
     private String department;
-    @JsonProperty("SubDepartment")
     private String subDepartment;
-    @JsonProperty("StreetName")
     private String streetName;
-    @JsonProperty("BuildingNumber")
     private String buildingNumber;
-    @JsonProperty("PostCode")
     private String postCode;
-    @JsonProperty("TownName")
     private String townName;
-    @JsonProperty("CountrySubDivision")
     private String countrySubDivision;
-    @JsonProperty("Country")
     private String country;
-    @JsonProperty("AddressLine")
     private List<String> addressLine;
 
     public enum AddressTypeCode {

@@ -15,7 +15,6 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,22 +35,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class FRWriteDomesticDataInitiation implements FRDomesticDataInitiation {
-    @JsonProperty("InstructionIdentification")
+
     private String instructionIdentification;
-    @JsonProperty("EndToEndIdentification")
     private String endToEndIdentification;
-    @JsonProperty("LocalInstrument")
     private String localInstrument;
-    @JsonProperty("InstructedAmount")
     private FRAmount instructedAmount;
-    @JsonProperty("DebtorAccount")
     private FRAccountIdentifier debtorAccount;
-    @JsonProperty("CreditorAccount")
     private FRAccountIdentifier creditorAccount;
-    @JsonProperty("CreditorPostalAddress")
     private FRPostalAddress creditorPostalAddress;
-    @JsonProperty("RemittanceInformation")
     private FRRemittanceInformation remittanceInformation;
-    @JsonProperty("SupplementaryData")
     private FRSupplementaryData supplementaryData;
 }
