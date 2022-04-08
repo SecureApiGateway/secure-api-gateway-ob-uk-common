@@ -32,7 +32,9 @@ public enum OBVersion {
     v3_1_3,
     v3_1_4,
     v3_1_5,
-    v3_1_6;
+    v3_1_6,
+    v3_1_7,
+    v3_1_8;
 
     /**
      * Provides the OBversion object if exist <br/>
