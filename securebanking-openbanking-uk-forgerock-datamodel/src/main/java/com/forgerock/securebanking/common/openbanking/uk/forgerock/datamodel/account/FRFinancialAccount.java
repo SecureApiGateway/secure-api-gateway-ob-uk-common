@@ -55,6 +55,8 @@ public class FRFinancialAccount {
     private FRAccountServicer servicer;
 
     public FRAccountIdentifier getFirstAccount() {
+        if(this.accounts == null || this.accounts.size()==0)
+            return null;
         return this.accounts.get(0);
     }
 
