@@ -54,6 +54,12 @@ public class FRFinancialAccount {
     private List<FRAccountIdentifier> accounts;
     private FRAccountServicer servicer;
 
+    public FRAccountIdentifier getFirstAccount() {
+        if(this.accounts == null || this.accounts.size()==0)
+            return null;
+        return this.accounts.get(0);
+    }
+
     public enum FRAccountStatusCode {
         DELETED("Deleted"),
         DISABLED("Disabled"),

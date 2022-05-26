@@ -38,5 +38,5 @@ public class FRAccountIdentifier {
     private String identification;
     private String name;
     private String secondaryIdentification;
-
+    private String accountId;
 }
