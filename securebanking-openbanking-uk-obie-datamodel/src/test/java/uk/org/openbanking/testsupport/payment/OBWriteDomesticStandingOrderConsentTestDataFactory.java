@@ -15,6 +15,7 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
+import com.forgerock.securebanking.openbanking.uk.common.api.meta.forgerock.FRFrequencyType;
 import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
@@ -33,7 +34,7 @@ import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDa
  */
 public class OBWriteDomesticStandingOrderConsentTestDataFactory {
 
-    private static final String FREQUENCY = "EvryWorkgDay";
+    private static final String FREQUENCY = FRFrequencyType.EVERYWORKINGDAY.getFrequencyStr();
     private static final String REFERENCE = "Ipsum Non Arcu Inc.";
     private static final String NUMBER_OF_PAYMENTS = "1";
 

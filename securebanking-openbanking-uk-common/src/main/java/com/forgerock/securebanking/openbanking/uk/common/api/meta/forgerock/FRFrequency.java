@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment;
+package com.forgerock.securebanking.openbanking.uk.common.api.meta.forgerock;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,7 +23,8 @@ import org.joda.time.DateTime;
 
 import java.util.Arrays;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment.FRQuarterType.fromQuarterTypeString;
+import static com.forgerock.securebanking.openbanking.uk.common.api.meta.forgerock.FRFrequencyType.fromFrequencyString;
+import static com.forgerock.securebanking.openbanking.uk.common.api.meta.forgerock.FRQuarterType.fromQuarterTypeString;
 
 /**
  * Represents the frequency of the payments for a Standing Order Payment
@@ -36,6 +37,32 @@ public class FRFrequency {
     private FRFrequencyType frequencyType;
     private String recurrence;
     private String day;
+
+    /**
+     * Initialize an @{link FRFrequency} object
+     *
+     * @param frequency the String containing the frequency values
+     */
+    public FRFrequency(String frequency) {
+        String[] frequencyElements = frequency.split(":");
+        switch (frequencyElements.length) {
+            case 1: {
+                this.frequencyType = fromFrequencyString(frequencyElements[0]);
+            }
+            case 2: {
+                this.frequencyType = fromFrequencyString(frequencyElements[0]);
+                this.recurrence = frequencyElements[1];
+            }
+            case 3: {
+                this.frequencyType = fromFrequencyString(frequencyElements[0]);
+                this.recurrence = frequencyElements[1];
+                this.day = frequencyElements[2];
+            }
+            default: {
+                throw new IllegalStateException("The frequency doesn't match the regex format.");
+            }
+        }
+    }
 
     /**
      * Provides the corresponding sentence for each {@link FRFrequencyType}.

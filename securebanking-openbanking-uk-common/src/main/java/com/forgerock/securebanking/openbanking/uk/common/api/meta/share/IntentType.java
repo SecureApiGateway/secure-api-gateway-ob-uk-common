@@ -13,15 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.securebanking.openbanking.uk.common.api.meta;
+package com.forgerock.securebanking.openbanking.uk.common.api.meta.share;
 
+
+import com.forgerock.securebanking.openbanking.uk.common.api.meta.obie.OBGroupName;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import static com.forgerock.securebanking.openbanking.uk.common.api.meta.OBGroupName.*;
+import static com.forgerock.securebanking.openbanking.uk.common.api.meta.obie.OBGroupName.*;
 
 public enum IntentType {
 

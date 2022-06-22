@@ -17,7 +17,7 @@ package com.forgerock.securebanking.openbanking.uk.error;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.forgerock.securebanking.openbanking.uk.common.api.meta.OBHeaders;
+import com.forgerock.securebanking.openbanking.uk.common.api.meta.obie.OBHeaders;
 import org.springframework.http.HttpStatus;
 import uk.org.openbanking.datamodel.error.OBError1;
 import uk.org.openbanking.datamodel.error.OBStandardErrorCodes1;
