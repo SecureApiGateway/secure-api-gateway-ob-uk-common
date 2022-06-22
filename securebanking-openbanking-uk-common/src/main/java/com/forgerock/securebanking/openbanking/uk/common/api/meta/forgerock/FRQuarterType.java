@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment;
+package com.forgerock.securebanking.openbanking.uk.common.api.meta.forgerock;
 
 import org.joda.time.DateTime;
 

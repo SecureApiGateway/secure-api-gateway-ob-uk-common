@@ -15,7 +15,7 @@
  */
 package com.forgerock.securebanking.openbanking.uk.common.claim;
 
-import com.forgerock.securebanking.openbanking.uk.common.api.meta.OBConstants;
+import com.forgerock.securebanking.openbanking.uk.common.api.meta.obie.OBConstants;
 import com.nimbusds.jose.shaded.json.JSONObject;
 import com.nimbusds.jose.util.JSONObjectUtils;
 import com.nimbusds.jwt.JWTClaimsSet;
