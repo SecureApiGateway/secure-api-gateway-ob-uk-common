@@ -48,15 +48,18 @@ public class FRFrequency {
         switch (frequencyElements.length) {
             case 1: {
                 this.frequencyType = fromFrequencyString(frequencyElements[0]);
+                break;
             }
             case 2: {
                 this.frequencyType = fromFrequencyString(frequencyElements[0]);
                 this.recurrence = frequencyElements[1];
+                break;
             }
             case 3: {
                 this.frequencyType = fromFrequencyString(frequencyElements[0]);
                 this.recurrence = frequencyElements[1];
                 this.day = frequencyElements[2];
+                break;
             }
             default: {
                 throw new IllegalStateException("The frequency doesn't match the regex format.");
