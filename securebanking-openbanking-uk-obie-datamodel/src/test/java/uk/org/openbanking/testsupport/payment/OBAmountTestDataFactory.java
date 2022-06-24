@@ -32,14 +32,32 @@ public class OBAmountTestDataFactory {
                 .amount(AMOUNT);
     }
 
+    public static OBDomesticStandingOrder3FinalPaymentAmount aValidOBDomesticStandingOrder3FinalPaymentAmount() {
+        return (new OBDomesticStandingOrder3FinalPaymentAmount())
+                .currency(GBP)
+                .amount(AMOUNT);
+    }
+
     public static OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount aValidOBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount() {
         return (new OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount())
                 .currency(GBP)
                 .amount(AMOUNT);
     }
 
+    public static OBDomesticStandingOrder3RecurringPaymentAmount aValidOBDomesticStandingOrder3RecurringPaymentAmount() {
+        return (new OBDomesticStandingOrder3RecurringPaymentAmount())
+                .currency(GBP)
+                .amount(AMOUNT);
+    }
+
     public static OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount aValidOBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount() {
         return (new OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount())
+                .currency(GBP)
+                .amount(AMOUNT);
+    }
+
+    public static OBDomesticStandingOrder3FirstPaymentAmount aValidOBDomesticStandingOrder3FirstPaymentAmount() {
+        return (new OBDomesticStandingOrder3FirstPaymentAmount())
                 .currency(GBP)
                 .amount(AMOUNT);
     }
