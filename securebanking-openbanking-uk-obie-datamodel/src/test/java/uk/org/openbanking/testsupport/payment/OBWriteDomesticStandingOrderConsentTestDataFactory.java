@@ -23,8 +23,7 @@ import uk.org.openbanking.datamodel.payment.*;
 import static org.joda.time.DateTime.now;
 import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.*;
-import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent3DataAuthorisation;
-import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent4DataAuthorisation;
+import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent3DataSCASupportData;
@@ -38,6 +37,18 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
     private static final String REFERENCE = "Ipsum Non Arcu Inc.";
     private static final String NUMBER_OF_PAYMENTS = "1";
 
+    public static OBWriteDomesticStandingOrderConsent2 aValidOBWriteDomesticStandingOrderConsent2() {
+        return (new OBWriteDomesticStandingOrderConsent2())
+                .data(aValidOBWriteDataDomesticStandingOrderConsent2())
+                .risk(aValidOBRisk1());
+    }
+
+    public static OBWriteDomesticStandingOrderConsent3 aValidOBWriteDomesticStandingOrderConsent3() {
+        return (new OBWriteDomesticStandingOrderConsent3())
+                .data(aValidOBWriteDataDomesticStandingOrderConsent3())
+                .risk(aValidOBRisk1());
+    }
+
     public static OBWriteDomesticStandingOrderConsent4 aValidOBWriteDomesticStandingOrderConsent4() {
         return (new OBWriteDomesticStandingOrderConsent4())
                 .data(aValidOBWriteDomesticStandingOrderConsent4Data())
@@ -48,6 +59,20 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
         return (new OBWriteDomesticStandingOrderConsent5())
                 .data(aValidOBWriteDomesticStandingOrderConsent5Data())
                 .risk(aValidOBRisk1());
+    }
+
+    public static OBWriteDataDomesticStandingOrderConsent2 aValidOBWriteDataDomesticStandingOrderConsent2() {
+        return (new OBWriteDataDomesticStandingOrderConsent2())
+                .permission(OBExternalPermissions2Code.CREATE)
+                .initiation(aValidOBDomesticStandingOrder2())
+                .authorisation(aValidOBAuthorisation1());
+    }
+
+    public static OBWriteDataDomesticStandingOrderConsent3 aValidOBWriteDataDomesticStandingOrderConsent3() {
+        return (new OBWriteDataDomesticStandingOrderConsent3())
+                .permission(OBExternalPermissions2Code.CREATE)
+                .initiation(aValidOBDomesticStandingOrder3())
+                .authorisation(aValidOBAuthorisation1());
     }
 
     public static OBWriteDomesticStandingOrderConsent4Data aValidOBWriteDomesticStandingOrderConsent4Data() {
@@ -81,6 +106,40 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
                 .finalPaymentAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
                 .debtorAccount(aValidOBCashAccount3())
                 .creditorAccount(aValidOBCashAccount3());
+    }
+
+    public static OBDomesticStandingOrder2 aValidOBDomesticStandingOrder2() {
+        DateTime now = now();
+        return (new OBDomesticStandingOrder2())
+                .frequency(FREQUENCY)
+                .reference(REFERENCE)
+                .numberOfPayments(NUMBER_OF_PAYMENTS)
+                .firstPaymentDateTime(now)
+                .recurringPaymentDateTime(now)
+                .finalPaymentDateTime(now)
+                .firstPaymentAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
+                .recurringPaymentAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
+                .finalPaymentAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
+                .debtorAccount(aValidOBCashAccount3())
+                .creditorAccount(aValidOBCashAccount3())
+                .supplementaryData(new OBSupplementaryData1());
+    }
+
+    public static OBDomesticStandingOrder3 aValidOBDomesticStandingOrder3() {
+        DateTime now = now();
+        return (new OBDomesticStandingOrder3())
+                .frequency(FREQUENCY)
+                .reference(REFERENCE)
+                .numberOfPayments(NUMBER_OF_PAYMENTS)
+                .firstPaymentDateTime(now)
+                .recurringPaymentDateTime(now)
+                .finalPaymentDateTime(now)
+                .firstPaymentAmount(aValidOBDomesticStandingOrder3FirstPaymentAmount())
+                .recurringPaymentAmount(aValidOBDomesticStandingOrder3RecurringPaymentAmount())
+                .finalPaymentAmount(aValidOBDomesticStandingOrder3FinalPaymentAmount())
+                .debtorAccount(aValidOBCashAccountDebtor4())
+                .creditorAccount(aValidOBCashAccountCreditor3())
+                .supplementaryData(new OBSupplementaryData1());
     }
 
     public static OBWriteDomesticStandingOrder3DataInitiation aValidOBWriteDomesticStandingOrder3DataInitiation() {
