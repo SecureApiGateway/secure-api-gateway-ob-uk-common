@@ -25,7 +25,7 @@ Import into your dependenciesManagement sections like this (use the latest relea
 
 ### How to Build
 
-This is a Java Maven project. 
+This is a Java Maven project.  
 
 #### Prerequisites
 You need the following on your development machine;
