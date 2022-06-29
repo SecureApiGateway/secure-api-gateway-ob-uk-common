@@ -25,6 +25,7 @@ import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
+import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1MandatoryFields;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent3DataSCASupportData;
 
@@ -43,10 +44,22 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
                 .risk(aValidOBRisk1());
     }
 
+    public static OBWriteDomesticStandingOrderConsent2 aValidOBWriteDomesticStandingOrderConsent2MandatoryFields() {
+        return (new OBWriteDomesticStandingOrderConsent2())
+                .data(aValidOBWriteDataDomesticStandingOrderConsent2MandatoryFields())
+                .risk(aValidOBRisk1MandatoryFields());
+    }
+
     public static OBWriteDomesticStandingOrderConsent3 aValidOBWriteDomesticStandingOrderConsent3() {
         return (new OBWriteDomesticStandingOrderConsent3())
                 .data(aValidOBWriteDataDomesticStandingOrderConsent3())
                 .risk(aValidOBRisk1());
+    }
+
+    public static OBWriteDomesticStandingOrderConsent3 aValidOBWriteDomesticStandingOrderConsent3MandatoryFields() {
+        return (new OBWriteDomesticStandingOrderConsent3())
+                .data(aValidOBWriteDataDomesticStandingOrderConsent3MandatoryFields())
+                .risk(aValidOBRisk1MandatoryFields());
     }
 
     public static OBWriteDomesticStandingOrderConsent4 aValidOBWriteDomesticStandingOrderConsent4() {
@@ -55,10 +68,22 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
                 .risk(aValidOBRisk1());
     }
 
+    public static OBWriteDomesticStandingOrderConsent4 aValidOBWriteDomesticStandingOrderConsent4MandatoryFields() {
+        return (new OBWriteDomesticStandingOrderConsent4())
+                .data(aValidOBWriteDomesticStandingOrderConsent4DataMandatoryFields())
+                .risk(aValidOBRisk1MandatoryFields());
+    }
+
     public static OBWriteDomesticStandingOrderConsent5 aValidOBWriteDomesticStandingOrderConsent5() {
         return (new OBWriteDomesticStandingOrderConsent5())
                 .data(aValidOBWriteDomesticStandingOrderConsent5Data())
                 .risk(aValidOBRisk1());
+    }
+
+    public static OBWriteDomesticStandingOrderConsent5 aValidOBWriteDomesticStandingOrderConsent5MandatoryFields() {
+        return (new OBWriteDomesticStandingOrderConsent5())
+                .data(aValidOBWriteDomesticStandingOrderConsent5DataMandatoryFields())
+                .risk(aValidOBRisk1MandatoryFields());
     }
 
     public static OBWriteDataDomesticStandingOrderConsent2 aValidOBWriteDataDomesticStandingOrderConsent2() {
@@ -68,11 +93,23 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
                 .authorisation(aValidOBAuthorisation1());
     }
 
+    public static OBWriteDataDomesticStandingOrderConsent2 aValidOBWriteDataDomesticStandingOrderConsent2MandatoryFields() {
+        return (new OBWriteDataDomesticStandingOrderConsent2())
+                .permission(OBExternalPermissions2Code.CREATE)
+                .initiation(aValidOBDomesticStandingOrder2MandatoryFields());
+    }
+
     public static OBWriteDataDomesticStandingOrderConsent3 aValidOBWriteDataDomesticStandingOrderConsent3() {
         return (new OBWriteDataDomesticStandingOrderConsent3())
                 .permission(OBExternalPermissions2Code.CREATE)
                 .initiation(aValidOBDomesticStandingOrder3())
                 .authorisation(aValidOBAuthorisation1());
+    }
+
+    public static OBWriteDataDomesticStandingOrderConsent3 aValidOBWriteDataDomesticStandingOrderConsent3MandatoryFields() {
+        return (new OBWriteDataDomesticStandingOrderConsent3())
+                .permission(OBExternalPermissions2Code.CREATE)
+                .initiation(aValidOBDomesticStandingOrder3MandatoryFields());
     }
 
     public static OBWriteDomesticStandingOrderConsent4Data aValidOBWriteDomesticStandingOrderConsent4Data() {
@@ -83,6 +120,12 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
                 .scASupportData(aValidOBWriteDomesticConsent3DataSCASupportData());
     }
 
+    public static OBWriteDomesticStandingOrderConsent4Data aValidOBWriteDomesticStandingOrderConsent4DataMandatoryFields() {
+        return (new OBWriteDomesticStandingOrderConsent4Data())
+                .permission(OBExternalPermissions2Code.CREATE)
+                .initiation(aValidOBWriteDomesticStandingOrder3DataInitiationMandatoryFields());
+    }
+
     public static OBWriteDomesticStandingOrderConsent5Data aValidOBWriteDomesticStandingOrderConsent5Data() {
         return (new OBWriteDomesticStandingOrderConsent5Data())
                 .permission(OBExternalPermissions2Code.CREATE)
@@ -90,6 +133,12 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1())
                 .readRefundAccount(OBReadRefundAccountEnum.NO);
+    }
+
+    public static OBWriteDomesticStandingOrderConsent5Data aValidOBWriteDomesticStandingOrderConsent5DataMandatoryFields() {
+        return (new OBWriteDomesticStandingOrderConsent5Data())
+                .permission(OBExternalPermissions2Code.CREATE)
+                .initiation(aValidOBWriteDomesticStandingOrder3DataInitiationMandatoryFields());
     }
 
     public static OBDomesticStandingOrder1 aValidOBDomesticStandingOrder1() {
@@ -125,6 +174,15 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
                 .supplementaryData(new OBSupplementaryData1());
     }
 
+    public static OBDomesticStandingOrder2 aValidOBDomesticStandingOrder2MandatoryFields() {
+        DateTime now = now();
+        return (new OBDomesticStandingOrder2())
+                .frequency(FREQUENCY)
+                .firstPaymentDateTime(now)
+                .firstPaymentAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
+                .creditorAccount(aValidOBCashAccount3());
+    }
+
     public static OBDomesticStandingOrder3 aValidOBDomesticStandingOrder3() {
         DateTime now = now();
         return (new OBDomesticStandingOrder3())
@@ -142,6 +200,15 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
                 .supplementaryData(new OBSupplementaryData1());
     }
 
+    public static OBDomesticStandingOrder3 aValidOBDomesticStandingOrder3MandatoryFields() {
+        DateTime now = now();
+        return (new OBDomesticStandingOrder3())
+                .frequency(FREQUENCY)
+                .firstPaymentDateTime(now)
+                .firstPaymentAmount(aValidOBDomesticStandingOrder3FirstPaymentAmount())
+                .creditorAccount(aValidOBCashAccountCreditor3());
+    }
+
     public static OBWriteDomesticStandingOrder3DataInitiation aValidOBWriteDomesticStandingOrder3DataInitiation() {
         DateTime now = now();
         return (new OBWriteDomesticStandingOrder3DataInitiation())
@@ -157,5 +224,14 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
                 .debtorAccount(aValidOBWriteDomesticStandingOrder3DataInitiationDebtorAccount())
                 .creditorAccount(aValidOBWriteDomesticStandingOrder3DataInitiationCreditorAccount())
                 .supplementaryData(new OBSupplementaryData1());
+    }
+
+    public static OBWriteDomesticStandingOrder3DataInitiation aValidOBWriteDomesticStandingOrder3DataInitiationMandatoryFields() {
+        DateTime now = now();
+        return (new OBWriteDomesticStandingOrder3DataInitiation())
+                .frequency(FREQUENCY)
+                .firstPaymentDateTime(now)
+                .firstPaymentAmount(aValidOBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount())
+                .creditorAccount(aValidOBWriteDomesticStandingOrder3DataInitiationCreditorAccount());
     }
 }

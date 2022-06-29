@@ -34,6 +34,10 @@ public class OBRisk1TestDataFactory {
                 .deliveryAddress(aValidOBRisk1DeliveryAddress());
     }
 
+    public static OBRisk1 aValidOBRisk1MandatoryFields() {
+        return new OBRisk1();
+    }
+
     public static OBRisk1DeliveryAddress aValidOBRisk1DeliveryAddress() {
         return new OBRisk1DeliveryAddress()
                 .addressLine(Collections.singletonList("60 Queens Sq"))
