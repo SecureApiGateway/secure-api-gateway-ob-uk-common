@@ -32,6 +32,13 @@ public class OBAccountTestDataFactory {
                 .secondaryIdentification("11");
     }
 
+    public static OBWriteDomestic2DataInitiationCreditorAccount aValidOBWriteDomestic2DataInitiationCreditorAccountMandatoryFields() {
+        return (new OBWriteDomestic2DataInitiationCreditorAccount())
+                .schemeName("UK.OBIE.SortCodeAccountNumber")
+                .identification("08080021325698")
+                .name("Mr Tim Burgess");
+    }
+
     public static OBWriteDomestic2DataInitiationDebtorAccount aValidOBWriteDomestic2DataInitiationDebtorAccount() {
         return (new OBWriteDomestic2DataInitiationDebtorAccount())
                 .schemeName("UK.OBIE.SortCodeAccountNumber")
