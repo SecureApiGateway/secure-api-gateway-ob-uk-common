@@ -22,7 +22,7 @@ import java.math.BigDecimal;
 
 public class OBExchangeRateTestDataFactory {
 
-    private static final String CURRENCY = "EUR";
+    private static final String CURRENCY = "USD";
     private static final String CONTRACT_IDENTIFICATION = "/tbill/2018/T102993";
 
     public static OBWriteInternational2DataInitiationExchangeRateInformation aValidOBWriteInternational2DataInitiationExchangeRateInformation() {
