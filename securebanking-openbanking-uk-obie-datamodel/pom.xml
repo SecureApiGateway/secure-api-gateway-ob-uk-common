@@ -175,6 +175,7 @@
                                     <generateApis>false</generateApis>
                                     <configOptions>
                                         <dateLibrary>joda</dateLibrary>
+                                        <openApiNullable>false</openApiNullable>
                                     </configOptions>
                                     <addCompileSourceRoot>false</addCompileSourceRoot>
                                 </configuration>
