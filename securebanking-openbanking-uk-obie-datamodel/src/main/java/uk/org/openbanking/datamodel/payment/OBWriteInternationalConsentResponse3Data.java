@@ -32,11 +32,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -50,17 +50,17 @@ public class OBWriteInternationalConsentResponse3Data {
     private String consentId = null;
 
     @JsonProperty("CreationDateTime")
-    private DateTime creationDateTime = null;
+    private OffsetDateTime creationDateTime = null;
     @JsonProperty("Status")
     private StatusEnum status = null;
     @JsonProperty("StatusUpdateDateTime")
-    private DateTime statusUpdateDateTime = null;
+    private OffsetDateTime statusUpdateDateTime = null;
     @JsonProperty("CutOffDateTime")
-    private DateTime cutOffDateTime = null;
+    private OffsetDateTime cutOffDateTime = null;
     @JsonProperty("ExpectedExecutionDateTime")
-    private DateTime expectedExecutionDateTime = null;
+    private OffsetDateTime expectedExecutionDateTime = null;
     @JsonProperty("ExpectedSettlementDateTime")
-    private DateTime expectedSettlementDateTime = null;
+    private OffsetDateTime expectedSettlementDateTime = null;
     @JsonProperty("Charges")
     private List<OBWriteDomesticConsentResponse3DataCharges> charges = null;
     @JsonProperty("ExchangeRateInformation")
@@ -93,7 +93,7 @@ public class OBWriteInternationalConsentResponse3Data {
         this.consentId = consentId;
     }
 
-    public OBWriteInternationalConsentResponse3Data creationDateTime(DateTime creationDateTime) {
+    public OBWriteInternationalConsentResponse3Data creationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
         return this;
     }
@@ -106,11 +106,11 @@ public class OBWriteInternationalConsentResponse3Data {
     @NotNull
     @Valid
     @ApiModelProperty(required = true, value = "Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getCreationDateTime() {
+    public OffsetDateTime getCreationDateTime() {
         return creationDateTime;
     }
 
-    public void setCreationDateTime(DateTime creationDateTime) {
+    public void setCreationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
     }
 
@@ -134,7 +134,7 @@ public class OBWriteInternationalConsentResponse3Data {
         this.status = status;
     }
 
-    public OBWriteInternationalConsentResponse3Data statusUpdateDateTime(DateTime statusUpdateDateTime) {
+    public OBWriteInternationalConsentResponse3Data statusUpdateDateTime(OffsetDateTime statusUpdateDateTime) {
         this.statusUpdateDateTime = statusUpdateDateTime;
         return this;
     }
@@ -147,15 +147,15 @@ public class OBWriteInternationalConsentResponse3Data {
     @NotNull
     @Valid
     @ApiModelProperty(required = true, value = "Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getStatusUpdateDateTime() {
+    public OffsetDateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
     }
 
-    public void setStatusUpdateDateTime(DateTime statusUpdateDateTime) {
+    public void setStatusUpdateDateTime(OffsetDateTime statusUpdateDateTime) {
         this.statusUpdateDateTime = statusUpdateDateTime;
     }
 
-    public OBWriteInternationalConsentResponse3Data cutOffDateTime(DateTime cutOffDateTime) {
+    public OBWriteInternationalConsentResponse3Data cutOffDateTime(OffsetDateTime cutOffDateTime) {
         this.cutOffDateTime = cutOffDateTime;
         return this;
     }
@@ -167,15 +167,15 @@ public class OBWriteInternationalConsentResponse3Data {
      **/
     @Valid
     @ApiModelProperty(value = "Specified cut-off date and time for the payment consent.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getCutOffDateTime() {
+    public OffsetDateTime getCutOffDateTime() {
         return cutOffDateTime;
     }
 
-    public void setCutOffDateTime(DateTime cutOffDateTime) {
+    public void setCutOffDateTime(OffsetDateTime cutOffDateTime) {
         this.cutOffDateTime = cutOffDateTime;
     }
 
-    public OBWriteInternationalConsentResponse3Data expectedExecutionDateTime(DateTime expectedExecutionDateTime) {
+    public OBWriteInternationalConsentResponse3Data expectedExecutionDateTime(OffsetDateTime expectedExecutionDateTime) {
         this.expectedExecutionDateTime = expectedExecutionDateTime;
         return this;
     }
@@ -187,15 +187,15 @@ public class OBWriteInternationalConsentResponse3Data {
      **/
     @Valid
     @ApiModelProperty(value = "Expected execution date and time for the payment resource.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getExpectedExecutionDateTime() {
+    public OffsetDateTime getExpectedExecutionDateTime() {
         return expectedExecutionDateTime;
     }
 
-    public void setExpectedExecutionDateTime(DateTime expectedExecutionDateTime) {
+    public void setExpectedExecutionDateTime(OffsetDateTime expectedExecutionDateTime) {
         this.expectedExecutionDateTime = expectedExecutionDateTime;
     }
 
-    public OBWriteInternationalConsentResponse3Data expectedSettlementDateTime(DateTime expectedSettlementDateTime) {
+    public OBWriteInternationalConsentResponse3Data expectedSettlementDateTime(OffsetDateTime expectedSettlementDateTime) {
         this.expectedSettlementDateTime = expectedSettlementDateTime;
         return this;
     }
@@ -207,11 +207,11 @@ public class OBWriteInternationalConsentResponse3Data {
      **/
     @Valid
     @ApiModelProperty(value = "Expected settlement date and time for the payment resource.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getExpectedSettlementDateTime() {
+    public OffsetDateTime getExpectedSettlementDateTime() {
         return expectedSettlementDateTime;
     }
 
-    public void setExpectedSettlementDateTime(DateTime expectedSettlementDateTime) {
+    public void setExpectedSettlementDateTime(OffsetDateTime expectedSettlementDateTime) {
         this.expectedSettlementDateTime = expectedSettlementDateTime;
     }
 

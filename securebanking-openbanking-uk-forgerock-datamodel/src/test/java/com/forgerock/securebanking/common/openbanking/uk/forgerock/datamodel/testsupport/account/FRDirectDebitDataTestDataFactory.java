@@ -16,8 +16,8 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRDirectDebitData;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRDirectDebitData.FRDirectDebitStatus.ACTIVE;
@@ -46,7 +46,7 @@ public class FRDirectDebitDataTestDataFactory {
                 .mandateIdentification("A mandate identification")
                 .directDebitStatusCode(ACTIVE)
                 .name("DD name")
-                .previousPaymentDateTime(DateTime.now())
+                .previousPaymentDateTime(OffsetDateTime.now())
                 .frequency("UK.OBIE.Monthly")
                 .previousPaymentAmount(aValidFRAmount())
                 .build();

@@ -16,7 +16,9 @@
 package uk.org.openbanking.testsupport.payment;
 
 import com.forgerock.securebanking.openbanking.uk.common.api.meta.forgerock.FRFrequencyType;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
+
+
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
@@ -110,7 +112,7 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
     }
 
     public static OBInternationalStandingOrder1 aValidOBInternationalStandingOrder1() {
-        DateTime now = DateTime.now();
+        OffsetDateTime now = OffsetDateTime.now();
         return (new OBInternationalStandingOrder1())
                 .frequency(FREQUENCY)
                 .reference(REFERENCE)
@@ -128,7 +130,7 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
     }
 
     public static OBInternationalStandingOrder2 aValidOBInternationalStandingOrder2() {
-        DateTime now = DateTime.now();
+        OffsetDateTime now = OffsetDateTime.now();
         return (new OBInternationalStandingOrder2())
                 .frequency(FREQUENCY)
                 .reference(REFERENCE)
@@ -147,7 +149,7 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
     }
 
     public static OBInternationalStandingOrder3 aValidOBInternationalStandingOrder3() {
-        DateTime now = DateTime.now();
+        OffsetDateTime now = OffsetDateTime.now();
         return (new OBInternationalStandingOrder3())
                 .frequency(FREQUENCY)
                 .reference(REFERENCE)
@@ -166,7 +168,7 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
     }
 
     public static OBWriteInternationalStandingOrder3DataInitiation aValidOBWriteInternationalStandingOrder3DataInitiation() {
-        DateTime now = DateTime.now();
+        OffsetDateTime now = OffsetDateTime.now();
         return (new OBWriteInternationalStandingOrder3DataInitiation())
                 .frequency(FREQUENCY)
                 .reference(REFERENCE)
@@ -186,7 +188,7 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
 
 
     public static OBWriteInternationalStandingOrder4DataInitiation aValidOBWriteInternationalStandingOrder4DataInitiation() {
-        DateTime now = DateTime.now();
+        OffsetDateTime now = OffsetDateTime.now();
         return (new OBWriteInternationalStandingOrder4DataInitiation())
                 .frequency(FREQUENCY)
                 .reference(REFERENCE)

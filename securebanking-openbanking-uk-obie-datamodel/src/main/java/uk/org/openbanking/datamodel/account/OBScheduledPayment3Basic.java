@@ -17,18 +17,17 @@ package uk.org.openbanking.datamodel.account;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
  * OBScheduledPayment3Basic
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-08-11T13:05:30.079706+01:00[Europe/London]")
 public class OBScheduledPayment3Basic {
     @JsonProperty("AccountId")
     private String accountId;
@@ -38,7 +37,7 @@ public class OBScheduledPayment3Basic {
 
     @JsonProperty("ScheduledPaymentDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime scheduledPaymentDateTime;
+    private OffsetDateTime scheduledPaymentDateTime;
 
     @JsonProperty("ScheduledType")
     private OBExternalScheduleType1Code scheduledType;
@@ -64,6 +63,7 @@ public class OBScheduledPayment3Basic {
      */
     @ApiModelProperty(required = true, value = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.")
     @NotNull
+
     @Size(min = 1, max = 40)
     public String getAccountId() {
         return accountId;
@@ -84,6 +84,7 @@ public class OBScheduledPayment3Basic {
      * @return scheduledPaymentId
      */
     @ApiModelProperty(value = "A unique and immutable identifier used to identify the scheduled payment resource. This identifier has no meaning to the account owner.")
+
     @Size(min = 1, max = 40)
     public String getScheduledPaymentId() {
         return scheduledPaymentId;
@@ -93,7 +94,7 @@ public class OBScheduledPayment3Basic {
         this.scheduledPaymentId = scheduledPaymentId;
     }
 
-    public OBScheduledPayment3Basic scheduledPaymentDateTime(DateTime scheduledPaymentDateTime) {
+    public OBScheduledPayment3Basic scheduledPaymentDateTime(OffsetDateTime scheduledPaymentDateTime) {
         this.scheduledPaymentDateTime = scheduledPaymentDateTime;
         return this;
     }
@@ -105,12 +106,14 @@ public class OBScheduledPayment3Basic {
      */
     @ApiModelProperty(required = true, value = "The date on which the scheduled payment will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @NotNull
+
     @Valid
-    public DateTime getScheduledPaymentDateTime() {
+
+    public OffsetDateTime getScheduledPaymentDateTime() {
         return scheduledPaymentDateTime;
     }
 
-    public void setScheduledPaymentDateTime(DateTime scheduledPaymentDateTime) {
+    public void setScheduledPaymentDateTime(OffsetDateTime scheduledPaymentDateTime) {
         this.scheduledPaymentDateTime = scheduledPaymentDateTime;
     }
 
@@ -126,7 +129,9 @@ public class OBScheduledPayment3Basic {
      */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
+
     public OBExternalScheduleType1Code getScheduledType() {
         return scheduledType;
     }
@@ -146,6 +151,7 @@ public class OBScheduledPayment3Basic {
      * @return reference
      */
     @ApiModelProperty(value = "Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. Usage: If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money. If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.")
+
     @Size(min = 1, max = 35)
     public String getReference() {
         return reference;
@@ -166,6 +172,7 @@ public class OBScheduledPayment3Basic {
      * @return debtorReference
      */
     @ApiModelProperty(value = "A reference value provided by the PSU to the PISP while setting up the scheduled payment.")
+
     @Size(min = 1, max = 35)
     public String getDebtorReference() {
         return debtorReference;
@@ -187,7 +194,9 @@ public class OBScheduledPayment3Basic {
      */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
+
     public OBActiveOrHistoricCurrencyAndAmount1 getInstructedAmount() {
         return instructedAmount;
     }
@@ -195,6 +204,7 @@ public class OBScheduledPayment3Basic {
     public void setInstructedAmount(OBActiveOrHistoricCurrencyAndAmount1 instructedAmount) {
         this.instructedAmount = instructedAmount;
     }
+
 
     @Override
     public boolean equals(Object o) {

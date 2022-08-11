@@ -19,7 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
+
+import java.time.OffsetDateTime;
 
 @Data
 @Builder
@@ -31,6 +32,6 @@ public class FRAccount {
     private String userId;
     private FRFinancialAccount account;
     private String latestStatementId;
-    private DateTime created;
-    private DateTime updated;
+    private OffsetDateTime created;
+    private OffsetDateTime updated;
 }

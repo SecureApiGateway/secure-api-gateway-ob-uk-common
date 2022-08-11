@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 
 /**
@@ -39,11 +39,11 @@ import java.util.List;
 public class FRReadConsentResponseData {
 
     private String consentId;
-    private DateTime creationDateTime;
+    private OffsetDateTime creationDateTime;
     private FRExternalRequestStatusCode status;
-    private DateTime statusUpdateDateTime;
+    private OffsetDateTime statusUpdateDateTime;
     private List<FRExternalPermissionsCode> permissions;
-    private DateTime expirationDateTime;
-    private DateTime transactionFromDateTime;
-    private DateTime transactionToDateTime;
+    private OffsetDateTime expirationDateTime;
+    private OffsetDateTime transactionFromDateTime;
+    private OffsetDateTime transactionToDateTime;
 }

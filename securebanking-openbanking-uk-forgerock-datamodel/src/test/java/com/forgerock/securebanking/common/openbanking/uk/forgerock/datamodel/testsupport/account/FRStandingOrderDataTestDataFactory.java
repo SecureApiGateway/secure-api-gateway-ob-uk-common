@@ -16,8 +16,8 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRStandingOrderData;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRStandingOrderData.FRStandingOrderStatus.ACTIVE;
@@ -47,10 +47,10 @@ public class FRStandingOrderDataTestDataFactory {
                 .standingOrderId(UUID.randomUUID().toString())
                 .frequency("IntrvlMnthDay:01:-01")
                 .reference("A Direct Debit reference")
-                .firstPaymentDateTime(DateTime.now())
-                .nextPaymentDateTime(DateTime.now().plusMonths(1))
-                .lastPaymentDateTime(DateTime.now().plusMonths(12))
-                .finalPaymentDateTime(DateTime.now().plusMonths(12))
+                .firstPaymentDateTime(OffsetDateTime.now())
+                .nextPaymentDateTime(OffsetDateTime.now().plusMonths(1))
+                .lastPaymentDateTime(OffsetDateTime.now().plusMonths(12))
+                .finalPaymentDateTime(OffsetDateTime.now().plusMonths(12))
                 .numberOfPayments("12")
                 .standingOrderStatusCode(ACTIVE)
                 .firstPaymentAmount(aValidFRAmount())

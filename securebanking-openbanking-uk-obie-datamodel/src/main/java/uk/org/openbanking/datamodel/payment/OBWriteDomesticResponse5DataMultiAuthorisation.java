@@ -33,10 +33,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -92,10 +92,10 @@ public class OBWriteDomesticResponse5DataMultiAuthorisation {
     private Integer numberReceived = null;
 
     @JsonProperty("LastUpdateDateTime")
-    private DateTime lastUpdateDateTime = null;
+    private OffsetDateTime lastUpdateDateTime = null;
 
     @JsonProperty("ExpirationDateTime")
-    private DateTime expirationDateTime = null;
+    private OffsetDateTime expirationDateTime = null;
 
     public OBWriteDomesticResponse5DataMultiAuthorisation status(StatusEnum status) {
         this.status = status;
@@ -155,7 +155,7 @@ public class OBWriteDomesticResponse5DataMultiAuthorisation {
         this.numberReceived = numberReceived;
     }
 
-    public OBWriteDomesticResponse5DataMultiAuthorisation lastUpdateDateTime(DateTime lastUpdateDateTime) {
+    public OBWriteDomesticResponse5DataMultiAuthorisation lastUpdateDateTime(OffsetDateTime lastUpdateDateTime) {
         this.lastUpdateDateTime = lastUpdateDateTime;
         return this;
     }
@@ -167,15 +167,15 @@ public class OBWriteDomesticResponse5DataMultiAuthorisation {
      **/
     @Valid
     @ApiModelProperty(value = "Last date and time at the authorisation flow was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getLastUpdateDateTime() {
+    public OffsetDateTime getLastUpdateDateTime() {
         return lastUpdateDateTime;
     }
 
-    public void setLastUpdateDateTime(DateTime lastUpdateDateTime) {
+    public void setLastUpdateDateTime(OffsetDateTime lastUpdateDateTime) {
         this.lastUpdateDateTime = lastUpdateDateTime;
     }
 
-    public OBWriteDomesticResponse5DataMultiAuthorisation expirationDateTime(DateTime expirationDateTime) {
+    public OBWriteDomesticResponse5DataMultiAuthorisation expirationDateTime(OffsetDateTime expirationDateTime) {
         this.expirationDateTime = expirationDateTime;
         return this;
     }
@@ -187,11 +187,11 @@ public class OBWriteDomesticResponse5DataMultiAuthorisation {
      **/
     @Valid
     @ApiModelProperty(value = "Date and time at which the requested authorisation flow must be completed.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getExpirationDateTime() {
+    public OffsetDateTime getExpirationDateTime() {
         return expirationDateTime;
     }
 
-    public void setExpirationDateTime(DateTime expirationDateTime) {
+    public void setExpirationDateTime(OffsetDateTime expirationDateTime) {
         this.expirationDateTime = expirationDateTime;
     }
 

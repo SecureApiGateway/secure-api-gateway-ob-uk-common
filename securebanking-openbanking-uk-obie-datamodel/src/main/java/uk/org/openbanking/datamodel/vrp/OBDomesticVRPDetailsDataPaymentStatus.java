@@ -19,17 +19,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
  * OBDomesticVRPDetailsDataPaymentStatus
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-08-11T10:59:03.366701+01:00[Europe/London]")
 public class OBDomesticVRPDetailsDataPaymentStatus {
     @JsonProperty("PaymentTransactionId")
     private String paymentTransactionId;
@@ -110,7 +110,7 @@ public class OBDomesticVRPDetailsDataPaymentStatus {
 
     @JsonProperty("StatusUpdateDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime statusUpdateDateTime;
+    private OffsetDateTime statusUpdateDateTime;
 
     @JsonProperty("StatusDetail")
     private OBDomesticVRPDetailsDataStatusDetail statusDetail;
@@ -157,7 +157,7 @@ public class OBDomesticVRPDetailsDataPaymentStatus {
         this.status = status;
     }
 
-    public OBDomesticVRPDetailsDataPaymentStatus statusUpdateDateTime(DateTime statusUpdateDateTime) {
+    public OBDomesticVRPDetailsDataPaymentStatus statusUpdateDateTime(OffsetDateTime statusUpdateDateTime) {
         this.statusUpdateDateTime = statusUpdateDateTime;
         return this;
     }
@@ -171,11 +171,11 @@ public class OBDomesticVRPDetailsDataPaymentStatus {
 
     @Valid
 
-    public DateTime getStatusUpdateDateTime() {
+    public OffsetDateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
     }
 
-    public void setStatusUpdateDateTime(DateTime statusUpdateDateTime) {
+    public void setStatusUpdateDateTime(OffsetDateTime statusUpdateDateTime) {
         this.statusUpdateDateTime = statusUpdateDateTime;
     }
 

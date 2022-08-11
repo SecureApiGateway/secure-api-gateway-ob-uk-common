@@ -22,9 +22,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 
 /**
  * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order
@@ -46,7 +46,7 @@ public class FRWriteFileDataInitiation {
     private String fileReference;
     private String numberOfTransactions;
     private BigDecimal controlSum;
-    private DateTime requestedExecutionDateTime;
+    private OffsetDateTime requestedExecutionDateTime;
     private String localInstrument;
     private FRAccountIdentifier debtorAccount;
     private FRRemittanceInformation remittanceInformation;

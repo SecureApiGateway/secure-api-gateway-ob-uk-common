@@ -23,8 +23,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.stream.Stream;
 
 /**
@@ -46,10 +46,10 @@ public class FRStandingOrderData {
     private String standingOrderId;
     private String frequency;
     private String reference;
-    private DateTime firstPaymentDateTime;
-    private DateTime nextPaymentDateTime;
-    private DateTime lastPaymentDateTime;
-    private DateTime finalPaymentDateTime;
+    private OffsetDateTime firstPaymentDateTime;
+    private OffsetDateTime nextPaymentDateTime;
+    private OffsetDateTime lastPaymentDateTime;
+    private OffsetDateTime finalPaymentDateTime;
     private String numberOfPayments;
     private FRStandingOrderStatus standingOrderStatusCode;
     private FRAmount firstPaymentAmount;

@@ -22,8 +22,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.stream.Stream;
 
 /**
@@ -43,7 +43,7 @@ public class FRScheduledPaymentData {
 
     private String accountId;
     private String scheduledPaymentId;
-    private DateTime scheduledPaymentDateTime;
+    private OffsetDateTime scheduledPaymentDateTime;
     private FRScheduleType scheduledType;
     private String reference;
     private String debtorReference;

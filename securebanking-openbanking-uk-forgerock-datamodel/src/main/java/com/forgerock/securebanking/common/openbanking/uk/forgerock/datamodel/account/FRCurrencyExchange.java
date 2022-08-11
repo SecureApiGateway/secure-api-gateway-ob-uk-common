@@ -20,9 +20,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 
 /**
  * Represents {@code OBCurrencyExchange5} in the OB data model. It is stored within mongo (instead of the OB object),
@@ -44,6 +44,6 @@ public class FRCurrencyExchange {
     private String unitCurrency;
     private BigDecimal exchangeRate;
     private String contractIdentification;
-    private DateTime quotationDate;
+    private OffsetDateTime quotationDate;
     private FRAmount instructedAmount;
 }

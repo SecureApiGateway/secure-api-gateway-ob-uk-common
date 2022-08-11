@@ -19,9 +19,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.stream.Stream;
 
 /**
@@ -43,7 +43,7 @@ public class FRExchangeRateInformation {
     private BigDecimal exchangeRate;
     private FRRateType rateType;
     private String contractIdentification;
-    private DateTime expirationDateTime;
+    private OffsetDateTime expirationDateTime;
 
     public enum FRRateType {
         ACTUAL("Actual"),

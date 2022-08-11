@@ -21,17 +21,24 @@ import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.vrp
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.vrp.FRDomesticVrpRequestData;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.vrp.FRWriteDomesticVrpDataInitiation;
 import lombok.extern.slf4j.Slf4j;
-import uk.org.openbanking.datamodel.vrp.*;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInitiation;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInstruction;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequest;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequestData;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toFRAccountIdentifier;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toOBCashAccountCreditor3;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toOBCashAccountDebtorWithName;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAmountConverter.toFRAmount;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRFinancialInstrumentConverter.toFRFinancialAgent;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification6;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRemittanceInformationConverter.toFRRemittanceInformation;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRemittanceInformationConverter.toOBDomesticVRPInitiationRemittanceInformation;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRemittanceInformationConverter.toOBVRPRemittanceInformation;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toOBRisk1;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRSupplementaryDataConverter.toFRSupplementaryData;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRSupplementaryDataConverter.toOBSupplementaryData1;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRemittanceInformationConverter.*;
 
 @Slf4j
 public class FRDomesticVrpConverters {

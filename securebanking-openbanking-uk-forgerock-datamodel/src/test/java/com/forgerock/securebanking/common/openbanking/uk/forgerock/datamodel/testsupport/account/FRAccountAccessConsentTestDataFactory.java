@@ -18,12 +18,17 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.te
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRAccountAccessConsent;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRAccountAccessConsent.FRAccountAccessConsentBuilder;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRExternalRequestStatusCode;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRExternalPermissionsCode.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRExternalPermissionsCode.READACCOUNTSDETAIL;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRExternalPermissionsCode.READBENEFICIARIESDETAIL;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRExternalPermissionsCode.READSCHEDULEDPAYMENTSDETAIL;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRExternalPermissionsCode.READSTANDINGORDERSDETAIL;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRExternalPermissionsCode.READSTATEMENTSDETAIL;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRExternalPermissionsCode.READTRANSACTIONSDETAIL;
 
 /**
  * Test data factory for {@link FRAccountAccessConsent}.
@@ -50,8 +55,8 @@ public class FRAccountAccessConsentTestDataFactory {
                 READSTANDINGORDERSDETAIL,
                 READSTATEMENTSDETAIL,
                 READTRANSACTIONSDETAIL))
-        .expirationDateTime(DateTime.now().plusDays(1))
-        .transactionFromDateTime(DateTime.now().minusDays(1))
-        .transactionToDateTime(DateTime.now());
+        .expirationDateTime(OffsetDateTime.now().plusDays(1))
+        .transactionFromDateTime(OffsetDateTime.now().minusDays(1))
+        .transactionToDateTime(OffsetDateTime.now());
     }
 }

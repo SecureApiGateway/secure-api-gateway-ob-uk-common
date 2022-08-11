@@ -19,7 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
+
+import java.time.OffsetDateTime;
 
 /**
  * Response indicating if funds are available for an account.
@@ -32,5 +33,5 @@ public class FRFundsConfirmationResponse {
 
     private String accountId;
     private boolean isFundsAvailable;
-    private DateTime fundsAvailableDateTime;
+    private OffsetDateTime fundsAvailableDateTime;
 }

@@ -16,8 +16,8 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRScheduledPaymentData;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRScheduledPaymentData.FRScheduleType.EXECUTION;
@@ -45,7 +45,7 @@ public class FRScheduledPaymentDataTestDataFactory {
         return FRScheduledPaymentData.builder()
                 .accountId(accountId)
                 .scheduledPaymentId(UUID.randomUUID().toString())
-                .scheduledPaymentDateTime(DateTime.now())
+                .scheduledPaymentDateTime(OffsetDateTime.now())
                 .scheduledType(EXECUTION)
                 .reference("A reference")
                 .debtorReference("A debtor reference")

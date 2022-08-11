@@ -19,11 +19,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * OBDomesticVRPResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-08-11T10:59:03.366701+01:00[Europe/London]")
 public class OBDomesticVRPResponseData {
     @JsonProperty("DomesticVRPId")
     private String domesticVRPId;
@@ -41,7 +41,7 @@ public class OBDomesticVRPResponseData {
 
     @JsonProperty("CreationDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime creationDateTime;
+    private OffsetDateTime creationDateTime;
 
     /**
      * Specifies the status of the payment information group.
@@ -91,15 +91,15 @@ public class OBDomesticVRPResponseData {
 
     @JsonProperty("StatusUpdateDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime statusUpdateDateTime;
+    private OffsetDateTime statusUpdateDateTime;
 
     @JsonProperty("ExpectedExecutionDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime expectedExecutionDateTime;
+    private OffsetDateTime expectedExecutionDateTime;
 
     @JsonProperty("ExpectedSettlementDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime expectedSettlementDateTime;
+    private OffsetDateTime expectedSettlementDateTime;
 
     @JsonProperty("Refund")
     private OBCashAccountDebtorWithName refund;
@@ -159,7 +159,7 @@ public class OBDomesticVRPResponseData {
         this.consentId = consentId;
     }
 
-    public OBDomesticVRPResponseData creationDateTime(DateTime creationDateTime) {
+    public OBDomesticVRPResponseData creationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
         return this;
     }
@@ -173,11 +173,11 @@ public class OBDomesticVRPResponseData {
 
     @Valid
 
-    public DateTime getCreationDateTime() {
+    public OffsetDateTime getCreationDateTime() {
         return creationDateTime;
     }
 
-    public void setCreationDateTime(DateTime creationDateTime) {
+    public void setCreationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
     }
 
@@ -202,7 +202,7 @@ public class OBDomesticVRPResponseData {
         this.status = status;
     }
 
-    public OBDomesticVRPResponseData statusUpdateDateTime(DateTime statusUpdateDateTime) {
+    public OBDomesticVRPResponseData statusUpdateDateTime(OffsetDateTime statusUpdateDateTime) {
         this.statusUpdateDateTime = statusUpdateDateTime;
         return this;
     }
@@ -216,15 +216,15 @@ public class OBDomesticVRPResponseData {
 
     @Valid
 
-    public DateTime getStatusUpdateDateTime() {
+    public OffsetDateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
     }
 
-    public void setStatusUpdateDateTime(DateTime statusUpdateDateTime) {
+    public void setStatusUpdateDateTime(OffsetDateTime statusUpdateDateTime) {
         this.statusUpdateDateTime = statusUpdateDateTime;
     }
 
-    public OBDomesticVRPResponseData expectedExecutionDateTime(DateTime expectedExecutionDateTime) {
+    public OBDomesticVRPResponseData expectedExecutionDateTime(OffsetDateTime expectedExecutionDateTime) {
         this.expectedExecutionDateTime = expectedExecutionDateTime;
         return this;
     }
@@ -237,15 +237,15 @@ public class OBDomesticVRPResponseData {
 
     @Valid
 
-    public DateTime getExpectedExecutionDateTime() {
+    public OffsetDateTime getExpectedExecutionDateTime() {
         return expectedExecutionDateTime;
     }
 
-    public void setExpectedExecutionDateTime(DateTime expectedExecutionDateTime) {
+    public void setExpectedExecutionDateTime(OffsetDateTime expectedExecutionDateTime) {
         this.expectedExecutionDateTime = expectedExecutionDateTime;
     }
 
-    public OBDomesticVRPResponseData expectedSettlementDateTime(DateTime expectedSettlementDateTime) {
+    public OBDomesticVRPResponseData expectedSettlementDateTime(OffsetDateTime expectedSettlementDateTime) {
         this.expectedSettlementDateTime = expectedSettlementDateTime;
         return this;
     }
@@ -258,11 +258,11 @@ public class OBDomesticVRPResponseData {
 
     @Valid
 
-    public DateTime getExpectedSettlementDateTime() {
+    public OffsetDateTime getExpectedSettlementDateTime() {
         return expectedSettlementDateTime;
     }
 
-    public void setExpectedSettlementDateTime(DateTime expectedSettlementDateTime) {
+    public void setExpectedSettlementDateTime(OffsetDateTime expectedSettlementDateTime) {
         this.expectedSettlementDateTime = expectedSettlementDateTime;
     }
 
@@ -294,7 +294,7 @@ public class OBDomesticVRPResponseData {
 
     public OBDomesticVRPResponseData addChargesItem(OBDomesticVRPResponseDataCharges chargesItem) {
         if (this.charges == null) {
-            this.charges = new ArrayList<OBDomesticVRPResponseDataCharges>();
+            this.charges = new ArrayList<>();
         }
         this.charges.add(chargesItem);
         return this;

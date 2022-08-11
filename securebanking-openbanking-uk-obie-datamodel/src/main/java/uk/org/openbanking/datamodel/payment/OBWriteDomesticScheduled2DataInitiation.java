@@ -31,13 +31,13 @@ package uk.org.openbanking.datamodel.payment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBPostalAddress6;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -56,7 +56,7 @@ public class OBWriteDomesticScheduled2DataInitiation {
     private String localInstrument = null;
 
     @JsonProperty("RequestedExecutionDateTime")
-    private DateTime requestedExecutionDateTime = null;
+    private OffsetDateTime requestedExecutionDateTime = null;
 
     @JsonProperty("InstructedAmount")
     private OBWriteDomestic2DataInitiationInstructedAmount instructedAmount = null;
@@ -136,7 +136,7 @@ public class OBWriteDomesticScheduled2DataInitiation {
         this.localInstrument = localInstrument;
     }
 
-    public OBWriteDomesticScheduled2DataInitiation requestedExecutionDateTime(DateTime requestedExecutionDateTime) {
+    public OBWriteDomesticScheduled2DataInitiation requestedExecutionDateTime(OffsetDateTime requestedExecutionDateTime) {
         this.requestedExecutionDateTime = requestedExecutionDateTime;
         return this;
     }
@@ -149,11 +149,11 @@ public class OBWriteDomesticScheduled2DataInitiation {
     @NotNull
     @Valid
     @ApiModelProperty(required = true, value = "Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getRequestedExecutionDateTime() {
+    public OffsetDateTime getRequestedExecutionDateTime() {
         return requestedExecutionDateTime;
     }
 
-    public void setRequestedExecutionDateTime(DateTime requestedExecutionDateTime) {
+    public void setRequestedExecutionDateTime(OffsetDateTime requestedExecutionDateTime) {
         this.requestedExecutionDateTime = requestedExecutionDateTime;
     }
 

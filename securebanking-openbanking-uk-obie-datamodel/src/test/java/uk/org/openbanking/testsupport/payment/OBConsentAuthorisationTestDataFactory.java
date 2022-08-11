@@ -15,7 +15,8 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
+
 import uk.org.openbanking.datamodel.payment.OBAuthorisation1;
 import uk.org.openbanking.datamodel.payment.OBExternalAuthorisation1Code;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent3DataAuthorisation;
@@ -29,18 +30,18 @@ public class OBConsentAuthorisationTestDataFactory {
     public static OBAuthorisation1 aValidOBAuthorisation1() {
         return (new OBAuthorisation1())
                 .authorisationType(OBExternalAuthorisation1Code.ANY)
-                .completionDateTime(DateTime.now());
+                .completionDateTime(OffsetDateTime.now());
     }
 
     public static OBWriteDomesticConsent3DataAuthorisation aValidOBWriteDomesticConsent3DataAuthorisation() {
         return (new OBWriteDomesticConsent3DataAuthorisation())
                 .authorisationType(OBExternalAuthorisation1Code.ANY)
-                .completionDateTime(DateTime.now());
+                .completionDateTime(OffsetDateTime.now());
     }
 
     public static OBWriteDomesticConsent4DataAuthorisation aValidOBWriteDomesticConsent4DataAuthorisation() {
         return (new OBWriteDomesticConsent4DataAuthorisation())
                 .authorisationType(OBExternalAuthorisation1Code.ANY)
-                .completionDateTime(DateTime.now());
+                .completionDateTime(OffsetDateTime.now());
     }
 }

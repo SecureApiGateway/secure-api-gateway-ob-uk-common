@@ -16,7 +16,13 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRExchangeRateInformation;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.OBExchangeRate1;
+import uk.org.openbanking.datamodel.payment.OBExchangeRate2;
+import uk.org.openbanking.datamodel.payment.OBExchangeRateType2Code;
+import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationExchangeRateInformation;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsentResponse4DataExchangeRateInformation;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsentResponse5DataExchangeRateInformation;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsentResponse6DataExchangeRateInformation;
 
 public class FRExchangeRateConverter {
 

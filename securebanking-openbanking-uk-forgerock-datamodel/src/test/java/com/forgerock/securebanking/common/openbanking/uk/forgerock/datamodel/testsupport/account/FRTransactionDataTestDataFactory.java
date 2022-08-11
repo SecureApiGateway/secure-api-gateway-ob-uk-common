@@ -16,8 +16,8 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRTransactionData;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRBalanceType.INTERIMBOOKED;
@@ -49,8 +49,8 @@ public class FRTransactionDataTestDataFactory {
                 .transactionReference("Ref 001")
                 .creditDebitIndicator(CREDIT)
                 .status(FRTransactionData.FREntryStatus.BOOKED)
-                .bookingDateTime(DateTime.now().minusDays(1))
-                .valueDateTime(DateTime.now().minusDays(1))
+                .bookingDateTime(OffsetDateTime.now().minusDays(1))
+                .valueDateTime(OffsetDateTime.now().minusDays(1))
                 .transactionInformation("Cash from Fitzpatrick, Fitzgerald N.")
                 .amount(aValidFRAmount())
                 .bankTransactionCode(FRTransactionData.FRBankTransactionCodeStructure.builder()

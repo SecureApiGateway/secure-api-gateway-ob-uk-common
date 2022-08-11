@@ -15,7 +15,9 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
+
+
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
@@ -181,7 +183,7 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
                 .instructionPriority(OBPriority2Code.URGENT)
                 .purpose(PURPOSE)
                 .chargeBearer(OBChargeBearerType1Code.SHARED)
-                .requestedExecutionDateTime(DateTime.now().plusDays(1))
+                .requestedExecutionDateTime(OffsetDateTime.now().plusDays(1))
                 .currencyOfTransfer(CURRENCY)
                 .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
                 .exchangeRateInformation(aValidOBExchangeRate1())
@@ -196,7 +198,7 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
         return (new OBInternationalScheduled1())
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
-                .requestedExecutionDateTime(DateTime.now().plusDays(1))
+                .requestedExecutionDateTime(OffsetDateTime.now().plusDays(1))
                 .currencyOfTransfer(CURRENCY)
                 .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
                 .creditorAccount(aValidOBCashAccount3());
@@ -210,7 +212,7 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
                 .instructionPriority(OBPriority2Code.URGENT)
                 .purpose(PURPOSE)
                 .chargeBearer(OBChargeBearerType1Code.SHARED)
-                .requestedExecutionDateTime(DateTime.now().plusDays(1))
+                .requestedExecutionDateTime(OffsetDateTime.now().plusDays(1))
                 .currencyOfTransfer(CURRENCY)
                 .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
                 .exchangeRateInformation(aValidOBExchangeRate1())
@@ -226,7 +228,7 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
         return (new OBInternationalScheduled2())
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
-                .requestedExecutionDateTime(DateTime.now().plusDays(1))
+                .requestedExecutionDateTime(OffsetDateTime.now().plusDays(1))
                 .currencyOfTransfer(CURRENCY)
                 .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
                 .creditorAccount(aValidOBCashAccount3());
@@ -240,7 +242,7 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
                 .instructionPriority(OBPriority2Code.URGENT)
                 .purpose(PURPOSE)
                 .chargeBearer(OBChargeBearerType1Code.SHARED)
-                .requestedExecutionDateTime(DateTime.now().plusDays(1))
+                .requestedExecutionDateTime(OffsetDateTime.now().plusDays(1))
                 .currencyOfTransfer(CURRENCY)
                 .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
                 .exchangeRateInformation(aValidOBWriteInternational2DataInitiationExchangeRateInformation())
@@ -256,7 +258,7 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
         return (new OBWriteInternationalScheduled2DataInitiation())
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
-                .requestedExecutionDateTime(DateTime.now().plusDays(1))
+                .requestedExecutionDateTime(OffsetDateTime.now().plusDays(1))
                 .currencyOfTransfer(CURRENCY)
                 .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
                 .creditorAccount(aValidOBWriteDomestic2DataInitiationCreditorAccount());
@@ -271,7 +273,7 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
                 .purpose(PURPOSE)
                 .extendedPurpose("Extended purpose")
                 .chargeBearer(OBChargeBearerType1Code.SHARED)
-                .requestedExecutionDateTime(DateTime.now().plusDays(1))
+                .requestedExecutionDateTime(OffsetDateTime.now().plusDays(1))
                 .currencyOfTransfer(CURRENCY)
                 .destinationCountryCode("GB")
                 .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
@@ -288,7 +290,7 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
         return (new OBWriteInternationalScheduled3DataInitiation())
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
-                .requestedExecutionDateTime(DateTime.now().plusDays(1))
+                .requestedExecutionDateTime(OffsetDateTime.now().plusDays(1))
                 .currencyOfTransfer(CURRENCY)
                 .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
                 .creditorAccount(aValidOBWriteDomestic2DataInitiationCreditorAccount());

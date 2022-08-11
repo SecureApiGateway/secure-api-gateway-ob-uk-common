@@ -18,11 +18,11 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -31,8 +31,7 @@ import java.util.Objects;
  * Provides further details on a statement resource.
  */
 @ApiModel(description = "Provides further details on a statement resource.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-08-11T13:05:30.079706+01:00[Europe/London]")
 public class OBStatement2 {
     @JsonProperty("AccountId")
     private String accountId;
@@ -48,15 +47,15 @@ public class OBStatement2 {
 
     @JsonProperty("StartDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime startDateTime;
+    private OffsetDateTime startDateTime;
 
     @JsonProperty("EndDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime endDateTime;
+    private OffsetDateTime endDateTime;
 
     @JsonProperty("CreationDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime creationDateTime;
+    private OffsetDateTime creationDateTime;
 
     @JsonProperty("StatementDescription")
     @Valid
@@ -102,6 +101,7 @@ public class OBStatement2 {
      */
     @ApiModelProperty(required = true, value = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.")
     @NotNull
+
     @Size(min = 1, max = 40)
     public String getAccountId() {
         return accountId;
@@ -122,6 +122,7 @@ public class OBStatement2 {
      * @return statementId
      */
     @ApiModelProperty(value = "Unique identifier for the statement resource within an servicing institution. This identifier is both unique and immutable.")
+
     @Size(min = 1, max = 40)
     public String getStatementId() {
         return statementId;
@@ -142,6 +143,7 @@ public class OBStatement2 {
      * @return statementReference
      */
     @ApiModelProperty(value = "Unique reference for the statement. This reference may be optionally populated if available.")
+
     @Size(min = 1, max = 35)
     public String getStatementReference() {
         return statementReference;
@@ -163,7 +165,9 @@ public class OBStatement2 {
      */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
+
     public OBExternalStatementType1Code getType() {
         return type;
     }
@@ -172,7 +176,7 @@ public class OBStatement2 {
         this.type = type;
     }
 
-    public OBStatement2 startDateTime(DateTime startDateTime) {
+    public OBStatement2 startDateTime(OffsetDateTime startDateTime) {
         this.startDateTime = startDateTime;
         return this;
     }
@@ -184,16 +188,18 @@ public class OBStatement2 {
      */
     @ApiModelProperty(required = true, value = "Date and time at which the statement period starts.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @NotNull
+
     @Valid
-    public DateTime getStartDateTime() {
+
+    public OffsetDateTime getStartDateTime() {
         return startDateTime;
     }
 
-    public void setStartDateTime(DateTime startDateTime) {
+    public void setStartDateTime(OffsetDateTime startDateTime) {
         this.startDateTime = startDateTime;
     }
 
-    public OBStatement2 endDateTime(DateTime endDateTime) {
+    public OBStatement2 endDateTime(OffsetDateTime endDateTime) {
         this.endDateTime = endDateTime;
         return this;
     }
@@ -205,16 +211,18 @@ public class OBStatement2 {
      */
     @ApiModelProperty(required = true, value = "Date and time at which the statement period ends.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @NotNull
+
     @Valid
-    public DateTime getEndDateTime() {
+
+    public OffsetDateTime getEndDateTime() {
         return endDateTime;
     }
 
-    public void setEndDateTime(DateTime endDateTime) {
+    public void setEndDateTime(OffsetDateTime endDateTime) {
         this.endDateTime = endDateTime;
     }
 
-    public OBStatement2 creationDateTime(DateTime creationDateTime) {
+    public OBStatement2 creationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
         return this;
     }
@@ -226,12 +234,14 @@ public class OBStatement2 {
      */
     @ApiModelProperty(required = true, value = "Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @NotNull
+
     @Valid
-    public DateTime getCreationDateTime() {
+
+    public OffsetDateTime getCreationDateTime() {
         return creationDateTime;
     }
 
-    public void setCreationDateTime(DateTime creationDateTime) {
+    public void setCreationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
     }
 
@@ -242,7 +252,7 @@ public class OBStatement2 {
 
     public OBStatement2 addStatementDescriptionItem(String statementDescriptionItem) {
         if (this.statementDescription == null) {
-            this.statementDescription = new ArrayList<String>();
+            this.statementDescription = new ArrayList<>();
         }
         this.statementDescription.add(statementDescriptionItem);
         return this;
@@ -254,6 +264,8 @@ public class OBStatement2 {
      * @return statementDescription
      */
     @ApiModelProperty(value = "")
+
+
     public List<String> getStatementDescription() {
         return statementDescription;
     }
@@ -269,7 +281,7 @@ public class OBStatement2 {
 
     public OBStatement2 addStatementBenefitItem(OBStatement2StatementBenefit statementBenefitItem) {
         if (this.statementBenefit == null) {
-            this.statementBenefit = new ArrayList<OBStatement2StatementBenefit>();
+            this.statementBenefit = new ArrayList<>();
         }
         this.statementBenefit.add(statementBenefitItem);
         return this;
@@ -281,7 +293,9 @@ public class OBStatement2 {
      * @return statementBenefit
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public List<OBStatement2StatementBenefit> getStatementBenefit() {
         return statementBenefit;
     }
@@ -297,7 +311,7 @@ public class OBStatement2 {
 
     public OBStatement2 addStatementFeeItem(OBStatement2StatementFee statementFeeItem) {
         if (this.statementFee == null) {
-            this.statementFee = new ArrayList<OBStatement2StatementFee>();
+            this.statementFee = new ArrayList<>();
         }
         this.statementFee.add(statementFeeItem);
         return this;
@@ -309,7 +323,9 @@ public class OBStatement2 {
      * @return statementFee
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public List<OBStatement2StatementFee> getStatementFee() {
         return statementFee;
     }
@@ -325,7 +341,7 @@ public class OBStatement2 {
 
     public OBStatement2 addStatementInterestItem(OBStatement2StatementInterest statementInterestItem) {
         if (this.statementInterest == null) {
-            this.statementInterest = new ArrayList<OBStatement2StatementInterest>();
+            this.statementInterest = new ArrayList<>();
         }
         this.statementInterest.add(statementInterestItem);
         return this;
@@ -337,7 +353,9 @@ public class OBStatement2 {
      * @return statementInterest
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public List<OBStatement2StatementInterest> getStatementInterest() {
         return statementInterest;
     }
@@ -353,7 +371,7 @@ public class OBStatement2 {
 
     public OBStatement2 addStatementAmountItem(OBStatement2StatementAmount statementAmountItem) {
         if (this.statementAmount == null) {
-            this.statementAmount = new ArrayList<OBStatement2StatementAmount>();
+            this.statementAmount = new ArrayList<>();
         }
         this.statementAmount.add(statementAmountItem);
         return this;
@@ -365,7 +383,9 @@ public class OBStatement2 {
      * @return statementAmount
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public List<OBStatement2StatementAmount> getStatementAmount() {
         return statementAmount;
     }
@@ -381,7 +401,7 @@ public class OBStatement2 {
 
     public OBStatement2 addStatementDateTimeItem(OBStatement2StatementDateTime statementDateTimeItem) {
         if (this.statementDateTime == null) {
-            this.statementDateTime = new ArrayList<OBStatement2StatementDateTime>();
+            this.statementDateTime = new ArrayList<>();
         }
         this.statementDateTime.add(statementDateTimeItem);
         return this;
@@ -393,7 +413,9 @@ public class OBStatement2 {
      * @return statementDateTime
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public List<OBStatement2StatementDateTime> getStatementDateTime() {
         return statementDateTime;
     }
@@ -409,7 +431,7 @@ public class OBStatement2 {
 
     public OBStatement2 addStatementRateItem(OBStatement2StatementRate statementRateItem) {
         if (this.statementRate == null) {
-            this.statementRate = new ArrayList<OBStatement2StatementRate>();
+            this.statementRate = new ArrayList<>();
         }
         this.statementRate.add(statementRateItem);
         return this;
@@ -421,7 +443,9 @@ public class OBStatement2 {
      * @return statementRate
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public List<OBStatement2StatementRate> getStatementRate() {
         return statementRate;
     }
@@ -437,7 +461,7 @@ public class OBStatement2 {
 
     public OBStatement2 addStatementValueItem(OBStatement2StatementValue statementValueItem) {
         if (this.statementValue == null) {
-            this.statementValue = new ArrayList<OBStatement2StatementValue>();
+            this.statementValue = new ArrayList<>();
         }
         this.statementValue.add(statementValueItem);
         return this;
@@ -449,7 +473,9 @@ public class OBStatement2 {
      * @return statementValue
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public List<OBStatement2StatementValue> getStatementValue() {
         return statementValue;
     }
@@ -457,6 +483,7 @@ public class OBStatement2 {
     public void setStatementValue(List<OBStatement2StatementValue> statementValue) {
         this.statementValue = statementValue;
     }
+
 
     @Override
     public boolean equals(Object o) {

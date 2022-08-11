@@ -15,7 +15,8 @@
  */
 package uk.org.openbanking.testsupport.vrp;
 
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
+
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.common.OBVRPAuthenticationMethods;
 import uk.org.openbanking.datamodel.common.OBVRPConsentType;
@@ -24,7 +25,6 @@ import uk.org.openbanking.datamodel.vrp.*;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.joda.time.DateTime.now;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
 import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBActiveOrHistoricCurrencyAndAmount;
 import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBDomesticVRPInitiation;
@@ -57,7 +57,7 @@ public class OBDomesticVrpConsentRequestTestDataFactory {
     }
 
     public static OBDomesticVRPControlParameters aValidOBDomesticVRPControlParameters() {
-        DateTime now = now();
+        OffsetDateTime now = OffsetDateTime.now();
         return (new OBDomesticVRPControlParameters())
                 .psUAuthenticationMethods(Arrays.asList(OBVRPAuthenticationMethods.SCA.getValue()))
                 .vrPType(Arrays.asList(OBVRPConsentType.SWEEPING.getValue()))
@@ -69,7 +69,7 @@ public class OBDomesticVrpConsentRequestTestDataFactory {
     }
 
     public static OBDomesticVRPControlParameters aValidOBDomesticVRPControlParameters(List<String> psuAuthenticationMethods, List<String> vrpTypes) {
-        DateTime now = now();
+        OffsetDateTime now = OffsetDateTime.now();
         return (new OBDomesticVRPControlParameters())
                 .psUAuthenticationMethods(psuAuthenticationMethods)
                 .vrPType(vrpTypes)

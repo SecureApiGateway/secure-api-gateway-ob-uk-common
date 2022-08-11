@@ -30,11 +30,11 @@ package uk.org.openbanking.datamodel.fund;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -49,7 +49,7 @@ public class OBFundsConfirmationResponse1Data {
     private String consentId = null;
 
     @JsonProperty("CreationDateTime")
-    private DateTime creationDateTime = null;
+    private OffsetDateTime creationDateTime = null;
 
     @JsonProperty("FundsAvailable")
     private Boolean fundsAvailable = null;
@@ -102,7 +102,7 @@ public class OBFundsConfirmationResponse1Data {
         this.consentId = consentId;
     }
 
-    public OBFundsConfirmationResponse1Data creationDateTime(DateTime creationDateTime) {
+    public OBFundsConfirmationResponse1Data creationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
         return this;
     }
@@ -115,11 +115,11 @@ public class OBFundsConfirmationResponse1Data {
     @NotNull
     @Valid
     @ApiModelProperty(required = true, value = "Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getCreationDateTime() {
+    public OffsetDateTime getCreationDateTime() {
         return creationDateTime;
     }
 
-    public void setCreationDateTime(DateTime creationDateTime) {
+    public void setCreationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
     }
 

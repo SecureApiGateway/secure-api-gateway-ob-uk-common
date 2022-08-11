@@ -16,11 +16,11 @@
 package uk.org.openbanking.testsupport.payment;
 
 import com.forgerock.securebanking.openbanking.uk.common.api.meta.forgerock.FRFrequencyType;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
 
-import static org.joda.time.DateTime.now;
+
 import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.*;
@@ -142,7 +142,7 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
     }
 
     public static OBDomesticStandingOrder1 aValidOBDomesticStandingOrder1() {
-        DateTime now = now();
+        OffsetDateTime now = OffsetDateTime.now();
         return (new OBDomesticStandingOrder1())
                 .frequency(FREQUENCY)
                 .reference(REFERENCE)
@@ -158,7 +158,7 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
     }
 
     public static OBDomesticStandingOrder2 aValidOBDomesticStandingOrder2() {
-        DateTime now = now();
+        OffsetDateTime now = OffsetDateTime.now();
         return (new OBDomesticStandingOrder2())
                 .frequency(FREQUENCY)
                 .reference(REFERENCE)
@@ -175,7 +175,7 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
     }
 
     public static OBDomesticStandingOrder2 aValidOBDomesticStandingOrder2MandatoryFields() {
-        DateTime now = now();
+        OffsetDateTime now = OffsetDateTime.now();
         return (new OBDomesticStandingOrder2())
                 .frequency(FREQUENCY)
                 .firstPaymentDateTime(now)
@@ -184,7 +184,7 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
     }
 
     public static OBDomesticStandingOrder3 aValidOBDomesticStandingOrder3() {
-        DateTime now = now();
+        OffsetDateTime now = OffsetDateTime.now();
         return (new OBDomesticStandingOrder3())
                 .frequency(FREQUENCY)
                 .reference(REFERENCE)
@@ -201,7 +201,7 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
     }
 
     public static OBDomesticStandingOrder3 aValidOBDomesticStandingOrder3MandatoryFields() {
-        DateTime now = now();
+        OffsetDateTime now = OffsetDateTime.now();
         return (new OBDomesticStandingOrder3())
                 .frequency(FREQUENCY)
                 .firstPaymentDateTime(now)
@@ -210,7 +210,7 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
     }
 
     public static OBWriteDomesticStandingOrder3DataInitiation aValidOBWriteDomesticStandingOrder3DataInitiation() {
-        DateTime now = now();
+        OffsetDateTime now = OffsetDateTime.now();
         return (new OBWriteDomesticStandingOrder3DataInitiation())
                 .frequency(FREQUENCY)
                 .reference(REFERENCE)
@@ -227,7 +227,7 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
     }
 
     public static OBWriteDomesticStandingOrder3DataInitiation aValidOBWriteDomesticStandingOrder3DataInitiationMandatoryFields() {
-        DateTime now = now();
+        OffsetDateTime now = OffsetDateTime.now();
         return (new OBWriteDomesticStandingOrder3DataInitiation())
                 .frequency(FREQUENCY)
                 .firstPaymentDateTime(now)

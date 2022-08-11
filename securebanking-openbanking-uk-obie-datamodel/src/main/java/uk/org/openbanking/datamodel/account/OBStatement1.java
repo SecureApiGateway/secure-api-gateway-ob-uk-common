@@ -18,12 +18,12 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -49,13 +49,13 @@ public class OBStatement1 {
     private OBExternalStatementType1Code type = null;
 
     @JsonProperty("StartDateTime")
-    private DateTime startDateTime = null;
+    private OffsetDateTime startDateTime = null;
 
     @JsonProperty("EndDateTime")
-    private DateTime endDateTime = null;
+    private OffsetDateTime endDateTime = null;
 
     @JsonProperty("CreationDateTime")
-    private DateTime creationDateTime = null;
+    private OffsetDateTime creationDateTime = null;
 
     @JsonProperty("StatementDescription")
     @Valid
@@ -176,7 +176,7 @@ public class OBStatement1 {
         this.type = type;
     }
 
-    public OBStatement1 startDateTime(DateTime startDateTime) {
+    public OBStatement1 startDateTime(OffsetDateTime startDateTime) {
         this.startDateTime = startDateTime;
         return this;
     }
@@ -191,15 +191,15 @@ public class OBStatement1 {
 
     @Valid
 
-    public DateTime getStartDateTime() {
+    public OffsetDateTime getStartDateTime() {
         return startDateTime;
     }
 
-    public void setStartDateTime(DateTime startDateTime) {
+    public void setStartDateTime(OffsetDateTime startDateTime) {
         this.startDateTime = startDateTime;
     }
 
-    public OBStatement1 endDateTime(DateTime endDateTime) {
+    public OBStatement1 endDateTime(OffsetDateTime endDateTime) {
         this.endDateTime = endDateTime;
         return this;
     }
@@ -214,15 +214,15 @@ public class OBStatement1 {
 
     @Valid
 
-    public DateTime getEndDateTime() {
+    public OffsetDateTime getEndDateTime() {
         return endDateTime;
     }
 
-    public void setEndDateTime(DateTime endDateTime) {
+    public void setEndDateTime(OffsetDateTime endDateTime) {
         this.endDateTime = endDateTime;
     }
 
-    public OBStatement1 creationDateTime(DateTime creationDateTime) {
+    public OBStatement1 creationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
         return this;
     }
@@ -237,11 +237,11 @@ public class OBStatement1 {
 
     @Valid
 
-    public DateTime getCreationDateTime() {
+    public OffsetDateTime getCreationDateTime() {
         return creationDateTime;
     }
 
-    public void setCreationDateTime(DateTime creationDateTime) {
+    public void setCreationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
     }
 

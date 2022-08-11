@@ -22,7 +22,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
+
+import java.time.OffsetDateTime;
 
 /**
  * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order
@@ -42,9 +43,9 @@ public class FRWriteDomesticStandingOrderDataInitiation implements FRDomesticDat
     private String frequency;
     private String reference;
     private String numberOfPayments;
-    private DateTime firstPaymentDateTime;
-    private DateTime recurringPaymentDateTime;
-    private DateTime finalPaymentDateTime;
+    private OffsetDateTime firstPaymentDateTime;
+    private OffsetDateTime recurringPaymentDateTime;
+    private OffsetDateTime finalPaymentDateTime;
     private FRAmount firstPaymentAmount;
     private FRAmount recurringPaymentAmount;
     private FRAmount finalPaymentAmount;

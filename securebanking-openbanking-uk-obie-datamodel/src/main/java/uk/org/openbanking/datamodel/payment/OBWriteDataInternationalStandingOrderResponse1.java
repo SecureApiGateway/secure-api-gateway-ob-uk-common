@@ -17,12 +17,12 @@ package uk.org.openbanking.datamodel.payment;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -33,263 +33,263 @@ import java.util.Objects;
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-10T14:05:22.993+01:00")
 
-public class OBWriteDataInternationalStandingOrderResponse1   {
-  @JsonProperty("InternationalStandingOrderId")
-  private String internationalStandingOrderId = null;
+public class OBWriteDataInternationalStandingOrderResponse1 {
+    @JsonProperty("InternationalStandingOrderId")
+    private String internationalStandingOrderId = null;
 
-  @JsonProperty("ConsentId")
-  private String consentId = null;
+    @JsonProperty("ConsentId")
+    private String consentId = null;
 
-  @JsonProperty("CreationDateTime")
-  private DateTime creationDateTime = null;
+    @JsonProperty("CreationDateTime")
+    private OffsetDateTime creationDateTime = null;
 
-  @JsonProperty("Status")
-  private OBExternalStatus1Code status = null;
+    @JsonProperty("Status")
+    private OBExternalStatus1Code status = null;
 
-  @JsonProperty("StatusUpdateDateTime")
-  private DateTime statusUpdateDateTime = null;
+    @JsonProperty("StatusUpdateDateTime")
+    private OffsetDateTime statusUpdateDateTime = null;
 
-  @JsonProperty("Charges")
-  @Valid
-  private List<OBCharge1> charges = null;
+    @JsonProperty("Charges")
+    @Valid
+    private List<OBCharge1> charges = null;
 
-  @JsonProperty("Initiation")
-  private OBInternationalStandingOrder1 initiation = null;
+    @JsonProperty("Initiation")
+    private OBInternationalStandingOrder1 initiation = null;
 
-  @JsonProperty("MultiAuthorisation")
-  private OBMultiAuthorisation1 multiAuthorisation = null;
+    @JsonProperty("MultiAuthorisation")
+    private OBMultiAuthorisation1 multiAuthorisation = null;
 
-  public OBWriteDataInternationalStandingOrderResponse1 internationalStandingOrderId(String internationalStandingOrderId) {
-    this.internationalStandingOrderId = internationalStandingOrderId;
-    return this;
-  }
-
-  /**
-   * OB: Unique identification as assigned by the ASPSP to uniquely identify the international standing order resource.
-   * @return internationalStandingOrderId
-  **/
-  @ApiModelProperty(required = true, value = "OB: Unique identification as assigned by the ASPSP to uniquely identify the international standing order resource.")
-  @NotNull
-
-@Size(min=1,max=40) 
-  public String getInternationalStandingOrderId() {
-    return internationalStandingOrderId;
-  }
-
-  public void setInternationalStandingOrderId(String internationalStandingOrderId) {
-    this.internationalStandingOrderId = internationalStandingOrderId;
-  }
-
-  public OBWriteDataInternationalStandingOrderResponse1 consentId(String consentId) {
-    this.consentId = consentId;
-    return this;
-  }
-
-  /**
-   * OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.
-   * @return consentId
-  **/
-  @ApiModelProperty(required = true, value = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.")
-  @NotNull
-
-@Size(min=1,max=128) 
-  public String getConsentId() {
-    return consentId;
-  }
-
-  public void setConsentId(String consentId) {
-    this.consentId = consentId;
-  }
-
-  public OBWriteDataInternationalStandingOrderResponse1 creationDateTime(DateTime creationDateTime) {
-    this.creationDateTime = creationDateTime;
-    return this;
-  }
-
-  /**
-   * Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-   * @return creationDateTime
-  **/
-  @ApiModelProperty(required = true, value = "Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-  @NotNull
-
-  @Valid
-
-  public DateTime getCreationDateTime() {
-    return creationDateTime;
-  }
-
-  public void setCreationDateTime(DateTime creationDateTime) {
-    this.creationDateTime = creationDateTime;
-  }
-
-  public OBWriteDataInternationalStandingOrderResponse1 status(OBExternalStatus1Code status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Get status
-   * @return status
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
-  @Valid
-
-  public OBExternalStatus1Code getStatus() {
-    return status;
-  }
-
-  public void setStatus(OBExternalStatus1Code status) {
-    this.status = status;
-  }
-
-  public OBWriteDataInternationalStandingOrderResponse1 statusUpdateDateTime(DateTime statusUpdateDateTime) {
-    this.statusUpdateDateTime = statusUpdateDateTime;
-    return this;
-  }
-
-  /**
-   * Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-   * @return statusUpdateDateTime
-  **/
-  @ApiModelProperty(required = true, value = "Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-  @NotNull
-
-  @Valid
-
-  public DateTime getStatusUpdateDateTime() {
-    return statusUpdateDateTime;
-  }
-
-  public void setStatusUpdateDateTime(DateTime statusUpdateDateTime) {
-    this.statusUpdateDateTime = statusUpdateDateTime;
-  }
-
-  public OBWriteDataInternationalStandingOrderResponse1 charges(List<OBCharge1> charges) {
-    this.charges = charges;
-    return this;
-  }
-
-  public OBWriteDataInternationalStandingOrderResponse1 addChargesItem(OBCharge1 chargesItem) {
-    if (this.charges == null) {
-      this.charges = new ArrayList<OBCharge1>();
+    public OBWriteDataInternationalStandingOrderResponse1 internationalStandingOrderId(String internationalStandingOrderId) {
+        this.internationalStandingOrderId = internationalStandingOrderId;
+        return this;
     }
-    this.charges.add(chargesItem);
-    return this;
-  }
 
-  /**
-   * Set of elements used to provide details of a charge for the payment initiation.
-   * @return charges
-  **/
-  @ApiModelProperty(value = "Set of elements used to provide details of a charge for the payment initiation.")
+    /**
+     * OB: Unique identification as assigned by the ASPSP to uniquely identify the international standing order resource.
+     * @return internationalStandingOrderId
+     **/
+    @ApiModelProperty(required = true, value = "OB: Unique identification as assigned by the ASPSP to uniquely identify the international standing order resource.")
+    @NotNull
 
-  @Valid
-
-  public List<OBCharge1> getCharges() {
-    return charges;
-  }
-
-  public void setCharges(List<OBCharge1> charges) {
-    this.charges = charges;
-  }
-
-  public OBWriteDataInternationalStandingOrderResponse1 initiation(OBInternationalStandingOrder1 initiation) {
-    this.initiation = initiation;
-    return this;
-  }
-
-  /**
-   * Get initiation
-   * @return initiation
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
-  @Valid
-
-  public OBInternationalStandingOrder1 getInitiation() {
-    return initiation;
-  }
-
-  public void setInitiation(OBInternationalStandingOrder1 initiation) {
-    this.initiation = initiation;
-  }
-
-  public OBWriteDataInternationalStandingOrderResponse1 multiAuthorisation(OBMultiAuthorisation1 multiAuthorisation) {
-    this.multiAuthorisation = multiAuthorisation;
-    return this;
-  }
-
-  /**
-   * Get multiAuthorisation
-   * @return multiAuthorisation
-  **/
-  @ApiModelProperty(value = "")
-
-  @Valid
-
-  public OBMultiAuthorisation1 getMultiAuthorisation() {
-    return multiAuthorisation;
-  }
-
-  public void setMultiAuthorisation(OBMultiAuthorisation1 multiAuthorisation) {
-    this.multiAuthorisation = multiAuthorisation;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @Size(min = 1, max = 40)
+    public String getInternationalStandingOrderId() {
+        return internationalStandingOrderId;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setInternationalStandingOrderId(String internationalStandingOrderId) {
+        this.internationalStandingOrderId = internationalStandingOrderId;
     }
-    OBWriteDataInternationalStandingOrderResponse1 obWriteDataInternationalStandingOrderResponse1 = (OBWriteDataInternationalStandingOrderResponse1) o;
-    return Objects.equals(this.internationalStandingOrderId, obWriteDataInternationalStandingOrderResponse1.internationalStandingOrderId) &&
-        Objects.equals(this.consentId, obWriteDataInternationalStandingOrderResponse1.consentId) &&
-        Objects.equals(this.creationDateTime, obWriteDataInternationalStandingOrderResponse1.creationDateTime) &&
-        Objects.equals(this.status, obWriteDataInternationalStandingOrderResponse1.status) &&
-        Objects.equals(this.statusUpdateDateTime, obWriteDataInternationalStandingOrderResponse1.statusUpdateDateTime) &&
-        Objects.equals(this.charges, obWriteDataInternationalStandingOrderResponse1.charges) &&
-        Objects.equals(this.initiation, obWriteDataInternationalStandingOrderResponse1.initiation) &&
-        Objects.equals(this.multiAuthorisation, obWriteDataInternationalStandingOrderResponse1.multiAuthorisation);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(internationalStandingOrderId, consentId, creationDateTime, status, statusUpdateDateTime, charges, initiation, multiAuthorisation);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBWriteDataInternationalStandingOrderResponse1 {\n");
-
-    sb.append("    internationalStandingOrderId: ").append(toIndentedString(internationalStandingOrderId)).append("\n");
-    sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
-    sb.append("    creationDateTime: ").append(toIndentedString(creationDateTime)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    statusUpdateDateTime: ").append(toIndentedString(statusUpdateDateTime)).append("\n");
-    sb.append("    charges: ").append(toIndentedString(charges)).append("\n");
-    sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
-    sb.append("    multiAuthorisation: ").append(toIndentedString(multiAuthorisation)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public OBWriteDataInternationalStandingOrderResponse1 consentId(String consentId) {
+        this.consentId = consentId;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.
+     * @return consentId
+     **/
+    @ApiModelProperty(required = true, value = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.")
+    @NotNull
+
+    @Size(min = 1, max = 128)
+    public String getConsentId() {
+        return consentId;
+    }
+
+    public void setConsentId(String consentId) {
+        this.consentId = consentId;
+    }
+
+    public OBWriteDataInternationalStandingOrderResponse1 creationDateTime(OffsetDateTime creationDateTime) {
+        this.creationDateTime = creationDateTime;
+        return this;
+    }
+
+    /**
+     * Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * @return creationDateTime
+     **/
+    @ApiModelProperty(required = true, value = "Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
+    @NotNull
+
+    @Valid
+
+    public OffsetDateTime getCreationDateTime() {
+        return creationDateTime;
+    }
+
+    public void setCreationDateTime(OffsetDateTime creationDateTime) {
+        this.creationDateTime = creationDateTime;
+    }
+
+    public OBWriteDataInternationalStandingOrderResponse1 status(OBExternalStatus1Code status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Get status
+     * @return status
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
+
+    @Valid
+
+    public OBExternalStatus1Code getStatus() {
+        return status;
+    }
+
+    public void setStatus(OBExternalStatus1Code status) {
+        this.status = status;
+    }
+
+    public OBWriteDataInternationalStandingOrderResponse1 statusUpdateDateTime(OffsetDateTime statusUpdateDateTime) {
+        this.statusUpdateDateTime = statusUpdateDateTime;
+        return this;
+    }
+
+    /**
+     * Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * @return statusUpdateDateTime
+     **/
+    @ApiModelProperty(required = true, value = "Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
+    @NotNull
+
+    @Valid
+
+    public OffsetDateTime getStatusUpdateDateTime() {
+        return statusUpdateDateTime;
+    }
+
+    public void setStatusUpdateDateTime(OffsetDateTime statusUpdateDateTime) {
+        this.statusUpdateDateTime = statusUpdateDateTime;
+    }
+
+    public OBWriteDataInternationalStandingOrderResponse1 charges(List<OBCharge1> charges) {
+        this.charges = charges;
+        return this;
+    }
+
+    public OBWriteDataInternationalStandingOrderResponse1 addChargesItem(OBCharge1 chargesItem) {
+        if (this.charges == null) {
+            this.charges = new ArrayList<OBCharge1>();
+        }
+        this.charges.add(chargesItem);
+        return this;
+    }
+
+    /**
+     * Set of elements used to provide details of a charge for the payment initiation.
+     * @return charges
+     **/
+    @ApiModelProperty(value = "Set of elements used to provide details of a charge for the payment initiation.")
+
+    @Valid
+
+    public List<OBCharge1> getCharges() {
+        return charges;
+    }
+
+    public void setCharges(List<OBCharge1> charges) {
+        this.charges = charges;
+    }
+
+    public OBWriteDataInternationalStandingOrderResponse1 initiation(OBInternationalStandingOrder1 initiation) {
+        this.initiation = initiation;
+        return this;
+    }
+
+    /**
+     * Get initiation
+     * @return initiation
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
+
+    @Valid
+
+    public OBInternationalStandingOrder1 getInitiation() {
+        return initiation;
+    }
+
+    public void setInitiation(OBInternationalStandingOrder1 initiation) {
+        this.initiation = initiation;
+    }
+
+    public OBWriteDataInternationalStandingOrderResponse1 multiAuthorisation(OBMultiAuthorisation1 multiAuthorisation) {
+        this.multiAuthorisation = multiAuthorisation;
+        return this;
+    }
+
+    /**
+     * Get multiAuthorisation
+     * @return multiAuthorisation
+     **/
+    @ApiModelProperty(value = "")
+
+    @Valid
+
+    public OBMultiAuthorisation1 getMultiAuthorisation() {
+        return multiAuthorisation;
+    }
+
+    public void setMultiAuthorisation(OBMultiAuthorisation1 multiAuthorisation) {
+        this.multiAuthorisation = multiAuthorisation;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBWriteDataInternationalStandingOrderResponse1 obWriteDataInternationalStandingOrderResponse1 = (OBWriteDataInternationalStandingOrderResponse1) o;
+        return Objects.equals(this.internationalStandingOrderId, obWriteDataInternationalStandingOrderResponse1.internationalStandingOrderId) &&
+                Objects.equals(this.consentId, obWriteDataInternationalStandingOrderResponse1.consentId) &&
+                Objects.equals(this.creationDateTime, obWriteDataInternationalStandingOrderResponse1.creationDateTime) &&
+                Objects.equals(this.status, obWriteDataInternationalStandingOrderResponse1.status) &&
+                Objects.equals(this.statusUpdateDateTime, obWriteDataInternationalStandingOrderResponse1.statusUpdateDateTime) &&
+                Objects.equals(this.charges, obWriteDataInternationalStandingOrderResponse1.charges) &&
+                Objects.equals(this.initiation, obWriteDataInternationalStandingOrderResponse1.initiation) &&
+                Objects.equals(this.multiAuthorisation, obWriteDataInternationalStandingOrderResponse1.multiAuthorisation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(internationalStandingOrderId, consentId, creationDateTime, status, statusUpdateDateTime, charges, initiation, multiAuthorisation);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBWriteDataInternationalStandingOrderResponse1 {\n");
+
+        sb.append("    internationalStandingOrderId: ").append(toIndentedString(internationalStandingOrderId)).append("\n");
+        sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
+        sb.append("    creationDateTime: ").append(toIndentedString(creationDateTime)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    statusUpdateDateTime: ").append(toIndentedString(statusUpdateDateTime)).append("\n");
+        sb.append("    charges: ").append(toIndentedString(charges)).append("\n");
+        sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
+        sb.append("    multiAuthorisation: ").append(toIndentedString(multiAuthorisation)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

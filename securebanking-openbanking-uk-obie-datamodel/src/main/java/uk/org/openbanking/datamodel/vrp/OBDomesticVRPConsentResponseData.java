@@ -19,25 +19,25 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
  * OBDomesticVRPConsentResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-08-11T10:59:03.366701+01:00[Europe/London]")
 public class OBDomesticVRPConsentResponseData {
     /**
      * Indicates whether information about RefundAccount should be included in the payment response.
      */
     public enum ReadRefundAccountEnum {
-        TRUE("true"),
+        YES("Yes"),
 
-        FALSE("false");
+        NO("No");
 
         private String value;
 
@@ -74,7 +74,7 @@ public class OBDomesticVRPConsentResponseData {
 
     @JsonProperty("CreationDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime creationDateTime;
+    private OffsetDateTime creationDateTime;
 
     /**
      * Specifies the status of resource in code form.
@@ -122,7 +122,7 @@ public class OBDomesticVRPConsentResponseData {
 
     @JsonProperty("StatusUpdateDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime statusUpdateDateTime;
+    private OffsetDateTime statusUpdateDateTime;
 
     @JsonProperty("ControlParameters")
     private OBDomesticVRPControlParameters controlParameters;
@@ -174,7 +174,7 @@ public class OBDomesticVRPConsentResponseData {
         this.consentId = consentId;
     }
 
-    public OBDomesticVRPConsentResponseData creationDateTime(DateTime creationDateTime) {
+    public OBDomesticVRPConsentResponseData creationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
         return this;
     }
@@ -188,11 +188,11 @@ public class OBDomesticVRPConsentResponseData {
 
     @Valid
 
-    public DateTime getCreationDateTime() {
+    public OffsetDateTime getCreationDateTime() {
         return creationDateTime;
     }
 
-    public void setCreationDateTime(DateTime creationDateTime) {
+    public void setCreationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
     }
 
@@ -217,7 +217,7 @@ public class OBDomesticVRPConsentResponseData {
         this.status = status;
     }
 
-    public OBDomesticVRPConsentResponseData statusUpdateDateTime(DateTime statusUpdateDateTime) {
+    public OBDomesticVRPConsentResponseData statusUpdateDateTime(OffsetDateTime statusUpdateDateTime) {
         this.statusUpdateDateTime = statusUpdateDateTime;
         return this;
     }
@@ -231,11 +231,11 @@ public class OBDomesticVRPConsentResponseData {
 
     @Valid
 
-    public DateTime getStatusUpdateDateTime() {
+    public OffsetDateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
     }
 
-    public void setStatusUpdateDateTime(DateTime statusUpdateDateTime) {
+    public void setStatusUpdateDateTime(OffsetDateTime statusUpdateDateTime) {
         this.statusUpdateDateTime = statusUpdateDateTime;
     }
 

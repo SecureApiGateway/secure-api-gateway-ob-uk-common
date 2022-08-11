@@ -17,8 +17,8 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.te
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRAccountServicer;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRFinancialAccount;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRFinancialAccount.FRAccountStatusCode.ENABLED;
@@ -39,13 +39,13 @@ public class FRFinancialAccountTestDataFactory {
         return FRFinancialAccount.builder()
                 .accountId("1234")
                 .status(ENABLED)
-                .statusUpdateDateTime(DateTime.now())
+                .statusUpdateDateTime(OffsetDateTime.now())
                 .currency("GBP")
                 .accountType(PERSONAL)
                 .accountSubType(CURRENTACCOUNT)
                 .description("A personal current account")
                 .nickname("House Account")
-                .openingDate(DateTime.now().minusDays(1))
+                .openingDate(OffsetDateTime.now().minusDays(1))
                 .maturityDate(null)
                 .accounts(List.of(aValidFRAccountIdentifier()))
                 .servicer(FRAccountServicer.builder()

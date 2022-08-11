@@ -17,18 +17,18 @@ package uk.org.openbanking.datamodel.vrp;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
  * OBVRPFundsConfirmationResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-08-11T10:59:03.366701+01:00[Europe/London]")
 public class OBVRPFundsConfirmationResponseData {
     @JsonProperty("FundsConfirmationId")
     private String fundsConfirmationId;
@@ -38,7 +38,7 @@ public class OBVRPFundsConfirmationResponseData {
 
     @JsonProperty("CreationDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime creationDateTime;
+    private OffsetDateTime creationDateTime;
 
     @JsonProperty("Reference")
     private String reference;
@@ -91,7 +91,7 @@ public class OBVRPFundsConfirmationResponseData {
         this.consentId = consentId;
     }
 
-    public OBVRPFundsConfirmationResponseData creationDateTime(DateTime creationDateTime) {
+    public OBVRPFundsConfirmationResponseData creationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
         return this;
     }
@@ -105,11 +105,11 @@ public class OBVRPFundsConfirmationResponseData {
 
     @Valid
 
-    public DateTime getCreationDateTime() {
+    public OffsetDateTime getCreationDateTime() {
         return creationDateTime;
     }
 
-    public void setCreationDateTime(DateTime creationDateTime) {
+    public void setCreationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
     }
 

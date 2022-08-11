@@ -20,21 +20,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
  * Availability result, clearly indicating the availability of funds given the Amount in the request.
  */
 @ApiModel(description = "Availability result, clearly indicating the availability of funds given the Amount in the request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-08-11T10:59:03.366701+01:00[Europe/London]")
 public class OBPAFundsAvailableResult1 {
     @JsonProperty("FundsAvailableDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime fundsAvailableDateTime;
+    private OffsetDateTime fundsAvailableDateTime;
 
     /**
      * Availability result, clearly indicating the availability of funds given the Amount in the request.
@@ -74,7 +74,7 @@ public class OBPAFundsAvailableResult1 {
     @JsonProperty("FundsAvailable")
     private FundsAvailableEnum fundsAvailable;
 
-    public OBPAFundsAvailableResult1 fundsAvailableDateTime(DateTime fundsAvailableDateTime) {
+    public OBPAFundsAvailableResult1 fundsAvailableDateTime(OffsetDateTime fundsAvailableDateTime) {
         this.fundsAvailableDateTime = fundsAvailableDateTime;
         return this;
     }
@@ -88,11 +88,11 @@ public class OBPAFundsAvailableResult1 {
 
     @Valid
 
-    public DateTime getFundsAvailableDateTime() {
+    public OffsetDateTime getFundsAvailableDateTime() {
         return fundsAvailableDateTime;
     }
 
-    public void setFundsAvailableDateTime(DateTime fundsAvailableDateTime) {
+    public void setFundsAvailableDateTime(OffsetDateTime fundsAvailableDateTime) {
         this.fundsAvailableDateTime = fundsAvailableDateTime;
     }
 

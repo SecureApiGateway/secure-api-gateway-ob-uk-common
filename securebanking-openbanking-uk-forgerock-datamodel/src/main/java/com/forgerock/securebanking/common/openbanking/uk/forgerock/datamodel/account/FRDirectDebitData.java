@@ -20,8 +20,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.stream.Stream;
 
 /**
@@ -44,7 +44,7 @@ public class FRDirectDebitData {
     private String mandateIdentification;
     private FRDirectDebitStatus directDebitStatusCode;
     private String name;
-    private DateTime previousPaymentDateTime;
+    private OffsetDateTime previousPaymentDateTime;
     private String frequency;
     private FRAmount previousPaymentAmount;
 

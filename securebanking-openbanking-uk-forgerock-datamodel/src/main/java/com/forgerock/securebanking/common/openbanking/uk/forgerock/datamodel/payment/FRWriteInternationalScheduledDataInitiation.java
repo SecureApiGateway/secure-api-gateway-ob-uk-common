@@ -15,12 +15,21 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.payment;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.*;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRAccountIdentifier;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRAmount;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRChargeBearerType;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRExchangeRateInformation;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRFinancialAgent;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRFinancialCreditor;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRInstructionPriority;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRRemittanceInformation;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRSupplementaryData;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
+
+import java.time.OffsetDateTime;
 
 /**
  * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order
@@ -44,7 +53,7 @@ public class FRWriteInternationalScheduledDataInitiation implements FRInternatio
     private String purpose;
     private String extendedPurpose;
     private FRChargeBearerType chargeBearer;
-    private DateTime requestedExecutionDateTime;
+    private OffsetDateTime requestedExecutionDateTime;
     private String currencyOfTransfer;
     private String destinationCountryCode;
     private FRAmount instructedAmount;

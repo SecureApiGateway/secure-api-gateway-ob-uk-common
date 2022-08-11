@@ -30,7 +30,6 @@ package uk.org.openbanking.datamodel.account;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
@@ -38,6 +37,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -58,13 +58,13 @@ public class OBStandingOrder5 {
     private String reference = null;
 
     @JsonProperty("FirstPaymentDateTime")
-    private DateTime firstPaymentDateTime = null;
+    private OffsetDateTime firstPaymentDateTime = null;
 
     @JsonProperty("NextPaymentDateTime")
-    private DateTime nextPaymentDateTime = null;
+    private OffsetDateTime nextPaymentDateTime = null;
 
     @JsonProperty("FinalPaymentDateTime")
-    private DateTime finalPaymentDateTime = null;
+    private OffsetDateTime finalPaymentDateTime = null;
 
     @JsonProperty("StandingOrderStatusCode")
     private OBExternalStandingOrderStatus1Code standingOrderStatusCode = null;
@@ -170,7 +170,7 @@ public class OBStandingOrder5 {
         this.reference = reference;
     }
 
-    public OBStandingOrder5 firstPaymentDateTime(DateTime firstPaymentDateTime) {
+    public OBStandingOrder5 firstPaymentDateTime(OffsetDateTime firstPaymentDateTime) {
         this.firstPaymentDateTime = firstPaymentDateTime;
         return this;
     }
@@ -182,15 +182,15 @@ public class OBStandingOrder5 {
      **/
     @Valid
     @ApiModelProperty(value = "The date on which the first payment for a Standing Order schedule will be made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getFirstPaymentDateTime() {
+    public OffsetDateTime getFirstPaymentDateTime() {
         return firstPaymentDateTime;
     }
 
-    public void setFirstPaymentDateTime(DateTime firstPaymentDateTime) {
+    public void setFirstPaymentDateTime(OffsetDateTime firstPaymentDateTime) {
         this.firstPaymentDateTime = firstPaymentDateTime;
     }
 
-    public OBStandingOrder5 nextPaymentDateTime(DateTime nextPaymentDateTime) {
+    public OBStandingOrder5 nextPaymentDateTime(OffsetDateTime nextPaymentDateTime) {
         this.nextPaymentDateTime = nextPaymentDateTime;
         return this;
     }
@@ -202,15 +202,15 @@ public class OBStandingOrder5 {
      **/
     @Valid
     @ApiModelProperty(value = "The date on which the next payment for a Standing Order schedule will be made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getNextPaymentDateTime() {
+    public OffsetDateTime getNextPaymentDateTime() {
         return nextPaymentDateTime;
     }
 
-    public void setNextPaymentDateTime(DateTime nextPaymentDateTime) {
+    public void setNextPaymentDateTime(OffsetDateTime nextPaymentDateTime) {
         this.nextPaymentDateTime = nextPaymentDateTime;
     }
 
-    public OBStandingOrder5 finalPaymentDateTime(DateTime finalPaymentDateTime) {
+    public OBStandingOrder5 finalPaymentDateTime(OffsetDateTime finalPaymentDateTime) {
         this.finalPaymentDateTime = finalPaymentDateTime;
         return this;
     }
@@ -222,11 +222,11 @@ public class OBStandingOrder5 {
      **/
     @Valid
     @ApiModelProperty(value = "The date on which the final payment for a Standing Order schedule will be made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getFinalPaymentDateTime() {
+    public OffsetDateTime getFinalPaymentDateTime() {
         return finalPaymentDateTime;
     }
 
-    public void setFinalPaymentDateTime(DateTime finalPaymentDateTime) {
+    public void setFinalPaymentDateTime(OffsetDateTime finalPaymentDateTime) {
         this.finalPaymentDateTime = finalPaymentDateTime;
     }
 

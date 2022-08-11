@@ -20,8 +20,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.stream.Stream;
 
 /**
@@ -43,8 +43,8 @@ public class FROfferData {
     private String offerId;
     private FROfferType offerType;
     private String description;
-    private DateTime startDateTime;
-    private DateTime endDateTime;
+    private OffsetDateTime startDateTime;
+    private OffsetDateTime endDateTime;
     private String rate;
     private Integer value;
     private String term;

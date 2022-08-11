@@ -31,7 +31,6 @@ package uk.org.openbanking.datamodel.payment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
@@ -39,6 +38,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -62,7 +62,7 @@ public class OBWriteInternationalScheduled2DataInitiation {
     @JsonProperty("ChargeBearer")
     private OBChargeBearerType1Code chargeBearer = null;
     @JsonProperty("RequestedExecutionDateTime")
-    private DateTime requestedExecutionDateTime = null;
+    private OffsetDateTime requestedExecutionDateTime = null;
     @JsonProperty("CurrencyOfTransfer")
     private String currencyOfTransfer = null;
     @JsonProperty("InstructedAmount")
@@ -200,7 +200,7 @@ public class OBWriteInternationalScheduled2DataInitiation {
         this.chargeBearer = chargeBearer;
     }
 
-    public OBWriteInternationalScheduled2DataInitiation requestedExecutionDateTime(DateTime requestedExecutionDateTime) {
+    public OBWriteInternationalScheduled2DataInitiation requestedExecutionDateTime(OffsetDateTime requestedExecutionDateTime) {
         this.requestedExecutionDateTime = requestedExecutionDateTime;
         return this;
     }
@@ -213,11 +213,11 @@ public class OBWriteInternationalScheduled2DataInitiation {
     @NotNull
     @Valid
     @ApiModelProperty(required = true, value = "Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getRequestedExecutionDateTime() {
+    public OffsetDateTime getRequestedExecutionDateTime() {
         return requestedExecutionDateTime;
     }
 
-    public void setRequestedExecutionDateTime(DateTime requestedExecutionDateTime) {
+    public void setRequestedExecutionDateTime(OffsetDateTime requestedExecutionDateTime) {
         this.requestedExecutionDateTime = requestedExecutionDateTime;
     }
 

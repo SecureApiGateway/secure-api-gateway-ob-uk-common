@@ -15,8 +15,7 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account;
 
-import org.joda.time.DateTime;
-
+import java.time.OffsetDateTime;
 import java.util.List;
 
 /**
@@ -34,11 +33,11 @@ public interface FRAccountConsent {
 
     List<FRExternalPermissionsCode> getPermissions();
 
-    DateTime getExpirationDateTime();
+    OffsetDateTime getExpirationDateTime();
 
-    DateTime getTransactionFromDateTime();
+    OffsetDateTime getTransactionFromDateTime();
 
-    DateTime getTransactionToDateTime();
+    OffsetDateTime getTransactionToDateTime();
 
     void setUserId(String userId);
 

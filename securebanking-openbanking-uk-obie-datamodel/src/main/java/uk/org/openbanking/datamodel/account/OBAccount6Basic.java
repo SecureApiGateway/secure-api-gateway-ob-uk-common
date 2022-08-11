@@ -18,20 +18,19 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
  * Unambiguous identification of the account to which credit and debit entries are made.
  */
 @ApiModel(description = "Unambiguous identification of the account to which credit and debit entries are made.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-08-11T13:05:30.079706+01:00[Europe/London]")
 public class OBAccount6Basic {
     @JsonProperty("AccountId")
     private String accountId;
@@ -41,7 +40,7 @@ public class OBAccount6Basic {
 
     @JsonProperty("StatusUpdateDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime statusUpdateDateTime;
+    private OffsetDateTime statusUpdateDateTime;
 
     @JsonProperty("Currency")
     private String currency;
@@ -60,11 +59,11 @@ public class OBAccount6Basic {
 
     @JsonProperty("OpeningDate")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime openingDate;
+    private OffsetDateTime openingDate;
 
     @JsonProperty("MaturityDate")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime maturityDate;
+    private OffsetDateTime maturityDate;
 
     @JsonProperty("SwitchStatus")
     private String switchStatus;
@@ -81,6 +80,7 @@ public class OBAccount6Basic {
      */
     @ApiModelProperty(required = true, value = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.")
     @NotNull
+
     @Size(min = 1, max = 40)
     public String getAccountId() {
         return accountId;
@@ -101,7 +101,9 @@ public class OBAccount6Basic {
      * @return status
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBAccountStatus1Code getStatus() {
         return status;
     }
@@ -110,7 +112,7 @@ public class OBAccount6Basic {
         this.status = status;
     }
 
-    public OBAccount6Basic statusUpdateDateTime(DateTime statusUpdateDateTime) {
+    public OBAccount6Basic statusUpdateDateTime(OffsetDateTime statusUpdateDateTime) {
         this.statusUpdateDateTime = statusUpdateDateTime;
         return this;
     }
@@ -121,12 +123,14 @@ public class OBAccount6Basic {
      * @return statusUpdateDateTime
      */
     @ApiModelProperty(value = "Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
+
     @Valid
-    public DateTime getStatusUpdateDateTime() {
+
+    public OffsetDateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
     }
 
-    public void setStatusUpdateDateTime(DateTime statusUpdateDateTime) {
+    public void setStatusUpdateDateTime(OffsetDateTime statusUpdateDateTime) {
         this.statusUpdateDateTime = statusUpdateDateTime;
     }
 
@@ -142,6 +146,7 @@ public class OBAccount6Basic {
      */
     @ApiModelProperty(required = true, value = "Identification of the currency in which the account is held.  Usage: Currency should only be used in case one and the same account number covers several currencies and the initiating party needs to identify which currency needs to be used for settlement on the account.")
     @NotNull
+
     @Pattern(regexp = "^[A-Z]{3,3}$")
     public String getCurrency() {
         return currency;
@@ -163,7 +168,9 @@ public class OBAccount6Basic {
      */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
+
     public OBExternalAccountType1Code getAccountType() {
         return accountType;
     }
@@ -184,7 +191,9 @@ public class OBAccount6Basic {
      */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
+
     public OBExternalAccountSubType1Code getAccountSubType() {
         return accountSubType;
     }
@@ -204,6 +213,7 @@ public class OBAccount6Basic {
      * @return description
      */
     @ApiModelProperty(value = "Specifies the description of the account type.")
+
     @Size(min = 1, max = 35)
     public String getDescription() {
         return description;
@@ -224,6 +234,7 @@ public class OBAccount6Basic {
      * @return nickname
      */
     @ApiModelProperty(value = "The nickname of the account, assigned by the account owner in order to provide an additional means of identification of the account.")
+
     @Size(min = 1, max = 70)
     public String getNickname() {
         return nickname;
@@ -233,7 +244,7 @@ public class OBAccount6Basic {
         this.nickname = nickname;
     }
 
-    public OBAccount6Basic openingDate(DateTime openingDate) {
+    public OBAccount6Basic openingDate(OffsetDateTime openingDate) {
         this.openingDate = openingDate;
         return this;
     }
@@ -244,16 +255,18 @@ public class OBAccount6Basic {
      * @return openingDate
      */
     @ApiModelProperty(value = "Date on which the account and related basic services are effectively operational for the account owner.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
+
     @Valid
-    public DateTime getOpeningDate() {
+
+    public OffsetDateTime getOpeningDate() {
         return openingDate;
     }
 
-    public void setOpeningDate(DateTime openingDate) {
+    public void setOpeningDate(OffsetDateTime openingDate) {
         this.openingDate = openingDate;
     }
 
-    public OBAccount6Basic maturityDate(DateTime maturityDate) {
+    public OBAccount6Basic maturityDate(OffsetDateTime maturityDate) {
         this.maturityDate = maturityDate;
         return this;
     }
@@ -264,12 +277,14 @@ public class OBAccount6Basic {
      * @return maturityDate
      */
     @ApiModelProperty(value = "Maturity date of the account.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
+
     @Valid
-    public DateTime getMaturityDate() {
+
+    public OffsetDateTime getMaturityDate() {
         return maturityDate;
     }
 
-    public void setMaturityDate(DateTime maturityDate) {
+    public void setMaturityDate(OffsetDateTime maturityDate) {
         this.maturityDate = maturityDate;
     }
 
@@ -284,6 +299,8 @@ public class OBAccount6Basic {
      * @return switchStatus
      */
     @ApiModelProperty(value = "Specifies the switch status for the account, in a coded form.")
+
+
     public String getSwitchStatus() {
         return switchStatus;
     }
@@ -291,6 +308,7 @@ public class OBAccount6Basic {
     public void setSwitchStatus(String switchStatus) {
         this.switchStatus = switchStatus;
     }
+
 
     @Override
     public boolean equals(Object o) {

@@ -17,8 +17,8 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.ac
 
 import lombok.Builder;
 import lombok.Data;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Data
@@ -32,7 +32,7 @@ public class FRAccountAccessConsent implements FRAccountConsent {
     FRExternalRequestStatusCode status;
     List<String> accountIds;
     List<FRExternalPermissionsCode> permissions;
-    DateTime expirationDateTime;
-    DateTime transactionFromDateTime;
-    DateTime transactionToDateTime;
+    OffsetDateTime expirationDateTime;
+    OffsetDateTime transactionFromDateTime;
+    OffsetDateTime transactionToDateTime;
 }

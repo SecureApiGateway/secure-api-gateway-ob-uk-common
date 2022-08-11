@@ -17,7 +17,6 @@ package uk.org.openbanking.datamodel.account;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 import org.springframework.validation.annotation.Validated;
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
@@ -25,6 +24,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -47,10 +47,10 @@ public class OBOffer1 {
     private String description = null;
 
     @JsonProperty("StartDateTime")
-    private DateTime startDateTime = null;
+    private OffsetDateTime startDateTime = null;
 
     @JsonProperty("EndDateTime")
-    private DateTime endDateTime = null;
+    private OffsetDateTime endDateTime = null;
 
     @JsonProperty("Rate")
     private String rate = null;
@@ -77,6 +77,7 @@ public class OBOffer1 {
 
     /**
      * Get accountId
+     *
      * @return accountId
      **/
     @ApiModelProperty(required = true, value = "")
@@ -98,6 +99,7 @@ public class OBOffer1 {
 
     /**
      * A unique and immutable identifier used to identify the offer resource. This identifier has no meaning to the account owner.
+     *
      * @return offerId
      **/
     @ApiModelProperty(value = "A unique and immutable identifier used to identify the offer resource. This identifier has no meaning to the account owner.")
@@ -118,6 +120,7 @@ public class OBOffer1 {
 
     /**
      * Get offerType
+     *
      * @return offerType
      **/
     @ApiModelProperty(value = "")
@@ -139,6 +142,7 @@ public class OBOffer1 {
 
     /**
      * Further details of the offer.
+     *
      * @return description
      **/
     @ApiModelProperty(value = "Further details of the offer.")
@@ -152,45 +156,47 @@ public class OBOffer1 {
         this.description = description;
     }
 
-    public OBOffer1 startDateTime(DateTime startDateTime) {
+    public OBOffer1 startDateTime(OffsetDateTime startDateTime) {
         this.startDateTime = startDateTime;
         return this;
     }
 
     /**
      * Date and time at which the offer starts. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return startDateTime
      **/
     @ApiModelProperty(value = "Date and time at which the offer starts. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
 
     @Valid
 
-    public DateTime getStartDateTime() {
+    public OffsetDateTime getStartDateTime() {
         return startDateTime;
     }
 
-    public void setStartDateTime(DateTime startDateTime) {
+    public void setStartDateTime(OffsetDateTime startDateTime) {
         this.startDateTime = startDateTime;
     }
 
-    public OBOffer1 endDateTime(DateTime endDateTime) {
+    public OBOffer1 endDateTime(OffsetDateTime endDateTime) {
         this.endDateTime = endDateTime;
         return this;
     }
 
     /**
      * Date and time at which the offer ends. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return endDateTime
      **/
     @ApiModelProperty(value = "Date and time at which the offer ends. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
 
     @Valid
 
-    public DateTime getEndDateTime() {
+    public OffsetDateTime getEndDateTime() {
         return endDateTime;
     }
 
-    public void setEndDateTime(DateTime endDateTime) {
+    public void setEndDateTime(OffsetDateTime endDateTime) {
         this.endDateTime = endDateTime;
     }
 
@@ -201,6 +207,7 @@ public class OBOffer1 {
 
     /**
      * Rate associated with the offer type.
+     *
      * @return rate
      **/
     @ApiModelProperty(value = "Rate associated with the offer type.")
@@ -222,6 +229,7 @@ public class OBOffer1 {
 
     /**
      * Value associated with the offer type.
+     *
      * @return value
      **/
     @ApiModelProperty(value = "Value associated with the offer type.")
@@ -242,6 +250,7 @@ public class OBOffer1 {
 
     /**
      * Further details of the term of the offer.
+     *
      * @return term
      **/
     @ApiModelProperty(value = "Further details of the term of the offer.")
@@ -262,6 +271,7 @@ public class OBOffer1 {
 
     /**
      * URL (Uniform Resource Locator) where documentation on the offer can be found
+     *
      * @return URL
      **/
     @ApiModelProperty(value = "URL (Uniform Resource Locator) where documentation on the offer can be found")
@@ -282,6 +292,7 @@ public class OBOffer1 {
 
     /**
      * Get amount
+     *
      * @return amount
      **/
     @ApiModelProperty(value = "")
@@ -303,6 +314,7 @@ public class OBOffer1 {
 
     /**
      * Get fee
+     *
      * @return fee
      **/
     @ApiModelProperty(value = "")

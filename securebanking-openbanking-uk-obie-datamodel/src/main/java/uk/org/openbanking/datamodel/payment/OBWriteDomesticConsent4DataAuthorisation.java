@@ -31,10 +31,10 @@ package uk.org.openbanking.datamodel.payment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -48,7 +48,7 @@ public class OBWriteDomesticConsent4DataAuthorisation {
     private OBExternalAuthorisation1Code authorisationType = null;
 
     @JsonProperty("CompletionDateTime")
-    private DateTime completionDateTime = null;
+    private OffsetDateTime completionDateTime = null;
 
     public OBWriteDomesticConsent4DataAuthorisation authorisationType(OBExternalAuthorisation1Code authorisationType) {
         this.authorisationType = authorisationType;
@@ -70,7 +70,7 @@ public class OBWriteDomesticConsent4DataAuthorisation {
         this.authorisationType = authorisationType;
     }
 
-    public OBWriteDomesticConsent4DataAuthorisation completionDateTime(DateTime completionDateTime) {
+    public OBWriteDomesticConsent4DataAuthorisation completionDateTime(OffsetDateTime completionDateTime) {
         this.completionDateTime = completionDateTime;
         return this;
     }
@@ -82,11 +82,11 @@ public class OBWriteDomesticConsent4DataAuthorisation {
      **/
     @Valid
     @ApiModelProperty(value = "Date and time at which the requested authorisation flow must be completed.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getCompletionDateTime() {
+    public OffsetDateTime getCompletionDateTime() {
         return completionDateTime;
     }
 
-    public void setCompletionDateTime(DateTime completionDateTime) {
+    public void setCompletionDateTime(OffsetDateTime completionDateTime) {
         this.completionDateTime = completionDateTime;
     }
 

@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.stream.Stream;
 
 /**
@@ -39,7 +39,7 @@ import java.util.stream.Stream;
 public class FRDataAuthorisation {
 
     private AuthorisationType authorisationType;
-    private DateTime completionDateTime;
+    private OffsetDateTime completionDateTime;
 
     public enum AuthorisationType {
         ANY("Any"),

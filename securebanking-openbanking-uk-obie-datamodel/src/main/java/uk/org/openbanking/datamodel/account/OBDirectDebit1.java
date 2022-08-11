@@ -18,13 +18,13 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 import org.springframework.validation.annotation.Validated;
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -51,7 +51,7 @@ public class OBDirectDebit1 {
     private String name = null;
 
     @JsonProperty("PreviousPaymentDateTime")
-    private DateTime previousPaymentDateTime = null;
+    private OffsetDateTime previousPaymentDateTime = null;
 
     @JsonProperty("PreviousPaymentAmount")
     private OBActiveOrHistoricCurrencyAndAmount previousPaymentAmount = null;
@@ -63,6 +63,7 @@ public class OBDirectDebit1 {
 
     /**
      * Get accountId
+     *
      * @return accountId
      **/
     @ApiModelProperty(required = true, value = "")
@@ -84,6 +85,7 @@ public class OBDirectDebit1 {
 
     /**
      * A unique and immutable identifier used to identify the direct debit resource. This identifier has no meaning to the account owner.
+     *
      * @return directDebitId
      **/
     @ApiModelProperty(value = "A unique and immutable identifier used to identify the direct debit resource. This identifier has no meaning to the account owner.")
@@ -104,6 +106,7 @@ public class OBDirectDebit1 {
 
     /**
      * Direct Debit reference. For AUDDIS service users provide Core Reference. For non AUDDIS service users provide Core reference if possible or last used reference.
+     *
      * @return mandateIdentification
      **/
     @ApiModelProperty(required = true, value = "Direct Debit reference. For AUDDIS service users provide Core Reference. For non AUDDIS service users provide Core reference if possible or last used reference.")
@@ -125,6 +128,7 @@ public class OBDirectDebit1 {
 
     /**
      * Get directDebitStatusCode
+     *
      * @return directDebitStatusCode
      **/
     @ApiModelProperty(value = "")
@@ -146,6 +150,7 @@ public class OBDirectDebit1 {
 
     /**
      * Name of Service User.
+     *
      * @return name
      **/
     @ApiModelProperty(required = true, value = "Name of Service User.")
@@ -160,24 +165,25 @@ public class OBDirectDebit1 {
         this.name = name;
     }
 
-    public OBDirectDebit1 previousPaymentDateTime(DateTime previousPaymentDateTime) {
+    public OBDirectDebit1 previousPaymentDateTime(OffsetDateTime previousPaymentDateTime) {
         this.previousPaymentDateTime = previousPaymentDateTime;
         return this;
     }
 
     /**
      * Date of most recent direct debit collection. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return previousPaymentDateTime
      **/
     @ApiModelProperty(value = "Date of most recent direct debit collection. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
 
     @Valid
 
-    public DateTime getPreviousPaymentDateTime() {
+    public OffsetDateTime getPreviousPaymentDateTime() {
         return previousPaymentDateTime;
     }
 
-    public void setPreviousPaymentDateTime(DateTime previousPaymentDateTime) {
+    public void setPreviousPaymentDateTime(OffsetDateTime previousPaymentDateTime) {
         this.previousPaymentDateTime = previousPaymentDateTime;
     }
 
@@ -188,6 +194,7 @@ public class OBDirectDebit1 {
 
     /**
      * Get previousPaymentAmount
+     *
      * @return previousPaymentAmount
      **/
     @ApiModelProperty(value = "")

@@ -23,8 +23,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -50,8 +50,8 @@ public class FRTransactionData {
     private FRCreditDebitIndicator creditDebitIndicator;
     private FREntryStatus status;
     private FRTransactionMutability transactionMutability;
-    private DateTime bookingDateTime;
-    private DateTime valueDateTime;
+    private OffsetDateTime bookingDateTime;
+    private OffsetDateTime valueDateTime;
     private String transactionInformation;
     private String addressLine;
     private FRAmount amount;

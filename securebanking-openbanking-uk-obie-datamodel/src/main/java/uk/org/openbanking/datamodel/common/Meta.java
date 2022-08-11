@@ -18,9 +18,9 @@ package uk.org.openbanking.datamodel.common;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -33,10 +33,10 @@ public class Meta {
     private Integer totalPages = null;
 
     @JsonProperty("FirstAvailableDateTime")
-    private DateTime firstAvailableDateTime = null;
+    private OffsetDateTime firstAvailableDateTime = null;
 
     @JsonProperty("LastAvailableDateTime")
-    private DateTime lastAvailableDateTime = null;
+    private OffsetDateTime lastAvailableDateTime = null;
 
     public Meta totalPages(Integer totalPages) {
         this.totalPages = totalPages;
@@ -56,7 +56,7 @@ public class Meta {
         this.totalPages = totalPages;
     }
 
-    public Meta firstAvailableDateTime(DateTime firstAvailableDateTime) {
+    public Meta firstAvailableDateTime(OffsetDateTime firstAvailableDateTime) {
         this.firstAvailableDateTime = firstAvailableDateTime;
         return this;
     }
@@ -67,15 +67,15 @@ public class Meta {
      **/
     @ApiModelProperty(value = "  All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @Valid
-    public DateTime getFirstAvailableDateTime() {
+    public OffsetDateTime getFirstAvailableDateTime() {
         return firstAvailableDateTime;
     }
 
-    public void setFirstAvailableDateTime(DateTime firstAvailableDateTime) {
+    public void setFirstAvailableDateTime(OffsetDateTime firstAvailableDateTime) {
         this.firstAvailableDateTime = firstAvailableDateTime;
     }
 
-    public Meta lastAvailableDateTime(DateTime lastAvailableDateTime) {
+    public Meta lastAvailableDateTime(OffsetDateTime lastAvailableDateTime) {
         this.lastAvailableDateTime = lastAvailableDateTime;
         return this;
     }
@@ -86,11 +86,11 @@ public class Meta {
      **/
     @ApiModelProperty(value = "  All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @Valid
-    public DateTime getLastAvailableDateTime() {
+    public OffsetDateTime getLastAvailableDateTime() {
         return lastAvailableDateTime;
     }
 
-    public void setLastAvailableDateTime(DateTime lastAvailableDateTime) {
+    public void setLastAvailableDateTime(OffsetDateTime lastAvailableDateTime) {
         this.lastAvailableDateTime = lastAvailableDateTime;
     }
 

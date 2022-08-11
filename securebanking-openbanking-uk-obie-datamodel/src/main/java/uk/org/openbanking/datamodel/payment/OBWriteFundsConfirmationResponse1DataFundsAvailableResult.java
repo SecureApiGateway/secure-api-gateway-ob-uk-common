@@ -31,10 +31,10 @@ package uk.org.openbanking.datamodel.payment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -44,12 +44,12 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T16:03:12.161+01:00")
 public class OBWriteFundsConfirmationResponse1DataFundsAvailableResult {
     @JsonProperty("FundsAvailableDateTime")
-    private DateTime fundsAvailableDateTime = null;
+    private OffsetDateTime fundsAvailableDateTime = null;
 
     @JsonProperty("FundsAvailable")
     private Boolean fundsAvailable = null;
 
-    public OBWriteFundsConfirmationResponse1DataFundsAvailableResult fundsAvailableDateTime(DateTime fundsAvailableDateTime) {
+    public OBWriteFundsConfirmationResponse1DataFundsAvailableResult fundsAvailableDateTime(OffsetDateTime fundsAvailableDateTime) {
         this.fundsAvailableDateTime = fundsAvailableDateTime;
         return this;
     }
@@ -62,11 +62,11 @@ public class OBWriteFundsConfirmationResponse1DataFundsAvailableResult {
     @NotNull
     @Valid
     @ApiModelProperty(required = true, value = "Date and time at which the funds availability check was generated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getFundsAvailableDateTime() {
+    public OffsetDateTime getFundsAvailableDateTime() {
         return fundsAvailableDateTime;
     }
 
-    public void setFundsAvailableDateTime(DateTime fundsAvailableDateTime) {
+    public void setFundsAvailableDateTime(OffsetDateTime fundsAvailableDateTime) {
         this.fundsAvailableDateTime = fundsAvailableDateTime;
     }
 

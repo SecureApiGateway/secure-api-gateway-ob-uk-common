@@ -16,8 +16,8 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRStatementData;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -47,9 +47,9 @@ public class FRStatementDataTestDataFactory {
                 .statementId(UUID.randomUUID().toString())
                 .statementReference("Feb 2021")
                 .type(REGULARPERIODIC)
-                .startDateTime(DateTime.now().minusMonths(1))
-                .endDateTime(DateTime.now())
-                .creationDateTime(DateTime.now())
+                .startDateTime(OffsetDateTime.now().minusMonths(1))
+                .endDateTime(OffsetDateTime.now())
+                .creationDateTime(OffsetDateTime.now())
                 .statementDescriptions(List.of("Feb 2021 Statement"))
                 .statementAmounts(List.of(
                         FRStatementData.FRStatementAmount.builder()

@@ -17,20 +17,19 @@ package uk.org.openbanking.datamodel.account;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
  * OBStandingOrder6
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-08-11T13:05:30.079706+01:00[Europe/London]")
 public class OBStandingOrder6 {
     @JsonProperty("AccountId")
     private String accountId;
@@ -46,19 +45,19 @@ public class OBStandingOrder6 {
 
     @JsonProperty("FirstPaymentDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime firstPaymentDateTime;
+    private OffsetDateTime firstPaymentDateTime;
 
     @JsonProperty("NextPaymentDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime nextPaymentDateTime;
+    private OffsetDateTime nextPaymentDateTime;
 
     @JsonProperty("LastPaymentDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime lastPaymentDateTime;
+    private OffsetDateTime lastPaymentDateTime;
 
     @JsonProperty("FinalPaymentDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime finalPaymentDateTime;
+    private OffsetDateTime finalPaymentDateTime;
 
     @JsonProperty("NumberOfPayments")
     private String numberOfPayments;
@@ -100,6 +99,7 @@ public class OBStandingOrder6 {
      */
     @ApiModelProperty(required = true, value = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.")
     @NotNull
+
     @Size(min = 1, max = 40)
     public String getAccountId() {
         return accountId;
@@ -120,6 +120,7 @@ public class OBStandingOrder6 {
      * @return standingOrderId
      */
     @ApiModelProperty(value = "A unique and immutable identifier used to identify the standing order resource. This identifier has no meaning to the account owner.")
+
     @Size(min = 1, max = 40)
     public String getStandingOrderId() {
         return standingOrderId;
@@ -141,6 +142,7 @@ public class OBStandingOrder6 {
      */
     @ApiModelProperty(required = true, value = "Individual Definitions: NotKnown - Not Known EvryDay - Every day EvryWorkgDay - Every working day IntrvlDay - An interval specified in number of calendar days (02 to 31) IntrvlWkDay - An interval specified in weeks (01 to 09), and the day within the week (01 to 07) WkInMnthDay - A monthly interval, specifying the week of the month (01 to 05) and day within the week (01 to 07) IntrvlMnthDay - An interval specified in months (between 01 to 06, 12, 24), specifying the day within the month (-05 to -01, 01 to 31) QtrDay - Quarterly (either ENGLISH, SCOTTISH, or RECEIVED) ENGLISH = Paid on the 25th March, 24th June, 29th September and 25th December. SCOTTISH = Paid on the 2nd February, 15th May, 1st August and 11th November. RECEIVED = Paid on the 20th March, 19th June, 24th September and 20th December. Individual Patterns: NotKnown (ScheduleCode) EvryDay (ScheduleCode) EvryWorkgDay (ScheduleCode) IntrvlDay:NoOfDay (ScheduleCode + NoOfDay) IntrvlWkDay:IntervalInWeeks:DayInWeek (ScheduleCode + IntervalInWeeks + DayInWeek) WkInMnthDay:WeekInMonth:DayInWeek (ScheduleCode + WeekInMonth + DayInWeek) IntrvlMnthDay:IntervalInMonths:DayInMonth (ScheduleCode + IntervalInMonths + DayInMonth) QtrDay: + either (ENGLISH, SCOTTISH or RECEIVED) ScheduleCode + QuarterDay The regular expression for this element combines five smaller versions for each permitted pattern. To aid legibility - the components are presented individually here: NotKnown EvryDay EvryWorkgDay IntrvlDay:((0[2-9])|([1-2][0-9])|3[0-1]) IntrvlWkDay:0[1-9]:0[1-7] WkInMnthDay:0[1-5]:0[1-7] IntrvlMnthDay:(0[1-6]|12|24):(-0[1-5]|0[1-9]|[12][0-9]|3[01]) QtrDay:(ENGLISH|SCOTTISH|RECEIVED) Full Regular Expression: ^(NotKnown)$|^(EvryDay)$|^(EvryWorkgDay)$|^(IntrvlDay:((0[2-9])|([1-2][0-9])|3[0-1]))$|^(IntrvlWkDay:0[1-9]:0[1-7])$|^(WkInMnthDay:0[1-5]:0[1-7])$|^(IntrvlMnthDay:(0[1-6]|12|24):(-0[1-5]|0[1-9]|[12][0-9]|3[01]))$|^(QtrDay:(ENGLISH|SCOTTISH|RECEIVED))$")
     @NotNull
+
     @Pattern(regexp = "^(NotKnown)$|^(EvryDay)$|^(EvryWorkgDay)$|^(IntrvlDay:((0[2-9])|([1-2][0-9])|3[0-1]))$|^(IntrvlWkDay:0[1-9]:0[1-7])$|^(WkInMnthDay:0[1-5]:0[1-7])$|^(IntrvlMnthDay:(0[1-6]|12|24):(-0[1-5]|0[1-9]|[12][0-9]|3[01]))$|^(QtrDay:(ENGLISH|SCOTTISH|RECEIVED))$")
     public String getFrequency() {
         return frequency;
@@ -161,6 +163,7 @@ public class OBStandingOrder6 {
      * @return reference
      */
     @ApiModelProperty(value = "Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. Usage: If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money. If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.")
+
     @Size(min = 1, max = 35)
     public String getReference() {
         return reference;
@@ -170,7 +173,7 @@ public class OBStandingOrder6 {
         this.reference = reference;
     }
 
-    public OBStandingOrder6 firstPaymentDateTime(DateTime firstPaymentDateTime) {
+    public OBStandingOrder6 firstPaymentDateTime(OffsetDateTime firstPaymentDateTime) {
         this.firstPaymentDateTime = firstPaymentDateTime;
         return this;
     }
@@ -181,16 +184,18 @@ public class OBStandingOrder6 {
      * @return firstPaymentDateTime
      */
     @ApiModelProperty(value = "The date on which the first payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
+
     @Valid
-    public DateTime getFirstPaymentDateTime() {
+
+    public OffsetDateTime getFirstPaymentDateTime() {
         return firstPaymentDateTime;
     }
 
-    public void setFirstPaymentDateTime(DateTime firstPaymentDateTime) {
+    public void setFirstPaymentDateTime(OffsetDateTime firstPaymentDateTime) {
         this.firstPaymentDateTime = firstPaymentDateTime;
     }
 
-    public OBStandingOrder6 nextPaymentDateTime(DateTime nextPaymentDateTime) {
+    public OBStandingOrder6 nextPaymentDateTime(OffsetDateTime nextPaymentDateTime) {
         this.nextPaymentDateTime = nextPaymentDateTime;
         return this;
     }
@@ -201,16 +206,18 @@ public class OBStandingOrder6 {
      * @return nextPaymentDateTime
      */
     @ApiModelProperty(value = "The date on which the next payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
+
     @Valid
-    public DateTime getNextPaymentDateTime() {
+
+    public OffsetDateTime getNextPaymentDateTime() {
         return nextPaymentDateTime;
     }
 
-    public void setNextPaymentDateTime(DateTime nextPaymentDateTime) {
+    public void setNextPaymentDateTime(OffsetDateTime nextPaymentDateTime) {
         this.nextPaymentDateTime = nextPaymentDateTime;
     }
 
-    public OBStandingOrder6 lastPaymentDateTime(DateTime lastPaymentDateTime) {
+    public OBStandingOrder6 lastPaymentDateTime(OffsetDateTime lastPaymentDateTime) {
         this.lastPaymentDateTime = lastPaymentDateTime;
         return this;
     }
@@ -221,16 +228,18 @@ public class OBStandingOrder6 {
      * @return lastPaymentDateTime
      */
     @ApiModelProperty(value = "The date on which the last (most recent) payment for a Standing Order schedule was made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
+
     @Valid
-    public DateTime getLastPaymentDateTime() {
+
+    public OffsetDateTime getLastPaymentDateTime() {
         return lastPaymentDateTime;
     }
 
-    public void setLastPaymentDateTime(DateTime lastPaymentDateTime) {
+    public void setLastPaymentDateTime(OffsetDateTime lastPaymentDateTime) {
         this.lastPaymentDateTime = lastPaymentDateTime;
     }
 
-    public OBStandingOrder6 finalPaymentDateTime(DateTime finalPaymentDateTime) {
+    public OBStandingOrder6 finalPaymentDateTime(OffsetDateTime finalPaymentDateTime) {
         this.finalPaymentDateTime = finalPaymentDateTime;
         return this;
     }
@@ -241,12 +250,14 @@ public class OBStandingOrder6 {
      * @return finalPaymentDateTime
      */
     @ApiModelProperty(value = "The date on which the final payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
+
     @Valid
-    public DateTime getFinalPaymentDateTime() {
+
+    public OffsetDateTime getFinalPaymentDateTime() {
         return finalPaymentDateTime;
     }
 
-    public void setFinalPaymentDateTime(DateTime finalPaymentDateTime) {
+    public void setFinalPaymentDateTime(OffsetDateTime finalPaymentDateTime) {
         this.finalPaymentDateTime = finalPaymentDateTime;
     }
 
@@ -261,6 +272,7 @@ public class OBStandingOrder6 {
      * @return numberOfPayments
      */
     @ApiModelProperty(value = "Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.")
+
     @Size(min = 1, max = 35)
     public String getNumberOfPayments() {
         return numberOfPayments;
@@ -281,7 +293,9 @@ public class OBStandingOrder6 {
      * @return standingOrderStatusCode
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBExternalStandingOrderStatus1Code getStandingOrderStatusCode() {
         return standingOrderStatusCode;
     }
@@ -301,7 +315,9 @@ public class OBStandingOrder6 {
      * @return firstPaymentAmount
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBActiveOrHistoricCurrencyAndAmount2 getFirstPaymentAmount() {
         return firstPaymentAmount;
     }
@@ -321,7 +337,9 @@ public class OBStandingOrder6 {
      * @return nextPaymentAmount
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBActiveOrHistoricCurrencyAndAmount3 getNextPaymentAmount() {
         return nextPaymentAmount;
     }
@@ -341,7 +359,9 @@ public class OBStandingOrder6 {
      * @return lastPaymentAmount
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBActiveOrHistoricCurrencyAndAmount11 getLastPaymentAmount() {
         return lastPaymentAmount;
     }
@@ -361,7 +381,9 @@ public class OBStandingOrder6 {
      * @return finalPaymentAmount
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBActiveOrHistoricCurrencyAndAmount4 getFinalPaymentAmount() {
         return finalPaymentAmount;
     }
@@ -381,7 +403,9 @@ public class OBStandingOrder6 {
      * @return creditorAgent
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBBranchAndFinancialInstitutionIdentification51 getCreditorAgent() {
         return creditorAgent;
     }
@@ -401,7 +425,9 @@ public class OBStandingOrder6 {
      * @return creditorAccount
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBCashAccount51 getCreditorAccount() {
         return creditorAccount;
     }
@@ -428,6 +454,7 @@ public class OBStandingOrder6 {
     public void setSupplementaryData(OBSupplementaryData1 supplementaryData) {
         this.supplementaryData = supplementaryData;
     }
+
 
     @Override
     public boolean equals(Object o) {

@@ -20,9 +20,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -46,9 +46,9 @@ public class FRStatementData {
     private String statementId;
     private String statementReference;
     private FRStatementType type;
-    private DateTime startDateTime;
-    private DateTime endDateTime;
-    private DateTime creationDateTime;
+    private OffsetDateTime startDateTime;
+    private OffsetDateTime endDateTime;
+    private OffsetDateTime creationDateTime;
     private List<String> statementDescriptions;
     private List<FRStatementBenefit> statementBenefits;
     private List<FRStatementFee> statementFees;
@@ -138,7 +138,7 @@ public class FRStatementData {
     @AllArgsConstructor
     @Builder
     public static class FRStatementDateTime {
-        private DateTime dateTime;
+        private OffsetDateTime dateTime;
         private String type;
     }
 

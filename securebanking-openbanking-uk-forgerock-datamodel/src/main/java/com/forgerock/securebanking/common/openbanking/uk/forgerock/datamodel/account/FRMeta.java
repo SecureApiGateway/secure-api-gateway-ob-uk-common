@@ -19,7 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
+
+import java.time.OffsetDateTime;
 
 /**
  * Represents {@code Meta} in the OB data model. It is stored within mongo (instead of the OB object),
@@ -37,6 +38,6 @@ import org.joda.time.DateTime;
 public class FRMeta {
 
     private Integer totalPages;
-    private DateTime firstAvailableDateTime;
-    private DateTime lastAvailableDateTime;
+    private OffsetDateTime firstAvailableDateTime;
+    private OffsetDateTime lastAvailableDateTime;
 }

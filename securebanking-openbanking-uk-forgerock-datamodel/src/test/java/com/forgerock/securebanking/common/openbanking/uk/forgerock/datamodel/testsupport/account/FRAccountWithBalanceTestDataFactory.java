@@ -15,10 +15,10 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.account;
 
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRCashBalance;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRFinancialAccount;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRAccount;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRAccountWithBalance;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRCashBalance;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRFinancialAccount;
 
 import java.util.List;
 

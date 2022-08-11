@@ -32,11 +32,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -53,7 +53,7 @@ public class OBWriteDomesticStandingOrderResponse5Data {
     private String consentId = null;
 
     @JsonProperty("CreationDateTime")
-    private DateTime creationDateTime = null;
+    private OffsetDateTime creationDateTime = null;
 
     /**
      * Specifies the status of the payment order resource.
@@ -98,7 +98,7 @@ public class OBWriteDomesticStandingOrderResponse5Data {
     private StatusEnum status = null;
 
     @JsonProperty("StatusUpdateDateTime")
-    private DateTime statusUpdateDateTime = null;
+    private OffsetDateTime statusUpdateDateTime = null;
 
     @JsonProperty("Refund")
     private OBWriteDomesticResponse4DataRefund refund = null;
@@ -154,7 +154,7 @@ public class OBWriteDomesticStandingOrderResponse5Data {
         this.consentId = consentId;
     }
 
-    public OBWriteDomesticStandingOrderResponse5Data creationDateTime(DateTime creationDateTime) {
+    public OBWriteDomesticStandingOrderResponse5Data creationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
         return this;
     }
@@ -167,11 +167,11 @@ public class OBWriteDomesticStandingOrderResponse5Data {
     @NotNull
     @Valid
     @ApiModelProperty(required = true, value = "Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getCreationDateTime() {
+    public OffsetDateTime getCreationDateTime() {
         return creationDateTime;
     }
 
-    public void setCreationDateTime(DateTime creationDateTime) {
+    public void setCreationDateTime(OffsetDateTime creationDateTime) {
         this.creationDateTime = creationDateTime;
     }
 
@@ -195,7 +195,7 @@ public class OBWriteDomesticStandingOrderResponse5Data {
         this.status = status;
     }
 
-    public OBWriteDomesticStandingOrderResponse5Data statusUpdateDateTime(DateTime statusUpdateDateTime) {
+    public OBWriteDomesticStandingOrderResponse5Data statusUpdateDateTime(OffsetDateTime statusUpdateDateTime) {
         this.statusUpdateDateTime = statusUpdateDateTime;
         return this;
     }
@@ -208,11 +208,11 @@ public class OBWriteDomesticStandingOrderResponse5Data {
     @NotNull
     @Valid
     @ApiModelProperty(required = true, value = "Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getStatusUpdateDateTime() {
+    public OffsetDateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
     }
 
-    public void setStatusUpdateDateTime(DateTime statusUpdateDateTime) {
+    public void setStatusUpdateDateTime(OffsetDateTime statusUpdateDateTime) {
         this.statusUpdateDateTime = statusUpdateDateTime;
     }
 

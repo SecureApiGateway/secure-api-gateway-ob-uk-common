@@ -20,7 +20,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
+
+import java.time.OffsetDateTime;
 
 /**
  * Represents {@code OBFundsConfirmationConsentData1} in the OB data model. Note that
@@ -43,6 +44,6 @@ import org.joda.time.DateTime;
 @Builder
 public class FRFundsConfirmationConsentData {
 
-    private DateTime expirationDateTime;
+    private OffsetDateTime expirationDateTime;
     private FRAccountIdentifier debtorAccount;
 }

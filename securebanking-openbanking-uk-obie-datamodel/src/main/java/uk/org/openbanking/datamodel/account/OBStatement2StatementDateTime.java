@@ -18,26 +18,25 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
  * Set of elements used to provide details of a generic date time for the statement resource.
  */
 @ApiModel(description = "Set of elements used to provide details of a generic date time for the statement resource.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-08-11T13:05:30.079706+01:00[Europe/London]")
 public class OBStatement2StatementDateTime {
     @JsonProperty("DateTime")
-    private DateTime dateTime;
+    private OffsetDateTime dateTime;
 
     @JsonProperty("Type")
     private String type;
 
-    public OBStatement2StatementDateTime dateTime(DateTime dateTime) {
+    public OBStatement2StatementDateTime dateTime(OffsetDateTime dateTime) {
         this.dateTime = dateTime;
         return this;
     }
@@ -49,12 +48,14 @@ public class OBStatement2StatementDateTime {
      */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
-    public DateTime getDateTime() {
+
+    public OffsetDateTime getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(DateTime dateTime) {
+    public void setDateTime(OffsetDateTime dateTime) {
         this.dateTime = dateTime;
     }
 
@@ -70,6 +71,8 @@ public class OBStatement2StatementDateTime {
      */
     @ApiModelProperty(required = true, value = "Date time type, in a coded form.")
     @NotNull
+
+
     public String getType() {
         return type;
     }
@@ -77,6 +80,7 @@ public class OBStatement2StatementDateTime {
     public void setType(String type) {
         this.type = type;
     }
+
 
     @Override
     public boolean equals(Object o) {

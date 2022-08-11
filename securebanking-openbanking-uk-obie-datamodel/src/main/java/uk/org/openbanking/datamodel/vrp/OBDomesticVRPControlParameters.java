@@ -17,12 +17,12 @@ package uk.org.openbanking.datamodel.vrp;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -30,15 +30,15 @@ import java.util.Objects;
 /**
  * OBDomesticVRPControlParameters
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-08-11T10:59:03.366701+01:00[Europe/London]")
 public class OBDomesticVRPControlParameters {
     @JsonProperty("ValidFromDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime validFromDateTime;
+    private OffsetDateTime validFromDateTime;
 
     @JsonProperty("ValidToDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime validToDateTime;
+    private OffsetDateTime validToDateTime;
 
     @JsonProperty("MaximumIndividualAmount")
     private OBActiveOrHistoricCurrencyAndAmount maximumIndividualAmount;
@@ -49,16 +49,16 @@ public class OBDomesticVRPControlParameters {
 
     @JsonProperty("VRPType")
     @Valid
-    private List<String> vrPType = new ArrayList<String>();
+    private List<String> vrPType = new ArrayList<>();
 
     @JsonProperty("PSUAuthenticationMethods")
     @Valid
-    private List<String> psUAuthenticationMethods = new ArrayList<String>();
+    private List<String> psUAuthenticationMethods = new ArrayList<>();
 
     @JsonProperty("SupplementaryData")
     private Object supplementaryData;
 
-    public OBDomesticVRPControlParameters validFromDateTime(DateTime validFromDateTime) {
+    public OBDomesticVRPControlParameters validFromDateTime(OffsetDateTime validFromDateTime) {
         this.validFromDateTime = validFromDateTime;
         return this;
     }
@@ -71,15 +71,15 @@ public class OBDomesticVRPControlParameters {
 
     @Valid
 
-    public DateTime getValidFromDateTime() {
+    public OffsetDateTime getValidFromDateTime() {
         return validFromDateTime;
     }
 
-    public void setValidFromDateTime(DateTime validFromDateTime) {
+    public void setValidFromDateTime(OffsetDateTime validFromDateTime) {
         this.validFromDateTime = validFromDateTime;
     }
 
-    public OBDomesticVRPControlParameters validToDateTime(DateTime validToDateTime) {
+    public OBDomesticVRPControlParameters validToDateTime(OffsetDateTime validToDateTime) {
         this.validToDateTime = validToDateTime;
         return this;
     }
@@ -92,11 +92,11 @@ public class OBDomesticVRPControlParameters {
 
     @Valid
 
-    public DateTime getValidToDateTime() {
+    public OffsetDateTime getValidToDateTime() {
         return validToDateTime;
     }
 
-    public void setValidToDateTime(DateTime validToDateTime) {
+    public void setValidToDateTime(OffsetDateTime validToDateTime) {
         this.validToDateTime = validToDateTime;
     }
 
@@ -128,7 +128,7 @@ public class OBDomesticVRPControlParameters {
 
     public OBDomesticVRPControlParameters addPeriodicLimitsItem(OBDomesticVRPControlParametersPeriodicLimits periodicLimitsItem) {
         if (this.periodicLimits == null) {
-            this.periodicLimits = new ArrayList<OBDomesticVRPControlParametersPeriodicLimits>();
+            this.periodicLimits = new ArrayList<>();
         }
         this.periodicLimits.add(periodicLimitsItem);
         return this;
@@ -156,6 +156,9 @@ public class OBDomesticVRPControlParameters {
     }
 
     public OBDomesticVRPControlParameters addVrPTypeItem(String vrPTypeItem) {
+        if (this.vrPType == null) {
+            this.vrPType = new ArrayList<>();
+        }
         this.vrPType.add(vrPTypeItem);
         return this;
     }
@@ -182,6 +185,9 @@ public class OBDomesticVRPControlParameters {
     }
 
     public OBDomesticVRPControlParameters addPsUAuthenticationMethodsItem(String psUAuthenticationMethodsItem) {
+        if (this.psUAuthenticationMethods == null) {
+            this.psUAuthenticationMethods = new ArrayList<>();
+        }
         this.psUAuthenticationMethods.add(psUAuthenticationMethodsItem);
         return this;
     }

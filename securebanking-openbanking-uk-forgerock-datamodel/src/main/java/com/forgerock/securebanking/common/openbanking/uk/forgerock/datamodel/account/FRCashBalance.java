@@ -20,8 +20,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 
 /**
@@ -42,7 +42,7 @@ public class FRCashBalance {
     private String accountId;
     private FRCreditDebitIndicator creditDebitIndicator;
     private FRBalanceType type;
-    private DateTime dateTime;
+    private OffsetDateTime dateTime;
     private FRAmount amount;
     private List<FRCreditLine> creditLines;
 }

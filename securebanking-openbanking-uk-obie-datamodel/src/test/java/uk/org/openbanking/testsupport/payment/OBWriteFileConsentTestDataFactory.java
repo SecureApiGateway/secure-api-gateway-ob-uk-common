@@ -15,7 +15,9 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
+
+
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.OBWriteFile2DataInitiation;
 import uk.org.openbanking.datamodel.payment.OBWriteFileConsent3;
@@ -51,7 +53,7 @@ public class OBWriteFileConsentTestDataFactory {
                 .fileReference("GB2OK238")
                 .numberOfTransactions("1")
                 .controlSum(BigDecimal.ONE)
-                .requestedExecutionDateTime(DateTime.now())
+                .requestedExecutionDateTime(OffsetDateTime.now())
                 .localInstrument("UK.OBIE.CHAPS")
                 .debtorAccount(aValidOBWriteDomestic2DataInitiationDebtorAccount())
                 .remittanceInformation(aValidOBWriteDomestic2DataInitiationRemittanceInformation())

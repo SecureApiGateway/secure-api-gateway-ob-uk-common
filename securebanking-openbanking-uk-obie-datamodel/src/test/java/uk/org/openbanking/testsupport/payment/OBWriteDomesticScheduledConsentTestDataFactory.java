@@ -15,7 +15,7 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
 
@@ -86,7 +86,7 @@ public class OBWriteDomesticScheduledConsentTestDataFactory {
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
                 .localInstrument(LOCAL_INSTRUMENT)
-                .requestedExecutionDateTime(DateTime.now().plusDays(4))
+                .requestedExecutionDateTime(OffsetDateTime.now().plusDays(4))
                 .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
                 .debtorAccount(aValidOBCashAccount3())
                 .creditorAccount(aValidOBCashAccount3())
@@ -99,7 +99,7 @@ public class OBWriteDomesticScheduledConsentTestDataFactory {
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
                 .localInstrument(LOCAL_INSTRUMENT)
-                .requestedExecutionDateTime(DateTime.now().plusDays(4))
+                .requestedExecutionDateTime(OffsetDateTime.now().plusDays(4))
                 .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
                 .debtorAccount(aValidOBCashAccount3())
                 .creditorAccount(aValidOBCashAccount3())
@@ -113,7 +113,7 @@ public class OBWriteDomesticScheduledConsentTestDataFactory {
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
                 .localInstrument(LOCAL_INSTRUMENT)
-                .requestedExecutionDateTime(DateTime.now().plusDays(4))
+                .requestedExecutionDateTime(OffsetDateTime.now().plusDays(4))
                 .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
                 .debtorAccount(aValidOBWriteDomestic2DataInitiationDebtorAccount())
                 .creditorAccount(aValidOBWriteDomestic2DataInitiationCreditorAccount())

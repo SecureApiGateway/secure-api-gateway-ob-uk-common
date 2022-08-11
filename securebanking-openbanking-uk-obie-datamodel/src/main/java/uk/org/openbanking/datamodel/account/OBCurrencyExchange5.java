@@ -18,21 +18,20 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
  * Set of elements used to provide details on the currency exchange.
  */
 @ApiModel(description = "Set of elements used to provide details on the currency exchange.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-08-11T13:05:30.079706+01:00[Europe/London]")
 public class OBCurrencyExchange5 {
     @JsonProperty("SourceCurrency")
     private String sourceCurrency;
@@ -51,7 +50,7 @@ public class OBCurrencyExchange5 {
 
     @JsonProperty("QuotationDate")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime quotationDate;
+    private OffsetDateTime quotationDate;
 
     @JsonProperty("InstructedAmount")
     private OBCurrencyExchange5InstructedAmount instructedAmount;
@@ -68,6 +67,7 @@ public class OBCurrencyExchange5 {
      */
     @ApiModelProperty(required = true, value = "Currency from which an amount is to be converted in a currency conversion.")
     @NotNull
+
     @Pattern(regexp = "^[A-Z]{3,3}$")
     public String getSourceCurrency() {
         return sourceCurrency;
@@ -88,6 +88,7 @@ public class OBCurrencyExchange5 {
      * @return targetCurrency
      */
     @ApiModelProperty(value = "Currency into which an amount is to be converted in a currency conversion.")
+
     @Pattern(regexp = "^[A-Z]{3,3}$")
     public String getTargetCurrency() {
         return targetCurrency;
@@ -108,6 +109,7 @@ public class OBCurrencyExchange5 {
      * @return unitCurrency
      */
     @ApiModelProperty(value = "Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.")
+
     @Pattern(regexp = "^[A-Z]{3,3}$")
     public String getUnitCurrency() {
         return unitCurrency;
@@ -129,7 +131,9 @@ public class OBCurrencyExchange5 {
      */
     @ApiModelProperty(required = true, value = "Factor used to convert an amount from one currency into another. This reflects the price at which one currency was bought with another currency. Usage: ExchangeRate expresses the ratio between UnitCurrency and QuotedCurrency (ExchangeRate = UnitCurrency/QuotedCurrency).")
     @NotNull
+
     @Valid
+
     public BigDecimal getExchangeRate() {
         return exchangeRate;
     }
@@ -149,6 +153,7 @@ public class OBCurrencyExchange5 {
      * @return contractIdentification
      */
     @ApiModelProperty(value = "Unique identification to unambiguously identify the foreign exchange contract.")
+
     @Size(min = 1, max = 35)
     public String getContractIdentification() {
         return contractIdentification;
@@ -158,7 +163,7 @@ public class OBCurrencyExchange5 {
         this.contractIdentification = contractIdentification;
     }
 
-    public OBCurrencyExchange5 quotationDate(DateTime quotationDate) {
+    public OBCurrencyExchange5 quotationDate(OffsetDateTime quotationDate) {
         this.quotationDate = quotationDate;
         return this;
     }
@@ -169,12 +174,14 @@ public class OBCurrencyExchange5 {
      * @return quotationDate
      */
     @ApiModelProperty(value = "Date and time at which an exchange rate is quoted.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
+
     @Valid
-    public DateTime getQuotationDate() {
+
+    public OffsetDateTime getQuotationDate() {
         return quotationDate;
     }
 
-    public void setQuotationDate(DateTime quotationDate) {
+    public void setQuotationDate(OffsetDateTime quotationDate) {
         this.quotationDate = quotationDate;
     }
 
@@ -189,7 +196,9 @@ public class OBCurrencyExchange5 {
      * @return instructedAmount
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBCurrencyExchange5InstructedAmount getInstructedAmount() {
         return instructedAmount;
     }
@@ -197,6 +206,7 @@ public class OBCurrencyExchange5 {
     public void setInstructedAmount(OBCurrencyExchange5InstructedAmount instructedAmount) {
         this.instructedAmount = instructedAmount;
     }
+
 
     @Override
     public boolean equals(Object o) {

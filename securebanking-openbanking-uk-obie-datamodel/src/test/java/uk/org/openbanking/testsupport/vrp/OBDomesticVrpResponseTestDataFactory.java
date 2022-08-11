@@ -15,7 +15,8 @@
  */
 package uk.org.openbanking.testsupport.vrp;
 
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
+
 import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequest;
 import uk.org.openbanking.datamodel.vrp.OBDomesticVRPResponseData;
 
@@ -27,11 +28,11 @@ public class OBDomesticVrpResponseTestDataFactory {
         return (new OBDomesticVRPResponseData())
                 .domesticVRPId("123456")
                 .consentId(ConstantsVrpTestData.CONSENT_PREFIX + "1233456")
-                .creationDateTime(new DateTime())
+                .creationDateTime(OffsetDateTime.now())
                 .status(OBDomesticVRPResponseData.StatusEnum.ACCEPTEDSETTLEMENTCOMPLETED)
-                .statusUpdateDateTime(new DateTime())
-                .expectedExecutionDateTime(new DateTime())
-                .expectedSettlementDateTime(new DateTime())
+                .statusUpdateDateTime(OffsetDateTime.now())
+                .expectedExecutionDateTime(OffsetDateTime.now())
+                .expectedSettlementDateTime(OffsetDateTime.now())
                 .refund(OBDomesticVrpCommonTestDataFactory.aValidOBCashAccountDebtorWithName())
                 .charges(List.of(OBDomesticVrpCommonTestDataFactory.aValidOBDomesticVRPResponseDataCharges()))
                 .initiation(OBDomesticVrpCommonTestDataFactory.aValidOBDomesticVRPInitiation())

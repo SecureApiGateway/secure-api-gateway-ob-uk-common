@@ -16,7 +16,8 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRCashBalance;
-import org.joda.time.DateTime;
+
+import java.time.OffsetDateTime;
 
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRBalanceType.INTERIMAVAILABLE;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRCreditDebitIndicator.CREDIT;
@@ -53,7 +54,7 @@ public class FRCashBalanceTestDataFactory {
                 .accountId("12345")
                 .creditDebitIndicator(CREDIT)
                 .type(INTERIMAVAILABLE)
-                .dateTime(DateTime.now())
+                .dateTime(OffsetDateTime.now())
                 .amount(aValidFRAmount());
     }
 }

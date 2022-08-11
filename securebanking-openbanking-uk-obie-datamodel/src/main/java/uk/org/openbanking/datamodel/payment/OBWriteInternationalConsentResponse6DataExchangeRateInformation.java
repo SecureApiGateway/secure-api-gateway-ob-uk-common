@@ -31,13 +31,13 @@ package uk.org.openbanking.datamodel.payment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -59,7 +59,7 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
     private String contractIdentification = null;
 
     @JsonProperty("ExpirationDateTime")
-    private DateTime expirationDateTime = null;
+    private OffsetDateTime expirationDateTime = null;
 
     public OBWriteInternationalConsentResponse6DataExchangeRateInformation unitCurrency(String unitCurrency) {
         this.unitCurrency = unitCurrency;
@@ -143,7 +143,7 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
         this.contractIdentification = contractIdentification;
     }
 
-    public OBWriteInternationalConsentResponse6DataExchangeRateInformation expirationDateTime(DateTime expirationDateTime) {
+    public OBWriteInternationalConsentResponse6DataExchangeRateInformation expirationDateTime(OffsetDateTime expirationDateTime) {
         this.expirationDateTime = expirationDateTime;
         return this;
     }
@@ -155,11 +155,11 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
      **/
     @Valid
     @ApiModelProperty(value = "Specified date and time the exchange rate agreement will expire.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getExpirationDateTime() {
+    public OffsetDateTime getExpirationDateTime() {
         return expirationDateTime;
     }
 
-    public void setExpirationDateTime(DateTime expirationDateTime) {
+    public void setExpirationDateTime(OffsetDateTime expirationDateTime) {
         this.expirationDateTime = expirationDateTime;
     }
 

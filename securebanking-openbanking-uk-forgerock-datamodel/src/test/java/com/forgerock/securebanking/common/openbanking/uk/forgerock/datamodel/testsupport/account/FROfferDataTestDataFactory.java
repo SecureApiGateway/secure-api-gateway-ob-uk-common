@@ -16,8 +16,8 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.testsupport.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FROfferData;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FROfferData.FROfferType.LIMITINCREASE;
@@ -45,8 +45,8 @@ public class FROfferDataTestDataFactory {
                 .offerId(UUID.randomUUID().toString())
                 .offerType(LIMITINCREASE)
                 .description("Credit limit increase for the account up to £10.00")
-                .startDateTime(DateTime.now())
-                .endDateTime(DateTime.now().plusDays(5))
+                .startDateTime(OffsetDateTime.now())
+                .endDateTime(OffsetDateTime.now().plusDays(5))
                 .amount(aValidFRAmount())
                 .build();
     }

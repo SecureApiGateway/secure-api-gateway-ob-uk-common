@@ -18,19 +18,18 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
  * Account to or from which a cash entry is made.
  */
 @ApiModel(description = "Account to or from which a cash entry is made.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-08-11T13:05:30.079706+01:00[Europe/London]")
 public class OBReadDirectDebit2DataDirectDebit {
     @JsonProperty("AccountId")
     private String accountId;
@@ -49,7 +48,7 @@ public class OBReadDirectDebit2DataDirectDebit {
 
     @JsonProperty("PreviousPaymentDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-    private DateTime previousPaymentDateTime;
+    private OffsetDateTime previousPaymentDateTime;
 
     @JsonProperty("Frequency")
     private String frequency;
@@ -69,6 +68,7 @@ public class OBReadDirectDebit2DataDirectDebit {
      */
     @ApiModelProperty(required = true, value = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.")
     @NotNull
+
     @Size(min = 1, max = 40)
     public String getAccountId() {
         return accountId;
@@ -89,6 +89,7 @@ public class OBReadDirectDebit2DataDirectDebit {
      * @return directDebitId
      */
     @ApiModelProperty(value = "A unique and immutable identifier used to identify the direct debit resource. This identifier has no meaning to the account owner.")
+
     @Size(min = 1, max = 40)
     public String getDirectDebitId() {
         return directDebitId;
@@ -110,6 +111,7 @@ public class OBReadDirectDebit2DataDirectDebit {
      */
     @ApiModelProperty(required = true, value = "Direct Debit reference. For AUDDIS service users provide Core Reference. For non AUDDIS service users provide Core reference if possible or last used reference.")
     @NotNull
+
     @Size(min = 1, max = 35)
     public String getMandateIdentification() {
         return mandateIdentification;
@@ -130,7 +132,9 @@ public class OBReadDirectDebit2DataDirectDebit {
      * @return directDebitStatusCode
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBExternalDirectDebitStatus1Code getDirectDebitStatusCode() {
         return directDebitStatusCode;
     }
@@ -151,6 +155,7 @@ public class OBReadDirectDebit2DataDirectDebit {
      */
     @ApiModelProperty(required = true, value = "Name of Service User.")
     @NotNull
+
     @Size(min = 1, max = 70)
     public String getName() {
         return name;
@@ -160,7 +165,7 @@ public class OBReadDirectDebit2DataDirectDebit {
         this.name = name;
     }
 
-    public OBReadDirectDebit2DataDirectDebit previousPaymentDateTime(DateTime previousPaymentDateTime) {
+    public OBReadDirectDebit2DataDirectDebit previousPaymentDateTime(OffsetDateTime previousPaymentDateTime) {
         this.previousPaymentDateTime = previousPaymentDateTime;
         return this;
     }
@@ -171,12 +176,14 @@ public class OBReadDirectDebit2DataDirectDebit {
      * @return previousPaymentDateTime
      */
     @ApiModelProperty(value = "Date of most recent direct debit collection.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
+
     @Valid
-    public DateTime getPreviousPaymentDateTime() {
+
+    public OffsetDateTime getPreviousPaymentDateTime() {
         return previousPaymentDateTime;
     }
 
-    public void setPreviousPaymentDateTime(DateTime previousPaymentDateTime) {
+    public void setPreviousPaymentDateTime(OffsetDateTime previousPaymentDateTime) {
         this.previousPaymentDateTime = previousPaymentDateTime;
     }
 
@@ -191,6 +198,8 @@ public class OBReadDirectDebit2DataDirectDebit {
      * @return frequency
      */
     @ApiModelProperty(value = "Regularity with which direct debit instructions are to be created and processed.")
+
+
     public String getFrequency() {
         return frequency;
     }
@@ -210,7 +219,9 @@ public class OBReadDirectDebit2DataDirectDebit {
      * @return previousPaymentAmount
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBActiveOrHistoricCurrencyAndAmount0 getPreviousPaymentAmount() {
         return previousPaymentAmount;
     }
@@ -218,6 +229,7 @@ public class OBReadDirectDebit2DataDirectDebit {
     public void setPreviousPaymentAmount(OBActiveOrHistoricCurrencyAndAmount0 previousPaymentAmount) {
         this.previousPaymentAmount = previousPaymentAmount;
     }
+
 
     @Override
     public boolean equals(Object o) {

@@ -20,7 +20,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
+
+import java.time.OffsetDateTime;
 
 /**
  * Represents an individual single payment in a payment file. This could be a domestic or international payment of
@@ -36,7 +37,7 @@ public class FRFilePayment {
     private String endToEndIdentification;
     private PaymentStatus status;
 
-    private DateTime created;
+    private OffsetDateTime created;
 
     private String remittanceReference;
 

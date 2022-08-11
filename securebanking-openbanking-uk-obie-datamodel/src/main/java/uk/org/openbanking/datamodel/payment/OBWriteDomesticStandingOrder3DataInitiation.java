@@ -31,13 +31,13 @@ package uk.org.openbanking.datamodel.payment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.Objects;
 
 /**
@@ -56,13 +56,13 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
     private String numberOfPayments = null;
 
     @JsonProperty("FirstPaymentDateTime")
-    private DateTime firstPaymentDateTime = null;
+    private OffsetDateTime firstPaymentDateTime = null;
 
     @JsonProperty("RecurringPaymentDateTime")
-    private DateTime recurringPaymentDateTime = null;
+    private OffsetDateTime recurringPaymentDateTime = null;
 
     @JsonProperty("FinalPaymentDateTime")
-    private DateTime finalPaymentDateTime = null;
+    private OffsetDateTime finalPaymentDateTime = null;
 
     @JsonProperty("FirstPaymentAmount")
     private OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount firstPaymentAmount = null;
@@ -143,7 +143,7 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
         this.numberOfPayments = numberOfPayments;
     }
 
-    public OBWriteDomesticStandingOrder3DataInitiation firstPaymentDateTime(DateTime firstPaymentDateTime) {
+    public OBWriteDomesticStandingOrder3DataInitiation firstPaymentDateTime(OffsetDateTime firstPaymentDateTime) {
         this.firstPaymentDateTime = firstPaymentDateTime;
         return this;
     }
@@ -156,15 +156,15 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
     @NotNull
     @Valid
     @ApiModelProperty(required = true, value = "The date on which the first payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getFirstPaymentDateTime() {
+    public OffsetDateTime getFirstPaymentDateTime() {
         return firstPaymentDateTime;
     }
 
-    public void setFirstPaymentDateTime(DateTime firstPaymentDateTime) {
+    public void setFirstPaymentDateTime(OffsetDateTime firstPaymentDateTime) {
         this.firstPaymentDateTime = firstPaymentDateTime;
     }
 
-    public OBWriteDomesticStandingOrder3DataInitiation recurringPaymentDateTime(DateTime recurringPaymentDateTime) {
+    public OBWriteDomesticStandingOrder3DataInitiation recurringPaymentDateTime(OffsetDateTime recurringPaymentDateTime) {
         this.recurringPaymentDateTime = recurringPaymentDateTime;
         return this;
     }
@@ -176,15 +176,15 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
      **/
     @Valid
     @ApiModelProperty(value = "The date on which the first recurring payment for a Standing Order schedule will be made.  Usage: This must be populated only if the first recurring date is different to the first payment date.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getRecurringPaymentDateTime() {
+    public OffsetDateTime getRecurringPaymentDateTime() {
         return recurringPaymentDateTime;
     }
 
-    public void setRecurringPaymentDateTime(DateTime recurringPaymentDateTime) {
+    public void setRecurringPaymentDateTime(OffsetDateTime recurringPaymentDateTime) {
         this.recurringPaymentDateTime = recurringPaymentDateTime;
     }
 
-    public OBWriteDomesticStandingOrder3DataInitiation finalPaymentDateTime(DateTime finalPaymentDateTime) {
+    public OBWriteDomesticStandingOrder3DataInitiation finalPaymentDateTime(OffsetDateTime finalPaymentDateTime) {
         this.finalPaymentDateTime = finalPaymentDateTime;
         return this;
     }
@@ -196,11 +196,11 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
      **/
     @Valid
     @ApiModelProperty(value = "The date on which the final payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-    public DateTime getFinalPaymentDateTime() {
+    public OffsetDateTime getFinalPaymentDateTime() {
         return finalPaymentDateTime;
     }
 
-    public void setFinalPaymentDateTime(DateTime finalPaymentDateTime) {
+    public void setFinalPaymentDateTime(OffsetDateTime finalPaymentDateTime) {
         this.finalPaymentDateTime = finalPaymentDateTime;
     }
 

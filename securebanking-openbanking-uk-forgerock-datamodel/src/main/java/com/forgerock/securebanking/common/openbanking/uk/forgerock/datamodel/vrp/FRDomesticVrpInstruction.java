@@ -16,7 +16,11 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.vrp;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.*;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRAccountIdentifier;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRAmount;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRFinancialAgent;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRRemittanceInformation;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRSupplementaryData;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

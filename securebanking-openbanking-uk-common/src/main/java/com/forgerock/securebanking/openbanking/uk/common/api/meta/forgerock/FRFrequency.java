@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 
 import static com.forgerock.securebanking.openbanking.uk.common.api.meta.forgerock.FRFrequencyType.fromFrequencyString;
@@ -90,17 +90,18 @@ public class FRFrequency {
     }
 
     /**
-     * Parse the {@link DateTime} to {@link String} using the day and month format
+     * Parse the {@link OffsetDateTime} to {@link String} using the day and month format
      * e.g. 4th June
      *
      * @param date the date
      * @return the date in the right format
      */
-    public String fromDateTimeToString(DateTime date) {
-        String dateTemplate = date.toString("'%d%s' MMMM");
+    public String fromDateTimeToString(OffsetDateTime date) {
         int day = date.getDayOfMonth();
         String ordinalSuffix = getOrdinalSuffix(day);
-        return String.format(dateTemplate, day, ordinalSuffix);
+        return new StringBuilder().append(day).append(ordinalSuffix)
+                                  .append(' ').append(date.getMonth().name())
+                                  .toString();
     }
 
     /**

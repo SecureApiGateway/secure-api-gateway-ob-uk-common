@@ -18,12 +18,12 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.OffsetDateTime;
 import java.util.*;
 
 /**
@@ -57,11 +57,11 @@ public class OBTransaction6 {
 
   @JsonProperty("BookingDateTime")
   @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-  private DateTime bookingDateTime;
+  private OffsetDateTime bookingDateTime;
 
   @JsonProperty("ValueDateTime")
   @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
-  private DateTime valueDateTime;
+  private OffsetDateTime valueDateTime;
 
   @JsonProperty("TransactionInformation")
   private String transactionInformation;
@@ -261,7 +261,7 @@ public class OBTransaction6 {
     this.transactionMutability = transactionMutability;
   }
 
-  public OBTransaction6 bookingDateTime(DateTime bookingDateTime) {
+  public OBTransaction6 bookingDateTime(OffsetDateTime bookingDateTime) {
     this.bookingDateTime = bookingDateTime;
     return this;
   }
@@ -274,15 +274,15 @@ public class OBTransaction6 {
   @ApiModelProperty(required = true, value = "Date and time when a transaction entry is posted to an account on the account servicer's books. Usage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
   @NotNull
   @Valid
-  public DateTime getBookingDateTime() {
+  public OffsetDateTime getBookingDateTime() {
     return bookingDateTime;
   }
 
-  public void setBookingDateTime(DateTime bookingDateTime) {
+  public void setBookingDateTime(OffsetDateTime bookingDateTime) {
     this.bookingDateTime = bookingDateTime;
   }
 
-  public OBTransaction6 valueDateTime(DateTime valueDateTime) {
+  public OBTransaction6 valueDateTime(OffsetDateTime valueDateTime) {
     this.valueDateTime = valueDateTime;
     return this;
   }
@@ -294,11 +294,11 @@ public class OBTransaction6 {
    */
   @ApiModelProperty(value = "Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit transaction entry. Usage: If transaction entry status is pending and value date is present, then the value date refers to an expected/requested value date. For transaction entries subject to availability/float and for which availability information is provided, the value date must not be used. In this case the availability component identifies the number of availability days.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
   @Valid
-  public DateTime getValueDateTime() {
+  public OffsetDateTime getValueDateTime() {
     return valueDateTime;
   }
 
-  public void setValueDateTime(DateTime valueDateTime) {
+  public void setValueDateTime(OffsetDateTime valueDateTime) {
     this.valueDateTime = valueDateTime;
   }
 

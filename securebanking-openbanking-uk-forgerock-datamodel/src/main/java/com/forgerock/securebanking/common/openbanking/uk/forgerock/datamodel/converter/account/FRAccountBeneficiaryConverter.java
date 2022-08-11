@@ -16,11 +16,23 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRAccountBeneficiary;
-import uk.org.openbanking.datamodel.account.*;
+import uk.org.openbanking.datamodel.account.OBBeneficiary1;
+import uk.org.openbanking.datamodel.account.OBBeneficiary2;
+import uk.org.openbanking.datamodel.account.OBBeneficiary3;
+import uk.org.openbanking.datamodel.account.OBBeneficiary4;
+import uk.org.openbanking.datamodel.account.OBBeneficiary5;
+import uk.org.openbanking.datamodel.account.OBBeneficiaryType1Code;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.*;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification2;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification3;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification6;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification60;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toFRAccountIdentifier;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toOBCashAccount1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toOBCashAccount3;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toOBCashAccount5;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toOBCashAccount50;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRFinancialInstrumentConverter.toFRFinancialAgent;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.account.FRAccountServicerConverter.*;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRSupplementaryDataConverter.toFRSupplementaryData;
 import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRSupplementaryDataConverter.toOBSupplementaryData1;
 
