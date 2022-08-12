@@ -19,31 +19,33 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.net.URI;
 import java.util.Objects;
 
 /**
  * Links relevant to the payload
  */
 @ApiModel(description = "Links relevant to the payload")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-10-16T08:37:28.078Z")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
 public class Links {
     @JsonProperty("Self")
-    private String self = null;
+    private URI self;
 
     @JsonProperty("First")
-    private String first = null;
+    private URI first;
 
     @JsonProperty("Prev")
-    private String prev = null;
+    private URI prev;
 
     @JsonProperty("Next")
-    private String next = null;
+    private URI next;
 
     @JsonProperty("Last")
-    private String last = null;
+    private URI last;
 
-    public Links self(String self) {
+    public Links self(URI self) {
         this.self = self;
         return this;
     }
@@ -51,18 +53,19 @@ public class Links {
     /**
      * Get self
      * @return self
-     **/
+     */
     @ApiModelProperty(required = true, value = "")
     @NotNull
-    public String getSelf() {
+    @Valid
+    public URI getSelf() {
         return self;
     }
 
-    public void setSelf(String self) {
+    public void setSelf(URI self) {
         this.self = self;
     }
 
-    public Links first(String first) {
+    public Links first(URI first) {
         this.first = first;
         return this;
     }
@@ -70,17 +73,18 @@ public class Links {
     /**
      * Get first
      * @return first
-     **/
+     */
     @ApiModelProperty(value = "")
-    public String getFirst() {
+    @Valid
+    public URI getFirst() {
         return first;
     }
 
-    public void setFirst(String first) {
+    public void setFirst(URI first) {
         this.first = first;
     }
 
-    public Links prev(String prev) {
+    public Links prev(URI prev) {
         this.prev = prev;
         return this;
     }
@@ -88,17 +92,18 @@ public class Links {
     /**
      * Get prev
      * @return prev
-     **/
+     */
     @ApiModelProperty(value = "")
-    public String getPrev() {
+    @Valid
+    public URI getPrev() {
         return prev;
     }
 
-    public void setPrev(String prev) {
+    public void setPrev(URI prev) {
         this.prev = prev;
     }
 
-    public Links next(String next) {
+    public Links next(URI next) {
         this.next = next;
         return this;
     }
@@ -106,17 +111,18 @@ public class Links {
     /**
      * Get next
      * @return next
-     **/
+     */
     @ApiModelProperty(value = "")
-    public String getNext() {
+    @Valid
+    public URI getNext() {
         return next;
     }
 
-    public void setNext(String next) {
+    public void setNext(URI next) {
         this.next = next;
     }
 
-    public Links last(String last) {
+    public Links last(URI last) {
         this.last = last;
         return this;
     }
@@ -124,13 +130,14 @@ public class Links {
     /**
      * Get last
      * @return last
-     **/
+     */
     @ApiModelProperty(value = "")
-    public String getLast() {
+    @Valid
+    public URI getLast() {
         return last;
     }
 
-    public void setLast(String last) {
+    public void setLast(URI last) {
         this.last = last;
     }
 

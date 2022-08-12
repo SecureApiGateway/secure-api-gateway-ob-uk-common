@@ -17,6 +17,7 @@ package uk.org.openbanking.datamodel.vrp;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.Links;
 import uk.org.openbanking.datamodel.common.OBRisk1;
 
 import javax.validation.Valid;

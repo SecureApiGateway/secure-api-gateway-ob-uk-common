@@ -18,26 +18,42 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account.FRLinks;
 import uk.org.openbanking.datamodel.common.Links;
 
+import java.net.URI;
+
 public class FRLinksConverter {
 
     // OB to FR
     public static FRLinks toFRLinks(Links links) {
         return links == null ? null : FRLinks.builder()
-                .self(links.getSelf())
-                .first(links.getFirst())
-                .prev(links.getPrev())
-                .next(links.getNext())
-                .last(links.getLast())
+                .self(uriToStringOrNull(links.getSelf()))
+                .first(uriToStringOrNull(links.getFirst()))
+                .prev(uriToStringOrNull(links.getPrev()))
+                .next(uriToStringOrNull(links.getNext()))
+                .last(uriToStringOrNull(links.getLast()))
                 .build();
+    }
+
+    private static String uriToStringOrNull(URI uri) {
+        if (uri == null) {
+            return null;
+        }
+        return uri.toString();
     }
 
     // FR to OB
     public static Links toLinks(FRLinks links) {
         return links == null ? null : new Links()
-                .self(links.getSelf())
-                .first(links.getFirst())
-                .prev(links.getPrev())
-                .next(links.getNext())
-                .last(links.getLast());
+                .self(stringToUriOrNull(links.getSelf()))
+                .first(stringToUriOrNull(links.getFirst()))
+                .prev(stringToUriOrNull(links.getPrev()))
+                .next(stringToUriOrNull(links.getNext()))
+                .last(stringToUriOrNull(links.getLast()));
+    }
+
+    private static URI stringToUriOrNull(String str) {
+        if (str == null) {
+            return null;
+        }
+        return URI.create(str);
     }
 }
