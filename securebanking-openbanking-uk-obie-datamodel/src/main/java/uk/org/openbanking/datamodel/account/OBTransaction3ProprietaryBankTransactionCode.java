@@ -15,14 +15,17 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
+import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Set of elements to fully identify a proprietary bank transaction code.
@@ -31,93 +34,95 @@ import java.util.Objects;
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-01T11:26:57.876+01:00")
 
-public class OBTransaction3ProprietaryBankTransactionCode   {
-  @JsonProperty("Code")
-  private String code = null;
+public class OBTransaction3ProprietaryBankTransactionCode {
+    @JsonProperty("Code")
+    private String code = null;
 
-  @JsonProperty("Issuer")
-  private String issuer = null;
+    @JsonProperty("Issuer")
+    private String issuer = null;
 
-  public OBTransaction3ProprietaryBankTransactionCode code(String code) {
-    this.code = code;
-    return this;
-  }
-
-  /**
-   * Proprietary bank transaction code to identify the underlying transaction.
-   * @return code
-  **/
-  @ApiModelProperty(required = true, value = "Proprietary bank transaction code to identify the underlying transaction.")
-  @NotNull
-
-@Size(min=1,max=35) 
-  public String getCode() {
-    return code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public OBTransaction3ProprietaryBankTransactionCode issuer(String issuer) {
-    this.issuer = issuer;
-    return this;
-  }
-
-  /**
-   * Identification of the issuer of the proprietary bank transaction code.
-   * @return issuer
-  **/
-  @ApiModelProperty(value = "Identification of the issuer of the proprietary bank transaction code.")
-
-@Size(min=1,max=35) 
-  public String getIssuer() {
-    return issuer;
-  }
-
-  public void setIssuer(String issuer) {
-    this.issuer = issuer;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBTransaction3ProprietaryBankTransactionCode code(String code) {
+        this.code = code;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Proprietary bank transaction code to identify the underlying transaction.
+     *
+     * @return code
+     **/
+    @ApiModelProperty(required = true, value = "Proprietary bank transaction code to identify the underlying transaction.")
+    @NotNull
+
+    @Size(min = 1, max = 35)
+    public String getCode() {
+        return code;
     }
-    OBTransaction3ProprietaryBankTransactionCode obTransaction3ProprietaryBankTransactionCode = (OBTransaction3ProprietaryBankTransactionCode) o;
-    return Objects.equals(this.code, obTransaction3ProprietaryBankTransactionCode.code) &&
-        Objects.equals(this.issuer, obTransaction3ProprietaryBankTransactionCode.issuer);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(code, issuer);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBTransaction3ProprietaryBankTransactionCode {\n");
-    
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setCode(String code) {
+        this.code = code;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public OBTransaction3ProprietaryBankTransactionCode issuer(String issuer) {
+        this.issuer = issuer;
+        return this;
+    }
+
+    /**
+     * Identification of the issuer of the proprietary bank transaction code.
+     *
+     * @return issuer
+     **/
+    @ApiModelProperty(value = "Identification of the issuer of the proprietary bank transaction code.")
+
+    @Size(min = 1, max = 35)
+    public String getIssuer() {
+        return issuer;
+    }
+
+    public void setIssuer(String issuer) {
+        this.issuer = issuer;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBTransaction3ProprietaryBankTransactionCode obTransaction3ProprietaryBankTransactionCode = (OBTransaction3ProprietaryBankTransactionCode) o;
+        return Objects.equals(this.code, obTransaction3ProprietaryBankTransactionCode.code) &&
+                Objects.equals(this.issuer, obTransaction3ProprietaryBankTransactionCode.issuer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, issuer);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBTransaction3ProprietaryBankTransactionCode {\n");
+
+        sb.append("    code: ").append(toIndentedString(code)).append("\n");
+        sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

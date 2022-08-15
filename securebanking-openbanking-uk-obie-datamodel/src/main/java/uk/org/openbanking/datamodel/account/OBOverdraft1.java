@@ -15,17 +15,20 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Borrowing details
@@ -58,6 +61,7 @@ public class OBOverdraft1 {
 
     /**
      * Associated Notes about the overdraft rates
+     *
      * @return notes
      **/
     @ApiModelProperty(value = "Associated Notes about the overdraft rates")
@@ -83,6 +87,7 @@ public class OBOverdraft1 {
 
     /**
      * Tier band set details
+     *
      * @return overdraftTierBandSet
      **/
     @ApiModelProperty(required = true, value = "Tier band set details")

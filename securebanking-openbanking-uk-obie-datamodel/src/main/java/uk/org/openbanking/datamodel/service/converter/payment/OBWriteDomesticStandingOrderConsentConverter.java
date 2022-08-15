@@ -15,12 +15,35 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.payment.*;
-
 import static uk.org.openbanking.datamodel.service.converter.payment.OBConsentAuthorisationConverter.toOBAuthorisation1;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBConsentAuthorisationConverter.toOBWriteDomesticConsent4DataAuthorisation;
-import static uk.org.openbanking.datamodel.service.converter.payment.OBDomesticStandingOrderConverter.*;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBDomesticStandingOrderConverter.toOBDomesticStandingOrder1;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBDomesticStandingOrderConverter.toOBDomesticStandingOrder2;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBDomesticStandingOrderConverter.toOBDomesticStandingOrder3;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBDomesticStandingOrderConverter.toOBWriteDomesticStandingOrder3DataInitiation;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBWriteDomesticConsentConverter.toOBSCASupportData1;
+
+import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticStandingOrder1;
+import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticStandingOrder2;
+import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticStandingOrder3;
+import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticStandingOrderConsent1;
+import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticStandingOrderConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticStandingOrderConsent3;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent3;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent3Data;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4Data;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder1;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder2;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3Data;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent1;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent3;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent4;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent4Data;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent5;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent5Data;
 
 public class OBWriteDomesticStandingOrderConsentConverter {
 

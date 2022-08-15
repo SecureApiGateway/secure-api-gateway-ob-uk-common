@@ -15,13 +15,15 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
+import java.util.Objects;
+
+import javax.validation.Valid;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
 import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
-
-import javax.validation.Valid;
-import java.util.Objects;
 
 /**
  * OBDomesticVRPInitiation
@@ -47,6 +49,7 @@ public class OBDomesticVRPInitiation {
 
     /**
      * Get debtorAccount
+     *
      * @return debtorAccount
      */
     @ApiModelProperty(value = "")
@@ -68,6 +71,7 @@ public class OBDomesticVRPInitiation {
 
     /**
      * Get creditorAgent
+     *
      * @return creditorAgent
      */
     @ApiModelProperty(value = "")
@@ -89,6 +93,7 @@ public class OBDomesticVRPInitiation {
 
     /**
      * Get creditorAccount
+     *
      * @return creditorAccount
      */
     @ApiModelProperty(value = "")
@@ -110,6 +115,7 @@ public class OBDomesticVRPInitiation {
 
     /**
      * Get remittanceInformation
+     *
      * @return remittanceInformation
      */
     @ApiModelProperty(value = "")

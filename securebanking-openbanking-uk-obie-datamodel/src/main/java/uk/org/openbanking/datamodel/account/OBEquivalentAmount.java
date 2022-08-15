@@ -15,16 +15,19 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 /**
  * Amount of money to be transferred between the debtor and creditor, before deduction of charges, expressed in the currency of the debtor&#39;s account, and to be transferred into a different currency.  Usage : Currency of the amount is expressed in the currency of the debtor&#39;s account, but the amount to be transferred is in another currency. The debtor agent will convert the amount and currency to the to be transferred amount and currency, eg, &#39;pay equivalent of 100000 EUR in JPY&#39;(and account is in EUR).
@@ -47,6 +50,7 @@ public class OBEquivalentAmount {
 
     /**
      * Get amount
+     *
      * @return amount
      **/
     @ApiModelProperty(required = true, value = "")
@@ -69,6 +73,7 @@ public class OBEquivalentAmount {
 
     /**
      * Specifies the currency of the to be transferred amount, which is different from the currency of the debtor's account.
+     *
      * @return currencyOfTransfer
      **/
     @ApiModelProperty(required = true, value = "Specifies the currency of the to be transferred amount, which is different from the currency of the debtor's account.")

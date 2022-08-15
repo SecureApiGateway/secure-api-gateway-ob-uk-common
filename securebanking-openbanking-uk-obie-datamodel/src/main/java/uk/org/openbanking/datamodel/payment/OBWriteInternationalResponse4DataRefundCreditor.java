@@ -30,13 +30,14 @@ package uk.org.openbanking.datamodel.payment;
 
 import java.util.Objects;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBPostalAddress6;
-
-import javax.validation.constraints.*;
-import javax.validation.Valid;
 
 /**
  * Set of elements used to identify a person or an organisation.
@@ -45,92 +46,94 @@ import javax.validation.Valid;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-23T13:31:35.768Z")
 
 
-
 public class OBWriteInternationalResponse4DataRefundCreditor {
-  @JsonProperty("Name")
-  private String name = null;
+    @JsonProperty("Name")
+    private String name = null;
 
-  @JsonProperty("PostalAddress")
-  private OBPostalAddress6 postalAddress = null;
+    @JsonProperty("PostalAddress")
+    private OBPostalAddress6 postalAddress = null;
 
-  public OBWriteInternationalResponse4DataRefundCreditor name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Name by which a party is known and which is usually used to identify that party.
-   * @return name
-  **/
- @Size(min=1,max=140)  @ApiModelProperty(value = "Name by which a party is known and which is usually used to identify that party.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public OBWriteInternationalResponse4DataRefundCreditor postalAddress(OBPostalAddress6 postalAddress) {
-    this.postalAddress = postalAddress;
-    return this;
-  }
-
-   /**
-   * Get postalAddress
-   * @return postalAddress
-  **/
-  @Valid
-  @ApiModelProperty(value = "")
-  public OBPostalAddress6 getPostalAddress() {
-    return postalAddress;
-  }
-
-  public void setPostalAddress(OBPostalAddress6 postalAddress) {
-    this.postalAddress = postalAddress;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBWriteInternationalResponse4DataRefundCreditor name(String name) {
+        this.name = name;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Name by which a party is known and which is usually used to identify that party.
+     *
+     * @return name
+     **/
+    @Size(min = 1, max = 140)
+    @ApiModelProperty(value = "Name by which a party is known and which is usually used to identify that party.")
+    public String getName() {
+        return name;
     }
-    OBWriteInternationalResponse4DataRefundCreditor obWriteInternationalResponse4DataRefundCreditor = (OBWriteInternationalResponse4DataRefundCreditor) o;
-    return Objects.equals(this.name, obWriteInternationalResponse4DataRefundCreditor.name) &&
-        Objects.equals(this.postalAddress, obWriteInternationalResponse4DataRefundCreditor.postalAddress);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(name, postalAddress);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBWriteInternationalResponse4DataRefundCreditor {\n");
-    
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setName(String name) {
+        this.name = name;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public OBWriteInternationalResponse4DataRefundCreditor postalAddress(OBPostalAddress6 postalAddress) {
+        this.postalAddress = postalAddress;
+        return this;
+    }
+
+    /**
+     * Get postalAddress
+     *
+     * @return postalAddress
+     **/
+    @Valid
+    @ApiModelProperty(value = "")
+    public OBPostalAddress6 getPostalAddress() {
+        return postalAddress;
+    }
+
+    public void setPostalAddress(OBPostalAddress6 postalAddress) {
+        this.postalAddress = postalAddress;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBWriteInternationalResponse4DataRefundCreditor obWriteInternationalResponse4DataRefundCreditor = (OBWriteInternationalResponse4DataRefundCreditor) o;
+        return Objects.equals(this.name, obWriteInternationalResponse4DataRefundCreditor.name) &&
+                Objects.equals(this.postalAddress, obWriteInternationalResponse4DataRefundCreditor.postalAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, postalAddress);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBWriteInternationalResponse4DataRefundCreditor {\n");
+
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

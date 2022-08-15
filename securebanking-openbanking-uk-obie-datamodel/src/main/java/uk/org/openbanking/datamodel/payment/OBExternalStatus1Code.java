@@ -22,33 +22,33 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Specifies the status of resource in code form.
  */
 public enum OBExternalStatus1Code {
-  
-  INITIATIONCOMPLETED("InitiationCompleted"),
-  
-  INITIATIONFAILED("InitiationFailed"),
-  
-  INITIATIONPENDING("InitiationPending");
 
-  private String value;
+    INITIATIONCOMPLETED("InitiationCompleted"),
 
-  OBExternalStatus1Code(String value) {
-    this.value = value;
-  }
+    INITIATIONFAILED("InitiationFailed"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    INITIATIONPENDING("InitiationPending");
 
-  @JsonCreator
-  public static OBExternalStatus1Code fromValue(String text) {
-    for (OBExternalStatus1Code b : OBExternalStatus1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    private String value;
+
+    OBExternalStatus1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalStatus1Code fromValue(String text) {
+        for (OBExternalStatus1Code b : OBExternalStatus1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

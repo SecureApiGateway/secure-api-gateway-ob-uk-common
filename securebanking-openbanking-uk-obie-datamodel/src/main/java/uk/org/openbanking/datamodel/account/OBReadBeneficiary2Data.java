@@ -15,14 +15,17 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import javax.validation.Valid;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBReadBeneficiary2Data
@@ -30,77 +33,78 @@ import java.util.Objects;
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-01T11:26:57.876+01:00")
 
-public class OBReadBeneficiary2Data   {
-  @JsonProperty("Beneficiary")
-  @Valid
-  private List<OBBeneficiary2> beneficiary = null;
+public class OBReadBeneficiary2Data {
+    @JsonProperty("Beneficiary")
+    @Valid
+    private List<OBBeneficiary2> beneficiary = null;
 
-  public OBReadBeneficiary2Data beneficiary(List<OBBeneficiary2> beneficiary) {
-    this.beneficiary = beneficiary;
-    return this;
-  }
-
-  public OBReadBeneficiary2Data addBeneficiaryItem(OBBeneficiary2 beneficiaryItem) {
-    if (this.beneficiary == null) {
-      this.beneficiary = new ArrayList<OBBeneficiary2>();
+    public OBReadBeneficiary2Data beneficiary(List<OBBeneficiary2> beneficiary) {
+        this.beneficiary = beneficiary;
+        return this;
     }
-    this.beneficiary.add(beneficiaryItem);
-    return this;
-  }
 
-  /**
-   * Get beneficiary
-   * @return beneficiary
-  **/
-  @ApiModelProperty(value = "")
-
-  @Valid
-
-  public List<OBBeneficiary2> getBeneficiary() {
-    return beneficiary;
-  }
-
-  public void setBeneficiary(List<OBBeneficiary2> beneficiary) {
-    this.beneficiary = beneficiary;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBReadBeneficiary2Data addBeneficiaryItem(OBBeneficiary2 beneficiaryItem) {
+        if (this.beneficiary == null) {
+            this.beneficiary = new ArrayList<OBBeneficiary2>();
+        }
+        this.beneficiary.add(beneficiaryItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get beneficiary
+     *
+     * @return beneficiary
+     **/
+    @ApiModelProperty(value = "")
+
+    @Valid
+
+    public List<OBBeneficiary2> getBeneficiary() {
+        return beneficiary;
     }
-    OBReadBeneficiary2Data obReadBeneficiary2Data = (OBReadBeneficiary2Data) o;
-    return Objects.equals(this.beneficiary, obReadBeneficiary2Data.beneficiary);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(beneficiary);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBReadBeneficiary2Data {\n");
-    
-    sb.append("    beneficiary: ").append(toIndentedString(beneficiary)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setBeneficiary(List<OBBeneficiary2> beneficiary) {
+        this.beneficiary = beneficiary;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBReadBeneficiary2Data obReadBeneficiary2Data = (OBReadBeneficiary2Data) o;
+        return Objects.equals(this.beneficiary, obReadBeneficiary2Data.beneficiary);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(beneficiary);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBReadBeneficiary2Data {\n");
+
+        sb.append("    beneficiary: ").append(toIndentedString(beneficiary)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

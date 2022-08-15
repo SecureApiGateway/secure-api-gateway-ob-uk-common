@@ -28,13 +28,15 @@
 
 package uk.org.openbanking.datamodel.event;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Resource-Update Event.
@@ -42,69 +44,69 @@ import java.util.Objects;
 @ApiModel(description = "Resource-Update Event.")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-13T11:51:33.738+01:00")
 public class OBEventResourceUpdate1 {
-  @JsonProperty("subject")
-  private OBEventSubject1 subject = null;
+    @JsonProperty("subject")
+    private OBEventSubject1 subject = null;
 
-  public OBEventResourceUpdate1 subject(OBEventSubject1 subject) {
-    this.subject = subject;
-    return this;
-  }
-
-  /**
-   * Get subject
-   *
-   * @return subject
-   **/
-  @NotNull
-  @Valid
-  @ApiModelProperty(required = true, value = "")
-  public OBEventSubject1 getSubject() {
-    return subject;
-  }
-
-  public void setSubject(OBEventSubject1 subject) {
-    this.subject = subject;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBEventResourceUpdate1 subject(OBEventSubject1 subject) {
+        this.subject = subject;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get subject
+     *
+     * @return subject
+     **/
+    @NotNull
+    @Valid
+    @ApiModelProperty(required = true, value = "")
+    public OBEventSubject1 getSubject() {
+        return subject;
     }
-    OBEventResourceUpdate1 obEventResourceUpdate1 = (OBEventResourceUpdate1) o;
-    return Objects.equals(this.subject, obEventResourceUpdate1.subject);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(subject);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBEventResourceUpdate1 {\n");
-
-    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setSubject(OBEventSubject1 subject) {
+        this.subject = subject;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBEventResourceUpdate1 obEventResourceUpdate1 = (OBEventResourceUpdate1) o;
+        return Objects.equals(this.subject, obEventResourceUpdate1.subject);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(subject);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBEventResourceUpdate1 {\n");
+
+        sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

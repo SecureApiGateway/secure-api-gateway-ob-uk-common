@@ -22,41 +22,41 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Limit type, in a coded form.
  */
 public enum OBExternalLimitType1Code {
-  
-  AVAILABLE("Available"),
-  
-  CREDIT("Credit"),
-  
-  EMERGENCY("Emergency"),
-  
-  PRE_AGREED("Pre-Agreed"),
-  
-  TEMPORARY("Temporary");
 
-  private String value;
+    AVAILABLE("Available"),
 
-  OBExternalLimitType1Code(String value) {
-    this.value = value;
-  }
+    CREDIT("Credit"),
 
-  public String getValue() {
-    return value;
-  }
+    EMERGENCY("Emergency"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    PRE_AGREED("Pre-Agreed"),
 
-  @JsonCreator
-  public static OBExternalLimitType1Code fromValue(String text) {
-    for (OBExternalLimitType1Code b : OBExternalLimitType1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    TEMPORARY("Temporary");
+
+    private String value;
+
+    OBExternalLimitType1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalLimitType1Code fromValue(String text) {
+        for (OBExternalLimitType1Code b : OBExternalLimitType1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

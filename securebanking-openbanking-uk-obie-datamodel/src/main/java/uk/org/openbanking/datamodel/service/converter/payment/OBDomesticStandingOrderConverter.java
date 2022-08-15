@@ -15,17 +15,23 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.payment.OBDomesticStandingOrder1;
-import uk.org.openbanking.datamodel.payment.OBDomesticStandingOrder2;
-import uk.org.openbanking.datamodel.payment.OBDomesticStandingOrder3;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiation;
-
 import static uk.org.openbanking.datamodel.service.converter.payment.OBAccountConverter.toOBCashAccount3;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBAccountConverter.toOBCashAccountCreditor3;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBAccountConverter.toOBCashAccountDebtor4;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBAccountConverter.toOBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBAccountConverter.toOBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
-import static uk.org.openbanking.datamodel.service.converter.payment.OBAmountConverter.*;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBAmountConverter.toOBActiveOrHistoricCurrencyAndAmount;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBAmountConverter.toOBDomesticStandingOrder3FinalPaymentAmount;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBAmountConverter.toOBDomesticStandingOrder3FirstPaymentAmount;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBAmountConverter.toOBDomesticStandingOrder3RecurringPaymentAmount;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBAmountConverter.toOBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBAmountConverter.toOBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBAmountConverter.toOBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount;
+
+import uk.org.openbanking.datamodel.payment.OBDomesticStandingOrder1;
+import uk.org.openbanking.datamodel.payment.OBDomesticStandingOrder2;
+import uk.org.openbanking.datamodel.payment.OBDomesticStandingOrder3;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiation;
 
 public class OBDomesticStandingOrderConverter {
 

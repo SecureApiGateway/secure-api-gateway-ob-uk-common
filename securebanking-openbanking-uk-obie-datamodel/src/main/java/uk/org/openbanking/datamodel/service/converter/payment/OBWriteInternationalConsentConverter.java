@@ -15,12 +15,25 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.payment.*;
-
 import static uk.org.openbanking.datamodel.service.converter.payment.OBConsentAuthorisationConverter.toOBWriteDomesticConsent3DataAuthorisation;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBConsentAuthorisationConverter.toOBWriteDomesticConsent4DataAuthorisation;
-import static uk.org.openbanking.datamodel.service.converter.payment.OBInternationalConverter.*;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBInternationalConverter.toOBInternational1;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBInternationalConverter.toOBInternational2;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBInternationalConverter.toOBWriteInternational3DataInitiation;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBWriteDomesticConsentConverter.toOBSCASupportData1;
+
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternational1;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternational2;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalConsent1;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteInternational1;
+import uk.org.openbanking.datamodel.payment.OBWriteInternational2;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsent1;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsent4;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsent4Data;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsent5;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsent5Data;
 
 public class OBWriteInternationalConsentConverter {
 

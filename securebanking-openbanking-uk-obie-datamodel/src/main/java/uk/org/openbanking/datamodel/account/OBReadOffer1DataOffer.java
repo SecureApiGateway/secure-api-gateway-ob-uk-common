@@ -15,17 +15,20 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.joda.time.DateTime;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBReadOffer1DataOffer
@@ -43,31 +46,31 @@ public class OBReadOffer1DataOffer {
      * Offer type, in a coded form.
      */
     public enum OfferTypeEnum {
-    BALANCETRANSFER("BalanceTransfer"),
-    
-    LIMITINCREASE("LimitIncrease"),
-    
-    MONEYTRANSFER("MoneyTransfer"),
-    
-    OTHER("Other"),
-    
-    PROMOTIONALRATE("PromotionalRate");
+        BALANCETRANSFER("BalanceTransfer"),
 
-    private String value;
+        LIMITINCREASE("LimitIncrease"),
 
-    OfferTypeEnum(String value) {
-      this.value = value;
-    }
+        MONEYTRANSFER("MoneyTransfer"),
 
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
+        OTHER("Other"),
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+        PROMOTIONALRATE("PromotionalRate");
+
+        private String value;
+
+        OfferTypeEnum(String value) {
+            this.value = value;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
 
         @JsonCreator
         public static OfferTypeEnum fromValue(String value) {
@@ -129,14 +132,14 @@ public class OBReadOffer1DataOffer {
         return accountId;
     }
 
-  public void setAccountId(String accountId) {
-    this.accountId = accountId;
-  }
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
 
-  public OBReadOffer1DataOffer offerId(String offerId) {
-    this.offerId = offerId;
-    return this;
-  }
+    public OBReadOffer1DataOffer offerId(String offerId) {
+        this.offerId = offerId;
+        return this;
+    }
 
     /**
      * A unique and immutable identifier used to identify the offer resource. This identifier has no meaning to the account owner.
@@ -147,27 +150,28 @@ public class OBReadOffer1DataOffer {
     @Size(min = 1, max = 40)
     public String getOfferId() {
         return offerId;
-  }
+    }
 
-  public void setOfferId(String offerId) {
-    this.offerId = offerId;
-  }
+    public void setOfferId(String offerId) {
+        this.offerId = offerId;
+    }
 
-  public OBReadOffer1DataOffer offerType(OfferTypeEnum offerType) {
-    this.offerType = offerType;
-    return this;
-  }
+    public OBReadOffer1DataOffer offerType(OfferTypeEnum offerType) {
+        this.offerType = offerType;
+        return this;
+    }
 
-  /**
-   * Offer type, in a coded form.
-   * @return offerType
-  */
-  @ApiModelProperty(value = "Offer type, in a coded form.")
+    /**
+     * Offer type, in a coded form.
+     *
+     * @return offerType
+     */
+    @ApiModelProperty(value = "Offer type, in a coded form.")
 
 
-  public OfferTypeEnum getOfferType() {
-      return offerType;
-  }
+    public OfferTypeEnum getOfferType() {
+        return offerType;
+    }
 
     public void setOfferType(OfferTypeEnum offerType) {
         this.offerType = offerType;
@@ -200,6 +204,7 @@ public class OBReadOffer1DataOffer {
 
     /**
      * Date and time at which the offer starts.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return startDateTime
      */
     @ApiModelProperty(value = "Date and time at which the offer starts.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
@@ -284,12 +289,12 @@ public class OBReadOffer1DataOffer {
     @ApiModelProperty(value = "Further details of the term of the offer.")
     @Size(min = 1, max = 500)
     public String getTerm() {
-    return term;
-  }
+        return term;
+    }
 
-  public void setTerm(String term) {
-    this.term = term;
-  }
+    public void setTerm(String term) {
+        this.term = term;
+    }
 
     public OBReadOffer1DataOffer URL(String URL) {
         this.URL = URL;
@@ -354,11 +359,11 @@ public class OBReadOffer1DataOffer {
     @Override
     public boolean equals(Object o) {
         if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-        return false;
-    }
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         OBReadOffer1DataOffer obReadOffer1DataOffer = (OBReadOffer1DataOffer) o;
         return Objects.equals(this.accountId, obReadOffer1DataOffer.accountId) &&
                 Objects.equals(this.offerId, obReadOffer1DataOffer.offerId) &&
@@ -370,13 +375,13 @@ public class OBReadOffer1DataOffer {
                 Objects.equals(this.value, obReadOffer1DataOffer.value) &&
                 Objects.equals(this.term, obReadOffer1DataOffer.term) &&
                 Objects.equals(this.URL, obReadOffer1DataOffer.URL) &&
-        Objects.equals(this.amount, obReadOffer1DataOffer.amount) &&
+                Objects.equals(this.amount, obReadOffer1DataOffer.amount) &&
                 Objects.equals(this.fee, obReadOffer1DataOffer.fee);
     }
 
     @Override
     public int hashCode() {
-    return Objects.hash(accountId, offerId, offerType, description, startDateTime, endDateTime, rate, value, term, URL, amount, fee);
+        return Objects.hash(accountId, offerId, offerType, description, startDateTime, endDateTime, rate, value, term, URL, amount, fee);
     }
 
     @Override
@@ -395,20 +400,20 @@ public class OBReadOffer1DataOffer {
         sb.append("    term: ").append(toIndentedString(term)).append("\n");
         sb.append("    URL: ").append(toIndentedString(URL)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+        sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

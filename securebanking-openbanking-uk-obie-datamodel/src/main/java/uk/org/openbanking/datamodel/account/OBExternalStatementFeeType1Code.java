@@ -22,59 +22,59 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Fee type, in a coded form.
  */
 public enum OBExternalStatementFeeType1Code {
-  
-  ANNUAL("Annual"),
-  
-  BALANCETRANSFER("BalanceTransfer"),
-  
-  CASHADVANCE("CashAdvance"),
-  
-  CASHTRANSACTION("CashTransaction"),
-  
-  FOREIGNTRANSACTION("ForeignTransaction"),
-  
-  GAMBLING("Gambling"),
-  
-  LATEPAYMENT("LatePayment"),
-  
-  MONEYTRANSFER("MoneyTransfer"),
-  
-  MONTHLY("Monthly"),
-  
-  OVERLIMIT("Overlimit"),
-  
-  POSTALORDER("PostalOrder"),
-  
-  PRIZEENTRY("PrizeEntry"),
-  
-  STATEMENTCOPY("StatementCopy"),
-  
-  TOTAL("Total");
 
-  private String value;
+    ANNUAL("Annual"),
 
-  OBExternalStatementFeeType1Code(String value) {
-    this.value = value;
-  }
+    BALANCETRANSFER("BalanceTransfer"),
 
-  public String getValue() {
-    return value;
-  }
+    CASHADVANCE("CashAdvance"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    CASHTRANSACTION("CashTransaction"),
 
-  @JsonCreator
-  public static OBExternalStatementFeeType1Code fromValue(String text) {
-    for (OBExternalStatementFeeType1Code b : OBExternalStatementFeeType1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    FOREIGNTRANSACTION("ForeignTransaction"),
+
+    GAMBLING("Gambling"),
+
+    LATEPAYMENT("LatePayment"),
+
+    MONEYTRANSFER("MoneyTransfer"),
+
+    MONTHLY("Monthly"),
+
+    OVERLIMIT("Overlimit"),
+
+    POSTALORDER("PostalOrder"),
+
+    PRIZEENTRY("PrizeEntry"),
+
+    STATEMENTCOPY("StatementCopy"),
+
+    TOTAL("Total");
+
+    private String value;
+
+    OBExternalStatementFeeType1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalStatementFeeType1Code fromValue(String text) {
+        for (OBExternalStatementFeeType1Code b : OBExternalStatementFeeType1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

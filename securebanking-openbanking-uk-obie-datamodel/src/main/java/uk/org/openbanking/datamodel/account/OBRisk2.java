@@ -15,14 +15,16 @@
  */
 package uk.org.openbanking.datamodel.account;
 
+import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import io.swagger.annotations.ApiModel;
-import org.springframework.validation.annotation.Validated;
 import uk.org.openbanking.jackson.account.OBRisk2Deserializer;
 import uk.org.openbanking.jackson.account.OBRisk2Serializer;
-
-import java.util.Objects;
 
 /**
  * The Risk section is sent by the initiating party to the ASPSP. It is used to specify additional details for risk scoring for Account Info.

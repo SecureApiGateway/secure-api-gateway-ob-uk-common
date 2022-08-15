@@ -15,14 +15,16 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBDomesticVRPConsentRequestData
@@ -80,6 +82,7 @@ public class OBDomesticVRPConsentRequestData {
 
     /**
      * Indicates whether information about RefundAccount should be included in the payment response.
+     *
      * @return readRefundAccount
      */
     @ApiModelProperty(value = "Indicates whether information about RefundAccount should be included in the payment response. ")
@@ -100,6 +103,7 @@ public class OBDomesticVRPConsentRequestData {
 
     /**
      * Get controlParameters
+     *
      * @return controlParameters
      */
     @ApiModelProperty(required = true, value = "")
@@ -122,6 +126,7 @@ public class OBDomesticVRPConsentRequestData {
 
     /**
      * Get initiation
+     *
      * @return initiation
      */
     @ApiModelProperty(required = true, value = "")

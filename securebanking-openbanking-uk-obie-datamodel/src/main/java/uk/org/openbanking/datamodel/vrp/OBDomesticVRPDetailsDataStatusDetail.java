@@ -15,14 +15,16 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBDomesticVRPDetailsDataStatusDetail
@@ -93,6 +95,7 @@ public class OBDomesticVRPDetailsDataStatusDetail {
 
     /**
      * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
+     *
      * @return localInstrument
      */
     @ApiModelProperty(value = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.")
@@ -113,6 +116,7 @@ public class OBDomesticVRPDetailsDataStatusDetail {
 
     /**
      * Status of a transfer, as assigned by the transaction administrator.
+     *
      * @return status
      */
     @ApiModelProperty(required = true, value = "Status of a transfer, as assigned by the transaction administrator.")
@@ -134,6 +138,7 @@ public class OBDomesticVRPDetailsDataStatusDetail {
 
     /**
      * Reason Code provided for the status of a transfer.
+     *
      * @return statusReason
      */
     @ApiModelProperty(value = "Reason Code provided for the status of a transfer.")
@@ -154,6 +159,7 @@ public class OBDomesticVRPDetailsDataStatusDetail {
 
     /**
      * Reason provided for the status of a transfer.
+     *
      * @return statusReasonDescription
      */
     @ApiModelProperty(value = "Reason provided for the status of a transfer.")

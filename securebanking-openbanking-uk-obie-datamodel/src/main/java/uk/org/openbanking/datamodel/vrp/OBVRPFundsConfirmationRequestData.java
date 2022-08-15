@@ -15,14 +15,16 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 /**
  * OBVRPFundsConfirmationRequestData
@@ -45,6 +47,7 @@ public class OBVRPFundsConfirmationRequestData {
 
     /**
      * Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.
+     *
      * @return consentId
      */
     @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.")
@@ -66,6 +69,7 @@ public class OBVRPFundsConfirmationRequestData {
 
     /**
      * Unique reference, as assigned by the PISP, to unambiguously refer to the request related to the payment transaction.
+     *
      * @return reference
      */
     @ApiModelProperty(required = true, value = "Unique reference, as assigned by the PISP, to unambiguously refer to the request related to the payment transaction.")
@@ -87,6 +91,7 @@ public class OBVRPFundsConfirmationRequestData {
 
     /**
      * Get instructedAmount
+     *
      * @return instructedAmount
      */
     @ApiModelProperty(required = true, value = "")

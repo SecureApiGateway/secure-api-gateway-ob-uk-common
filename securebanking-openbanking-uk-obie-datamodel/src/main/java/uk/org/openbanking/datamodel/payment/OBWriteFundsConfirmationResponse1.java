@@ -15,131 +15,134 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.Links;
-import uk.org.openbanking.datamodel.common.Meta;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.Links;
+import uk.org.openbanking.datamodel.common.Meta;
 
 /**
  * OBWriteFundsConfirmationResponse1
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
 
-public class OBWriteFundsConfirmationResponse1   {
-  @JsonProperty("Data")
-  private OBWriteFundsConfirmationResponse1Data data;
+public class OBWriteFundsConfirmationResponse1 {
+    @JsonProperty("Data")
+    private OBWriteFundsConfirmationResponse1Data data;
 
-  @JsonProperty("Links")
-  private Links links;
+    @JsonProperty("Links")
+    private Links links;
 
-  @JsonProperty("Meta")
-  private Meta meta;
+    @JsonProperty("Meta")
+    private Meta meta;
 
-  public OBWriteFundsConfirmationResponse1 data(OBWriteFundsConfirmationResponse1Data data) {
-    this.data = data;
-    return this;
-  }
-
-  /**
-   * Get data
-   * @return data
-   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-  @Valid
-  public OBWriteFundsConfirmationResponse1Data getData() {
-    return data;
-  }
-
-  public void setData(OBWriteFundsConfirmationResponse1Data data) {
-    this.data = data;
-  }
-
-  public OBWriteFundsConfirmationResponse1 links(Links links) {
-    this.links = links;
-    return this;
-  }
-
-  /**
-   * Get links
-   *
-   * @return links
-   */
-  @ApiModelProperty(value = "")
-  @Valid
-  public Links getLinks() {
-    return links;
-  }
-
-  public void setLinks(Links links) {
-    this.links = links;
-  }
-
-  public OBWriteFundsConfirmationResponse1 meta(Meta meta) {
-    this.meta = meta;
-    return this;
-  }
-
-  /**
-   * Get meta
-   *
-   * @return meta
-   */
-  @ApiModelProperty(value = "")
-  @Valid
-  public Meta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(Meta meta) {
-    this.meta = meta;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBWriteFundsConfirmationResponse1 data(OBWriteFundsConfirmationResponse1Data data) {
+        this.data = data;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get data
+     *
+     * @return data
+     */
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
+    @Valid
+    public OBWriteFundsConfirmationResponse1Data getData() {
+        return data;
     }
-    OBWriteFundsConfirmationResponse1 obWriteFundsConfirmationResponse1 = (OBWriteFundsConfirmationResponse1) o;
-    return Objects.equals(this.data, obWriteFundsConfirmationResponse1.data) &&
-        Objects.equals(this.links, obWriteFundsConfirmationResponse1.links) &&
-        Objects.equals(this.meta, obWriteFundsConfirmationResponse1.meta);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data, links, meta);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBWriteFundsConfirmationResponse1 {\n");
-    
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setData(OBWriteFundsConfirmationResponse1Data data) {
+        this.data = data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public OBWriteFundsConfirmationResponse1 links(Links links) {
+        this.links = links;
+        return this;
+    }
+
+    /**
+     * Get links
+     *
+     * @return links
+     */
+    @ApiModelProperty(value = "")
+    @Valid
+    public Links getLinks() {
+        return links;
+    }
+
+    public void setLinks(Links links) {
+        this.links = links;
+    }
+
+    public OBWriteFundsConfirmationResponse1 meta(Meta meta) {
+        this.meta = meta;
+        return this;
+    }
+
+    /**
+     * Get meta
+     *
+     * @return meta
+     */
+    @ApiModelProperty(value = "")
+    @Valid
+    public Meta getMeta() {
+        return meta;
+    }
+
+    public void setMeta(Meta meta) {
+        this.meta = meta;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBWriteFundsConfirmationResponse1 obWriteFundsConfirmationResponse1 = (OBWriteFundsConfirmationResponse1) o;
+        return Objects.equals(this.data, obWriteFundsConfirmationResponse1.data) &&
+                Objects.equals(this.links, obWriteFundsConfirmationResponse1.links) &&
+                Objects.equals(this.meta, obWriteFundsConfirmationResponse1.meta);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, links, meta);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBWriteFundsConfirmationResponse1 {\n");
+
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("    links: ").append(toIndentedString(links)).append("\n");
+        sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

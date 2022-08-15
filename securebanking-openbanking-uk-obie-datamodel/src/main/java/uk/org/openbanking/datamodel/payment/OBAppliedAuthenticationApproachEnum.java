@@ -23,9 +23,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * subject to SCA performed by the TPP.
  *
  * <p>
- *  N.B. This enum has been created manually and should be used instead of all the equivalent enums that are created in
- *  classes such as {@link OBWriteDomesticConsent3DataSCASupportData} or {@link OBWriteDomesticConsent4DataSCASupportData}
- *  etc. This makes migrating to new API versions considerably easier.
+ * N.B. This enum has been created manually and should be used instead of all the equivalent enums that are created in
+ * classes such as {@link OBWriteDomesticConsent3DataSCASupportData} or {@link OBWriteDomesticConsent4DataSCASupportData}
+ * etc. This makes migrating to new API versions considerably easier.
  */
 public enum OBAppliedAuthenticationApproachEnum {
     CA("CA"),

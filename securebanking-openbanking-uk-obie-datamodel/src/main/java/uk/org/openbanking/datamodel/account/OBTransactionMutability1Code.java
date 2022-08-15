@@ -23,34 +23,34 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum OBTransactionMutability1Code {
 
-  MUTABLE("Mutable"),
+    MUTABLE("Mutable"),
 
-  IMMUTABLE("Immutable");
+    IMMUTABLE("Immutable");
 
-  private String value;
+    private String value;
 
-  OBTransactionMutability1Code(String value) {
-    this.value = value;
-  }
-
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static OBTransactionMutability1Code fromValue(String value) {
-    for (OBTransactionMutability1Code b : OBTransactionMutability1Code.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    OBTransactionMutability1Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBTransactionMutability1Code fromValue(String value) {
+        for (OBTransactionMutability1Code b : OBTransactionMutability1Code.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 

@@ -28,14 +28,16 @@
 
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Other fee type code which is not available in the standard code set
@@ -59,6 +61,7 @@ public class OBBCAData1OtherFeeType {
 
     /**
      * The four letter Mnemonic used within an XML file to identify a code
+     *
      * @return code
      **/
     @Pattern(regexp = "^\\w{0,4}$")
@@ -79,6 +82,7 @@ public class OBBCAData1OtherFeeType {
 
     /**
      * Description to describe the purpose of the code
+     *
      * @return description
      **/
     @NotNull
@@ -99,6 +103,7 @@ public class OBBCAData1OtherFeeType {
 
     /**
      * Long name associated with the code
+     *
      * @return name
      **/
     @NotNull

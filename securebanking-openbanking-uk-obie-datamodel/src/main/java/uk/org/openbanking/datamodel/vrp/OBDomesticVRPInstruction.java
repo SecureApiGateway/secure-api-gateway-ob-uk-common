@@ -15,17 +15,19 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
+import java.util.Objects;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
 import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.Objects;
 
 /**
  * OBDomesticVRPInstruction
@@ -64,6 +66,7 @@ public class OBDomesticVRPInstruction {
 
     /**
      * Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction. Usage: the instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
+     *
      * @return instructionIdentification
      */
     @ApiModelProperty(required = true, value = "Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction. Usage: the instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.")
@@ -85,6 +88,7 @@ public class OBDomesticVRPInstruction {
 
     /**
      * Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain. Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction. OB: The Faster Payments Scheme can only access 31 characters for the EndToEndIdentification field
+     *
      * @return endToEndIdentification
      */
     @ApiModelProperty(required = true, value = "Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain. Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction. OB: The Faster Payments Scheme can only access 31 characters for the EndToEndIdentification field")
@@ -106,6 +110,7 @@ public class OBDomesticVRPInstruction {
 
     /**
      * Get remittanceInformation
+     *
      * @return remittanceInformation
      */
     @ApiModelProperty(value = "")
@@ -127,6 +132,7 @@ public class OBDomesticVRPInstruction {
 
     /**
      * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
+     *
      * @return localInstrument
      */
     @ApiModelProperty(value = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.")
@@ -147,6 +153,7 @@ public class OBDomesticVRPInstruction {
 
     /**
      * Get instructedAmount
+     *
      * @return instructedAmount
      */
     @ApiModelProperty(value = "")
@@ -168,6 +175,7 @@ public class OBDomesticVRPInstruction {
 
     /**
      * Get creditorAgent
+     *
      * @return creditorAgent
      */
     @ApiModelProperty(value = "")
@@ -189,6 +197,7 @@ public class OBDomesticVRPInstruction {
 
     /**
      * Get creditorAccount
+     *
      * @return creditorAccount
      */
     @ApiModelProperty(required = true, value = "")
@@ -211,6 +220,7 @@ public class OBDomesticVRPInstruction {
 
     /**
      * Additional information that can not be captured in the structured fields and/or any other specific block.
+     *
      * @return supplementaryData
      */
     @ApiModelProperty(value = "Additional information that can not be captured in the structured fields and/or any other specific block. ")

@@ -28,15 +28,17 @@
 
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Unambiguous identification of the account to which credit and debit entries are made.
@@ -75,6 +77,7 @@ public class OBAccount4Basic {
 
     /**
      * Get accountId
+     *
      * @return accountId
      **/
     @NotNull
@@ -95,6 +98,7 @@ public class OBAccount4Basic {
 
     /**
      * Get accountSubType
+     *
      * @return accountSubType
      **/
     @NotNull
@@ -115,6 +119,7 @@ public class OBAccount4Basic {
 
     /**
      * Get accountType
+     *
      * @return accountType
      **/
     @NotNull
@@ -135,6 +140,7 @@ public class OBAccount4Basic {
 
     /**
      * Get currency
+     *
      * @return currency
      **/
     @NotNull
@@ -155,6 +161,7 @@ public class OBAccount4Basic {
 
     /**
      * Get description
+     *
      * @return description
      **/
     @Size(min = 1, max = 35)
@@ -174,6 +181,7 @@ public class OBAccount4Basic {
 
     /**
      * Get nickname
+     *
      * @return nickname
      **/
     @Size(min = 1, max = 70)
@@ -193,6 +201,7 @@ public class OBAccount4Basic {
 
     /**
      * Get status
+     *
      * @return status
      **/
     @Valid
@@ -212,6 +221,7 @@ public class OBAccount4Basic {
 
     /**
      * Get statusUpdateDateTime
+     *
      * @return statusUpdateDateTime
      **/
     @ApiModelProperty(value = "")

@@ -15,12 +15,17 @@
  */
 package uk.org.openbanking.datamodel.service.converter.account;
 
-import uk.org.openbanking.datamodel.account.*;
+import java.util.Collections;
+
+import uk.org.openbanking.datamodel.account.OBAccount1;
+import uk.org.openbanking.datamodel.account.OBAccount2;
+import uk.org.openbanking.datamodel.account.OBCashAccount1;
+import uk.org.openbanking.datamodel.account.OBExternalAccountSubType1Code;
+import uk.org.openbanking.datamodel.account.OBExternalAccountType1Code;
+import uk.org.openbanking.datamodel.account.OBExternalFinancialInstitutionIdentification2Code;
 import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification2;
 import uk.org.openbanking.datamodel.common.OBCashAccount3;
 import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification2Code;
-
-import java.util.Collections;
 
 /**
  * Convert OB account data-model in different version
@@ -29,6 +34,7 @@ public class OBAccountConverter {
 
     /**
      * Transform an account of V2 format to V1 format
+     *
      * @param account2 the account in V2 format
      * @return the corresponding account in V1 format
      */
@@ -75,6 +81,7 @@ public class OBAccountConverter {
      * - account type would be personal
      * It's expecting that the consumer of this function would be able to know the appropriate value and do the
      * necessary changes
+     *
      * @param account1 the account in V1 format
      * @return the account in V2 format
      */

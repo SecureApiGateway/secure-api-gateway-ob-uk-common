@@ -15,15 +15,17 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import javax.validation.Valid;
-import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Data
@@ -32,75 +34,76 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-10-16T08:37:28.078Z")
 
 public class OBReadDataTransaction1 {
-  @JsonProperty("Transaction")
-  private List<OBTransaction1> transaction = null;
+    @JsonProperty("Transaction")
+    private List<OBTransaction1> transaction = null;
 
-  public OBReadDataTransaction1 transaction(List<OBTransaction1> transaction) {
-    this.transaction = transaction;
-    return this;
-  }
-
-  public OBReadDataTransaction1 addTransactionItem(OBTransaction1 transactionItem) {
-    if (this.transaction == null) {
-      this.transaction = new ArrayList<OBTransaction1>();
+    public OBReadDataTransaction1 transaction(List<OBTransaction1> transaction) {
+        this.transaction = transaction;
+        return this;
     }
-    this.transaction.add(transactionItem);
-    return this;
-  }
 
-   /**
-   * Transaction
-   * @return transaction
-  **/
-  @ApiModelProperty(value = "Transaction")
-
-  @Valid
- @Size(min=1)
-  public List<OBTransaction1> getTransaction() {
-    return transaction;
-  }
-
-  public void setTransaction(List<OBTransaction1> transaction) {
-    this.transaction = transaction;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBReadDataTransaction1 addTransactionItem(OBTransaction1 transactionItem) {
+        if (this.transaction == null) {
+            this.transaction = new ArrayList<OBTransaction1>();
+        }
+        this.transaction.add(transactionItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Transaction
+     *
+     * @return transaction
+     **/
+    @ApiModelProperty(value = "Transaction")
+
+    @Valid
+    @Size(min = 1)
+    public List<OBTransaction1> getTransaction() {
+        return transaction;
     }
-    OBReadDataTransaction1 data3 = (OBReadDataTransaction1) o;
-    return Objects.equals(this.transaction, data3.transaction);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(transaction);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Data3 {\n");
-
-    sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setTransaction(List<OBTransaction1> transaction) {
+        this.transaction = transaction;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBReadDataTransaction1 data3 = (OBReadDataTransaction1) o;
+        return Objects.equals(this.transaction, data3.transaction);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(transaction);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Data3 {\n");
+
+        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

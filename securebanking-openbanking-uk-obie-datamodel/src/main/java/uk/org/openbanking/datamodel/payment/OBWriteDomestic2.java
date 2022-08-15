@@ -15,106 +15,109 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.OBRisk1;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBRisk1;
 
 /**
  * OBWriteDomestic2
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
 
-public class OBWriteDomestic2   {
-  @JsonProperty("Data")
-  private OBWriteDataDomestic2 data; // hand-edited (avoided switch to OBWriteDomestic2Data as JSON is the same)
+public class OBWriteDomestic2 {
+    @JsonProperty("Data")
+    private OBWriteDataDomestic2 data; // hand-edited (avoided switch to OBWriteDomestic2Data as JSON is the same)
 
-  @JsonProperty("Risk")
-  private OBRisk1 risk;
+    @JsonProperty("Risk")
+    private OBRisk1 risk;
 
-  public OBWriteDomestic2 data(OBWriteDataDomestic2 data) {
-    this.data = data;
-    return this;
-  }
-
-  /**
-   * Get data
-   *
-   * @return data
-   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-  @Valid
-  public OBWriteDataDomestic2 getData() {
-    return data;
-  }
-
-  public void setData(OBWriteDataDomestic2 data) {
-    this.data = data;
-  }
-
-  public OBWriteDomestic2 risk(OBRisk1 risk) {
-    this.risk = risk;
-    return this;
-  }
-
-  /**
-   * Get risk
-   * @return risk
-  */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-  @Valid
-  public OBRisk1 getRisk() {
-    return risk;
-  }
-
-  public void setRisk(OBRisk1 risk) {
-    this.risk = risk;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBWriteDomestic2 data(OBWriteDataDomestic2 data) {
+        this.data = data;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get data
+     *
+     * @return data
+     */
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
+    @Valid
+    public OBWriteDataDomestic2 getData() {
+        return data;
     }
-    OBWriteDomestic2 obWriteDomestic2 = (OBWriteDomestic2) o;
-    return Objects.equals(this.data, obWriteDomestic2.data) &&
-        Objects.equals(this.risk, obWriteDomestic2.risk);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data, risk);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBWriteDomestic2 {\n");
-
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setData(OBWriteDataDomestic2 data) {
+        this.data = data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public OBWriteDomestic2 risk(OBRisk1 risk) {
+        this.risk = risk;
+        return this;
+    }
+
+    /**
+     * Get risk
+     *
+     * @return risk
+     */
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
+    @Valid
+    public OBRisk1 getRisk() {
+        return risk;
+    }
+
+    public void setRisk(OBRisk1 risk) {
+        this.risk = risk;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBWriteDomestic2 obWriteDomestic2 = (OBWriteDomestic2) o;
+        return Objects.equals(this.data, obWriteDomestic2.data) &&
+                Objects.equals(this.risk, obWriteDomestic2.risk);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, risk);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBWriteDomestic2 {\n");
+
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

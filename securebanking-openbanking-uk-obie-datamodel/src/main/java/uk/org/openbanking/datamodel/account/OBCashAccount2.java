@@ -15,15 +15,18 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification3Code;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification3Code;
 
 /**
  * OBCashAccount2
@@ -51,6 +54,7 @@ public class OBCashAccount2 {
 
     /**
      * Get schemeName
+     *
      * @return schemeName
      **/
     @ApiModelProperty(required = true, value = "")
@@ -73,6 +77,7 @@ public class OBCashAccount2 {
 
     /**
      * Get identification
+     *
      * @return identification
      **/
     @ApiModelProperty(required = true, value = "")
@@ -94,6 +99,7 @@ public class OBCashAccount2 {
 
     /**
      * Get name
+     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -114,6 +120,7 @@ public class OBCashAccount2 {
 
     /**
      * Get secondaryIdentification
+     *
      * @return secondaryIdentification
      **/
     @ApiModelProperty(value = "")

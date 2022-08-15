@@ -22,35 +22,35 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Specifies the status of consent resource in code form.
  */
 public enum OBExternalRequestStatus1Code {
-  
-  AUTHORISED("Authorised"),
-  
-  AWAITINGAUTHORISATION("AwaitingAuthorisation"),
-  
-  REJECTED("Rejected"),
-  
-  REVOKED("Revoked");
 
-  private String value;
+    AUTHORISED("Authorised"),
 
-  OBExternalRequestStatus1Code(String value) {
-    this.value = value;
-  }
+    AWAITINGAUTHORISATION("AwaitingAuthorisation"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    REJECTED("Rejected"),
 
-  @JsonCreator
-  public static OBExternalRequestStatus1Code fromValue(String text) {
-    for (OBExternalRequestStatus1Code b : OBExternalRequestStatus1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    REVOKED("Revoked");
+
+    private String value;
+
+    OBExternalRequestStatus1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalRequestStatus1Code fromValue(String text) {
+        for (OBExternalRequestStatus1Code b : OBExternalRequestStatus1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

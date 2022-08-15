@@ -15,15 +15,18 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-import uk.org.openbanking.datamodel.common.Links;
-import uk.org.openbanking.datamodel.common.Meta;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.Links;
+import uk.org.openbanking.datamodel.common.Meta;
 
 /**
  * OBWriteInternationalStandingOrderResponse2
@@ -31,123 +34,126 @@ import java.util.Objects;
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-01-28T11:15:38.268Z")
 
-public class OBWriteInternationalStandingOrderResponse2   {
-  @JsonProperty("Data")
-  private OBWriteDataInternationalStandingOrderResponse2 data = null;
+public class OBWriteInternationalStandingOrderResponse2 {
+    @JsonProperty("Data")
+    private OBWriteDataInternationalStandingOrderResponse2 data = null;
 
-  @JsonProperty("Links")
-  private Links links = null;
+    @JsonProperty("Links")
+    private Links links = null;
 
-  @JsonProperty("Meta")
-  private Meta meta = null;
+    @JsonProperty("Meta")
+    private Meta meta = null;
 
-  public OBWriteInternationalStandingOrderResponse2 data(OBWriteDataInternationalStandingOrderResponse2 data) {
-    this.data = data;
-    return this;
-  }
-
-  /**
-   * Get data
-   * @return data
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
-  @Valid
-
-  public OBWriteDataInternationalStandingOrderResponse2 getData() {
-    return data;
-  }
-
-  public void setData(OBWriteDataInternationalStandingOrderResponse2 data) {
-    this.data = data;
-  }
-
-  public OBWriteInternationalStandingOrderResponse2 links(Links links) {
-    this.links = links;
-    return this;
-  }
-
-  /**
-   * Get links
-   * @return links
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
-  @Valid
-
-  public Links getLinks() {
-    return links;
-  }
-
-  public void setLinks(Links links) {
-    this.links = links;
-  }
-
-  public OBWriteInternationalStandingOrderResponse2 meta(Meta meta) {
-    this.meta = meta;
-    return this;
-  }
-
-  /**
-   * Get meta
-   * @return meta
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
-  @Valid
-
-  public Meta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(Meta meta) {
-    this.meta = meta;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBWriteInternationalStandingOrderResponse2 data(OBWriteDataInternationalStandingOrderResponse2 data) {
+        this.data = data;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get data
+     *
+     * @return data
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
+
+    @Valid
+
+    public OBWriteDataInternationalStandingOrderResponse2 getData() {
+        return data;
     }
-    OBWriteInternationalStandingOrderResponse2 obWriteInternationalStandingOrderResponse2 = (OBWriteInternationalStandingOrderResponse2) o;
-    return Objects.equals(this.data, obWriteInternationalStandingOrderResponse2.data) &&
-        Objects.equals(this.links, obWriteInternationalStandingOrderResponse2.links) &&
-        Objects.equals(this.meta, obWriteInternationalStandingOrderResponse2.meta);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data, links, meta);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBWriteInternationalStandingOrderResponse2 {\n");
-
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setData(OBWriteDataInternationalStandingOrderResponse2 data) {
+        this.data = data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public OBWriteInternationalStandingOrderResponse2 links(Links links) {
+        this.links = links;
+        return this;
+    }
+
+    /**
+     * Get links
+     *
+     * @return links
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
+
+    @Valid
+
+    public Links getLinks() {
+        return links;
+    }
+
+    public void setLinks(Links links) {
+        this.links = links;
+    }
+
+    public OBWriteInternationalStandingOrderResponse2 meta(Meta meta) {
+        this.meta = meta;
+        return this;
+    }
+
+    /**
+     * Get meta
+     *
+     * @return meta
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
+
+    @Valid
+
+    public Meta getMeta() {
+        return meta;
+    }
+
+    public void setMeta(Meta meta) {
+        this.meta = meta;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBWriteInternationalStandingOrderResponse2 obWriteInternationalStandingOrderResponse2 = (OBWriteInternationalStandingOrderResponse2) o;
+        return Objects.equals(this.data, obWriteInternationalStandingOrderResponse2.data) &&
+                Objects.equals(this.links, obWriteInternationalStandingOrderResponse2.links) &&
+                Objects.equals(this.meta, obWriteInternationalStandingOrderResponse2.meta);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, links, meta);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBWriteInternationalStandingOrderResponse2 {\n");
+
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("    links: ").append(toIndentedString(links)).append("\n");
+        sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

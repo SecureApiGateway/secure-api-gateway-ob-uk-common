@@ -15,14 +15,17 @@
  */
 package uk.org.openbanking.datamodel.common;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
+import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Provides the details to identify the beneficiary account.
@@ -51,6 +54,7 @@ public class OBCashAccount3 {
 
     /**
      * Name of the identification scheme, in a coded form as published in an external list.
+     *
      * @return schemeName
      **/
     @ApiModelProperty(required = true, value = "Name of the identification scheme, in a coded form as published in an external list.")
@@ -71,6 +75,7 @@ public class OBCashAccount3 {
 
     /**
      * Beneficiary account identification.
+     *
      * @return identification
      **/
     @ApiModelProperty(required = true, value = "Beneficiary account identification.")
@@ -91,6 +96,7 @@ public class OBCashAccount3 {
 
     /**
      * Name of the account, as assigned by the account servicing institution. Usage: The account name is the name or names of the account owner(s) represented at an account level. The account name is not the product name or the nickname of the account.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "Name of the account, as assigned by the account servicing institution. Usage: The account name is the name or names of the account owner(s) represented at an account level. The account name is not the product name or the nickname of the account.")
@@ -110,6 +116,7 @@ public class OBCashAccount3 {
 
     /**
      * This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).
+     *
      * @return secondaryIdentification
      **/
     @ApiModelProperty(value = "This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).")

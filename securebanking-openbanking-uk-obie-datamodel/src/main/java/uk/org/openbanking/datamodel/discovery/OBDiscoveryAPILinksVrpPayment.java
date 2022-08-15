@@ -15,10 +15,11 @@
  */
 package uk.org.openbanking.datamodel.discovery;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
 
 @ApiModel(description = "VRP Payment endpoints corresponding to a specific version")
 public class OBDiscoveryAPILinksVrpPayment implements OBDiscoveryAPILinks {

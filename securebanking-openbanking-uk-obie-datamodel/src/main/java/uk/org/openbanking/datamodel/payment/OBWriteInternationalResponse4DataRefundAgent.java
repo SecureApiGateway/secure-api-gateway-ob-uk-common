@@ -30,13 +30,14 @@ package uk.org.openbanking.datamodel.payment;
 
 import java.util.Objects;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBPostalAddress6;
-
-import javax.validation.constraints.*;
-import javax.validation.Valid;
 
 /**
  * Set of elements used to uniquely and unambiguously identify a financial institution or a branch of a financial institution.
@@ -45,138 +46,143 @@ import javax.validation.Valid;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-12-23T13:31:35.768Z")
 
 
-
 public class OBWriteInternationalResponse4DataRefundAgent {
-  @JsonProperty("SchemeName")
-  private String schemeName = null;
+    @JsonProperty("SchemeName")
+    private String schemeName = null;
 
-  @JsonProperty("Identification")
-  private String identification = null;
+    @JsonProperty("Identification")
+    private String identification = null;
 
-  @JsonProperty("Name")
-  private String name = null;
+    @JsonProperty("Name")
+    private String name = null;
 
-  @JsonProperty("PostalAddress")
-  private OBPostalAddress6 postalAddress = null;
+    @JsonProperty("PostalAddress")
+    private OBPostalAddress6 postalAddress = null;
 
-  public OBWriteInternationalResponse4DataRefundAgent schemeName(String schemeName) {
-    this.schemeName = schemeName;
-    return this;
-  }
-
-   /**
-   * Get schemeName
-   * @return schemeName
-  **/
-  @ApiModelProperty(value = "")
-  public String getSchemeName() {
-    return schemeName;
-  }
-
-  public void setSchemeName(String schemeName) {
-    this.schemeName = schemeName;
-  }
-
-  public OBWriteInternationalResponse4DataRefundAgent identification(String identification) {
-    this.identification = identification;
-    return this;
-  }
-
-   /**
-   * Get identification
-   * @return identification
-  **/
- @Size(min=1,max=35)  @ApiModelProperty(value = "")
-  public String getIdentification() {
-    return identification;
-  }
-
-  public void setIdentification(String identification) {
-    this.identification = identification;
-  }
-
-  public OBWriteInternationalResponse4DataRefundAgent name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
- @Size(min=1,max=140)  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public OBWriteInternationalResponse4DataRefundAgent postalAddress(OBPostalAddress6 postalAddress) {
-    this.postalAddress = postalAddress;
-    return this;
-  }
-
-   /**
-   * Get postalAddress
-   * @return postalAddress
-  **/
-  @Valid
-  @ApiModelProperty(value = "")
-  public OBPostalAddress6 getPostalAddress() {
-    return postalAddress;
-  }
-
-  public void setPostalAddress(OBPostalAddress6 postalAddress) {
-    this.postalAddress = postalAddress;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBWriteInternationalResponse4DataRefundAgent schemeName(String schemeName) {
+        this.schemeName = schemeName;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get schemeName
+     *
+     * @return schemeName
+     **/
+    @ApiModelProperty(value = "")
+    public String getSchemeName() {
+        return schemeName;
     }
-    OBWriteInternationalResponse4DataRefundAgent obWriteInternationalResponse4DataRefundAgent = (OBWriteInternationalResponse4DataRefundAgent) o;
-    return Objects.equals(this.schemeName, obWriteInternationalResponse4DataRefundAgent.schemeName) &&
-        Objects.equals(this.identification, obWriteInternationalResponse4DataRefundAgent.identification) &&
-        Objects.equals(this.name, obWriteInternationalResponse4DataRefundAgent.name) &&
-        Objects.equals(this.postalAddress, obWriteInternationalResponse4DataRefundAgent.postalAddress);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(schemeName, identification, name, postalAddress);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBWriteInternationalResponse4DataRefundAgent {\n");
-    
-    sb.append("    schemeName: ").append(toIndentedString(schemeName)).append("\n");
-    sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setSchemeName(String schemeName) {
+        this.schemeName = schemeName;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public OBWriteInternationalResponse4DataRefundAgent identification(String identification) {
+        this.identification = identification;
+        return this;
+    }
+
+    /**
+     * Get identification
+     *
+     * @return identification
+     **/
+    @Size(min = 1, max = 35)
+    @ApiModelProperty(value = "")
+    public String getIdentification() {
+        return identification;
+    }
+
+    public void setIdentification(String identification) {
+        this.identification = identification;
+    }
+
+    public OBWriteInternationalResponse4DataRefundAgent name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return name
+     **/
+    @Size(min = 1, max = 140)
+    @ApiModelProperty(value = "")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public OBWriteInternationalResponse4DataRefundAgent postalAddress(OBPostalAddress6 postalAddress) {
+        this.postalAddress = postalAddress;
+        return this;
+    }
+
+    /**
+     * Get postalAddress
+     *
+     * @return postalAddress
+     **/
+    @Valid
+    @ApiModelProperty(value = "")
+    public OBPostalAddress6 getPostalAddress() {
+        return postalAddress;
+    }
+
+    public void setPostalAddress(OBPostalAddress6 postalAddress) {
+        this.postalAddress = postalAddress;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBWriteInternationalResponse4DataRefundAgent obWriteInternationalResponse4DataRefundAgent = (OBWriteInternationalResponse4DataRefundAgent) o;
+        return Objects.equals(this.schemeName, obWriteInternationalResponse4DataRefundAgent.schemeName) &&
+                Objects.equals(this.identification, obWriteInternationalResponse4DataRefundAgent.identification) &&
+                Objects.equals(this.name, obWriteInternationalResponse4DataRefundAgent.name) &&
+                Objects.equals(this.postalAddress, obWriteInternationalResponse4DataRefundAgent.postalAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(schemeName, identification, name, postalAddress);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBWriteInternationalResponse4DataRefundAgent {\n");
+
+        sb.append("    schemeName: ").append(toIndentedString(schemeName)).append("\n");
+        sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

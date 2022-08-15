@@ -15,11 +15,26 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.payment.*;
-
-import static uk.org.openbanking.datamodel.service.converter.payment.OBConsentAuthorisationConverter.*;
-import static uk.org.openbanking.datamodel.service.converter.payment.OBInternationalScheduledConverter.*;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBConsentAuthorisationConverter.toOBAuthorisation1;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBConsentAuthorisationConverter.toOBWriteDomesticConsent3DataAuthorisation;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBConsentAuthorisationConverter.toOBWriteDomesticConsent4DataAuthorisation;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBInternationalScheduledConverter.toOBInternationalScheduled1;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBInternationalScheduledConverter.toOBInternationalScheduled2;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBInternationalScheduledConverter.toOBWriteInternationalScheduled3DataInitiation;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBWriteDomesticConsentConverter.toOBSCASupportData1;
+
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalScheduled1;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalScheduled2;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalScheduledConsent1;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalScheduledConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled1;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled2;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent1;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent4;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent4Data;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5Data;
 
 public class OBWriteInternationalScheduledConsentConverter {
 

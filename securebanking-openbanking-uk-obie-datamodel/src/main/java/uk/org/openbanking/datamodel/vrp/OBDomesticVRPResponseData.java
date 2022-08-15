@@ -15,18 +15,21 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
+import org.joda.time.DateTime;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBDomesticVRPResponseData
@@ -124,6 +127,7 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Unique identification as assigned by the ASPSP to uniquely identify the domestic payment resource.
+     *
      * @return domesticVRPId
      */
     @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the domestic payment resource. ")
@@ -145,6 +149,7 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Identifier for the Domestic VRP Consent that this payment is made under.
+     *
      * @return consentId
      */
     @ApiModelProperty(required = true, value = "Identifier for the Domestic VRP Consent that this payment is made under. ")
@@ -166,6 +171,7 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Date and time at which the resource was created.
+     *
      * @return creationDateTime
      */
     @ApiModelProperty(required = true, value = "Date and time at which the resource was created. ")
@@ -188,6 +194,7 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Specifies the status of the payment information group.
+     *
      * @return status
      */
     @ApiModelProperty(required = true, value = "Specifies the status of the payment information group.")
@@ -209,6 +216,7 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Date and time at which the resource status was updated.
+     *
      * @return statusUpdateDateTime
      */
     @ApiModelProperty(required = true, value = "Date and time at which the resource status was updated. ")
@@ -231,6 +239,7 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Expected execution date and time for the payment resource.
+     *
      * @return expectedExecutionDateTime
      */
     @ApiModelProperty(value = "Expected execution date and time for the payment resource. ")
@@ -252,6 +261,7 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Expected settlement date and time for the payment resource.
+     *
      * @return expectedSettlementDateTime
      */
     @ApiModelProperty(value = "Expected settlement date and time for the payment resource. ")
@@ -273,6 +283,7 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Get refund
+     *
      * @return refund
      */
     @ApiModelProperty(value = "")
@@ -302,6 +313,7 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Get charges
+     *
      * @return charges
      */
     @ApiModelProperty(value = "")
@@ -323,6 +335,7 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Get initiation
+     *
      * @return initiation
      */
     @ApiModelProperty(required = true, value = "")
@@ -345,6 +358,7 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Get instruction
+     *
      * @return instruction
      */
     @ApiModelProperty(required = true, value = "")
@@ -367,6 +381,7 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Get debtorAccount
+     *
      * @return debtorAccount
      */
     @ApiModelProperty(value = "")

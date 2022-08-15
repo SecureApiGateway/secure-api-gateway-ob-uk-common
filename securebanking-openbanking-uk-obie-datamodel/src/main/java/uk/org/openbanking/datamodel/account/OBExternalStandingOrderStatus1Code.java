@@ -22,35 +22,35 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Specifies the status of the standing order in code form.
  */
 public enum OBExternalStandingOrderStatus1Code {
-  
-  ACTIVE("Active"),
-  
-  INACTIVE("Inactive");
 
-  private String value;
+    ACTIVE("Active"),
 
-  OBExternalStandingOrderStatus1Code(String value) {
-    this.value = value;
-  }
+    INACTIVE("Inactive");
 
-  public String getValue() {
-    return value;
-  }
+    private String value;
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static OBExternalStandingOrderStatus1Code fromValue(String text) {
-    for (OBExternalStandingOrderStatus1Code b : OBExternalStandingOrderStatus1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    OBExternalStandingOrderStatus1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalStandingOrderStatus1Code fromValue(String text) {
+        for (OBExternalStandingOrderStatus1Code b : OBExternalStandingOrderStatus1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

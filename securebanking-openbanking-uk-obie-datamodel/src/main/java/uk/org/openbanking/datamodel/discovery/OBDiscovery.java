@@ -15,13 +15,14 @@
  */
 package uk.org.openbanking.datamodel.discovery;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
 
 /**
  * Provides the endpoints details for payments and accounts API

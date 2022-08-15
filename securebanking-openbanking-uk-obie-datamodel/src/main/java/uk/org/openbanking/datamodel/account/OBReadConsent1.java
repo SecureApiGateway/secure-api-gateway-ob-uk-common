@@ -28,12 +28,14 @@
 
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBReadConsent1
@@ -53,6 +55,7 @@ public class OBReadConsent1 {
 
     /**
      * Get data
+     *
      * @return data
      **/
     @NotNull
@@ -73,6 +76,7 @@ public class OBReadConsent1 {
 
     /**
      * Get risk
+     *
      * @return risk
      **/
     @NotNull

@@ -28,14 +28,16 @@
 
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.Links;
-import uk.org.openbanking.datamodel.common.Meta;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.Links;
+import uk.org.openbanking.datamodel.common.Meta;
 
 /**
  * OBReadConsentResponse1
@@ -61,6 +63,7 @@ public class OBReadConsentResponse1 {
 
     /**
      * Get data
+     *
      * @return data
      **/
     @NotNull
@@ -81,6 +84,7 @@ public class OBReadConsentResponse1 {
 
     /**
      * Get links
+     *
      * @return links
      **/
     @Valid
@@ -100,6 +104,7 @@ public class OBReadConsentResponse1 {
 
     /**
      * Get meta
+     *
      * @return meta
      **/
     @Valid
@@ -119,6 +124,7 @@ public class OBReadConsentResponse1 {
 
     /**
      * Get risk
+     *
      * @return risk
      **/
     @NotNull

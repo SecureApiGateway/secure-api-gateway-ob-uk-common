@@ -15,15 +15,17 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
+import java.util.Objects;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import java.util.Objects;
 
 /**
  * Set of elements used to provide details of a charge for the payment initiation.
@@ -47,6 +49,7 @@ public class OBDomesticVRPResponseDataCharges {
 
     /**
      * Get chargeBearer
+     *
      * @return chargeBearer
      */
     @ApiModelProperty(required = true, value = "")
@@ -69,6 +72,7 @@ public class OBDomesticVRPResponseDataCharges {
 
     /**
      * Get type
+     *
      * @return type
      */
     @ApiModelProperty(required = true, value = "")
@@ -91,6 +95,7 @@ public class OBDomesticVRPResponseDataCharges {
 
     /**
      * Get amount
+     *
      * @return amount
      */
     @ApiModelProperty(required = true, value = "")

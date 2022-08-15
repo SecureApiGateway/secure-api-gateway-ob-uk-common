@@ -22,51 +22,51 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Statement rate type, in a coded form.
  */
 public enum OBExternalStatementRateType1Code {
-  
-  ANNUALBALANCETRANSFER("AnnualBalanceTransfer"),
-  
-  ANNUALBALANCETRANSFERAFTERPROMO("AnnualBalanceTransferAfterPromo"),
-  
-  ANNUALBALANCETRANSFERPROMO("AnnualBalanceTransferPromo"),
-  
-  ANNUALCASH("AnnualCash"),
-  
-  ANNUALPURCHASE("AnnualPurchase"),
-  
-  ANNUALPURCHASEAFTERPROMO("AnnualPurchaseAfterPromo"),
-  
-  ANNUALPURCHASEPROMO("AnnualPurchasePromo"),
-  
-  MONTHLYBALANCETRANSFER("MonthlyBalanceTransfer"),
-  
-  MONTHLYCASH("MonthlyCash"),
-  
-  MONTHLYPURCHASE("MonthlyPurchase");
 
-  private String value;
+    ANNUALBALANCETRANSFER("AnnualBalanceTransfer"),
 
-  OBExternalStatementRateType1Code(String value) {
-    this.value = value;
-  }
+    ANNUALBALANCETRANSFERAFTERPROMO("AnnualBalanceTransferAfterPromo"),
 
-  public String getValue() {
-    return value;
-  }
+    ANNUALBALANCETRANSFERPROMO("AnnualBalanceTransferPromo"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    ANNUALCASH("AnnualCash"),
 
-  @JsonCreator
-  public static OBExternalStatementRateType1Code fromValue(String text) {
-    for (OBExternalStatementRateType1Code b : OBExternalStatementRateType1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    ANNUALPURCHASE("AnnualPurchase"),
+
+    ANNUALPURCHASEAFTERPROMO("AnnualPurchaseAfterPromo"),
+
+    ANNUALPURCHASEPROMO("AnnualPurchasePromo"),
+
+    MONTHLYBALANCETRANSFER("MonthlyBalanceTransfer"),
+
+    MONTHLYCASH("MonthlyCash"),
+
+    MONTHLYPURCHASE("MonthlyPurchase");
+
+    private String value;
+
+    OBExternalStatementRateType1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalStatementRateType1Code fromValue(String text) {
+        for (OBExternalStatementRateType1Code b : OBExternalStatementRateType1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

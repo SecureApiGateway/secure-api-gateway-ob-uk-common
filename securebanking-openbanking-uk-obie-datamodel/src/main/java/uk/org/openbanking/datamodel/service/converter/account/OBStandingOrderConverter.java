@@ -27,6 +27,7 @@ public class OBStandingOrderConverter {
 
     /**
      * Convert standing order from V2 to V1
+     *
      * @param obStandingOrder2 standing order in V2 format
      * @return standing order in V1 format
      */
@@ -66,6 +67,7 @@ public class OBStandingOrderConverter {
 
     /**
      * Convert standing order from V3 to V1
+     *
      * @param obStandingOrder3 standing order in V3 format
      * @return standing order in V1 format
      */
@@ -105,6 +107,7 @@ public class OBStandingOrderConverter {
 
     /**
      * Convert standing order from V3 to V2
+     *
      * @param obStandingOrder3 standing order in V3 format
      * @return standing order in V2 format
      */
@@ -144,6 +147,7 @@ public class OBStandingOrderConverter {
 
     /**
      * Convert standing order from V1 to V2
+     *
      * @param obStandingOrder1 standing order in V1 format
      * @return standing order in V2 format
      */
@@ -184,6 +188,7 @@ public class OBStandingOrderConverter {
 
     /**
      * Convert standing order from V2 to V3
+     *
      * @param obStandingOrder2 standing order in V2 format
      * @return standing order in V3 format
      */
@@ -226,6 +231,7 @@ public class OBStandingOrderConverter {
 
     /**
      * Convert standing order from V3 to V4
+     *
      * @param obStandingOrder3 standing order in V3 format
      * @return standing order in V4 format
      */
@@ -252,6 +258,7 @@ public class OBStandingOrderConverter {
 
     /**
      * Convert standing order from V4 to V3
+     *
      * @param obStandingOrder4 standing order in V4 format
      * @return standing order in V3 format
      */
@@ -277,6 +284,7 @@ public class OBStandingOrderConverter {
 
     /**
      * Convert standing order from V4 to V2
+     *
      * @param obStandingOrder4 standing order in V4 format
      * @return standing order in V4 format
      */
@@ -316,6 +324,7 @@ public class OBStandingOrderConverter {
 
     /**
      * Convert standing order from V4 to V1
+     *
      * @param obStandingOrder4 standing order in V4 format
      * @return standing order in V1 format
      */

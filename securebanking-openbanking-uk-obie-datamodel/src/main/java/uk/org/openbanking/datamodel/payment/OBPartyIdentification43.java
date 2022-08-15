@@ -15,15 +15,18 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-import uk.org.openbanking.datamodel.common.OBPostalAddress6;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBPostalAddress6;
 
 /**
  * Party to which an amount of money is due.
@@ -32,93 +35,95 @@ import java.util.Objects;
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-10T14:05:22.993+01:00")
 
-public class OBPartyIdentification43   {
-  @JsonProperty("Name")
-  private String name = null;
+public class OBPartyIdentification43 {
+    @JsonProperty("Name")
+    private String name = null;
 
-  @JsonProperty("PostalAddress")
-  private OBPostalAddress6 postalAddress = null;
+    @JsonProperty("PostalAddress")
+    private OBPostalAddress6 postalAddress = null;
 
-  public OBPartyIdentification43 name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Name by which a party is known and which is usually used to identify that party.
-   * @return name
-  **/
-  @ApiModelProperty(value = "Name by which a party is known and which is usually used to identify that party.")
-
-@Size(min=1,max=140) 
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public OBPartyIdentification43 postalAddress(OBPostalAddress6 postalAddress) {
-    this.postalAddress = postalAddress;
-    return this;
-  }
-
-  /**
-   * Get postalAddress
-   * @return postalAddress
-  **/
-  @ApiModelProperty(value = "")
-
-  @Valid
-
-  public OBPostalAddress6 getPostalAddress() {
-    return postalAddress;
-  }
-
-  public void setPostalAddress(OBPostalAddress6 postalAddress) {
-    this.postalAddress = postalAddress;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBPartyIdentification43 name(String name) {
+        this.name = name;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Name by which a party is known and which is usually used to identify that party.
+     *
+     * @return name
+     **/
+    @ApiModelProperty(value = "Name by which a party is known and which is usually used to identify that party.")
+
+    @Size(min = 1, max = 140)
+    public String getName() {
+        return name;
     }
-    OBPartyIdentification43 obPartyIdentification43 = (OBPartyIdentification43) o;
-    return Objects.equals(this.name, obPartyIdentification43.name) &&
-        Objects.equals(this.postalAddress, obPartyIdentification43.postalAddress);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(name, postalAddress);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBPartyIdentification43 {\n");
-
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setName(String name) {
+        this.name = name;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public OBPartyIdentification43 postalAddress(OBPostalAddress6 postalAddress) {
+        this.postalAddress = postalAddress;
+        return this;
+    }
+
+    /**
+     * Get postalAddress
+     *
+     * @return postalAddress
+     **/
+    @ApiModelProperty(value = "")
+
+    @Valid
+
+    public OBPostalAddress6 getPostalAddress() {
+        return postalAddress;
+    }
+
+    public void setPostalAddress(OBPostalAddress6 postalAddress) {
+        this.postalAddress = postalAddress;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBPartyIdentification43 obPartyIdentification43 = (OBPartyIdentification43) o;
+        return Objects.equals(this.name, obPartyIdentification43.name) &&
+                Objects.equals(this.postalAddress, obPartyIdentification43.postalAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, postalAddress);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBPartyIdentification43 {\n");
+
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

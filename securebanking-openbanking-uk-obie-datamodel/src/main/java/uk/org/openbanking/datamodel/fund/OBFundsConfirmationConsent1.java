@@ -25,82 +25,84 @@
  */
 package uk.org.openbanking.datamodel.fund;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBFundsConfirmationConsent1
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-15T11:58:26.525Z")
 public class OBFundsConfirmationConsent1 {
-  // validation within OBFundsConfirmationConsentData1 now mirrors OBFundsConfirmationConsent1Data (to minimise impact)
-  @JsonProperty("Data")
-  private OBFundsConfirmationConsentData1 data = null; // hand-edited (avoided switch to OBFundsConfirmationConsent1Data)
+    // validation within OBFundsConfirmationConsentData1 now mirrors OBFundsConfirmationConsent1Data (to minimise impact)
+    @JsonProperty("Data")
+    private OBFundsConfirmationConsentData1 data = null; // hand-edited (avoided switch to OBFundsConfirmationConsent1Data)
 
-  public OBFundsConfirmationConsent1 data(OBFundsConfirmationConsentData1 data) {
-    this.data = data;
-    return this;
-  }
-
-  /**
-   * Get data
-   *
-   * @return data
-   **/
-  @NotNull
-  @Valid
-  @ApiModelProperty(required = true, value = "")
-  public OBFundsConfirmationConsentData1 getData() {
-    return data;
-  }
-
-  public void setData(OBFundsConfirmationConsentData1 data) {
-    this.data = data;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBFundsConfirmationConsent1 data(OBFundsConfirmationConsentData1 data) {
+        this.data = data;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get data
+     *
+     * @return data
+     **/
+    @NotNull
+    @Valid
+    @ApiModelProperty(required = true, value = "")
+    public OBFundsConfirmationConsentData1 getData() {
+        return data;
     }
-    OBFundsConfirmationConsent1 obFundsConfirmationConsent1 = (OBFundsConfirmationConsent1) o;
-    return Objects.equals(this.data, obFundsConfirmationConsent1.data);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBFundsConfirmationConsent1 {\n");
-
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setData(OBFundsConfirmationConsentData1 data) {
+        this.data = data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
-  
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBFundsConfirmationConsent1 obFundsConfirmationConsent1 = (OBFundsConfirmationConsent1) o;
+        return Objects.equals(this.data, obFundsConfirmationConsent1.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBFundsConfirmationConsent1 {\n");
+
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+
 }
 

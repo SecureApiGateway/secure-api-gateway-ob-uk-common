@@ -22,41 +22,41 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Offer type, in a coded form.
  */
 public enum OBExternalOfferType1Code {
-  
-  BALANCETRANSFER("BalanceTransfer"),
-  
-  LIMITINCREASE("LimitIncrease"),
-  
-  MONEYTRANSFER("MoneyTransfer"),
-  
-  OTHER("Other"),
-  
-  PROMOTIONALRATE("PromotionalRate");
 
-  private String value;
+    BALANCETRANSFER("BalanceTransfer"),
 
-  OBExternalOfferType1Code(String value) {
-    this.value = value;
-  }
+    LIMITINCREASE("LimitIncrease"),
 
-  public String getValue() {
-    return value;
-  }
+    MONEYTRANSFER("MoneyTransfer"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    OTHER("Other"),
 
-  @JsonCreator
-  public static OBExternalOfferType1Code fromValue(String text) {
-    for (OBExternalOfferType1Code b : OBExternalOfferType1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    PROMOTIONALRATE("PromotionalRate");
+
+    private String value;
+
+    OBExternalOfferType1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalOfferType1Code fromValue(String text) {
+        for (OBExternalOfferType1Code b : OBExternalOfferType1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

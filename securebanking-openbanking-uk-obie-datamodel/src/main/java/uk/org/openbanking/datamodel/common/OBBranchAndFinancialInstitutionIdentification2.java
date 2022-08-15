@@ -15,15 +15,18 @@
  */
 package uk.org.openbanking.datamodel.common;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-import uk.org.openbanking.datamodel.account.OBExternalFinancialInstitutionIdentification2Code;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.account.OBExternalFinancialInstitutionIdentification2Code;
 
 /**
  * OBBranchAndFinancialInstitutionIdentification2
@@ -45,6 +48,7 @@ public class OBBranchAndFinancialInstitutionIdentification2 {
 
     /**
      * Get schemeName
+     *
      * @return schemeName
      **/
     @ApiModelProperty(required = true, value = "")
@@ -67,6 +71,7 @@ public class OBBranchAndFinancialInstitutionIdentification2 {
 
     /**
      * Get identification
+     *
      * @return identification
      **/
     @ApiModelProperty(required = true, value = "")

@@ -15,18 +15,20 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Details about the fees/charges
@@ -175,16 +177,16 @@ public class OverdraftOverdraftFeeChargeDetail {
         PERSHEET("PerSheet"),
 
         PERTRANSACTION("PerTransaction"),
-    
-    PERTRANSACTIONAMOUNT("PerTransactionAmount"),
-    
-    PERTRANSACTIONPERCENTAGE("PerTransactionPercentage"),
-    
-    QUARTERLY("Quarterly"),
-    
-    SIXMONTHLY("SixMonthly"),
-    
-    STATEMENTMONTHLY("StatementMonthly"),
+
+        PERTRANSACTIONAMOUNT("PerTransactionAmount"),
+
+        PERTRANSACTIONPERCENTAGE("PerTransactionPercentage"),
+
+        QUARTERLY("Quarterly"),
+
+        SIXMONTHLY("SixMonthly"),
+
+        STATEMENTMONTHLY("StatementMonthly"),
 
         WEEKLY("Weekly"),
 
@@ -239,26 +241,26 @@ public class OverdraftOverdraftFeeChargeDetail {
         ONANNIVERSARY("OnAnniversary"),
 
         OTHER("Other"),
-    
-    PERHUNDREDPOUNDS("PerHundredPounds"),
-    
-    PERHOUR("PerHour"),
-    
-    PEROCCURRENCE("PerOccurrence"),
-    
-    PERSHEET("PerSheet"),
-    
-    PERTRANSACTION("PerTransaction"),
-    
-    PERTRANSACTIONAMOUNT("PerTransactionAmount"),
-    
-    PERTRANSACTIONPERCENTAGE("PerTransactionPercentage"),
-    
-    QUARTERLY("Quarterly"),
-    
-    SIXMONTHLY("SixMonthly"),
-    
-    STATEMENTMONTHLY("StatementMonthly"),
+
+        PERHUNDREDPOUNDS("PerHundredPounds"),
+
+        PERHOUR("PerHour"),
+
+        PEROCCURRENCE("PerOccurrence"),
+
+        PERSHEET("PerSheet"),
+
+        PERTRANSACTION("PerTransaction"),
+
+        PERTRANSACTIONAMOUNT("PerTransactionAmount"),
+
+        PERTRANSACTIONPERCENTAGE("PerTransactionPercentage"),
+
+        QUARTERLY("Quarterly"),
+
+        SIXMONTHLY("SixMonthly"),
+
+        STATEMENTMONTHLY("StatementMonthly"),
 
         WEEKLY("Weekly"),
 

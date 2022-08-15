@@ -22,39 +22,39 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Benefit type, in a coded form.
  */
 public enum OBExternalStatementBenefitType1Code {
-  
-  CASHBACK("Cashback"),
-  
-  INSURANCE("Insurance"),
-  
-  TRAVELDISCOUNT("TravelDiscount"),
-  
-  TRAVELINSURANCE("TravelInsurance");
 
-  private String value;
+    CASHBACK("Cashback"),
 
-  OBExternalStatementBenefitType1Code(String value) {
-    this.value = value;
-  }
+    INSURANCE("Insurance"),
 
-  public String getValue() {
-    return value;
-  }
+    TRAVELDISCOUNT("TravelDiscount"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    TRAVELINSURANCE("TravelInsurance");
 
-  @JsonCreator
-  public static OBExternalStatementBenefitType1Code fromValue(String text) {
-    for (OBExternalStatementBenefitType1Code b : OBExternalStatementBenefitType1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    private String value;
+
+    OBExternalStatementBenefitType1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalStatementBenefitType1Code fromValue(String text) {
+        for (OBExternalStatementBenefitType1Code b : OBExternalStatementBenefitType1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

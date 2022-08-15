@@ -15,8 +15,10 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.common.OBCashAccount3;
+import static uk.org.openbanking.datamodel.service.converter.payment.ConverterHelper.copyField;
+
 import uk.org.openbanking.datamodel.account.OBCashAccount5;
+import uk.org.openbanking.datamodel.common.OBCashAccount3;
 import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.payment.OBCashAccountDebtor4;
 import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiationCreditorAccount;
@@ -24,8 +26,6 @@ import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiationDebtor
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAccount;
-
-import static uk.org.openbanking.datamodel.service.converter.payment.ConverterHelper.copyField;
 
 public class OBAccountConverter {
 

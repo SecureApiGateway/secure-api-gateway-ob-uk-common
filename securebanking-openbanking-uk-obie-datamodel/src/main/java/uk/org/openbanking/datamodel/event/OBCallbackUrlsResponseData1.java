@@ -28,88 +28,91 @@
 
 package uk.org.openbanking.datamodel.event;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import javax.validation.Valid;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBCallbackUrlsResponseData1
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-25T13:48:32.198+01:00")
 public class OBCallbackUrlsResponseData1 {
-  @JsonProperty("CallbackUrl")
-  private List<OBCallbackUrlResponseData1> callbackUrl = null;
+    @JsonProperty("CallbackUrl")
+    private List<OBCallbackUrlResponseData1> callbackUrl = null;
 
-  public OBCallbackUrlsResponseData1 callbackUrl(List<OBCallbackUrlResponseData1> callbackUrl) {
-    this.callbackUrl = callbackUrl;
-    return this;
-  }
-
-  public OBCallbackUrlsResponseData1 addCallbackUrlItem(OBCallbackUrlResponseData1 callbackUrlItem) {
-    if (this.callbackUrl == null) {
-      this.callbackUrl = new ArrayList<OBCallbackUrlResponseData1>();
+    public OBCallbackUrlsResponseData1 callbackUrl(List<OBCallbackUrlResponseData1> callbackUrl) {
+        this.callbackUrl = callbackUrl;
+        return this;
     }
-    this.callbackUrl.add(callbackUrlItem);
-    return this;
-  }
 
-   /**
-   * Get callbackUrl
-   * @return callbackUrl
-  **/
-   @Valid
-   @ApiModelProperty(value = "")
-   public List<OBCallbackUrlResponseData1> getCallbackUrl() {
-    return callbackUrl;
-  }
-
-  public void setCallbackUrl(List<OBCallbackUrlResponseData1> callbackUrl) {
-    this.callbackUrl = callbackUrl;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBCallbackUrlsResponseData1 addCallbackUrlItem(OBCallbackUrlResponseData1 callbackUrlItem) {
+        if (this.callbackUrl == null) {
+            this.callbackUrl = new ArrayList<OBCallbackUrlResponseData1>();
+        }
+        this.callbackUrl.add(callbackUrlItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get callbackUrl
+     *
+     * @return callbackUrl
+     **/
+    @Valid
+    @ApiModelProperty(value = "")
+    public List<OBCallbackUrlResponseData1> getCallbackUrl() {
+        return callbackUrl;
     }
-    OBCallbackUrlsResponseData1 obCallbackUrlsResponseData1 = (OBCallbackUrlsResponseData1) o;
-    return Objects.equals(this.callbackUrl, obCallbackUrlsResponseData1.callbackUrl);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(callbackUrl);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBCallbackUrlsResponseData1 {\n");
-
-    sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setCallbackUrl(List<OBCallbackUrlResponseData1> callbackUrl) {
+        this.callbackUrl = callbackUrl;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBCallbackUrlsResponseData1 obCallbackUrlsResponseData1 = (OBCallbackUrlsResponseData1) o;
+        return Objects.equals(this.callbackUrl, obCallbackUrlsResponseData1.callbackUrl);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(callbackUrl);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBCallbackUrlsResponseData1 {\n");
+
+        sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

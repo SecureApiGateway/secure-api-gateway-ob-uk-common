@@ -15,14 +15,17 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
+import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account. This is the servicer of the beneficiary account.
@@ -45,6 +48,7 @@ public class OBBranchAndFinancialInstitutionIdentification4 {
 
     /**
      * Name of the identification scheme, in a coded form as published in an external list.
+     *
      * @return schemeName
      **/
     @ApiModelProperty(required = true, value = "Name of the identification scheme, in a coded form as published in an external list.")
@@ -66,6 +70,7 @@ public class OBBranchAndFinancialInstitutionIdentification4 {
 
     /**
      * Unique and unambiguous identification of the servicing institution.
+     *
      * @return identification
      **/
     @ApiModelProperty(required = true, value = "Unique and unambiguous identification of the servicing institution.")

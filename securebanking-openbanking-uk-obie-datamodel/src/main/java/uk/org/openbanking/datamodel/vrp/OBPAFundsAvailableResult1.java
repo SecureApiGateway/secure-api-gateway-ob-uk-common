@@ -15,16 +15,19 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
+import org.joda.time.DateTime;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Availability result, clearly indicating the availability of funds given the Amount in the request.
@@ -81,6 +84,7 @@ public class OBPAFundsAvailableResult1 {
 
     /**
      * Date and time at which the funds availability check was generated.
+     *
      * @return fundsAvailableDateTime
      */
     @ApiModelProperty(required = true, value = "Date and time at which the funds availability check was generated.")
@@ -103,6 +107,7 @@ public class OBPAFundsAvailableResult1 {
 
     /**
      * Availability result, clearly indicating the availability of funds given the Amount in the request.
+     *
      * @return fundsAvailable
      */
     @ApiModelProperty(required = true, value = "Availability result, clearly indicating the availability of funds given the Amount in the request.")

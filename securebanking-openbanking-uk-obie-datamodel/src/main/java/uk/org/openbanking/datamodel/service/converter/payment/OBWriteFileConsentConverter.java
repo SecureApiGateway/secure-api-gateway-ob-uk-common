@@ -15,12 +15,23 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.payment.*;
-
-import static uk.org.openbanking.datamodel.service.converter.payment.OBConsentAuthorisationConverter.*;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBConsentAuthorisationConverter.toOBAuthorisation1;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBConsentAuthorisationConverter.toOBWriteDomesticConsent4DataAuthorisation;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBFileConverter.toOBFile1;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBFileConverter.toOBFile2;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBFileConverter.toOBWriteFile2DataInitiation;
+
+import uk.org.openbanking.datamodel.payment.OBWriteDataFile1;
+import uk.org.openbanking.datamodel.payment.OBWriteDataFile2;
+import uk.org.openbanking.datamodel.payment.OBWriteDataFileConsent1;
+import uk.org.openbanking.datamodel.payment.OBWriteDataFileConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteFile1;
+import uk.org.openbanking.datamodel.payment.OBWriteFile2;
+import uk.org.openbanking.datamodel.payment.OBWriteFile2Data;
+import uk.org.openbanking.datamodel.payment.OBWriteFileConsent1;
+import uk.org.openbanking.datamodel.payment.OBWriteFileConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteFileConsent3;
+import uk.org.openbanking.datamodel.payment.OBWriteFileConsent3Data;
 
 public class OBWriteFileConsentConverter {
 

@@ -15,65 +15,65 @@
  */
 package uk.org.openbanking.datamodel.service.converter.account;
 
+import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification2Code;
 import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification3Code;
 import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification4Code;
-import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification2Code;
 
 public class OBExternalAccountIdentificationConverter {
 
     public static OBExternalAccountIdentification3Code toOBExternalAccountIdentification3(OBExternalAccountIdentification4Code obExternalAccountIdentification4Code) {
-        if (obExternalAccountIdentification4Code==null) {
+        if (obExternalAccountIdentification4Code == null) {
             return null;
         }
         switch (obExternalAccountIdentification4Code) {
-            case PAN:
-                return OBExternalAccountIdentification3Code.PAN;
-            case IBAN:
-                return OBExternalAccountIdentification3Code.IBAN;
-            case SORTCODEACCOUNTNUMBER:
-                return OBExternalAccountIdentification3Code.SORTCODEACCOUNTNUMBER;
-            case BBAN:
-            case PAYM:
-            default:
-                return null;
+        case PAN:
+            return OBExternalAccountIdentification3Code.PAN;
+        case IBAN:
+            return OBExternalAccountIdentification3Code.IBAN;
+        case SORTCODEACCOUNTNUMBER:
+            return OBExternalAccountIdentification3Code.SORTCODEACCOUNTNUMBER;
+        case BBAN:
+        case PAYM:
+        default:
+            return null;
         }
     }
 
     public static OBExternalAccountIdentification3Code toOBExternalAccountIdentification3(OBExternalAccountIdentification2Code obExternalAccountIdentification2Code) {
-        if (obExternalAccountIdentification2Code==null) {
+        if (obExternalAccountIdentification2Code == null) {
             return null;
         }
         switch (obExternalAccountIdentification2Code) {
-            case SortCodeAccountNumber:
-                return OBExternalAccountIdentification3Code.SORTCODEACCOUNTNUMBER;
-            default:
-                return OBExternalAccountIdentification3Code.IBAN; // Existing default behaviour on 1.1
+        case SortCodeAccountNumber:
+            return OBExternalAccountIdentification3Code.SORTCODEACCOUNTNUMBER;
+        default:
+            return OBExternalAccountIdentification3Code.IBAN; // Existing default behaviour on 1.1
         }
     }
 
     public static OBExternalAccountIdentification4Code toOBExternalAccountIdentification4(OBExternalAccountIdentification3Code obExternalAccountIdentification3Code) {
-        if (obExternalAccountIdentification3Code==null) {
+        if (obExternalAccountIdentification3Code == null) {
             return null;
         }
         switch (obExternalAccountIdentification3Code) {
-            case SORTCODEACCOUNTNUMBER:
-                return OBExternalAccountIdentification4Code.SORTCODEACCOUNTNUMBER;
-            case PAN:
-                return OBExternalAccountIdentification4Code.PAN;
-            default:
-                return OBExternalAccountIdentification4Code.IBAN;
+        case SORTCODEACCOUNTNUMBER:
+            return OBExternalAccountIdentification4Code.SORTCODEACCOUNTNUMBER;
+        case PAN:
+            return OBExternalAccountIdentification4Code.PAN;
+        default:
+            return OBExternalAccountIdentification4Code.IBAN;
         }
     }
 
     public static OBExternalAccountIdentification4Code toOBExternalAccountIdentification4(OBExternalAccountIdentification2Code obExternalAccountIdentification2Code) {
-        if (obExternalAccountIdentification2Code==null) {
+        if (obExternalAccountIdentification2Code == null) {
             return null;
         }
         switch (obExternalAccountIdentification2Code) {
-            case SortCodeAccountNumber:
-                return OBExternalAccountIdentification4Code.SORTCODEACCOUNTNUMBER;
-            default:
-                return OBExternalAccountIdentification4Code.IBAN;
+        case SortCodeAccountNumber:
+            return OBExternalAccountIdentification4Code.SORTCODEACCOUNTNUMBER;
+        default:
+            return OBExternalAccountIdentification4Code.IBAN;
         }
     }
 

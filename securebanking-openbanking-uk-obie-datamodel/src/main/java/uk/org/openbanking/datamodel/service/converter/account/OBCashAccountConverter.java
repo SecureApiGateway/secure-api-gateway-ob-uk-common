@@ -17,16 +17,17 @@ package uk.org.openbanking.datamodel.service.converter.account;
 
 import uk.org.openbanking.datamodel.account.OBCashAccount1;
 import uk.org.openbanking.datamodel.account.OBCashAccount2;
-import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification3Code;
-import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification4Code;
 import uk.org.openbanking.datamodel.common.OBCashAccount3;
 import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification2Code;
+import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification3Code;
+import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification4Code;
 
 
 public class OBCashAccountConverter {
 
     /**
      * Convert cash account from V3 to V1
+     *
      * @param cashAccount3 cash account in V3 format
      * @return cash account in V1 format
      */
@@ -40,6 +41,7 @@ public class OBCashAccountConverter {
 
     /**
      * Convert cash account from V3 to V2
+     *
      * @param cashAccount3 cash account in V3 format
      * @return cash account in V2 format
      */
@@ -75,6 +77,7 @@ public class OBCashAccountConverter {
 
     /**
      * Convert cash account from V1 to V3
+     *
      * @param cashAccount1 cash account in V1 format
      * @return cash account in V3 format
      */

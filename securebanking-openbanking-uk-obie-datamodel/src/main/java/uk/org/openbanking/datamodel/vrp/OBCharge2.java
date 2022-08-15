@@ -15,13 +15,15 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 
 /**
  * OBCharge2
@@ -38,6 +40,7 @@ public class OBCharge2 {
 
     /**
      * Get chargeBearer
+     *
      * @return chargeBearer
      */
     @ApiModelProperty(required = true, value = "")

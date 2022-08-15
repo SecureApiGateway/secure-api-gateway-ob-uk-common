@@ -15,17 +15,20 @@
  */
 package uk.org.openbanking.datamodel.error;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * An array of detail error codes, and messages, and URLs to documentation to help remediation.
@@ -54,6 +57,7 @@ public class OBErrorResponse1 {
 
     /**
      * High level textual error code, to help categorize the errors.
+     *
      * @return code
      **/
     @ApiModelProperty(required = true, value = "High level textual error code, to help categorize the errors.")
@@ -74,6 +78,7 @@ public class OBErrorResponse1 {
 
     /**
      * A unique reference for the error instance, for audit purposes, in case of unknown/unclassified errors.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "A unique reference for the error instance, for audit purposes, in case of unknown/unclassified errors.")
@@ -94,6 +99,7 @@ public class OBErrorResponse1 {
 
     /**
      * Brief Error message, e.g., 'There is something wrong with the request parameters provided'
+     *
      * @return message
      **/
     @ApiModelProperty(required = true, value = "Brief Error message, e.g., 'There is something wrong with the request parameters provided'")
@@ -119,6 +125,7 @@ public class OBErrorResponse1 {
 
     /**
      * Get errors
+     *
      * @return errors
      **/
     @ApiModelProperty(required = true, value = "")

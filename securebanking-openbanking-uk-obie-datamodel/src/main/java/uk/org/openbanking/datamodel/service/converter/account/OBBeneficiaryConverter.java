@@ -15,7 +15,11 @@
  */
 package uk.org.openbanking.datamodel.service.converter.account;
 
-import uk.org.openbanking.datamodel.account.*;
+import uk.org.openbanking.datamodel.account.OBBeneficiary1;
+import uk.org.openbanking.datamodel.account.OBBeneficiary2;
+import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification3;
+import uk.org.openbanking.datamodel.account.OBCashAccount1;
+import uk.org.openbanking.datamodel.account.OBExternalFinancialInstitutionIdentification2Code;
 import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification2;
 import uk.org.openbanking.datamodel.common.OBCashAccount3;
 import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification2Code;
@@ -27,6 +31,7 @@ public class OBBeneficiaryConverter {
 
     /**
      * Convert a beneficiary V2 to V1
+     *
      * @param obBeneficiary2 beneficiary in V2 format
      * @return beneficiary in V1 format
      */
@@ -57,6 +62,7 @@ public class OBBeneficiaryConverter {
 
     /**
      * Convert a beneficiary V1 to V2
+     *
      * @param obBeneficiary1 beneficiary in V1 format
      * @return beneficiary in V2 format
      */
