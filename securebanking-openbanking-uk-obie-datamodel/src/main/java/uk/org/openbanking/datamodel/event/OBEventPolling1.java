@@ -43,7 +43,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBEventPolling1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T15:58:23.513+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBEventPolling1 {
     @JsonProperty("maxEvents")
     private Integer maxEvents = null;

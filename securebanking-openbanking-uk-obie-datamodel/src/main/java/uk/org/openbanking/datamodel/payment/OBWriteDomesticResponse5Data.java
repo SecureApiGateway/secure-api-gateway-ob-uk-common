@@ -45,7 +45,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBWriteDomesticResponse5Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T14:52:44.811+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteDomesticResponse5Data {
     @JsonProperty("DomesticPaymentId")
     private String domesticPaymentId = null;

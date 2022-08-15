@@ -44,7 +44,7 @@ import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
  * Set of elements used to provide details of a charge for the payment initiation.
  */
 @ApiModel(description = "Set of elements used to provide details of a charge for the payment initiation.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T14:14:13.501+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteDomesticConsentResponse4DataCharges {
     @JsonProperty("ChargeBearer")
     private OBChargeBearerType1Code chargeBearer = null;

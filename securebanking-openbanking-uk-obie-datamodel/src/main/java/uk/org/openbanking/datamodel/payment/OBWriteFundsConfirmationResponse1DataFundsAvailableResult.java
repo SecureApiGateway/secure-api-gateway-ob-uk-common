@@ -44,7 +44,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Result of a funds availability check.
  */
 @ApiModel(description = "Result of a funds availability check.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T16:03:12.161+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteFundsConfirmationResponse1DataFundsAvailableResult {
     @JsonProperty("FundsAvailableDateTime")
     private DateTime fundsAvailableDateTime = null;

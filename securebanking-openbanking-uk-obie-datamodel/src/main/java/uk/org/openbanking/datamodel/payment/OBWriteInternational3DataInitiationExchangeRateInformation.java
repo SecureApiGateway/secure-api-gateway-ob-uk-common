@@ -45,7 +45,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Provides details on the currency exchange rate and contract.
  */
 @ApiModel(description = "Provides details on the currency exchange rate and contract.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T11:45:24.725+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteInternational3DataInitiationExchangeRateInformation {
     @JsonProperty("UnitCurrency")
     private String unitCurrency = null;

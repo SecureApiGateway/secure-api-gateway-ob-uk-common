@@ -47,7 +47,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Further detailed information on the exchange rate that has been used in the payment transaction.
  */
 @ApiModel(description = "Further detailed information on the exchange rate that has been used in the payment transaction.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T16:03:12.161+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteInternationalConsentResponse3DataExchangeRateInformation {
     @JsonProperty("UnitCurrency")
     private String unitCurrency = null;

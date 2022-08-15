@@ -28,7 +28,7 @@ import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
 /**
  * OBDomesticVRPInitiation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPInitiation {
     @JsonProperty("DebtorAccount")
     private OBCashAccountDebtorWithName debtorAccount;

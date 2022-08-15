@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBCallbackUrlsResponseData1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-25T13:48:32.198+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBCallbackUrlsResponseData1 {
     @JsonProperty("CallbackUrl")
     private List<OBCallbackUrlResponseData1> callbackUrl = null;

@@ -32,7 +32,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBDomesticVRPConsentResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPConsentResponseData {
     /**
      * Indicates whether information about RefundAccount should be included in the payment response.

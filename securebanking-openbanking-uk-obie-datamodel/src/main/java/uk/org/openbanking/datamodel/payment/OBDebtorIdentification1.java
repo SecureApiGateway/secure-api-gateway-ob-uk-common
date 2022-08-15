@@ -31,7 +31,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Set of elements used to identify a person or an organisation.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2021-05-10T15:22:08.964Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 public class OBDebtorIdentification1 {
     @JsonProperty("Name")
     private String name = null;

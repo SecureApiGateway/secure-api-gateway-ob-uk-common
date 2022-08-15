@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBWriteInternationalRefundResponse1DataRefund
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T14:14:13.501+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteInternationalRefundResponse1DataRefund {
     @JsonProperty("Creditor")
     private OBWriteInternationalRefundResponse1DataRefundCreditor creditor = null;

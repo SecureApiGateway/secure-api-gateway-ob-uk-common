@@ -36,7 +36,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Information that locates and identifies a specific address, as defined by postal services or in free format text.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-10T14:05:22.993+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBRisk1DeliveryAddress {
     @JsonProperty("AddressLine")

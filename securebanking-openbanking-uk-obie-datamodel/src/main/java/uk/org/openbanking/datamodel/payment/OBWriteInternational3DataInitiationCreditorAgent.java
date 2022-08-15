@@ -43,7 +43,7 @@ import uk.org.openbanking.datamodel.common.OBPostalAddress6;
  * Financial institution servicing an account for the creditor.
  */
 @ApiModel(description = "Financial institution servicing an account for the creditor.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T11:45:24.725+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteInternational3DataInitiationCreditorAgent {
     @JsonProperty("SchemeName")
     private String schemeName = null;

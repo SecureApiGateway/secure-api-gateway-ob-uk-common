@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Provides the details to identify an account.
  */
 @ApiModel(description = "Provides the details to identify an account.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T14:14:13.501+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteDomesticResponse4DataRefundAccount {
     @JsonProperty("SchemeName")
     private String schemeName = null;

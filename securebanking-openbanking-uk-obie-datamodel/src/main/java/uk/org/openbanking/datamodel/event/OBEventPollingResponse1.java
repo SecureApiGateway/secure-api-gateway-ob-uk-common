@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBEventPollingResponse1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T15:58:23.513+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBEventPollingResponse1 {
     @JsonProperty("moreAvailable")
     private Boolean moreAvailable = null;

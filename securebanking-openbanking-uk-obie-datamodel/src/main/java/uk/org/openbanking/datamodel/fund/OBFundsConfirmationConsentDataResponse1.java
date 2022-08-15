@@ -43,7 +43,7 @@ import uk.org.openbanking.datamodel.common.OBExternalRequestStatus1Code;
 /**
  * OBFundsConfirmationConsentDataResponse1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-15T11:58:26.525Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBFundsConfirmationConsentDataResponse1 {
     @JsonProperty("ConsentId")
     private String consentId = null;

@@ -35,7 +35,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "An array of detail error codes, and messages, and URLs to documentation to help remediation.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-01T11:26:57.876+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 public class OBErrorResponse1 {
     @JsonProperty("Code")
     private String code = null;

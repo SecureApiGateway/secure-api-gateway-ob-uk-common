@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Unambiguous identification of the refund account to which a refund will be made as a result of the transaction.
  */
 @ApiModel(description = "Unambiguous identification of the refund account to which a refund will be made as a result of the transaction.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T14:14:13.501+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteDomesticResponse4DataRefund {
     @JsonProperty("Account")
     private OBWriteDomesticResponse4DataRefundAccount account = null;

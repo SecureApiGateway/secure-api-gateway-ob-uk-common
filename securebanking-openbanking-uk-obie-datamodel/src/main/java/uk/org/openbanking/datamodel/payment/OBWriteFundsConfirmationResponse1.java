@@ -29,7 +29,7 @@ import uk.org.openbanking.datamodel.common.Meta;
 /**
  * OBWriteFundsConfirmationResponse1
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBWriteFundsConfirmationResponse1 {
     @JsonProperty("Data")

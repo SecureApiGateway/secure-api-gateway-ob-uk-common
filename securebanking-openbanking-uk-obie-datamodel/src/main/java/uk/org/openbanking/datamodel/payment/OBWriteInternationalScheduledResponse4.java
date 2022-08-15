@@ -42,7 +42,7 @@ import uk.org.openbanking.datamodel.common.Meta;
 /**
  * OBWriteInternationalScheduledResponse4
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T11:45:24.725+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteInternationalScheduledResponse4 {
     @JsonProperty("Data")
     private OBWriteInternationalScheduledResponse4Data data = null;

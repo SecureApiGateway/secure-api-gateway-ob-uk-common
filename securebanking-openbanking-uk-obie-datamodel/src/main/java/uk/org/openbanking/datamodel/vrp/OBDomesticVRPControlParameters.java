@@ -33,7 +33,7 @@ import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 /**
  * OBDomesticVRPControlParameters
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPControlParameters {
     @JsonProperty("ValidFromDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)

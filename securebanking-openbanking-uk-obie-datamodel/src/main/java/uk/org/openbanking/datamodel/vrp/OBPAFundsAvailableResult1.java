@@ -33,7 +33,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Availability result, clearly indicating the availability of funds given the Amount in the request.
  */
 @ApiModel(description = "Availability result, clearly indicating the availability of funds given the Amount in the request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBPAFundsAvailableResult1 {
     @JsonProperty("FundsAvailableDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)

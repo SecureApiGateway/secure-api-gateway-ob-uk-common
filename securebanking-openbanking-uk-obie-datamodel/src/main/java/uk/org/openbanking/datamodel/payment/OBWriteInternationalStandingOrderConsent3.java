@@ -41,7 +41,7 @@ import uk.org.openbanking.datamodel.common.OBRisk1;
 /**
  * OBWriteInternationalStandingOrderConsent3
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:45:43.255+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteInternationalStandingOrderConsent3 {
     @JsonProperty("Data")
     private OBWriteDataInternationalStandingOrderConsent3 data = null;

@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiModelProperty;
  * The confirmation of funds response contains the result of a funds availability check.
  */
 @ApiModel(description = "The confirmation of funds response contains the result of a funds availability check.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBVRPFundsConfirmationResponse {
     @JsonProperty("Data")
     private OBVRPFundsConfirmationResponseData data;

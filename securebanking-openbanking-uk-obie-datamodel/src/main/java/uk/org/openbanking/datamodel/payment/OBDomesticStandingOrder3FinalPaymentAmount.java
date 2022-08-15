@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * The amount of the final Standing Order
  */
 @ApiModel(description = "The amount of the final Standing Order")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:45:43.255+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBDomesticStandingOrder3FinalPaymentAmount {
     @JsonProperty("Amount")
     private String amount = null;
