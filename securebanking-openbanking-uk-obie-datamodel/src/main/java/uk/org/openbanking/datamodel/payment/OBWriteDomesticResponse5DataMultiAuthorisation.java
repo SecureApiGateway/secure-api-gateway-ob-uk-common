@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiModelProperty;
  * The multiple authorisation flow response from the ASPSP.
  */
 @ApiModel(description = "The multiple authorisation flow response from the ASPSP.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T14:52:44.811+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteDomesticResponse5DataMultiAuthorisation {
     /**
      * Specifies the status of the authorisation flow in code form.

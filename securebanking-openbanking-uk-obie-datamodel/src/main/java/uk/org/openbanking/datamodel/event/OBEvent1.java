@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Events.
  */
 @ApiModel(description = "Events.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-13T11:51:33.738+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBEvent1 {
     @JsonProperty("urn:uk:org:openbanking:events:resource-update")
     private OBEventResourceUpdate1 urnukorgopenbankingeventsresourceUpdate = null;

@@ -31,7 +31,7 @@ import uk.org.openbanking.datamodel.common.OBRisk1;
  * OBWriteDomestic1
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-10T14:05:22.993+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBWriteDomestic1 {
     @JsonProperty("Data")

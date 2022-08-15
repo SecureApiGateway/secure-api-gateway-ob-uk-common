@@ -43,7 +43,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBFundsConfirmationResponse1Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T16:14:00.739+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBFundsConfirmationResponse1Data {
     @JsonProperty("FundsConfirmationId")
     private String fundsConfirmationId = null;

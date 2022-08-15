@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Resource-Update Event.
  */
 @ApiModel(description = "Resource-Update Event.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-13T11:51:33.738+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBEventResourceUpdate1 {
     @JsonProperty("subject")
     private OBEventSubject1 subject = null;

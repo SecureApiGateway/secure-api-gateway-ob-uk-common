@@ -32,7 +32,7 @@ import uk.org.openbanking.datamodel.account.OBExternalFinancialInstitutionIdenti
  * OBBranchAndFinancialInstitutionIdentification2
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-06-25T23:06:46.214+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBBranchAndFinancialInstitutionIdentification2 {
     @JsonProperty("SchemeName")

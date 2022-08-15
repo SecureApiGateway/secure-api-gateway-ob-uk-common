@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBCashAccountCreditor3
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBCashAccountCreditor3 {
     @JsonProperty("SchemeName")

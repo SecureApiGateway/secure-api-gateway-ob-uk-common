@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBWriteInternationalConsent3Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T16:03:12.161+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteInternationalConsent3Data {
     @JsonProperty("Initiation")
     private OBWriteInternational2DataInitiation initiation = null;

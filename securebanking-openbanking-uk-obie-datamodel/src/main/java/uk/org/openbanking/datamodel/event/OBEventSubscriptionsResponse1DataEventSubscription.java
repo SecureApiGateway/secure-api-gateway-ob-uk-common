@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBEventSubscriptionsResponse1DataEventSubscription
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-25T13:49:38.894+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBEventSubscriptionsResponse1DataEventSubscription {
     @JsonProperty("EventSubscriptionId")
     private String eventSubscriptionId = null;

@@ -30,7 +30,7 @@ import uk.org.openbanking.datamodel.common.OBPostalAddress6;
  * Set of elements used to uniquely and unambiguously identify a financial institution or a branch of a financial institution.
  */
 @ApiModel(description = "Set of elements used to uniquely and unambiguously identify a financial institution or a branch of a financial institution.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBWriteInternationalResponse5DataRefundAgent {
     @JsonProperty("SchemeName")

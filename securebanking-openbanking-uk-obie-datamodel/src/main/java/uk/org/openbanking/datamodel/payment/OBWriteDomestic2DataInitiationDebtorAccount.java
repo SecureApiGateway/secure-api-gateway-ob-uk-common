@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Unambiguous identification of the account of the debtor to which a debit entry will be made as a result of the transaction.
  */
 @ApiModel(description = "Unambiguous identification of the account of the debtor to which a debit entry will be made as a result of the transaction.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBWriteDomestic2DataInitiationDebtorAccount {
     @JsonProperty("SchemeName")

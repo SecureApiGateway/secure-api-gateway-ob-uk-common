@@ -37,7 +37,7 @@ import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
  */
 @ApiModel(description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for an international standing order.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-05-11T10:59:35.118Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen")
 
 public class OBWriteInternationalStandingOrderConsentResponse7DataInitiation {
     @JsonProperty("Frequency")

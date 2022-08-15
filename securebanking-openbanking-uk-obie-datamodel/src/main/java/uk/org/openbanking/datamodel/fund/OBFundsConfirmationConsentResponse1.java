@@ -39,7 +39,7 @@ import uk.org.openbanking.datamodel.common.Meta;
 /**
  * OBFundsConfirmationConsentResponse1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-15T11:58:26.525Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBFundsConfirmationConsentResponse1 {
     // validation within OBFundsConfirmationConsentDataResponse1 now mirrors OBFundsConfirmationConsentResponse1Data (to minimise impact)
     @JsonProperty("Data")

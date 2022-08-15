@@ -43,7 +43,7 @@ import uk.org.openbanking.datamodel.common.OBPostalAddress6;
  * Set of elements used to identify a person or an organisation.
  */
 @ApiModel(description = "Set of elements used to identify a person or an organisation.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T14:14:13.501+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteInternationalRefundResponse1DataRefundCreditor {
     @JsonProperty("Name")
     private String name = null;

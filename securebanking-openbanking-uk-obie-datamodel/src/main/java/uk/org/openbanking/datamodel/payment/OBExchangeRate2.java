@@ -36,7 +36,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Further detailed information on the exchange rate that has been used in the payment transaction.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-10T14:05:22.993+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBExchangeRate2 {
     @JsonProperty("UnitCurrency")

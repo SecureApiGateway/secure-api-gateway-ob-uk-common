@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * The amount of the first Standing Order
  */
 @ApiModel(description = "The amount of the first Standing Order")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount {
     @JsonProperty("Amount")

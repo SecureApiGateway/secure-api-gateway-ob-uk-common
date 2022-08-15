@@ -37,7 +37,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBFundsConfirmationConsent1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-15T11:58:26.525Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBFundsConfirmationConsent1 {
     // validation within OBFundsConfirmationConsentData1 now mirrors OBFundsConfirmationConsent1Data (to minimise impact)
     @JsonProperty("Data")

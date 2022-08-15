@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Resource links to other available versions of the resource.
  */
 @ApiModel(description = "Resource links to other available versions of the resource.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-13T11:51:33.738+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBEventLink1 {
     @JsonProperty("version")
     private String version = null;

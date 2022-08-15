@@ -44,7 +44,7 @@ import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 /**
  * OBFundsConfirmationDataResponse1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-15T11:58:26.525Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBFundsConfirmationDataResponse1 {
     @JsonProperty("FundsConfirmationId")
     private String fundsConfirmationId = null;

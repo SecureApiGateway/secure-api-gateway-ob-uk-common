@@ -42,7 +42,7 @@ import uk.org.openbanking.datamodel.common.Meta;
 /**
  * OBEventSubscriptionResponse1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-25T13:49:38.894+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBEventSubscriptionResponse1 {
     @JsonProperty("Data")
     private OBEventSubscriptionResponse1Data data = null;

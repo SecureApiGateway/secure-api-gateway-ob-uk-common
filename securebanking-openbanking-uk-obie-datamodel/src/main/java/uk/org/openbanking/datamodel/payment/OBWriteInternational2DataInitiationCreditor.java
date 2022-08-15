@@ -43,7 +43,7 @@ import uk.org.openbanking.datamodel.common.OBPostalAddress6;
  * Party to which an amount of money is due.
  */
 @ApiModel(description = "Party to which an amount of money is due.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T16:03:12.161+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteInternational2DataInitiationCreditor {
     @JsonProperty("Name")
     private String name = null;

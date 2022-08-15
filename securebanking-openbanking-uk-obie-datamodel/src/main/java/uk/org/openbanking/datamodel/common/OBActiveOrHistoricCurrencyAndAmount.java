@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Amount of money associated with the charge type.
  */
 @ApiModel(description = "Amount of money associated with the charge type.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBActiveOrHistoricCurrencyAndAmount {
     @JsonProperty("Amount")

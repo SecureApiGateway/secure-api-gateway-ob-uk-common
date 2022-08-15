@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Supporting Data provided by TPP, when requesting SCA Exemption.
  */
 @ApiModel(description = "Supporting Data provided by TPP, when requesting SCA Exemption.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T14:14:13.501+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteDomesticConsent4DataSCASupportData {
 
     @JsonProperty("RequestedSCAExemptionType")

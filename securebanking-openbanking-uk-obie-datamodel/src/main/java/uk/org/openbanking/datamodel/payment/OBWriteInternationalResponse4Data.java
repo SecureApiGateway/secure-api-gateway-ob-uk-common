@@ -47,7 +47,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBWriteInternationalResponse4Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T11:45:24.725+01:00", comments = "updated at 2020-12-23T13:31:35.768Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteInternationalResponse4Data {
     @JsonProperty("InternationalPaymentId")
     private String internationalPaymentId = null;

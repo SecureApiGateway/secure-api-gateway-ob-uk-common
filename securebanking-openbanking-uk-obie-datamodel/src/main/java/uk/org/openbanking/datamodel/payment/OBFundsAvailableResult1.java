@@ -33,7 +33,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Result of a funds availability check.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-01-28T11:15:38.268Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBFundsAvailableResult1 {
     @JsonProperty("FundsAvailableDateTime")

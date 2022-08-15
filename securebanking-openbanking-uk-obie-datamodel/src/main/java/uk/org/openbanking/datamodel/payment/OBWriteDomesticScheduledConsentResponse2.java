@@ -33,7 +33,7 @@ import uk.org.openbanking.datamodel.common.OBRisk1;
  * OBWriteDomesticScheduledConsentResponse2
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-01-28T11:15:38.268Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBWriteDomesticScheduledConsentResponse2 {
     @JsonProperty("Data")

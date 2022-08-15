@@ -33,7 +33,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBFundsConfirmationConsentResponse1Data
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T10:02:34.555654+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBFundsConfirmationConsentResponse1Data {
     @JsonProperty("ConsentId")

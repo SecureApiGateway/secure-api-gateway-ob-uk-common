@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Amount of money to be confirmed as available funds in the debtor account. Contains an Amount and a Currency.
  */
 @ApiModel(description = "Amount of money to be confirmed as available funds in the debtor account. Contains an Amount and a Currency.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T10:02:34.555654+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBFundsConfirmation1DataInstructedAmount {
     @JsonProperty("Amount")

@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Identification assigned by an institution to identify an account. This identification is known by the account owner.
  */
 @ApiModel(description = "Identification assigned by an institution to identify an account. This identification is known by the account owner.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBWriteDomesticStandingOrder3DataInitiationCreditorAccount {
     @JsonProperty("SchemeName")

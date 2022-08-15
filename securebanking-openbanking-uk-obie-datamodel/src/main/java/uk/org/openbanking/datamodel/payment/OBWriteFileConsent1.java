@@ -30,7 +30,7 @@ import io.swagger.annotations.ApiModelProperty;
  * OBWriteFileConsent1
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-10T14:05:22.993+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBWriteFileConsent1 {
     @JsonProperty("Data")

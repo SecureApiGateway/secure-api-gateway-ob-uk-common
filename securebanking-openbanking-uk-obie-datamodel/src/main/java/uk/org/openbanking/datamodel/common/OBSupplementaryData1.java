@@ -31,7 +31,7 @@ import uk.org.openbanking.jackson.payment.OBSupplementaryData1Serializer;
  */
 @ApiModel(description = "Additional information that can not be captured in the structured fields and/or any other specific block.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-01-28T11:15:38.268Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 @JsonDeserialize(using = OBSupplementaryData1Deserializer.class)
 @JsonSerialize(using = OBSupplementaryData1Serializer.class)

@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Provides the details to identify the debtor account.
  */
 @ApiModel(description = "Provides the details to identify the debtor account.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBWriteDomesticStandingOrder3DataInitiationDebtorAccount {
     @JsonProperty("SchemeName")

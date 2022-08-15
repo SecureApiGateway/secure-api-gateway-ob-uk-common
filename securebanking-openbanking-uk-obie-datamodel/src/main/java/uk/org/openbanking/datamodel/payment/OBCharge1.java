@@ -35,7 +35,7 @@ import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
  */
 @ApiModel(description = "Set of elements used to provide details of a charge for the payment initiation.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-10T14:05:22.993+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBCharge1 {
     @JsonProperty("ChargeBearer")

@@ -31,7 +31,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Payment status details as per underlying Payment Rail.
  */
 @ApiModel(description = "Payment status details as per underlying Payment Rail.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBWritePaymentDetailsResponse1DataStatusDetail {
     @JsonProperty("LocalInstrument")

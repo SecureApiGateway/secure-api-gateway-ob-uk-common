@@ -28,7 +28,7 @@ import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 /**
  * OBCharge2
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-02-01T10:31:25.778538Z[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBCharge2 {
     @JsonProperty("ChargeBearer")
     private OBChargeBearerType1Code chargeBearer;

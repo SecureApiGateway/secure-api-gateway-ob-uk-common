@@ -42,7 +42,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Unambiguous identification of the account of the debtor to which a confirmation of funds consent will be applied.
  */
 @ApiModel(description = "Unambiguous identification of the account of the debtor to which a confirmation of funds consent will be applied.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-13T12:19:17.898+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBFundsConfirmationConsent1DataDebtorAccount {
     @JsonProperty("Identification")
     private String identification = null;

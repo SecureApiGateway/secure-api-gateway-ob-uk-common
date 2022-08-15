@@ -44,7 +44,7 @@ import io.swagger.annotations.ApiModelProperty;
  * The authorisation type request from the TPP.
  */
 @ApiModel(description = "The authorisation type request from the TPP.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T16:03:12.161+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteDomesticConsent3DataAuthorisation {
     @JsonProperty("AuthorisationType")
     private OBExternalAuthorisation1Code authorisationType = null;

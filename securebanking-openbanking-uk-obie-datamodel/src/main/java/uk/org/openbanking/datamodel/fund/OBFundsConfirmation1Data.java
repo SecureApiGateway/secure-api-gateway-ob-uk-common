@@ -41,7 +41,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBFundsConfirmation1Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-13T12:19:17.898+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBFundsConfirmation1Data {
     @JsonProperty("ConsentId")
     private String consentId = null;

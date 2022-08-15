@@ -29,7 +29,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
  */
 @ApiModel(description = "Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBWriteDomestic2DataInitiationCreditorAccount {
     @JsonProperty("SchemeName")
