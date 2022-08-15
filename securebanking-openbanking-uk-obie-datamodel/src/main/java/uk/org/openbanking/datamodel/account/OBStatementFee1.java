@@ -31,7 +31,7 @@ import java.util.Objects;
  */
 @ApiModel(description = "Set of elements used to provide details of a fee for the statement resource.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-01T11:26:57.876+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBStatementFee1   {
 

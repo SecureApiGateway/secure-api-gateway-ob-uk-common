@@ -43,7 +43,7 @@ import java.util.Objects;
  * Details about the interest that may be payable to the SME Loan holders
  */
 @ApiModel(description = "Details about the interest that may be payable to the SME Loan holders")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBLoanInterest1 {
     @JsonProperty("Notes")
     private List<String> notes = null;

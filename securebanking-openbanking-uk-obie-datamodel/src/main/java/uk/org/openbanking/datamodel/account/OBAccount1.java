@@ -30,7 +30,7 @@ import java.util.Objects;
  * Account
  */
 @ApiModel(description = "Account")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-10-16T08:37:28.078Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBAccount1 {
     @JsonProperty("AccountId")

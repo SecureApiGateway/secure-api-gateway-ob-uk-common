@@ -45,7 +45,7 @@ import java.util.Objects;
  * Contains details of fees and charges which are not associated with either Overdraft or features/benefits
  */
 @ApiModel(description = "Contains details of fees and charges which are not associated with either Overdraft or features/benefits")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T15:59:01.633+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class BCAOtherFeesCharges {
     @JsonProperty("TariffType")
     private TariffTypeEnum tariffType = null;

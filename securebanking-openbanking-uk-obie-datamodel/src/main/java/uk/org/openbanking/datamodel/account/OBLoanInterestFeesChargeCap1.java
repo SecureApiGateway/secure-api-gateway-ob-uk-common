@@ -43,7 +43,7 @@ import java.util.Objects;
  * Details about any caps (minimum/maximum charges) that apply to a particular fee/charge
  */
 @ApiModel(description = "Details about any caps (minimum/maximum charges) that apply to a particular fee/charge")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBLoanInterestFeesChargeCap1 {
     @JsonProperty("FeeType")
     private List<OBFeeType1Code> feeType = new ArrayList<OBFeeType1Code>();

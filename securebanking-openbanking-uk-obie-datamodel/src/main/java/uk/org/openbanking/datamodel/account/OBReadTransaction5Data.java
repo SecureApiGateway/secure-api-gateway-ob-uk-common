@@ -39,7 +39,7 @@ import java.util.Objects;
 /**
  * OBReadTransaction5Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBReadTransaction5Data {
     @JsonProperty("Transaction")
     private List<OBTransaction5> transaction = null;

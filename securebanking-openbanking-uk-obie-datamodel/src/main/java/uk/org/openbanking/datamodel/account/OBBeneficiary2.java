@@ -28,7 +28,7 @@ import java.util.Objects;
  * OBBeneficiary2
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-01T11:26:57.876+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBBeneficiary2 {
     @JsonProperty("AccountId")

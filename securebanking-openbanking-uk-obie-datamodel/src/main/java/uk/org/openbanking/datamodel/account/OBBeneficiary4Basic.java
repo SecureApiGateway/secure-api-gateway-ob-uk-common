@@ -39,7 +39,7 @@ import java.util.Objects;
 /**
  * OBBeneficiary4Basic
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T10:29:01.751+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBBeneficiary4Basic {
     @JsonProperty("AccountId")
     private String accountId = null;

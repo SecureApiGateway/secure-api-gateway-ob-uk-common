@@ -30,7 +30,7 @@ import java.util.Objects;
  * Repayment details of the Loan product
  */
 @ApiModel(description = "Repayment details of the Loan product")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBReadProduct2DataOtherProductTypeRepayment {
     /**

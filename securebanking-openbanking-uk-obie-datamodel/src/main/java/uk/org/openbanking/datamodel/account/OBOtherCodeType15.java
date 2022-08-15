@@ -28,7 +28,7 @@ import java.util.Objects;
  * Other fee rate type which is not in the standard rate type list
  */
 @ApiModel(description = "Other fee rate type which is not in the standard rate type list")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBOtherCodeType15 {
     @JsonProperty("Code")

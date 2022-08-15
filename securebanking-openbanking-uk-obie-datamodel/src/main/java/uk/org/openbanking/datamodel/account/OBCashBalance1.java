@@ -33,7 +33,7 @@ import java.util.Objects;
  */
 @ApiModel(description = "Set of elements used to define the balance details.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-01T11:26:57.876+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBCashBalance1 {
     @JsonProperty("AccountId")

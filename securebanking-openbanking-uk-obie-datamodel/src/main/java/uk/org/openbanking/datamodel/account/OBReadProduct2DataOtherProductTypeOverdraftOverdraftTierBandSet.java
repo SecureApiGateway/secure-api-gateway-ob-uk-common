@@ -33,7 +33,7 @@ import java.util.Objects;
  * Tier band set details
  */
 @ApiModel(description = "Tier band set details")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBReadProduct2DataOtherProductTypeOverdraftOverdraftTierBandSet {
   /**

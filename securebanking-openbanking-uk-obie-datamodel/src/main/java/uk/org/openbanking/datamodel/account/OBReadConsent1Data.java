@@ -41,7 +41,7 @@ import java.util.Objects;
 /**
  * OBReadConsent1Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T15:59:01.633+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBReadConsent1Data {
     @JsonProperty("Permissions")
     private List<PermissionsEnum> permissions = new ArrayList<PermissionsEnum>();

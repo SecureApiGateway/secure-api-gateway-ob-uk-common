@@ -39,7 +39,7 @@ import java.util.Objects;
  * Unambiguous identification of the account of the debtor, in the case of a crebit transaction.
  */
 @ApiModel(description = "Unambiguous identification of the account of the debtor, in the case of a crebit transaction.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBCashAccount6 {
     @JsonProperty("SchemeName")
     private String schemeName = null;

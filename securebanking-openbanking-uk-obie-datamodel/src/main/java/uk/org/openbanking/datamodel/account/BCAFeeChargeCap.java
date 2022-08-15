@@ -46,7 +46,7 @@ import java.util.Objects;
  * Details about any caps (maximum charges) that apply to a particular or group of fee/charge
  */
 @ApiModel(description = "Details about any caps (maximum charges) that apply to a particular or group of fee/charge")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T15:59:01.633+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class BCAFeeChargeCap {
     @JsonProperty("FeeType")
     private List<FeeTypeEnum> feeType = new ArrayList<FeeTypeEnum>();

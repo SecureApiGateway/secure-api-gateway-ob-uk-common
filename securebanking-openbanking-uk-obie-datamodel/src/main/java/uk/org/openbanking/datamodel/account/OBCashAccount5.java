@@ -40,7 +40,7 @@ import java.util.Objects;
  * Provides the details to identify the beneficiary account.
  */
 @ApiModel(description = "Provides the details to identify the beneficiary account.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBCashAccount5 {
     @JsonProperty("SchemeName")
     private String schemeName = null;

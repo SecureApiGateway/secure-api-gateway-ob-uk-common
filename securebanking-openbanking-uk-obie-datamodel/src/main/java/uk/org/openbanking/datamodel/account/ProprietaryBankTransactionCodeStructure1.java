@@ -27,7 +27,7 @@ import java.util.Objects;
  * Set of elements to fully identify a proprietary bank transaction code.
  */
 @ApiModel(description = "Set of elements to fully identify a proprietary bank transaction code.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class ProprietaryBankTransactionCodeStructure1 {
     @JsonProperty("Code")

@@ -45,7 +45,7 @@ import java.util.Objects;
  * Other fees/charges details
  */
 @ApiModel(description = "Other fees/charges details")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T15:59:01.633+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class BCAFeeChargeDetail {
     @JsonProperty("FeeCategory")
     private FeeCategoryEnum feeCategory = null;

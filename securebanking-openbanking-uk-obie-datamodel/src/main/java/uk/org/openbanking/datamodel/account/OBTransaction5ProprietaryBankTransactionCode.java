@@ -40,7 +40,7 @@ import java.util.Objects;
  * Set of elements to fully identify a proprietary bank transaction code.
  */
 @ApiModel(description = "Set of elements to fully identify a proprietary bank transaction code.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBTransaction5ProprietaryBankTransactionCode {
     @JsonProperty("Code")
     private String code = null;

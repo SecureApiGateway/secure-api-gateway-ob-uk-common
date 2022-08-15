@@ -43,7 +43,7 @@ import java.util.Objects;
  * RepaymentFeeChargeCap sets daily, weekly, monthly, yearly limits on the fees that are charged
  */
 @ApiModel(description = "RepaymentFeeChargeCap sets daily, weekly, monthly, yearly limits on the fees that are charged")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBRepaymentFeeChargeCap1 {
     @JsonProperty("FeeType")
     private List<OBFeeType1Code> feeType = new ArrayList<OBFeeType1Code>();

@@ -41,7 +41,7 @@ import java.util.Objects;
  * Repayment details of the Loan product
  */
 @ApiModel(description = "Repayment details of the Loan product")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBRepayment1 {
     @JsonProperty("RepaymentType")
     private OBRepaymentType1Code repaymentType = null;

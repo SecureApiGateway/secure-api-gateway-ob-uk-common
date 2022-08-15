@@ -26,7 +26,7 @@ import java.util.Objects;
  * Unambiguous identification of the account of the creditor, in the case of a debit transaction.
  */
 @ApiModel(description = "Unambiguous identification of the account of the creditor, in the case of a debit transaction.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBCashAccount60 {
     @JsonProperty("SchemeName")

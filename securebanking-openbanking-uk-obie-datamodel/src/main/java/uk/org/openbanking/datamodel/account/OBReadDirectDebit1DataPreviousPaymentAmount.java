@@ -40,7 +40,7 @@ import java.util.Objects;
  * The amount of the most recent direct debit collection.
  */
 @ApiModel(description = "The amount of the most recent direct debit collection.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T15:59:01.633+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBReadDirectDebit1DataPreviousPaymentAmount {
     @JsonProperty("Amount")
     private String amount = null;

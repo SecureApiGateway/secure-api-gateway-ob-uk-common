@@ -32,7 +32,7 @@ import java.util.Objects;
  * Postal address of a party.
  */
 @ApiModel(description = "Postal address of a party.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBParty2Address {
     @JsonProperty("AddressType")

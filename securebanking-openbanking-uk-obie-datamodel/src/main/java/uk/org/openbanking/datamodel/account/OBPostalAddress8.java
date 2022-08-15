@@ -34,7 +34,7 @@ import java.util.Objects;
  */
 @ApiModel(description = "Postal address of a party.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-01T11:26:57.876+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBPostalAddress8 {
     @JsonProperty("AddressType")

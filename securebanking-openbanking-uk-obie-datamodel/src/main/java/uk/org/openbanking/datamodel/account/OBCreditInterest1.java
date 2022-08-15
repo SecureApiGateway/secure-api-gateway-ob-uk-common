@@ -32,7 +32,7 @@ import java.util.Objects;
  */
 @ApiModel(description = "Details about the interest that may be payable to the BCA account holders")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-06-25T23:06:46.214+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBCreditInterest1 {
   @JsonProperty("TierBandSet")
