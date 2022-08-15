@@ -31,7 +31,7 @@ import java.util.Objects;
  * Other product type details associated with the account.
  */
 @ApiModel(description = "Other product type details associated with the account.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBReadProduct2DataOtherProductType {
     @JsonProperty("Name")

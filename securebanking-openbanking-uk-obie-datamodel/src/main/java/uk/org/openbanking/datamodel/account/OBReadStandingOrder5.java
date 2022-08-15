@@ -40,7 +40,7 @@ import java.util.Objects;
 /**
  * OBReadStandingOrder5
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBReadStandingOrder5 {
     @JsonProperty("Data")
     private OBReadStandingOrder5Data data = null;

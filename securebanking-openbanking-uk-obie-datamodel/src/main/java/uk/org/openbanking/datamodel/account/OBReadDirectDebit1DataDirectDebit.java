@@ -43,7 +43,7 @@ import java.util.Objects;
  * Account to or from which a cash entry is made.
  */
 @ApiModel(description = "Account to or from which a cash entry is made.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T15:59:01.633+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBReadDirectDebit1DataDirectDebit {
     @JsonProperty("AccountId")
     private String accountId = null;

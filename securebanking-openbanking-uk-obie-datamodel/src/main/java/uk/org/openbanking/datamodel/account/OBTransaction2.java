@@ -39,7 +39,7 @@ import java.util.Objects;
  */
 @ApiModel(description = "Provides further details on an entry in the report.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-06-25T23:06:46.214+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBTransaction2   {
   @JsonProperty("AccountId")

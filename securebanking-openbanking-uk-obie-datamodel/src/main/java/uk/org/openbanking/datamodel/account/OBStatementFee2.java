@@ -45,7 +45,7 @@ import java.util.Objects;
  * Set of elements used to provide details of a fee for the statement resource.
  */
 @ApiModel(description = "Set of elements used to provide details of a fee for the statement resource.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBStatementFee2 {
     @JsonProperty("Description")
     private String description = null;

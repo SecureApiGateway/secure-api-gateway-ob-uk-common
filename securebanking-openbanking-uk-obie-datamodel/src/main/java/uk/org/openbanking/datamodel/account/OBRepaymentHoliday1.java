@@ -41,7 +41,7 @@ import java.util.Objects;
  * Details of capital repayment holiday if any
  */
 @ApiModel(description = "Details of capital repayment holiday if any")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBRepaymentHoliday1 {
     @JsonProperty("MaxHolidayLength")
     private Integer maxHolidayLength = null;

@@ -30,7 +30,7 @@ import java.util.Objects;
  * Details about the interest that may be payable to the PCA account holders
  */
 @ApiModel(description = "Details about the interest that may be payable to the PCA account holders")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class CreditInterest1 {
   @JsonProperty("TierBandSet")

@@ -39,7 +39,7 @@ import java.util.Objects;
 /**
  * BCA
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T15:59:01.633+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class BCA {
     @JsonProperty("ProductDetails")
     private ProductDetails productDetails = null;

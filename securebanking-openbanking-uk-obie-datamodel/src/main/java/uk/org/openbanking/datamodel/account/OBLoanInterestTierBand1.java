@@ -44,7 +44,7 @@ import java.util.Objects;
  * Tier Band Details
  */
 @ApiModel(description = "Tier Band Details")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBLoanInterestTierBand1 {
     @JsonProperty("Identification")
     private String identification = null;

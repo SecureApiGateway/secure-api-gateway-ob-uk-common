@@ -26,7 +26,7 @@ import java.util.Objects;
  * Set of elements used to fully identify the type of underlying transaction resulting in an entry.
  */
 @ApiModel(description = "Set of elements used to fully identify the type of underlying transaction resulting in an entry.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBBankTransactionCodeStructure1 {
     @JsonProperty("Code")

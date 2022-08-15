@@ -28,7 +28,7 @@ import java.util.Objects;
  * Beneficiary
  */
 @ApiModel(description = "Beneficiary")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-10-16T08:37:28.078Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBBeneficiary1 {
     @JsonProperty("AccountId")

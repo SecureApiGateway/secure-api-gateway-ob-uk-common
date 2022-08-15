@@ -28,7 +28,7 @@ import java.util.Objects;
  * OBReadStandingOrder2Data
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-06-25T23:06:46.214+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBReadStandingOrder2Data   {
   @JsonProperty("StandingOrder")

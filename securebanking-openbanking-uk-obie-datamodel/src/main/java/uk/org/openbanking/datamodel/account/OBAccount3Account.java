@@ -40,7 +40,7 @@ import java.util.Objects;
  * Provides the details to identify an account.
  */
 @ApiModel(description = "Provides the details to identify an account.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-13T15:59:01.633+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBAccount3Account {
     @JsonProperty("SchemeName")
     private String schemeName = null;

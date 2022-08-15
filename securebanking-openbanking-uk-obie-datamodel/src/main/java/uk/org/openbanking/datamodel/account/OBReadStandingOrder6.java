@@ -27,7 +27,7 @@ import java.util.Objects;
 /**
  * OBReadStandingOrder6
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBReadStandingOrder6 {
   @JsonProperty("Data")

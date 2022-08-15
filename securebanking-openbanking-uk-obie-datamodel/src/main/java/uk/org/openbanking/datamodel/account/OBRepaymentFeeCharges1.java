@@ -43,7 +43,7 @@ import java.util.Objects;
  * Applicable fee/charges for repayment such as prepayment, full early repayment or non repayment.
  */
 @ApiModel(description = "Applicable fee/charges for repayment such as prepayment, full early repayment or non repayment.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBRepaymentFeeCharges1 {
     @JsonProperty("RepaymentFeeChargeDetail")
     private List<OBRepaymentFeeChargeDetail1> repaymentFeeChargeDetail = new ArrayList<OBRepaymentFeeChargeDetail1>();

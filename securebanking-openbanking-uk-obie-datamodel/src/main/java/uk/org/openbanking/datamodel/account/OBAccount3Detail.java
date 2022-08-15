@@ -44,7 +44,7 @@ import java.util.Objects;
  * Unambiguous identification of the account to which credit and debit entries are made.
  */
 @ApiModel(description = "Unambiguous identification of the account to which credit and debit entries are made.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBAccount3Detail {
     @JsonProperty("AccountId")
     private String accountId = null;

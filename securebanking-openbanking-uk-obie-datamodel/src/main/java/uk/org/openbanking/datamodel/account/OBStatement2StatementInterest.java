@@ -29,7 +29,7 @@ import java.util.Objects;
  * Set of elements used to provide details of a generic interest amount related to the statement resource.
  */
 @ApiModel(description = "Set of elements used to provide details of a generic interest amount related to the statement resource.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBStatement2StatementInterest {
   @JsonProperty("Description")

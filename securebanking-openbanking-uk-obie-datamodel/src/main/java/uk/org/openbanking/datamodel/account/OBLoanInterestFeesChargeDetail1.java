@@ -43,7 +43,7 @@ import java.util.Objects;
  * Other fees/charges details
  */
 @ApiModel(description = "Other fees/charges details")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBLoanInterestFeesChargeDetail1 {
     @JsonProperty("FeeType")
     private OBFeeType1Code feeType = null;

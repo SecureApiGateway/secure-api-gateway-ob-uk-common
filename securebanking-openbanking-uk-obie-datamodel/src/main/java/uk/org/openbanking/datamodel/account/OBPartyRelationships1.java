@@ -26,7 +26,7 @@ import java.util.Objects;
  * The Party&#39;s relationships with other resources.
  */
 @ApiModel(description = "The Party's relationships with other resources.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBPartyRelationships1 {
   @JsonProperty("Account")

@@ -40,7 +40,7 @@ import java.util.Objects;
 /**
  * OBReadBeneficiary4
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-05-19T10:29:01.751+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBReadBeneficiary4 {
     @JsonProperty("Data")
     private OBReadBeneficiary4Data data = null;

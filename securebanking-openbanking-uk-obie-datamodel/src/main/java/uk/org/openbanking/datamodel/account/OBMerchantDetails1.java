@@ -26,7 +26,7 @@ import java.util.Objects;
  * Details of the merchant involved in the transaction.
  */
 @ApiModel(description = "Details of the merchant involved in the transaction.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBMerchantDetails1 {
     @JsonProperty("MerchantName")

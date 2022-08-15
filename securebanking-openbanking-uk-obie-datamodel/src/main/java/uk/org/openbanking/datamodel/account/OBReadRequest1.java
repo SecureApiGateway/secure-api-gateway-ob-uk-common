@@ -28,7 +28,7 @@ import java.util.Objects;
  * Allows setup of an account access request
  */
 @ApiModel(description = "Allows setup of an account access request")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-10-16T08:37:28.078Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBReadRequest1 {
   @JsonProperty("Data")

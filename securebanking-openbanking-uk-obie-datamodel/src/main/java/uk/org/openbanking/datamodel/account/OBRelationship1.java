@@ -40,7 +40,7 @@ import java.util.Objects;
  * Relationship to the Account resource.
  */
 @ApiModel(description = "Relationship to the Account resource.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBRelationship1 {
     @JsonProperty("Related")
     private String related = null;

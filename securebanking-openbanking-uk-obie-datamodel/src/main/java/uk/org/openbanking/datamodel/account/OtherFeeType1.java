@@ -30,7 +30,7 @@ import java.util.Objects;
  * Other Fee/charge type which is not available in the standard code set
  */
 @ApiModel(description = "Other Fee/charge type which is not available in the standard code set")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OtherFeeType1 {
   @JsonProperty("Code")

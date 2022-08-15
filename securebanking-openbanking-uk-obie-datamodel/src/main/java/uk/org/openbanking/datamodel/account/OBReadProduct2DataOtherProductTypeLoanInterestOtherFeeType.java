@@ -41,7 +41,7 @@ import java.util.Objects;
  * Other fee type code which is not available in the standard code set
  */
 @ApiModel(description = "Other fee type code which is not available in the standard code set")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-05T09:20:17.613+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBReadProduct2DataOtherProductTypeLoanInterestOtherFeeType {
     @JsonProperty("Code")
     private String code = null;

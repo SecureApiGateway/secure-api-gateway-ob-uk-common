@@ -26,7 +26,7 @@ import java.util.Objects;
  * Range or amounts or rates for which the fee/charge applies
  */
 @ApiModel(description = "Range or amounts or rates for which the fee/charge applies")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class FeeApplicableRange {
   @JsonProperty("MinimumAmount")

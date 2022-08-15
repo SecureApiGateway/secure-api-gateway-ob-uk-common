@@ -39,7 +39,7 @@ import java.util.Objects;
 /**
  * OBOtherProductDetails1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBOtherProductDetails1 {
     @JsonProperty("Segment")
     private List<OBOtherProductSegment1Code> segment = null;

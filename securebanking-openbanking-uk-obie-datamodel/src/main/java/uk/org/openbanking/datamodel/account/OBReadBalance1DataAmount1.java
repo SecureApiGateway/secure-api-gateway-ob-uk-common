@@ -27,7 +27,7 @@ import java.util.Objects;
  * Amount of money of the credit line.
  */
 @ApiModel(description = "Amount of money of the credit line.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBReadBalance1DataAmount1 {
     @JsonProperty("Amount")

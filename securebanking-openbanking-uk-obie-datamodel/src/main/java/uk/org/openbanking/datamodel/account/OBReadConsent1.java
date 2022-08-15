@@ -38,7 +38,7 @@ import java.util.Objects;
 /**
  * OBReadConsent1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-05-05T09:20:17.613+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBReadConsent1 {
     @JsonProperty("Data")
     private OBReadData1 data = null;

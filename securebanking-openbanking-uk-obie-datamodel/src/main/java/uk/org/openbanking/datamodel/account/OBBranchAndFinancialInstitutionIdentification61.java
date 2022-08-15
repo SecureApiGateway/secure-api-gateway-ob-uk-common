@@ -28,7 +28,7 @@ import java.util.Objects;
  * Financial institution servicing an account for the creditor.
  */
 @ApiModel(description = "Financial institution servicing an account for the creditor.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBBranchAndFinancialInstitutionIdentification61 {
     @JsonProperty("SchemeName")

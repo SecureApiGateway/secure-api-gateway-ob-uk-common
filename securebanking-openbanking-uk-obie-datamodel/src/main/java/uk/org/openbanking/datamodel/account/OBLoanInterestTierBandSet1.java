@@ -43,7 +43,7 @@ import java.util.Objects;
  * The group of tiers or bands for which debit interest can be applied.
  */
 @ApiModel(description = "The group of tiers or bands for which debit interest can be applied.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBLoanInterestTierBandSet1 {
     @JsonProperty("TierBandMethod")
     private OBTierBandType1Code tierBandMethod = null;

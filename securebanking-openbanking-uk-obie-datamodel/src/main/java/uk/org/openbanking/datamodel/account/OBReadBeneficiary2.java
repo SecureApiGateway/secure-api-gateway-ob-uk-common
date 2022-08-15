@@ -29,7 +29,7 @@ import java.util.Objects;
  * OBReadBeneficiary2
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-10-01T11:26:57.876+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBReadBeneficiary2   {
   @JsonProperty("Data")

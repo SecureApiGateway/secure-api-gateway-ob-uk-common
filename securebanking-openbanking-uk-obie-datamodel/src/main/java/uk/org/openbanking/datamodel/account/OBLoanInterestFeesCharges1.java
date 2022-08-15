@@ -43,7 +43,7 @@ import java.util.Objects;
  * Contains details of fees and charges which are not associated with either LoanRepayment or features/benefits
  */
 @ApiModel(description = "Contains details of fees and charges which are not associated with either LoanRepayment or features/benefits")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-05-23T11:27:41.089+01:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBLoanInterestFeesCharges1 {
     @JsonProperty("LoanInterestFeeChargeDetail")
     private List<OBLoanInterestFeesChargeDetail1> loanInterestFeeChargeDetail = new ArrayList<OBLoanInterestFeesChargeDetail1>();

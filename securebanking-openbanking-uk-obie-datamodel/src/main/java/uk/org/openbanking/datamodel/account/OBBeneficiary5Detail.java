@@ -27,7 +27,7 @@ import java.util.Objects;
 /**
  * OBBeneficiary5Detail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-19T10:04:10.581299+01:00[Europe/London]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBBeneficiary5Detail {
   @JsonProperty("AccountId")
