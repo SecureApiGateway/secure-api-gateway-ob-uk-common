@@ -37,7 +37,7 @@ public class OBDomesticVRPConsentRequestData {
     public enum ReadRefundAccountEnum {
         YES("Yes"),
 
-        NO("false");
+        FALSE("No");
 
         private String value;
 

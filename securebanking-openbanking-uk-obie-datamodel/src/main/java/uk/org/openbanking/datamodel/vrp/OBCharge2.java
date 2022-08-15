@@ -45,7 +45,9 @@ public class OBCharge2 {
      */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
+
     public OBChargeBearerType1Code getChargeBearer() {
         return chargeBearer;
     }

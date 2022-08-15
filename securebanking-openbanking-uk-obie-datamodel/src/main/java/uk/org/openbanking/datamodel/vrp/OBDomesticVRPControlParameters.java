@@ -163,6 +163,9 @@ public class OBDomesticVRPControlParameters {
     }
 
     public OBDomesticVRPControlParameters addVrPTypeItem(String vrPTypeItem) {
+        if (this.vrPType == null) {
+            this.vrPType = new ArrayList<String>();
+        }
         this.vrPType.add(vrPTypeItem);
         return this;
     }
@@ -190,6 +193,9 @@ public class OBDomesticVRPControlParameters {
     }
 
     public OBDomesticVRPControlParameters addPsUAuthenticationMethodsItem(String psUAuthenticationMethodsItem) {
+        if (this.psUAuthenticationMethods == null) {
+            this.psUAuthenticationMethods = new ArrayList<String>();
+        }
         this.psUAuthenticationMethods.add(psUAuthenticationMethodsItem);
         return this;
     }
