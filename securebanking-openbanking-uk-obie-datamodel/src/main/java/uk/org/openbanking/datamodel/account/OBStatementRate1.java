@@ -15,15 +15,18 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
+import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Set of elements used to provide details of a generic rate related to the statement resource.
@@ -32,94 +35,97 @@ import java.util.Objects;
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
-public class OBStatementRate1   {
-  @JsonProperty("Rate")
-  private String rate = null;
+public class OBStatementRate1 {
+    @JsonProperty("Rate")
+    private String rate = null;
 
-  @JsonProperty("Type")
-  private String type = null;
+    @JsonProperty("Type")
+    private String type = null;
 
-  public OBStatementRate1 rate(String rate) {
-    this.rate = rate;
-    return this;
-  }
-
-  /**
-   * Rate associated with the statement rate type.
-   * @return rate
-  **/
-  @ApiModelProperty(required = true, value = "Rate associated with the statement rate type.")
-  @NotNull
-
-@Pattern(regexp="^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$") @Size(min=1,max=10) 
-  public String getRate() {
-    return rate;
-  }
-
-  public void setRate(String rate) {
-    this.rate = rate;
-  }
-
-  public OBStatementRate1 type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Statement rate type, in a coded form.
-   * @return type
-  **/
-  @ApiModelProperty(required = true, value = "Statement rate type, in a coded form.")
-  @NotNull
-
-@Size(min=1,max=40) 
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBStatementRate1 rate(String rate) {
+        this.rate = rate;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Rate associated with the statement rate type.
+     *
+     * @return rate
+     **/
+    @ApiModelProperty(required = true, value = "Rate associated with the statement rate type.")
+    @NotNull
+
+    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
+    @Size(min = 1, max = 10)
+    public String getRate() {
+        return rate;
     }
-    OBStatementRate1 obStatementRate1 = (OBStatementRate1) o;
-    return Objects.equals(this.rate, obStatementRate1.rate) &&
-        Objects.equals(this.type, obStatementRate1.type);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(rate, type);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBStatementRate1 {\n");
-    
-    sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setRate(String rate) {
+        this.rate = rate;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public OBStatementRate1 type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Statement rate type, in a coded form.
+     *
+     * @return type
+     **/
+    @ApiModelProperty(required = true, value = "Statement rate type, in a coded form.")
+    @NotNull
+
+    @Size(min = 1, max = 40)
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBStatementRate1 obStatementRate1 = (OBStatementRate1) o;
+        return Objects.equals(this.rate, obStatementRate1.rate) &&
+                Objects.equals(this.type, obStatementRate1.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(rate, type);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBStatementRate1 {\n");
+
+        sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

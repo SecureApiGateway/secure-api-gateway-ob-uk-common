@@ -27,29 +27,29 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * etc. This makes migrating to new API versions considerably easier.
  */
 public enum OBExternalPermissions2Code {
-  
-  CREATE("Create");
 
-  private String value;
+    CREATE("Create");
 
-  OBExternalPermissions2Code(String value) {
-    this.value = value;
-  }
+    private String value;
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static OBExternalPermissions2Code fromValue(String text) {
-    for (OBExternalPermissions2Code b : OBExternalPermissions2Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    OBExternalPermissions2Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalPermissions2Code fromValue(String text) {
+        for (OBExternalPermissions2Code b : OBExternalPermissions2Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

@@ -15,19 +15,22 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-import uk.org.openbanking.datamodel.common.OBCashAccount3;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBCashAccount3;
 
 /**
  * Unambiguous identification of the account to which credit and debit entries are made.
@@ -69,6 +72,7 @@ public class OBAccount2 {
 
     /**
      * Get accountId
+     *
      * @return accountId
      **/
     @ApiModelProperty(required = true, value = "")
@@ -90,6 +94,7 @@ public class OBAccount2 {
 
     /**
      * Identification of the currency in which the account is held.  Usage: Currency should only be used in case one and the same account number covers several currencies and the initiating party needs to identify which currency needs to be used for settlement on the account.
+     *
      * @return currency
      **/
     @ApiModelProperty(required = true, value = "Identification of the currency in which the account is held.  Usage: Currency should only be used in case one and the same account number covers several currencies and the initiating party needs to identify which currency needs to be used for settlement on the account.")
@@ -111,6 +116,7 @@ public class OBAccount2 {
 
     /**
      * Get accountType
+     *
      * @return accountType
      **/
     @ApiModelProperty(required = true, value = "")
@@ -133,6 +139,7 @@ public class OBAccount2 {
 
     /**
      * Get accountSubType
+     *
      * @return accountSubType
      **/
     @ApiModelProperty(required = true, value = "")
@@ -155,6 +162,7 @@ public class OBAccount2 {
 
     /**
      * Specifies the description of the account type.
+     *
      * @return description
      **/
     @ApiModelProperty(value = "Specifies the description of the account type.")
@@ -175,6 +183,7 @@ public class OBAccount2 {
 
     /**
      * The nickname of the account, assigned by the account owner in order to provide an additional means of identification of the account.
+     *
      * @return nickname
      **/
     @ApiModelProperty(value = "The nickname of the account, assigned by the account owner in order to provide an additional means of identification of the account.")
@@ -203,6 +212,7 @@ public class OBAccount2 {
 
     /**
      * Provides the details to identify an account.
+     *
      * @return account
      **/
     @ApiModelProperty(value = "Provides the details to identify an account.")
@@ -224,6 +234,7 @@ public class OBAccount2 {
 
     /**
      * Get servicer
+     *
      * @return servicer
      **/
     @ApiModelProperty(value = "")

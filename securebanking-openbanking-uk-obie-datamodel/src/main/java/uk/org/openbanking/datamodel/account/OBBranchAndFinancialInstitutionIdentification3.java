@@ -15,15 +15,18 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-import uk.org.openbanking.datamodel.common.OBPostalAddress6;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBPostalAddress6;
 
 /**
  * Financial institution servicing an account for the debtor.
@@ -52,6 +55,7 @@ public class OBBranchAndFinancialInstitutionIdentification3 {
 
     /**
      * Name of the identification scheme, in a coded form as published in an external list.
+     *
      * @return schemeName
      **/
     @ApiModelProperty(value = "Name of the identification scheme, in a coded form as published in an external list.")
@@ -72,6 +76,7 @@ public class OBBranchAndFinancialInstitutionIdentification3 {
 
     /**
      * Unique and unambiguous identification of a financial institution or a branch of a financial institution.
+     *
      * @return identification
      **/
     @ApiModelProperty(value = "Unique and unambiguous identification of a financial institution or a branch of a financial institution.")
@@ -92,6 +97,7 @@ public class OBBranchAndFinancialInstitutionIdentification3 {
 
     /**
      * Name by which an agent is known and which is usually used to identify that agent.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "Name by which an agent is known and which is usually used to identify that agent.")
@@ -112,6 +118,7 @@ public class OBBranchAndFinancialInstitutionIdentification3 {
 
     /**
      * Get postalAddress
+     *
      * @return postalAddress
      **/
     @ApiModelProperty(value = "")

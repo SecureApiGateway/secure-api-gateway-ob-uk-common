@@ -15,14 +15,15 @@
  */
 package uk.org.openbanking.datamodel.discovery;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-import io.swagger.annotations.ApiModel;
-
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.common.base.MoreObjects;
+
+import io.swagger.annotations.ApiModel;
+
 @ApiModel(description = "Event notification endpoints corresponding to a specific version")
-public class OBDiscoveryAPILinksEventNotification4 implements OBDiscoveryAPILinks{
+public class OBDiscoveryAPILinksEventNotification4 implements OBDiscoveryAPILinks {
 
     @JsonProperty("CreateCallbackUrl")
     private String createCallbackUrl;
@@ -44,7 +45,7 @@ public class OBDiscoveryAPILinksEventNotification4 implements OBDiscoveryAPILink
 
     @JsonProperty("EventPoll")
     private String eventPoll;
-    
+
     public OBDiscoveryAPILinksEventNotification4() {
     }
 

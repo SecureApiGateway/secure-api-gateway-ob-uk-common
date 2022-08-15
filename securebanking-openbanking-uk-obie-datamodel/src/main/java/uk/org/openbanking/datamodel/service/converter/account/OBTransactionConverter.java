@@ -15,7 +15,12 @@
  */
 package uk.org.openbanking.datamodel.service.converter.account;
 
-import uk.org.openbanking.datamodel.account.*;
+import uk.org.openbanking.datamodel.account.OBTransaction1;
+import uk.org.openbanking.datamodel.account.OBTransaction2;
+import uk.org.openbanking.datamodel.account.OBTransaction3;
+import uk.org.openbanking.datamodel.account.OBTransaction3ProprietaryBankTransactionCode;
+import uk.org.openbanking.datamodel.account.OBTransaction4;
+import uk.org.openbanking.datamodel.account.ProprietaryBankTransactionCodeStructure1;
 
 /**
  * Convert OB transaction data-model in different version
@@ -24,6 +29,7 @@ public class OBTransactionConverter {
 
     /**
      * Convert a transaction from V2 to V1
+     *
      * @param obTransaction2 transaction in V2 format
      * @return transaction in V1 format
      */
@@ -68,6 +74,7 @@ public class OBTransactionConverter {
 
     /**
      * Convert a transaction from V3 to V1
+     *
      * @param obTransaction3 transaction in V3 format
      * @return transaction in V1 format
      */
@@ -103,7 +110,7 @@ public class OBTransactionConverter {
                     new ProprietaryBankTransactionCodeStructure1()
                             .code(obTransaction3.getProprietaryBankTransactionCode().getCode())
                             .issuer(obTransaction3.getProprietaryBankTransactionCode().getIssuer())
-                    );
+            );
         }
         if (obTransaction3.getBalance() != null) {
             transaction1.balance(obTransaction3.getBalance());
@@ -116,6 +123,7 @@ public class OBTransactionConverter {
 
     /**
      * Convert a transaction from V3 to V2
+     *
      * @param obTransaction3 transaction in V3 format
      * @return transaction in V2 format
      */
@@ -164,6 +172,7 @@ public class OBTransactionConverter {
 
     /**
      * Convert a transaction from V1 to V2
+     *
      * @param obTransaction1 transaction in V1 format
      * @return transaction in V2 format
      */
@@ -207,6 +216,7 @@ public class OBTransactionConverter {
 
     /**
      * Convert a transaction from V2 to V3
+     *
      * @param obTransaction2 transaction in V2 format
      * @return transaction in V3 format
      */
@@ -253,6 +263,7 @@ public class OBTransactionConverter {
 
     /**
      * Convert a transaction from V3 to V4
+     *
      * @param obTransaction3 transaction in V3 format
      * @return transaction in V4 format
      */
@@ -289,6 +300,7 @@ public class OBTransactionConverter {
 
     /**
      * Convert a transaction from V4 to V3
+     *
      * @param obTransaction4 transaction in V4 format
      * @return transaction in V3 format
      */
@@ -322,8 +334,10 @@ public class OBTransactionConverter {
                 .status(obTransaction4.getStatus())
                 .valueDateTime(obTransaction4.getValueDateTime());
     }
+
     /**
      * Convert a transaction from V4 to V2
+     *
      * @param obTransaction4 transaction in V4 format
      * @return transaction in V2 format
      */
@@ -372,6 +386,7 @@ public class OBTransactionConverter {
 
     /**
      * Convert a transaction from V4 to V1
+     *
      * @param obTransaction4 transaction in V4 format
      * @return transaction in V1 format
      */

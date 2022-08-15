@@ -22,35 +22,35 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Specifies the type of account (personal or business).
  */
 public enum OBExternalAccountType1Code {
-  
-  BUSINESS("Business"),
-  
-  PERSONAL("Personal");
 
-  private String value;
+    BUSINESS("Business"),
 
-  OBExternalAccountType1Code(String value) {
-    this.value = value;
-  }
+    PERSONAL("Personal");
 
-  public String getValue() {
-    return value;
-  }
+    private String value;
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static OBExternalAccountType1Code fromValue(String text) {
-    for (OBExternalAccountType1Code b : OBExternalAccountType1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    OBExternalAccountType1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalAccountType1Code fromValue(String text) {
+        for (OBExternalAccountType1Code b : OBExternalAccountType1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

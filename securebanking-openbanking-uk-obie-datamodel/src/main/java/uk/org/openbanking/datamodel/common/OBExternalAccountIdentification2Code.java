@@ -25,7 +25,7 @@ public enum OBExternalAccountIdentification2Code {
     /**
      * Sort Code and Account Number – identifier scheme used in the UK by financial institutions to identify the
      * account of a customer. The identifier is the concatenation of the 6 digit UK sort code and 8 digit account number.
-     The regular expression for this identifier is: ^[0-9]{6}[0-9]{8}$
+     * The regular expression for this identifier is: ^[0-9]{6}[0-9]{8}$
      */
     SortCodeAccountNumber("UK.OBIE.SortCodeAccountNumber");
 
@@ -37,6 +37,7 @@ public enum OBExternalAccountIdentification2Code {
 
     /**
      * Get the Official reference like "UK.OBIE.SortCodeAccountNumber"
+     *
      * @return the reference
      */
     public String getReference() {
@@ -45,6 +46,7 @@ public enum OBExternalAccountIdentification2Code {
 
     /**
      * Parse from reference
+     *
      * @param reference the reference
      * @return null if not found
      */

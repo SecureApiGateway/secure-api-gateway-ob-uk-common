@@ -23,36 +23,36 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum OBInterestCalculationMethod1Code {
 
-  ITCO("ITCO"),
+    ITCO("ITCO"),
 
-  ITOT("ITOT"),
+    ITOT("ITOT"),
 
-  ITSI("ITSI");
+    ITSI("ITSI");
 
-  private String value;
+    private String value;
 
-  OBInterestCalculationMethod1Code(String value) {
-    this.value = value;
-  }
-
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static OBInterestCalculationMethod1Code fromValue(String value) {
-    for (OBInterestCalculationMethod1Code b : OBInterestCalculationMethod1Code.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    OBInterestCalculationMethod1Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBInterestCalculationMethod1Code fromValue(String value) {
+        for (OBInterestCalculationMethod1Code b : OBInterestCalculationMethod1Code.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 

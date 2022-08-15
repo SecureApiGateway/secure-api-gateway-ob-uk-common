@@ -15,14 +15,17 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBWriteDataInternationalScheduled2
@@ -30,95 +33,97 @@ import java.util.Objects;
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-01-28T11:15:38.268Z")
 
-public class OBWriteDataInternationalScheduled2   {
-  @JsonProperty("ConsentId")
-  private String consentId = null;
+public class OBWriteDataInternationalScheduled2 {
+    @JsonProperty("ConsentId")
+    private String consentId = null;
 
-  @JsonProperty("Initiation")
-  private OBInternationalScheduled2 initiation = null;
+    @JsonProperty("Initiation")
+    private OBInternationalScheduled2 initiation = null;
 
-  public OBWriteDataInternationalScheduled2 consentId(String consentId) {
-    this.consentId = consentId;
-    return this;
-  }
-
-  /**
-   * OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.
-   * @return consentId
-  **/
-  @ApiModelProperty(required = true, value = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.")
-  @NotNull
-
-@Size(min=1,max=128) 
-  public String getConsentId() {
-    return consentId;
-  }
-
-  public void setConsentId(String consentId) {
-    this.consentId = consentId;
-  }
-
-  public OBWriteDataInternationalScheduled2 initiation(OBInternationalScheduled2 initiation) {
-    this.initiation = initiation;
-    return this;
-  }
-
-  /**
-   * Get initiation
-   * @return initiation
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
-  @Valid
-
-  public OBInternationalScheduled2 getInitiation() {
-    return initiation;
-  }
-
-  public void setInitiation(OBInternationalScheduled2 initiation) {
-    this.initiation = initiation;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBWriteDataInternationalScheduled2 consentId(String consentId) {
+        this.consentId = consentId;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.
+     *
+     * @return consentId
+     **/
+    @ApiModelProperty(required = true, value = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.")
+    @NotNull
+
+    @Size(min = 1, max = 128)
+    public String getConsentId() {
+        return consentId;
     }
-    OBWriteDataInternationalScheduled2 obWriteDataInternationalScheduled2 = (OBWriteDataInternationalScheduled2) o;
-    return Objects.equals(this.consentId, obWriteDataInternationalScheduled2.consentId) &&
-        Objects.equals(this.initiation, obWriteDataInternationalScheduled2.initiation);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(consentId, initiation);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBWriteDataInternationalScheduled2 {\n");
-
-    sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
-    sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setConsentId(String consentId) {
+        this.consentId = consentId;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public OBWriteDataInternationalScheduled2 initiation(OBInternationalScheduled2 initiation) {
+        this.initiation = initiation;
+        return this;
+    }
+
+    /**
+     * Get initiation
+     *
+     * @return initiation
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
+
+    @Valid
+
+    public OBInternationalScheduled2 getInitiation() {
+        return initiation;
+    }
+
+    public void setInitiation(OBInternationalScheduled2 initiation) {
+        this.initiation = initiation;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBWriteDataInternationalScheduled2 obWriteDataInternationalScheduled2 = (OBWriteDataInternationalScheduled2) o;
+        return Objects.equals(this.consentId, obWriteDataInternationalScheduled2.consentId) &&
+                Objects.equals(this.initiation, obWriteDataInternationalScheduled2.initiation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(consentId, initiation);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBWriteDataInternationalScheduled2 {\n");
+
+        sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
+        sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

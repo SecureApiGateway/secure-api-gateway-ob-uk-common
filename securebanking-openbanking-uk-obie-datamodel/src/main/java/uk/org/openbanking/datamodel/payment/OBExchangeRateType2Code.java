@@ -28,33 +28,33 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * considerably easier.
  */
 public enum OBExchangeRateType2Code {
-  
-  ACTUAL("Actual"),
-  
-  AGREED("Agreed"),
-  
-  INDICATIVE("Indicative");
 
-  private String value;
+    ACTUAL("Actual"),
 
-  OBExchangeRateType2Code(String value) {
-    this.value = value;
-  }
+    AGREED("Agreed"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    INDICATIVE("Indicative");
 
-  @JsonCreator
-  public static OBExchangeRateType2Code fromValue(String text) {
-    for (OBExchangeRateType2Code b : OBExchangeRateType2Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    private String value;
+
+    OBExchangeRateType2Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExchangeRateType2Code fromValue(String text) {
+        for (OBExchangeRateType2Code b : OBExchangeRateType2Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

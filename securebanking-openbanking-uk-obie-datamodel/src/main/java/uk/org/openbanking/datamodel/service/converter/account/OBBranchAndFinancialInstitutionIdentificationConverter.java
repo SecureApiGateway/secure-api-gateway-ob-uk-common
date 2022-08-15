@@ -23,6 +23,7 @@ public class OBBranchAndFinancialInstitutionIdentificationConverter {
 
     /**
      * Convert institution identification from V3 to V1
+     *
      * @param institutionIdentification4 institution identification in V3 format
      * @return institution identification in V1 format
      */
@@ -34,6 +35,7 @@ public class OBBranchAndFinancialInstitutionIdentificationConverter {
 
     /**
      * Convert institution identification from V2 to V3
+     *
      * @param institutionIdentification2 institution identification in V2 format
      * @return institution identification in V3 format
      */

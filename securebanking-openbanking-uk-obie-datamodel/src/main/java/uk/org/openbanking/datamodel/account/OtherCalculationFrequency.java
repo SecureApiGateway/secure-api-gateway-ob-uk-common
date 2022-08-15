@@ -15,14 +15,16 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Other calculation frequency which is not available in the standard code set.
@@ -57,14 +59,14 @@ public class OtherCalculationFrequency {
         return code;
     }
 
-  public void setCode(String code) {
-    this.code = code;
-  }
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-  public OtherCalculationFrequency name(String name) {
-    this.name = name;
-    return this;
-  }
+    public OtherCalculationFrequency name(String name) {
+        this.name = name;
+        return this;
+    }
 
     /**
      * Long name associated with the code
@@ -110,39 +112,39 @@ public class OtherCalculationFrequency {
         }
         if (o == null || getClass() != o.getClass()) {
             return false;
-    }
-    OtherCalculationFrequency otherCalculationFrequency = (OtherCalculationFrequency) o;
+        }
+        OtherCalculationFrequency otherCalculationFrequency = (OtherCalculationFrequency) o;
         return Objects.equals(this.code, otherCalculationFrequency.code) &&
                 Objects.equals(this.name, otherCalculationFrequency.name) &&
                 Objects.equals(this.description, otherCalculationFrequency.description);
-  }
+    }
 
     @Override
     public int hashCode() {
         return Objects.hash(code, name, description);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OtherCalculationFrequency {\n");
-
-      sb.append("    code: ").append(toIndentedString(code)).append("\n");
-      sb.append("    name: ").append(toIndentedString(name)).append("\n");
-      sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OtherCalculationFrequency {\n");
+
+        sb.append("    code: ").append(toIndentedString(code)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

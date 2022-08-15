@@ -22,35 +22,35 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Specifies the status of the direct debit in code form.
  */
 public enum OBExternalDirectDebitStatus1Code {
-  
-  ACTIVE("Active"),
-  
-  INACTIVE("Inactive");
 
-  private String value;
+    ACTIVE("Active"),
 
-  OBExternalDirectDebitStatus1Code(String value) {
-    this.value = value;
-  }
+    INACTIVE("Inactive");
 
-  public String getValue() {
-    return value;
-  }
+    private String value;
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static OBExternalDirectDebitStatus1Code fromValue(String text) {
-    for (OBExternalDirectDebitStatus1Code b : OBExternalDirectDebitStatus1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    OBExternalDirectDebitStatus1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalDirectDebitStatus1Code fromValue(String text) {
+        for (OBExternalDirectDebitStatus1Code b : OBExternalDirectDebitStatus1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

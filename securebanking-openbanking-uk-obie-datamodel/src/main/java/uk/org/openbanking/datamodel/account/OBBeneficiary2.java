@@ -15,14 +15,17 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-import uk.org.openbanking.datamodel.common.OBCashAccount3;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBCashAccount3;
 
 /**
  * OBBeneficiary2
@@ -53,6 +56,7 @@ public class OBBeneficiary2 {
 
     /**
      * Get accountId
+     *
      * @return accountId
      **/
     @ApiModelProperty(value = "")
@@ -73,6 +77,7 @@ public class OBBeneficiary2 {
 
     /**
      * A unique and immutable identifier used to identify the beneficiary resource. This identifier has no meaning to the account owner.
+     *
      * @return beneficiaryId
      **/
     @ApiModelProperty(value = "A unique and immutable identifier used to identify the beneficiary resource. This identifier has no meaning to the account owner.")
@@ -93,6 +98,7 @@ public class OBBeneficiary2 {
 
     /**
      * Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. Usage: If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money. If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.
+     *
      * @return reference
      **/
     @ApiModelProperty(value = "Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. Usage: If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money. If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.")
@@ -113,6 +119,7 @@ public class OBBeneficiary2 {
 
     /**
      * Get creditorAgent
+     *
      * @return creditorAgent
      **/
     @ApiModelProperty(value = "")
@@ -134,6 +141,7 @@ public class OBBeneficiary2 {
 
     /**
      * Get creditorAccount
+     *
      * @return creditorAccount
      **/
     @ApiModelProperty(value = "")

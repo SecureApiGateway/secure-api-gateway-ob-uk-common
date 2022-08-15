@@ -15,14 +15,16 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification2Code;
+import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification2Code;
 
 /**
  * Provides the details to identify an account.
@@ -50,6 +52,7 @@ public class OBCashAccount1 {
 
     /**
      * Name of the identification scheme, in a coded form as published in an external list.
+     *
      * @return schemeName
      **/
     @ApiModelProperty(required = true, value = "Name of the identification scheme, in a coded form as published in an external list.")
@@ -71,6 +74,7 @@ public class OBCashAccount1 {
 
     /**
      * Identification assigned by an institution to identify an account. This identification is known by the account owner.
+     *
      * @return identification
      **/
     @ApiModelProperty(required = true, value = "Identification assigned by an institution to identify an account. This identification is known by the account owner.")
@@ -92,6 +96,7 @@ public class OBCashAccount1 {
 
     /**
      * Name of the account, as assigned by the account servicing institution, in agreement with the account owner in order to provide an additional means of identification of the account. Usage: The account name is different from the account owner name. The account name is used in certain user communities to provide a means of identifying the account, in addition to the account owner's identity and the account number.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "Name of the account, as assigned by the account servicing institution, in agreement with the account owner in order to provide an additional means of identification of the account. Usage: The account name is different from the account owner name. The account name is used in certain user communities to provide a means of identifying the account, in addition to the account owner's identity and the account number.")
@@ -112,6 +117,7 @@ public class OBCashAccount1 {
 
     /**
      * This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).
+     *
      * @return secondaryIdentification
      **/
     @ApiModelProperty(value = "This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).")

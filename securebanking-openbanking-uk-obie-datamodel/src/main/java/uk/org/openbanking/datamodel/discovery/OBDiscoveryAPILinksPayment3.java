@@ -18,10 +18,11 @@ package uk.org.openbanking.datamodel.discovery;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
+
 import io.swagger.annotations.ApiModel;
 
 @ApiModel(description = "Payment endpoints corresponding to a specific version")
-public class OBDiscoveryAPILinksPayment3 implements OBDiscoveryAPILinks{
+public class OBDiscoveryAPILinksPayment3 implements OBDiscoveryAPILinks {
 
     // Domestic single
     @JsonProperty("CreateDomesticPaymentConsent")

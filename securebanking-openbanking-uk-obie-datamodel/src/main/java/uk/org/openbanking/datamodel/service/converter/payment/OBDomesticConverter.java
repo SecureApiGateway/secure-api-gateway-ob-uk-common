@@ -15,10 +15,6 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.payment.OBDomestic1;
-import uk.org.openbanking.datamodel.payment.OBDomestic2;
-import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiation;
-
 import static uk.org.openbanking.datamodel.service.converter.payment.OBAccountConverter.toOBCashAccount3;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBAccountConverter.toOBWriteDomestic2DataInitiationCreditorAccount;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBAccountConverter.toOBWriteDomestic2DataInitiationDebtorAccount;
@@ -26,6 +22,10 @@ import static uk.org.openbanking.datamodel.service.converter.payment.OBAmountCon
 import static uk.org.openbanking.datamodel.service.converter.payment.OBAmountConverter.toOBWriteDomestic2DataInitiationInstructedAmount;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBRemittanceInformationConverter.toOBRemittanceInformation1;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBRemittanceInformationConverter.toOBWriteDomestic2DataInitiationRemittanceInformation;
+
+import uk.org.openbanking.datamodel.payment.OBDomestic1;
+import uk.org.openbanking.datamodel.payment.OBDomestic2;
+import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiation;
 
 public class OBDomesticConverter {
 

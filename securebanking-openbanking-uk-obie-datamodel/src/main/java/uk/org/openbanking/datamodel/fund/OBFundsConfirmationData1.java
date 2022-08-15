@@ -28,135 +28,137 @@
 
 package uk.org.openbanking.datamodel.fund;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 /**
  * OBFundsConfirmationData1
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-15T11:58:26.525Z")
 public class OBFundsConfirmationData1 {
-  @JsonProperty("ConsentId")
-  private String consentId = null;
+    @JsonProperty("ConsentId")
+    private String consentId = null;
 
-  @JsonProperty("Reference")
-  private String reference = null;
+    @JsonProperty("Reference")
+    private String reference = null;
 
-  @JsonProperty("InstructedAmount")
-  private OBActiveOrHistoricCurrencyAndAmount instructedAmount = null;
+    @JsonProperty("InstructedAmount")
+    private OBActiveOrHistoricCurrencyAndAmount instructedAmount = null;
 
-  public OBFundsConfirmationData1 consentId(String consentId) {
-    this.consentId = consentId;
-    return this;
-  }
-
-  /**
-   * Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.
-   *
-   * @return consentId
-   **/
-  @NotNull
-  @Size(min = 1, max = 128)
-  @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.")
-  public String getConsentId() {
-    return consentId;
-  }
-
-  public void setConsentId(String consentId) {
-    this.consentId = consentId;
-  }
-
-  public OBFundsConfirmationData1 reference(String reference) {
-    this.reference = reference;
-    return this;
-  }
-
-  /**
-   * Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.
-   *
-   * @return reference
-   **/
-  @NotNull
-  @Size(min = 1, max = 35)
-  @ApiModelProperty(required = true, value = "Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.")
-  public String getReference() {
-    return reference;
-  }
-
-  public void setReference(String reference) {
-    this.reference = reference;
-  }
-
-  public OBFundsConfirmationData1 instructedAmount(OBActiveOrHistoricCurrencyAndAmount instructedAmount) {
-    this.instructedAmount = instructedAmount;
-    return this;
-  }
-
-  /**
-   * Get instructedAmount
-   *
-   * @return instructedAmount
-   **/
-  @NotNull
-  @Valid
-  @ApiModelProperty(required = true, value = "")
-  public OBActiveOrHistoricCurrencyAndAmount getInstructedAmount() {
-    return instructedAmount;
-  }
-
-  public void setInstructedAmount(OBActiveOrHistoricCurrencyAndAmount instructedAmount) {
-    this.instructedAmount = instructedAmount;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBFundsConfirmationData1 consentId(String consentId) {
+        this.consentId = consentId;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.
+     *
+     * @return consentId
+     **/
+    @NotNull
+    @Size(min = 1, max = 128)
+    @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.")
+    public String getConsentId() {
+        return consentId;
     }
-    OBFundsConfirmationData1 obFundsConfirmationData1 = (OBFundsConfirmationData1) o;
-    return Objects.equals(this.consentId, obFundsConfirmationData1.consentId) &&
-        Objects.equals(this.reference, obFundsConfirmationData1.reference) &&
-        Objects.equals(this.instructedAmount, obFundsConfirmationData1.instructedAmount);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(consentId, reference, instructedAmount);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBFundsConfirmationData1 {\n");
-
-    sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    instructedAmount: ").append(toIndentedString(instructedAmount)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setConsentId(String consentId) {
+        this.consentId = consentId;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
-  
+
+    public OBFundsConfirmationData1 reference(String reference) {
+        this.reference = reference;
+        return this;
+    }
+
+    /**
+     * Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.
+     *
+     * @return reference
+     **/
+    @NotNull
+    @Size(min = 1, max = 35)
+    @ApiModelProperty(required = true, value = "Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.")
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public OBFundsConfirmationData1 instructedAmount(OBActiveOrHistoricCurrencyAndAmount instructedAmount) {
+        this.instructedAmount = instructedAmount;
+        return this;
+    }
+
+    /**
+     * Get instructedAmount
+     *
+     * @return instructedAmount
+     **/
+    @NotNull
+    @Valid
+    @ApiModelProperty(required = true, value = "")
+    public OBActiveOrHistoricCurrencyAndAmount getInstructedAmount() {
+        return instructedAmount;
+    }
+
+    public void setInstructedAmount(OBActiveOrHistoricCurrencyAndAmount instructedAmount) {
+        this.instructedAmount = instructedAmount;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBFundsConfirmationData1 obFundsConfirmationData1 = (OBFundsConfirmationData1) o;
+        return Objects.equals(this.consentId, obFundsConfirmationData1.consentId) &&
+                Objects.equals(this.reference, obFundsConfirmationData1.reference) &&
+                Objects.equals(this.instructedAmount, obFundsConfirmationData1.instructedAmount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(consentId, reference, instructedAmount);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBFundsConfirmationData1 {\n");
+
+        sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
+        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+        sb.append("    instructedAmount: ").append(toIndentedString(instructedAmount)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+
 }
 

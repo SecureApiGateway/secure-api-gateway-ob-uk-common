@@ -15,12 +15,30 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.payment.*;
-
 import static uk.org.openbanking.datamodel.service.converter.payment.OBConsentAuthorisationConverter.toOBWriteDomesticConsent3DataAuthorisation;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBConsentAuthorisationConverter.toOBWriteDomesticConsent4DataAuthorisation;
-import static uk.org.openbanking.datamodel.service.converter.payment.OBInternationalStandingOrderConverter.*;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBInternationalStandingOrderConverter.toOBInternationalStandingOrder1;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBInternationalStandingOrderConverter.toOBInternationalStandingOrder2;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBInternationalStandingOrderConverter.toOBInternationalStandingOrder3;
+import static uk.org.openbanking.datamodel.service.converter.payment.OBInternationalStandingOrderConverter.toOBWriteInternationalStandingOrder4DataInitiation;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBWriteDomesticConsentConverter.toOBSCASupportData1;
+
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalStandingOrder1;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalStandingOrder2;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalStandingOrder3;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalStandingOrderConsent1;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalStandingOrderConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalStandingOrderConsent3;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder1;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder2;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder3;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent1;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent3;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent5;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent5Data;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent6;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent6Data;
 
 public class OBWriteInternationalStandingOrderConsentConverter {
 

@@ -15,19 +15,21 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Provides overdraft details for a specific tier or band
@@ -66,28 +68,28 @@ public class OverdraftOverdraftTierBand {
         HALF_YEAR("Half Year"),
 
         MONTH("Month"),
-    
-    QUARTER("Quarter"),
-    
-    WEEK("Week"),
-    
-    YEAR("Year");
 
-    private String value;
+        QUARTER("Quarter"),
 
-    AgreementPeriodEnum(String value) {
-      this.value = value;
-    }
+        WEEK("Week"),
 
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
+        YEAR("Year");
 
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
+        private String value;
+
+        AgreementPeriodEnum(String value) {
+            this.value = value;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
 
         @JsonCreator
         public static AgreementPeriodEnum fromValue(String value) {
@@ -98,47 +100,47 @@ public class OverdraftOverdraftTierBand {
             }
             throw new IllegalArgumentException("Unexpected value '" + value + "'");
         }
-  }
+    }
 
     @JsonProperty("AgreementPeriod")
     private AgreementPeriodEnum agreementPeriod;
 
-  /**
-   * Refers to which interest rate is applied when interests are tiered. For example, if an overdraft balance is £2k and the interest tiers are:- 0-£500 0.1%, 500-1000 0.2%, 1000-10000 0.5%, then the applicable interest rate could either be 0.5% of the entire balance (since the account balance sits in the top interest tier) or (0.1%*500)+(0.2%*500)+(0.5%*1000). In the 1st situation, we say the interest is applied to the ‘Whole’ of the account balance,  and in the 2nd that it is ‘Tiered’.
-   */
-  public enum OverdraftInterestChargingCoverageEnum {
-    BANDED("Banded"),
-    
-    TIERED("Tiered"),
-    
-    WHOLE("Whole");
+    /**
+     * Refers to which interest rate is applied when interests are tiered. For example, if an overdraft balance is £2k and the interest tiers are:- 0-£500 0.1%, 500-1000 0.2%, 1000-10000 0.5%, then the applicable interest rate could either be 0.5% of the entire balance (since the account balance sits in the top interest tier) or (0.1%*500)+(0.2%*500)+(0.5%*1000). In the 1st situation, we say the interest is applied to the ‘Whole’ of the account balance,  and in the 2nd that it is ‘Tiered’.
+     */
+    public enum OverdraftInterestChargingCoverageEnum {
+        BANDED("Banded"),
 
-    private String value;
+        TIERED("Tiered"),
 
-    OverdraftInterestChargingCoverageEnum(String value) {
-      this.value = value;
+        WHOLE("Whole");
+
+        private String value;
+
+        OverdraftInterestChargingCoverageEnum(String value) {
+            this.value = value;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        @JsonCreator
+        public static OverdraftInterestChargingCoverageEnum fromValue(String value) {
+            for (OverdraftInterestChargingCoverageEnum b : OverdraftInterestChargingCoverageEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
     }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-      @JsonCreator
-      public static OverdraftInterestChargingCoverageEnum fromValue(String value) {
-          for (OverdraftInterestChargingCoverageEnum b : OverdraftInterestChargingCoverageEnum.values()) {
-              if (b.value.equals(value)) {
-                  return b;
-              }
-          }
-          throw new IllegalArgumentException("Unexpected value '" + value + "'");
-      }
-  }
 
     @JsonProperty("OverdraftInterestChargingCoverage")
     private OverdraftInterestChargingCoverageEnum overdraftInterestChargingCoverage;
@@ -262,14 +264,15 @@ public class OverdraftOverdraftTierBand {
 
     /**
      * Specifies the minimum length of a band for a fixed overdraft agreement
+     *
      * @return agreementLengthMin
-  */
-  @ApiModelProperty(value = "Specifies the minimum length of a band for a fixed overdraft agreement")
+     */
+    @ApiModelProperty(value = "Specifies the minimum length of a band for a fixed overdraft agreement")
 
 
-  public Float getAgreementLengthMin() {
-      return agreementLengthMin;
-  }
+    public Float getAgreementLengthMin() {
+        return agreementLengthMin;
+    }
 
     public void setAgreementLengthMin(Float agreementLengthMin) {
         this.agreementLengthMin = agreementLengthMin;
@@ -301,8 +304,9 @@ public class OverdraftOverdraftTierBand {
 
     /**
      * Specifies the period of a fixed length overdraft agreement
-   * @return agreementPeriod
-  */
+     *
+     * @return agreementPeriod
+     */
     @ApiModelProperty(value = "Specifies the period of a fixed length overdraft agreement")
     public AgreementPeriodEnum getAgreementPeriod() {
         return agreementPeriod;
@@ -343,36 +347,37 @@ public class OverdraftOverdraftTierBand {
      */
     @ApiModelProperty(value = "Indicates whether the advertised overdraft rate is guaranteed to be offered to a borrower by the bank e.g. if it’s part of a government scheme, or whether the rate may vary dependent on the applicant’s circumstances.")
     public Boolean getBankGuaranteedIndicator() {
-    return bankGuaranteedIndicator;
-  }
-
-  public void setBankGuaranteedIndicator(Boolean bankGuaranteedIndicator) {
-    this.bankGuaranteedIndicator = bankGuaranteedIndicator;
-  }
-
-  public OverdraftOverdraftTierBand notes(List<String> notes) {
-    this.notes = notes;
-    return this;
-  }
-
-  public OverdraftOverdraftTierBand addNotesItem(String notesItem) {
-    if (this.notes == null) {
-      this.notes = new ArrayList<String>();
+        return bankGuaranteedIndicator;
     }
-    this.notes.add(notesItem);
-      return this;
-  }
 
-  /**
-   * Optional additional notes to supplement the Tier/band details
-   * @return notes
-  */
-  @ApiModelProperty(value = "Optional additional notes to supplement the Tier/band details")
+    public void setBankGuaranteedIndicator(Boolean bankGuaranteedIndicator) {
+        this.bankGuaranteedIndicator = bankGuaranteedIndicator;
+    }
+
+    public OverdraftOverdraftTierBand notes(List<String> notes) {
+        this.notes = notes;
+        return this;
+    }
+
+    public OverdraftOverdraftTierBand addNotesItem(String notesItem) {
+        if (this.notes == null) {
+            this.notes = new ArrayList<String>();
+        }
+        this.notes.add(notesItem);
+        return this;
+    }
+
+    /**
+     * Optional additional notes to supplement the Tier/band details
+     *
+     * @return notes
+     */
+    @ApiModelProperty(value = "Optional additional notes to supplement the Tier/band details")
 
 
-  public List<String> getNotes() {
-      return notes;
-  }
+    public List<String> getNotes() {
+        return notes;
+    }
 
     public void setNotes(List<String> notes) {
         this.notes = notes;
@@ -426,7 +431,7 @@ public class OverdraftOverdraftTierBand {
                 Objects.equals(this.overdraftInterestChargingCoverage, overdraftOverdraftTierBand.overdraftInterestChargingCoverage) &&
                 Objects.equals(this.bankGuaranteedIndicator, overdraftOverdraftTierBand.bankGuaranteedIndicator) &&
                 Objects.equals(this.notes, overdraftOverdraftTierBand.notes) &&
-        Objects.equals(this.overdraftFeesCharges, overdraftOverdraftTierBand.overdraftFeesCharges);
+                Objects.equals(this.overdraftFeesCharges, overdraftOverdraftTierBand.overdraftFeesCharges);
     }
 
     @Override
@@ -451,19 +456,19 @@ public class OverdraftOverdraftTierBand {
         sb.append("    bankGuaranteedIndicator: ").append(toIndentedString(bankGuaranteedIndicator)).append("\n");
         sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
         sb.append("    overdraftFeesCharges: ").append(toIndentedString(overdraftFeesCharges)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+        sb.append("}");
+        return sb.toString();
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

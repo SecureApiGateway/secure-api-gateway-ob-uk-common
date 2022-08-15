@@ -28,15 +28,17 @@
 
 package uk.org.openbanking.datamodel.payment;
 
+import java.util.Objects;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.Links;
 import uk.org.openbanking.datamodel.common.Meta;
 import uk.org.openbanking.datamodel.common.OBRisk1;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import java.util.Objects;
 
 /**
  * OBWriteDomesticConsentResponse4

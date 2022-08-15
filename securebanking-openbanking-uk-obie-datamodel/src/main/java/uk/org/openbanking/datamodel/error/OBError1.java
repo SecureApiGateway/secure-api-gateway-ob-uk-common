@@ -15,13 +15,16 @@
  */
 package uk.org.openbanking.datamodel.error;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
+import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBError1
@@ -48,6 +51,7 @@ public class OBError1 {
 
     /**
      * Low level textual error code, e.g., UK.OBIE.Field.Missing
+     *
      * @return errorCode
      **/
     @ApiModelProperty(required = true, value = "Low level textual error code, e.g., UK.OBIE.Field.Missing")
@@ -68,6 +72,7 @@ public class OBError1 {
 
     /**
      * A description of the error that occurred. e.g., 'A mandatory field isn't supplied' or 'RequestedExecutionDateTime must be in future' OBIE doesn't standardise this field
+     *
      * @return message
      **/
     @ApiModelProperty(required = true, value = "A description of the error that occurred. e.g., 'A mandatory field isn't supplied' or 'RequestedExecutionDateTime must be in future' OBIE doesn't standardise this field")
@@ -88,6 +93,7 @@ public class OBError1 {
 
     /**
      * Recommended but optional reference to the JSON Path of the field with error, e.g., Data.Initiation.InstructedAmount.Currency
+     *
      * @return path
      **/
     @ApiModelProperty(value = "Recommended but optional reference to the JSON Path of the field with error, e.g., Data.Initiation.InstructedAmount.Currency")
@@ -107,6 +113,7 @@ public class OBError1 {
 
     /**
      * URL to help remediate the problem, or provide more information, or to API Reference, or help etc
+     *
      * @return url
      **/
     @ApiModelProperty(value = "URL to help remediate the problem, or provide more information, or to API Reference, or help etc")

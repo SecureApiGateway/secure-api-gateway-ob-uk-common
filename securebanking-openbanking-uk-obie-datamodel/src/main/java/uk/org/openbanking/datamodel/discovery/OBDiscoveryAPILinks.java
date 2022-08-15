@@ -17,6 +17,7 @@ package uk.org.openbanking.datamodel.discovery;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import io.swagger.annotations.ApiModel;
 
 @JsonTypeInfo(

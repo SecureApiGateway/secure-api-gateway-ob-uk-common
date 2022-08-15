@@ -15,18 +15,21 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
-import org.springframework.validation.annotation.Validated;
-import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+import org.joda.time.DateTime;
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 /**
  * Set of elements used to define the balance details.
@@ -62,6 +65,7 @@ public class OBCashBalance1 {
 
     /**
      * Get accountId
+     *
      * @return accountId
      **/
     @ApiModelProperty(required = true, value = "")
@@ -83,6 +87,7 @@ public class OBCashBalance1 {
 
     /**
      * Indicates whether the balance is a credit or a debit balance.  Usage: A zero balance is considered to be a credit balance.
+     *
      * @return creditDebitIndicator
      **/
     @ApiModelProperty(required = true, value = "Indicates whether the balance is a credit or a debit balance.  Usage: A zero balance is considered to be a credit balance.")
@@ -104,6 +109,7 @@ public class OBCashBalance1 {
 
     /**
      * Get type
+     *
      * @return type
      **/
     @ApiModelProperty(required = true, value = "")
@@ -126,6 +132,7 @@ public class OBCashBalance1 {
 
     /**
      * Indicates the date (and time) of the balance. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return dateTime
      **/
     @ApiModelProperty(required = true, value = "Indicates the date (and time) of the balance. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
@@ -148,6 +155,7 @@ public class OBCashBalance1 {
 
     /**
      * Get amount
+     *
      * @return amount
      **/
     @ApiModelProperty(required = true, value = "")
@@ -178,6 +186,7 @@ public class OBCashBalance1 {
 
     /**
      * Set of elements used to provide details on the credit line.
+     *
      * @return creditLine
      **/
     @ApiModelProperty(value = "Set of elements used to provide details on the credit line.")

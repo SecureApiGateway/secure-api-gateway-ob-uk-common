@@ -15,14 +15,16 @@
  */
 package uk.org.openbanking.datamodel.common;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.net.URI;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.net.URI;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Links relevant to the payload
@@ -52,6 +54,7 @@ public class Links {
 
     /**
      * Get self
+     *
      * @return self
      */
     @ApiModelProperty(required = true, value = "")
@@ -72,6 +75,7 @@ public class Links {
 
     /**
      * Get first
+     *
      * @return first
      */
     @ApiModelProperty(value = "")
@@ -91,6 +95,7 @@ public class Links {
 
     /**
      * Get prev
+     *
      * @return prev
      */
     @ApiModelProperty(value = "")
@@ -110,6 +115,7 @@ public class Links {
 
     /**
      * Get next
+     *
      * @return next
      */
     @ApiModelProperty(value = "")
@@ -129,6 +135,7 @@ public class Links {
 
     /**
      * Get last
+     *
      * @return last
      */
     @ApiModelProperty(value = "")

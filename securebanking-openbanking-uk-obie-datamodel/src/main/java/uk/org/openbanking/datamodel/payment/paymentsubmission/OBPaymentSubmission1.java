@@ -15,14 +15,16 @@
  */
 package uk.org.openbanking.datamodel.payment.paymentsubmission;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.payment.OBPaymentDataSubmission1;
-import uk.org.openbanking.datamodel.common.OBRisk1;
+import java.util.Objects;
 
 import javax.validation.Valid;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBRisk1;
+import uk.org.openbanking.datamodel.payment.OBPaymentDataSubmission1;
 
 /**
  * Allows Submission of a payment
@@ -31,93 +33,95 @@ import java.util.Objects;
 
 
 public class OBPaymentSubmission1 {
-  @JsonProperty("Data")
-  private OBPaymentDataSubmission1 data = null;
+    @JsonProperty("Data")
+    private OBPaymentDataSubmission1 data = null;
 
-  @JsonProperty("Risk")
-  private OBRisk1 risk = null;
+    @JsonProperty("Risk")
+    private OBRisk1 risk = null;
 
-  public OBPaymentSubmission1 data(OBPaymentDataSubmission1 data) {
-    this.data = data;
-    return this;
-  }
-
-   /**
-   * Get data
-   * @return data
-  **/
-  @ApiModelProperty(value = "")
-
-  @Valid
-
-  public OBPaymentDataSubmission1 getData() {
-    return data;
-  }
-
-  public void setData(OBPaymentDataSubmission1 data) {
-    this.data = data;
-  }
-
-  public OBPaymentSubmission1 risk(OBRisk1 risk) {
-    this.risk = risk;
-    return this;
-  }
-
-   /**
-   * Get risk
-   * @return risk
-  **/
-  @ApiModelProperty(value = "")
-
-  @Valid
-
-  public OBRisk1 getRisk() {
-    return risk;
-  }
-
-  public void setRisk(OBRisk1 risk) {
-    this.risk = risk;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBPaymentSubmission1 data(OBPaymentDataSubmission1 data) {
+        this.data = data;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get data
+     *
+     * @return data
+     **/
+    @ApiModelProperty(value = "")
+
+    @Valid
+
+    public OBPaymentDataSubmission1 getData() {
+        return data;
     }
-    OBPaymentSubmission1 paymentSubmissionPOSTRequest = (OBPaymentSubmission1) o;
-    return Objects.equals(this.data, paymentSubmissionPOSTRequest.data) &&
-        Objects.equals(this.risk, paymentSubmissionPOSTRequest.risk);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data, risk);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentSubmissionPOSTRequest {\n");
-    
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setData(OBPaymentDataSubmission1 data) {
+        this.data = data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public OBPaymentSubmission1 risk(OBRisk1 risk) {
+        this.risk = risk;
+        return this;
+    }
+
+    /**
+     * Get risk
+     *
+     * @return risk
+     **/
+    @ApiModelProperty(value = "")
+
+    @Valid
+
+    public OBRisk1 getRisk() {
+        return risk;
+    }
+
+    public void setRisk(OBRisk1 risk) {
+        this.risk = risk;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBPaymentSubmission1 paymentSubmissionPOSTRequest = (OBPaymentSubmission1) o;
+        return Objects.equals(this.data, paymentSubmissionPOSTRequest.data) &&
+                Objects.equals(this.risk, paymentSubmissionPOSTRequest.risk);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, risk);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class PaymentSubmissionPOSTRequest {\n");
+
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

@@ -15,19 +15,21 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Provides overdraft details for a specific tier or band
@@ -74,9 +76,9 @@ public class OBReadProduct2DataOtherProductTypeOverdraftOverdraftTierBand {
 
         private String value;
 
-    AgreementPeriodEnum(String value) {
-      this.value = value;
-    }
+        AgreementPeriodEnum(String value) {
+            this.value = value;
+        }
 
         @JsonValue
         public String getValue() {
@@ -112,11 +114,11 @@ public class OBReadProduct2DataOtherProductTypeOverdraftOverdraftTierBand {
 
         INWH("INWH");
 
-    private String value;
+        private String value;
 
-    OverdraftInterestChargingCoverageEnum(String value) {
-      this.value = value;
-    }
+        OverdraftInterestChargingCoverageEnum(String value) {
+            this.value = value;
+        }
 
         @JsonValue
         public String getValue() {
@@ -332,15 +334,15 @@ public class OBReadProduct2DataOtherProductTypeOverdraftOverdraftTierBand {
     public OBReadProduct2DataOtherProductTypeOverdraftOverdraftTierBand notes(List<String> notes) {
         this.notes = notes;
         return this;
-  }
-
-  public OBReadProduct2DataOtherProductTypeOverdraftOverdraftTierBand addNotesItem(String notesItem) {
-    if (this.notes == null) {
-        this.notes = new ArrayList<String>();
     }
-    this.notes.add(notesItem);
-      return this;
-  }
+
+    public OBReadProduct2DataOtherProductTypeOverdraftOverdraftTierBand addNotesItem(String notesItem) {
+        if (this.notes == null) {
+            this.notes = new ArrayList<String>();
+        }
+        this.notes.add(notesItem);
+        return this;
+    }
 
     /**
      * Get notes
@@ -436,10 +438,10 @@ public class OBReadProduct2DataOtherProductTypeOverdraftOverdraftTierBand {
      * (except the first line).
      */
     private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
     }
-    return o.toString().replace("\n", "\n    ");
-  }
 }
 

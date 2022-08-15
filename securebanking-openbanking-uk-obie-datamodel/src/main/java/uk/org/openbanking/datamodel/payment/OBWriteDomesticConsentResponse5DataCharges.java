@@ -15,15 +15,17 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
+import java.util.Objects;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import java.util.Objects;
 
 /**
  * Set of elements used to provide details of a charge for the payment initiation.
@@ -32,118 +34,118 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
 
 public class OBWriteDomesticConsentResponse5DataCharges {
-  @JsonProperty("ChargeBearer")
-  private OBChargeBearerType1Code chargeBearer;
+    @JsonProperty("ChargeBearer")
+    private OBChargeBearerType1Code chargeBearer;
 
-  @JsonProperty("Type")
-  private String type;
+    @JsonProperty("Type")
+    private String type;
 
-  @JsonProperty("Amount")
-  private OBActiveOrHistoricCurrencyAndAmount amount;
+    @JsonProperty("Amount")
+    private OBActiveOrHistoricCurrencyAndAmount amount;
 
-  public OBWriteDomesticConsentResponse5DataCharges chargeBearer(OBChargeBearerType1Code chargeBearer) {
-    this.chargeBearer = chargeBearer;
-    return this;
-  }
-
-  /**
-   * Get chargeBearer
-   *
-   * @return chargeBearer
-   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-  @Valid
-  public OBChargeBearerType1Code getChargeBearer() {
-    return chargeBearer;
-  }
-
-  public void setChargeBearer(OBChargeBearerType1Code chargeBearer) {
-    this.chargeBearer = chargeBearer;
-  }
-
-  public OBWriteDomesticConsentResponse5DataCharges type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Charge type, in a coded form.
-   *
-   * @return type
-   */
-  @ApiModelProperty(required = true, value = "Charge type, in a coded form.")
-  @NotNull
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public OBWriteDomesticConsentResponse5DataCharges amount(OBActiveOrHistoricCurrencyAndAmount amount) {
-    this.amount = amount;
-    return this;
-  }
-
-  /**
-   * Get amount
-   *
-   * @return amount
-   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-  @Valid
-  public OBActiveOrHistoricCurrencyAndAmount getAmount() {
-    return amount;
-  }
-
-  public void setAmount(OBActiveOrHistoricCurrencyAndAmount amount) {
-    this.amount = amount;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBWriteDomesticConsentResponse5DataCharges chargeBearer(OBChargeBearerType1Code chargeBearer) {
+        this.chargeBearer = chargeBearer;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get chargeBearer
+     *
+     * @return chargeBearer
+     */
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
+    @Valid
+    public OBChargeBearerType1Code getChargeBearer() {
+        return chargeBearer;
     }
-    OBWriteDomesticConsentResponse5DataCharges obWriteDomesticConsentResponse5DataCharges = (OBWriteDomesticConsentResponse5DataCharges) o;
-    return Objects.equals(this.chargeBearer, obWriteDomesticConsentResponse5DataCharges.chargeBearer) &&
-            Objects.equals(this.type, obWriteDomesticConsentResponse5DataCharges.type) &&
-            Objects.equals(this.amount, obWriteDomesticConsentResponse5DataCharges.amount);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(chargeBearer, type, amount);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBWriteDomesticConsentResponse5DataCharges {\n");
-
-    sb.append("    chargeBearer: ").append(toIndentedString(chargeBearer)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setChargeBearer(OBChargeBearerType1Code chargeBearer) {
+        this.chargeBearer = chargeBearer;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public OBWriteDomesticConsentResponse5DataCharges type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Charge type, in a coded form.
+     *
+     * @return type
+     */
+    @ApiModelProperty(required = true, value = "Charge type, in a coded form.")
+    @NotNull
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public OBWriteDomesticConsentResponse5DataCharges amount(OBActiveOrHistoricCurrencyAndAmount amount) {
+        this.amount = amount;
+        return this;
+    }
+
+    /**
+     * Get amount
+     *
+     * @return amount
+     */
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
+    @Valid
+    public OBActiveOrHistoricCurrencyAndAmount getAmount() {
+        return amount;
+    }
+
+    public void setAmount(OBActiveOrHistoricCurrencyAndAmount amount) {
+        this.amount = amount;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBWriteDomesticConsentResponse5DataCharges obWriteDomesticConsentResponse5DataCharges = (OBWriteDomesticConsentResponse5DataCharges) o;
+        return Objects.equals(this.chargeBearer, obWriteDomesticConsentResponse5DataCharges.chargeBearer) &&
+                Objects.equals(this.type, obWriteDomesticConsentResponse5DataCharges.type) &&
+                Objects.equals(this.amount, obWriteDomesticConsentResponse5DataCharges.amount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(chargeBearer, type, amount);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBWriteDomesticConsentResponse5DataCharges {\n");
+
+        sb.append("    chargeBearer: ").append(toIndentedString(chargeBearer)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

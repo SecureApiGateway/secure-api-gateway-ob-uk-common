@@ -15,17 +15,20 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
+import org.joda.time.DateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 /**
  * OBDomesticVRPControlParameters
@@ -65,6 +68,7 @@ public class OBDomesticVRPControlParameters {
 
     /**
      * ^ Start date time for which the consent remains valid.
+     *
      * @return validFromDateTime
      */
     @ApiModelProperty(value = "^ Start date time for which the consent remains valid.")
@@ -86,6 +90,7 @@ public class OBDomesticVRPControlParameters {
 
     /**
      * ^ End date time for which the consent remains valid.
+     *
      * @return validToDateTime
      */
     @ApiModelProperty(value = "^ End date time for which the consent remains valid.")
@@ -107,6 +112,7 @@ public class OBDomesticVRPControlParameters {
 
     /**
      * Get maximumIndividualAmount
+     *
      * @return maximumIndividualAmount
      */
     @ApiModelProperty(value = "")
@@ -136,6 +142,7 @@ public class OBDomesticVRPControlParameters {
 
     /**
      * Get periodicLimits
+     *
      * @return periodicLimits
      */
     @ApiModelProperty(value = "")
@@ -162,6 +169,7 @@ public class OBDomesticVRPControlParameters {
 
     /**
      * ^ The types of payments that can be made under this VRP consent. This can be used to indicate whether this include sweeping payment or other ecommerce payments.
+     *
      * @return vrPType
      */
     @ApiModelProperty(required = true, value = "^ The types of payments that can be made under this VRP consent. This can be used to indicate whether this include sweeping payment or other ecommerce payments.")
@@ -188,6 +196,7 @@ public class OBDomesticVRPControlParameters {
 
     /**
      * ^ Indicates that the PSU authentication methods supported.
+     *
      * @return psUAuthenticationMethods
      */
     @ApiModelProperty(required = true, value = "^ Indicates that the PSU authentication methods supported.")
@@ -209,6 +218,7 @@ public class OBDomesticVRPControlParameters {
 
     /**
      * ^ Additional information that can not be captured in the structured fields and/or any other specific block
+     *
      * @return supplementaryData
      */
     @ApiModelProperty(value = "^ Additional information that can not be captured in the structured fields and/or any other specific block")

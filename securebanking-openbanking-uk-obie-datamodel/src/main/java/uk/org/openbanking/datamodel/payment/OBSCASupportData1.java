@@ -15,12 +15,14 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Supporting Data provided by TPP, when requesting SCA Exemption.
@@ -28,7 +30,7 @@ import java.util.Objects;
 @ApiModel(description = "Supporting Data provided by TPP, when requesting SCA Exemption.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-20T11:30:55.433304+01:00[Europe/London]")
 
-public class OBSCASupportData1   {
+public class OBSCASupportData1 {
 
     @JsonProperty("RequestedSCAExemptionType")
     private OBRequestedSCAExemptionTypeEnum requestedSCAExemptionType;
@@ -79,64 +81,65 @@ public class OBSCASupportData1   {
 
     public OBSCASupportData1 referencePaymentOrderId(String referencePaymentOrderId) {
         this.referencePaymentOrderId = referencePaymentOrderId;
-    return this;
-  }
-
-  /**
-   * If the payment is recurring, then this field is populated with the transaction identifier of the previous payment occurrence so that the ASPSP can verify that the PISP, amount and the payee are the same as the previous occurrence. The value here refers to the payment id e.g. DomesticPaymentId  
-   * @return referencePaymentOrderId
-   */
-  @ApiModelProperty(value = "If the payment is recurring, then this field is populated with the transaction identifier of the previous payment occurrence so that the ASPSP can verify that the PISP, amount and the payee are the same as the previous occurrence. The value here refers to the payment id e.g. DomesticPaymentId  ")
-  @Size(min = 1, max = 40)
-  public String getReferencePaymentOrderId() {
-    return referencePaymentOrderId;
-  }
-
-  public void setReferencePaymentOrderId(String referencePaymentOrderId) {
-    this.referencePaymentOrderId = referencePaymentOrderId;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-      if (this == o) {
-          return true;
-      }
-      if (o == null || getClass() != o.getClass()) {
-          return false;
-      }
-      OBSCASupportData1 obSCASupportData1 = (OBSCASupportData1) o;
-      return Objects.equals(this.requestedSCAExemptionType, obSCASupportData1.requestedSCAExemptionType) &&
-              Objects.equals(this.appliedAuthenticationApproach, obSCASupportData1.appliedAuthenticationApproach) &&
-              Objects.equals(this.referencePaymentOrderId, obSCASupportData1.referencePaymentOrderId);
-  }
-
-  @Override
-  public int hashCode() {
-      return Objects.hash(requestedSCAExemptionType, appliedAuthenticationApproach, referencePaymentOrderId);
-  }
-
-  @Override
-  public String toString() {
-      StringBuilder sb = new StringBuilder();
-      sb.append("class OBSCASupportData1 {\n");
-
-      sb.append("    requestedSCAExemptionType: ").append(toIndentedString(requestedSCAExemptionType)).append("\n");
-      sb.append("    appliedAuthenticationApproach: ").append(toIndentedString(appliedAuthenticationApproach)).append("\n");
-      sb.append("    referencePaymentOrderId: ").append(toIndentedString(referencePaymentOrderId)).append("\n");
-      sb.append("}");
-      return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * If the payment is recurring, then this field is populated with the transaction identifier of the previous payment occurrence so that the ASPSP can verify that the PISP, amount and the payee are the same as the previous occurrence. The value here refers to the payment id e.g. DomesticPaymentId
+     *
+     * @return referencePaymentOrderId
+     */
+    @ApiModelProperty(value = "If the payment is recurring, then this field is populated with the transaction identifier of the previous payment occurrence so that the ASPSP can verify that the PISP, amount and the payee are the same as the previous occurrence. The value here refers to the payment id e.g. DomesticPaymentId  ")
+    @Size(min = 1, max = 40)
+    public String getReferencePaymentOrderId() {
+        return referencePaymentOrderId;
+    }
+
+    public void setReferencePaymentOrderId(String referencePaymentOrderId) {
+        this.referencePaymentOrderId = referencePaymentOrderId;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBSCASupportData1 obSCASupportData1 = (OBSCASupportData1) o;
+        return Objects.equals(this.requestedSCAExemptionType, obSCASupportData1.requestedSCAExemptionType) &&
+                Objects.equals(this.appliedAuthenticationApproach, obSCASupportData1.appliedAuthenticationApproach) &&
+                Objects.equals(this.referencePaymentOrderId, obSCASupportData1.referencePaymentOrderId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(requestedSCAExemptionType, appliedAuthenticationApproach, referencePaymentOrderId);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBSCASupportData1 {\n");
+
+        sb.append("    requestedSCAExemptionType: ").append(toIndentedString(requestedSCAExemptionType)).append("\n");
+        sb.append("    appliedAuthenticationApproach: ").append(toIndentedString(appliedAuthenticationApproach)).append("\n");
+        sb.append("    referencePaymentOrderId: ").append(toIndentedString(referencePaymentOrderId)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

@@ -15,16 +15,19 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.joda.time.DateTime;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBDomesticVRPDetailsDataPaymentStatus
@@ -122,6 +125,7 @@ public class OBDomesticVRPDetailsDataPaymentStatus {
 
     /**
      * Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.
+     *
      * @return paymentTransactionId
      */
     @ApiModelProperty(required = true, value = "Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.")
@@ -143,6 +147,7 @@ public class OBDomesticVRPDetailsDataPaymentStatus {
 
     /**
      * Status of a transfer, as assigned by the transaction administrator.
+     *
      * @return status
      */
     @ApiModelProperty(required = true, value = "Status of a transfer, as assigned by the transaction administrator.")
@@ -164,6 +169,7 @@ public class OBDomesticVRPDetailsDataPaymentStatus {
 
     /**
      * Date and time at which the status was assigned to the transfer.
+     *
      * @return statusUpdateDateTime
      */
     @ApiModelProperty(required = true, value = "Date and time at which the status was assigned to the transfer. ")
@@ -186,6 +192,7 @@ public class OBDomesticVRPDetailsDataPaymentStatus {
 
     /**
      * Get statusDetail
+     *
      * @return statusDetail
      */
     @ApiModelProperty(value = "")

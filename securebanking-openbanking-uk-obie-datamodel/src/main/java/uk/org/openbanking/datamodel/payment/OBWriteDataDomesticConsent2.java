@@ -15,13 +15,16 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBWriteDataDomesticConsent2
@@ -29,95 +32,97 @@ import java.util.Objects;
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2019-01-28T11:15:38.268Z")
 
-public class OBWriteDataDomesticConsent2   {
-  @JsonProperty("Initiation")
-  private OBDomestic2 initiation = null;
+public class OBWriteDataDomesticConsent2 {
+    @JsonProperty("Initiation")
+    private OBDomestic2 initiation = null;
 
-  @JsonProperty("Authorisation")
-  private OBAuthorisation1 authorisation = null;
+    @JsonProperty("Authorisation")
+    private OBAuthorisation1 authorisation = null;
 
-  public OBWriteDataDomesticConsent2 initiation(OBDomestic2 initiation) {
-    this.initiation = initiation;
-    return this;
-  }
-
-  /**
-   * Get initiation
-   * @return initiation
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
-  @Valid
-
-  public OBDomestic2 getInitiation() {
-    return initiation;
-  }
-
-  public void setInitiation(OBDomestic2 initiation) {
-    this.initiation = initiation;
-  }
-
-  public OBWriteDataDomesticConsent2 authorisation(OBAuthorisation1 authorisation) {
-    this.authorisation = authorisation;
-    return this;
-  }
-
-  /**
-   * Get authorisation
-   * @return authorisation
-  **/
-  @ApiModelProperty(value = "")
-
-  @Valid
-
-  public OBAuthorisation1 getAuthorisation() {
-    return authorisation;
-  }
-
-  public void setAuthorisation(OBAuthorisation1 authorisation) {
-    this.authorisation = authorisation;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBWriteDataDomesticConsent2 initiation(OBDomestic2 initiation) {
+        this.initiation = initiation;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get initiation
+     *
+     * @return initiation
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
+
+    @Valid
+
+    public OBDomestic2 getInitiation() {
+        return initiation;
     }
-    OBWriteDataDomesticConsent2 obWriteDataDomesticConsent2 = (OBWriteDataDomesticConsent2) o;
-    return Objects.equals(this.initiation, obWriteDataDomesticConsent2.initiation) &&
-        Objects.equals(this.authorisation, obWriteDataDomesticConsent2.authorisation);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(initiation, authorisation);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBWriteDataDomesticConsent2 {\n");
-
-    sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
-    sb.append("    authorisation: ").append(toIndentedString(authorisation)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setInitiation(OBDomestic2 initiation) {
+        this.initiation = initiation;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public OBWriteDataDomesticConsent2 authorisation(OBAuthorisation1 authorisation) {
+        this.authorisation = authorisation;
+        return this;
+    }
+
+    /**
+     * Get authorisation
+     *
+     * @return authorisation
+     **/
+    @ApiModelProperty(value = "")
+
+    @Valid
+
+    public OBAuthorisation1 getAuthorisation() {
+        return authorisation;
+    }
+
+    public void setAuthorisation(OBAuthorisation1 authorisation) {
+        this.authorisation = authorisation;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBWriteDataDomesticConsent2 obWriteDataDomesticConsent2 = (OBWriteDataDomesticConsent2) o;
+        return Objects.equals(this.initiation, obWriteDataDomesticConsent2.initiation) &&
+                Objects.equals(this.authorisation, obWriteDataDomesticConsent2.authorisation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(initiation, authorisation);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBWriteDataDomesticConsent2 {\n");
+
+        sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
+        sb.append("    authorisation: ").append(toIndentedString(authorisation)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

@@ -15,16 +15,18 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification2;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification2;
 
 /**
  * Account
@@ -55,6 +57,7 @@ public class OBAccount1 {
 
     /**
      * A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.
+     *
      * @return accountId
      **/
     @ApiModelProperty(required = true, value = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.")
@@ -76,6 +79,7 @@ public class OBAccount1 {
 
     /**
      * Identification of the currency in which the account is held.  Usage: Currency should only be used in case one and the same account number covers several currencies and the initiating party needs to identify which currency needs to be used for settlement on the account.
+     *
      * @return currency
      **/
     @ApiModelProperty(required = true, value = "Identification of the currency in which the account is held.  Usage: Currency should only be used in case one and the same account number covers several currencies and the initiating party needs to identify which currency needs to be used for settlement on the account.")
@@ -97,6 +101,7 @@ public class OBAccount1 {
 
     /**
      * The nickname of the account, assigned by the account owner in order to provide an additional means of identification of the account.
+     *
      * @return nickname
      **/
     @ApiModelProperty(value = "The nickname of the account, assigned by the account owner in order to provide an additional means of identification of the account.")
@@ -117,6 +122,7 @@ public class OBAccount1 {
 
     /**
      * Get account
+     *
      * @return account
      **/
     @ApiModelProperty(value = "")
@@ -138,6 +144,7 @@ public class OBAccount1 {
 
     /**
      * Get servicer
+     *
      * @return servicer
      **/
     @ApiModelProperty(value = "")

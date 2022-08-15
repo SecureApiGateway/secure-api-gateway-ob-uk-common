@@ -28,104 +28,108 @@
 
 package uk.org.openbanking.datamodel.event;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBCallbackUrlData1
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-06-25T13:48:32.198+01:00")
 public class OBCallbackUrlData1 {
-  @JsonProperty("Url")
-  private String url = null;
+    @JsonProperty("Url")
+    private String url = null;
 
-  @JsonProperty("Version")
-  private String version = null;
+    @JsonProperty("Version")
+    private String version = null;
 
-  public OBCallbackUrlData1 url(String url) {
-    this.url = url;
-    return this;
-  }
-
-   /**
-   * Callback URL for a TPP hosted service. Will be used by ASPSPs, in conjunction with the resource name, to construct a URL to send event notifications to.
-   * @return url
-  **/
-   @NotNull
-   @ApiModelProperty(required = true, value = "Callback URL for a TPP hosted service. Will be used by ASPSPs, in conjunction with the resource name, to construct a URL to send event notifications to.")
-   public String getUrl() {
-    return url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public OBCallbackUrlData1 version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Version for the event notification.
-   * @return version
-  **/
-   @NotNull
-   @Size(min = 1, max = 10)
-   @ApiModelProperty(required = true, value = "Version for the event notification.")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBCallbackUrlData1 url(String url) {
+        this.url = url;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Callback URL for a TPP hosted service. Will be used by ASPSPs, in conjunction with the resource name, to construct a URL to send event notifications to.
+     *
+     * @return url
+     **/
+    @NotNull
+    @ApiModelProperty(required = true, value = "Callback URL for a TPP hosted service. Will be used by ASPSPs, in conjunction with the resource name, to construct a URL to send event notifications to.")
+    public String getUrl() {
+        return url;
     }
-    OBCallbackUrlData1 obCallbackUrlData1 = (OBCallbackUrlData1) o;
-    return Objects.equals(this.url, obCallbackUrlData1.url) &&
-        Objects.equals(this.version, obCallbackUrlData1.version);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(url, version);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBCallbackUrlData1 {\n");
-
-      sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setUrl(String url) {
+        this.url = url;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public OBCallbackUrlData1 version(String version) {
+        this.version = version;
+        return this;
+    }
+
+    /**
+     * Version for the event notification.
+     *
+     * @return version
+     **/
+    @NotNull
+    @Size(min = 1, max = 10)
+    @ApiModelProperty(required = true, value = "Version for the event notification.")
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBCallbackUrlData1 obCallbackUrlData1 = (OBCallbackUrlData1) o;
+        return Objects.equals(this.url, obCallbackUrlData1.url) &&
+                Objects.equals(this.version, obCallbackUrlData1.version);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(url, version);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBCallbackUrlData1 {\n");
+
+        sb.append("    url: ").append(toIndentedString(url)).append("\n");
+        sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

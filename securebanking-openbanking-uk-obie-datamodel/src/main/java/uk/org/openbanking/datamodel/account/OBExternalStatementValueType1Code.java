@@ -22,47 +22,47 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Statement value type, in a coded form.
  */
 public enum OBExternalStatementValueType1Code {
-  
-  AIRMILESPOINTS("AirMilesPoints"),
-  
-  AIRMILESPOINTSBALANCE("AirMilesPointsBalance"),
-  
-  CREDITS("Credits"),
-  
-  DEBITS("Debits"),
-  
-  HOTELPOINTS("HotelPoints"),
-  
-  HOTELPOINTSBALANCE("HotelPointsBalance"),
-  
-  RETAILSHOPPINGPOINTS("RetailShoppingPoints"),
-  
-  RETAILSHOPPINGPOINTSBALANCE("RetailShoppingPointsBalance");
 
-  private String value;
+    AIRMILESPOINTS("AirMilesPoints"),
 
-  OBExternalStatementValueType1Code(String value) {
-    this.value = value;
-  }
+    AIRMILESPOINTSBALANCE("AirMilesPointsBalance"),
 
-  public String getValue() {
-    return value;
-  }
+    CREDITS("Credits"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    DEBITS("Debits"),
 
-  @JsonCreator
-  public static OBExternalStatementValueType1Code fromValue(String text) {
-    for (OBExternalStatementValueType1Code b : OBExternalStatementValueType1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    HOTELPOINTS("HotelPoints"),
+
+    HOTELPOINTSBALANCE("HotelPointsBalance"),
+
+    RETAILSHOPPINGPOINTS("RetailShoppingPoints"),
+
+    RETAILSHOPPINGPOINTSBALANCE("RetailShoppingPointsBalance");
+
+    private String value;
+
+    OBExternalStatementValueType1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalStatementValueType1Code fromValue(String text) {
+        for (OBExternalStatementValueType1Code b : OBExternalStatementValueType1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

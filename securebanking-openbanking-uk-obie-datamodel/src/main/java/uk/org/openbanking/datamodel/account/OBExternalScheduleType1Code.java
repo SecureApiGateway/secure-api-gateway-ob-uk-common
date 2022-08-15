@@ -22,35 +22,35 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Specifies the scheduled payment date type requested
  */
 public enum OBExternalScheduleType1Code {
-  
-  ARRIVAL("Arrival"),
-  
-  EXECUTION("Execution");
 
-  private String value;
+    ARRIVAL("Arrival"),
 
-  OBExternalScheduleType1Code(String value) {
-    this.value = value;
-  }
+    EXECUTION("Execution");
 
-  public String getValue() {
-    return value;
-  }
+    private String value;
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static OBExternalScheduleType1Code fromValue(String text) {
-    for (OBExternalScheduleType1Code b : OBExternalScheduleType1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    OBExternalScheduleType1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalScheduleType1Code fromValue(String text) {
+        for (OBExternalScheduleType1Code b : OBExternalScheduleType1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

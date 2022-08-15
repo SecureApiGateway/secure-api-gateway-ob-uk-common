@@ -22,40 +22,40 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Specifies the payment context
  */
 public enum OBExternalPaymentContext1Code {
-  
-  BILLPAYMENT("BillPayment"),
-  
-  ECOMMERCEGOODS("EcommerceGoods"),
-  
-  ECOMMERCESERVICES("EcommerceServices"),
-  
-  OTHER("Other"),
-  
-  PARTYTOPARTY("PartyToParty");
 
-  private String value;
+    BILLPAYMENT("BillPayment"),
 
-  OBExternalPaymentContext1Code(String value) {
-    this.value = value;
-  }
+    ECOMMERCEGOODS("EcommerceGoods"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    ECOMMERCESERVICES("EcommerceServices"),
 
-  @JsonCreator
-  public static OBExternalPaymentContext1Code fromValue(String text) {
-    if (text == null) {
-      return null;
+    OTHER("Other"),
+
+    PARTYTOPARTY("PartyToParty");
+
+    private String value;
+
+    OBExternalPaymentContext1Code(String value) {
+        this.value = value;
     }
-    for (OBExternalPaymentContext1Code b : OBExternalPaymentContext1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
     }
-    throw new IllegalArgumentException("PaymentContextCode is not one of the valid values");
-  }
+
+    @JsonCreator
+    public static OBExternalPaymentContext1Code fromValue(String text) {
+        if (text == null) {
+            return null;
+        }
+        for (OBExternalPaymentContext1Code b : OBExternalPaymentContext1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("PaymentContextCode is not one of the valid values");
+    }
 }
 

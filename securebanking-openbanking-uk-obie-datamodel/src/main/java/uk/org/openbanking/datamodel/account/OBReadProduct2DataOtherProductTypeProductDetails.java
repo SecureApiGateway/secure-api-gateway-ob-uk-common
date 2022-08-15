@@ -15,16 +15,18 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModelProperty;
-
-import javax.validation.Valid;
-import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBReadProduct2DataOtherProductTypeProductDetails
@@ -73,8 +75,8 @@ public class OBReadProduct2DataOtherProductTypeProductDetails {
         GEYA("GEYA"),
 
         GEYO("GEYO"),
-    
-    PSCA("PSCA"),
+
+        PSCA("PSCA"),
 
         PSES("PSES"),
 

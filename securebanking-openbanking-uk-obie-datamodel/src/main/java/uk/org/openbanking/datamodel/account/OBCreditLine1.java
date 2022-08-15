@@ -15,15 +15,18 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 /**
  * Set of elements used to provide details on the credit line.
@@ -49,6 +52,7 @@ public class OBCreditLine1 {
 
     /**
      * Indicates whether or not the credit line is included in the balance of the account. Usage: If not present, credit line is not included in the balance amount of the account.
+     *
      * @return included
      **/
     @ApiModelProperty(required = true, value = "Indicates whether or not the credit line is included in the balance of the account. Usage: If not present, credit line is not included in the balance amount of the account.")
@@ -70,6 +74,7 @@ public class OBCreditLine1 {
 
     /**
      * Get type
+     *
      * @return type
      **/
     @ApiModelProperty(value = "")
@@ -91,6 +96,7 @@ public class OBCreditLine1 {
 
     /**
      * Get amount
+     *
      * @return amount
      **/
     @ApiModelProperty(value = "")

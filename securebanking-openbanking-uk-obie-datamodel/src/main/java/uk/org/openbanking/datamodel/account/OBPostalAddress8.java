@@ -15,19 +15,22 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-import uk.org.openbanking.datamodel.common.OBAddressTypeCode;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBAddressTypeCode;
 
 /**
  * Postal address of a party.
@@ -69,6 +72,7 @@ public class OBPostalAddress8 {
 
     /**
      * Get addressType
+     *
      * @return addressType
      **/
     @ApiModelProperty(value = "")
@@ -98,6 +102,7 @@ public class OBPostalAddress8 {
 
     /**
      * Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.
+     *
      * @return addressLine
      **/
     @ApiModelProperty(value = "Information that locates and identifies a specific address, as defined by postal services, that is presented in free format text.")
@@ -118,6 +123,7 @@ public class OBPostalAddress8 {
 
     /**
      * Name of a street or thoroughfare.
+     *
      * @return streetName
      **/
     @ApiModelProperty(value = "Name of a street or thoroughfare.")
@@ -138,6 +144,7 @@ public class OBPostalAddress8 {
 
     /**
      * Number that identifies the position of a building on a street.
+     *
      * @return buildingNumber
      **/
     @ApiModelProperty(value = "Number that identifies the position of a building on a street.")
@@ -158,6 +165,7 @@ public class OBPostalAddress8 {
 
     /**
      * Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.
+     *
      * @return postCode
      **/
     @ApiModelProperty(value = "Identifier consisting of a group of letters and/or numbers that is added to a postal address to assist the sorting of mail.")
@@ -178,6 +186,7 @@ public class OBPostalAddress8 {
 
     /**
      * Name of a built-up area, with defined boundaries, and a local government.
+     *
      * @return townName
      **/
     @ApiModelProperty(value = "Name of a built-up area, with defined boundaries, and a local government.")
@@ -198,6 +207,7 @@ public class OBPostalAddress8 {
 
     /**
      * Identifies a subdivision of a country eg, state, region, county.
+     *
      * @return countrySubDivision
      **/
     @ApiModelProperty(value = "Identifies a subdivision of a country eg, state, region, county.")
@@ -218,6 +228,7 @@ public class OBPostalAddress8 {
 
     /**
      * Nation with its own government, occupying a particular territory.
+     *
      * @return country
      **/
     @ApiModelProperty(required = true, value = "Nation with its own government, occupying a particular territory.")

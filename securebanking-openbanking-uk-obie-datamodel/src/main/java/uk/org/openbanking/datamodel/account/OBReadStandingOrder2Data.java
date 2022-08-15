@@ -15,14 +15,17 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import javax.validation.Valid;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBReadStandingOrder2Data
@@ -30,77 +33,78 @@ import java.util.Objects;
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
-public class OBReadStandingOrder2Data   {
-  @JsonProperty("StandingOrder")
-  @Valid
-  private List<OBStandingOrder2> standingOrder = null;
+public class OBReadStandingOrder2Data {
+    @JsonProperty("StandingOrder")
+    @Valid
+    private List<OBStandingOrder2> standingOrder = null;
 
-  public OBReadStandingOrder2Data standingOrder(List<OBStandingOrder2> standingOrder) {
-    this.standingOrder = standingOrder;
-    return this;
-  }
-
-  public OBReadStandingOrder2Data addStandingOrderItem(OBStandingOrder2 standingOrderItem) {
-    if (this.standingOrder == null) {
-      this.standingOrder = new ArrayList<OBStandingOrder2>();
+    public OBReadStandingOrder2Data standingOrder(List<OBStandingOrder2> standingOrder) {
+        this.standingOrder = standingOrder;
+        return this;
     }
-    this.standingOrder.add(standingOrderItem);
-    return this;
-  }
 
-  /**
-   * Account to or from which a cash entry is made.
-   * @return standingOrder
-  **/
-  @ApiModelProperty(value = "Account to or from which a cash entry is made.")
-
-  @Valid
-
-  public List<OBStandingOrder2> getStandingOrder() {
-    return standingOrder;
-  }
-
-  public void setStandingOrder(List<OBStandingOrder2> standingOrder) {
-    this.standingOrder = standingOrder;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBReadStandingOrder2Data addStandingOrderItem(OBStandingOrder2 standingOrderItem) {
+        if (this.standingOrder == null) {
+            this.standingOrder = new ArrayList<OBStandingOrder2>();
+        }
+        this.standingOrder.add(standingOrderItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Account to or from which a cash entry is made.
+     *
+     * @return standingOrder
+     **/
+    @ApiModelProperty(value = "Account to or from which a cash entry is made.")
+
+    @Valid
+
+    public List<OBStandingOrder2> getStandingOrder() {
+        return standingOrder;
     }
-    OBReadStandingOrder2Data obReadStandingOrder2Data = (OBReadStandingOrder2Data) o;
-    return Objects.equals(this.standingOrder, obReadStandingOrder2Data.standingOrder);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(standingOrder);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBReadStandingOrder2Data {\n");
-
-    sb.append("    standingOrder: ").append(toIndentedString(standingOrder)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setStandingOrder(List<OBStandingOrder2> standingOrder) {
+        this.standingOrder = standingOrder;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBReadStandingOrder2Data obReadStandingOrder2Data = (OBReadStandingOrder2Data) o;
+        return Objects.equals(this.standingOrder, obReadStandingOrder2Data.standingOrder);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(standingOrder);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBReadStandingOrder2Data {\n");
+
+        sb.append("    standingOrder: ").append(toIndentedString(standingOrder)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

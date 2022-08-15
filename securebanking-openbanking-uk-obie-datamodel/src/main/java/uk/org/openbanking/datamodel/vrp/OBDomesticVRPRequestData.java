@@ -15,13 +15,15 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBDomesticVRPRequestData
@@ -47,6 +49,7 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Identifier for the Domestic VRP Consent that this payment is made under.
+     *
      * @return consentId
      */
     @ApiModelProperty(required = true, value = "Identifier for the Domestic VRP Consent that this payment is made under.")
@@ -68,6 +71,7 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get psUAuthenticationMethod
+     *
      * @return psUAuthenticationMethod
      */
     @ApiModelProperty(required = true, value = "")
@@ -89,6 +93,7 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get initiation
+     *
      * @return initiation
      */
     @ApiModelProperty(required = true, value = "")
@@ -111,6 +116,7 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get instruction
+     *
      * @return instruction
      */
     @ApiModelProperty(required = true, value = "")

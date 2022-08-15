@@ -15,14 +15,16 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.Links;
-import uk.org.openbanking.datamodel.common.OBRisk1;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.Links;
+import uk.org.openbanking.datamodel.common.OBRisk1;
 
 /**
  * OBDomesticVRPResponse
@@ -48,6 +50,7 @@ public class OBDomesticVRPResponse {
 
     /**
      * Get data
+     *
      * @return data
      */
     @ApiModelProperty(required = true, value = "")
@@ -70,6 +73,7 @@ public class OBDomesticVRPResponse {
 
     /**
      * Get risk
+     *
      * @return risk
      */
     @ApiModelProperty(required = true, value = "")
@@ -92,6 +96,7 @@ public class OBDomesticVRPResponse {
 
     /**
      * Get links
+     *
      * @return links
      */
     @ApiModelProperty(required = true, value = "")
@@ -114,6 +119,7 @@ public class OBDomesticVRPResponse {
 
     /**
      * Meta Data relevant to the payload. At present no fields are used for VRP.
+     *
      * @return meta
      */
     @ApiModelProperty(required = true, value = "Meta Data relevant to the payload. At present no fields are used for VRP.")

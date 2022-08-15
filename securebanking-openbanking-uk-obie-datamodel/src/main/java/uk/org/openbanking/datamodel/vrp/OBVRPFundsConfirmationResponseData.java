@@ -15,15 +15,18 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.joda.time.DateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 /**
  * OBVRPFundsConfirmationResponseData
@@ -56,6 +59,7 @@ public class OBVRPFundsConfirmationResponseData {
 
     /**
      * Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation resource.
+     *
      * @return fundsConfirmationId
      */
     @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation resource.")
@@ -77,6 +81,7 @@ public class OBVRPFundsConfirmationResponseData {
 
     /**
      * Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.
+     *
      * @return consentId
      */
     @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.")
@@ -98,6 +103,7 @@ public class OBVRPFundsConfirmationResponseData {
 
     /**
      * Date and time at which the resource was created.
+     *
      * @return creationDateTime
      */
     @ApiModelProperty(required = true, value = "Date and time at which the resource was created.")
@@ -120,6 +126,7 @@ public class OBVRPFundsConfirmationResponseData {
 
     /**
      * Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.
+     *
      * @return reference
      */
     @ApiModelProperty(required = true, value = "Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.")
@@ -141,6 +148,7 @@ public class OBVRPFundsConfirmationResponseData {
 
     /**
      * Get fundsAvailableResult
+     *
      * @return fundsAvailableResult
      */
     @ApiModelProperty(required = true, value = "")
@@ -163,6 +171,7 @@ public class OBVRPFundsConfirmationResponseData {
 
     /**
      * Get instructedAmount
+     *
      * @return instructedAmount
      */
     @ApiModelProperty(required = true, value = "")

@@ -22,37 +22,37 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Specifies the status of the authorisation flow in code form.
  */
 public enum OBExternalStatus2Code {
-  
-  AUTHORISED("Authorised"),
-  
-  AWAITINGFURTHERAUTHORISATION("AwaitingFurtherAuthorisation"),
-  
-  REJECTED("Rejected");
 
-  private String value;
+    AUTHORISED("Authorised"),
 
-  OBExternalStatus2Code(String value) {
-    this.value = value;
-  }
+    AWAITINGFURTHERAUTHORISATION("AwaitingFurtherAuthorisation"),
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    REJECTED("Rejected");
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    private String value;
 
-  @JsonCreator
-  public static OBExternalStatus2Code fromValue(String text) {
-    for (OBExternalStatus2Code b : OBExternalStatus2Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    OBExternalStatus2Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + text + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalStatus2Code fromValue(String text) {
+        for (OBExternalStatus2Code b : OBExternalStatus2Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + text + "'");
+    }
 }
 

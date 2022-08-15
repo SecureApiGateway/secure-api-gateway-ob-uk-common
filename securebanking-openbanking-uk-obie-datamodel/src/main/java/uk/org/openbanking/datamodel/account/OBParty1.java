@@ -15,17 +15,20 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBParty1
@@ -66,6 +69,7 @@ public class OBParty1 {
 
     /**
      * A unique and immutable identifier used to identify the customer resource. This identifier has no meaning to the account owner.
+     *
      * @return partyId
      **/
     @ApiModelProperty(required = true, value = "A unique and immutable identifier used to identify the customer resource. This identifier has no meaning to the account owner.")
@@ -87,6 +91,7 @@ public class OBParty1 {
 
     /**
      * Number assigned by an agent to identify its customer.
+     *
      * @return partyNumber
      **/
     @ApiModelProperty(value = "Number assigned by an agent to identify its customer.")
@@ -107,6 +112,7 @@ public class OBParty1 {
 
     /**
      * Get partyType
+     *
      * @return partyType
      **/
     @ApiModelProperty(value = "")
@@ -128,6 +134,7 @@ public class OBParty1 {
 
     /**
      * Name by which a party is known and which is usually used to identify that party.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "Name by which a party is known and which is usually used to identify that party.")
@@ -148,6 +155,7 @@ public class OBParty1 {
 
     /**
      * Address for electronic mail (e-mail).
+     *
      * @return emailAddress
      **/
     @ApiModelProperty(value = "Address for electronic mail (e-mail).")
@@ -168,6 +176,7 @@ public class OBParty1 {
 
     /**
      * Collection of information that identifies a phone number, as defined by telecom services.
+     *
      * @return phone
      **/
     @ApiModelProperty(value = "Collection of information that identifies a phone number, as defined by telecom services.")
@@ -188,6 +197,7 @@ public class OBParty1 {
 
     /**
      * Collection of information that identifies a mobile phone number, as defined by telecom services.
+     *
      * @return mobile
      **/
     @ApiModelProperty(value = "Collection of information that identifies a mobile phone number, as defined by telecom services.")
@@ -216,6 +226,7 @@ public class OBParty1 {
 
     /**
      * Postal address of a party.
+     *
      * @return address
      **/
     @ApiModelProperty(value = "Postal address of a party.")

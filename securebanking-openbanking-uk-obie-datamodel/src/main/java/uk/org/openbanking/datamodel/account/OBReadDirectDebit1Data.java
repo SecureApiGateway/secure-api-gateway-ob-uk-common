@@ -15,14 +15,17 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import javax.validation.Valid;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBReadDirectDebit1Data
@@ -30,77 +33,78 @@ import java.util.Objects;
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
-public class OBReadDirectDebit1Data   {
-  @JsonProperty("DirectDebit")
-  @Valid
-  private List<OBDirectDebit1> directDebit = null;
+public class OBReadDirectDebit1Data {
+    @JsonProperty("DirectDebit")
+    @Valid
+    private List<OBDirectDebit1> directDebit = null;
 
-  public OBReadDirectDebit1Data directDebit(List<OBDirectDebit1> directDebit) {
-    this.directDebit = directDebit;
-    return this;
-  }
-
-  public OBReadDirectDebit1Data addDirectDebitItem(OBDirectDebit1 directDebitItem) {
-    if (this.directDebit == null) {
-      this.directDebit = new ArrayList<OBDirectDebit1>();
+    public OBReadDirectDebit1Data directDebit(List<OBDirectDebit1> directDebit) {
+        this.directDebit = directDebit;
+        return this;
     }
-    this.directDebit.add(directDebitItem);
-    return this;
-  }
 
-  /**
-   * Account to or from which a cash entry is made.
-   * @return directDebit
-  **/
-  @ApiModelProperty(value = "Account to or from which a cash entry is made.")
-
-  @Valid
-
-  public List<OBDirectDebit1> getDirectDebit() {
-    return directDebit;
-  }
-
-  public void setDirectDebit(List<OBDirectDebit1> directDebit) {
-    this.directDebit = directDebit;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBReadDirectDebit1Data addDirectDebitItem(OBDirectDebit1 directDebitItem) {
+        if (this.directDebit == null) {
+            this.directDebit = new ArrayList<OBDirectDebit1>();
+        }
+        this.directDebit.add(directDebitItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Account to or from which a cash entry is made.
+     *
+     * @return directDebit
+     **/
+    @ApiModelProperty(value = "Account to or from which a cash entry is made.")
+
+    @Valid
+
+    public List<OBDirectDebit1> getDirectDebit() {
+        return directDebit;
     }
-    OBReadDirectDebit1Data obReadDirectDebit1Data = (OBReadDirectDebit1Data) o;
-    return Objects.equals(this.directDebit, obReadDirectDebit1Data.directDebit);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(directDebit);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBReadDirectDebit1Data {\n");
-    
-    sb.append("    directDebit: ").append(toIndentedString(directDebit)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setDirectDebit(List<OBDirectDebit1> directDebit) {
+        this.directDebit = directDebit;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBReadDirectDebit1Data obReadDirectDebit1Data = (OBReadDirectDebit1Data) o;
+        return Objects.equals(this.directDebit, obReadDirectDebit1Data.directDebit);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(directDebit);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBReadDirectDebit1Data {\n");
+
+        sb.append("    directDebit: ").append(toIndentedString(directDebit)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

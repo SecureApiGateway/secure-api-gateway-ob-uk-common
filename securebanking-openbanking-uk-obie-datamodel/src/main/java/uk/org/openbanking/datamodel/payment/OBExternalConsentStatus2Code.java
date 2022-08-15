@@ -22,37 +22,37 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Specifies the status of consent resource in code form.
  */
 public enum OBExternalConsentStatus2Code {
-  
-  AUTHORISED("Authorised"),
-  
-  AWAITINGAUTHORISATION("AwaitingAuthorisation"),
-  
-  AWAITINGUPLOAD("AwaitingUpload"),
-  
-  CONSUMED("Consumed"),
-  
-  REJECTED("Rejected");
 
-  private String value;
+    AUTHORISED("Authorised"),
 
-  OBExternalConsentStatus2Code(String value) {
-    this.value = value;
-  }
+    AWAITINGAUTHORISATION("AwaitingAuthorisation"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    AWAITINGUPLOAD("AwaitingUpload"),
 
-  @JsonCreator
-  public static OBExternalConsentStatus2Code fromValue(String text) {
-    for (OBExternalConsentStatus2Code b : OBExternalConsentStatus2Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    CONSUMED("Consumed"),
+
+    REJECTED("Rejected");
+
+    private String value;
+
+    OBExternalConsentStatus2Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalConsentStatus2Code fromValue(String text) {
+        for (OBExternalConsentStatus2Code b : OBExternalConsentStatus2Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

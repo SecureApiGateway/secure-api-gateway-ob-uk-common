@@ -28,13 +28,15 @@
 
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * Provides the details to identify an account.
@@ -61,6 +63,7 @@ public class OBAccount4Account {
 
     /**
      * Get identification
+     *
      * @return identification
      **/
     @NotNull
@@ -81,6 +84,7 @@ public class OBAccount4Account {
 
     /**
      * Get name
+     *
      * @return name
      **/
     @Size(min = 1, max = 350)
@@ -100,6 +104,7 @@ public class OBAccount4Account {
 
     /**
      * Get schemeName
+     *
      * @return schemeName
      **/
     @NotNull
@@ -119,6 +124,7 @@ public class OBAccount4Account {
 
     /**
      * Get secondaryIdentification
+     *
      * @return secondaryIdentification
      **/
     @Size(min = 1, max = 34)

@@ -15,12 +15,14 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
 import javax.validation.Valid;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The confirmation of funds response contains the result of a funds availability check.
@@ -38,6 +40,7 @@ public class OBVRPFundsConfirmationResponse {
 
     /**
      * Get data
+     *
      * @return data
      */
     @ApiModelProperty(value = "")

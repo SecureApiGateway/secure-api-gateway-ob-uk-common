@@ -22,37 +22,37 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Name of the identification scheme, in a coded form as published in an external list.
  */
 public enum OBExternalAccountIdentification3Code {
-  
-  IBAN("IBAN"),
-  
-  PAN("PAN"),
-  
-  SORTCODEACCOUNTNUMBER("SortCodeAccountNumber");
 
-  private String value;
+    IBAN("IBAN"),
 
-  OBExternalAccountIdentification3Code(String value) {
-    this.value = value;
-  }
+    PAN("PAN"),
 
-  public String getValue() {
-    return value;
-  }
+    SORTCODEACCOUNTNUMBER("SortCodeAccountNumber");
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    private String value;
 
-  @JsonCreator
-  public static OBExternalAccountIdentification3Code fromValue(String text) {
-    for (OBExternalAccountIdentification3Code b : OBExternalAccountIdentification3Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    OBExternalAccountIdentification3Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalAccountIdentification3Code fromValue(String text) {
+        for (OBExternalAccountIdentification3Code b : OBExternalAccountIdentification3Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

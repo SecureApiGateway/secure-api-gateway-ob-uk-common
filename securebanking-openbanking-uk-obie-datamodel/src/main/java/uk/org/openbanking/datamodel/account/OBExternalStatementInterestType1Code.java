@@ -22,41 +22,41 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Interest amount type, in a coded form.
  */
 public enum OBExternalStatementInterestType1Code {
-  
-  BALANCETRANSFER("BalanceTransfer"),
-  
-  CASH("Cash"),
-  
-  ESTIMATEDNEXT("EstimatedNext"),
-  
-  PURCHASE("Purchase"),
-  
-  TOTAL("Total");
 
-  private String value;
+    BALANCETRANSFER("BalanceTransfer"),
 
-  OBExternalStatementInterestType1Code(String value) {
-    this.value = value;
-  }
+    CASH("Cash"),
 
-  public String getValue() {
-    return value;
-  }
+    ESTIMATEDNEXT("EstimatedNext"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    PURCHASE("Purchase"),
 
-  @JsonCreator
-  public static OBExternalStatementInterestType1Code fromValue(String text) {
-    for (OBExternalStatementInterestType1Code b : OBExternalStatementInterestType1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    TOTAL("Total");
+
+    private String value;
+
+    OBExternalStatementInterestType1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalStatementInterestType1Code fromValue(String text) {
+        for (OBExternalStatementInterestType1Code b : OBExternalStatementInterestType1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

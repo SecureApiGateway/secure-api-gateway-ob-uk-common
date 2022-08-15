@@ -22,41 +22,41 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Name of the card scheme.
  */
 public enum OBExternalCardSchemeType1Code {
-  
-  AMERICANEXPRESS("AmericanExpress"),
-  
-  DINERS("Diners"),
-  
-  DISCOVER("Discover"),
-  
-  MASTERCARD("MasterCard"),
-  
-  VISA("VISA");
 
-  private String value;
+    AMERICANEXPRESS("AmericanExpress"),
 
-  OBExternalCardSchemeType1Code(String value) {
-    this.value = value;
-  }
+    DINERS("Diners"),
 
-  public String getValue() {
-    return value;
-  }
+    DISCOVER("Discover"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    MASTERCARD("MasterCard"),
 
-  @JsonCreator
-  public static OBExternalCardSchemeType1Code fromValue(String text) {
-    for (OBExternalCardSchemeType1Code b : OBExternalCardSchemeType1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    VISA("VISA");
+
+    private String value;
+
+    OBExternalCardSchemeType1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalCardSchemeType1Code fromValue(String text) {
+        for (OBExternalCardSchemeType1Code b : OBExternalCardSchemeType1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

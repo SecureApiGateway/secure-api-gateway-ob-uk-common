@@ -28,17 +28,20 @@
 
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.common.OBExternalRequestStatus1Code;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
+import org.joda.time.DateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBExternalRequestStatus1Code;
 
 /**
  * OBReadConsentResponse1Data
@@ -77,6 +80,7 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Unique identification as assigned to identify the account access consent resource.
+     *
      * @return consentId
      **/
     @NotNull
@@ -97,6 +101,7 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Get creationDateTime
+     *
      * @return creationDateTime
      **/
     @NotNull
@@ -116,6 +121,7 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Specified date and time the permissions will expire. If this is not populated, the permissions will be open ended.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return expirationDateTime
      **/
     @ApiModelProperty(value = "Specified date and time the permissions will expire. If this is not populated, the permissions will be open ended.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
@@ -162,6 +168,7 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Specifies the status of consent resource in code form.
+     *
      * @return status
      **/
     @NotNull
@@ -181,6 +188,7 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Get statusUpdateDateTime
+     *
      * @return statusUpdateDateTime
      **/
     @NotNull
@@ -200,6 +208,7 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Specified start date and time for the transaction query period. If this is not populated, the start date will be open ended, and data will be returned from the earliest available transaction.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return transactionFromDateTime
      **/
     @ApiModelProperty(value = "Specified start date and time for the transaction query period. If this is not populated, the start date will be open ended, and data will be returned from the earliest available transaction.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
@@ -218,6 +227,7 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Specified end date and time for the transaction query period. If this is not populated, the end date will be open ended, and data will be returned to the latest available transaction.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return transactionToDateTime
      **/
     @ApiModelProperty(value = "Specified end date and time for the transaction query period. If this is not populated, the end date will be open ended, and data will be returned to the latest available transaction.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")

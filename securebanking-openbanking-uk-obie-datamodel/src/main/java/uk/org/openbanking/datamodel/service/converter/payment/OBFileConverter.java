@@ -15,14 +15,14 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.payment.OBFile1;
-import uk.org.openbanking.datamodel.payment.OBFile2;
-import uk.org.openbanking.datamodel.payment.OBWriteFile2DataInitiation;
-
 import static uk.org.openbanking.datamodel.service.converter.payment.OBAccountConverter.toOBCashAccount3;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBAccountConverter.toOBWriteDomestic2DataInitiationDebtorAccount;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBRemittanceInformationConverter.toOBRemittanceInformation1;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBRemittanceInformationConverter.toOBWriteDomestic2DataInitiationRemittanceInformation;
+
+import uk.org.openbanking.datamodel.payment.OBFile1;
+import uk.org.openbanking.datamodel.payment.OBFile2;
+import uk.org.openbanking.datamodel.payment.OBWriteFile2DataInitiation;
 
 public class OBFileConverter {
 

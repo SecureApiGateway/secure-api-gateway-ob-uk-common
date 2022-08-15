@@ -15,16 +15,19 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.joda.time.DateTime;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBDomesticVRPConsentResponseData
@@ -140,6 +143,7 @@ public class OBDomesticVRPConsentResponseData {
 
     /**
      * Indicates whether information about RefundAccount should be included in the payment response.
+     *
      * @return readRefundAccount
      */
     @ApiModelProperty(value = "Indicates whether information about RefundAccount should be included in the payment response. ")
@@ -160,6 +164,7 @@ public class OBDomesticVRPConsentResponseData {
 
     /**
      * Unique identification as assigned by the ASPSP to uniquely identify the consent resource.
+     *
      * @return consentId
      */
     @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the consent resource. ")
@@ -181,6 +186,7 @@ public class OBDomesticVRPConsentResponseData {
 
     /**
      * Date and time at which the resource was created.
+     *
      * @return creationDateTime
      */
     @ApiModelProperty(required = true, value = "Date and time at which the resource was created. ")
@@ -203,6 +209,7 @@ public class OBDomesticVRPConsentResponseData {
 
     /**
      * Specifies the status of resource in code form.
+     *
      * @return status
      */
     @ApiModelProperty(required = true, value = "Specifies the status of resource in code form. ")
@@ -224,6 +231,7 @@ public class OBDomesticVRPConsentResponseData {
 
     /**
      * Date and time at which the resource status was updated.
+     *
      * @return statusUpdateDateTime
      */
     @ApiModelProperty(required = true, value = "Date and time at which the resource status was updated. ")
@@ -246,6 +254,7 @@ public class OBDomesticVRPConsentResponseData {
 
     /**
      * Get controlParameters
+     *
      * @return controlParameters
      */
     @ApiModelProperty(required = true, value = "")
@@ -268,6 +277,7 @@ public class OBDomesticVRPConsentResponseData {
 
     /**
      * Get initiation
+     *
      * @return initiation
      */
     @ApiModelProperty(required = true, value = "")
@@ -290,6 +300,7 @@ public class OBDomesticVRPConsentResponseData {
 
     /**
      * Get debtorAccount
+     *
      * @return debtorAccount
      */
     @ApiModelProperty(value = "")

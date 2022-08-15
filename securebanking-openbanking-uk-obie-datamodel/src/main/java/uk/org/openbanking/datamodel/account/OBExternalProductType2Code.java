@@ -23,52 +23,52 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum OBExternalProductType2Code {
 
-  BUSINESSCURRENTACCOUNT("BusinessCurrentAccount"),
+    BUSINESSCURRENTACCOUNT("BusinessCurrentAccount"),
 
-  COMMERCIALCREDITCARD("CommercialCreditCard"),
+    COMMERCIALCREDITCARD("CommercialCreditCard"),
 
-  OTHER("Other"),
+    OTHER("Other"),
 
-  PERSONALCURRENTACCOUNT("PersonalCurrentAccount"),
+    PERSONALCURRENTACCOUNT("PersonalCurrentAccount"),
 
-  SMELOAN("SMELoan"),
+    SMELOAN("SMELoan"),
 
-  @Deprecated
-  /**
-   * Use BUSINESSCURRENTACCOUNT instead in V3
-   */
-  BCA("BCA"),
+    @Deprecated
+    /**
+     * Use BUSINESSCURRENTACCOUNT instead in V3
+     */
+            BCA("BCA"),
 
-  @Deprecated
-  /**
-   * Use PERSONALCURRENTACCOUNT instead in V3
-   */
-  PCA("PCA");
+    @Deprecated
+    /**
+     * Use PERSONALCURRENTACCOUNT instead in V3
+     */
+            PCA("PCA");
 
-  private String value;
+    private String value;
 
-  OBExternalProductType2Code(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return value;
-  }
-
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static OBExternalProductType2Code fromValue(String text) {
-    for (OBExternalProductType2Code b : OBExternalProductType2Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    OBExternalProductType2Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalProductType2Code fromValue(String text) {
+        for (OBExternalProductType2Code b : OBExternalProductType2Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

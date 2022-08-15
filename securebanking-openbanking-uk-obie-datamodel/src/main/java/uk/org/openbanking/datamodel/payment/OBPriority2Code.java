@@ -28,31 +28,31 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * migrating to new API versions considerably easier.
  */
 public enum OBPriority2Code {
-  
-  NORMAL("Normal"),
-  
-  URGENT("Urgent");
 
-  private String value;
+    NORMAL("Normal"),
 
-  OBPriority2Code(String value) {
-    this.value = value;
-  }
+    URGENT("Urgent");
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    private String value;
 
-  @JsonCreator
-  public static OBPriority2Code fromValue(String text) {
-    for (OBPriority2Code b : OBPriority2Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    OBPriority2Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBPriority2Code fromValue(String text) {
+        for (OBPriority2Code b : OBPriority2Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

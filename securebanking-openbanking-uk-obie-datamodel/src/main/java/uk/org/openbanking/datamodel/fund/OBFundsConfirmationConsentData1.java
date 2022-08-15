@@ -26,107 +26,111 @@
  */
 package uk.org.openbanking.datamodel.fund;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.common.OBCashAccount3;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+
+import org.joda.time.DateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBCashAccount3;
 
 /**
  * OBFundsConfirmationConsentData1
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-11-15T11:58:26.525Z")
 public class OBFundsConfirmationConsentData1 {
-  @JsonProperty("ExpirationDateTime")
-  private DateTime expirationDateTime = null;
+    @JsonProperty("ExpirationDateTime")
+    private DateTime expirationDateTime = null;
 
-  // OBCashAccount3 has been updated to reflect validation within OBFundsConfirmationConsent1DataDebtorAccount
-  @JsonProperty("DebtorAccount")
-  private OBCashAccount3 debtorAccount = null;
+    // OBCashAccount3 has been updated to reflect validation within OBFundsConfirmationConsent1DataDebtorAccount
+    @JsonProperty("DebtorAccount")
+    private OBCashAccount3 debtorAccount = null;
 
-  public OBFundsConfirmationConsentData1 expirationDateTime(DateTime expirationDateTime) {
-    this.expirationDateTime = expirationDateTime;
-    return this;
-  }
-
-   /**
-   * Specified date and time the funds confirmation authorisation will expire.  If this is not populated, the authorisation will be open ended. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-   * @return expirationDateTime
-  **/
-  @ApiModelProperty(value = "Specified date and time the funds confirmation authorisation will expire.  If this is not populated, the authorisation will be open ended. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-  public DateTime getExpirationDateTime() {
-    return expirationDateTime;
-  }
-
-  public void setExpirationDateTime(DateTime expirationDateTime) {
-    this.expirationDateTime = expirationDateTime;
-  }
-
-  public OBFundsConfirmationConsentData1 debtorAccount(OBCashAccount3 debtorAccount) {
-    this.debtorAccount = debtorAccount;
-    return this;
-  }
-
-  /**
-   * Get debtorAccount
-   *
-   * @return debtorAccount
-   **/
-  @NotNull
-  @Valid
-  @ApiModelProperty(required = true, value = "")
-  public OBCashAccount3 getDebtorAccount() {
-    return debtorAccount;
-  }
-
-  public void setDebtorAccount(OBCashAccount3 debtorAccount) {
-    this.debtorAccount = debtorAccount;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBFundsConfirmationConsentData1 expirationDateTime(DateTime expirationDateTime) {
+        this.expirationDateTime = expirationDateTime;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Specified date and time the funds confirmation authorisation will expire.  If this is not populated, the authorisation will be open ended. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
+     * @return expirationDateTime
+     **/
+    @ApiModelProperty(value = "Specified date and time the funds confirmation authorisation will expire.  If this is not populated, the authorisation will be open ended. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
+    public DateTime getExpirationDateTime() {
+        return expirationDateTime;
     }
-    OBFundsConfirmationConsentData1 obFundsConfirmationConsentData1 = (OBFundsConfirmationConsentData1) o;
-    return Objects.equals(this.expirationDateTime, obFundsConfirmationConsentData1.expirationDateTime) &&
-        Objects.equals(this.debtorAccount, obFundsConfirmationConsentData1.debtorAccount);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(expirationDateTime, debtorAccount);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBFundsConfirmationConsentData1 {\n");
-
-    sb.append("    expirationDateTime: ").append(toIndentedString(expirationDateTime)).append("\n");
-    sb.append("    debtorAccount: ").append(toIndentedString(debtorAccount)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setExpirationDateTime(DateTime expirationDateTime) {
+        this.expirationDateTime = expirationDateTime;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
-  
+
+    public OBFundsConfirmationConsentData1 debtorAccount(OBCashAccount3 debtorAccount) {
+        this.debtorAccount = debtorAccount;
+        return this;
+    }
+
+    /**
+     * Get debtorAccount
+     *
+     * @return debtorAccount
+     **/
+    @NotNull
+    @Valid
+    @ApiModelProperty(required = true, value = "")
+    public OBCashAccount3 getDebtorAccount() {
+        return debtorAccount;
+    }
+
+    public void setDebtorAccount(OBCashAccount3 debtorAccount) {
+        this.debtorAccount = debtorAccount;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBFundsConfirmationConsentData1 obFundsConfirmationConsentData1 = (OBFundsConfirmationConsentData1) o;
+        return Objects.equals(this.expirationDateTime, obFundsConfirmationConsentData1.expirationDateTime) &&
+                Objects.equals(this.debtorAccount, obFundsConfirmationConsentData1.debtorAccount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(expirationDateTime, debtorAccount);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBFundsConfirmationConsentData1 {\n");
+
+        sb.append("    expirationDateTime: ").append(toIndentedString(expirationDateTime)).append("\n");
+        sb.append("    debtorAccount: ").append(toIndentedString(debtorAccount)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+
 }
 

@@ -15,7 +15,11 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.OBExchangeRate1;
+import uk.org.openbanking.datamodel.payment.OBExchangeRate2;
+import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationExchangeRateInformation;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsentResponse4DataExchangeRateInformation;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsentResponse6DataExchangeRateInformation;
 
 public class OBExchangeRateConverter {
 
@@ -52,6 +56,7 @@ public class OBExchangeRateConverter {
                 .rateType(exchangeRateInformation.getRateType())
                 .contractIdentification(exchangeRateInformation.getContractIdentification());
     }
+
     public static OBWriteInternationalConsentResponse4DataExchangeRateInformation toOBWriteInternationalConsentResponse4DataExchangeRateInformation(OBWriteInternationalConsentResponse6DataExchangeRateInformation calculatedExchangeRate) {
         return calculatedExchangeRate == null ? null : (new OBWriteInternationalConsentResponse4DataExchangeRateInformation())
                 .unitCurrency(calculatedExchangeRate.getUnitCurrency())

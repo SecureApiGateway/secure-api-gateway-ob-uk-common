@@ -15,12 +15,15 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
+import java.util.Objects;
 
 import javax.validation.Valid;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBReadParty1Data
@@ -28,68 +31,69 @@ import java.util.Objects;
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
-public class OBReadParty1Data   {
-  @JsonProperty("Party")
-  private OBParty1 party = null;
+public class OBReadParty1Data {
+    @JsonProperty("Party")
+    private OBParty1 party = null;
 
-  public OBReadParty1Data party(OBParty1 party) {
-    this.party = party;
-    return this;
-  }
-
-  /**
-   * Get party
-   * @return party
-  **/
-  @ApiModelProperty(value = "")
-
-  @Valid
-
-  public OBParty1 getParty() {
-    return party;
-  }
-
-  public void setParty(OBParty1 party) {
-    this.party = party;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBReadParty1Data party(OBParty1 party) {
+        this.party = party;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get party
+     *
+     * @return party
+     **/
+    @ApiModelProperty(value = "")
+
+    @Valid
+
+    public OBParty1 getParty() {
+        return party;
     }
-    OBReadParty1Data obReadParty1Data = (OBReadParty1Data) o;
-    return Objects.equals(this.party, obReadParty1Data.party);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(party);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBReadParty1Data {\n");
-    
-    sb.append("    party: ").append(toIndentedString(party)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setParty(OBParty1 party) {
+        this.party = party;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBReadParty1Data obReadParty1Data = (OBReadParty1Data) o;
+        return Objects.equals(this.party, obReadParty1Data.party);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(party);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBReadParty1Data {\n");
+
+        sb.append("    party: ").append(toIndentedString(party)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

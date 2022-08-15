@@ -15,14 +15,15 @@
  */
 package uk.org.openbanking.datamodel.discovery;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-
 import java.util.Objects;
 import java.util.StringJoiner;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+
 @ApiModel(description = "Funds Confirmation endpoints corresponding to a specific version")
-public class OBDiscoveryAPILinksFundsConfirmation3 implements OBDiscoveryAPILinks{
+public class OBDiscoveryAPILinksFundsConfirmation3 implements OBDiscoveryAPILinks {
 
     @JsonProperty("CreateFundsConfirmationConsent")
     private String createFundsConfirmationConsent;

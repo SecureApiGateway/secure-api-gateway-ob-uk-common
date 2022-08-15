@@ -22,37 +22,37 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Party type, in a coded form.
  */
 public enum OBExternalPartyType1Code {
-  
-  DELEGATE("Delegate"),
-  
-  JOINT("Joint"),
-  
-  SOLE("Sole");
 
-  private String value;
+    DELEGATE("Delegate"),
 
-  OBExternalPartyType1Code(String value) {
-    this.value = value;
-  }
+    JOINT("Joint"),
 
-  public String getValue() {
-    return value;
-  }
+    SOLE("Sole");
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    private String value;
 
-  @JsonCreator
-  public static OBExternalPartyType1Code fromValue(String text) {
-    for (OBExternalPartyType1Code b : OBExternalPartyType1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    OBExternalPartyType1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalPartyType1Code fromValue(String text) {
+        for (OBExternalPartyType1Code b : OBExternalPartyType1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

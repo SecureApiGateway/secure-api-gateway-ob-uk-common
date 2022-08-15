@@ -15,7 +15,11 @@
  */
 package uk.org.openbanking.datamodel.discovery;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class GenericOBDiscoveryAPILinks implements OBDiscoveryAPILinks {
     private Map<String, String> links = new HashMap<>();

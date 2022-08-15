@@ -15,15 +15,17 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * OBDomesticVRPControlParametersPeriodicLimits
@@ -127,6 +129,7 @@ public class OBDomesticVRPControlParametersPeriodicLimits {
 
     /**
      * ^ Period type for this period limit
+     *
      * @return periodType
      */
     @ApiModelProperty(required = true, value = "^ Period type for this period limit")
@@ -148,6 +151,7 @@ public class OBDomesticVRPControlParametersPeriodicLimits {
 
     /**
      * ^ Specifies whether the period starts on the date of consent creation or lines up with a calendar
+     *
      * @return periodAlignment
      */
     @ApiModelProperty(required = true, value = "^ Specifies whether the period starts on the date of consent creation or lines up with a calendar")
@@ -169,6 +173,7 @@ public class OBDomesticVRPControlParametersPeriodicLimits {
 
     /**
      * A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.
+     *
      * @return amount
      */
     @ApiModelProperty(required = true, value = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.")
@@ -190,6 +195,7 @@ public class OBDomesticVRPControlParametersPeriodicLimits {
 
     /**
      * A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".
+     *
      * @return currency
      */
     @ApiModelProperty(required = true, value = "A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".")

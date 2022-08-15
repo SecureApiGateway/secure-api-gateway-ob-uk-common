@@ -22,39 +22,39 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * The card authorisation type.
  */
 public enum OBExternalCardAuthorisationType1Code {
-  
-  CONSUMERDEVICE("ConsumerDevice"),
-  
-  CONTACTLESS("Contactless"),
-  
-  NONE("None"),
-  
-  PIN("PIN");
 
-  private String value;
+    CONSUMERDEVICE("ConsumerDevice"),
 
-  OBExternalCardAuthorisationType1Code(String value) {
-    this.value = value;
-  }
+    CONTACTLESS("Contactless"),
 
-  public String getValue() {
-    return value;
-  }
+    NONE("None"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    PIN("PIN");
 
-  @JsonCreator
-  public static OBExternalCardAuthorisationType1Code fromValue(String text) {
-    for (OBExternalCardAuthorisationType1Code b : OBExternalCardAuthorisationType1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    private String value;
+
+    OBExternalCardAuthorisationType1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalCardAuthorisationType1Code fromValue(String text) {
+        for (OBExternalCardAuthorisationType1Code b : OBExternalCardAuthorisationType1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

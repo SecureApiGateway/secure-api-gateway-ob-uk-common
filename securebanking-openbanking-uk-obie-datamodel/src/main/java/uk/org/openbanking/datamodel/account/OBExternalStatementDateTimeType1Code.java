@@ -22,47 +22,47 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Date time type, in a coded form.
  */
 public enum OBExternalStatementDateTimeType1Code {
-  
-  BALANCETRANSFERPROMOEND("BalanceTransferPromoEnd"),
-  
-  DIRECTDEBITDUE("DirectDebitDue"),
-  
-  LASTPAYMENT("LastPayment"),
-  
-  LASTSTATEMENT("LastStatement"),
-  
-  NEXTSTATEMENT("NextStatement"),
-  
-  PAYMENTDUE("PaymentDue"),
-  
-  PURCHASEPROMOEND("PurchasePromoEnd"),
-  
-  STATEMENTAVAILABLE("StatementAvailable");
 
-  private String value;
+    BALANCETRANSFERPROMOEND("BalanceTransferPromoEnd"),
 
-  OBExternalStatementDateTimeType1Code(String value) {
-    this.value = value;
-  }
+    DIRECTDEBITDUE("DirectDebitDue"),
 
-  public String getValue() {
-    return value;
-  }
+    LASTPAYMENT("LastPayment"),
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    LASTSTATEMENT("LastStatement"),
 
-  @JsonCreator
-  public static OBExternalStatementDateTimeType1Code fromValue(String text) {
-    for (OBExternalStatementDateTimeType1Code b : OBExternalStatementDateTimeType1Code.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    NEXTSTATEMENT("NextStatement"),
+
+    PAYMENTDUE("PaymentDue"),
+
+    PURCHASEPROMOEND("PurchasePromoEnd"),
+
+    STATEMENTAVAILABLE("StatementAvailable");
+
+    private String value;
+
+    OBExternalStatementDateTimeType1Code(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalStatementDateTimeType1Code fromValue(String text) {
+        for (OBExternalStatementDateTimeType1Code b : OBExternalStatementDateTimeType1Code.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

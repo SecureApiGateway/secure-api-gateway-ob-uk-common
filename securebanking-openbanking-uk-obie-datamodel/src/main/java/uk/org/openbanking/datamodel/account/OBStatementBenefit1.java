@@ -15,16 +15,19 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import java.util.Objects;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+
+import org.springframework.validation.annotation.Validated;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 /**
  * Set of elements used to provide details of a benefit or reward amount for the statement resource.
@@ -33,95 +36,97 @@ import java.util.Objects;
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
-public class OBStatementBenefit1   {
-  @JsonProperty("Type")
-  private String type = null;
+public class OBStatementBenefit1 {
+    @JsonProperty("Type")
+    private String type = null;
 
-  @JsonProperty("Amount")
-  private OBActiveOrHistoricCurrencyAndAmount amount = null;
+    @JsonProperty("Amount")
+    private OBActiveOrHistoricCurrencyAndAmount amount = null;
 
-  public OBStatementBenefit1 type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Benefit type, in a coded form.
-   * @return type
-  **/
-  @ApiModelProperty(required = true, value = "Benefit type, in a coded form.")
-  @NotNull
-
-@Size(min=1,max=40) 
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public OBStatementBenefit1 amount(OBActiveOrHistoricCurrencyAndAmount amount) {
-    this.amount = amount;
-    return this;
-  }
-
-  /**
-   * Get amount
-   * @return amount
-  **/
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
-
-  @Valid
-
-  public OBActiveOrHistoricCurrencyAndAmount getAmount() {
-    return amount;
-  }
-
-  public void setAmount(OBActiveOrHistoricCurrencyAndAmount amount) {
-    this.amount = amount;
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBStatementBenefit1 type(String type) {
+        this.type = type;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Benefit type, in a coded form.
+     *
+     * @return type
+     **/
+    @ApiModelProperty(required = true, value = "Benefit type, in a coded form.")
+    @NotNull
+
+    @Size(min = 1, max = 40)
+    public String getType() {
+        return type;
     }
-    OBStatementBenefit1 obStatementBenefit1 = (OBStatementBenefit1) o;
-    return Objects.equals(this.type, obStatementBenefit1.type) &&
-        Objects.equals(this.amount, obStatementBenefit1.amount);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(type, amount);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBStatementBenefit1 {\n");
-    
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setType(String type) {
+        this.type = type;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public OBStatementBenefit1 amount(OBActiveOrHistoricCurrencyAndAmount amount) {
+        this.amount = amount;
+        return this;
+    }
+
+    /**
+     * Get amount
+     *
+     * @return amount
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
+
+    @Valid
+
+    public OBActiveOrHistoricCurrencyAndAmount getAmount() {
+        return amount;
+    }
+
+    public void setAmount(OBActiveOrHistoricCurrencyAndAmount amount) {
+        this.amount = amount;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBStatementBenefit1 obStatementBenefit1 = (OBStatementBenefit1) o;
+        return Objects.equals(this.type, obStatementBenefit1.type) &&
+                Objects.equals(this.amount, obStatementBenefit1.amount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, amount);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBStatementBenefit1 {\n");
+
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

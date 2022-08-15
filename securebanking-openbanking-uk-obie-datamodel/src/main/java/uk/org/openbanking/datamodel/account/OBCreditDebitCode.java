@@ -22,31 +22,31 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * Gets or Sets OBCreditDebitCode
  */
 public enum OBCreditDebitCode {
-  
-  CREDIT("Credit"),
-  
-  DEBIT("Debit");
 
-  private String value;
+    CREDIT("Credit"),
 
-  OBCreditDebitCode(String value) {
-    this.value = value;
-  }
+    DEBIT("Debit");
 
-  @Override
-  @JsonValue
-  public String toString() {
-    return String.valueOf(value);
-  }
+    private String value;
 
-  @JsonCreator
-  public static OBCreditDebitCode fromValue(String text) {
-    for (OBCreditDebitCode b : OBCreditDebitCode.values()) {
-      if (String.valueOf(b.value).equals(text)) {
-        return b;
-      }
+    OBCreditDebitCode(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    @Override
+    @JsonValue
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBCreditDebitCode fromValue(String text) {
+        for (OBCreditDebitCode b : OBCreditDebitCode.values()) {
+            if (String.valueOf(b.value).equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 
