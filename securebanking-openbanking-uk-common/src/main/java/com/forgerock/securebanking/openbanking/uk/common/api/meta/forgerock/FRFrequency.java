@@ -75,17 +75,22 @@ public class FRFrequency {
      */
     public String getSentence() {
         switch (frequencyType) {
-            case EVERYDAY, EVERYWORKINGDAY -> {
+            case EVERYDAY:
+            case EVERYWORKINGDAY: {
                 return frequencyType.getSentence();
             }
-            case INTERVALWEEKDAY, INTERVALMONTHDAY, WEEKINMONTHDAY, INTERVALDAY -> {
+            case INTERVALWEEKDAY:
+            case INTERVALMONTHDAY:
+            case WEEKINMONTHDAY:
+            case INTERVALDAY: {
                 return String.format(frequencyType.getSentence(), getTheOrdinalNumberForRecurrence(recurrence), getTheOrdinalNumberForDay(day));
             }
-            case QUARTERDAY -> {
+            case QUARTERDAY: {
                 FRQuarterType quarterType = fromQuarterTypeString(recurrence);
                 return String.format(frequencyType.getSentence(), fromDateTimeToString(quarterType.getQuarter1()), fromDateTimeToString(quarterType.getQuarter2()), fromDateTimeToString(quarterType.getQuarter3()), fromDateTimeToString(quarterType.getQuarter4()));
             }
-            default -> throw new IllegalStateException("Frequency type not identified");
+            default:
+                throw new IllegalStateException("Frequency type not identified");
         }
     }
 

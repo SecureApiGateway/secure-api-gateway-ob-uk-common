@@ -27,14 +27,18 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case PENDING -> OBTransactionIndividualStatus1Code.PENDING;
-            case ACCEPTEDSETTLEMENTINPROCESS -> OBTransactionIndividualStatus1Code.ACCEPTEDSETTLEMENTINPROCESS;
-            case ACCEPTEDSETTLEMENTCOMPLETED,
-                    ACCEPTEDCREDITSETTLEMENTCOMPLETED,
-                    ACCEPTEDWITHOUTPOSTING -> OBTransactionIndividualStatus1Code.ACCEPTEDSETTLEMENTCOMPLETED;
-            default -> OBTransactionIndividualStatus1Code.REJECTED;
-        };
+        switch (status) {
+            case PENDING:
+                return OBTransactionIndividualStatus1Code.PENDING;
+            case ACCEPTEDSETTLEMENTINPROCESS:
+                return OBTransactionIndividualStatus1Code.ACCEPTEDSETTLEMENTINPROCESS;
+            case ACCEPTEDSETTLEMENTCOMPLETED:
+            case ACCEPTEDCREDITSETTLEMENTCOMPLETED:
+            case ACCEPTEDWITHOUTPOSTING:
+                return OBTransactionIndividualStatus1Code.ACCEPTEDSETTLEMENTCOMPLETED;
+            default:
+                return OBTransactionIndividualStatus1Code.REJECTED;
+        }
     }
 
     // v3.0 to 3.1.2 - Domestic/International Scheduled Payments or Standing Orders, or File Payments
@@ -42,11 +46,14 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case INITIATIONPENDING -> OBExternalStatus1Code.INITIATIONPENDING;
-            case INITIATIONCOMPLETED -> OBExternalStatus1Code.INITIATIONCOMPLETED;
-            default -> OBExternalStatus1Code.INITIATIONFAILED;
-        };
+        switch (status) {
+            case INITIATIONPENDING:
+                return OBExternalStatus1Code.INITIATIONPENDING;
+            case INITIATIONCOMPLETED:
+                return OBExternalStatus1Code.INITIATIONCOMPLETED;
+            default:
+                return OBExternalStatus1Code.INITIATIONFAILED;
+        }
     }
 
     // v3.1.3 - Immediate Domestic Payments
@@ -54,14 +61,18 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case PENDING -> OBWriteDomesticResponse3Data.StatusEnum.PENDING;
-            case ACCEPTEDSETTLEMENTINPROCESS -> OBWriteDomesticResponse3Data.StatusEnum.ACCEPTEDSETTLEMENTINPROCESS;
-            case ACCEPTEDSETTLEMENTCOMPLETED,
-                    ACCEPTEDCREDITSETTLEMENTCOMPLETED,
-                    ACCEPTEDWITHOUTPOSTING -> OBWriteDomesticResponse3Data.StatusEnum.ACCEPTEDSETTLEMENTCOMPLETED;
-            default -> OBWriteDomesticResponse3Data.StatusEnum.REJECTED;
-        };
+        switch (status) {
+            case PENDING:
+                return OBWriteDomesticResponse3Data.StatusEnum.PENDING;
+            case ACCEPTEDSETTLEMENTINPROCESS:
+                return OBWriteDomesticResponse3Data.StatusEnum.ACCEPTEDSETTLEMENTINPROCESS;
+            case ACCEPTEDSETTLEMENTCOMPLETED:
+            case ACCEPTEDCREDITSETTLEMENTCOMPLETED:
+            case ACCEPTEDWITHOUTPOSTING:
+                return OBWriteDomesticResponse3Data.StatusEnum.ACCEPTEDSETTLEMENTCOMPLETED;
+            default:
+                return OBWriteDomesticResponse3Data.StatusEnum.REJECTED;
+        }
     }
 
     // v3.1.4 - Immediate Domestic Payments
@@ -69,14 +80,18 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case PENDING -> OBWriteDomesticResponse4Data.StatusEnum.PENDING;
-            case ACCEPTEDSETTLEMENTINPROCESS -> OBWriteDomesticResponse4Data.StatusEnum.ACCEPTEDSETTLEMENTINPROCESS;
-            case ACCEPTEDSETTLEMENTCOMPLETED,
-                    ACCEPTEDCREDITSETTLEMENTCOMPLETED,
-                    ACCEPTEDWITHOUTPOSTING -> OBWriteDomesticResponse4Data.StatusEnum.ACCEPTEDSETTLEMENTCOMPLETED;
-            default -> OBWriteDomesticResponse4Data.StatusEnum.REJECTED;
-        };
+        switch (status) {
+            case PENDING:
+                return OBWriteDomesticResponse4Data.StatusEnum.PENDING;
+            case ACCEPTEDSETTLEMENTINPROCESS:
+                return OBWriteDomesticResponse4Data.StatusEnum.ACCEPTEDSETTLEMENTINPROCESS;
+            case ACCEPTEDSETTLEMENTCOMPLETED:
+            case ACCEPTEDCREDITSETTLEMENTCOMPLETED:
+            case ACCEPTEDWITHOUTPOSTING:
+                return OBWriteDomesticResponse4Data.StatusEnum.ACCEPTEDSETTLEMENTCOMPLETED;
+            default:
+                return OBWriteDomesticResponse4Data.StatusEnum.REJECTED;
+        }
     }
 
     // v3.1.5 - Immediate Domestic Payments
@@ -84,14 +99,18 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case PENDING -> OBWriteDomesticResponse5Data.StatusEnum.PENDING;
-            case ACCEPTEDSETTLEMENTINPROCESS -> OBWriteDomesticResponse5Data.StatusEnum.ACCEPTEDSETTLEMENTINPROCESS;
-            case ACCEPTEDSETTLEMENTCOMPLETED,
-                    ACCEPTEDCREDITSETTLEMENTCOMPLETED,
-                    ACCEPTEDWITHOUTPOSTING -> OBWriteDomesticResponse5Data.StatusEnum.ACCEPTEDSETTLEMENTCOMPLETED;
-            default -> OBWriteDomesticResponse5Data.StatusEnum.REJECTED;
-        };
+        switch (status) {
+            case PENDING:
+                return OBWriteDomesticResponse5Data.StatusEnum.PENDING;
+            case ACCEPTEDSETTLEMENTINPROCESS:
+                return OBWriteDomesticResponse5Data.StatusEnum.ACCEPTEDSETTLEMENTINPROCESS;
+            case ACCEPTEDSETTLEMENTCOMPLETED:
+            case ACCEPTEDCREDITSETTLEMENTCOMPLETED:
+            case ACCEPTEDWITHOUTPOSTING:
+                return OBWriteDomesticResponse5Data.StatusEnum.ACCEPTEDSETTLEMENTCOMPLETED;
+            default:
+                return OBWriteDomesticResponse5Data.StatusEnum.REJECTED;
+        }
     }
 
     // v3.1.3 - Domestic Scheduled Payments
@@ -99,12 +118,16 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case INITIATIONPENDING -> OBWriteDomesticScheduledResponse3Data.StatusEnum.INITIATIONPENDING;
-            case INITIATIONCOMPLETED -> OBWriteDomesticScheduledResponse3Data.StatusEnum.INITIATIONCOMPLETED;
-            case CANCELLED -> OBWriteDomesticScheduledResponse3Data.StatusEnum.CANCELLED;
-            default -> OBWriteDomesticScheduledResponse3Data.StatusEnum.INITIATIONFAILED;
-        };
+        switch (status) {
+            case INITIATIONPENDING:
+                return OBWriteDomesticScheduledResponse3Data.StatusEnum.INITIATIONPENDING;
+            case INITIATIONCOMPLETED:
+                return OBWriteDomesticScheduledResponse3Data.StatusEnum.INITIATIONCOMPLETED;
+            case CANCELLED:
+                return OBWriteDomesticScheduledResponse3Data.StatusEnum.CANCELLED;
+            default:
+                return OBWriteDomesticScheduledResponse3Data.StatusEnum.INITIATIONFAILED;
+        }
     }
 
     // v3.1.4 - Domestic Scheduled Payments
@@ -112,12 +135,16 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case INITIATIONPENDING -> OBWriteDomesticScheduledResponse4Data.StatusEnum.INITIATIONPENDING;
-            case INITIATIONCOMPLETED -> OBWriteDomesticScheduledResponse4Data.StatusEnum.INITIATIONCOMPLETED;
-            case CANCELLED -> OBWriteDomesticScheduledResponse4Data.StatusEnum.CANCELLED;
-            default -> OBWriteDomesticScheduledResponse4Data.StatusEnum.INITIATIONFAILED;
-        };
+        switch (status) {
+            case INITIATIONPENDING:
+                return OBWriteDomesticScheduledResponse4Data.StatusEnum.INITIATIONPENDING;
+            case INITIATIONCOMPLETED:
+                return OBWriteDomesticScheduledResponse4Data.StatusEnum.INITIATIONCOMPLETED;
+            case CANCELLED:
+                return OBWriteDomesticScheduledResponse4Data.StatusEnum.CANCELLED;
+            default:
+                return OBWriteDomesticScheduledResponse4Data.StatusEnum.INITIATIONFAILED;
+        }
     }
 
     // v3.1.5 - Domestic Scheduled Payments
@@ -125,12 +152,16 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case INITIATIONPENDING -> OBWriteDomesticScheduledResponse5Data.StatusEnum.INITIATIONPENDING;
-            case INITIATIONCOMPLETED -> OBWriteDomesticScheduledResponse5Data.StatusEnum.INITIATIONCOMPLETED;
-            case CANCELLED -> OBWriteDomesticScheduledResponse5Data.StatusEnum.CANCELLED;
-            default -> OBWriteDomesticScheduledResponse5Data.StatusEnum.INITIATIONFAILED;
-        };
+        switch (status) {
+            case INITIATIONPENDING:
+                return OBWriteDomesticScheduledResponse5Data.StatusEnum.INITIATIONPENDING;
+            case INITIATIONCOMPLETED:
+                return OBWriteDomesticScheduledResponse5Data.StatusEnum.INITIATIONCOMPLETED;
+            case CANCELLED:
+                return OBWriteDomesticScheduledResponse5Data.StatusEnum.CANCELLED;
+            default:
+                return OBWriteDomesticScheduledResponse5Data.StatusEnum.INITIATIONFAILED;
+        }
     }
 
     // v3.1.3 - Domestic Standing Orders
@@ -138,12 +169,16 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case INITIATIONPENDING -> OBWriteDomesticStandingOrderResponse4Data.StatusEnum.INITIATIONPENDING;
-            case INITIATIONCOMPLETED -> OBWriteDomesticStandingOrderResponse4Data.StatusEnum.INITIATIONCOMPLETED;
-            case CANCELLED -> OBWriteDomesticStandingOrderResponse4Data.StatusEnum.CANCELLED;
-            default -> OBWriteDomesticStandingOrderResponse4Data.StatusEnum.INITIATIONFAILED;
-        };
+        switch (status) {
+            case INITIATIONPENDING:
+                return OBWriteDomesticStandingOrderResponse4Data.StatusEnum.INITIATIONPENDING;
+            case INITIATIONCOMPLETED:
+                return OBWriteDomesticStandingOrderResponse4Data.StatusEnum.INITIATIONCOMPLETED;
+            case CANCELLED:
+                return OBWriteDomesticStandingOrderResponse4Data.StatusEnum.CANCELLED;
+            default:
+                return OBWriteDomesticStandingOrderResponse4Data.StatusEnum.INITIATIONFAILED;
+        }
     }
 
     // v3.1.4 - Domestic Standing Orders
@@ -151,12 +186,16 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case INITIATIONPENDING -> OBWriteDomesticStandingOrderResponse5Data.StatusEnum.INITIATIONPENDING;
-            case INITIATIONCOMPLETED -> OBWriteDomesticStandingOrderResponse5Data.StatusEnum.INITIATIONCOMPLETED;
-            case CANCELLED -> OBWriteDomesticStandingOrderResponse5Data.StatusEnum.CANCELLED;
-            default -> OBWriteDomesticStandingOrderResponse5Data.StatusEnum.INITIATIONFAILED;
-        };
+        switch (status) {
+            case INITIATIONPENDING:
+                return OBWriteDomesticStandingOrderResponse5Data.StatusEnum.INITIATIONPENDING;
+            case INITIATIONCOMPLETED:
+                return OBWriteDomesticStandingOrderResponse5Data.StatusEnum.INITIATIONCOMPLETED;
+            case CANCELLED:
+                return OBWriteDomesticStandingOrderResponse5Data.StatusEnum.CANCELLED;
+            default:
+                return OBWriteDomesticStandingOrderResponse5Data.StatusEnum.INITIATIONFAILED;
+        }
     }
 
     // v3.1.5 - Domestic Standing Orders
@@ -164,12 +203,16 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case INITIATIONPENDING -> OBWriteDomesticStandingOrderResponse6Data.StatusEnum.INITIATIONPENDING;
-            case INITIATIONCOMPLETED -> OBWriteDomesticStandingOrderResponse6Data.StatusEnum.INITIATIONCOMPLETED;
-            case CANCELLED -> OBWriteDomesticStandingOrderResponse6Data.StatusEnum.CANCELLED;
-            default -> OBWriteDomesticStandingOrderResponse6Data.StatusEnum.INITIATIONFAILED;
-        };
+        switch (status) {
+            case INITIATIONPENDING:
+                return OBWriteDomesticStandingOrderResponse6Data.StatusEnum.INITIATIONPENDING;
+            case INITIATIONCOMPLETED:
+                return OBWriteDomesticStandingOrderResponse6Data.StatusEnum.INITIATIONCOMPLETED;
+            case CANCELLED:
+                return OBWriteDomesticStandingOrderResponse6Data.StatusEnum.CANCELLED;
+            default:
+                return OBWriteDomesticStandingOrderResponse6Data.StatusEnum.INITIATIONFAILED;
+        }
     }
 
     // v3.1.3 - Immediate International Payments
@@ -177,14 +220,19 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case PENDING -> OBWriteInternationalResponse4Data.StatusEnum.PENDING;
-            case ACCEPTEDSETTLEMENTINPROCESS -> OBWriteInternationalResponse4Data.StatusEnum.ACCEPTEDSETTLEMENTINPROCESS;
-            case ACCEPTEDSETTLEMENTCOMPLETED,
-                    ACCEPTEDCREDITSETTLEMENTCOMPLETED,
-                    ACCEPTEDWITHOUTPOSTING -> OBWriteInternationalResponse4Data.StatusEnum.ACCEPTEDSETTLEMENTCOMPLETED;
-            default -> OBWriteInternationalResponse4Data.StatusEnum.REJECTED;
-        };
+        switch (status) {
+            case PENDING:
+                return OBWriteInternationalResponse4Data.StatusEnum.PENDING;
+            case ACCEPTEDSETTLEMENTINPROCESS:
+                return
+                        OBWriteInternationalResponse4Data.StatusEnum.ACCEPTEDSETTLEMENTINPROCESS;
+            case ACCEPTEDSETTLEMENTCOMPLETED:
+            case ACCEPTEDCREDITSETTLEMENTCOMPLETED:
+            case ACCEPTEDWITHOUTPOSTING:
+                return OBWriteInternationalResponse4Data.StatusEnum.ACCEPTEDSETTLEMENTCOMPLETED;
+            default:
+                return OBWriteInternationalResponse4Data.StatusEnum.REJECTED;
+        }
     }
 
     // v3.1.4 - Immediate International Payments
@@ -192,14 +240,19 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case PENDING -> OBWriteInternationalResponse5Data.StatusEnum.PENDING;
-            case ACCEPTEDSETTLEMENTINPROCESS -> OBWriteInternationalResponse5Data.StatusEnum.ACCEPTEDSETTLEMENTINPROCESS;
-            case ACCEPTEDSETTLEMENTCOMPLETED,
-                    ACCEPTEDCREDITSETTLEMENTCOMPLETED,
-                    ACCEPTEDWITHOUTPOSTING -> OBWriteInternationalResponse5Data.StatusEnum.ACCEPTEDSETTLEMENTCOMPLETED;
-            default -> OBWriteInternationalResponse5Data.StatusEnum.REJECTED;
-        };
+        switch (status) {
+            case PENDING:
+                return OBWriteInternationalResponse5Data.StatusEnum.PENDING;
+            case ACCEPTEDSETTLEMENTINPROCESS:
+                return
+                        OBWriteInternationalResponse5Data.StatusEnum.ACCEPTEDSETTLEMENTINPROCESS;
+            case ACCEPTEDSETTLEMENTCOMPLETED:
+            case ACCEPTEDCREDITSETTLEMENTCOMPLETED:
+            case ACCEPTEDWITHOUTPOSTING:
+                return OBWriteInternationalResponse5Data.StatusEnum.ACCEPTEDSETTLEMENTCOMPLETED;
+            default:
+                return OBWriteInternationalResponse5Data.StatusEnum.REJECTED;
+        }
     }
 
     // v3.1.3 - International Scheduled Payments
@@ -207,12 +260,16 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case INITIATIONPENDING -> OBWriteInternationalScheduledResponse4Data.StatusEnum.INITIATIONPENDING;
-            case INITIATIONCOMPLETED -> OBWriteInternationalScheduledResponse4Data.StatusEnum.INITIATIONCOMPLETED;
-            case CANCELLED -> OBWriteInternationalScheduledResponse4Data.StatusEnum.CANCELLED;
-            default -> OBWriteInternationalScheduledResponse4Data.StatusEnum.INITIATIONFAILED;
-        };
+        switch (status) {
+            case INITIATIONPENDING:
+                return OBWriteInternationalScheduledResponse4Data.StatusEnum.INITIATIONPENDING;
+            case INITIATIONCOMPLETED:
+                return OBWriteInternationalScheduledResponse4Data.StatusEnum.INITIATIONCOMPLETED;
+            case CANCELLED:
+                return OBWriteInternationalScheduledResponse4Data.StatusEnum.CANCELLED;
+            default:
+                return OBWriteInternationalScheduledResponse4Data.StatusEnum.INITIATIONFAILED;
+        }
     }
 
     // v3.1.4 - International Scheduled Payments
@@ -220,12 +277,16 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case INITIATIONPENDING -> OBWriteInternationalScheduledResponse5Data.StatusEnum.INITIATIONPENDING;
-            case INITIATIONCOMPLETED -> OBWriteInternationalScheduledResponse5Data.StatusEnum.INITIATIONCOMPLETED;
-            case CANCELLED -> OBWriteInternationalScheduledResponse5Data.StatusEnum.CANCELLED;
-            default -> OBWriteInternationalScheduledResponse5Data.StatusEnum.INITIATIONFAILED;
-        };
+        switch (status) {
+            case INITIATIONPENDING:
+                return OBWriteInternationalScheduledResponse5Data.StatusEnum.INITIATIONPENDING;
+            case INITIATIONCOMPLETED:
+                return OBWriteInternationalScheduledResponse5Data.StatusEnum.INITIATIONCOMPLETED;
+            case CANCELLED:
+                return OBWriteInternationalScheduledResponse5Data.StatusEnum.CANCELLED;
+            default:
+                return OBWriteInternationalScheduledResponse5Data.StatusEnum.INITIATIONFAILED;
+        }
     }
 
     // v3.1.5 - International Scheduled Payments
@@ -233,12 +294,16 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case INITIATIONPENDING -> OBWriteInternationalScheduledResponse6Data.StatusEnum.INITIATIONPENDING;
-            case INITIATIONCOMPLETED -> OBWriteInternationalScheduledResponse6Data.StatusEnum.INITIATIONCOMPLETED;
-            case CANCELLED -> OBWriteInternationalScheduledResponse6Data.StatusEnum.CANCELLED;
-            default -> OBWriteInternationalScheduledResponse6Data.StatusEnum.INITIATIONFAILED;
-        };
+        switch (status) {
+            case INITIATIONPENDING:
+                return OBWriteInternationalScheduledResponse6Data.StatusEnum.INITIATIONPENDING;
+            case INITIATIONCOMPLETED:
+                return OBWriteInternationalScheduledResponse6Data.StatusEnum.INITIATIONCOMPLETED;
+            case CANCELLED:
+                return OBWriteInternationalScheduledResponse6Data.StatusEnum.CANCELLED;
+            default:
+                return OBWriteInternationalScheduledResponse6Data.StatusEnum.INITIATIONFAILED;
+        }
     }
 
     // v3.1.3 - International Standing Orders
@@ -246,12 +311,16 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case INITIATIONPENDING -> OBWriteInternationalStandingOrderResponse5Data.StatusEnum.INITIATIONPENDING;
-            case INITIATIONCOMPLETED -> OBWriteInternationalStandingOrderResponse5Data.StatusEnum.INITIATIONCOMPLETED;
-            case CANCELLED -> OBWriteInternationalStandingOrderResponse5Data.StatusEnum.CANCELLED;
-            default -> OBWriteInternationalStandingOrderResponse5Data.StatusEnum.INITIATIONFAILED;
-        };
+        switch (status) {
+            case INITIATIONPENDING:
+                return OBWriteInternationalStandingOrderResponse5Data.StatusEnum.INITIATIONPENDING;
+            case INITIATIONCOMPLETED:
+                return OBWriteInternationalStandingOrderResponse5Data.StatusEnum.INITIATIONCOMPLETED;
+            case CANCELLED:
+                return OBWriteInternationalStandingOrderResponse5Data.StatusEnum.CANCELLED;
+            default:
+                return OBWriteInternationalStandingOrderResponse5Data.StatusEnum.INITIATIONFAILED;
+        }
     }
 
     // v3.1.4 - International Standing Orders
@@ -259,12 +328,16 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case INITIATIONPENDING -> OBWriteInternationalStandingOrderResponse6Data.StatusEnum.INITIATIONPENDING;
-            case INITIATIONCOMPLETED -> OBWriteInternationalStandingOrderResponse6Data.StatusEnum.INITIATIONCOMPLETED;
-            case CANCELLED -> OBWriteInternationalStandingOrderResponse6Data.StatusEnum.CANCELLED;
-            default -> OBWriteInternationalStandingOrderResponse6Data.StatusEnum.INITIATIONFAILED;
-        };
+        switch (status) {
+            case INITIATIONPENDING:
+                return OBWriteInternationalStandingOrderResponse6Data.StatusEnum.INITIATIONPENDING;
+            case INITIATIONCOMPLETED:
+                return OBWriteInternationalStandingOrderResponse6Data.StatusEnum.INITIATIONCOMPLETED;
+            case CANCELLED:
+                return OBWriteInternationalStandingOrderResponse6Data.StatusEnum.CANCELLED;
+            default:
+                return OBWriteInternationalStandingOrderResponse6Data.StatusEnum.INITIATIONFAILED;
+        }
     }
 
     // v3.1.5 - International Standing Orders
@@ -272,12 +345,16 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case INITIATIONPENDING -> OBWriteInternationalStandingOrderResponse7Data.StatusEnum.INITIATIONPENDING;
-            case INITIATIONCOMPLETED -> OBWriteInternationalStandingOrderResponse7Data.StatusEnum.INITIATIONCOMPLETED;
-            case CANCELLED -> OBWriteInternationalStandingOrderResponse7Data.StatusEnum.CANCELLED;
-            default -> OBWriteInternationalStandingOrderResponse7Data.StatusEnum.INITIATIONFAILED;
-        };
+        switch (status) {
+            case INITIATIONPENDING:
+                return OBWriteInternationalStandingOrderResponse7Data.StatusEnum.INITIATIONPENDING;
+            case INITIATIONCOMPLETED:
+                return OBWriteInternationalStandingOrderResponse7Data.StatusEnum.INITIATIONCOMPLETED;
+            case CANCELLED:
+                return OBWriteInternationalStandingOrderResponse7Data.StatusEnum.CANCELLED;
+            default:
+                return OBWriteInternationalStandingOrderResponse7Data.StatusEnum.INITIATIONFAILED;
+        }
     }
 
     // v3.1.5 - File Payments
@@ -285,23 +362,26 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return switch (status) {
-            case INITIATIONPENDING -> OBWriteFileResponse3Data.StatusEnum.INITIATIONPENDING;
-            case INITIATIONCOMPLETED -> OBWriteFileResponse3Data.StatusEnum.INITIATIONCOMPLETED;
-            default -> OBWriteFileResponse3Data.StatusEnum.INITIATIONFAILED;
-        };
+        switch (status) {
+            case INITIATIONPENDING:
+                return OBWriteFileResponse3Data.StatusEnum.INITIATIONPENDING;
+            case INITIATIONCOMPLETED:
+                return OBWriteFileResponse3Data.StatusEnum.INITIATIONCOMPLETED;
+            default:
+                return OBWriteFileResponse3Data.StatusEnum.INITIATIONFAILED;
+        }
     }
 
     // vrp 3.1.x
-    public static FRSubmissionStatus toFRSubmissionStatus(OBDomesticVRPResponseData.StatusEnum status){
-        if(status == null){
+    public static FRSubmissionStatus toFRSubmissionStatus(OBDomesticVRPResponseData.StatusEnum status) {
+        if (status == null) {
             return null;
         }
         return FRSubmissionStatus.fromValue(status.getValue());
     }
 
-    public static OBDomesticVRPResponseData.StatusEnum toOBDomesticVRPResponseDataStatusEnum(FRSubmissionStatus status){
-        if(status == null){
+    public static OBDomesticVRPResponseData.StatusEnum toOBDomesticVRPResponseDataStatusEnum(FRSubmissionStatus status) {
+        if (status == null) {
             return null;
         }
         return OBDomesticVRPResponseData.StatusEnum.fromValue(status.getValue());
