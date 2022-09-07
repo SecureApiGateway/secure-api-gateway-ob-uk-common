@@ -31,41 +31,8 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalStandingOrderConsent6Data {
-    /**
-     * Specifies the Open Banking service request types.
-     */
-    public enum PermissionEnum {
-        CREATE("Create");
-
-        private String value;
-
-        PermissionEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static PermissionEnum fromValue(String value) {
-            for (PermissionEnum b : PermissionEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
-
     @JsonProperty("Permission")
-    private PermissionEnum permission;
+    private OBExternalPermissions2Code permission;
 
     /**
      * Specifies to share the refund account details with PISP
@@ -114,7 +81,7 @@ public class OBWriteInternationalStandingOrderConsent6Data {
     @JsonProperty("SCASupportData")
     private OBSCASupportData1 scASupportData;
 
-    public OBWriteInternationalStandingOrderConsent6Data permission(PermissionEnum permission) {
+    public OBWriteInternationalStandingOrderConsent6Data permission(OBExternalPermissions2Code permission) {
         this.permission = permission;
         return this;
     }
@@ -128,11 +95,11 @@ public class OBWriteInternationalStandingOrderConsent6Data {
     @NotNull
 
 
-    public PermissionEnum getPermission() {
+    public OBExternalPermissions2Code getPermission() {
         return permission;
     }
 
-    public void setPermission(PermissionEnum permission) {
+    public void setPermission(OBExternalPermissions2Code permission) {
         this.permission = permission;
     }
 

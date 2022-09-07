@@ -18,7 +18,6 @@ package uk.org.openbanking.testsupport.payment;
 import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4Data.PermissionEnum;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4Data.ReadRefundAccountEnum;
 
 import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.*;
@@ -76,7 +75,7 @@ public class OBWriteDomesticScheduledConsentTestDataFactory {
 
     public static OBWriteDomesticScheduledConsent4Data aValidOBWriteDomesticScheduledConsent4Data() {
         return (new OBWriteDomesticScheduledConsent4Data())
-                .permission(PermissionEnum.CREATE)
+                .permission(OBExternalPermissions2Code.CREATE)
                 .initiation(aValidOBWriteDomesticScheduled2DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1())

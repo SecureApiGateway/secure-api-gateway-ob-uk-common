@@ -80,43 +80,8 @@ public class OBSCASupportData1 {
     @JsonProperty("RequestedSCAExemptionType")
     private RequestedSCAExemptionTypeEnum requestedSCAExemptionType;
 
-    /**
-     * Specifies a character string with a maximum length of 40 characters. Usage: This field indicates whether the PSU was subject to SCA performed by the TPP
-     */
-    public enum AppliedAuthenticationApproachEnum {
-        CA("CA"),
-
-        SCA("SCA");
-
-        private String value;
-
-        AppliedAuthenticationApproachEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static AppliedAuthenticationApproachEnum fromValue(String value) {
-            for (AppliedAuthenticationApproachEnum b : AppliedAuthenticationApproachEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
-
     @JsonProperty("AppliedAuthenticationApproach")
-    private AppliedAuthenticationApproachEnum appliedAuthenticationApproach;
+    private OBAppliedAuthenticationApproachEnum appliedAuthenticationApproach;
 
     @JsonProperty("ReferencePaymentOrderId")
     private String referencePaymentOrderId;
@@ -142,7 +107,7 @@ public class OBSCASupportData1 {
         this.requestedSCAExemptionType = requestedSCAExemptionType;
     }
 
-    public OBSCASupportData1 appliedAuthenticationApproach(AppliedAuthenticationApproachEnum appliedAuthenticationApproach) {
+    public OBSCASupportData1 appliedAuthenticationApproach(OBAppliedAuthenticationApproachEnum appliedAuthenticationApproach) {
         this.appliedAuthenticationApproach = appliedAuthenticationApproach;
         return this;
     }
@@ -155,11 +120,11 @@ public class OBSCASupportData1 {
     @ApiModelProperty(value = "Specifies a character string with a maximum length of 40 characters. Usage: This field indicates whether the PSU was subject to SCA performed by the TPP")
 
     @Size(max = 40)
-    public AppliedAuthenticationApproachEnum getAppliedAuthenticationApproach() {
+    public OBAppliedAuthenticationApproachEnum getAppliedAuthenticationApproach() {
         return appliedAuthenticationApproach;
     }
 
-    public void setAppliedAuthenticationApproach(AppliedAuthenticationApproachEnum appliedAuthenticationApproach) {
+    public void setAppliedAuthenticationApproach(OBAppliedAuthenticationApproachEnum appliedAuthenticationApproach) {
         this.appliedAuthenticationApproach = appliedAuthenticationApproach;
     }
 

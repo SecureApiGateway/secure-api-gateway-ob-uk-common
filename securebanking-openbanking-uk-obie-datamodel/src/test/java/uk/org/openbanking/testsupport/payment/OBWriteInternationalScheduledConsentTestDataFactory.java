@@ -20,9 +20,9 @@ import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled3DataInitiation.InstructionPriorityEnum;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5Data.PermissionEnum;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5Data.ReadRefundAccountEnum;
 
+import static uk.org.openbanking.datamodel.payment.OBExternalPermissions2Code.CREATE;
 import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBActiveOrHistoricCurrencyAndAmount;
 import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBWriteDomestic2DataInitiationInstructedAmount;
@@ -109,33 +109,33 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
 
     public static OBWriteDataInternationalScheduledConsent1 aValidOBWriteDataInternationalScheduledConsent1() {
         return (new OBWriteDataInternationalScheduledConsent1())
-                .permission(OBExternalPermissions2Code.CREATE)
+                .permission(CREATE)
                 .initiation(aValidOBInternationalScheduled1())
                 .authorisation(aValidOBAuthorisation1());
     }
 
     public static OBWriteDataInternationalScheduledConsent1 aValidOBWriteDataInternationalScheduledConsent1MandatoryFields() {
         return (new OBWriteDataInternationalScheduledConsent1())
-                .permission(OBExternalPermissions2Code.CREATE)
+                .permission(CREATE)
                 .initiation(aValidOBInternationalScheduled1MandatoryFields());
     }
 
     public static OBWriteDataInternationalScheduledConsent2 aValidOBWriteDataInternationalScheduledConsent2() {
         return (new OBWriteDataInternationalScheduledConsent2())
-                .permission(OBExternalPermissions2Code.CREATE)
+                .permission(CREATE)
                 .initiation(aValidOBInternationalScheduled2())
                 .authorisation(aValidOBAuthorisation1());
     }
 
     public static OBWriteDataInternationalScheduledConsent2 aValidOBWriteDataInternationalScheduledConsent2MandatoryFields() {
         return (new OBWriteDataInternationalScheduledConsent2())
-                .permission(OBExternalPermissions2Code.CREATE)
+                .permission(CREATE)
                 .initiation(aValidOBInternationalScheduled2MandatoryFields());
     }
 
     public static OBWriteInternationalScheduledConsent3Data aValidOBWriteInternationalScheduledConsent3Data() {
         return (new OBWriteInternationalScheduledConsent3Data())
-                .permission(OBExternalPermissions2Code.CREATE)
+                .permission(CREATE)
                 .initiation(aValidOBWriteInternationalScheduled2DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent3DataAuthorisation())
                 .scASupportData(new OBWriteDomesticConsent3DataSCASupportData());
@@ -143,13 +143,13 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
 
     public static OBWriteInternationalScheduledConsent3Data aValidOBWriteInternationalScheduledConsent3DataMandatoryFields() {
         return (new OBWriteInternationalScheduledConsent3Data())
-                .permission(OBExternalPermissions2Code.CREATE)
+                .permission(CREATE)
                 .initiation(aValidOBWriteInternationalScheduled2DataInitiationMandatoryFields());
     }
 
     public static OBWriteInternationalScheduledConsent4Data aValidOBWriteInternationalScheduledConsent4Data() {
         return (new OBWriteInternationalScheduledConsent4Data())
-                .permission(OBExternalPermissions2Code.CREATE)
+                .permission(CREATE)
                 .initiation(aValidOBWriteInternationalScheduled3DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent3DataAuthorisation())
                 .scASupportData(aValidOBWriteDomesticConsent3DataSCASupportData());
@@ -157,13 +157,13 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
 
     public static OBWriteInternationalScheduledConsent4Data aValidOBWriteInternationalScheduledConsent4DataMandatoryFields() {
         return (new OBWriteInternationalScheduledConsent4Data())
-                .permission(OBExternalPermissions2Code.CREATE)
+                .permission(CREATE)
                 .initiation(aValidOBWriteInternationalScheduled3DataInitiationMandatoryFields());
     }
 
     public static OBWriteInternationalScheduledConsent5Data aValidOBWriteInternationalScheduledConsent5Data() {
         return (new OBWriteInternationalScheduledConsent5Data())
-                .permission(PermissionEnum.CREATE)
+                .permission(CREATE)
                 .initiation(aValidOBWriteInternationalScheduled3DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1())
@@ -172,7 +172,7 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
 
     public static OBWriteInternationalScheduledConsent5Data aValidOBWriteInternationalScheduledConsent5DataMandatoryFields() {
         return (new OBWriteInternationalScheduledConsent5Data())
-                .permission(PermissionEnum.CREATE)
+                .permission(CREATE)
                 .initiation(aValidOBWriteInternationalScheduled3DataInitiationMandatoryFields());
     }
 

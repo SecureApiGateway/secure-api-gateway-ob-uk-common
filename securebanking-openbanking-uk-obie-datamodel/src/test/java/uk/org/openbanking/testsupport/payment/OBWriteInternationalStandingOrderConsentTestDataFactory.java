@@ -20,7 +20,6 @@ import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent6Data.PermissionEnum;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent6Data.ReadRefundAccountEnum;
 
 import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.*;
@@ -104,7 +103,7 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
 
     public static OBWriteInternationalStandingOrderConsent6Data aValidOBWriteInternationalStandingOrderConsent6Data() {
         return (new OBWriteInternationalStandingOrderConsent6Data())
-                .permission(PermissionEnum.CREATE)
+                .permission(OBExternalPermissions2Code.CREATE)
                 .initiation(aValidOBWriteInternationalStandingOrder4DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1())

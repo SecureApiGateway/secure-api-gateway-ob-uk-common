@@ -19,7 +19,6 @@ import com.forgerock.securebanking.openbanking.uk.common.api.meta.forgerock.FRFr
 import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent5Data.PermissionEnum;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent5Data.ReadRefundAccountEnum;
 
 import static org.joda.time.DateTime.now;
@@ -130,7 +129,7 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
 
     public static OBWriteDomesticStandingOrderConsent5Data aValidOBWriteDomesticStandingOrderConsent5Data() {
         return (new OBWriteDomesticStandingOrderConsent5Data())
-                .permission(PermissionEnum.CREATE)
+                .permission(OBExternalPermissions2Code.CREATE)
                 .initiation(aValidOBWriteDomesticStandingOrder3DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1())
@@ -139,7 +138,7 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
 
     public static OBWriteDomesticStandingOrderConsent5Data aValidOBWriteDomesticStandingOrderConsent5DataMandatoryFields() {
         return (new OBWriteDomesticStandingOrderConsent5Data())
-                .permission(PermissionEnum.CREATE)
+                .permission(OBExternalPermissions2Code.CREATE)
                 .initiation(aValidOBWriteDomesticStandingOrder3DataInitiationMandatoryFields());
     }
 

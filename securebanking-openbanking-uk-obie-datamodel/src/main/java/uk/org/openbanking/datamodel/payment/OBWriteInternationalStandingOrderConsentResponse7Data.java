@@ -88,42 +88,9 @@ public class OBWriteInternationalStandingOrderConsentResponse7Data {
     @JsonProperty("StatusUpdateDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
-
-    /**
-     * Specifies the Open Banking service request types.
-     */
-    public enum PermissionEnum {
-        CREATE("Create");
-
-        private String value;
-
-        PermissionEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static PermissionEnum fromValue(String value) {
-            for (PermissionEnum b : PermissionEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
-
+    
     @JsonProperty("Permission")
-    private PermissionEnum permission;
+    private OBExternalPermissions2Code permission;
 
     /**
      * Specifies to share the refund account details with PISP
@@ -273,7 +240,7 @@ public class OBWriteInternationalStandingOrderConsentResponse7Data {
         this.statusUpdateDateTime = statusUpdateDateTime;
     }
 
-    public OBWriteInternationalStandingOrderConsentResponse7Data permission(PermissionEnum permission) {
+    public OBWriteInternationalStandingOrderConsentResponse7Data permission(OBExternalPermissions2Code permission) {
         this.permission = permission;
         return this;
     }
@@ -287,11 +254,11 @@ public class OBWriteInternationalStandingOrderConsentResponse7Data {
     @NotNull
 
 
-    public PermissionEnum getPermission() {
+    public OBExternalPermissions2Code getPermission() {
         return permission;
     }
 
-    public void setPermission(PermissionEnum permission) {
+    public void setPermission(OBExternalPermissions2Code permission) {
         this.permission = permission;
     }
 
