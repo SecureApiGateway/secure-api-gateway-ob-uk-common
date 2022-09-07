@@ -26,7 +26,7 @@ public class OBExchangeRateConverter {
         return exchangeRateInformation == null ? null : (new OBExchangeRate1())
                 .unitCurrency(exchangeRateInformation.getUnitCurrency())
                 .exchangeRate(exchangeRateInformation.getExchangeRate())
-                .rateType(toOBExchangeRateType2Code(exchangeRateInformation.getRateType()))
+                .rateType(exchangeRateInformation.getRateType())
                 .contractIdentification(exchangeRateInformation.getContractIdentification());
     }
 
@@ -34,19 +34,7 @@ public class OBExchangeRateConverter {
         return exchangeRateInformation == null ? null : (new OBWriteInternational3DataInitiationExchangeRateInformation())
                 .unitCurrency(exchangeRateInformation.getUnitCurrency())
                 .exchangeRate(exchangeRateInformation.getExchangeRate())
-                .rateType(toDataInitiationRateType(exchangeRateInformation.getRateType()))
+                .rateType(exchangeRateInformation.getRateType())
                 .contractIdentification(exchangeRateInformation.getContractIdentification());
-    }
-
-    public static OBExchangeRateType2Code toOBExchangeRateType2Code(OBWriteInternational3DataInitiationExchangeRateInformation.RateTypeEnum rateType) {
-        return rateType == null ? null : OBExchangeRateType2Code.fromValue(rateType.getValue());
-    }
-
-    public static OBWriteInternationalConsentResponse6DataExchangeRateInformation.RateTypeEnum toConsentRateType(OBExchangeRateType2Code rateType2Code) {
-        return rateType2Code == null ? null : OBWriteInternationalConsentResponse6DataExchangeRateInformation.RateTypeEnum.fromValue(rateType2Code.toString());
-    }
-
-    public static OBWriteInternational3DataInitiationExchangeRateInformation.RateTypeEnum toDataInitiationRateType(OBExchangeRateType2Code rateType2Code) {
-        return rateType2Code == null ? null : OBWriteInternational3DataInitiationExchangeRateInformation.RateTypeEnum.fromValue(rateType2Code.toString());
     }
 }

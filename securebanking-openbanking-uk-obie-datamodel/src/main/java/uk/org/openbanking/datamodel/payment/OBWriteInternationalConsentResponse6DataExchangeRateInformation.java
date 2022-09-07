@@ -44,45 +44,8 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
     @JsonProperty("ExchangeRate")
     private BigDecimal exchangeRate;
 
-    /**
-     * Specifies the type used to complete the currency exchange.
-     */
-    public enum RateTypeEnum {
-        ACTUAL("Actual"),
-
-        AGREED("Agreed"),
-
-        INDICATIVE("Indicative");
-
-        private String value;
-
-        RateTypeEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static RateTypeEnum fromValue(String value) {
-            for (RateTypeEnum b : RateTypeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
-
     @JsonProperty("RateType")
-    private RateTypeEnum rateType;
+    private OBExchangeRateType2Code rateType;
 
     @JsonProperty("ContractIdentification")
     private String contractIdentification;
@@ -136,7 +99,7 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
         this.exchangeRate = exchangeRate;
     }
 
-    public OBWriteInternationalConsentResponse6DataExchangeRateInformation rateType(RateTypeEnum rateType) {
+    public OBWriteInternationalConsentResponse6DataExchangeRateInformation rateType(OBExchangeRateType2Code rateType) {
         this.rateType = rateType;
         return this;
     }
@@ -150,11 +113,11 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
     @NotNull
 
 
-    public RateTypeEnum getRateType() {
+    public OBExchangeRateType2Code getRateType() {
         return rateType;
     }
 
-    public void setRateType(RateTypeEnum rateType) {
+    public void setRateType(OBExchangeRateType2Code rateType) {
         this.rateType = rateType;
     }
 

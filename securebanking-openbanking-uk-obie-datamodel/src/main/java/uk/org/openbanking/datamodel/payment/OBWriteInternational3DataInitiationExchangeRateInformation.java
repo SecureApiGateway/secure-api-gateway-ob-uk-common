@@ -23,9 +23,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -42,45 +40,8 @@ public class OBWriteInternational3DataInitiationExchangeRateInformation {
     @JsonProperty("ExchangeRate")
     private BigDecimal exchangeRate;
 
-    /**
-     * Specifies the type used to complete the currency exchange.
-     */
-    public enum RateTypeEnum {
-        ACTUAL("Actual"),
-
-        AGREED("Agreed"),
-
-        INDICATIVE("Indicative");
-
-        private String value;
-
-        RateTypeEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static RateTypeEnum fromValue(String value) {
-            for (RateTypeEnum b : RateTypeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
-
     @JsonProperty("RateType")
-    private RateTypeEnum rateType;
+    private OBExchangeRateType2Code rateType;
 
     @JsonProperty("ContractIdentification")
     private String contractIdentification;
@@ -129,7 +90,7 @@ public class OBWriteInternational3DataInitiationExchangeRateInformation {
         this.exchangeRate = exchangeRate;
     }
 
-    public OBWriteInternational3DataInitiationExchangeRateInformation rateType(RateTypeEnum rateType) {
+    public OBWriteInternational3DataInitiationExchangeRateInformation rateType(OBExchangeRateType2Code rateType) {
         this.rateType = rateType;
         return this;
     }
@@ -143,11 +104,11 @@ public class OBWriteInternational3DataInitiationExchangeRateInformation {
     @NotNull
 
 
-    public RateTypeEnum getRateType() {
+    public OBExchangeRateType2Code getRateType() {
         return rateType;
     }
 
-    public void setRateType(RateTypeEnum rateType) {
+    public void setRateType(OBExchangeRateType2Code rateType) {
         this.rateType = rateType;
     }
 
