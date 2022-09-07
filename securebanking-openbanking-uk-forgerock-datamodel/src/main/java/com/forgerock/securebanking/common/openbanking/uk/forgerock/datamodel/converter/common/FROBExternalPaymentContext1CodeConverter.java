@@ -17,22 +17,13 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRExternalPaymentContextCode;
 import uk.org.openbanking.datamodel.common.OBExternalPaymentContext1Code;
-import uk.org.openbanking.datamodel.common.OBRisk1.PaymentContextCodeEnum;
 
 public class FROBExternalPaymentContext1CodeConverter {
     public static FRExternalPaymentContextCode toFRExternalPaymentContextCode(OBExternalPaymentContext1Code obExternalPaymentContext1Code) {
         return obExternalPaymentContext1Code == null ? null : FRExternalPaymentContextCode.valueOf(obExternalPaymentContext1Code.name());
     }
 
-    public static FRExternalPaymentContextCode toFRExternalPaymentContextCode(PaymentContextCodeEnum paymentContextCodeEnum) {
-        return paymentContextCodeEnum == null ? null : FRExternalPaymentContextCode.fromValue(paymentContextCodeEnum.getValue());
-    }
-
     public static OBExternalPaymentContext1Code toOBExternalPaymentContext1Code(FRExternalPaymentContextCode frExternalPaymentContextCode) {
         return frExternalPaymentContextCode == null ? null : OBExternalPaymentContext1Code.valueOf(frExternalPaymentContextCode.name());
-    }
-
-    public static PaymentContextCodeEnum toPaymentContextCodeEnum(FRExternalPaymentContextCode frExternalPaymentContextCode) {
-        return frExternalPaymentContextCode == null ? null : PaymentContextCodeEnum.fromValue(frExternalPaymentContextCode.getValue());
     }
 }

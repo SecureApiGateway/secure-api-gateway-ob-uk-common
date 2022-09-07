@@ -23,7 +23,14 @@ public enum FRExternalPaymentContextCode {
     ECOMMERCEGOODS("EcommerceGoods"),
     ECOMMERCESERVICES("EcommerceServices"),
     OTHER("Other"),
-    PARTYTOPARTY("PartyToParty");
+    PARTYTOPARTY("PartyToParty"),
+    BILLINGGOODSANDSERVICESINADVANCE("BillingGoodsAndServicesInAdvance"),
+    BILLINGGOODSANDSERVICESINARREARS("BillingGoodsAndServicesInArrears"),
+    PISPPAYEE("PispPayee"),
+    ECOMMERCEMERCHANTINITIATEDPAYMENT("EcommerceMerchantInitiatedPayment"),
+    FACETOFACEPOINTOFSALE("FaceToFacePointOfSale"),
+    TRANSFERTOSELF("TransferToSelf"),
+    TRANSFERTOTHIRDPARTY("TransferToThirdParty");
 
     private String value;
 

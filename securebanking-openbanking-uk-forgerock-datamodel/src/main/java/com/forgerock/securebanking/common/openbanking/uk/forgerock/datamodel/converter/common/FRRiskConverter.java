@@ -48,8 +48,7 @@ public class FRRiskConverter {
                 )
                 .merchantCategoryCode(frPaymentRisk.getMerchantCategoryCode())
                 .merchantCustomerIdentification(frPaymentRisk.getMerchantCustomerIdentification())
-                .paymentContextCode(FROBExternalPaymentContext1CodeConverter.
-                        toPaymentContextCodeEnum(frPaymentRisk.getPaymentContextCode())
+                .paymentContextCode(FROBExternalPaymentContext1CodeConverter.toOBExternalPaymentContext1Code(frPaymentRisk.getPaymentContextCode())
                 );
     }
 

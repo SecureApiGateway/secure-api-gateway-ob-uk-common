@@ -32,63 +32,9 @@ import javax.validation.constraints.*;
 @ApiModel(description = "The Risk section is sent by the initiating party to the ASPSP. It is used to specify additional details for risk scoring for Payments.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBRisk1   {
-  /**
-   * Specifies the payment context * BillPayment - @deprecated * EcommerceGoods - @deprecated * EcommerceServices - @deprecated * Other - @deprecated * PartyToParty - @deprecated 
-   */
-  public enum PaymentContextCodeEnum {
-    BILLINGGOODSANDSERVICESINADVANCE("BillingGoodsAndServicesInAdvance"),
-    
-    BILLINGGOODSANDSERVICESINARREARS("BillingGoodsAndServicesInArrears"),
-    
-    PISPPAYEE("PispPayee"),
-    
-    ECOMMERCEMERCHANTINITIATEDPAYMENT("EcommerceMerchantInitiatedPayment"),
-    
-    FACETOFACEPOINTOFSALE("FaceToFacePointOfSale"),
-    
-    TRANSFERTOSELF("TransferToSelf"),
-    
-    TRANSFERTOTHIRDPARTY("TransferToThirdParty"),
-    
-    BILLPAYMENT("BillPayment"),
-    
-    ECOMMERCEGOODS("EcommerceGoods"),
-    
-    ECOMMERCESERVICES("EcommerceServices"),
-    
-    OTHER("Other"),
-    
-    PARTYTOPARTY("PartyToParty");
-
-    private String value;
-
-    PaymentContextCodeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static PaymentContextCodeEnum fromValue(String value) {
-      for (PaymentContextCodeEnum b : PaymentContextCodeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
+  
   @JsonProperty("PaymentContextCode")
-  private PaymentContextCodeEnum paymentContextCode;
+  private OBExternalPaymentContext1Code paymentContextCode;
 
   @JsonProperty("MerchantCategoryCode")
   private String merchantCategoryCode;
@@ -111,7 +57,7 @@ public class OBRisk1   {
   @JsonProperty("DeliveryAddress")
   private OBRisk1DeliveryAddress deliveryAddress;
 
-  public OBRisk1 paymentContextCode(PaymentContextCodeEnum paymentContextCode) {
+  public OBRisk1 paymentContextCode(OBExternalPaymentContext1Code paymentContextCode) {
     this.paymentContextCode = paymentContextCode;
     return this;
   }
@@ -123,11 +69,11 @@ public class OBRisk1   {
   @ApiModelProperty(value = "Specifies the payment context * BillPayment - @deprecated * EcommerceGoods - @deprecated * EcommerceServices - @deprecated * Other - @deprecated * PartyToParty - @deprecated ")
 
 
-  public PaymentContextCodeEnum getPaymentContextCode() {
+  public OBExternalPaymentContext1Code getPaymentContextCode() {
     return paymentContextCode;
   }
 
-  public void setPaymentContextCode(PaymentContextCodeEnum paymentContextCode) {
+  public void setPaymentContextCode(OBExternalPaymentContext1Code paymentContextCode) {
     this.paymentContextCode = paymentContextCode;
   }
 
