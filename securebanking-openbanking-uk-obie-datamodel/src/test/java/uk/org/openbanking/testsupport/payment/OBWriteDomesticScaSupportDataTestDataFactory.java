@@ -16,7 +16,6 @@
 package uk.org.openbanking.testsupport.payment;
 
 import uk.org.openbanking.datamodel.payment.*;
-import uk.org.openbanking.datamodel.payment.OBSCASupportData1.RequestedSCAExemptionTypeEnum;
 
 import java.util.UUID;
 
@@ -43,6 +42,6 @@ public class OBWriteDomesticScaSupportDataTestDataFactory {
         return (new OBSCASupportData1())
                 .appliedAuthenticationApproach(OBAppliedAuthenticationApproachEnum.CA)
                 .referencePaymentOrderId(UUID.randomUUID().toString())
-                .requestedSCAExemptionType(RequestedSCAExemptionTypeEnum.BILLPAYMENT);
+                .requestedSCAExemptionType(OBRequestedSCAExemptionTypeEnum.BILLPAYMENT);
     }
 }

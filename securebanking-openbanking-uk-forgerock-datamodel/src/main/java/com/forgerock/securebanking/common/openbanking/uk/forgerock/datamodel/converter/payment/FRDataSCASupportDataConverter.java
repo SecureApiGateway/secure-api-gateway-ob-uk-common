@@ -19,7 +19,6 @@ import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.com
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRDataSCASupportData.FRAppliedAuthenticationApproach;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRDataSCASupportData.FRRequestedSCAExemptionType;
 import uk.org.openbanking.datamodel.payment.*;
-import uk.org.openbanking.datamodel.payment.OBSCASupportData1.RequestedSCAExemptionTypeEnum;
 
 public class FRDataSCASupportDataConverter {
 
@@ -56,10 +55,6 @@ public class FRDataSCASupportDataConverter {
         return requestedSCAExemptionType == null ? null : FRRequestedSCAExemptionType.valueOf(requestedSCAExemptionType.name());
     }
 
-    public static FRRequestedSCAExemptionType toFRRequestedSCAExemptionType(RequestedSCAExemptionTypeEnum requestedSCAExemptionType) {
-        return requestedSCAExemptionType == null ? null : FRRequestedSCAExemptionType.fromValue(requestedSCAExemptionType.getValue());
-    }
-
     // FR to OB
     public static OBWriteDomesticConsent3DataSCASupportData toOBWriteDomesticConsent3DataSCASupportData(FRDataSCASupportData scASupportData) {
         return scASupportData == null ? null : new OBWriteDomesticConsent3DataSCASupportData()
@@ -77,13 +72,9 @@ public class FRDataSCASupportDataConverter {
 
     public static OBSCASupportData1 toOBSCASupportData1(FRDataSCASupportData scASupportData) {
         return scASupportData == null ? null : new OBSCASupportData1()
-                .requestedSCAExemptionType(toRequestedSCAExemptionTypeEnum(scASupportData.getRequestedSCAExemptionType()))
+                .requestedSCAExemptionType(toOBRequestedSCAExemptionTypeEnum(scASupportData.getRequestedSCAExemptionType()))
                 .appliedAuthenticationApproach(toOBAppliedAuthenticationApproachEnum(scASupportData.getAppliedAuthenticationApproach()))
                 .referencePaymentOrderId(scASupportData.getReferencePaymentOrderId());
-    }
-
-    public static RequestedSCAExemptionTypeEnum toRequestedSCAExemptionTypeEnum(FRRequestedSCAExemptionType requestedSCAExemptionType) {
-        return requestedSCAExemptionType == null ? null : RequestedSCAExemptionTypeEnum.fromValue(requestedSCAExemptionType.getValue());
     }
 
     public static OBRequestedSCAExemptionTypeEnum toOBRequestedSCAExemptionTypeEnum(FRRequestedSCAExemptionType requestedSCAExemptionType) {

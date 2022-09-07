@@ -21,9 +21,7 @@ import static uk.org.openbanking.datamodel.service.converter.payment.OBDomesticC
 import static uk.org.openbanking.datamodel.service.converter.payment.OBDomesticConverter.toOBDomestic2;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBDomesticConverter.toOBWriteDomestic2DataInitiation;
 
-import uk.org.openbanking.datamodel.payment.OBRequestedSCAExemptionTypeEnum;
 import uk.org.openbanking.datamodel.payment.OBSCASupportData1;
-import uk.org.openbanking.datamodel.payment.OBSCASupportData1.RequestedSCAExemptionTypeEnum;
 import uk.org.openbanking.datamodel.payment.OBWriteDataDomestic1;
 import uk.org.openbanking.datamodel.payment.OBWriteDataDomestic2;
 import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticConsent1;
@@ -162,12 +160,8 @@ public class OBWriteDomesticConsentConverter {
 
     public static OBSCASupportData1 toOBSCASupportData1(OBWriteDomesticConsent3DataSCASupportData scASupportData) {
         return scASupportData == null ? null : (new OBSCASupportData1())
-                .requestedSCAExemptionType(toRequestedSCAExemptionTypeEnum(scASupportData.getRequestedSCAExemptionType()))
+                .requestedSCAExemptionType(scASupportData.getRequestedSCAExemptionType())
                 .appliedAuthenticationApproach(scASupportData.getAppliedAuthenticationApproach())
                 .referencePaymentOrderId(scASupportData.getReferencePaymentOrderId());
-    }
-
-    public static RequestedSCAExemptionTypeEnum toRequestedSCAExemptionTypeEnum(OBRequestedSCAExemptionTypeEnum obRequestedSCAExemptionTypeEnum) {
-        return obRequestedSCAExemptionTypeEnum == null ? null : RequestedSCAExemptionTypeEnum.fromValue(obRequestedSCAExemptionTypeEnum.getValue());
     }
 }
