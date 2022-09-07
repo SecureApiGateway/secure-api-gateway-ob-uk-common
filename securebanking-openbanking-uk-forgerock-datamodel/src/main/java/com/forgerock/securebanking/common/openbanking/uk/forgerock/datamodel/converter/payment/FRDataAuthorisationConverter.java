@@ -16,11 +16,12 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRDataAuthorisation;
+
+import uk.org.openbanking.datamodel.account.OBTransactionCardInstrument1.AuthorisationTypeEnum;
 import uk.org.openbanking.datamodel.payment.OBAuthorisation1;
 import uk.org.openbanking.datamodel.payment.OBExternalAuthorisation1Code;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent3DataAuthorisation;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4DataAuthorisation;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4DataAuthorisation.AuthorisationTypeEnum;
 
 public class FRDataAuthorisationConverter {
 
@@ -63,7 +64,7 @@ public class FRDataAuthorisationConverter {
 
     public static OBWriteDomesticConsent4DataAuthorisation toOBWriteDomesticConsent4DataAuthorisation(FRDataAuthorisation authorisation) {
         return authorisation == null ? null : new OBWriteDomesticConsent4DataAuthorisation()
-                .authorisationType(toAuthorisationType(authorisation.getAuthorisationType()))
+                .authorisationType(toOBExternalAuthorisation1Code(authorisation.getAuthorisationType()))
                 .completionDateTime(authorisation.getCompletionDateTime());
     }
 
@@ -75,9 +76,5 @@ public class FRDataAuthorisationConverter {
 
     public static OBExternalAuthorisation1Code toOBExternalAuthorisation1Code(FRDataAuthorisation.AuthorisationType authorisationType) {
         return authorisationType == null ? null : OBExternalAuthorisation1Code.valueOf(authorisationType.name());
-    }
-
-    public static AuthorisationTypeEnum toAuthorisationType(FRDataAuthorisation.AuthorisationType authorisationType) {
-        return authorisationType == null ? null : AuthorisationTypeEnum.fromValue(authorisationType.getValue());
     }
 }

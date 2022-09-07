@@ -20,7 +20,6 @@ import uk.org.openbanking.datamodel.payment.OBAuthorisation1;
 import uk.org.openbanking.datamodel.payment.OBExternalAuthorisation1Code;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent3DataAuthorisation;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4DataAuthorisation;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4DataAuthorisation.AuthorisationTypeEnum;
 
 /**
  * Test data factory for various OB consent authorisation types.
@@ -41,7 +40,7 @@ public class OBConsentAuthorisationTestDataFactory {
 
     public static OBWriteDomesticConsent4DataAuthorisation aValidOBWriteDomesticConsent4DataAuthorisation() {
         return (new OBWriteDomesticConsent4DataAuthorisation())
-                .authorisationType(AuthorisationTypeEnum.ANY)
+                .authorisationType(OBExternalAuthorisation1Code.ANY)
                 .completionDateTime(DateTime.now());
     }
 }

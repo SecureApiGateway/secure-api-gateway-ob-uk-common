@@ -22,9 +22,7 @@ import javax.validation.constraints.NotNull;
 
 import org.joda.time.DateTime;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -35,49 +33,15 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "The authorisation type request from the TPP.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomesticConsent4DataAuthorisation {
-    /**
-     * Type of authorisation flow requested.
-     */
-    public enum AuthorisationTypeEnum {
-        ANY("Any"),
-
-        SINGLE("Single");
-
-        private String value;
-
-        AuthorisationTypeEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static AuthorisationTypeEnum fromValue(String value) {
-            for (AuthorisationTypeEnum b : AuthorisationTypeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
-
+    
     @JsonProperty("AuthorisationType")
-    private AuthorisationTypeEnum authorisationType;
+    private OBExternalAuthorisation1Code authorisationType;
 
     @JsonProperty("CompletionDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
     private DateTime completionDateTime;
 
-    public OBWriteDomesticConsent4DataAuthorisation authorisationType(AuthorisationTypeEnum authorisationType) {
+    public OBWriteDomesticConsent4DataAuthorisation authorisationType(OBExternalAuthorisation1Code authorisationType) {
         this.authorisationType = authorisationType;
         return this;
     }
@@ -91,11 +55,11 @@ public class OBWriteDomesticConsent4DataAuthorisation {
     @NotNull
 
 
-    public AuthorisationTypeEnum getAuthorisationType() {
+    public OBExternalAuthorisation1Code getAuthorisationType() {
         return authorisationType;
     }
 
-    public void setAuthorisationType(AuthorisationTypeEnum authorisationType) {
+    public void setAuthorisationType(OBExternalAuthorisation1Code authorisationType) {
         this.authorisationType = authorisationType;
     }
 

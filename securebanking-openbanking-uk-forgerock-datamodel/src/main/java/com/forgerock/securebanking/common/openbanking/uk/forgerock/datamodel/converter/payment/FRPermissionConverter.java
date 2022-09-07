@@ -17,29 +17,12 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.co
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRPermission;
 import uk.org.openbanking.datamodel.payment.*;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4Data.PermissionEnum;
 
 public class FRPermissionConverter {
 
     // OB to FR
     public static FRPermission toFRPermission(OBExternalPermissions2Code permission) {
         return permission == null ? null : FRPermission.valueOf(permission.name());
-    }
-
-    public static FRPermission toFRPermission(PermissionEnum permission) {
-        return permission == null ? null : FRPermission.fromValue(permission.getValue());
-    }
-
-    public static FRPermission toFRPermission(OBWriteDomesticStandingOrderConsent5Data.PermissionEnum permission) {
-        return permission == null ? null : FRPermission.fromValue(permission.getValue());
-    }
-
-    public static FRPermission toFRPermission(OBWriteInternationalScheduledConsent5Data.PermissionEnum permission) {
-        return permission == null ? null : FRPermission.fromValue(permission.getValue());
-    }
-
-    public static FRPermission toFRPermission(OBWriteInternationalStandingOrderConsent6Data.PermissionEnum permission) {
-        return permission == null ? null : FRPermission.fromValue(permission.getValue());
     }
 
     // FR to OB
