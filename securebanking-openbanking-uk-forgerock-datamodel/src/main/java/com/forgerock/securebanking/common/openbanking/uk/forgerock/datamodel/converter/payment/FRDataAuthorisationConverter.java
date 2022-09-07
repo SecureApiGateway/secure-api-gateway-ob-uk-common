@@ -51,10 +51,6 @@ public class FRDataAuthorisationConverter {
         return authorisationType == null ? null : FRDataAuthorisation.AuthorisationType.valueOf(authorisationType.name());
     }
 
-    public static FRDataAuthorisation.AuthorisationType toFRAuthorisationType(AuthorisationTypeEnum authorisationType) {
-        return authorisationType == null ? null : FRDataAuthorisation.AuthorisationType.fromValue(authorisationType.getValue());
-    }
-
     // FR to OB
     public static OBWriteDomesticConsent3DataAuthorisation toOBWriteDomesticConsent3DataAuthorisation(FRDataAuthorisation authorisation) {
         return authorisation == null ? null : new OBWriteDomesticConsent3DataAuthorisation()
