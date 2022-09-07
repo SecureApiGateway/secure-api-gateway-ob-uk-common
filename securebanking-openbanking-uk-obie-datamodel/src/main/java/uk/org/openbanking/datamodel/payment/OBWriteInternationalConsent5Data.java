@@ -31,43 +31,9 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalConsent5Data {
-    /**
-     * Specifies to share the refund account details with PISP
-     */
-    public enum ReadRefundAccountEnum {
-        NO("No"),
-
-        YES("Yes");
-
-        private String value;
-
-        ReadRefundAccountEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static ReadRefundAccountEnum fromValue(String value) {
-            for (ReadRefundAccountEnum b : ReadRefundAccountEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
 
     @JsonProperty("ReadRefundAccount")
-    private ReadRefundAccountEnum readRefundAccount;
+    private OBReadRefundAccountEnum readRefundAccount;
 
     @JsonProperty("Initiation")
     private OBWriteInternational3DataInitiation initiation;
@@ -78,7 +44,7 @@ public class OBWriteInternationalConsent5Data {
     @JsonProperty("SCASupportData")
     private OBSCASupportData1 scASupportData;
 
-    public OBWriteInternationalConsent5Data readRefundAccount(ReadRefundAccountEnum readRefundAccount) {
+    public OBWriteInternationalConsent5Data readRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
@@ -91,11 +57,11 @@ public class OBWriteInternationalConsent5Data {
     @ApiModelProperty(value = "Specifies to share the refund account details with PISP")
 
 
-    public ReadRefundAccountEnum getReadRefundAccount() {
+    public OBReadRefundAccountEnum getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(ReadRefundAccountEnum readRefundAccount) {
+    public void setReadRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 
