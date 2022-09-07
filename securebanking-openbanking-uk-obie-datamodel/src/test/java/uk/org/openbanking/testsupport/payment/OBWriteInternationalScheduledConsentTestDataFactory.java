@@ -19,7 +19,6 @@ import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled3DataInitiation.InstructionPriorityEnum;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5Data.ReadRefundAccountEnum;
 
 import static uk.org.openbanking.datamodel.payment.OBExternalPermissions2Code.CREATE;
@@ -270,7 +269,7 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
                 .localInstrument(LOCAL_INSTRUMENT)
-                .instructionPriority(InstructionPriorityEnum.URGENT)
+                .instructionPriority(OBPriority2Code.URGENT)
                 .purpose(PURPOSE)
                 .extendedPurpose("Extended purpose")
                 .chargeBearer(OBChargeBearerType1Code.SHARED)

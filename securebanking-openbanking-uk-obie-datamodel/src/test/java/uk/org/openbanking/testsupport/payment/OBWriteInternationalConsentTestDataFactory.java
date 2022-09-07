@@ -18,7 +18,6 @@ package uk.org.openbanking.testsupport.payment;
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiation.InstructionPriorityEnum;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsent5Data.ReadRefundAccountEnum;
 
 import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.*;
@@ -219,7 +218,7 @@ public class OBWriteInternationalConsentTestDataFactory {
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
                 .localInstrument(LOCAL_INSTRUMENT)
-                .instructionPriority(InstructionPriorityEnum.NORMAL)
+                .instructionPriority(OBPriority2Code.NORMAL)
                 .purpose(PURPOSE)
                 .extendedPurpose("Extended purpose")
                 .chargeBearer(OBChargeBearerType1Code.SHARED)
