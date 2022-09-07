@@ -135,6 +135,6 @@ public class OBRiskTest {
 
         // Then
         assertThat(exception.getMessage().contains("Cannot construct instance of " +
-                "`uk.org.openbanking.datamodel.common.OBExternalPaymentContext1Code`")).isTrue();
+                "`uk.org.openbanking.datamodel.common.OBRisk1$PaymentContextCodeEnum`")).isTrue();
     }
 }

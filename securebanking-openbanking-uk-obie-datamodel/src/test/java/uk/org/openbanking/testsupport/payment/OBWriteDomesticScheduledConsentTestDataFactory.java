@@ -18,6 +18,8 @@ package uk.org.openbanking.testsupport.payment;
 import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4Data.PermissionEnum;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4Data.ReadRefundAccountEnum;
 
 import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBActiveOrHistoricCurrencyAndAmount;
@@ -74,11 +76,11 @@ public class OBWriteDomesticScheduledConsentTestDataFactory {
 
     public static OBWriteDomesticScheduledConsent4Data aValidOBWriteDomesticScheduledConsent4Data() {
         return (new OBWriteDomesticScheduledConsent4Data())
-                .permission(OBExternalPermissions2Code.CREATE)
+                .permission(PermissionEnum.CREATE)
                 .initiation(aValidOBWriteDomesticScheduled2DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1())
-                .readRefundAccount(OBReadRefundAccountEnum.NO);
+                .readRefundAccount(ReadRefundAccountEnum.NO);
     }
 
     public static OBDomesticScheduled1 aValidOBDomesticScheduled1() {

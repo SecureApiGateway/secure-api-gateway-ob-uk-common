@@ -20,8 +20,6 @@ import java.util.Objects;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.validation.annotation.Validated;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -29,17 +27,16 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBWriteInternationalStandingOrderResponse7DataRefund
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalStandingOrderResponse7DataRefund {
     @JsonProperty("Creditor")
-    private OBWriteInternationalStandingOrderResponse7DataRefundCreditor creditor = null;
+    private OBWriteInternationalStandingOrderResponse7DataRefundCreditor creditor;
 
     @JsonProperty("Agent")
-    private OBWriteInternationalResponse5DataRefundAgent agent = null;
+    private OBWriteInternationalResponse5DataRefundAgent agent;
 
     @JsonProperty("Account")
-    private OBWriteDomesticResponse5DataRefundAccount account = null;
+    private OBWriteDomesticResponse5DataRefundAccount account;
 
     public OBWriteInternationalStandingOrderResponse7DataRefund creditor(OBWriteInternationalStandingOrderResponse7DataRefundCreditor creditor) {
         this.creditor = creditor;
@@ -50,9 +47,11 @@ public class OBWriteInternationalStandingOrderResponse7DataRefund {
      * Get creditor
      *
      * @return creditor
-     **/
+     */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBWriteInternationalStandingOrderResponse7DataRefundCreditor getCreditor() {
         return creditor;
     }
@@ -70,9 +69,11 @@ public class OBWriteInternationalStandingOrderResponse7DataRefund {
      * Get agent
      *
      * @return agent
-     **/
+     */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBWriteInternationalResponse5DataRefundAgent getAgent() {
         return agent;
     }
@@ -90,10 +91,12 @@ public class OBWriteInternationalStandingOrderResponse7DataRefund {
      * Get account
      *
      * @return account
-     **/
+     */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
+
     public OBWriteDomesticResponse5DataRefundAccount getAccount() {
         return account;
     }

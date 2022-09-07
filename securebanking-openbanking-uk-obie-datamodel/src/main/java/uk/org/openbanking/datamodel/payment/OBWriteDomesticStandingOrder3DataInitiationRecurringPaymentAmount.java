@@ -30,7 +30,6 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "The amount of the recurring Standing Order")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-
 public class OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount {
     @JsonProperty("Amount")
     private String amount;
@@ -50,6 +49,7 @@ public class OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount {
      */
     @ApiModelProperty(required = true, value = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.")
     @NotNull
+
     @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$")
     public String getAmount() {
         return amount;
@@ -71,6 +71,7 @@ public class OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount {
      */
     @ApiModelProperty(required = true, value = "A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".")
     @NotNull
+
     @Pattern(regexp = "^[A-Z]{3,3}$")
     public String getCurrency() {
         return currency;

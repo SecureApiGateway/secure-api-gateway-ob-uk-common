@@ -23,6 +23,7 @@ import static uk.org.openbanking.datamodel.service.converter.payment.OBInternati
 import static uk.org.openbanking.datamodel.service.converter.payment.OBInternationalScheduledConverter.toOBWriteInternationalScheduled3DataInitiation;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBWriteDomesticConsentConverter.toOBSCASupportData1;
 
+import uk.org.openbanking.datamodel.payment.OBExternalPermissions2Code;
 import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalScheduled1;
 import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalScheduled2;
 import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalScheduledConsent1;
@@ -35,6 +36,7 @@ import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent4Data;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5Data;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5Data.PermissionEnum;
 
 public class OBWriteInternationalScheduledConsentConverter {
 
@@ -132,7 +134,7 @@ public class OBWriteInternationalScheduledConsentConverter {
 
     public static OBWriteDataInternationalScheduledConsent1 toOBWriteDataInternationalScheduledConsent1(OBWriteInternationalScheduledConsent5Data data) {
         return data == null ? null : (new OBWriteDataInternationalScheduledConsent1())
-                .permission(data.getPermission())
+                .permission(toOBExternalPermissions2Code(data.getPermission()))
                 .initiation(toOBInternationalScheduled1(data.getInitiation()))
                 .authorisation(toOBAuthorisation1(data.getAuthorisation()));
     }
@@ -162,7 +164,7 @@ public class OBWriteInternationalScheduledConsentConverter {
 
     public static OBWriteInternationalScheduledConsent5Data toOBWriteInternationalScheduledConsent5Data(OBWriteDataInternationalScheduledConsent1 data) {
         return data == null ? null : (new OBWriteInternationalScheduledConsent5Data())
-                .permission(data.getPermission())
+                .permission(toPermissionEnum(data.getPermission()))
                 .readRefundAccount(null)
                 .initiation(toOBWriteInternationalScheduled3DataInitiation(data.getInitiation()))
                 .authorisation(toOBWriteDomesticConsent4DataAuthorisation(data.getAuthorisation()))
@@ -171,7 +173,7 @@ public class OBWriteInternationalScheduledConsentConverter {
 
     public static OBWriteInternationalScheduledConsent5Data toOBWriteInternationalScheduledConsent5Data(OBWriteDataInternationalScheduledConsent2 data) {
         return data == null ? null : (new OBWriteInternationalScheduledConsent5Data())
-                .permission(data.getPermission())
+                .permission(toPermissionEnum(data.getPermission()))
                 .readRefundAccount(null)
                 .initiation(toOBWriteInternationalScheduled3DataInitiation(data.getInitiation()))
                 .authorisation(toOBWriteDomesticConsent4DataAuthorisation(data.getAuthorisation()))
@@ -180,10 +182,18 @@ public class OBWriteInternationalScheduledConsentConverter {
 
     public static OBWriteInternationalScheduledConsent5Data toOBWriteInternationalScheduledConsent5Data(OBWriteInternationalScheduledConsent4Data data) {
         return data == null ? null : (new OBWriteInternationalScheduledConsent5Data())
-                .permission(data.getPermission())
+                .permission(toPermissionEnum(data.getPermission()))
                 .readRefundAccount(null)
                 .initiation(data.getInitiation())
                 .authorisation(toOBWriteDomesticConsent4DataAuthorisation(data.getAuthorisation()))
                 .scASupportData(toOBSCASupportData1(data.getScASupportData()));
+    }
+
+    public static PermissionEnum toPermissionEnum(OBExternalPermissions2Code obExternalPermissions2Code) {
+        return obExternalPermissions2Code == null ? null : PermissionEnum.fromValue(obExternalPermissions2Code.toString());
+    }
+
+    public static OBExternalPermissions2Code toOBExternalPermissions2Code(PermissionEnum permissionEnum) {
+        return permissionEnum == null ? null : OBExternalPermissions2Code.fromValue(permissionEnum.getValue());
     }
 }

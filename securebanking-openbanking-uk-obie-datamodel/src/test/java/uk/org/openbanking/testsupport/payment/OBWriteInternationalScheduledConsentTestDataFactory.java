@@ -19,6 +19,9 @@ import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled3DataInitiation.InstructionPriorityEnum;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5Data.PermissionEnum;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5Data.ReadRefundAccountEnum;
 
 import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBActiveOrHistoricCurrencyAndAmount;
@@ -160,16 +163,16 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
 
     public static OBWriteInternationalScheduledConsent5Data aValidOBWriteInternationalScheduledConsent5Data() {
         return (new OBWriteInternationalScheduledConsent5Data())
-                .permission(OBExternalPermissions2Code.CREATE)
+                .permission(PermissionEnum.CREATE)
                 .initiation(aValidOBWriteInternationalScheduled3DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1())
-                .readRefundAccount(OBReadRefundAccountEnum.NO);
+                .readRefundAccount(ReadRefundAccountEnum.NO);
     }
 
     public static OBWriteInternationalScheduledConsent5Data aValidOBWriteInternationalScheduledConsent5DataMandatoryFields() {
         return (new OBWriteInternationalScheduledConsent5Data())
-                .permission(OBExternalPermissions2Code.CREATE)
+                .permission(PermissionEnum.CREATE)
                 .initiation(aValidOBWriteInternationalScheduled3DataInitiationMandatoryFields());
     }
 
@@ -267,7 +270,7 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
                 .localInstrument(LOCAL_INSTRUMENT)
-                .instructionPriority(OBPriority2Code.URGENT)
+                .instructionPriority(InstructionPriorityEnum.URGENT)
                 .purpose(PURPOSE)
                 .extendedPurpose("Extended purpose")
                 .chargeBearer(OBChargeBearerType1Code.SHARED)

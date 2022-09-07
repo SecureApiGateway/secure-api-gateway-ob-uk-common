@@ -17,6 +17,7 @@ package uk.org.openbanking.testsupport.payment;
 
 import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationExchangeRateInformation.RateTypeEnum;
 
 import java.math.BigDecimal;
 
@@ -37,7 +38,7 @@ public class OBExchangeRateTestDataFactory {
         return (new OBWriteInternational3DataInitiationExchangeRateInformation())
                 .unitCurrency(CURRENCY)
                 .exchangeRate(BigDecimal.TEN)
-                .rateType(OBExchangeRateType2Code.AGREED)
+                .rateType(RateTypeEnum.AGREED)
                 .contractIdentification(CONTRACT_IDENTIFICATION);
     }
 
@@ -54,7 +55,7 @@ public class OBExchangeRateTestDataFactory {
         return (new OBWriteInternationalConsentResponse6DataExchangeRateInformation())
                 .unitCurrency(CURRENCY)
                 .exchangeRate(BigDecimal.TEN)
-                .rateType(OBExchangeRateType2Code.AGREED)
+                .rateType(OBWriteInternationalConsentResponse6DataExchangeRateInformation.RateTypeEnum.AGREED)
                 .contractIdentification(CONTRACT_IDENTIFICATION)
                 .expirationDateTime(DateTime.now().plusDays(1));
     }

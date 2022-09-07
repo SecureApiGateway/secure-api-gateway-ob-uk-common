@@ -19,6 +19,8 @@ import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.com
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRDataSCASupportData.FRAppliedAuthenticationApproach;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRDataSCASupportData.FRRequestedSCAExemptionType;
 import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.OBSCASupportData1.AppliedAuthenticationApproachEnum;
+import uk.org.openbanking.datamodel.payment.OBSCASupportData1.RequestedSCAExemptionTypeEnum;
 
 public class FRDataSCASupportDataConverter {
 
@@ -51,8 +53,16 @@ public class FRDataSCASupportDataConverter {
         return appliedAuthenticationApproach == null ? null : FRAppliedAuthenticationApproach.valueOf(appliedAuthenticationApproach.name());
     }
 
+    public static FRAppliedAuthenticationApproach toFRAppliedAuthenticationApproach(AppliedAuthenticationApproachEnum appliedAuthenticationApproach) {
+        return appliedAuthenticationApproach == null ? null : FRAppliedAuthenticationApproach.fromValue(appliedAuthenticationApproach.getValue());
+    }
+
     public static FRRequestedSCAExemptionType toFRRequestedSCAExemptionType(OBRequestedSCAExemptionTypeEnum requestedSCAExemptionType) {
         return requestedSCAExemptionType == null ? null : FRRequestedSCAExemptionType.valueOf(requestedSCAExemptionType.name());
+    }
+
+    public static FRRequestedSCAExemptionType toFRRequestedSCAExemptionType(RequestedSCAExemptionTypeEnum requestedSCAExemptionType) {
+        return requestedSCAExemptionType == null ? null : FRRequestedSCAExemptionType.fromValue(requestedSCAExemptionType.getValue());
     }
 
     // FR to OB
@@ -72,9 +82,13 @@ public class FRDataSCASupportDataConverter {
 
     public static OBSCASupportData1 toOBSCASupportData1(FRDataSCASupportData scASupportData) {
         return scASupportData == null ? null : new OBSCASupportData1()
-                .requestedSCAExemptionType(toOBRequestedSCAExemptionTypeEnum(scASupportData.getRequestedSCAExemptionType()))
-                .appliedAuthenticationApproach(toOBAppliedAuthenticationApproachEnum(scASupportData.getAppliedAuthenticationApproach()))
+                .requestedSCAExemptionType(toRequestedSCAExemptionTypeEnum(scASupportData.getRequestedSCAExemptionType()))
+                .appliedAuthenticationApproach(toAppliedAuthenticationApproachEnum(scASupportData.getAppliedAuthenticationApproach()))
                 .referencePaymentOrderId(scASupportData.getReferencePaymentOrderId());
+    }
+
+    public static RequestedSCAExemptionTypeEnum toRequestedSCAExemptionTypeEnum(FRRequestedSCAExemptionType requestedSCAExemptionType) {
+        return requestedSCAExemptionType == null ? null : RequestedSCAExemptionTypeEnum.fromValue(requestedSCAExemptionType.getValue());
     }
 
     public static OBRequestedSCAExemptionTypeEnum toOBRequestedSCAExemptionTypeEnum(FRRequestedSCAExemptionType requestedSCAExemptionType) {
@@ -83,5 +97,9 @@ public class FRDataSCASupportDataConverter {
 
     public static OBAppliedAuthenticationApproachEnum toOBAppliedAuthenticationApproachEnum(FRAppliedAuthenticationApproach appliedAuthenticationApproach) {
         return appliedAuthenticationApproach == null ? null : OBAppliedAuthenticationApproachEnum.valueOf(appliedAuthenticationApproach.name());
+    }
+
+    public static AppliedAuthenticationApproachEnum toAppliedAuthenticationApproachEnum(FRAppliedAuthenticationApproach appliedAuthenticationApproach) {
+        return appliedAuthenticationApproach == null ? null : AppliedAuthenticationApproachEnum.fromValue(appliedAuthenticationApproach.getValue());
     }
 }

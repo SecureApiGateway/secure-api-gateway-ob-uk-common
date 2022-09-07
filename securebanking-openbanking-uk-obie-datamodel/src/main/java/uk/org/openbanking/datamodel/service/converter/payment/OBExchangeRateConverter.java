@@ -16,9 +16,8 @@
 package uk.org.openbanking.datamodel.service.converter.payment;
 
 import uk.org.openbanking.datamodel.payment.OBExchangeRate1;
-import uk.org.openbanking.datamodel.payment.OBExchangeRate2;
+import uk.org.openbanking.datamodel.payment.OBExchangeRateType2Code;
 import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationExchangeRateInformation;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsentResponse4DataExchangeRateInformation;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsentResponse6DataExchangeRateInformation;
 
 public class OBExchangeRateConverter {
@@ -27,42 +26,27 @@ public class OBExchangeRateConverter {
         return exchangeRateInformation == null ? null : (new OBExchangeRate1())
                 .unitCurrency(exchangeRateInformation.getUnitCurrency())
                 .exchangeRate(exchangeRateInformation.getExchangeRate())
-                .rateType(exchangeRateInformation.getRateType())
+                .rateType(toOBExchangeRateType2Code(exchangeRateInformation.getRateType()))
                 .contractIdentification(exchangeRateInformation.getContractIdentification());
-    }
-
-    public static OBExchangeRate2 toOBExchangeRate2(OBWriteInternationalConsentResponse4DataExchangeRateInformation calculatedExchangeRate) {
-        return calculatedExchangeRate == null ? null : (new OBExchangeRate2())
-                .unitCurrency(calculatedExchangeRate.getUnitCurrency())
-                .exchangeRate(calculatedExchangeRate.getExchangeRate())
-                .rateType(calculatedExchangeRate.getRateType())
-                .contractIdentification(calculatedExchangeRate.getContractIdentification())
-                .expirationDateTime(calculatedExchangeRate.getExpirationDateTime());
-    }
-
-    public static OBExchangeRate2 toOBExchangeRate2(OBWriteInternationalConsentResponse6DataExchangeRateInformation calculatedExchangeRate) {
-        return calculatedExchangeRate == null ? null : (new OBExchangeRate2())
-                .unitCurrency(calculatedExchangeRate.getUnitCurrency())
-                .exchangeRate(calculatedExchangeRate.getExchangeRate())
-                .rateType(calculatedExchangeRate.getRateType())
-                .contractIdentification(calculatedExchangeRate.getContractIdentification())
-                .expirationDateTime(calculatedExchangeRate.getExpirationDateTime());
     }
 
     public static OBWriteInternational3DataInitiationExchangeRateInformation toOBWriteInternational3DataInitiationExchangeRateInformation(OBExchangeRate1 exchangeRateInformation) {
         return exchangeRateInformation == null ? null : (new OBWriteInternational3DataInitiationExchangeRateInformation())
                 .unitCurrency(exchangeRateInformation.getUnitCurrency())
                 .exchangeRate(exchangeRateInformation.getExchangeRate())
-                .rateType(exchangeRateInformation.getRateType())
+                .rateType(toDataInitiationRateType(exchangeRateInformation.getRateType()))
                 .contractIdentification(exchangeRateInformation.getContractIdentification());
     }
 
-    public static OBWriteInternationalConsentResponse4DataExchangeRateInformation toOBWriteInternationalConsentResponse4DataExchangeRateInformation(OBWriteInternationalConsentResponse6DataExchangeRateInformation calculatedExchangeRate) {
-        return calculatedExchangeRate == null ? null : (new OBWriteInternationalConsentResponse4DataExchangeRateInformation())
-                .unitCurrency(calculatedExchangeRate.getUnitCurrency())
-                .exchangeRate(calculatedExchangeRate.getExchangeRate())
-                .rateType(calculatedExchangeRate.getRateType())
-                .contractIdentification(calculatedExchangeRate.getContractIdentification())
-                .expirationDateTime(calculatedExchangeRate.getExpirationDateTime());
+    public static OBExchangeRateType2Code toOBExchangeRateType2Code(OBWriteInternational3DataInitiationExchangeRateInformation.RateTypeEnum rateType) {
+        return rateType == null ? null : OBExchangeRateType2Code.fromValue(rateType.getValue());
+    }
+
+    public static OBWriteInternationalConsentResponse6DataExchangeRateInformation.RateTypeEnum toConsentRateType(OBExchangeRateType2Code rateType2Code) {
+        return rateType2Code == null ? null : OBWriteInternationalConsentResponse6DataExchangeRateInformation.RateTypeEnum.fromValue(rateType2Code.toString());
+    }
+
+    public static OBWriteInternational3DataInitiationExchangeRateInformation.RateTypeEnum toDataInitiationRateType(OBExchangeRateType2Code rateType2Code) {
+        return rateType2Code == null ? null : OBWriteInternational3DataInitiationExchangeRateInformation.RateTypeEnum.fromValue(rateType2Code.toString());
     }
 }

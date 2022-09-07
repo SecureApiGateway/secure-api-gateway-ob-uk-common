@@ -30,7 +30,6 @@ import uk.org.openbanking.datamodel.common.Meta;
  * OBWriteFundsConfirmationResponse1
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-
 public class OBWriteFundsConfirmationResponse1 {
     @JsonProperty("Data")
     private OBWriteFundsConfirmationResponse1Data data;
@@ -53,7 +52,9 @@ public class OBWriteFundsConfirmationResponse1 {
      */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
+
     public OBWriteFundsConfirmationResponse1Data getData() {
         return data;
     }
@@ -73,7 +74,9 @@ public class OBWriteFundsConfirmationResponse1 {
      * @return links
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public Links getLinks() {
         return links;
     }
@@ -93,7 +96,9 @@ public class OBWriteFundsConfirmationResponse1 {
      * @return meta
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public Meta getMeta() {
         return meta;
     }

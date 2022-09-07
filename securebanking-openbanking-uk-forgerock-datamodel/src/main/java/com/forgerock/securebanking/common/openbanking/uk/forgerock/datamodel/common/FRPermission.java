@@ -15,6 +15,8 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common;
 
+import java.util.stream.Stream;
+
 public enum FRPermission {
 
     CREATE("Create");
@@ -31,5 +33,12 @@ public enum FRPermission {
 
     public String toString() {
         return value;
+    }
+
+    public static FRPermission fromValue(String value) {
+        return Stream.of(values())
+                .filter(type -> type.getValue().equals(value))
+                .findFirst()
+                .orElse(null);
     }
 }

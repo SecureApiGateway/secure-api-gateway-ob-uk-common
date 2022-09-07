@@ -19,7 +19,9 @@ import java.util.Objects;
 
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -29,19 +31,97 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Supporting Data provided by TPP, when requesting SCA Exemption.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-
 public class OBSCASupportData1 {
+    /**
+     * This field allows a PISP to request specific SCA Exemption for a Payment Initiation
+     */
+    public enum RequestedSCAExemptionTypeEnum {
+        BILLPAYMENT("BillPayment"),
+
+        CONTACTLESSTRAVEL("ContactlessTravel"),
+
+        ECOMMERCEGOODS("EcommerceGoods"),
+
+        ECOMMERCESERVICES("EcommerceServices"),
+
+        KIOSK("Kiosk"),
+
+        PARKING("Parking"),
+
+        PARTYTOPARTY("PartyToParty");
+
+        private String value;
+
+        RequestedSCAExemptionTypeEnum(String value) {
+            this.value = value;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        @JsonCreator
+        public static RequestedSCAExemptionTypeEnum fromValue(String value) {
+            for (RequestedSCAExemptionTypeEnum b : RequestedSCAExemptionTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+    }
 
     @JsonProperty("RequestedSCAExemptionType")
-    private OBRequestedSCAExemptionTypeEnum requestedSCAExemptionType;
+    private RequestedSCAExemptionTypeEnum requestedSCAExemptionType;
+
+    /**
+     * Specifies a character string with a maximum length of 40 characters. Usage: This field indicates whether the PSU was subject to SCA performed by the TPP
+     */
+    public enum AppliedAuthenticationApproachEnum {
+        CA("CA"),
+
+        SCA("SCA");
+
+        private String value;
+
+        AppliedAuthenticationApproachEnum(String value) {
+            this.value = value;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        @JsonCreator
+        public static AppliedAuthenticationApproachEnum fromValue(String value) {
+            for (AppliedAuthenticationApproachEnum b : AppliedAuthenticationApproachEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+    }
 
     @JsonProperty("AppliedAuthenticationApproach")
-    private OBAppliedAuthenticationApproachEnum appliedAuthenticationApproach;
+    private AppliedAuthenticationApproachEnum appliedAuthenticationApproach;
 
     @JsonProperty("ReferencePaymentOrderId")
     private String referencePaymentOrderId;
 
-    public OBSCASupportData1 requestedSCAExemptionType(OBRequestedSCAExemptionTypeEnum requestedSCAExemptionType) {
+    public OBSCASupportData1 requestedSCAExemptionType(RequestedSCAExemptionTypeEnum requestedSCAExemptionType) {
         this.requestedSCAExemptionType = requestedSCAExemptionType;
         return this;
     }
@@ -52,15 +132,17 @@ public class OBSCASupportData1 {
      * @return requestedSCAExemptionType
      */
     @ApiModelProperty(value = "This field allows a PISP to request specific SCA Exemption for a Payment Initiation")
-    public OBRequestedSCAExemptionTypeEnum getRequestedSCAExemptionType() {
+
+
+    public RequestedSCAExemptionTypeEnum getRequestedSCAExemptionType() {
         return requestedSCAExemptionType;
     }
 
-    public void setRequestedSCAExemptionType(OBRequestedSCAExemptionTypeEnum requestedSCAExemptionType) {
+    public void setRequestedSCAExemptionType(RequestedSCAExemptionTypeEnum requestedSCAExemptionType) {
         this.requestedSCAExemptionType = requestedSCAExemptionType;
     }
 
-    public OBSCASupportData1 appliedAuthenticationApproach(OBAppliedAuthenticationApproachEnum appliedAuthenticationApproach) {
+    public OBSCASupportData1 appliedAuthenticationApproach(AppliedAuthenticationApproachEnum appliedAuthenticationApproach) {
         this.appliedAuthenticationApproach = appliedAuthenticationApproach;
         return this;
     }
@@ -71,11 +153,13 @@ public class OBSCASupportData1 {
      * @return appliedAuthenticationApproach
      */
     @ApiModelProperty(value = "Specifies a character string with a maximum length of 40 characters. Usage: This field indicates whether the PSU was subject to SCA performed by the TPP")
-    public OBAppliedAuthenticationApproachEnum getAppliedAuthenticationApproach() {
+
+    @Size(max = 40)
+    public AppliedAuthenticationApproachEnum getAppliedAuthenticationApproach() {
         return appliedAuthenticationApproach;
     }
 
-    public void setAppliedAuthenticationApproach(OBAppliedAuthenticationApproachEnum appliedAuthenticationApproach) {
+    public void setAppliedAuthenticationApproach(AppliedAuthenticationApproachEnum appliedAuthenticationApproach) {
         this.appliedAuthenticationApproach = appliedAuthenticationApproach;
     }
 
@@ -90,6 +174,7 @@ public class OBSCASupportData1 {
      * @return referencePaymentOrderId
      */
     @ApiModelProperty(value = "If the payment is recurring, then this field is populated with the transaction identifier of the previous payment occurrence so that the ASPSP can verify that the PISP, amount and the payee are the same as the previous occurrence. The value here refers to the payment id e.g. DomesticPaymentId  ")
+
     @Size(min = 1, max = 40)
     public String getReferencePaymentOrderId() {
         return referencePaymentOrderId;

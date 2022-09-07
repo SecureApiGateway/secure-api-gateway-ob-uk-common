@@ -20,6 +20,7 @@ import uk.org.openbanking.datamodel.payment.OBAuthorisation1;
 import uk.org.openbanking.datamodel.payment.OBExternalAuthorisation1Code;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent3DataAuthorisation;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4DataAuthorisation;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4DataAuthorisation.AuthorisationTypeEnum;
 
 public class FRDataAuthorisationConverter {
 
@@ -49,6 +50,10 @@ public class FRDataAuthorisationConverter {
         return authorisationType == null ? null : FRDataAuthorisation.AuthorisationType.valueOf(authorisationType.name());
     }
 
+    public static FRDataAuthorisation.AuthorisationType toFRAuthorisationType(AuthorisationTypeEnum authorisationType) {
+        return authorisationType == null ? null : FRDataAuthorisation.AuthorisationType.fromValue(authorisationType.getValue());
+    }
+
     // FR to OB
     public static OBWriteDomesticConsent3DataAuthorisation toOBWriteDomesticConsent3DataAuthorisation(FRDataAuthorisation authorisation) {
         return authorisation == null ? null : new OBWriteDomesticConsent3DataAuthorisation()
@@ -58,7 +63,7 @@ public class FRDataAuthorisationConverter {
 
     public static OBWriteDomesticConsent4DataAuthorisation toOBWriteDomesticConsent4DataAuthorisation(FRDataAuthorisation authorisation) {
         return authorisation == null ? null : new OBWriteDomesticConsent4DataAuthorisation()
-                .authorisationType(toOBExternalAuthorisation1Code(authorisation.getAuthorisationType()))
+                .authorisationType(toAuthorisationType(authorisation.getAuthorisationType()))
                 .completionDateTime(authorisation.getCompletionDateTime());
     }
 
@@ -70,5 +75,9 @@ public class FRDataAuthorisationConverter {
 
     public static OBExternalAuthorisation1Code toOBExternalAuthorisation1Code(FRDataAuthorisation.AuthorisationType authorisationType) {
         return authorisationType == null ? null : OBExternalAuthorisation1Code.valueOf(authorisationType.name());
+    }
+
+    public static AuthorisationTypeEnum toAuthorisationType(FRDataAuthorisation.AuthorisationType authorisationType) {
+        return authorisationType == null ? null : AuthorisationTypeEnum.fromValue(authorisationType.getValue());
     }
 }

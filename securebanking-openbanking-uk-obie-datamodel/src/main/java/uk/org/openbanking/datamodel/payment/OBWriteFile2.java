@@ -20,8 +20,6 @@ import java.util.Objects;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.validation.annotation.Validated;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -29,12 +27,10 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * OBWriteFile2
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteFile2 {
     @JsonProperty("Data")
-    private OBWriteFile2Data data = null;
+    private OBWriteFile2Data data;
 
     public OBWriteFile2 data(OBWriteFile2Data data) {
         this.data = data;
@@ -45,7 +41,7 @@ public class OBWriteFile2 {
      * Get data
      *
      * @return data
-     **/
+     */
     @ApiModelProperty(required = true, value = "")
     @NotNull
 

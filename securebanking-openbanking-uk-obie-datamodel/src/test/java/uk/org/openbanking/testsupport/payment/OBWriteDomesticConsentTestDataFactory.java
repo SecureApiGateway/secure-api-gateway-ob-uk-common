@@ -17,6 +17,7 @@ package uk.org.openbanking.testsupport.payment;
 
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4Data.ReadRefundAccountEnum;
 
 import java.util.UUID;
 
@@ -64,10 +65,10 @@ public class OBWriteDomesticConsentTestDataFactory {
                 .risk(aValidOBRisk1());
     }
 
-    public static OBWriteDataDomestic2 aValidOBWriteDataDomestic2() {
-        return (new OBWriteDataDomestic2())
+    public static OBWriteDomestic2Data aValidOBWriteDataDomestic2() {
+        return (new OBWriteDomestic2Data())
                 .consentId(UUID.randomUUID().toString())
-                .initiation(aValidOBDomestic2());
+                .initiation(aValidOBWriteDomestic2DataInitiation());
     }
 
     public static OBWriteDataDomesticConsent2 aValidOBWriteDataDomesticConsent2() {
@@ -88,7 +89,7 @@ public class OBWriteDomesticConsentTestDataFactory {
                 .initiation(aValidOBWriteDomestic2DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1())
-                .readRefundAccount(OBReadRefundAccountEnum.NO);
+                .readRefundAccount(ReadRefundAccountEnum.NO);
     }
 
     public static  OBDomestic1 aValidOBDomestic1() {

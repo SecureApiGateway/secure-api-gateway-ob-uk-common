@@ -33,6 +33,8 @@ import static uk.org.openbanking.datamodel.service.converter.payment.OBRemittanc
 import uk.org.openbanking.datamodel.common.OBCashAccount3;
 import uk.org.openbanking.datamodel.payment.OBInternationalScheduled1;
 import uk.org.openbanking.datamodel.payment.OBInternationalScheduled2;
+import uk.org.openbanking.datamodel.payment.OBPriority2Code;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled3DataInitiation.InstructionPriorityEnum;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled3DataInitiation;
 
 public class OBInternationalScheduledConverter {
@@ -61,7 +63,7 @@ public class OBInternationalScheduledConverter {
                 .instructionIdentification(initiation.getInstructionIdentification())
                 .endToEndIdentification(initiation.getEndToEndIdentification())
                 .localInstrument(initiation.getLocalInstrument())
-                .instructionPriority(initiation.getInstructionPriority())
+                .instructionPriority(toOBPriority2Code(initiation.getInstructionPriority()))
                 .purpose(initiation.getPurpose())
                 .chargeBearer(initiation.getChargeBearer())
                 .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
@@ -100,7 +102,7 @@ public class OBInternationalScheduledConverter {
                 .instructionIdentification(initiation.getInstructionIdentification())
                 .endToEndIdentification(initiation.getEndToEndIdentification())
                 .localInstrument(initiation.getLocalInstrument())
-                .instructionPriority(initiation.getInstructionPriority())
+                .instructionPriority(toOBPriority2Code(initiation.getInstructionPriority()))
                 .purpose(initiation.getPurpose())
                 .chargeBearer(initiation.getChargeBearer())
                 .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
@@ -121,7 +123,7 @@ public class OBInternationalScheduledConverter {
                 .instructionIdentification(obInternationalScheduled1.getInstructionIdentification())
                 .endToEndIdentification(obInternationalScheduled1.getEndToEndIdentification())
                 .localInstrument(obInternationalScheduled1.getLocalInstrument())
-                .instructionPriority(obInternationalScheduled1.getInstructionPriority())
+                .instructionPriority(toInstructionPriority(obInternationalScheduled1.getInstructionPriority()))
                 .purpose(obInternationalScheduled1.getPurpose())
                 .chargeBearer(obInternationalScheduled1.getChargeBearer())
                 .requestedExecutionDateTime(obInternationalScheduled1.getRequestedExecutionDateTime())
@@ -143,7 +145,7 @@ public class OBInternationalScheduledConverter {
                 .instructionIdentification(obInternationalScheduled2.getInstructionIdentification())
                 .endToEndIdentification(obInternationalScheduled2.getEndToEndIdentification())
                 .localInstrument(obInternationalScheduled2.getLocalInstrument())
-                .instructionPriority(obInternationalScheduled2.getInstructionPriority())
+                .instructionPriority(toInstructionPriority(obInternationalScheduled2.getInstructionPriority()))
                 .purpose(obInternationalScheduled2.getPurpose())
                 .chargeBearer(obInternationalScheduled2.getChargeBearer())
                 .requestedExecutionDateTime(obInternationalScheduled2.getRequestedExecutionDateTime())
@@ -159,4 +161,11 @@ public class OBInternationalScheduledConverter {
                 .supplementaryData(obInternationalScheduled2.getSupplementaryData());
     }
 
+    public static OBPriority2Code toOBPriority2Code(InstructionPriorityEnum instructionPriority) {
+        return instructionPriority == null ? null : OBPriority2Code.fromValue(instructionPriority.getValue());
+    }
+
+    public static InstructionPriorityEnum toInstructionPriority(OBPriority2Code obPriority2Code) {
+        return obPriority2Code == null ? null : InstructionPriorityEnum.fromValue(obPriority2Code.toString());
+    }
 }
