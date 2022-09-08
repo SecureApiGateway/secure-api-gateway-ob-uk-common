@@ -129,8 +129,7 @@ public class OBVRPFundsConfirmationResponseData {
      *
      * @return reference
      */
-    @ApiModelProperty(required = true, value = "Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.")
-    @NotNull
+    @ApiModelProperty(value = "Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.")
 
     @Size(min = 1, max = 35)
     public String getReference() {

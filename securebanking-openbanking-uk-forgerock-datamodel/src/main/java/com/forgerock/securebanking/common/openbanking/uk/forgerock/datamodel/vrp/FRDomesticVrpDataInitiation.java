@@ -18,7 +18,7 @@ package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.vr
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRAccountIdentifier;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRFinancialAgent;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRPostalAddress;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRRemittanceInformation;
 
 /**
@@ -36,7 +36,7 @@ public interface FRDomesticVrpDataInitiation {
 
     FRAccountIdentifier getCreditorAccount();
 
-    FRFinancialAgent getCreditorAgent();
+    FRPostalAddress getCreditorPostalAddress();
 
     FRRemittanceInformation getRemittanceInformation();
 }

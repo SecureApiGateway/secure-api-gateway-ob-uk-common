@@ -15,8 +15,19 @@
  */
 package uk.org.openbanking.testsupport.vrp;
 
-import uk.org.openbanking.datamodel.common.*;
-import uk.org.openbanking.datamodel.vrp.*;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import uk.org.openbanking.datamodel.common.OBAddressTypeCode;
+import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
+import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
+import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
+import uk.org.openbanking.datamodel.common.OBPostalAddress6;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.vrp.OBCashAccountDebtorWithName;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInitiation;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInitiationRemittanceInformation;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPResponseDataCharges;
+import uk.org.openbanking.datamodel.vrp.OBExternalPaymentChargeType1Code;
+import uk.org.openbanking.datamodel.vrp.OBVRPRemittanceInformation;
 
 
 public class OBDomesticVrpCommonTestDataFactory {
@@ -32,8 +43,8 @@ public class OBDomesticVrpCommonTestDataFactory {
     public static OBDomesticVRPInitiation aValidOBDomesticVRPInitiation() {
         return (new OBDomesticVRPInitiation())
                 .creditorAccount(aValidOBCashAccountCreditor3())
+                .creditorPostalAddress(aValidOBPostalAddress6())
                 .debtorAccount(aValidOBCashAccountDebtorWithName())
-                .creditorAgent(aValidOBBranchAndFinancialInstitutionIdentification6())
                 .remittanceInformation(aValidOBDomesticVRPInitiationRemittanceInformation());
     }
 

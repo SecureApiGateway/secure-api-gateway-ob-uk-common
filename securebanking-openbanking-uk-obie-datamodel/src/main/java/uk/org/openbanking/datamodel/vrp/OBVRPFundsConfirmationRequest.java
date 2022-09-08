@@ -18,6 +18,7 @@ package uk.org.openbanking.datamodel.vrp;
 import java.util.Objects;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -43,7 +44,8 @@ public class OBVRPFundsConfirmationRequest {
      *
      * @return data
      */
-    @ApiModelProperty(value = "")
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
 
     @Valid
 

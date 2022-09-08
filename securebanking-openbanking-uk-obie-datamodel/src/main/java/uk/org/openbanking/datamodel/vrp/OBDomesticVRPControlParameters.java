@@ -48,7 +48,7 @@ public class OBDomesticVRPControlParameters {
 
     @JsonProperty("PeriodicLimits")
     @Valid
-    private List<OBDomesticVRPControlParametersPeriodicLimits> periodicLimits = null;
+    private List<OBDomesticVRPControlParametersPeriodicLimits> periodicLimits = new ArrayList<OBDomesticVRPControlParametersPeriodicLimits>();
 
     @JsonProperty("VRPType")
     @Valid
@@ -57,6 +57,10 @@ public class OBDomesticVRPControlParameters {
     @JsonProperty("PSUAuthenticationMethods")
     @Valid
     private List<String> psUAuthenticationMethods = new ArrayList<String>();
+
+    @JsonProperty("PSUInteractionTypes")
+    @Valid
+    private List<OBVRPInteractionTypes> psUInteractionTypes = null;
 
     @JsonProperty("SupplementaryData")
     private Object supplementaryData;
@@ -115,7 +119,8 @@ public class OBDomesticVRPControlParameters {
      *
      * @return maximumIndividualAmount
      */
-    @ApiModelProperty(value = "")
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
 
     @Valid
 
@@ -145,10 +150,11 @@ public class OBDomesticVRPControlParameters {
      *
      * @return periodicLimits
      */
-    @ApiModelProperty(value = "")
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
 
     @Valid
-
+    @Size(min = 1)
     public List<OBDomesticVRPControlParametersPeriodicLimits> getPeriodicLimits() {
         return periodicLimits;
     }
@@ -217,6 +223,36 @@ public class OBDomesticVRPControlParameters {
         this.psUAuthenticationMethods = psUAuthenticationMethods;
     }
 
+    public OBDomesticVRPControlParameters psUInteractionTypes(List<OBVRPInteractionTypes> psUInteractionTypes) {
+        this.psUInteractionTypes = psUInteractionTypes;
+        return this;
+    }
+
+    public OBDomesticVRPControlParameters addPsUInteractionTypesItem(OBVRPInteractionTypes psUInteractionTypesItem) {
+        if (this.psUInteractionTypes == null) {
+            this.psUInteractionTypes = new ArrayList<OBVRPInteractionTypes>();
+        }
+        this.psUInteractionTypes.add(psUInteractionTypesItem);
+        return this;
+    }
+
+    /**
+     * ^ Indicates interaction type, currently if customer is present or not present.
+     *
+     * @return psUInteractionTypes
+     */
+    @ApiModelProperty(value = "^ Indicates interaction type, currently if customer is present or not present.")
+
+    @Valid
+
+    public List<OBVRPInteractionTypes> getPsUInteractionTypes() {
+        return psUInteractionTypes;
+    }
+
+    public void setPsUInteractionTypes(List<OBVRPInteractionTypes> psUInteractionTypes) {
+        this.psUInteractionTypes = psUInteractionTypes;
+    }
+
     public OBDomesticVRPControlParameters supplementaryData(Object supplementaryData) {
         this.supplementaryData = supplementaryData;
         return this;
@@ -254,12 +290,13 @@ public class OBDomesticVRPControlParameters {
                 Objects.equals(this.periodicLimits, obDomesticVRPControlParameters.periodicLimits) &&
                 Objects.equals(this.vrPType, obDomesticVRPControlParameters.vrPType) &&
                 Objects.equals(this.psUAuthenticationMethods, obDomesticVRPControlParameters.psUAuthenticationMethods) &&
+                Objects.equals(this.psUInteractionTypes, obDomesticVRPControlParameters.psUInteractionTypes) &&
                 Objects.equals(this.supplementaryData, obDomesticVRPControlParameters.supplementaryData);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(validFromDateTime, validToDateTime, maximumIndividualAmount, periodicLimits, vrPType, psUAuthenticationMethods, supplementaryData);
+        return Objects.hash(validFromDateTime, validToDateTime, maximumIndividualAmount, periodicLimits, vrPType, psUAuthenticationMethods, psUInteractionTypes, supplementaryData);
     }
 
     @Override
@@ -273,6 +310,7 @@ public class OBDomesticVRPControlParameters {
         sb.append("    periodicLimits: ").append(toIndentedString(periodicLimits)).append("\n");
         sb.append("    vrPType: ").append(toIndentedString(vrPType)).append("\n");
         sb.append("    psUAuthenticationMethods: ").append(toIndentedString(psUAuthenticationMethods)).append("\n");
+        sb.append("    psUInteractionTypes: ").append(toIndentedString(psUInteractionTypes)).append("\n");
         sb.append("    supplementaryData: ").append(toIndentedString(supplementaryData)).append("\n");
         sb.append("}");
         return sb.toString();

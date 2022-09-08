@@ -15,15 +15,20 @@
  */
 package uk.org.openbanking.testsupport.vrp;
 
+import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
+import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBActiveOrHistoricCurrencyAndAmount;
+import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBCashAccountCreditor3;
+import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBDomesticVRPInitiation;
+import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBPostalAddress6;
+import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBSupplementaryData1;
+import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBVRPRemittanceInformation;
+
+import java.util.UUID;
+
 import uk.org.openbanking.datamodel.common.OBVRPAuthenticationMethods;
 import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInstruction;
 import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequest;
 import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequestData;
-
-import java.util.UUID;
-
-import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
-import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.*;
 
 public class OBDomesticVrpRequestTestDataFactory {
 
@@ -60,7 +65,7 @@ public class OBDomesticVrpRequestTestDataFactory {
     public static OBDomesticVRPInstruction aValidOBDomesticVRPInstruction() {
         return (new OBDomesticVRPInstruction())
                 .creditorAccount(aValidOBCashAccountCreditor3())
-                .creditorAgent(aValidOBBranchAndFinancialInstitutionIdentification6())
+                .creditorPostalAddress(aValidOBPostalAddress6())
                 .instructionIdentification(ConstantsVrpTestData.INSTRUCTION_IDENTIFICATION)
                 .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
                 .endToEndIdentification(ConstantsVrpTestData.END_TO_END_IDENTIFICATION)
