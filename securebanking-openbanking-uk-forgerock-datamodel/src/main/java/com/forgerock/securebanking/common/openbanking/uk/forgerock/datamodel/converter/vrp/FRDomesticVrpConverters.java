@@ -62,6 +62,7 @@ public class FRDomesticVrpConverters {
                 .consentId(obDomesticVRPRequestData.getConsentId())
                 .initiation(toFRDomesticVRPInitiation(obDomesticVRPRequestData.getInitiation()))
                 .psuAuthenticationMethod(obDomesticVRPRequestData.getPsUAuthenticationMethod())
+                .psUInteractionType(FRVrpInteractionTypesConverter.toFRVRPInteractionTypes(obDomesticVRPRequestData.getPsUInteractionType()))
                 .instruction(toFRDomesticVRPInstruction(obDomesticVRPRequestData.getInstruction()))
                 .build();
     }
@@ -102,6 +103,7 @@ public class FRDomesticVrpConverters {
         return data == null ? null : new OBDomesticVRPRequestData()
                 .consentId(data.getConsentId())
                 .psUAuthenticationMethod(data.getPsuAuthenticationMethod())
+                .psUInteractionType(FRVrpInteractionTypesConverter.toFRVRPInteractionTypes(data.getPsUInteractionType()))
                 .initiation(toOBDomesticVRPInitiation(data.getInitiation()))
                 .instruction(toOBDomesticVRPInstruction(data.getInstruction()));
     }

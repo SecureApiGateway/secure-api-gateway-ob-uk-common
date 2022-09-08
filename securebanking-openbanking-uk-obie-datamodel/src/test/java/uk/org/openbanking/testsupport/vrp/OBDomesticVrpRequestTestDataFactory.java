@@ -29,6 +29,7 @@ import uk.org.openbanking.datamodel.common.OBVRPAuthenticationMethods;
 import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInstruction;
 import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequest;
 import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequestData;
+import uk.org.openbanking.datamodel.vrp.OBVRPInteractionTypes;
 
 public class OBDomesticVrpRequestTestDataFactory {
 
@@ -47,7 +48,8 @@ public class OBDomesticVrpRequestTestDataFactory {
     public static OBDomesticVRPRequestData aValidOBDomesticVRPRequestData() {
         return (new OBDomesticVRPRequestData())
                 .consentId(ConstantsVrpTestData.CONSENT_PREFIX + UUID.randomUUID())
-                .psUAuthenticationMethod(OBVRPAuthenticationMethods.SCA.getValue())
+                .psUAuthenticationMethod(OBVRPAuthenticationMethods.SCA_NOT_REQUIRED.getValue())
+                .psUInteractionType(OBVRPInteractionTypes.INSESSION)
                 .initiation(aValidOBDomesticVRPInitiation())
                 .instruction(aValidOBDomesticVRPInstruction());
 
@@ -56,7 +58,8 @@ public class OBDomesticVrpRequestTestDataFactory {
     public static OBDomesticVRPRequestData aValidOBDomesticVRPRequestData(String consentId) {
         return (new OBDomesticVRPRequestData())
                 .consentId(consentId)
-                .psUAuthenticationMethod(OBVRPAuthenticationMethods.SCA.getValue())
+                .psUAuthenticationMethod(OBVRPAuthenticationMethods.SCA_NOT_REQUIRED.getValue())
+                .psUInteractionType(OBVRPInteractionTypes.INSESSION)
                 .initiation(aValidOBDomesticVRPInitiation())
                 .instruction(aValidOBDomesticVRPInstruction());
 
