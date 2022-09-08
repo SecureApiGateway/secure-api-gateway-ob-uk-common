@@ -15,21 +15,36 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.payment.*;
-
-import java.util.UUID;
-
-import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.*;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBCashAccount3;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteDomestic2DataInitiationCreditorAccount;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteDomestic2DataInitiationDebtorAccount;
 import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBActiveOrHistoricCurrencyAndAmount;
 import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBWriteDomestic2DataInitiationInstructedAmount;
-import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.*;
+import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBAuthorisation1;
+import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent3DataAuthorisation;
+import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent4DataAuthorisation;
 import static uk.org.openbanking.testsupport.payment.OBPostalAddress6TestDataFactory.aValidOBPostalAddress6;
 import static uk.org.openbanking.testsupport.payment.OBRemittanceInformationTestDataFactory.aValidOBRemittanceInformation1;
 import static uk.org.openbanking.testsupport.payment.OBRemittanceInformationTestDataFactory.aValidOBWriteDomestic2DataInitiationRemittanceInformation;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent3DataSCASupportData;
+
+import java.util.UUID;
+
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.payment.OBDomestic1;
+import uk.org.openbanking.datamodel.payment.OBDomestic2;
+import uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum;
+import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteDomestic2;
+import uk.org.openbanking.datamodel.payment.OBWriteDomestic2Data;
+import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiation;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent3;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent3Data;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4Data;
 
 /**
  * Test data factory for the various "OBWriteDomesticConsent" classes.
@@ -64,10 +79,10 @@ public class OBWriteDomesticConsentTestDataFactory {
                 .risk(aValidOBRisk1());
     }
 
-    public static OBWriteDataDomestic2 aValidOBWriteDataDomestic2() {
-        return (new OBWriteDataDomestic2())
+    public static OBWriteDomestic2Data aValidOBWriteDataDomestic2() {
+        return (new OBWriteDomestic2Data())
                 .consentId(UUID.randomUUID().toString())
-                .initiation(aValidOBDomestic2());
+                .initiation(aValidOBWriteDomestic2DataInitiation());
     }
 
     public static OBWriteDataDomesticConsent2 aValidOBWriteDataDomesticConsent2() {

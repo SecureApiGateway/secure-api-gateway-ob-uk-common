@@ -20,8 +20,6 @@ import java.util.Objects;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
-import org.springframework.validation.annotation.Validated;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModel;
@@ -32,14 +30,13 @@ import uk.org.openbanking.datamodel.common.OBPostalAddress6;
  * Party to which an amount of money is due.
  */
 @ApiModel(description = "Party to which an amount of money is due.")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor {
     @JsonProperty("Name")
-    private String name = null;
+    private String name;
 
     @JsonProperty("PostalAddress")
-    private OBPostalAddress6 postalAddress = null;
+    private OBPostalAddress6 postalAddress;
 
     public OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor name(String name) {
         this.name = name;
@@ -50,8 +47,9 @@ public class OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor
      * Name by which a party is known and which is usually used to identify that party.
      *
      * @return name
-     **/
+     */
     @ApiModelProperty(value = "Name by which a party is known and which is usually used to identify that party.")
+
     @Size(min = 1, max = 350)
     public String getName() {
         return name;
@@ -70,9 +68,11 @@ public class OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor
      * Get postalAddress
      *
      * @return postalAddress
-     **/
+     */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBPostalAddress6 getPostalAddress() {
         return postalAddress;
     }

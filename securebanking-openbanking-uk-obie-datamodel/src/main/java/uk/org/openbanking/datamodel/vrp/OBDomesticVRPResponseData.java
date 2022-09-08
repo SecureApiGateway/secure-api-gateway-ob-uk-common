@@ -92,6 +92,12 @@ public class OBDomesticVRPResponseData {
     @JsonProperty("Status")
     private StatusEnum status;
 
+    @JsonProperty("StatusReason")
+    private String statusReason;
+
+    @JsonProperty("StatusReasonDescription")
+    private String statusReasonDescription;
+
     @JsonProperty("StatusUpdateDateTime")
     @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -207,6 +213,48 @@ public class OBDomesticVRPResponseData {
 
     public void setStatus(StatusEnum status) {
         this.status = status;
+    }
+
+    public OBDomesticVRPResponseData statusReason(String statusReason) {
+        this.statusReason = statusReason;
+        return this;
+    }
+
+    /**
+     * Reason Code provided for the status of a VRP. To be documented in the Developer Portal.
+     *
+     * @return statusReason
+     */
+    @ApiModelProperty(value = "Reason Code provided for the status of a VRP. To be documented in the Developer Portal. ")
+
+
+    public String getStatusReason() {
+        return statusReason;
+    }
+
+    public void setStatusReason(String statusReason) {
+        this.statusReason = statusReason;
+    }
+
+    public OBDomesticVRPResponseData statusReasonDescription(String statusReasonDescription) {
+        this.statusReasonDescription = statusReasonDescription;
+        return this;
+    }
+
+    /**
+     * Description related to provided Status/StatusReason
+     *
+     * @return statusReasonDescription
+     */
+    @ApiModelProperty(value = "Description related to provided Status/StatusReason ")
+
+    @Size(min = 1, max = 256)
+    public String getStatusReasonDescription() {
+        return statusReasonDescription;
+    }
+
+    public void setStatusReasonDescription(String statusReasonDescription) {
+        this.statusReasonDescription = statusReasonDescription;
     }
 
     public OBDomesticVRPResponseData statusUpdateDateTime(DateTime statusUpdateDateTime) {
@@ -410,6 +458,8 @@ public class OBDomesticVRPResponseData {
                 Objects.equals(this.consentId, obDomesticVRPResponseData.consentId) &&
                 Objects.equals(this.creationDateTime, obDomesticVRPResponseData.creationDateTime) &&
                 Objects.equals(this.status, obDomesticVRPResponseData.status) &&
+                Objects.equals(this.statusReason, obDomesticVRPResponseData.statusReason) &&
+                Objects.equals(this.statusReasonDescription, obDomesticVRPResponseData.statusReasonDescription) &&
                 Objects.equals(this.statusUpdateDateTime, obDomesticVRPResponseData.statusUpdateDateTime) &&
                 Objects.equals(this.expectedExecutionDateTime, obDomesticVRPResponseData.expectedExecutionDateTime) &&
                 Objects.equals(this.expectedSettlementDateTime, obDomesticVRPResponseData.expectedSettlementDateTime) &&
@@ -422,7 +472,7 @@ public class OBDomesticVRPResponseData {
 
     @Override
     public int hashCode() {
-        return Objects.hash(domesticVRPId, consentId, creationDateTime, status, statusUpdateDateTime, expectedExecutionDateTime, expectedSettlementDateTime, refund, charges, initiation, instruction, debtorAccount);
+        return Objects.hash(domesticVRPId, consentId, creationDateTime, status, statusReason, statusReasonDescription, statusUpdateDateTime, expectedExecutionDateTime, expectedSettlementDateTime, refund, charges, initiation, instruction, debtorAccount);
     }
 
     @Override
@@ -434,6 +484,8 @@ public class OBDomesticVRPResponseData {
         sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
         sb.append("    creationDateTime: ").append(toIndentedString(creationDateTime)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
+        sb.append("    statusReasonDescription: ").append(toIndentedString(statusReasonDescription)).append("\n");
         sb.append("    statusUpdateDateTime: ").append(toIndentedString(statusUpdateDateTime)).append("\n");
         sb.append("    expectedExecutionDateTime: ").append(toIndentedString(expectedExecutionDateTime)).append("\n");
         sb.append("    expectedSettlementDateTime: ").append(toIndentedString(expectedSettlementDateTime)).append("\n");

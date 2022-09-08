@@ -30,7 +30,6 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Provides the details to identify an account.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-
 public class OBWriteDomesticResponse5DataRefundAccount {
     @JsonProperty("SchemeName")
     private String schemeName;
@@ -56,6 +55,8 @@ public class OBWriteDomesticResponse5DataRefundAccount {
      */
     @ApiModelProperty(required = true, value = "Name of the identification scheme, in a coded form as published in an external list.")
     @NotNull
+
+
     public String getSchemeName() {
         return schemeName;
     }
@@ -76,6 +77,7 @@ public class OBWriteDomesticResponse5DataRefundAccount {
      */
     @ApiModelProperty(required = true, value = "Identification assigned by an institution to identify an account. This identification is known by the account owner.")
     @NotNull
+
     @Size(min = 1, max = 256)
     public String getIdentification() {
         return identification;
@@ -97,6 +99,7 @@ public class OBWriteDomesticResponse5DataRefundAccount {
      */
     @ApiModelProperty(required = true, value = "Name of the account, as assigned by the account servicing institution. Usage: The account name is the name or names of the account owner(s) represented at an account level. The account name is not the product name or the nickname of the account. OB: ASPSPs may carry out name validation for Confirmation of Payee, but it is not mandatory.")
     @NotNull
+
     @Size(min = 1, max = 350)
     public String getName() {
         return name;
@@ -117,6 +120,7 @@ public class OBWriteDomesticResponse5DataRefundAccount {
      * @return secondaryIdentification
      */
     @ApiModelProperty(value = "This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).")
+
     @Size(min = 1, max = 34)
     public String getSecondaryIdentification() {
         return secondaryIdentification;

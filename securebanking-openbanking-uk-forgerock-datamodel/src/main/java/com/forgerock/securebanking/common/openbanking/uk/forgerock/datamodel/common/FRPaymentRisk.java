@@ -41,6 +41,10 @@ public class FRPaymentRisk {
     private String merchantCategoryCode;
     private String merchantCustomerIdentification;
     private FRRiskDeliveryAddress deliveryAddress;
+    private FRExternalExtendedAccountTypeCode beneficiaryAccountType;
+    private String paymentPurposeCode;
+    private Boolean beneficiaryPrepopulatedIndicator;
+    private Boolean contractPresentIndicator;
 
     /**
  * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order

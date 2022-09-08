@@ -30,7 +30,7 @@
     <parent>
         <groupId>com.forgerock.securebanking.uk</groupId>
         <artifactId>securebanking-openbanking-uk</artifactId>
-        <version>1.1.5-SNAPSHOT</version>
+        <version>1.1.6-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -72,6 +72,13 @@
         </dependency>
 
         <!-- Test dependencies -->
+        <dependency>
+            <groupId>com.forgerock.securebanking.uk</groupId>
+            <artifactId>securebanking-openbanking-uk-obie-datamodel</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>test</scope>
+            <type>test-jar</type>
+        </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>

@@ -25,8 +25,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
-import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
 import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
+import uk.org.openbanking.datamodel.common.OBPostalAddress6;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 /**
@@ -49,15 +49,14 @@ public class OBDomesticVRPInstruction {
     @JsonProperty("InstructedAmount")
     private OBActiveOrHistoricCurrencyAndAmount instructedAmount;
 
-    @JsonProperty("CreditorAgent")
-    private OBBranchAndFinancialInstitutionIdentification6 creditorAgent;
+    @JsonProperty("CreditorPostalAddress")
+    private OBPostalAddress6 creditorPostalAddress;
 
     @JsonProperty("CreditorAccount")
     private OBCashAccountCreditor3 creditorAccount;
 
-    //TODO: It have been changed Object to OBSupplementaryData1
     @JsonProperty("SupplementaryData")
-    private OBSupplementaryData1 supplementaryData;
+    private OBSupplementaryData1 supplementaryData; // Edited to use common OBSupplementaryData1
 
     public OBDomesticVRPInstruction instructionIdentification(String instructionIdentification) {
         this.instructionIdentification = instructionIdentification;
@@ -156,7 +155,8 @@ public class OBDomesticVRPInstruction {
      *
      * @return instructedAmount
      */
-    @ApiModelProperty(value = "")
+    @ApiModelProperty(required = true, value = "")
+    @NotNull
 
     @Valid
 
@@ -168,26 +168,26 @@ public class OBDomesticVRPInstruction {
         this.instructedAmount = instructedAmount;
     }
 
-    public OBDomesticVRPInstruction creditorAgent(OBBranchAndFinancialInstitutionIdentification6 creditorAgent) {
-        this.creditorAgent = creditorAgent;
+    public OBDomesticVRPInstruction creditorPostalAddress(OBPostalAddress6 creditorPostalAddress) {
+        this.creditorPostalAddress = creditorPostalAddress;
         return this;
     }
 
     /**
-     * Get creditorAgent
+     * Get creditorPostalAddress
      *
-     * @return creditorAgent
+     * @return creditorPostalAddress
      */
     @ApiModelProperty(value = "")
 
     @Valid
 
-    public OBBranchAndFinancialInstitutionIdentification6 getCreditorAgent() {
-        return creditorAgent;
+    public OBPostalAddress6 getCreditorPostalAddress() {
+        return creditorPostalAddress;
     }
 
-    public void setCreditorAgent(OBBranchAndFinancialInstitutionIdentification6 creditorAgent) {
-        this.creditorAgent = creditorAgent;
+    public void setCreditorPostalAddress(OBPostalAddress6 creditorPostalAddress) {
+        this.creditorPostalAddress = creditorPostalAddress;
     }
 
     public OBDomesticVRPInstruction creditorAccount(OBCashAccountCreditor3 creditorAccount) {
@@ -249,14 +249,14 @@ public class OBDomesticVRPInstruction {
                 Objects.equals(this.remittanceInformation, obDomesticVRPInstruction.remittanceInformation) &&
                 Objects.equals(this.localInstrument, obDomesticVRPInstruction.localInstrument) &&
                 Objects.equals(this.instructedAmount, obDomesticVRPInstruction.instructedAmount) &&
-                Objects.equals(this.creditorAgent, obDomesticVRPInstruction.creditorAgent) &&
+                Objects.equals(this.creditorPostalAddress, obDomesticVRPInstruction.creditorPostalAddress) &&
                 Objects.equals(this.creditorAccount, obDomesticVRPInstruction.creditorAccount) &&
                 Objects.equals(this.supplementaryData, obDomesticVRPInstruction.supplementaryData);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(instructionIdentification, endToEndIdentification, remittanceInformation, localInstrument, instructedAmount, creditorAgent, creditorAccount, supplementaryData);
+        return Objects.hash(instructionIdentification, endToEndIdentification, remittanceInformation, localInstrument, instructedAmount, creditorPostalAddress, creditorAccount, supplementaryData);
     }
 
     @Override
@@ -269,7 +269,7 @@ public class OBDomesticVRPInstruction {
         sb.append("    remittanceInformation: ").append(toIndentedString(remittanceInformation)).append("\n");
         sb.append("    localInstrument: ").append(toIndentedString(localInstrument)).append("\n");
         sb.append("    instructedAmount: ").append(toIndentedString(instructedAmount)).append("\n");
-        sb.append("    creditorAgent: ").append(toIndentedString(creditorAgent)).append("\n");
+        sb.append("    creditorPostalAddress: ").append(toIndentedString(creditorPostalAddress)).append("\n");
         sb.append("    creditorAccount: ").append(toIndentedString(creditorAccount)).append("\n");
         sb.append("    supplementaryData: ").append(toIndentedString(supplementaryData)).append("\n");
         sb.append("}");

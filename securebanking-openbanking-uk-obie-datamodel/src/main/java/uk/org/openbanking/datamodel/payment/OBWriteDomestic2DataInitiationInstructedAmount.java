@@ -30,7 +30,6 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party. Usage: This amount has to be transported unchanged through the transaction chain.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-
 public class OBWriteDomestic2DataInitiationInstructedAmount {
     @JsonProperty("Amount")
     private String amount;
@@ -50,6 +49,7 @@ public class OBWriteDomestic2DataInitiationInstructedAmount {
      */
     @ApiModelProperty(required = true, value = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.")
     @NotNull
+
     @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$")
     public String getAmount() {
         return amount;
@@ -71,6 +71,7 @@ public class OBWriteDomestic2DataInitiationInstructedAmount {
      */
     @ApiModelProperty(required = true, value = "A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".")
     @NotNull
+
     @Pattern(regexp = "^[A-Z]{3,3}$")
     public String getCurrency() {
         return currency;

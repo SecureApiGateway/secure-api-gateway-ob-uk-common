@@ -29,15 +29,14 @@ import uk.org.openbanking.datamodel.common.OBRisk1;
  * OBWriteDomestic2
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-
 public class OBWriteDomestic2 {
     @JsonProperty("Data")
-    private OBWriteDataDomestic2 data; // hand-edited (avoided switch to OBWriteDomestic2Data as JSON is the same)
+    private OBWriteDomestic2Data data;
 
     @JsonProperty("Risk")
     private OBRisk1 risk;
 
-    public OBWriteDomestic2 data(OBWriteDataDomestic2 data) {
+    public OBWriteDomestic2 data(OBWriteDomestic2Data data) {
         this.data = data;
         return this;
     }
@@ -49,12 +48,14 @@ public class OBWriteDomestic2 {
      */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
-    public OBWriteDataDomestic2 getData() {
+
+    public OBWriteDomestic2Data getData() {
         return data;
     }
 
-    public void setData(OBWriteDataDomestic2 data) {
+    public void setData(OBWriteDomestic2Data data) {
         this.data = data;
     }
 
@@ -70,7 +71,9 @@ public class OBWriteDomestic2 {
      */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
+
     public OBRisk1 getRisk() {
         return risk;
     }

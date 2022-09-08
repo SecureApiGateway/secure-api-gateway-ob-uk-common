@@ -20,8 +20,6 @@ import java.util.Objects;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.validation.annotation.Validated;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -30,15 +28,13 @@ import uk.org.openbanking.datamodel.common.OBRisk1;
 /**
  * OBWriteDomesticScheduled2
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomesticScheduled2 {
     @JsonProperty("Data")
-    private OBWriteDomesticScheduled2Data data = null;
+    private OBWriteDomesticScheduled2Data data;
 
     @JsonProperty("Risk")
-    private OBRisk1 risk = null;
+    private OBRisk1 risk;
 
     public OBWriteDomesticScheduled2 data(OBWriteDomesticScheduled2Data data) {
         this.data = data;
@@ -49,10 +45,12 @@ public class OBWriteDomesticScheduled2 {
      * Get data
      *
      * @return data
-     **/
+     */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
+
     public OBWriteDomesticScheduled2Data getData() {
         return data;
     }
@@ -70,10 +68,12 @@ public class OBWriteDomesticScheduled2 {
      * Get risk
      *
      * @return risk
-     **/
+     */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
+
     public OBRisk1 getRisk() {
         return risk;
     }
@@ -81,6 +81,7 @@ public class OBWriteDomesticScheduled2 {
     public void setRisk(OBRisk1 risk) {
         this.risk = risk;
     }
+
 
     @Override
     public boolean equals(Object o) {

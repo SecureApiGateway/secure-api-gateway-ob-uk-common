@@ -20,8 +20,6 @@ import java.util.Objects;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
-import org.springframework.validation.annotation.Validated;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.annotations.ApiModel;
@@ -32,15 +30,13 @@ import uk.org.openbanking.datamodel.common.OBPostalAddress6;
  * Set of elements used to identify a person or an organisation.
  */
 @ApiModel(description = "Set of elements used to identify a person or an organisation.")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalStandingOrderResponse7DataRefundCreditor {
     @JsonProperty("Name")
-    private String name = null;
+    private String name;
 
     @JsonProperty("PostalAddress")
-    private OBPostalAddress6 postalAddress = null;
+    private OBPostalAddress6 postalAddress;
 
     public OBWriteInternationalStandingOrderResponse7DataRefundCreditor name(String name) {
         this.name = name;
@@ -51,8 +47,9 @@ public class OBWriteInternationalStandingOrderResponse7DataRefundCreditor {
      * Name by which a party is known and which is usually used to identify that party.
      *
      * @return name
-     **/
+     */
     @ApiModelProperty(value = "Name by which a party is known and which is usually used to identify that party.")
+
     @Size(min = 1, max = 350)
     public String getName() {
         return name;
@@ -71,9 +68,11 @@ public class OBWriteInternationalStandingOrderResponse7DataRefundCreditor {
      * Get postalAddress
      *
      * @return postalAddress
-     **/
+     */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBPostalAddress6 getPostalAddress() {
         return postalAddress;
     }
@@ -81,6 +80,7 @@ public class OBWriteInternationalStandingOrderResponse7DataRefundCreditor {
     public void setPostalAddress(OBPostalAddress6 postalAddress) {
         this.postalAddress = postalAddress;
     }
+
 
     @Override
     public boolean equals(Object o) {

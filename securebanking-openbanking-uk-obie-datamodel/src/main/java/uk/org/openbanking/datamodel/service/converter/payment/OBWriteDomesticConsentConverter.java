@@ -26,8 +26,6 @@ import uk.org.openbanking.datamodel.payment.OBWriteDataDomestic1;
 import uk.org.openbanking.datamodel.payment.OBWriteDataDomestic2;
 import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticConsent1;
 import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticConsent2;
-import uk.org.openbanking.datamodel.payment.OBWriteDomestic1;
-import uk.org.openbanking.datamodel.payment.OBWriteDomestic2;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent1;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent2;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent3;
@@ -85,12 +83,6 @@ public class OBWriteDomesticConsentConverter {
         return obWriteDomesticConsent3 == null ? null : (new OBWriteDomesticConsent4())
                 .data(toOBWriteDomesticConsent4Data(obWriteDomesticConsent3.getData()))
                 .risk(obWriteDomesticConsent3.getRisk());
-    }
-
-    public static OBWriteDomestic2 toOBWriteDomestic2(OBWriteDomestic1 obWriteDomestic1) {
-        return (new OBWriteDomestic2())
-                .data(toOBWriteDataDomestic2(obWriteDomestic1.getData()))
-                .risk(obWriteDomestic1.getRisk());
     }
 
     public static OBWriteDataDomesticConsent1 toOBWriteDataDomesticConsent1(OBWriteDataDomesticConsent2 data) {

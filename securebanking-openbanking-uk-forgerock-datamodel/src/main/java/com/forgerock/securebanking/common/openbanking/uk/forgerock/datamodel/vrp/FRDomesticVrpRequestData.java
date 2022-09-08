@@ -27,6 +27,7 @@ import lombok.NoArgsConstructor;
 public class FRDomesticVrpRequestData {
     public String consentId;
     public String psuAuthenticationMethod;
+    public FRVRPInteractionTypes psUInteractionType;
     public FRWriteDomesticVrpDataInitiation initiation;
     public FRDomesticVrpInstruction instruction;
 }

@@ -15,19 +15,46 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import com.forgerock.securebanking.openbanking.uk.common.api.meta.forgerock.FRFrequencyType;
-import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.payment.*;
-
 import static org.joda.time.DateTime.now;
-import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.*;
-import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.*;
-import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.*;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBCashAccount3;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBCashAccountCreditor3;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBCashAccountDebtor4;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
+import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBActiveOrHistoricCurrencyAndAmount;
+import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBDomesticStandingOrder3FinalPaymentAmount;
+import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBDomesticStandingOrder3FirstPaymentAmount;
+import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBDomesticStandingOrder3RecurringPaymentAmount;
+import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount;
+import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount;
+import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount;
+import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBAuthorisation1;
+import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent3DataAuthorisation;
+import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent4DataAuthorisation;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1MandatoryFields;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent3DataSCASupportData;
+
+import org.joda.time.DateTime;
+
+import com.forgerock.securebanking.openbanking.uk.common.api.meta.forgerock.FRFrequencyType;
+
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.payment.OBDomesticStandingOrder1;
+import uk.org.openbanking.datamodel.payment.OBDomesticStandingOrder2;
+import uk.org.openbanking.datamodel.payment.OBDomesticStandingOrder3;
+import uk.org.openbanking.datamodel.payment.OBExternalPermissions2Code;
+import uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum;
+import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticStandingOrderConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticStandingOrderConsent3;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiation;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent3;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent4;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent4Data;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent5;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent5Data;
 
 /**
  * Test data factory for the various "OBWriteDomesticStandingOrderConsent" classes.

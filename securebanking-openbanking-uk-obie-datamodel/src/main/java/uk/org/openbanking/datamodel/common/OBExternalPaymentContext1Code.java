@@ -31,7 +31,21 @@ public enum OBExternalPaymentContext1Code {
 
     OTHER("Other"),
 
-    PARTYTOPARTY("PartyToParty");
+    PARTYTOPARTY("PartyToParty"),
+
+    BILLINGGOODSANDSERVICESINADVANCE("BillingGoodsAndServicesInAdvance"),
+
+    BILLINGGOODSANDSERVICESINARREARS("BillingGoodsAndServicesInArrears"),
+
+    PISPPAYEE("PispPayee"),
+
+    ECOMMERCEMERCHANTINITIATEDPAYMENT("EcommerceMerchantInitiatedPayment"),
+
+    FACETOFACEPOINTOFSALE("FaceToFacePointOfSale"),
+
+    TRANSFERTOSELF("TransferToSelf"),
+
+    TRANSFERTOTHIRDPARTY("TransferToThirdParty");
 
     private String value;
 

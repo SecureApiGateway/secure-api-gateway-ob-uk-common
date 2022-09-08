@@ -25,13 +25,15 @@ public class FRRiskConverter {
     public static FRPaymentRisk toFRPaymentRisk(OBRisk1 obRisk1) {
         return obRisk1 == null ? null : FRPaymentRisk.builder()
                 .deliveryAddress(FRRisk1DeliveryAddressConverter.
-                        toFRRiskDeliveryAddress(obRisk1.getDeliveryAddress())
-                )
+                        toFRRiskDeliveryAddress(obRisk1.getDeliveryAddress()))
                 .merchantCategoryCode(obRisk1.getMerchantCategoryCode())
                 .merchantCustomerIdentification(obRisk1.getMerchantCustomerIdentification())
                 .paymentContextCode(FROBExternalPaymentContext1CodeConverter.
-                        toFRExternalPaymentContextCode(obRisk1.getPaymentContextCode())
-                )
+                        toFRExternalPaymentContextCode(obRisk1.getPaymentContextCode()))
+                .contractPresentIndicator(obRisk1.getContractPresentInidicator())
+                .paymentPurposeCode(obRisk1.getPaymentPurposeCode())
+                .beneficiaryAccountType(FRExternalExtendedAccountTypeCodeConverter.toFRExternalExtendedAccountTypeCode(obRisk1.getBeneficiaryAccountType()))
+                .beneficiaryPrepopulatedIndicator(obRisk1.getBeneficiaryPrepopulatedIndicator())
                 .build();
     }
 
@@ -44,13 +46,16 @@ public class FRRiskConverter {
     public static OBRisk1 toOBRisk1(FRPaymentRisk frPaymentRisk) {
         return frPaymentRisk == null ? null : new OBRisk1()
                 .deliveryAddress(FRRisk1DeliveryAddressConverter.
-                        toOBRisk1DeliveryAddress(frPaymentRisk.getDeliveryAddress())
-                )
+                        toOBRisk1DeliveryAddress(frPaymentRisk.getDeliveryAddress()))
                 .merchantCategoryCode(frPaymentRisk.getMerchantCategoryCode())
                 .merchantCustomerIdentification(frPaymentRisk.getMerchantCustomerIdentification())
                 .paymentContextCode(FROBExternalPaymentContext1CodeConverter.
-                        toOBExternalPaymentContext1Code(frPaymentRisk.getPaymentContextCode())
-                );
+                        toOBExternalPaymentContext1Code(frPaymentRisk.getPaymentContextCode()))
+                .beneficiaryAccountType(FRExternalExtendedAccountTypeCodeConverter
+                        .toOBExternalExtendedAccountType1Code(frPaymentRisk.getBeneficiaryAccountType()))
+                .beneficiaryPrepopulatedIndicator(frPaymentRisk.getBeneficiaryPrepopulatedIndicator())
+                .contractPresentInidicator(frPaymentRisk.getContractPresentIndicator())
+                .paymentPurposeCode(frPaymentRisk.getPaymentPurposeCode());
     }
 
     public static OBRisk2 toOBRisk2(FRAccountRisk frRisk) {

@@ -32,7 +32,6 @@ import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
  */
 @ApiModel(description = "Set of elements used to provide details of a charge for the payment initiation.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-
 public class OBWriteDomesticConsentResponse5DataCharges {
     @JsonProperty("ChargeBearer")
     private OBChargeBearerType1Code chargeBearer;
@@ -55,7 +54,9 @@ public class OBWriteDomesticConsentResponse5DataCharges {
      */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
+
     public OBChargeBearerType1Code getChargeBearer() {
         return chargeBearer;
     }
@@ -76,6 +77,8 @@ public class OBWriteDomesticConsentResponse5DataCharges {
      */
     @ApiModelProperty(required = true, value = "Charge type, in a coded form.")
     @NotNull
+
+
     public String getType() {
         return type;
     }
@@ -96,7 +99,9 @@ public class OBWriteDomesticConsentResponse5DataCharges {
      */
     @ApiModelProperty(required = true, value = "")
     @NotNull
+
     @Valid
+
     public OBActiveOrHistoricCurrencyAndAmount getAmount() {
         return amount;
     }

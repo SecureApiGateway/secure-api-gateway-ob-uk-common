@@ -31,7 +31,6 @@ import uk.org.openbanking.datamodel.common.OBPostalAddress6;
  */
 @ApiModel(description = "Set of elements used to uniquely and unambiguously identify a financial institution or a branch of a financial institution.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-
 public class OBWriteInternationalResponse5DataRefundAgent {
     @JsonProperty("SchemeName")
     private String schemeName;
@@ -56,6 +55,8 @@ public class OBWriteInternationalResponse5DataRefundAgent {
      * @return schemeName
      */
     @ApiModelProperty(value = "Name of the identification scheme, in a coded form as published in an external list.")
+
+
     public String getSchemeName() {
         return schemeName;
     }
@@ -75,6 +76,7 @@ public class OBWriteInternationalResponse5DataRefundAgent {
      * @return identification
      */
     @ApiModelProperty(value = "Unique and unambiguous identification of a financial institution or a branch of a financial institution.")
+
     @Size(min = 1, max = 35)
     public String getIdentification() {
         return identification;
@@ -95,6 +97,7 @@ public class OBWriteInternationalResponse5DataRefundAgent {
      * @return name
      */
     @ApiModelProperty(value = "Name by which an agent is known and which is usually used to identify that agent.")
+
     @Size(min = 1, max = 140)
     public String getName() {
         return name;
@@ -115,7 +118,9 @@ public class OBWriteInternationalResponse5DataRefundAgent {
      * @return postalAddress
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBPostalAddress6 getPostalAddress() {
         return postalAddress;
     }
