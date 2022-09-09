@@ -43,7 +43,7 @@ public class OBConsentAuthorisationConverter {
     public static OBWriteDomesticConsent4DataAuthorisation toOBWriteDomesticConsent4DataAuthorisation(OBWriteDomesticConsent3DataAuthorisation authorisation) {
         return authorisation == null ? null : (new OBWriteDomesticConsent4DataAuthorisation())
                 .authorisationType(authorisation.getAuthorisationType())
-                .completionDateTime(authorisation.getCompletionDateTime());
+                        .completionDateTime(authorisation.getCompletionDateTime());
     }
 
     public static OBAuthorisation1 toOBAuthorisation1(OBWriteDomesticConsent3DataAuthorisation authorisation) {

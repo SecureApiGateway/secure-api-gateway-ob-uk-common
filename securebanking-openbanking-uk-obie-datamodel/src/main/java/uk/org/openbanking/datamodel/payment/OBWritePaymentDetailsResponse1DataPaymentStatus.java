@@ -35,7 +35,6 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Payment status details.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-
 public class OBWritePaymentDetailsResponse1DataPaymentStatus {
     @JsonProperty("PaymentTransactionId")
     private String paymentTransactionId;
@@ -133,6 +132,7 @@ public class OBWritePaymentDetailsResponse1DataPaymentStatus {
      */
     @ApiModelProperty(required = true, value = "Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.")
     @NotNull
+
     @Size(min = 1, max = 210)
     public String getPaymentTransactionId() {
         return paymentTransactionId;
@@ -154,6 +154,8 @@ public class OBWritePaymentDetailsResponse1DataPaymentStatus {
      */
     @ApiModelProperty(required = true, value = "Status of a transfe, as assigned by the transaction administrator.")
     @NotNull
+
+
     public StatusEnum getStatus() {
         return status;
     }
@@ -174,7 +176,9 @@ public class OBWritePaymentDetailsResponse1DataPaymentStatus {
      */
     @ApiModelProperty(required = true, value = "Date and time at which the status was assigned to the transfer.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @NotNull
+
     @Valid
+
     public DateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
     }
@@ -194,7 +198,9 @@ public class OBWritePaymentDetailsResponse1DataPaymentStatus {
      * @return statusDetail
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBWritePaymentDetailsResponse1DataStatusDetail getStatusDetail() {
         return statusDetail;
     }

@@ -29,7 +29,6 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Supporting Data provided by TPP, when requesting SCA Exemption.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-
 public class OBSCASupportData1 {
 
     @JsonProperty("RequestedSCAExemptionType")
@@ -52,6 +51,8 @@ public class OBSCASupportData1 {
      * @return requestedSCAExemptionType
      */
     @ApiModelProperty(value = "This field allows a PISP to request specific SCA Exemption for a Payment Initiation")
+
+
     public OBRequestedSCAExemptionTypeEnum getRequestedSCAExemptionType() {
         return requestedSCAExemptionType;
     }
@@ -71,6 +72,8 @@ public class OBSCASupportData1 {
      * @return appliedAuthenticationApproach
      */
     @ApiModelProperty(value = "Specifies a character string with a maximum length of 40 characters. Usage: This field indicates whether the PSU was subject to SCA performed by the TPP")
+
+    @Size(max = 40)
     public OBAppliedAuthenticationApproachEnum getAppliedAuthenticationApproach() {
         return appliedAuthenticationApproach;
     }
@@ -90,6 +93,7 @@ public class OBSCASupportData1 {
      * @return referencePaymentOrderId
      */
     @ApiModelProperty(value = "If the payment is recurring, then this field is populated with the transaction identifier of the previous payment occurrence so that the ASPSP can verify that the PISP, amount and the payee are the same as the previous occurrence. The value here refers to the payment id e.g. DomesticPaymentId  ")
+
     @Size(min = 1, max = 40)
     public String getReferencePaymentOrderId() {
         return referencePaymentOrderId;

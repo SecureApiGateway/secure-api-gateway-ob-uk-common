@@ -15,23 +15,31 @@
  */
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.vrp;
 
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toFRAccountIdentifier;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toOBCashAccountCreditor3;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.toOBCashAccountDebtorWithName;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAmountConverter.toFRAmount;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRPostalAddressConverter.toFRPostalAddress;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRPostalAddressConverter.toOBPostalAddress6;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRemittanceInformationConverter.toFRRemittanceInformation;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRemittanceInformationConverter.toOBDomesticVRPInitiationRemittanceInformation;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRemittanceInformationConverter.toOBVRPRemittanceInformation;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toOBRisk1;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRSupplementaryDataConverter.toFRSupplementaryData;
+import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRSupplementaryDataConverter.toOBSupplementaryData1;
+
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.vrp.FRDomesticVrpInstruction;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.vrp.FRDomesticVrpRequest;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.vrp.FRDomesticVrpRequestData;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.vrp.FRWriteDomesticVrpDataInitiation;
-import lombok.extern.slf4j.Slf4j;
-import uk.org.openbanking.datamodel.vrp.*;
 
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAccountIdentifierConverter.*;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAmountConverter.toFRAmount;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRFinancialInstrumentConverter.toFRFinancialAgent;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification6;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRiskConverter.toOBRisk1;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRSupplementaryDataConverter.toFRSupplementaryData;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRSupplementaryDataConverter.toOBSupplementaryData1;
-import static com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.common.FRRemittanceInformationConverter.*;
+import lombok.extern.slf4j.Slf4j;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInitiation;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInstruction;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequest;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequestData;
 
 @Slf4j
 public class FRDomesticVrpConverters {
@@ -54,6 +62,7 @@ public class FRDomesticVrpConverters {
                 .consentId(obDomesticVRPRequestData.getConsentId())
                 .initiation(toFRDomesticVRPInitiation(obDomesticVRPRequestData.getInitiation()))
                 .psuAuthenticationMethod(obDomesticVRPRequestData.getPsUAuthenticationMethod())
+                .psUInteractionType(FRVrpInteractionTypesConverter.toFRVRPInteractionTypes(obDomesticVRPRequestData.getPsUInteractionType()))
                 .instruction(toFRDomesticVRPInstruction(obDomesticVRPRequestData.getInstruction()))
                 .build();
     }
@@ -61,9 +70,9 @@ public class FRDomesticVrpConverters {
     public static FRDomesticVrpInstruction toFRDomesticVRPInstruction(OBDomesticVRPInstruction instruction) {
         FRDomesticVrpInstruction frInstruction = FRDomesticVrpInstruction.builder()
                 .creditorAccount(toFRAccountIdentifier(instruction.getCreditorAccount()))
+                .creditorPostalAddress(toFRPostalAddress(instruction.getCreditorPostalAddress()))
                 .instructionIdentification(instruction.getInstructionIdentification())
                 .endToEndIdentification(instruction.getEndToEndIdentification())
-                .creditorAgent(toFRFinancialAgent(instruction.getCreditorAgent()))
                 .instructedAmount(toFRAmount(instruction.getInstructedAmount()))
                 .localInstrument(instruction.getLocalInstrument())
                 .remittanceInformation(toFRRemittanceInformation(instruction.getRemittanceInformation()))
@@ -77,8 +86,8 @@ public class FRDomesticVrpConverters {
     public static FRWriteDomesticVrpDataInitiation toFRDomesticVRPInitiation(OBDomesticVRPInitiation initiation) {
         FRWriteDomesticVrpDataInitiation frInitiation = FRWriteDomesticVrpDataInitiation.builder()
                 .creditorAccount(toFRAccountIdentifier(initiation.getCreditorAccount()))
+                .creditorPostalAddress(toFRPostalAddress(initiation.getCreditorPostalAddress()))
                 .debtorAccount(toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditorAgent(toFRFinancialAgent(initiation.getCreditorAgent()))
                 .remittanceInformation(toFRRemittanceInformation(initiation.getRemittanceInformation()))
                 .build();
         return frInitiation;
@@ -93,6 +102,8 @@ public class FRDomesticVrpConverters {
     public static OBDomesticVRPRequestData toOBDomesticVRPRequestData(FRDomesticVrpRequestData data){
         return data == null ? null : new OBDomesticVRPRequestData()
                 .consentId(data.getConsentId())
+                .psUAuthenticationMethod(data.getPsuAuthenticationMethod())
+                .psUInteractionType(FRVrpInteractionTypesConverter.toFRVRPInteractionTypes(data.getPsUInteractionType()))
                 .initiation(toOBDomesticVRPInitiation(data.getInitiation()))
                 .instruction(toOBDomesticVRPInstruction(data.getInstruction()));
     }
@@ -100,11 +111,11 @@ public class FRDomesticVrpConverters {
     public static OBDomesticVRPInitiation toOBDomesticVRPInitiation(FRWriteDomesticVrpDataInitiation initiation){
         return initiation == null ? null : new OBDomesticVRPInitiation()
                 .creditorAccount(toOBCashAccountCreditor3(initiation.getCreditorAccount()))
-                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification6(initiation.getCreditorAgent()))
+                .creditorPostalAddress(toOBPostalAddress6(initiation.getCreditorPostalAddress()))
                 .debtorAccount(toOBCashAccountDebtorWithName(initiation.getDebtorAccount()))
                 .remittanceInformation(
-                        toOBDomesticVRPInitiationRemittanceInformation(initiation.getRemittanceInformation())
-                );
+                        toOBDomesticVRPInitiationRemittanceInformation(initiation.getRemittanceInformation()));
+
     }
 
     public static OBDomesticVRPInstruction toOBDomesticVRPInstruction(FRDomesticVrpInstruction instruction){
@@ -113,7 +124,7 @@ public class FRDomesticVrpConverters {
                 .instructionIdentification(instruction.getInstructionIdentification())
                 .localInstrument(instruction.getLocalInstrument())
                 .creditorAccount(toOBCashAccountCreditor3(instruction.getCreditorAccount()))
-                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification6(instruction.getCreditorAgent()))
+                .creditorPostalAddress(toOBPostalAddress6(instruction.getCreditorPostalAddress()))
                 .instructedAmount(toOBActiveOrHistoricCurrencyAndAmount(instruction.getInstructedAmount()))
                 .remittanceInformation(toOBVRPRemittanceInformation(instruction.getRemittanceInformation()))
                 .supplementaryData(toOBSupplementaryData1(instruction.getSupplementaryData()));

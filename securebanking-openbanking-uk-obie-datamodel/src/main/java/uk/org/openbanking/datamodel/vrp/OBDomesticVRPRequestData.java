@@ -36,6 +36,9 @@ public class OBDomesticVRPRequestData {
     @JsonProperty("PSUAuthenticationMethod")
     private String psUAuthenticationMethod;
 
+    @JsonProperty("PSUInteractionType")
+    private OBVRPInteractionTypes psUInteractionType;
+
     @JsonProperty("Initiation")
     private OBDomesticVRPInitiation initiation;
 
@@ -84,6 +87,28 @@ public class OBDomesticVRPRequestData {
 
     public void setPsUAuthenticationMethod(String psUAuthenticationMethod) {
         this.psUAuthenticationMethod = psUAuthenticationMethod;
+    }
+
+    public OBDomesticVRPRequestData psUInteractionType(OBVRPInteractionTypes psUInteractionType) {
+        this.psUInteractionType = psUInteractionType;
+        return this;
+    }
+
+    /**
+     * Get psUInteractionType
+     *
+     * @return psUInteractionType
+     */
+    @ApiModelProperty(value = "")
+
+    @Valid
+
+    public OBVRPInteractionTypes getPsUInteractionType() {
+        return psUInteractionType;
+    }
+
+    public void setPsUInteractionType(OBVRPInteractionTypes psUInteractionType) {
+        this.psUInteractionType = psUInteractionType;
     }
 
     public OBDomesticVRPRequestData initiation(OBDomesticVRPInitiation initiation) {
@@ -144,13 +169,14 @@ public class OBDomesticVRPRequestData {
         OBDomesticVRPRequestData obDomesticVRPRequestData = (OBDomesticVRPRequestData) o;
         return Objects.equals(this.consentId, obDomesticVRPRequestData.consentId) &&
                 Objects.equals(this.psUAuthenticationMethod, obDomesticVRPRequestData.psUAuthenticationMethod) &&
+                Objects.equals(this.psUInteractionType, obDomesticVRPRequestData.psUInteractionType) &&
                 Objects.equals(this.initiation, obDomesticVRPRequestData.initiation) &&
                 Objects.equals(this.instruction, obDomesticVRPRequestData.instruction);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(consentId, psUAuthenticationMethod, initiation, instruction);
+        return Objects.hash(consentId, psUAuthenticationMethod, psUInteractionType, initiation, instruction);
     }
 
     @Override
@@ -160,6 +186,7 @@ public class OBDomesticVRPRequestData {
 
         sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
         sb.append("    psUAuthenticationMethod: ").append(toIndentedString(psUAuthenticationMethod)).append("\n");
+        sb.append("    psUInteractionType: ").append(toIndentedString(psUInteractionType)).append("\n");
         sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
         sb.append("    instruction: ").append(toIndentedString(instruction)).append("\n");
         sb.append("}");

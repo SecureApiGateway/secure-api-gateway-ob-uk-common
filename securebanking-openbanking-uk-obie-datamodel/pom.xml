@@ -166,12 +166,12 @@
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/event-notifications-openapi.yaml</inputSpec>-->
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/events-openapi.yaml</inputSpec>-->
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/payment-initiation-openapi.yaml</inputSpec>-->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/vrp-openapi.yaml</inputSpec>-->
-                                    <inputSpec>${project.basedir}/src/main/resources/specification/vrp-openapi-3.1.9r3.yaml</inputSpec>
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/vrp-openapi-3.1.9r7.yaml</inputSpec>-->
+                                    <inputSpec>${project.basedir}/src/main/resources/specification/3.1.10/payment-initiation-openapi.yaml</inputSpec>
                                     <output>${project.build.directory}/generated-sources/swagger</output>
                                     <generatorName>spring</generatorName>
                                     <!-- Change the package here as per the chosen spec above -->
-                                    <modelPackage>uk.org.openbanking.datamodel.vrp</modelPackage>
+                                    <modelPackage>uk.org.openbanking.datamodel.payment</modelPackage>
                                     <generateApis>false</generateApis>
                                     <configOptions>
                                         <dateLibrary>joda</dateLibrary>

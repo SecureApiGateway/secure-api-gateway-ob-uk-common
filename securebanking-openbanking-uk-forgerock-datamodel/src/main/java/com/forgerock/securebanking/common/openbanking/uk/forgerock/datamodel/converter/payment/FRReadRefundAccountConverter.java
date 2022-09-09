@@ -16,6 +16,7 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.converter.payment;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRReadRefundAccount;
+
 import uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum;
 
 public class FRReadRefundAccountConverter {

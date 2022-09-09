@@ -18,6 +18,7 @@ package uk.org.openbanking.testsupport.payment;
 import uk.org.openbanking.datamodel.common.OBExternalPaymentContext1Code;
 import uk.org.openbanking.datamodel.common.OBRisk1;
 import uk.org.openbanking.datamodel.common.OBRisk1DeliveryAddress;
+import uk.org.openbanking.datamodel.payment.OBExternalExtendedAccountType1Code;
 
 import java.util.Collections;
 
@@ -31,7 +32,11 @@ public class OBRisk1TestDataFactory {
                 .merchantCustomerIdentification("merchantId123")
                 .merchantCategoryCode("mct1")
                 .paymentContextCode(OBExternalPaymentContext1Code.OTHER)
-                .deliveryAddress(aValidOBRisk1DeliveryAddress());
+                .deliveryAddress(aValidOBRisk1DeliveryAddress())
+                .paymentPurposeCode("pain")
+                .contractPresentInidicator(false)
+                .beneficiaryPrepopulatedIndicator(false)
+                .beneficiaryAccountType(OBExternalExtendedAccountType1Code.PERSONAL);
     }
 
     public static OBRisk1 aValidOBRisk1MandatoryFields() {

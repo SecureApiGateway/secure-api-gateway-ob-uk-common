@@ -108,5 +108,4 @@ public class FRExchangeRateConverter {
     public static OBExchangeRateType2Code toOBExchangeRateType2Code(FRExchangeRateInformation.FRRateType rateType) {
         return rateType == null ? null : OBExchangeRateType2Code.valueOf(rateType.name());
     }
-
 }

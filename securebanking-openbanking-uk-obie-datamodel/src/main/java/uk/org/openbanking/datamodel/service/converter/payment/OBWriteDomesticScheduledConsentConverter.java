@@ -22,6 +22,7 @@ import static uk.org.openbanking.datamodel.service.converter.payment.OBDomesticS
 import static uk.org.openbanking.datamodel.service.converter.payment.OBDomesticScheduledConverter.toOBDomesticScheduled2;
 import static uk.org.openbanking.datamodel.service.converter.payment.OBDomesticScheduledConverter.toOBWriteDomesticScheduled2DataInitiation;
 
+import uk.org.openbanking.datamodel.payment.OBExternalPermissions2Code;
 import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticScheduled1;
 import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticScheduled2;
 import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticScheduledConsent1;

@@ -36,7 +36,6 @@ import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
  */
 @ApiModel(description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds using a payment file.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-
 public class OBWriteFile2DataInitiation {
     @JsonProperty("FileType")
     private String fileType;
@@ -82,6 +81,8 @@ public class OBWriteFile2DataInitiation {
      */
     @ApiModelProperty(required = true, value = "Specifies the payment file type.")
     @NotNull
+
+
     public String getFileType() {
         return fileType;
     }
@@ -102,6 +103,7 @@ public class OBWriteFile2DataInitiation {
      */
     @ApiModelProperty(required = true, value = "A base64 encoding of a SHA256 hash of the file to be uploaded.")
     @NotNull
+
     @Size(min = 1, max = 44)
     public String getFileHash() {
         return fileHash;
@@ -122,6 +124,7 @@ public class OBWriteFile2DataInitiation {
      * @return fileReference
      */
     @ApiModelProperty(value = "Reference for the file.")
+
     @Size(min = 1, max = 40)
     public String getFileReference() {
         return fileReference;
@@ -142,6 +145,7 @@ public class OBWriteFile2DataInitiation {
      * @return numberOfTransactions
      */
     @ApiModelProperty(value = "Number of individual transactions contained in the payment information group.")
+
     @Pattern(regexp = "[0-9]{1,15}")
     public String getNumberOfTransactions() {
         return numberOfTransactions;
@@ -162,7 +166,9 @@ public class OBWriteFile2DataInitiation {
      * @return controlSum
      */
     @ApiModelProperty(value = "Total of all individual amounts included in the group, irrespective of currencies.")
+
     @Valid
+
     public BigDecimal getControlSum() {
         return controlSum;
     }
@@ -182,7 +188,9 @@ public class OBWriteFile2DataInitiation {
      * @return requestedExecutionDateTime
      */
     @ApiModelProperty(value = "Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
+
     @Valid
+
     public DateTime getRequestedExecutionDateTime() {
         return requestedExecutionDateTime;
     }
@@ -202,6 +210,8 @@ public class OBWriteFile2DataInitiation {
      * @return localInstrument
      */
     @ApiModelProperty(value = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.")
+
+
     public String getLocalInstrument() {
         return localInstrument;
     }
@@ -221,7 +231,9 @@ public class OBWriteFile2DataInitiation {
      * @return debtorAccount
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBWriteDomestic2DataInitiationDebtorAccount getDebtorAccount() {
         return debtorAccount;
     }
@@ -241,7 +253,9 @@ public class OBWriteFile2DataInitiation {
      * @return remittanceInformation
      */
     @ApiModelProperty(value = "")
+
     @Valid
+
     public OBWriteDomestic2DataInitiationRemittanceInformation getRemittanceInformation() {
         return remittanceInformation;
     }
@@ -261,6 +275,8 @@ public class OBWriteFile2DataInitiation {
      * @return supplementaryData
      */
     @ApiModelProperty(value = "Additional information that can not be captured in the structured fields and/or any other specific block.")
+
+
     public OBSupplementaryData1 getSupplementaryData() {
         return supplementaryData;
     }

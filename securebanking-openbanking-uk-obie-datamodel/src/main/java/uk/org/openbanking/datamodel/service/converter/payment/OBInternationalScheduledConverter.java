@@ -33,6 +33,7 @@ import static uk.org.openbanking.datamodel.service.converter.payment.OBRemittanc
 import uk.org.openbanking.datamodel.common.OBCashAccount3;
 import uk.org.openbanking.datamodel.payment.OBInternationalScheduled1;
 import uk.org.openbanking.datamodel.payment.OBInternationalScheduled2;
+import uk.org.openbanking.datamodel.payment.OBPriority2Code;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled3DataInitiation;
 
 public class OBInternationalScheduledConverter {
@@ -158,5 +159,4 @@ public class OBInternationalScheduledConverter {
                 .remittanceInformation(toOBWriteDomestic2DataInitiationRemittanceInformation(obInternationalScheduled2.getRemittanceInformation()))
                 .supplementaryData(obInternationalScheduled2.getSupplementaryData());
     }
-
 }

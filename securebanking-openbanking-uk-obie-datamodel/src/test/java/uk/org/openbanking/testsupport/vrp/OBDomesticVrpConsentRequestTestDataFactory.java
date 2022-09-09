@@ -15,19 +15,26 @@
  */
 package uk.org.openbanking.testsupport.vrp;
 
-import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.common.OBVRPAuthenticationMethods;
-import uk.org.openbanking.datamodel.common.OBVRPConsentType;
-import uk.org.openbanking.datamodel.vrp.*;
-
-import java.util.Arrays;
-import java.util.List;
-
 import static org.joda.time.DateTime.now;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
 import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBActiveOrHistoricCurrencyAndAmount;
 import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBDomesticVRPInitiation;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.joda.time.DateTime;
+
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.common.OBVRPAuthenticationMethods;
+import uk.org.openbanking.datamodel.common.OBVRPConsentType;
+import uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum;
+import uk.org.openbanking.datamodel.vrp.OBCashAccountDebtorWithName;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPConsentRequest;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPConsentRequestData;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPControlParameters;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPControlParametersPeriodicLimits;
+import uk.org.openbanking.datamodel.vrp.OBVRPInteractionTypes;
 
 public class OBDomesticVrpConsentRequestTestDataFactory {
 
@@ -51,7 +58,7 @@ public class OBDomesticVrpConsentRequestTestDataFactory {
 
     public static OBDomesticVRPConsentRequestData aValidOBDomesticVRPConsentRequestData(List<String> psuAuthenticationMethods, List<String> vrpTypes) {
         return (new OBDomesticVRPConsentRequestData())
-                .readRefundAccount(OBDomesticVRPConsentRequestData.ReadRefundAccountEnum.YES)
+                .readRefundAccount(OBReadRefundAccountEnum.YES)
                 .controlParameters(aValidOBDomesticVRPControlParameters(psuAuthenticationMethods, vrpTypes))
                 .initiation(aValidOBDomesticVRPInitiation());
     }
@@ -59,7 +66,8 @@ public class OBDomesticVrpConsentRequestTestDataFactory {
     public static OBDomesticVRPControlParameters aValidOBDomesticVRPControlParameters() {
         DateTime now = now();
         return (new OBDomesticVRPControlParameters())
-                .psUAuthenticationMethods(Arrays.asList(OBVRPAuthenticationMethods.SCA.getValue()))
+                .psUAuthenticationMethods(Arrays.asList(OBVRPAuthenticationMethods.SCA_NOT_REQUIRED.getValue()))
+                .psUInteractionTypes(Arrays.asList(OBVRPInteractionTypes.INSESSION))
                 .vrPType(Arrays.asList(OBVRPConsentType.SWEEPING.getValue()))
                 .validFromDateTime(now)
                 .validToDateTime(now.plusDays(10))

@@ -27,7 +27,6 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "^ Only incuded in the response if `Data. ReadRefundAccount` is set to `Yes` in the consent.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-
 public class OBCashAccountDebtor4 {
     @JsonProperty("SchemeName")
     private String schemeName;
@@ -52,6 +51,8 @@ public class OBCashAccountDebtor4 {
      * @return schemeName
      */
     @ApiModelProperty(value = "^ Name of the identification scheme, in a coded form as published in an external list. | Namespaced Enumeration OBExternalAccountIdentification4Code")
+
+
     public String getSchemeName() {
         return schemeName;
     }
@@ -71,6 +72,8 @@ public class OBCashAccountDebtor4 {
      * @return identification
      */
     @ApiModelProperty(value = "^ Identification assigned by an institution to identify an account. This identification is known by the account owner. | Max256Text")
+
+
     public String getIdentification() {
         return identification;
     }
@@ -90,6 +93,8 @@ public class OBCashAccountDebtor4 {
      * @return name
      */
     @ApiModelProperty(value = "^ Name of the account, as assigned by the account servicing institution.  Usage The account name is the name or names of the account owner(s) represented at an account level. The account name is not the product name or the nickname of the account.")
+
+
     public String getName() {
         return name;
     }
@@ -109,6 +114,8 @@ public class OBCashAccountDebtor4 {
      * @return secondaryIdentification
      */
     @ApiModelProperty(value = "^ This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination) | Max34Text")
+
+
     public String getSecondaryIdentification() {
         return secondaryIdentification;
     }

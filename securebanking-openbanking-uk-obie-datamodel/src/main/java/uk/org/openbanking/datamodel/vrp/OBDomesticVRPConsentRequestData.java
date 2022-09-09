@@ -20,54 +20,19 @@ import java.util.Objects;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 
 import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum;
 
 /**
  * OBDomesticVRPConsentRequestData
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPConsentRequestData {
-    /**
-     * Indicates whether information about RefundAccount should be included in the payment response.
-     */
-    public enum ReadRefundAccountEnum {
-        YES("Yes"),
-
-        NO("No");
-
-        private String value;
-
-        ReadRefundAccountEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static ReadRefundAccountEnum fromValue(String value) {
-            for (ReadRefundAccountEnum b : ReadRefundAccountEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
 
     @JsonProperty("ReadRefundAccount")
-    private ReadRefundAccountEnum readRefundAccount;
+    private OBReadRefundAccountEnum readRefundAccount; // Edited to use common OBReadRefundAccountEnum
 
     @JsonProperty("ControlParameters")
     private OBDomesticVRPControlParameters controlParameters;
@@ -75,7 +40,7 @@ public class OBDomesticVRPConsentRequestData {
     @JsonProperty("Initiation")
     private OBDomesticVRPInitiation initiation;
 
-    public OBDomesticVRPConsentRequestData readRefundAccount(ReadRefundAccountEnum readRefundAccount) {
+    public OBDomesticVRPConsentRequestData readRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
@@ -88,11 +53,11 @@ public class OBDomesticVRPConsentRequestData {
     @ApiModelProperty(value = "Indicates whether information about RefundAccount should be included in the payment response. ")
 
 
-    public ReadRefundAccountEnum getReadRefundAccount() {
+    public OBReadRefundAccountEnum getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(ReadRefundAccountEnum readRefundAccount) {
+    public void setReadRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 

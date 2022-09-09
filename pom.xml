@@ -37,7 +37,7 @@
     <properties>
         <!-- https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-release.html -->
         <!-- Overwrites the release property (jdk 9+) for maven-compiler-plugin defined in the securebanking-parent -->
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
 
     <scm>

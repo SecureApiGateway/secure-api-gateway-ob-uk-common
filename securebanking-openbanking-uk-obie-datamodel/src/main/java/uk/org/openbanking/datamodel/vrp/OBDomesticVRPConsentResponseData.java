@@ -28,49 +28,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import io.swagger.annotations.ApiModelProperty;
+import uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum;
 
 /**
  * OBDomesticVRPConsentResponseData
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPConsentResponseData {
-    /**
-     * Indicates whether information about RefundAccount should be included in the payment response.
-     */
-    public enum ReadRefundAccountEnum {
-        TRUE("true"),
-
-        FALSE("false");
-
-        private String value;
-
-        ReadRefundAccountEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static ReadRefundAccountEnum fromValue(String value) {
-            for (ReadRefundAccountEnum b : ReadRefundAccountEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
 
     @JsonProperty("ReadRefundAccount")
-    private ReadRefundAccountEnum readRefundAccount;
+    private OBReadRefundAccountEnum readRefundAccount; // Edited to use common OBReadRefundAccountEnum
 
     @JsonProperty("ConsentId")
     private String consentId;
@@ -87,11 +54,7 @@ public class OBDomesticVRPConsentResponseData {
 
         AWAITINGAUTHORISATION("AwaitingAuthorisation"),
 
-        REJECTED("Rejected"),
-
-        REVOKED("Revoked"),
-
-        EXPIRED("Expired");
+        REJECTED("Rejected");
 
         private String value;
 
@@ -136,7 +99,7 @@ public class OBDomesticVRPConsentResponseData {
     @JsonProperty("DebtorAccount")
     private OBCashAccountDebtorWithName debtorAccount;
 
-    public OBDomesticVRPConsentResponseData readRefundAccount(ReadRefundAccountEnum readRefundAccount) {
+    public OBDomesticVRPConsentResponseData readRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
@@ -149,11 +112,11 @@ public class OBDomesticVRPConsentResponseData {
     @ApiModelProperty(value = "Indicates whether information about RefundAccount should be included in the payment response. ")
 
 
-    public ReadRefundAccountEnum getReadRefundAccount() {
+    public OBReadRefundAccountEnum getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(ReadRefundAccountEnum readRefundAccount) {
+    public void setReadRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 

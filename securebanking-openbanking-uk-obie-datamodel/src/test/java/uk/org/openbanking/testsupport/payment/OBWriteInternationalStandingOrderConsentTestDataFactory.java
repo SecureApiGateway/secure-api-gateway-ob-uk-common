@@ -15,19 +15,53 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import com.forgerock.securebanking.openbanking.uk.common.api.meta.forgerock.FRFrequencyType;
-import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.payment.*;
-
-import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.*;
-import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.*;
-import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.*;
-import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.*;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBCashAccount3;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBCashAccountCreditor3;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBCashAccountDebtor4;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteInternationalStandingOrder3DataInitiationCreditorAccount;
+import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteInternationalStandingOrder4DataInitiationCreditorAccount;
+import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBActiveOrHistoricCurrencyAndAmount;
+import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBDomestic2InstructedAmount;
+import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBWriteDomestic2DataInitiationInstructedAmount;
+import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBAuthorisation1;
+import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent3DataAuthorisation;
+import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent4DataAuthorisation;
+import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBBranchAndFinancialInstitutionIdentification3;
+import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBBranchAndFinancialInstitutionIdentification6;
+import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBPartyIdentification43;
+import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBWriteInternational2DataInitiationCreditor;
+import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBWriteInternationalScheduledConsentResponse6DataInitiationCreditor;
+import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBWriteInternationalStandingOrder3DataInitiationCreditorAgent;
+import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBWriteInternationalStandingOrder4DataInitiationCreditorAgent;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent3DataSCASupportData;
+
+import org.joda.time.DateTime;
+
+import com.forgerock.securebanking.openbanking.uk.common.api.meta.forgerock.FRFrequencyType;
+
+import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.payment.OBExternalPermissions2Code;
+import uk.org.openbanking.datamodel.payment.OBInternationalStandingOrder1;
+import uk.org.openbanking.datamodel.payment.OBInternationalStandingOrder2;
+import uk.org.openbanking.datamodel.payment.OBInternationalStandingOrder3;
+import uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalStandingOrderConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalStandingOrderConsent3;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent3DataSCASupportData;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder3DataInitiation;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4DataInitiation;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent2;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent3;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent4;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent4Data;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent5;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent5Data;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent6;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent6Data;
 
 /**
  * Test data factory for the various "OBWriteInternationalStandingOrderConsent" classes.

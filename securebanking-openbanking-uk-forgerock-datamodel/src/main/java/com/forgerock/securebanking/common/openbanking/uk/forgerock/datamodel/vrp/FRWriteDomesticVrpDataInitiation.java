@@ -16,8 +16,9 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.vrp;
 
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRAccountIdentifier;
-import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRFinancialAgent;
+import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRPostalAddress;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRRemittanceInformation;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -39,6 +40,6 @@ import lombok.NoArgsConstructor;
 public class FRWriteDomesticVrpDataInitiation implements FRDomesticVrpDataInitiation {
     private FRAccountIdentifier debtorAccount;
     private FRAccountIdentifier creditorAccount;
+    private FRPostalAddress creditorPostalAddress;
     private FRRemittanceInformation remittanceInformation;
-    private FRFinancialAgent creditorAgent;
 }

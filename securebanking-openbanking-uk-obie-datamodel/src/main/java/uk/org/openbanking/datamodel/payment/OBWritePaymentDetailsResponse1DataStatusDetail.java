@@ -32,7 +32,6 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Payment status details as per underlying Payment Rail.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-
 public class OBWritePaymentDetailsResponse1DataStatusDetail {
     @JsonProperty("LocalInstrument")
     private String localInstrument;
@@ -102,6 +101,8 @@ public class OBWritePaymentDetailsResponse1DataStatusDetail {
      * @return localInstrument
      */
     @ApiModelProperty(value = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.")
+
+
     public String getLocalInstrument() {
         return localInstrument;
     }
@@ -122,6 +123,7 @@ public class OBWritePaymentDetailsResponse1DataStatusDetail {
      */
     @ApiModelProperty(required = true, value = "Status of a transfer, as assigned by the transaction administrator.")
     @NotNull
+
     @Size(min = 1, max = 128)
     public String getStatus() {
         return status;
@@ -142,6 +144,8 @@ public class OBWritePaymentDetailsResponse1DataStatusDetail {
      * @return statusReason
      */
     @ApiModelProperty(value = "Reason Code provided for the status of a transfer.")
+
+
     public StatusReasonEnum getStatusReason() {
         return statusReason;
     }
@@ -161,6 +165,7 @@ public class OBWritePaymentDetailsResponse1DataStatusDetail {
      * @return statusReasonDescription
      */
     @ApiModelProperty(value = "Reason provided for the status of a transfer.")
+
     @Size(min = 1, max = 256)
     public String getStatusReasonDescription() {
         return statusReasonDescription;
