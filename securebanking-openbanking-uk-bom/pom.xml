@@ -23,7 +23,7 @@
     <groupId>com.forgerock.securebanking.uk</groupId>
     <artifactId>securebanking-openbanking-uk-bom</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.6-SNAPSHOT</version>
+    <version>1.1.7-SNAPSHOT</version>
     <name>securebanking-openbanking-uk-bom</name>
 
     <description>

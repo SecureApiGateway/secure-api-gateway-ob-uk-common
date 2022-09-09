@@ -23,7 +23,7 @@
     <groupId>com.forgerock.securebanking.uk</groupId>
     <artifactId>securebanking-openbanking-uk</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.6-SNAPSHOT</version>
+    <version>1.1.7-SNAPSHOT</version>
     <name>Secure Banking access Toolkit library for Open Banking UK specs</name>
     <url>https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk</url>
 
@@ -37,7 +37,7 @@
     <properties>
         <!-- https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-release.html -->
         <!-- Overwrites the release property (jdk 9+) for maven-compiler-plugin defined in the securebanking-parent -->
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
 
     <scm>
