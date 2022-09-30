@@ -35,6 +35,7 @@ import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTe
 import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBWriteInternationalStandingOrder3DataInitiationCreditorAgent;
 import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBWriteInternationalStandingOrder4DataInitiationCreditorAgent;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
+import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1MandatoryFields;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent3DataSCASupportData;
 
@@ -80,10 +81,22 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
                 .risk(aValidOBRisk1());
     }
 
+    public static OBWriteInternationalStandingOrderConsent2 aValidOBWriteInternationalStandingOrderConsent2MandatoryFields() {
+        return (new OBWriteInternationalStandingOrderConsent2())
+                .data(aValidOBWriteDataInternationalStandingOrderConsent2MandatoryFields())
+                .risk(aValidOBRisk1MandatoryFields());
+    }
+
     public static OBWriteInternationalStandingOrderConsent3 aValidOBWriteInternationalStandingOrderConsent3() {
         return (new OBWriteInternationalStandingOrderConsent3())
                 .data(aValidOBWriteDataInternationalStandingOrderConsent3())
                 .risk(aValidOBRisk1());
+    }
+
+    public static OBWriteInternationalStandingOrderConsent3 aValidOBWriteInternationalStandingOrderConsent3MandatoryFields() {
+        return (new OBWriteInternationalStandingOrderConsent3())
+                .data(aValidOBWriteDataInternationalStandingOrderConsent3MandatoryFields())
+                .risk(aValidOBRisk1MandatoryFields());
     }
 
     public static OBWriteInternationalStandingOrderConsent4 aValidOBWriteInternationalStandingOrderConsent4() {
@@ -92,16 +105,34 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
                 .risk(aValidOBRisk1());
     }
 
+    public static OBWriteInternationalStandingOrderConsent4 aValidOBWriteInternationalStandingOrderConsent4MandatoryFields() {
+        return (new OBWriteInternationalStandingOrderConsent4())
+                .data(aValidOBWriteInternationalStandingOrderConsent4DataMandatoryFields())
+                .risk(aValidOBRisk1MandatoryFields());
+    }
+
     public static OBWriteInternationalStandingOrderConsent5 aValidOBWriteInternationalStandingOrderConsent5() {
         return (new OBWriteInternationalStandingOrderConsent5())
                 .data(aValidOBWriteInternationalStandingOrderConsent5Data())
                 .risk(aValidOBRisk1());
     }
 
+    public static OBWriteInternationalStandingOrderConsent5 aValidOBWriteInternationalStandingOrderConsent5MandatoryFields() {
+        return (new OBWriteInternationalStandingOrderConsent5())
+                .data(aValidOBWriteInternationalStandingOrderConsent5DataMandatoryFields())
+                .risk(aValidOBRisk1MandatoryFields());
+    }
+
     public static OBWriteInternationalStandingOrderConsent6 aValidOBWriteInternationalStandingOrderConsent6() {
         return (new OBWriteInternationalStandingOrderConsent6())
                 .data(aValidOBWriteInternationalStandingOrderConsent6Data())
                 .risk(aValidOBRisk1());
+    }
+
+    public static OBWriteInternationalStandingOrderConsent6 aValidOBWriteInternationalStandingOrderConsent6MandatoryFields() {
+        return (new OBWriteInternationalStandingOrderConsent6())
+                .data(aValidOBWriteInternationalStandingOrderConsent6DataMandatoryFields())
+                .risk(aValidOBRisk1MandatoryFields());
     }
 
     public static OBWriteDataInternationalStandingOrderConsent2 aValidOBWriteDataInternationalStandingOrderConsent2() {
@@ -111,11 +142,23 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
                 .authorisation(aValidOBAuthorisation1());
     }
 
+    public static OBWriteDataInternationalStandingOrderConsent2 aValidOBWriteDataInternationalStandingOrderConsent2MandatoryFields() {
+        return (new OBWriteDataInternationalStandingOrderConsent2())
+                .permission(OBExternalPermissions2Code.CREATE)
+                .initiation(aValidOBInternationalStandingOrder2MandatoryFields());
+    }
+
     public static OBWriteDataInternationalStandingOrderConsent3 aValidOBWriteDataInternationalStandingOrderConsent3() {
         return (new OBWriteDataInternationalStandingOrderConsent3())
                 .permission(OBExternalPermissions2Code.CREATE)
                 .initiation(aValidOBInternationalStandingOrder3())
                 .authorisation(aValidOBAuthorisation1());
+    }
+
+    public static OBWriteDataInternationalStandingOrderConsent3 aValidOBWriteDataInternationalStandingOrderConsent3MandatoryFields() {
+        return (new OBWriteDataInternationalStandingOrderConsent3())
+                .permission(OBExternalPermissions2Code.CREATE)
+                .initiation(aValidOBInternationalStandingOrder3MandatoryFields());
     }
 
     public static OBWriteInternationalStandingOrderConsent4Data aValidOBWriteInternationalStandingOrderConsent4Data() {
@@ -126,12 +169,24 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
                 .scASupportData(new OBWriteDomesticConsent3DataSCASupportData());
     }
 
+    public static OBWriteInternationalStandingOrderConsent4Data aValidOBWriteInternationalStandingOrderConsent4DataMandatoryFields() {
+        return (new OBWriteInternationalStandingOrderConsent4Data())
+                .permission(OBExternalPermissions2Code.CREATE)
+                .initiation(aValidOBWriteInternationalStandingOrder3DataInitiationMandatoryFields());
+    }
+
     public static OBWriteInternationalStandingOrderConsent5Data aValidOBWriteInternationalStandingOrderConsent5Data() {
         return (new OBWriteInternationalStandingOrderConsent5Data())
                 .permission(OBExternalPermissions2Code.CREATE)
                 .initiation(aValidOBWriteInternationalStandingOrder4DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent3DataAuthorisation())
                 .scASupportData(aValidOBWriteDomesticConsent3DataSCASupportData());
+    }
+
+    public static OBWriteInternationalStandingOrderConsent5Data aValidOBWriteInternationalStandingOrderConsent5DataMandatoryFields() {
+        return (new OBWriteInternationalStandingOrderConsent5Data())
+                .permission(OBExternalPermissions2Code.CREATE)
+                .initiation(aValidOBWriteInternationalStandingOrder4DataInitiation());
     }
 
     public static OBWriteInternationalStandingOrderConsent6Data aValidOBWriteInternationalStandingOrderConsent6Data() {
@@ -141,6 +196,12 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1())
                 .readRefundAccount(OBReadRefundAccountEnum.NO);
+    }
+
+    public static OBWriteInternationalStandingOrderConsent6Data aValidOBWriteInternationalStandingOrderConsent6DataMandatoryFields() {
+        return (new OBWriteInternationalStandingOrderConsent6Data())
+                .permission(OBExternalPermissions2Code.CREATE)
+                .initiation(aValidOBWriteInternationalStandingOrder4DataInitiationMandatoryFields());
     }
 
     public static OBInternationalStandingOrder1 aValidOBInternationalStandingOrder1() {
@@ -180,6 +241,16 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
                 .supplementaryData(new OBSupplementaryData1());
     }
 
+    public static OBInternationalStandingOrder2 aValidOBInternationalStandingOrder2MandatoryFields() {
+        DateTime now = DateTime.now();
+        return (new OBInternationalStandingOrder2())
+                .frequency(FREQUENCY)
+                .firstPaymentDateTime(now)
+                .currencyOfTransfer(CURRENCY)
+                .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
+                .creditorAccount(aValidOBCashAccount3());
+    }
+
     public static OBInternationalStandingOrder3 aValidOBInternationalStandingOrder3() {
         DateTime now = DateTime.now();
         return (new OBInternationalStandingOrder3())
@@ -197,6 +268,16 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
                 .creditorAgent(aValidOBBranchAndFinancialInstitutionIdentification6())
                 .creditorAccount(aValidOBCashAccountCreditor3())
                 .supplementaryData(new OBSupplementaryData1());
+    }
+
+    public static OBInternationalStandingOrder3 aValidOBInternationalStandingOrder3MandatoryFields() {
+        DateTime now = DateTime.now();
+        return (new OBInternationalStandingOrder3())
+                .frequency(FREQUENCY)
+                .firstPaymentDateTime(now)
+                .currencyOfTransfer(CURRENCY)
+                .instructedAmount(aValidOBDomestic2InstructedAmount())
+                .creditorAccount(aValidOBCashAccountCreditor3());
     }
 
     public static OBWriteInternationalStandingOrder3DataInitiation aValidOBWriteInternationalStandingOrder3DataInitiation() {
@@ -218,6 +299,15 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
                 .supplementaryData(new OBSupplementaryData1());
     }
 
+    public static OBWriteInternationalStandingOrder3DataInitiation aValidOBWriteInternationalStandingOrder3DataInitiationMandatoryFields() {
+        DateTime now = DateTime.now();
+        return (new OBWriteInternationalStandingOrder3DataInitiation())
+                .frequency(FREQUENCY)
+                .firstPaymentDateTime(now)
+                .currencyOfTransfer(CURRENCY)
+                .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
+                .creditorAccount(aValidOBWriteInternationalStandingOrder3DataInitiationCreditorAccount());
+    }
 
     public static OBWriteInternationalStandingOrder4DataInitiation aValidOBWriteInternationalStandingOrder4DataInitiation() {
         DateTime now = DateTime.now();
@@ -238,5 +328,15 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
                 .creditorAgent(aValidOBWriteInternationalStandingOrder4DataInitiationCreditorAgent())
                 .creditorAccount(aValidOBWriteInternationalStandingOrder4DataInitiationCreditorAccount())
                 .supplementaryData(new OBSupplementaryData1());
+    }
+
+    public static OBWriteInternationalStandingOrder4DataInitiation aValidOBWriteInternationalStandingOrder4DataInitiationMandatoryFields() {
+        DateTime now = DateTime.now();
+        return (new OBWriteInternationalStandingOrder4DataInitiation())
+                .frequency(FREQUENCY)
+                .firstPaymentDateTime(now)
+                .currencyOfTransfer(CURRENCY)
+                .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
+                .creditorAccount(aValidOBWriteInternationalStandingOrder4DataInitiationCreditorAccount());
     }
 }
