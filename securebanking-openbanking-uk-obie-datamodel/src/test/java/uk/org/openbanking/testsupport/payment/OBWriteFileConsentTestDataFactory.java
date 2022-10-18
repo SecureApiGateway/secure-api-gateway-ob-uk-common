@@ -15,13 +15,15 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
+import com.forgerock.securebanking.openbanking.uk.common.api.meta.share.IntentType;
 import org.joda.time.DateTime;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.payment.OBWriteFile2DataInitiation;
-import uk.org.openbanking.datamodel.payment.OBWriteFileConsent3;
-import uk.org.openbanking.datamodel.payment.OBWriteFileConsent3Data;
+import uk.org.openbanking.datamodel.payment.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteDomestic2DataInitiationDebtorAccount;
 import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent4DataAuthorisation;
@@ -57,4 +59,82 @@ public class OBWriteFileConsentTestDataFactory {
                 .remittanceInformation(aValidOBWriteDomestic2DataInitiationRemittanceInformation())
                 .supplementaryData(new OBSupplementaryData1());
     }
+
+    // response
+    public static final String CHARGE_TYPE = "UK.OBIE.CHAPSOut";
+    public static final String CHARGE_AMOUNT = "1.5";
+    public static final String CHARGE_CURRENCY = "GBP";
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4() {
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3();
+        return new OBWriteFileConsentResponse4()
+                .data(new OBWriteFileConsentResponse4Data()
+                        .consentId(IntentType.PAYMENT_FILE_CONSENT.generateIntentId())
+                        .authorisation(consent3.getData().getAuthorisation())
+                        .initiation(consent3.getData().getInitiation())
+                        .scASupportData(consent3.getData().getScASupportData())
+                        .charges(List.of(aValidOBWriteDomesticConsentResponse5DataCharges()))
+                        .debtor(new OBCashAccountDebtor4()
+                                .schemeName("UK.OBIE.SortCodeAccountNumber")
+                                .identification("90611424625566")
+                                .name("Mr Johnny Marr")
+                                .secondaryIdentification("55")
+                        )
+                );
+    }
+
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String consentId) {
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3();
+        return new OBWriteFileConsentResponse4()
+                .data(new OBWriteFileConsentResponse4Data()
+                        .consentId(consentId)
+                        .creationDateTime(DateTime.now())
+                        .cutOffDateTime(DateTime.now())
+                        .status(OBWriteFileConsentResponse4Data.StatusEnum.AWAITINGUPLOAD)
+                        .statusUpdateDateTime(DateTime.now())
+                        .authorisation(consent3.getData().getAuthorisation())
+                        .initiation(consent3.getData().getInitiation())
+                        .scASupportData(consent3.getData().getScASupportData())
+                        .charges(List.of(aValidOBWriteDomesticConsentResponse5DataCharges()))
+                        .debtor(new OBCashAccountDebtor4()
+                                .schemeName("UK.OBIE.SortCodeAccountNumber")
+                                .identification("90611424625566")
+                                .name("Mr Johnny Marr")
+                                .secondaryIdentification("55")
+                        )
+                );
+    }
+
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String consentId, OBWriteFileConsentResponse4Data.StatusEnum status) {
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3();
+        return new OBWriteFileConsentResponse4()
+                .data(new OBWriteFileConsentResponse4Data()
+                        .consentId(consentId)
+                        .creationDateTime(DateTime.now())
+                        .cutOffDateTime(DateTime.now())
+                        .status(status)
+                        .statusUpdateDateTime(DateTime.now())
+                        .authorisation(consent3.getData().getAuthorisation())
+                        .initiation(consent3.getData().getInitiation())
+                        .scASupportData(consent3.getData().getScASupportData())
+                        .charges(List.of(aValidOBWriteDomesticConsentResponse5DataCharges()))
+                        .debtor(new OBCashAccountDebtor4()
+                                .schemeName("UK.OBIE.SortCodeAccountNumber")
+                                .identification("90611424625566")
+                                .name("Mr Johnny Marr")
+                                .secondaryIdentification("55")
+                        )
+                );
+    }
+
+    public static OBWriteDomesticConsentResponse5DataCharges aValidOBWriteDomesticConsentResponse5DataCharges() {
+        return new OBWriteDomesticConsentResponse5DataCharges()
+                .chargeBearer(OBChargeBearerType1Code.BORNEBYDEBTOR)
+                .type(CHARGE_TYPE)
+                .amount(
+                        new OBActiveOrHistoricCurrencyAndAmount()
+                                .amount(CHARGE_AMOUNT)
+                                .currency(CHARGE_CURRENCY)
+                );
+    }
+
 }
