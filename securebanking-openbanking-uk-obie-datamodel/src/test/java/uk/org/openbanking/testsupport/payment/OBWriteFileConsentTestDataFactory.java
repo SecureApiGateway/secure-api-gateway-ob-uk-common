@@ -39,11 +39,20 @@ public class OBWriteFileConsentTestDataFactory {
         return new OBWriteFileConsent3().data(aValidOBWriteFileConsent3Data());
     }
 
+    public static OBWriteFileConsent3 aValidOBWriteFileConsent3MandatoryFields() {
+        return new OBWriteFileConsent3().data(aValidOBWriteFileConsent3DataMandatoryFields());
+    }
+
     public static OBWriteFileConsent3Data aValidOBWriteFileConsent3Data() {
         return new OBWriteFileConsent3Data()
                 .initiation(aValidOBWriteFile2DataInitiation())
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1());
+    }
+
+    public static OBWriteFileConsent3Data aValidOBWriteFileConsent3DataMandatoryFields() {
+        return new OBWriteFileConsent3Data()
+                .initiation(aValidOBWriteFile2DataInitiationMandatoryFields());
     }
 
     public static OBWriteFile2DataInitiation aValidOBWriteFile2DataInitiation() {
@@ -60,10 +69,17 @@ public class OBWriteFileConsentTestDataFactory {
                 .supplementaryData(new OBSupplementaryData1());
     }
 
+    public static OBWriteFile2DataInitiation aValidOBWriteFile2DataInitiationMandatoryFields() {
+        return new OBWriteFile2DataInitiation()
+                .fileType("UK.OBIE.pain.001.001.08")
+                .fileHash("m5ah/h1UjLvJYMxqAoZmj9dKdjZnsGNm+yMkJp/KuqQ");
+    }
+
     // response
     public static final String CHARGE_TYPE = "UK.OBIE.CHAPSOut";
     public static final String CHARGE_AMOUNT = "1.5";
     public static final String CHARGE_CURRENCY = "GBP";
+
     public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4() {
         OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3();
         return new OBWriteFileConsentResponse4()
@@ -79,6 +95,15 @@ public class OBWriteFileConsentTestDataFactory {
                                 .name("Mr Johnny Marr")
                                 .secondaryIdentification("55")
                         )
+                );
+    }
+
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields() {
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3();
+        return new OBWriteFileConsentResponse4()
+                .data(new OBWriteFileConsentResponse4Data()
+                        .consentId(IntentType.PAYMENT_FILE_CONSENT.generateIntentId())
+                        .initiation(consent3.getData().getInitiation())
                 );
     }
 
@@ -104,6 +129,18 @@ public class OBWriteFileConsentTestDataFactory {
                 );
     }
 
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields(String consentId) {
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3();
+        return new OBWriteFileConsentResponse4()
+                .data(new OBWriteFileConsentResponse4Data()
+                        .consentId(consentId)
+                        .creationDateTime(DateTime.now())
+                        .status(OBWriteFileConsentResponse4Data.StatusEnum.AWAITINGUPLOAD)
+                        .statusUpdateDateTime(DateTime.now())
+                        .initiation(consent3.getData().getInitiation())
+                );
+    }
+
     public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String consentId, OBWriteFileConsentResponse4Data.StatusEnum status) {
         OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3();
         return new OBWriteFileConsentResponse4()
@@ -126,7 +163,30 @@ public class OBWriteFileConsentTestDataFactory {
                 );
     }
 
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields(String consentId, OBWriteFileConsentResponse4Data.StatusEnum status) {
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3();
+        return new OBWriteFileConsentResponse4()
+                .data(new OBWriteFileConsentResponse4Data()
+                        .consentId(consentId)
+                        .creationDateTime(DateTime.now())
+                        .status(status)
+                        .statusUpdateDateTime(DateTime.now())
+                        .initiation(consent3.getData().getInitiation())
+                );
+    }
+
     public static OBWriteDomesticConsentResponse5DataCharges aValidOBWriteDomesticConsentResponse5DataCharges() {
+        return new OBWriteDomesticConsentResponse5DataCharges()
+                .chargeBearer(OBChargeBearerType1Code.BORNEBYDEBTOR)
+                .type(CHARGE_TYPE)
+                .amount(
+                        new OBActiveOrHistoricCurrencyAndAmount()
+                                .amount(CHARGE_AMOUNT)
+                                .currency(CHARGE_CURRENCY)
+                );
+    }
+
+    public static OBWriteDomesticConsentResponse5DataCharges aValidOBWriteDomesticConsentResponse5DataChargesMandatoryFields() {
         return new OBWriteDomesticConsentResponse5DataCharges()
                 .chargeBearer(OBChargeBearerType1Code.BORNEBYDEBTOR)
                 .type(CHARGE_TYPE)
