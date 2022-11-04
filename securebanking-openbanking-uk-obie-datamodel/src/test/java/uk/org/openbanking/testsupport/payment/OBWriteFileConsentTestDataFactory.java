@@ -35,33 +35,33 @@ import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDa
  */
 public class OBWriteFileConsentTestDataFactory {
 
-    public static OBWriteFileConsent3 aValidOBWriteFileConsent3() {
-        return new OBWriteFileConsent3().data(aValidOBWriteFileConsent3Data());
+    public static OBWriteFileConsent3 aValidOBWriteFileConsent3(String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
+        return new OBWriteFileConsent3().data(aValidOBWriteFileConsent3Data(fileType, fileHash, numberOfTransactions, controlSum));
     }
 
-    public static OBWriteFileConsent3 aValidOBWriteFileConsent3MandatoryFields() {
-        return new OBWriteFileConsent3().data(aValidOBWriteFileConsent3DataMandatoryFields());
+    public static OBWriteFileConsent3 aValidOBWriteFileConsent3MandatoryFields(String fileType, String fileHash) {
+        return new OBWriteFileConsent3().data(aValidOBWriteFileConsent3DataMandatoryFields(fileType, fileHash));
     }
 
-    public static OBWriteFileConsent3Data aValidOBWriteFileConsent3Data() {
+    public static OBWriteFileConsent3Data aValidOBWriteFileConsent3Data(String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
         return new OBWriteFileConsent3Data()
-                .initiation(aValidOBWriteFile2DataInitiation())
+                .initiation(aValidOBWriteFile2DataInitiation(fileType, fileHash, numberOfTransactions, controlSum))
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1());
     }
 
-    public static OBWriteFileConsent3Data aValidOBWriteFileConsent3DataMandatoryFields() {
+    public static OBWriteFileConsent3Data aValidOBWriteFileConsent3DataMandatoryFields(String fileType, String fileHash) {
         return new OBWriteFileConsent3Data()
-                .initiation(aValidOBWriteFile2DataInitiationMandatoryFields());
+                .initiation(aValidOBWriteFile2DataInitiationMandatoryFields(fileType, fileHash));
     }
 
-    public static OBWriteFile2DataInitiation aValidOBWriteFile2DataInitiation() {
+    public static OBWriteFile2DataInitiation aValidOBWriteFile2DataInitiation(String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
         return new OBWriteFile2DataInitiation()
-                .fileType("UK.OBIE.pain.001.001.08")
-                .fileHash("m5ah/h1UjLvJYMxqAoZmj9dKdjZnsGNm+yMkJp/KuqQ")
+                .fileType(fileType)
+                .fileHash(fileHash)
                 .fileReference("GB2OK238")
-                .numberOfTransactions("1")
-                .controlSum(BigDecimal.ONE)
+                .numberOfTransactions(numberOfTransactions)
+                .controlSum(controlSum)
                 .requestedExecutionDateTime(DateTime.now())
                 .localInstrument("UK.OBIE.CHAPS")
                 .debtorAccount(aValidOBWriteDomestic2DataInitiationDebtorAccount())
@@ -69,10 +69,10 @@ public class OBWriteFileConsentTestDataFactory {
                 .supplementaryData(new OBSupplementaryData1());
     }
 
-    public static OBWriteFile2DataInitiation aValidOBWriteFile2DataInitiationMandatoryFields() {
+    public static OBWriteFile2DataInitiation aValidOBWriteFile2DataInitiationMandatoryFields(String fileType, String fileHash) {
         return new OBWriteFile2DataInitiation()
-                .fileType("UK.OBIE.pain.001.001.08")
-                .fileHash("m5ah/h1UjLvJYMxqAoZmj9dKdjZnsGNm+yMkJp/KuqQ");
+                .fileType(fileType)
+                .fileHash(fileHash);
     }
 
     // response
@@ -80,8 +80,8 @@ public class OBWriteFileConsentTestDataFactory {
     public static final String CHARGE_AMOUNT = "1.5";
     public static final String CHARGE_CURRENCY = "GBP";
 
-    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4() {
-        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3();
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(fileType, fileHash, numberOfTransactions, controlSum);
         return new OBWriteFileConsentResponse4()
                 .data(new OBWriteFileConsentResponse4Data()
                         .consentId(IntentType.PAYMENT_FILE_CONSENT.generateIntentId())
@@ -98,8 +98,8 @@ public class OBWriteFileConsentTestDataFactory {
                 );
     }
 
-    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields() {
-        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3();
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields(String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(fileType, fileHash, numberOfTransactions, controlSum);
         return new OBWriteFileConsentResponse4()
                 .data(new OBWriteFileConsentResponse4Data()
                         .consentId(IntentType.PAYMENT_FILE_CONSENT.generateIntentId())
@@ -107,8 +107,8 @@ public class OBWriteFileConsentTestDataFactory {
                 );
     }
 
-    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String consentId) {
-        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3();
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String consentId, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(fileType, fileHash, numberOfTransactions, controlSum);
         return new OBWriteFileConsentResponse4()
                 .data(new OBWriteFileConsentResponse4Data()
                         .consentId(consentId)
@@ -129,8 +129,8 @@ public class OBWriteFileConsentTestDataFactory {
                 );
     }
 
-    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields(String consentId) {
-        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3();
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields(String consentId, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(fileType, fileHash, numberOfTransactions, controlSum);
         return new OBWriteFileConsentResponse4()
                 .data(new OBWriteFileConsentResponse4Data()
                         .consentId(consentId)
@@ -141,8 +141,8 @@ public class OBWriteFileConsentTestDataFactory {
                 );
     }
 
-    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String consentId, OBWriteFileConsentResponse4Data.StatusEnum status) {
-        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3();
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String consentId, OBWriteFileConsentResponse4Data.StatusEnum status, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(fileType, fileHash, numberOfTransactions, controlSum);
         return new OBWriteFileConsentResponse4()
                 .data(new OBWriteFileConsentResponse4Data()
                         .consentId(consentId)
@@ -163,8 +163,8 @@ public class OBWriteFileConsentTestDataFactory {
                 );
     }
 
-    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields(String consentId, OBWriteFileConsentResponse4Data.StatusEnum status) {
-        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3();
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields(String consentId, OBWriteFileConsentResponse4Data.StatusEnum status, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(fileType, fileHash, numberOfTransactions, controlSum);
         return new OBWriteFileConsentResponse4()
                 .data(new OBWriteFileConsentResponse4Data()
                         .consentId(consentId)
