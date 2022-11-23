@@ -17,8 +17,7 @@ package uk.org.openbanking.testsupport.vrp;
 
 import static org.joda.time.DateTime.now;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
-import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBActiveOrHistoricCurrencyAndAmount;
-import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBDomesticVRPInitiation;
+import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -44,16 +43,35 @@ public class OBDomesticVrpConsentRequestTestDataFactory {
                 .risk(aValidOBRisk1());
     }
 
+    public static OBDomesticVRPConsentRequest aValidOBDomesticVRPConsentRequestMandatoryFields() {
+        return (new OBDomesticVRPConsentRequest())
+                .data(aValidOBDomesticVRPConsentRequestDataMandatoryFields())
+                .risk(aValidOBRisk1());
+    }
+
     public static OBDomesticVRPConsentRequest aValidOBDomesticVRPConsentRequest(List<String> psuAuthenticationMethods, List<String> vrpTypes) {
         return (new OBDomesticVRPConsentRequest())
                 .data(aValidOBDomesticVRPConsentRequestData(psuAuthenticationMethods, vrpTypes))
                 .risk(aValidOBRisk1());
     }
 
+    public static OBDomesticVRPConsentRequest aValidOBDomesticVRPConsentRequestMandatoryFields(List<String> psuAuthenticationMethods, List<String> vrpTypes) {
+        return (new OBDomesticVRPConsentRequest())
+                .data(aValidOBDomesticVRPConsentRequestDataMandatoryFields(psuAuthenticationMethods, vrpTypes))
+                .risk(aValidOBRisk1());
+    }
+
     public static OBDomesticVRPConsentRequestData aValidOBDomesticVRPConsentRequestData() {
         return (new OBDomesticVRPConsentRequestData())
+                .readRefundAccount(OBReadRefundAccountEnum.YES)
                 .controlParameters(aValidOBDomesticVRPControlParameters())
                 .initiation(aValidOBDomesticVRPInitiation());
+    }
+
+    public static OBDomesticVRPConsentRequestData aValidOBDomesticVRPConsentRequestDataMandatoryFields() {
+        return (new OBDomesticVRPConsentRequestData())
+                .controlParameters(aValidOBDomesticVRPControlParametersMandatoryFields())
+                .initiation(aValidOBDomesticVRPInitiationMandatoryFields());
     }
 
     public static OBDomesticVRPConsentRequestData aValidOBDomesticVRPConsentRequestData(List<String> psuAuthenticationMethods, List<String> vrpTypes) {
@@ -61,6 +79,12 @@ public class OBDomesticVrpConsentRequestTestDataFactory {
                 .readRefundAccount(OBReadRefundAccountEnum.YES)
                 .controlParameters(aValidOBDomesticVRPControlParameters(psuAuthenticationMethods, vrpTypes))
                 .initiation(aValidOBDomesticVRPInitiation());
+    }
+
+    public static OBDomesticVRPConsentRequestData aValidOBDomesticVRPConsentRequestDataMandatoryFields(List<String> psuAuthenticationMethods, List<String> vrpTypes) {
+        return (new OBDomesticVRPConsentRequestData())
+                .controlParameters(aValidOBDomesticVRPControlParametersMandatoryFields(psuAuthenticationMethods, vrpTypes))
+                .initiation(aValidOBDomesticVRPInitiationMandatoryFields());
     }
 
     public static OBDomesticVRPControlParameters aValidOBDomesticVRPControlParameters() {
@@ -76,6 +100,15 @@ public class OBDomesticVrpConsentRequestTestDataFactory {
                 .supplementaryData(new OBSupplementaryData1());
     }
 
+    public static OBDomesticVRPControlParameters aValidOBDomesticVRPControlParametersMandatoryFields() {
+        DateTime now = now();
+        return (new OBDomesticVRPControlParameters())
+                .psUAuthenticationMethods(Arrays.asList(OBVRPAuthenticationMethods.SCA_NOT_REQUIRED.getValue()))
+                .vrPType(Arrays.asList(OBVRPConsentType.SWEEPING.getValue()))
+                .maximumIndividualAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
+                .periodicLimits(aValidOBDomesticVRPControlParametersPeriodicLimits());
+    }
+
     public static OBDomesticVRPControlParameters aValidOBDomesticVRPControlParameters(List<String> psuAuthenticationMethods, List<String> vrpTypes) {
         DateTime now = now();
         return (new OBDomesticVRPControlParameters())
@@ -86,6 +119,15 @@ public class OBDomesticVrpConsentRequestTestDataFactory {
                 .maximumIndividualAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
                 .periodicLimits(aValidOBDomesticVRPControlParametersPeriodicLimits())
                 .supplementaryData(new OBSupplementaryData1());
+    }
+
+    public static OBDomesticVRPControlParameters aValidOBDomesticVRPControlParametersMandatoryFields(List<String> psuAuthenticationMethods, List<String> vrpTypes) {
+        DateTime now = now();
+        return (new OBDomesticVRPControlParameters())
+                .psUAuthenticationMethods(psuAuthenticationMethods)
+                .vrPType(vrpTypes)
+                .maximumIndividualAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
+                .periodicLimits(aValidOBDomesticVRPControlParametersPeriodicLimits());
     }
 
 

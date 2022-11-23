@@ -48,6 +48,10 @@ public class OBDomesticVrpCommonTestDataFactory {
                 .remittanceInformation(aValidOBDomesticVRPInitiationRemittanceInformation());
     }
 
+    public static OBDomesticVRPInitiation aValidOBDomesticVRPInitiationMandatoryFields() {
+        return (new OBDomesticVRPInitiation());
+    }
+
     public static OBDomesticVRPInitiationRemittanceInformation aValidOBDomesticVRPInitiationRemittanceInformation() {
         return (new OBDomesticVRPInitiationRemittanceInformation())
                 .unstructured(ConstantsVrpTestData.UNSTRUCTURED)
