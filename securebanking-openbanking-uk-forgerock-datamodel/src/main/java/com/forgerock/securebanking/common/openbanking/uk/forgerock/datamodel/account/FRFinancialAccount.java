@@ -16,6 +16,7 @@
 package com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.account;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.forgerock.securebanking.common.openbanking.uk.forgerock.datamodel.common.FRAccountIdentifier;
 import lombok.AllArgsConstructor;
@@ -54,6 +55,7 @@ public class FRFinancialAccount {
     private List<FRAccountIdentifier> accounts;
     private FRAccountServicer servicer;
 
+    @JsonIgnore
     public FRAccountIdentifier getFirstAccount() {
         if(this.accounts == null || this.accounts.size()==0)
             return null;
