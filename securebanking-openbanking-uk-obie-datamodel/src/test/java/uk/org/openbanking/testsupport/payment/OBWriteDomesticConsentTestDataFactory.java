@@ -15,36 +15,22 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.payment.*;
+
+import java.util.UUID;
+
 import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBCashAccount3;
 import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteDomestic2DataInitiationCreditorAccount;
-import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteDomestic2DataInitiationDebtorAccount;
 import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBActiveOrHistoricCurrencyAndAmount;
 import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBWriteDomestic2DataInitiationInstructedAmount;
-import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBAuthorisation1;
-import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent3DataAuthorisation;
-import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent4DataAuthorisation;
+import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBPostalAddress6TestDataFactory.aValidOBPostalAddress6;
 import static uk.org.openbanking.testsupport.payment.OBRemittanceInformationTestDataFactory.aValidOBRemittanceInformation1;
 import static uk.org.openbanking.testsupport.payment.OBRemittanceInformationTestDataFactory.aValidOBWriteDomestic2DataInitiationRemittanceInformation;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent3DataSCASupportData;
-
-import java.util.UUID;
-
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.payment.OBDomestic1;
-import uk.org.openbanking.datamodel.payment.OBDomestic2;
-import uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum;
-import uk.org.openbanking.datamodel.payment.OBWriteDataDomesticConsent2;
-import uk.org.openbanking.datamodel.payment.OBWriteDomestic2;
-import uk.org.openbanking.datamodel.payment.OBWriteDomestic2Data;
-import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiation;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent2;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent3;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent3Data;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4Data;
 
 /**
  * Test data factory for the various "OBWriteDomesticConsent" classes.
@@ -106,13 +92,12 @@ public class OBWriteDomesticConsentTestDataFactory {
                 .readRefundAccount(OBReadRefundAccountEnum.NO);
     }
 
-    public static  OBDomestic1 aValidOBDomestic1() {
+    public static OBDomestic1 aValidOBDomestic1() {
         return (new OBDomestic1())
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
                 .localInstrument(LOCAL_INSTRUMENT)
                 .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
-                .debtorAccount(aValidOBCashAccount3())
                 .creditorAccount(aValidOBCashAccount3())
                 .creditorPostalAddress(aValidOBPostalAddress6())
                 .remittanceInformation(aValidOBRemittanceInformation1());
@@ -124,7 +109,6 @@ public class OBWriteDomesticConsentTestDataFactory {
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
                 .localInstrument(LOCAL_INSTRUMENT)
                 .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
-                .debtorAccount(aValidOBCashAccount3())
                 .creditorAccount(aValidOBCashAccount3())
                 .creditorPostalAddress(aValidOBPostalAddress6())
                 .remittanceInformation(aValidOBRemittanceInformation1())
@@ -137,7 +121,6 @@ public class OBWriteDomesticConsentTestDataFactory {
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
                 .localInstrument(LOCAL_INSTRUMENT)
                 .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
-                .debtorAccount(aValidOBWriteDomestic2DataInitiationDebtorAccount())
                 .creditorAccount(aValidOBWriteDomestic2DataInitiationCreditorAccount())
                 .creditorPostalAddress(aValidOBPostalAddress6())
                 .remittanceInformation(aValidOBWriteDomestic2DataInitiationRemittanceInformation())

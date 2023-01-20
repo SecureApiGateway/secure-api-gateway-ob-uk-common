@@ -25,7 +25,6 @@ import uk.org.openbanking.datamodel.payment.*;
 import java.math.BigDecimal;
 import java.util.List;
 
-import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteDomestic2DataInitiationDebtorAccount;
 import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent4DataAuthorisation;
 import static uk.org.openbanking.testsupport.payment.OBRemittanceInformationTestDataFactory.aValidOBWriteDomestic2DataInitiationRemittanceInformation;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
@@ -64,7 +63,6 @@ public class OBWriteFileConsentTestDataFactory {
                 .controlSum(controlSum)
                 .requestedExecutionDateTime(DateTime.now())
                 .localInstrument("UK.OBIE.CHAPS")
-                .debtorAccount(aValidOBWriteDomestic2DataInitiationDebtorAccount())
                 .remittanceInformation(aValidOBWriteDomestic2DataInitiationRemittanceInformation())
                 .supplementaryData(new OBSupplementaryData1());
     }

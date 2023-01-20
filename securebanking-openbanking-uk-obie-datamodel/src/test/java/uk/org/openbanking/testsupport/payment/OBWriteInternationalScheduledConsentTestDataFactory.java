@@ -15,52 +15,26 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
+import org.joda.time.DateTime;
+import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.payment.*;
+
 import static uk.org.openbanking.datamodel.payment.OBExternalPermissions2Code.CREATE;
 import static uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum.NO;
 import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBCashAccount3;
 import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteDomestic2DataInitiationCreditorAccount;
-import static uk.org.openbanking.testsupport.payment.OBAccountTestDataFactory.aValidOBWriteDomestic2DataInitiationDebtorAccount;
 import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBActiveOrHistoricCurrencyAndAmount;
 import static uk.org.openbanking.testsupport.payment.OBAmountTestDataFactory.aValidOBWriteDomestic2DataInitiationInstructedAmount;
-import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBAuthorisation1;
-import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent3DataAuthorisation;
-import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent4DataAuthorisation;
-import static uk.org.openbanking.testsupport.payment.OBExchangeRateTestDataFactory.aValidOBExchangeRate1;
-import static uk.org.openbanking.testsupport.payment.OBExchangeRateTestDataFactory.aValidOBWriteInternational2DataInitiationExchangeRateInformation;
-import static uk.org.openbanking.testsupport.payment.OBExchangeRateTestDataFactory.aValidOBWriteInternational3DataInitiationExchangeRateInformation;
-import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBBranchAndFinancialInstitutionIdentification3;
-import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBPartyIdentification43;
-import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBWriteInternational2DataInitiationCreditor;
-import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBWriteInternational2DataInitiationCreditorAgent;
-import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBWriteInternational3DataInitiationCreditor;
-import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.aValidOBWriteInternational3DataInitiationCreditorAgent;
+import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.*;
+import static uk.org.openbanking.testsupport.payment.OBExchangeRateTestDataFactory.*;
+import static uk.org.openbanking.testsupport.payment.OBInternationalIdentifierTestDataFactory.*;
 import static uk.org.openbanking.testsupport.payment.OBRemittanceInformationTestDataFactory.aValidOBRemittanceInformation1;
 import static uk.org.openbanking.testsupport.payment.OBRemittanceInformationTestDataFactory.aValidOBWriteDomestic2DataInitiationRemittanceInformation;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1MandatoryFields;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBWriteDomesticConsent3DataSCASupportData;
-
-import org.joda.time.DateTime;
-
-import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.payment.OBInternationalScheduled1;
-import uk.org.openbanking.datamodel.payment.OBInternationalScheduled2;
-import uk.org.openbanking.datamodel.payment.OBPriority2Code;
-import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalScheduledConsent1;
-import uk.org.openbanking.datamodel.payment.OBWriteDataInternationalScheduledConsent2;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent3DataSCASupportData;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled2DataInitiation;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled3DataInitiation;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent1;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent2;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent3;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent3Data;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent4;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent4Data;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5Data;
 
 /**
  * Test data factory for the various "OBWriteInternationalScheduledConsent" classes.
@@ -214,7 +188,6 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
                 .currencyOfTransfer(CURRENCY)
                 .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
                 .exchangeRateInformation(aValidOBExchangeRate1())
-                .debtorAccount(aValidOBCashAccount3())
                 .creditor(aValidOBPartyIdentification43())
                 .creditorAgent(aValidOBBranchAndFinancialInstitutionIdentification3())
                 .creditorAccount(aValidOBCashAccount3())
@@ -243,7 +216,6 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
                 .currencyOfTransfer(CURRENCY)
                 .instructedAmount(aValidOBActiveOrHistoricCurrencyAndAmount())
                 .exchangeRateInformation(aValidOBExchangeRate1())
-                .debtorAccount(aValidOBCashAccount3())
                 .creditor(aValidOBPartyIdentification43())
                 .creditorAgent(aValidOBBranchAndFinancialInstitutionIdentification3())
                 .creditorAccount(aValidOBCashAccount3())
@@ -273,7 +245,6 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
                 .currencyOfTransfer(CURRENCY)
                 .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
                 .exchangeRateInformation(aValidOBWriteInternational2DataInitiationExchangeRateInformation())
-                .debtorAccount(aValidOBWriteDomestic2DataInitiationDebtorAccount())
                 .creditor(aValidOBWriteInternational2DataInitiationCreditor())
                 .creditorAgent(aValidOBWriteInternational2DataInitiationCreditorAgent())
                 .creditorAccount(aValidOBWriteDomestic2DataInitiationCreditorAccount())
@@ -305,7 +276,6 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
                 .destinationCountryCode("GB")
                 .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
                 .exchangeRateInformation(aValidOBWriteInternational3DataInitiationExchangeRateInformation())
-                .debtorAccount(aValidOBWriteDomestic2DataInitiationDebtorAccount())
                 .creditor(aValidOBWriteInternational3DataInitiationCreditor())
                 .creditorAgent(aValidOBWriteInternational3DataInitiationCreditorAgent())
                 .creditorAccount(aValidOBWriteDomestic2DataInitiationCreditorAccount())
