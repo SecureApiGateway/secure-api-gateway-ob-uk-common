@@ -44,7 +44,6 @@ public class OBDomesticVrpCommonTestDataFactory {
         return (new OBDomesticVRPInitiation())
                 .creditorAccount(aValidOBCashAccountCreditor3())
                 .creditorPostalAddress(aValidOBPostalAddress6())
-                .debtorAccount(aValidOBCashAccountDebtorWithName())
                 .remittanceInformation(aValidOBDomesticVRPInitiationRemittanceInformation());
     }
 
