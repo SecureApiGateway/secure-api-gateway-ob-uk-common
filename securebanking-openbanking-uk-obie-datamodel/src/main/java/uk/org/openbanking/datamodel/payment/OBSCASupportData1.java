@@ -73,7 +73,6 @@ public class OBSCASupportData1 {
      */
     @ApiModelProperty(value = "Specifies a character string with a maximum length of 40 characters. Usage: This field indicates whether the PSU was subject to SCA performed by the TPP")
 
-    @Size(max = 40)
     public OBAppliedAuthenticationApproachEnum getAppliedAuthenticationApproach() {
         return appliedAuthenticationApproach;
     }
