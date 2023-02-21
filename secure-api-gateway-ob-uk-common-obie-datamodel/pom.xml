@@ -34,7 +34,7 @@
     </url>
 
     <parent>
-        <groupId>com.forgerock.sapi.gateway.uk</groupId>
+        <groupId>com.forgerock.sapi.gateway</groupId>
         <artifactId>secure-api-gateway-ob-uk-common</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -117,7 +117,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.forgerock.sapi.gateway.uk</groupId>
+            <groupId>com.forgerock.sapi.gateway</groupId>
             <artifactId>secure-api-gateway-ob-uk-common-shared</artifactId>
             <version>${project.parent.version}</version>
             <scope>test</scope>

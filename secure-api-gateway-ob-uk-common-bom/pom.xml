@@ -20,7 +20,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.forgerock.sapi.gateway.uk</groupId>
+    <groupId>com.forgerock.sapi.gateway</groupId>
     <artifactId>secure-api-gateway-ob-uk-common-bom</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
@@ -45,35 +45,35 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.forgerock.sapi.gateway.uk</groupId>
+                <groupId>com.forgerock.sapi.gateway</groupId>
                 <artifactId>secure-api-gateway-ob-uk-common-shared</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.forgerock.sapi.gateway.uk</groupId>
+                <groupId>com.forgerock.sapi.gateway</groupId>
                 <artifactId>secure-api-gateway-ob-uk-common-obie-datamodel</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.forgerock.sapi.gateway.uk</groupId>
+                <groupId>com.forgerock.sapi.gateway</groupId>
                 <artifactId>secure-api-gateway-ob-uk-common-datamodel</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.forgerock.sapi.gateway.uk</groupId>
+                <groupId>com.forgerock.sapi.gateway</groupId>
                 <artifactId>secure-api-gateway-ob-uk-common-error</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!-- Test dependencies -->
             <dependency>
-                <groupId>com.forgerock.sapi.gateway.uk</groupId>
+                <groupId>com.forgerock.sapi.gateway</groupId>
                 <artifactId>secure-api-gateway-ob-uk-common-obie-datamodel</artifactId>
                 <version>${project.version}</version>
                 <type>test-jar</type>
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>com.forgerock.sapi.gateway.uk</groupId>
+                <groupId>com.forgerock.sapi.gateway</groupId>
                 <artifactId>secure-api-gateway-ob-uk-common-datamodel</artifactId>
                 <version>${project.version}</version>
                 <type>test-jar</type>
