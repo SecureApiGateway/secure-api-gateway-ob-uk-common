@@ -41,11 +41,11 @@ jobs:
           server-password: MAVEN_REPO_TOKEN # env variable for token in deploy
 
       - name: Check integrity # build the project
-        run: mvn -B verify --file pom.xml # this command executes each default lifecycle phase in order (validate, compile, test, package, etc), before executing verify.
+        run: mvn -B clean verify --file pom.xml # this command executes each default lifecycle phase in order (validate, compile, test, package, etc), before executing verify.
 
       - name: Release snapshot package to forgerock maven snapshot repository
         if: contains(env.VERSION, 'SNAPSHOT')
-        run: mvn -B deploy --file pom.xml
+        run: mvn -B deploy -Dmaven.test.skip=true -Dlicense.skip=true --file pom.xml # skip test and license check, It has been done in the Check integrity step
         env:
           MAVEN_REPO_USERNAME: ${{ secrets.FR_ARTIFACTORY_USER }}
           MAVEN_REPO_TOKEN: ${{ secrets.FR_ARTIFACTORY_TOKEN }}
