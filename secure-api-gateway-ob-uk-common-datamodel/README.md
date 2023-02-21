@@ -13,7 +13,7 @@ In your pom file you should use the `secure-api-gateway-ob-uk-common-bom` import
 
 ```
 <dependency>
-    <groupId>com.forgerock.sapi.gateway.uk</groupId>
+    <groupId>com.forgerock.sapi.gateway/groupId>
     <artifactId>secure-api-gateway-ob-uk-common-datamodel</artifactId>
 </dependency>
 ```

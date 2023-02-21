@@ -11,7 +11,7 @@ Import into your dependenciesManagement sections like this (use the latest relea
         <dependencies>
             <!-- Secure API Gateway: Open Banking UK common dependencies -->
             <dependency>
-                <groupId>com.forgerock.sapi.gateway.uk</groupId>
+                <groupId>com.forgerock.sapi.gateway</groupId>
                 <artifactId>secure-api-gateway-ob-uk-common-bom</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
                 <type>pom</type>

@@ -8,7 +8,7 @@ This is a 'Bill of Materials' project that allows projects dependent on `secure-
         <dependencies>
             <!-- Secure Banking: Open Banking UK common dependencies BOM -->
             <dependency>
-                <groupId>com.forgerock.sapi.gateway.uk</groupId>
+                <groupId>com.forgerock.sapi.gateway</groupId>
                 <artifactId>secure-api-gateway-ob-uk-common-bom</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
                 <type>pom</type>
@@ -25,7 +25,7 @@ Then the required module can simply be referenced in the dependencies section of
 ```
 <dependencies>
    <dependency>
-       <groupId>com.forgerock.sapi.gateway.uk</groupId>
+       <groupId>com.forgerock.sapi.gateway</groupId>
        <artifactId>secure-api-gateway-ob-uk-common-shared</artifiactId>
    <dependency>
 </dependencies>
