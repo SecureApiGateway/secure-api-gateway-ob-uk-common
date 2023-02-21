@@ -37,6 +37,7 @@
     <properties>
         <!-- https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-release.html -->
         <!-- Overwrites the release property (jdk 9+) for maven-compiler-plugin defined in the secure-api-gateway-parent -->
+        <!-- that java. version release needs to be compatible with IG java.version release (target and source) don't change that java version -->
         <java.version>11</java.version>
     </properties>
 
