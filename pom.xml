@@ -17,44 +17,44 @@
 
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.forgerock.securebanking.uk</groupId>
-    <artifactId>securebanking-openbanking-uk</artifactId>
+    <groupId>com.forgerock.sapi.gateway</groupId>
+    <artifactId>secure-api-gateway-ob-uk-common</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.9-SNAPSHOT</version>
-    <name>Secure Banking access Toolkit library for Open Banking UK specs</name>
-    <url>https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk</url>
+    <version>0.9.0-SNAPSHOT</version>
+    <name>Secure API Gateway common and shared libraries for Open Banking UK specs</name>
+    <url>https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common</url>
 
     <parent>
-        <groupId>com.forgerock.securebanking</groupId>
-        <artifactId>securebanking-parent</artifactId>
-        <version>1.0.6-SNAPSHOT</version>
+        <groupId>com.forgerock.sapi.gateway</groupId>
+        <artifactId>secure-api-gateway-parent</artifactId>
+        <version>0.9.0-SNAPSHOT</version>
         <relativePath />
     </parent>
 
     <properties>
         <!-- https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-release.html -->
-        <!-- Overwrites the release property (jdk 9+) for maven-compiler-plugin defined in the securebanking-parent -->
+        <!-- Overwrites the release property (jdk 9+) for maven-compiler-plugin defined in the secure-api-gateway-parent -->
+        <!-- that java. version release needs to be compatible with IG java.version release (target and source) don't change that java version -->
         <java.version>11</java.version>
     </properties>
 
     <scm>
-        <connection>scm:git:git@github.com:SecureBankingAccessToolkit/securebanking-openbanking-uk.git
+        <connection>scm:git:git@github.com:SecureApiGateway/secure-api-gateway-ob-uk-common.git
         </connection>
-        <developerConnection>scm:git:git@github.com:SecureBankingAccessToolkit/securebanking-openbanking-uk.git
+        <developerConnection>scm:git:git@github.com:SecureApiGateway/secure-api-gateway-ob-uk-common.git
         </developerConnection>
-        <url>https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk.git</url>
+        <url>https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common.git</url>
         <tag>HEAD</tag>
     </scm>
 
     <modules>
-        <module>securebanking-openbanking-uk-bom</module>
-        <module>securebanking-openbanking-uk-common</module>
-        <module>securebanking-openbanking-uk-obie-datamodel</module>
-        <module>securebanking-openbanking-uk-forgerock-datamodel</module>
-        <module>securebanking-openbanking-uk-error</module>
+        <module>secure-api-gateway-ob-uk-common-bom</module>
+        <module>secure-api-gateway-ob-uk-common-shared</module>
+        <module>secure-api-gateway-ob-uk-common-obie-datamodel</module>
+        <module>secure-api-gateway-ob-uk-common-datamodel</module>
+        <module>secure-api-gateway-ob-uk-common-error</module>
     </modules>
 
     <distributionManagement>

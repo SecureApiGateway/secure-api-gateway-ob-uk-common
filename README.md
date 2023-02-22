@@ -1,6 +1,6 @@
 # securebanking-openbanking-uk
 
-Repository containing maven modules used by two or more Secure Banking Open Banking UK projects. The versions of the modules in this repository are specified in a BOM style pom (securebanking-openbanking-uk-bom) that may be imported into other projects as a simple way of including the latest versions of the common modules.
+Repository containing maven modules used by two or more Secure API Gateway UK projects. The versions of the modules in this repository are specified in a BOM style pom (securebanking-openbanking-uk-bom) that may be imported into other projects as a simple way of including the latest versions of the common modules.
 
 ## Usage
 
@@ -9,10 +9,10 @@ Import into your dependenciesManagement sections like this (use the latest relea
 ```
    <dependencyManagement>
         <dependencies>
-            <!-- Secure Banking: Open Banking UK common dependencies -->
+            <!-- Secure API Gateway: Open Banking UK common dependencies -->
             <dependency>
-                <groupId>com.forgerock.securebanking.uk</groupId>
-                <artifactId>securebanking-openbanking-uk-bom</artifactId>
+                <groupId>com.forgerock.sapi.gateway</groupId>
+                <artifactId>secure-api-gateway-ob-uk-common-bom</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -35,8 +35,8 @@ Maven 3.6.0 or later
 #### Building
 
 ```
-git checkout git@github.com:SecureBankingAcceleratorToolkit/securebanking-openbanking-uk.git
-cd securebanking-openbanking-uk
+git checkout git@github.com:SecureApiGateway/secure-api-gateway-ob-uk-common.git
+cd secure-api-gateway-ob-uk-common
 mvn clean install
 ```
 
