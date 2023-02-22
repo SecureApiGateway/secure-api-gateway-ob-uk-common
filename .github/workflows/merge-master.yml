@@ -45,7 +45,7 @@ jobs:
 
       - name: Release snapshot package to forgerock maven snapshot repository
         if: contains(env.VERSION, 'SNAPSHOT')
-        run: mvn -B deploy -Dmaven.test.skip=true -Dlicense.skip=true --file pom.xml # skip test and license check, It has been done in the Check integrity step
+        run: mvn -B deploy --file pom.xml # skip test and license check, It has been done in the Check integrity step
         env:
           MAVEN_REPO_USERNAME: ${{ secrets.FR_ARTIFACTORY_USER }}
           MAVEN_REPO_TOKEN: ${{ secrets.FR_ARTIFACTORY_TOKEN }}
