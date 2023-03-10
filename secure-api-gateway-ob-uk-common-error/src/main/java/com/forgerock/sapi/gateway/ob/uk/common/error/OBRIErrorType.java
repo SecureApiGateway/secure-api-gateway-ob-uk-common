@@ -156,11 +156,11 @@ public enum OBRIErrorType {
             ErrorCode.OBRI_PAYMENT_INVALID,
             "Payment invalid. Payment has been rejected. Payment request status: '%s'"),
     PAYMENT_INVALID_INITIATION(
-            HttpStatus.FORBIDDEN,
+            HttpStatus.BAD_REQUEST,
             ErrorCode.OBRI_PAYMENT_INVALID,
             "Payment invalid. Payment initiation received doesn't match the initial payment request"),
     PAYMENT_INVALID_RISK(
-            HttpStatus.FORBIDDEN,
+            HttpStatus.BAD_REQUEST,
             ErrorCode.OBRI_PAYMENT_INVALID,
             "Payment invalid. Payment risk received doesn't match the risk payment request"),
     PAYMENT_SUBMISSION_NOT_FOUND(
