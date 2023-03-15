@@ -81,26 +81,4 @@
         </dependencies>
     </dependencyManagement>
 
-    <distributionManagement>
-        <repository>
-            <id>maven.forgerock.org-community</id>
-            <name>maven.forgerock.org-releases</name>
-            <url>https://maven.forgerock.org:443/repo/community</url>
-        </repository>
-        <snapshotRepository>
-            <id>maven.forgerock.org-community-snapshots</id>
-            <name>maven.forgerock.org-snapshots</name>
-            <url>https://maven.forgerock.org:443/repo/community</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-    <scm>
-        <connection>scm:git:git@github.com:SecureApiGateway/secure-api-gateway-ob-uk-common.git
-        </connection>
-        <developerConnection>scm:git:git@github.com:SecureApiGateway/secure-api-gateway-ob-uk-common.git
-        </developerConnection>
-        <url>https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common.git</url>
-        <tag>HEAD</tag>
-    </scm>
-
 </project>
