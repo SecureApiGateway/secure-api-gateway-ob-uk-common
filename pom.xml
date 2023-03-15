@@ -40,15 +40,6 @@
         <java.version>11</java.version>
     </properties>
 
-    <scm>
-        <connection>scm:git:git@github.com:SecureApiGateway/secure-api-gateway-ob-uk-common.git
-        </connection>
-        <developerConnection>scm:git:git@github.com:SecureApiGateway/secure-api-gateway-ob-uk-common.git
-        </developerConnection>
-        <url>https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common.git</url>
-        <tag>HEAD</tag>
-    </scm>
-
     <modules>
         <module>secure-api-gateway-ob-uk-common-bom</module>
         <module>secure-api-gateway-ob-uk-common-shared</module>
@@ -56,19 +47,6 @@
         <module>secure-api-gateway-ob-uk-common-datamodel</module>
         <module>secure-api-gateway-ob-uk-common-error</module>
     </modules>
-
-    <distributionManagement>
-        <repository>
-            <id>maven.forgerock.org-community</id>
-            <name>maven.forgerock.org-releases</name>
-            <url>https://maven.forgerock.org/artifactory/community</url>
-        </repository>
-        <snapshotRepository>
-            <id>maven.forgerock.org-community-snapshots</id>
-            <name>maven.forgerock.org-snapshots</name>
-            <url>https://maven.forgerock.org/artifactory/community</url>
-        </snapshotRepository>
-    </distributionManagement>
 
     <repositories>
         <repository>
