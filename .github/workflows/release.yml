@@ -1,5 +1,5 @@
 name: create_release_workflow
-run-name: Create release final::${{ inputs.is_final_release }} candidate::${{ inputs.candidate_number }}
+run-name: Create release '${{ inputs.release_version_number }}'
 # **What it does**:
 # Reuse workflow 'prepare-release' from parent: update versions, create tag and release branch with release versions
 # Build the maven project as release version and publish the artifact in forgerock maven repo
@@ -13,16 +13,10 @@ on:
         required: false
         type: string
         default: ''
-      is_final_release:
-        description: "Is a final release, otherwise will be a 'rc' (release candidate)"
-        required: false
-        type: boolean
-        default: false
-      candidate_number:
-        description: "Provide the candidate sequence number (default: 1)"
-        required: false
+      release_version_number:
+        description: "Provide release version number"
+        required: true
         type: string
-        default: 1
 env:
   GH_TOKEN: ${{ github.token }}
   GIT_AUTHOR_NAME: ${{ secrets.GIT_COMMIT_USERNAME_BOT }}
@@ -37,76 +31,9 @@ jobs:
     # uses: ./.github/workflows/release-prepare.yml # same repository
     uses: SecureApiGateway/secure-api-gateway-parent/.github/workflows/release-prepare.yml@issue/812-action-release-prepare-workflow
     with:
-      is_final_release: ${{ inputs.is_final_release }}
-      candidate_number: ${{ inputs.candidate_number }}
+      release_version_number: ${{ inputs.release_version_number }}
     secrets: # inherit only when is the same repository
       GPG_PRIVATE_KEY_BOT: ${{ secrets.GPG_PRIVATE_KEY_BOT }}
       GPG_KEY_PASSPHRASE_BOT: ${{ secrets.GPG_KEY_PASSPHRASE_BOT }}
       GIT_COMMIT_USERNAME_BOT: ${{ secrets.GIT_COMMIT_USERNAME_BOT }}
       GIT_COMMIT_AUTHOR_EMAIL_BOT: ${{ secrets.GIT_COMMIT_AUTHOR_EMAIL_BOT }}
-
-  release_perform:
-    runs-on: ubuntu-latest
-    name: Build and publish the release
-    needs: release_prepare
-    steps:
-      - name: outputs context
-        run: |
-          echo "release ref: ${{ needs.release_prepare.outputs.release_ref }}"
-          echo "release_branch: ${{ needs.release_prepare.outputs.release_branch }}"
-          echo "tag_ref: ${{ needs.release_prepare.outputs.tag_ref }}"
-
-      # https://github.com/actions/checkout
-      - uses: actions/checkout@v3
-        id: checkout
-        name: checkout master
-        with:
-          ref: ${{ needs.release_prepare.outputs.release_branch }}
-
-      # https://github.com/crazy-max/ghaction-import-gpg
-      # https://httgp.com/signing-commits-in-github-actions/
-      - name: Import GPG key
-        id: gpg
-        uses: crazy-max/ghaction-import-gpg@v5
-        with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY_BOT }}
-          passphrase: ${{ secrets.GPG_KEY_PASSPHRASE_BOT }}
-          git_user_signingkey: true
-          git_commit_gpgsign: true
-
-      - uses: actions/setup-java@v3
-        id: maven
-        name: set java and maven cache
-        with:
-          distribution: 'adopt'
-          java-version: '14'
-          architecture: x64
-          cache: 'maven'
-
-      - name: Deploy release
-        id: deploy
-        run: |
-          mvn clean deploy -DaltDeploymentRepository=release::default::"https://${{ secrets.FR_ARTIFACTORY_USER }}:${{ secrets.FR_ARTIFACTORY_TOKEN }}@maven.forgerock.org/artifactory/community/"
-
-      - name: Create github release
-        id: release
-        if: ${{ steps.deploy.outcome }} == 'success'
-        run: |
-          # Create a release from input tag
-          gh release create --draft --verify-tag ${{ needs.release_prepare.outputs.tag_ref }} -t "${{ needs.release_prepare.outputs.release_ref }}" --notes "${{ inputs.notes }}"
-
-      - name: Prepare next development iteration
-        id: prepare_next_dev
-        if: ${{ steps.release.outcome }} == 'success'
-        run: |
-          mvn versions:set -DnextSnapshot # set the next snapshot version
-          mvn versions:update-parent -DallowSnapshots # set the latest snapshot
-          mvn versions:commit # confirm the changes and remove pom backups
-          git add .
-          git commit -m "Prepare the next development iteration"
-          git push origin HEAD:${{ needs.release_prepare.outputs.release_branch }}
-
-      - name: create pull request
-        if: ${{ steps.prepare_next_dev.outcome }} == 'success'
-        run: |
-          gh pr create -H ${{ needs.release_prepare.outputs.release_branch }} -B master --title "Release ${{ needs.release_prepare.outputs.release_ref }} created" --body "- Prepare the next development iteration"
