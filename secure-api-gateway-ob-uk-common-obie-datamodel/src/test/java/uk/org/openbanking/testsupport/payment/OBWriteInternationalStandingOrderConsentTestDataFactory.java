@@ -273,12 +273,19 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
 
     public static OBWriteInternationalStandingOrder4DataInitiation aValidOBWriteInternationalStandingOrder4DataInitiation() {
         DateTime now = DateTime.now();
+        return aValidOBWriteInternationalStandingOrder4DataInitiation(now, now);
+    }
+
+    public static OBWriteInternationalStandingOrder4DataInitiation aValidOBWriteInternationalStandingOrder4DataInitiation(
+            DateTime firstPaymentDateTime,
+            DateTime finalPaymentDateTime
+    ) {
         return (new OBWriteInternationalStandingOrder4DataInitiation())
                 .frequency(FREQUENCY)
                 .reference(REFERENCE)
                 .numberOfPayments(NUMBER_OF_PAYMENTS)
-                .firstPaymentDateTime(now)
-                .finalPaymentDateTime(now)
+                .firstPaymentDateTime(firstPaymentDateTime)
+                .finalPaymentDateTime(finalPaymentDateTime)
                 .purpose(PURPOSE)
                 .extendedPurpose("Extended purpose")
                 .chargeBearer(OBChargeBearerType1Code.SHARED)

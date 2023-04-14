@@ -263,6 +263,10 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
     }
 
     public static OBWriteInternationalScheduled3DataInitiation aValidOBWriteInternationalScheduled3DataInitiation() {
+        return aValidOBWriteInternationalScheduled3DataInitiation(DateTime.now().plusDays(1));
+    }
+
+    public static OBWriteInternationalScheduled3DataInitiation aValidOBWriteInternationalScheduled3DataInitiation(DateTime requestedExecutionDateTime) {
         return (new OBWriteInternationalScheduled3DataInitiation())
                 .instructionIdentification(INSTRUCTION_IDENTIFICATION)
                 .endToEndIdentification(END_TO_END_IDENTIFICATION)
@@ -271,7 +275,7 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
                 .purpose(PURPOSE)
                 .extendedPurpose("Extended purpose")
                 .chargeBearer(OBChargeBearerType1Code.SHARED)
-                .requestedExecutionDateTime(DateTime.now().plusDays(1))
+                .requestedExecutionDateTime(requestedExecutionDateTime)
                 .currencyOfTransfer(CURRENCY)
                 .destinationCountryCode("GB")
                 .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())

@@ -44,7 +44,7 @@ public class OBWriteFileConsentTestDataFactory {
 
     public static OBWriteFileConsent3Data aValidOBWriteFileConsent3Data(String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
         return new OBWriteFileConsent3Data()
-                .initiation(aValidOBWriteFile2DataInitiation(fileType, fileHash, numberOfTransactions, controlSum))
+                .initiation(aValidOBWriteFile2DataInitiation(fileType, fileHash, numberOfTransactions, controlSum, DateTime.now()))
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1());
     }
@@ -54,14 +54,20 @@ public class OBWriteFileConsentTestDataFactory {
                 .initiation(aValidOBWriteFile2DataInitiationMandatoryFields(fileType, fileHash));
     }
 
-    public static OBWriteFile2DataInitiation aValidOBWriteFile2DataInitiation(String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
+    public static OBWriteFile2DataInitiation aValidOBWriteFile2DataInitiation(
+            String fileType,
+            String fileHash,
+            String numberOfTransactions,
+            BigDecimal controlSum,
+            DateTime requestedExecutionDateTime
+    ) {
         return new OBWriteFile2DataInitiation()
                 .fileType(fileType)
                 .fileHash(fileHash)
                 .fileReference("GB2OK238")
                 .numberOfTransactions(numberOfTransactions)
                 .controlSum(controlSum)
-                .requestedExecutionDateTime(DateTime.now())
+                .requestedExecutionDateTime(requestedExecutionDateTime)
                 .localInstrument("UK.OBIE.CHAPS")
                 .remittanceInformation(aValidOBWriteDomestic2DataInitiationRemittanceInformation())
                 .supplementaryData(new OBSupplementaryData1());
