@@ -120,4 +120,17 @@ public class OBWriteDomesticScheduledConsentTestDataFactory {
                 .supplementaryData(new OBSupplementaryData1());
     }
 
+    public static OBWriteDomesticScheduled2DataInitiation aValidOBWriteDomesticScheduled2DataInitiation(DateTime dateTime) {
+        return (new OBWriteDomesticScheduled2DataInitiation())
+                .instructionIdentification(INSTRUCTION_IDENTIFICATION)
+                .endToEndIdentification(END_TO_END_IDENTIFICATION)
+                .localInstrument(LOCAL_INSTRUMENT)
+                .requestedExecutionDateTime(dateTime)
+                .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
+                .creditorAccount(aValidOBWriteDomestic2DataInitiationCreditorAccount())
+                .creditorPostalAddress(aValidOBPostalAddress6())
+                .remittanceInformation(aValidOBWriteDomestic2DataInitiationRemittanceInformation())
+                .supplementaryData(new OBSupplementaryData1());
+    }
+
 }

@@ -223,6 +223,21 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
                 .supplementaryData(new OBSupplementaryData1());
     }
 
+    public static OBWriteDomesticStandingOrder3DataInitiation aValidOBWriteDomesticStandingOrder3DataInitiation(DateTime dateTime) {
+        return (new OBWriteDomesticStandingOrder3DataInitiation())
+                .frequency(FREQUENCY)
+                .reference(REFERENCE)
+                .numberOfPayments(NUMBER_OF_PAYMENTS)
+                .firstPaymentDateTime(dateTime)
+                .recurringPaymentDateTime(dateTime)
+                .finalPaymentDateTime(dateTime)
+                .firstPaymentAmount(aValidOBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount())
+                .recurringPaymentAmount(aValidOBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount())
+                .finalPaymentAmount(aValidOBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount())
+                .creditorAccount(aValidOBWriteDomesticStandingOrder3DataInitiationCreditorAccount())
+                .supplementaryData(new OBSupplementaryData1());
+    }
+
     public static OBWriteDomesticStandingOrder3DataInitiation aValidOBWriteDomesticStandingOrder3DataInitiationMandatoryFields() {
         DateTime now = now();
         return (new OBWriteDomesticStandingOrder3DataInitiation())
