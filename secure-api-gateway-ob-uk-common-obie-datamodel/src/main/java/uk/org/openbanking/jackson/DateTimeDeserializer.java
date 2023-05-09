@@ -14,14 +14,15 @@
  * limitations under the License.
  */
 package uk.org.openbanking.jackson;
+
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.format.ISODateTimeFormat;
 
 import java.io.IOException;
-
-import static uk.org.openbanking.jackson.DateTimeSerializer.DATE_TIME_FORMATTER;
 
 public class DateTimeDeserializer extends StdDeserializer<DateTime> {
 
@@ -37,6 +38,6 @@ public class DateTimeDeserializer extends StdDeserializer<DateTime> {
     public DateTime deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
             throws IOException {
         String date = jsonParser.getText();
-        return DateTime.parse(date, DATE_TIME_FORMATTER);
+        return ISODateTimeFormat.dateTimeParser().parseDateTime(date).withZone(DateTimeZone.UTC);
     }
 }

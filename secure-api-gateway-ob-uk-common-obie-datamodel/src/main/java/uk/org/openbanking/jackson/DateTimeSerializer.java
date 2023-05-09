@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 package uk.org.openbanking.jackson;
+
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.DateTimeZone;
 
 import java.io.IOException;
 
 public class DateTimeSerializer extends StdSerializer<DateTime> {
-
-    public static final DateTimeFormatter DATE_TIME_FORMATTER =
-            DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ssZZ");
 
     public DateTimeSerializer() {
         this(null);
@@ -39,6 +36,6 @@ public class DateTimeSerializer extends StdSerializer<DateTime> {
     @Override
     public void serialize(DateTime dateTime, JsonGenerator jsonGenerator, SerializerProvider serializerProvider)
             throws IOException {
-        jsonGenerator.writeObject(DATE_TIME_FORMATTER.print(dateTime));
+        jsonGenerator.writeObject(dateTime.toDateTimeISO().withZone(DateTimeZone.UTC).toString());
     }
 }
