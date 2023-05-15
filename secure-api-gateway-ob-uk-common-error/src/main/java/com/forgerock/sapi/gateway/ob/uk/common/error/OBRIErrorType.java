@@ -710,7 +710,11 @@ public enum OBRIErrorType {
     REQUEST_VRP_CONTROL_PARAMETERS_RULES(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_RULES_FAILS_CONTROL_PARAMETERS,
-            "The field '%s' breach a limitation set by '%s'"),
+            "The field '%s' breaches a limitation set by '%s'"),
+    REQUEST_VRP_CONTROL_PARAMETER_CURRENCY_MISMATCH(
+            HttpStatus.BAD_REQUEST,
+            OBStandardErrorCodes1.UK_OBIE_RULES_FAILS_CONTROL_PARAMETERS,
+            "The currency of payment initiation field '%s' must match the currency of consent control parameter field '%s'"),
 
     REQUEST_VRP_CONTROL_PARAMETERS_PAYMENT_PERIODIC_LIMIT_BREACH(
             HttpStatus.BAD_REQUEST,
