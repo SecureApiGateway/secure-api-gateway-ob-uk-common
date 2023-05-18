@@ -19,6 +19,7 @@ import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.payment.*;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class OBExchangeRateTestDataFactory {
 
@@ -28,7 +29,7 @@ public class OBExchangeRateTestDataFactory {
     public static OBWriteInternational2DataInitiationExchangeRateInformation aValidOBWriteInternational2DataInitiationExchangeRateInformation() {
         return (new OBWriteInternational2DataInitiationExchangeRateInformation())
                 .unitCurrency(CURRENCY)
-                .exchangeRate(BigDecimal.TEN)
+                .exchangeRate(BigDecimal.TEN.setScale(4, RoundingMode.HALF_EVEN))
                 .rateType(OBExchangeRateType2Code.AGREED)
                 .contractIdentification(CONTRACT_IDENTIFICATION);
     }
@@ -36,7 +37,7 @@ public class OBExchangeRateTestDataFactory {
     public static OBWriteInternational3DataInitiationExchangeRateInformation aValidOBWriteInternational3DataInitiationExchangeRateInformation() {
         return (new OBWriteInternational3DataInitiationExchangeRateInformation())
                 .unitCurrency(CURRENCY)
-                .exchangeRate(BigDecimal.TEN)
+                .exchangeRate(BigDecimal.TEN.setScale(4, RoundingMode.HALF_EVEN))
                 .rateType(OBExchangeRateType2Code.AGREED)
                 .contractIdentification(CONTRACT_IDENTIFICATION);
     }
@@ -44,7 +45,7 @@ public class OBExchangeRateTestDataFactory {
     public static OBWriteInternationalConsentResponse4DataExchangeRateInformation aValidOBWriteInternationalConsentResponse4DataExchangeRateInformation() {
         return (new OBWriteInternationalConsentResponse4DataExchangeRateInformation())
                 .unitCurrency(CURRENCY)
-                .exchangeRate(BigDecimal.TEN)
+                .exchangeRate(BigDecimal.TEN.setScale(4, RoundingMode.HALF_EVEN))
                 .rateType(OBExchangeRateType2Code.AGREED)
                 .contractIdentification(CONTRACT_IDENTIFICATION)
                 .expirationDateTime(DateTime.now().plusDays(1));
@@ -53,7 +54,7 @@ public class OBExchangeRateTestDataFactory {
     public static OBWriteInternationalConsentResponse6DataExchangeRateInformation aValidOBWriteInternationalConsentResponse6DataExchangeRateInformation() {
         return (new OBWriteInternationalConsentResponse6DataExchangeRateInformation())
                 .unitCurrency(CURRENCY)
-                .exchangeRate(BigDecimal.TEN)
+                .exchangeRate(BigDecimal.TEN.setScale(4, RoundingMode.HALF_EVEN))
                 .rateType(OBExchangeRateType2Code.AGREED)
                 .contractIdentification(CONTRACT_IDENTIFICATION)
                 .expirationDateTime(DateTime.now().plusDays(1));
@@ -62,7 +63,7 @@ public class OBExchangeRateTestDataFactory {
     public static OBExchangeRate1 aValidOBExchangeRate1() {
         return (new OBExchangeRate1())
                 .unitCurrency(CURRENCY)
-                .exchangeRate(BigDecimal.TEN)
+                .exchangeRate(BigDecimal.TEN.setScale(4, RoundingMode.HALF_EVEN))
                 .rateType(OBExchangeRateType2Code.AGREED)
                 .contractIdentification(CONTRACT_IDENTIFICATION);
     }

@@ -23,6 +23,7 @@ import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.payment.*;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent4DataAuthorisation;
@@ -35,7 +36,13 @@ import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDa
 public class OBWriteFileConsentTestDataFactory {
 
     public static OBWriteFileConsent3 aValidOBWriteFileConsent3(String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
-        return new OBWriteFileConsent3().data(aValidOBWriteFileConsent3Data(fileType, fileHash, numberOfTransactions, controlSum));
+        return new OBWriteFileConsent3().data(aValidOBWriteFileConsent3Data(
+                        fileType,
+                        fileHash,
+                        numberOfTransactions,
+                        controlSum.setScale(4, RoundingMode.HALF_EVEN)
+                )
+        );
     }
 
     public static OBWriteFileConsent3 aValidOBWriteFileConsent3MandatoryFields(String fileType, String fileHash) {
@@ -44,7 +51,14 @@ public class OBWriteFileConsentTestDataFactory {
 
     public static OBWriteFileConsent3Data aValidOBWriteFileConsent3Data(String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
         return new OBWriteFileConsent3Data()
-                .initiation(aValidOBWriteFile2DataInitiation(fileType, fileHash, numberOfTransactions, controlSum, DateTime.now()))
+                .initiation(aValidOBWriteFile2DataInitiation(
+                                fileType,
+                                fileHash,
+                                numberOfTransactions,
+                                controlSum.setScale(4, RoundingMode.HALF_EVEN),
+                                DateTime.now()
+                        )
+                )
                 .authorisation(aValidOBWriteDomesticConsent4DataAuthorisation())
                 .scASupportData(aValidOBSCASupportData1());
     }
@@ -66,7 +80,7 @@ public class OBWriteFileConsentTestDataFactory {
                 .fileHash(fileHash)
                 .fileReference("GB2OK238")
                 .numberOfTransactions(numberOfTransactions)
-                .controlSum(controlSum)
+                .controlSum(controlSum.setScale(4, RoundingMode.HALF_EVEN))
                 .requestedExecutionDateTime(requestedExecutionDateTime)
                 .localInstrument("UK.OBIE.CHAPS")
                 .remittanceInformation(aValidOBWriteDomestic2DataInitiationRemittanceInformation())
@@ -85,7 +99,12 @@ public class OBWriteFileConsentTestDataFactory {
     public static final String CHARGE_CURRENCY = "GBP";
 
     public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
-        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(fileType, fileHash, numberOfTransactions, controlSum);
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(
+                fileType,
+                fileHash,
+                numberOfTransactions,
+                controlSum.setScale(4, RoundingMode.HALF_EVEN)
+        );
         return new OBWriteFileConsentResponse4()
                 .data(new OBWriteFileConsentResponse4Data()
                         .consentId(IntentType.PAYMENT_FILE_CONSENT.generateIntentId())
@@ -103,7 +122,12 @@ public class OBWriteFileConsentTestDataFactory {
     }
 
     public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields(String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
-        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(fileType, fileHash, numberOfTransactions, controlSum);
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(
+                fileType,
+                fileHash,
+                numberOfTransactions,
+                controlSum.setScale(4, RoundingMode.HALF_EVEN)
+        );
         return new OBWriteFileConsentResponse4()
                 .data(new OBWriteFileConsentResponse4Data()
                         .consentId(IntentType.PAYMENT_FILE_CONSENT.generateIntentId())
@@ -112,7 +136,12 @@ public class OBWriteFileConsentTestDataFactory {
     }
 
     public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String consentId, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
-        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(fileType, fileHash, numberOfTransactions, controlSum);
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(
+                fileType,
+                fileHash,
+                numberOfTransactions,
+                controlSum.setScale(4, RoundingMode.HALF_EVEN)
+        );
         return new OBWriteFileConsentResponse4()
                 .data(new OBWriteFileConsentResponse4Data()
                         .consentId(consentId)
@@ -134,7 +163,12 @@ public class OBWriteFileConsentTestDataFactory {
     }
 
     public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields(String consentId, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
-        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(fileType, fileHash, numberOfTransactions, controlSum);
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(
+                fileType,
+                fileHash,
+                numberOfTransactions,
+                controlSum.setScale(4, RoundingMode.HALF_EVEN)
+        );
         return new OBWriteFileConsentResponse4()
                 .data(new OBWriteFileConsentResponse4Data()
                         .consentId(consentId)
@@ -146,7 +180,12 @@ public class OBWriteFileConsentTestDataFactory {
     }
 
     public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String consentId, OBWriteFileConsentResponse4Data.StatusEnum status, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
-        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(fileType, fileHash, numberOfTransactions, controlSum);
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(
+                fileType,
+                fileHash,
+                numberOfTransactions,
+                controlSum.setScale(4, RoundingMode.HALF_EVEN)
+        );
         return new OBWriteFileConsentResponse4()
                 .data(new OBWriteFileConsentResponse4Data()
                         .consentId(consentId)
@@ -168,7 +207,12 @@ public class OBWriteFileConsentTestDataFactory {
     }
 
     public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields(String consentId, OBWriteFileConsentResponse4Data.StatusEnum status, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
-        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(fileType, fileHash, numberOfTransactions, controlSum);
+        OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(
+                fileType,
+                fileHash,
+                numberOfTransactions,
+                controlSum.setScale(4, RoundingMode.HALF_EVEN)
+        );
         return new OBWriteFileConsentResponse4()
                 .data(new OBWriteFileConsentResponse4Data()
                         .consentId(consentId)
