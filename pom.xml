@@ -22,7 +22,7 @@
     <groupId>com.forgerock.sapi.gateway</groupId>
     <artifactId>secure-api-gateway-ob-uk-common</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.3</version>
     <name>Secure API Gateway common and shared libraries for Open Banking UK specs</name>
     <url>https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common</url>
 
@@ -74,7 +74,7 @@
         <connection>scm:git:${project.scm.url}</connection>
         <developerConnection>scm:git:${project.scm.url}</developerConnection>
         <url>https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common.git</url>
-        <tag>HEAD</tag>
+        <tag>v1.0.3</tag>
     </scm>
 
 </project>
