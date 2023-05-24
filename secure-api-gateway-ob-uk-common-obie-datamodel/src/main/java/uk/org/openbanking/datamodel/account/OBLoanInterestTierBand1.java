@@ -40,6 +40,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+
 /**
  * Tier Band Details
  */
@@ -399,16 +401,19 @@ public class OBLoanInterestTierBand1 {
         }
         OBLoanInterestTierBand1 obLoanInterestTierBand1 = (OBLoanInterestTierBand1) o;
         return Objects.equals(this.identification, obLoanInterestTierBand1.identification) &&
-                Objects.equals(this.tierValueMinimum, obLoanInterestTierBand1.tierValueMinimum) &&
-                Objects.equals(this.tierValueMaximum, obLoanInterestTierBand1.tierValueMaximum) &&
-                Objects.equals(this.tierValueMinTerm, obLoanInterestTierBand1.tierValueMinTerm) &&
+                // TODO: temporary fix for https://github.com/SecureApiGateway/SecureApiGateway/issues/981
+                isEqual(this.tierValueMinimum, obLoanInterestTierBand1.tierValueMinimum) &&
+                isEqual(this.tierValueMaximum, obLoanInterestTierBand1.tierValueMaximum) &&
+                isEqual(this.tierValueMinTerm, obLoanInterestTierBand1.tierValueMinTerm) &&
                 Objects.equals(this.minTermPeriod, obLoanInterestTierBand1.minTermPeriod) &&
-                Objects.equals(this.tierValueMaxTerm, obLoanInterestTierBand1.tierValueMaxTerm) &&
+                // TODO: temporary fix for https://github.com/SecureApiGateway/SecureApiGateway/issues/981
+                isEqual(this.tierValueMaxTerm, obLoanInterestTierBand1.tierValueMaxTerm) &&
                 Objects.equals(this.maxTermPeriod, obLoanInterestTierBand1.maxTermPeriod) &&
                 Objects.equals(this.fixedVariableInterestRateType, obLoanInterestTierBand1.fixedVariableInterestRateType) &&
                 Objects.equals(this.repAPR, obLoanInterestTierBand1.repAPR) &&
                 Objects.equals(this.loanProviderInterestRateType, obLoanInterestTierBand1.loanProviderInterestRateType) &&
-                Objects.equals(this.loanProviderInterestRate, obLoanInterestTierBand1.loanProviderInterestRate) &&
+                // TODO: temporary fix for https://github.com/SecureApiGateway/SecureApiGateway/issues/981
+                isEqual(this.loanProviderInterestRate, obLoanInterestTierBand1.loanProviderInterestRate) &&
                 Objects.equals(this.notes, obLoanInterestTierBand1.notes) &&
                 Objects.equals(this.otherLoanProviderInterestRateType, obLoanInterestTierBand1.otherLoanProviderInterestRateType) &&
                 Objects.equals(this.loanInterestFeesCharges, obLoanInterestTierBand1.loanInterestFeesCharges);

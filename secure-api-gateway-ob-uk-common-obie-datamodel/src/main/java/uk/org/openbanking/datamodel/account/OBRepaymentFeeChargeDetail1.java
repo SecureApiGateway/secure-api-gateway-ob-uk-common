@@ -39,6 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
 /**
  * Details about specific fees/charges that are applied for repayment
  */
@@ -342,8 +343,9 @@ public class OBRepaymentFeeChargeDetail1 {
         OBRepaymentFeeChargeDetail1 obRepaymentFeeChargeDetail1 = (OBRepaymentFeeChargeDetail1) o;
         return Objects.equals(this.feeType, obRepaymentFeeChargeDetail1.feeType) &&
                 Objects.equals(this.negotiableIndicator, obRepaymentFeeChargeDetail1.negotiableIndicator) &&
-                Objects.equals(this.feeAmount, obRepaymentFeeChargeDetail1.feeAmount) &&
-                Objects.equals(this.feeRate, obRepaymentFeeChargeDetail1.feeRate) &&
+                // TODO: temporary fix for https://github.com/SecureApiGateway/SecureApiGateway/issues/981
+                isEqual(this.feeAmount, obRepaymentFeeChargeDetail1.feeAmount) &&
+                isEqual(this.feeRate, obRepaymentFeeChargeDetail1.feeRate) &&
                 Objects.equals(this.feeRateType, obRepaymentFeeChargeDetail1.feeRateType) &&
                 Objects.equals(this.applicationFrequency, obRepaymentFeeChargeDetail1.applicationFrequency) &&
                 Objects.equals(this.calculationFrequency, obRepaymentFeeChargeDetail1.calculationFrequency) &&

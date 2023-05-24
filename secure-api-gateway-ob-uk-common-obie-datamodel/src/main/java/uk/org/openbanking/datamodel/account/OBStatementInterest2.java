@@ -41,6 +41,8 @@ import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+
 /**
  * Set of elements used to provide details of a generic interest amount related to the statement resource.
  */
@@ -215,7 +217,8 @@ public class OBStatementInterest2 {
         return Objects.equals(this.description, obStatementInterest2.description) &&
                 Objects.equals(this.creditDebitIndicator, obStatementInterest2.creditDebitIndicator) &&
                 Objects.equals(this.type, obStatementInterest2.type) &&
-                Objects.equals(this.rate, obStatementInterest2.rate) &&
+                // TODO: temporary fix for https://github.com/SecureApiGateway/SecureApiGateway/issues/981
+                isEqual(this.rate, obStatementInterest2.rate) &&
                 Objects.equals(this.rateType, obStatementInterest2.rateType) &&
                 Objects.equals(this.frequency, obStatementInterest2.frequency) &&
                 Objects.equals(this.amount, obStatementInterest2.amount);

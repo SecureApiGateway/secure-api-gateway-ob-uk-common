@@ -27,6 +27,8 @@ import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+
 /**
  * Set of elements used to provide details on the currency exchange.
  */
@@ -210,7 +212,8 @@ public class OBCurrencyExchange5 {
         return Objects.equals(this.sourceCurrency, obCurrencyExchange5.sourceCurrency) &&
                 Objects.equals(this.targetCurrency, obCurrencyExchange5.targetCurrency) &&
                 Objects.equals(this.unitCurrency, obCurrencyExchange5.unitCurrency) &&
-                Objects.equals(this.exchangeRate, obCurrencyExchange5.exchangeRate) &&
+                // TODO: temporary fix for https://github.com/SecureApiGateway/SecureApiGateway/issues/981
+                isEqual(this.exchangeRate, obCurrencyExchange5.exchangeRate) &&
                 Objects.equals(this.contractIdentification, obCurrencyExchange5.contractIdentification) &&
                 Objects.equals(this.quotationDate, obCurrencyExchange5.quotationDate) &&
                 Objects.equals(this.instructedAmount, obCurrencyExchange5.instructedAmount);
