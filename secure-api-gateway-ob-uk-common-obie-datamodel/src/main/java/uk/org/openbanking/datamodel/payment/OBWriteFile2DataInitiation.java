@@ -18,6 +18,7 @@ package uk.org.openbanking.datamodel.payment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
@@ -28,9 +29,12 @@ import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds using a payment file.
  */
+@Slf4j
 @ApiModel(description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds using a payment file.")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteFile2DataInitiation {
@@ -286,9 +290,11 @@ public class OBWriteFile2DataInitiation {
     @Override
     public boolean equals(Object o) {
         if (this == o) {
+            log.debug("this == o");
             return true;
         }
         if (o == null || getClass() != o.getClass()) {
+            log.debug("o == null || getClass() != o.getClass():: {}, {}", getClass(), o.getClass());
             return false;
         }
         OBWriteFile2DataInitiation obWriteFile2DataInitiation = (OBWriteFile2DataInitiation) o;
@@ -296,7 +302,8 @@ public class OBWriteFile2DataInitiation {
                 Objects.equals(this.fileHash, obWriteFile2DataInitiation.fileHash) &&
                 Objects.equals(this.fileReference, obWriteFile2DataInitiation.fileReference) &&
                 Objects.equals(this.numberOfTransactions, obWriteFile2DataInitiation.numberOfTransactions) &&
-                Objects.equals(this.controlSum, obWriteFile2DataInitiation.controlSum) &&
+                // TODO: temporary fix for https://github.com/SecureApiGateway/SecureApiGateway/issues/981
+                isEqual(this.controlSum, obWriteFile2DataInitiation.controlSum) &&
                 Objects.equals(this.requestedExecutionDateTime, obWriteFile2DataInitiation.requestedExecutionDateTime) &&
                 Objects.equals(this.localInstrument, obWriteFile2DataInitiation.localInstrument) &&
                 Objects.equals(this.debtorAccount, obWriteFile2DataInitiation.debtorAccount) &&

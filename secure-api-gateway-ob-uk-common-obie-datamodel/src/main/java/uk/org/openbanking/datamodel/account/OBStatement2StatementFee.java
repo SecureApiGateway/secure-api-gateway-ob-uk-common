@@ -19,11 +19,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
+
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
 
 /**
  * Set of elements used to provide details of a fee for the statement resource.
@@ -205,7 +208,8 @@ public class OBStatement2StatementFee {
         return Objects.equals(this.description, obStatement2StatementFee.description) &&
                 Objects.equals(this.creditDebitIndicator, obStatement2StatementFee.creditDebitIndicator) &&
                 Objects.equals(this.type, obStatement2StatementFee.type) &&
-                Objects.equals(this.rate, obStatement2StatementFee.rate) &&
+                // TODO: temporary fix for https://github.com/SecureApiGateway/SecureApiGateway/issues/981
+                isEqual(this.rate, obStatement2StatementFee.rate) &&
                 Objects.equals(this.rateType, obStatement2StatementFee.rateType) &&
                 Objects.equals(this.frequency, obStatement2StatementFee.frequency) &&
                 Objects.equals(this.amount, obStatement2StatementFee.amount);

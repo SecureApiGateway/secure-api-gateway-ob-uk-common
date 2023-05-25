@@ -27,6 +27,8 @@ import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+
 /**
  * Provides details on the currency exchange rate and contract.
  */
@@ -146,7 +148,8 @@ public class OBExchangeRate1 {
         }
         OBExchangeRate1 obExchangeRate1 = (OBExchangeRate1) o;
         return Objects.equals(this.unitCurrency, obExchangeRate1.unitCurrency) &&
-                Objects.equals(this.exchangeRate, obExchangeRate1.exchangeRate) &&
+                // TODO: temporary fix for https://github.com/SecureApiGateway/SecureApiGateway/issues/981
+                isEqual(this.exchangeRate, obExchangeRate1.exchangeRate) &&
                 Objects.equals(this.rateType, obExchangeRate1.rateType) &&
                 Objects.equals(this.contractIdentification, obExchangeRate1.contractIdentification);
     }

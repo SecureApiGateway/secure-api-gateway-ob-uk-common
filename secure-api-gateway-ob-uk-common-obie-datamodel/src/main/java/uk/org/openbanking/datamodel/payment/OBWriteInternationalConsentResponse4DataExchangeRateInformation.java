@@ -40,6 +40,8 @@ import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+
 /**
  * Further detailed information on the exchange rate that has been used in the payment transaction.
  */
@@ -174,7 +176,8 @@ public class OBWriteInternationalConsentResponse4DataExchangeRateInformation {
         }
         OBWriteInternationalConsentResponse4DataExchangeRateInformation obWriteInternationalConsentResponse4DataExchangeRateInformation = (OBWriteInternationalConsentResponse4DataExchangeRateInformation) o;
         return Objects.equals(this.unitCurrency, obWriteInternationalConsentResponse4DataExchangeRateInformation.unitCurrency) &&
-                Objects.equals(this.exchangeRate, obWriteInternationalConsentResponse4DataExchangeRateInformation.exchangeRate) &&
+                // TODO: temporary fix for https://github.com/SecureApiGateway/SecureApiGateway/issues/981
+                isEqual(this.exchangeRate, obWriteInternationalConsentResponse4DataExchangeRateInformation.exchangeRate) &&
                 Objects.equals(this.rateType, obWriteInternationalConsentResponse4DataExchangeRateInformation.rateType) &&
                 Objects.equals(this.contractIdentification, obWriteInternationalConsentResponse4DataExchangeRateInformation.contractIdentification) &&
                 Objects.equals(this.expirationDateTime, obWriteInternationalConsentResponse4DataExchangeRateInformation.expirationDateTime);

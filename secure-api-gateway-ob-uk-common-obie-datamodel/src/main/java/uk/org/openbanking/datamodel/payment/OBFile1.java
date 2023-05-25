@@ -29,6 +29,8 @@ import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds using a payment file.
  */
@@ -274,7 +276,8 @@ public class OBFile1 {
                 Objects.equals(this.fileHash, obFile1.fileHash) &&
                 Objects.equals(this.fileReference, obFile1.fileReference) &&
                 Objects.equals(this.numberOfTransactions, obFile1.numberOfTransactions) &&
-                Objects.equals(this.controlSum, obFile1.controlSum) &&
+                // TODO: temporary fix for https://github.com/SecureApiGateway/SecureApiGateway/issues/981
+                isEqual(this.controlSum, obFile1.controlSum) &&
                 Objects.equals(this.requestedExecutionDateTime, obFile1.requestedExecutionDateTime) &&
                 Objects.equals(this.localInstrument, obFile1.localInstrument) &&
                 Objects.equals(this.debtorAccount, obFile1.debtorAccount) &&

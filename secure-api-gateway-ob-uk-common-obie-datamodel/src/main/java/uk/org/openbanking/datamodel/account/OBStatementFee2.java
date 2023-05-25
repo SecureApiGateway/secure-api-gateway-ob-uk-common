@@ -41,6 +41,8 @@ import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+
 /**
  * Set of elements used to provide details of a fee for the statement resource.
  */
@@ -215,7 +217,8 @@ public class OBStatementFee2 {
         return Objects.equals(this.description, obStatementFee2.description) &&
                 Objects.equals(this.creditDebitIndicator, obStatementFee2.creditDebitIndicator) &&
                 Objects.equals(this.type, obStatementFee2.type) &&
-                Objects.equals(this.rate, obStatementFee2.rate) &&
+                // TODO: temporary fix for https://github.com/SecureApiGateway/SecureApiGateway/issues/981
+                isEqual(this.rate, obStatementFee2.rate) &&
                 Objects.equals(this.rateType, obStatementFee2.rateType) &&
                 Objects.equals(this.frequency, obStatementFee2.frequency) &&
                 Objects.equals(this.amount, obStatementFee2.amount);
