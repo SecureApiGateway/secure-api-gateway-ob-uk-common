@@ -58,7 +58,49 @@ When a new version of OB API is released, the following steps should be performe
        `secure-api-gateway-ob-uk-common-obie-datamodel/src/main/java/uk/org/openbaning/datamodel/error`
     to identify those classes generated that can be deleted to use a shared class and refactor the generated classes to use the shared ones.
     2. > Review the generated classes to identify those classes that could be moved as a shared class.
- 6. Copy them into the appropriate source folders: (e.g. `secure-api-gateway-ob-uk-common-obie-datamodel/src/main/java`).
+    6. You will need to edit .equals methods of data model objects containing big decimals, see PR https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common/pull/101 
+    7. Update `equals` generated method for these Classes that use BigDecimals fields:
+       1. To fix the equality verification for BigDecimals it's necessary update the generated `equals` method.
+       2. Replace all BigDecimals following the below instructions:
+       **Example generated OB object OBFile1.java**
+       ```java
+       @ApiModel(description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds using a payment file.")
+       @Validated
+       @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
+       public class OBFile1 {
+           /* The Generated object OBFile1.java define a BigDecimal field like below */
+           @JsonProperty("ControlSum")
+           private BigDecimal controlSum = null;
+    
+        /* search the generated equals method */
+        @Override
+        public boolean equals(Object o) {
+           if (this == o) {
+               return true;
+           }
+           if (o == null || getClass() != o.getClass()) {
+               return false;
+           }
+           OBFile1 obFile1 = (OBFile1) o;
+           return Objects.equals(this.fileType, obFile1.fileType) &&
+                   Objects.equals(this.fileHash, obFile1.fileHash) &&
+                   Objects.equals(this.fileReference, obFile1.fileReference) &&
+                   Objects.equals(this.numberOfTransactions, obFile1.numberOfTransactions) &&
+                   Objects.equals(this.controlSum, obFile1.controlSum) &&
+                   Objects.equals(this.requestedExecutionDateTime, obFile1.requestedExecutionDateTime) &&
+                   Objects.equals(this.localInstrument, obFile1.localInstrument) &&
+                   Objects.equals(this.debtorAccount, obFile1.debtorAccount) &&
+                   Objects.equals(this.remittanceInformation, obFile1.remittanceInformation);
+        }
+       }
+       ```
+       3. Add to the imports in the top class file the below import:
+       `import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;`
+       4. Replace the line Objects.equals(this.controlSum, obFile1.controlSum) && with:
+       `isEqual(this.controlSum, obFile1.controlSum) &&`
+       > This is a example, the BigDecimal field name will be different for each OB object class generated
+       5. Follow the same process for all generated OB Objects that define BigDecimals fields.
+ 7. Copy them into the appropriate source folders: (e.g. `secure-api-gateway-ob-uk-common-obie-datamodel/src/main/java`).
 
     > Note that these guidelines originally advised not to overwrite existing files, but this is flawed since OB regularly
     makes changes/fixes to existing classes. Therefore, it is necessary to overwrite all files and then selectively rollback

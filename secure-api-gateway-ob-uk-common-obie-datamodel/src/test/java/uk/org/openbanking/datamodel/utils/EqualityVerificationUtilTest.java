@@ -15,11 +15,13 @@
  */
 package uk.org.openbanking.datamodel.utils;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -59,6 +61,18 @@ public class EqualityVerificationUtilTest {
                 Arguments.arguments(
                         new BigDecimal("234000000000.000000"),
                         new BigDecimal("234000000000")
+                ),
+                Arguments.arguments(
+                        new BigDecimal("234000E-0"), // 234000
+                        new BigDecimal("234000")
+                ),
+                Arguments.arguments(
+                        new BigDecimal("54E+3"), // 54000
+                        new BigDecimal("54000")
+                ),
+                Arguments.arguments(
+                        new BigDecimal("678E-3"), // 0.678
+                        new BigDecimal("0.678000")
                 )
         );
     }
@@ -97,7 +111,19 @@ public class EqualityVerificationUtilTest {
                 Arguments.arguments(
                         new BigDecimal("234000000000.000000"),
                         new BigDecimal("234000000000.100000")
-                )
+                ),
+                Arguments.arguments(
+                        new BigDecimal("234000E-0"), // 234000
+                        new BigDecimal("2.34000")
+                ),
+                        Arguments.arguments(
+                                new BigDecimal("54E+3"), // 54000
+                                new BigDecimal("54")
+                        ),
+                        Arguments.arguments(
+                                new BigDecimal("678E-3"), // 0.678
+                                new BigDecimal("0.0678")
+                        )
         );
     }
 
