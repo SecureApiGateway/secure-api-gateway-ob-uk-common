@@ -194,7 +194,7 @@ public enum OBRIErrorType {
     CONSENT_STATUS_NOT_AUTHORISED(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_INVALID_CONSENT_STATUS,
-            "Confirmation is not allowed unless the consent status is Authorised. Currently, the consent is %s"),
+            "Action can only be performed on consents with status: Authorised. Currently, the consent is: %s"),
     PAYMENT_BALANCE_TRANSFER_INVALID_CREDITOR_ACCOUNT(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
