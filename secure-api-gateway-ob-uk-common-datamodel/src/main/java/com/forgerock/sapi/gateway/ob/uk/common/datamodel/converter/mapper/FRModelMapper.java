@@ -17,6 +17,10 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper;
 
 import org.modelmapper.ModelMapper;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPaymentRisk;
+
+import uk.org.openbanking.datamodel.common.OBRisk1;
+
 /**
  * This is used to wrap a singleton model mapper so config can be set in one place without requiring DI/Spring in a common lib.
  * It also allows null handling to be standard for OB classes and the map method to be static.
@@ -27,6 +31,10 @@ public class FRModelMapper {
     static {
         // Set project wide config here
         modelMapper.getConfiguration().setSkipNullEnabled(true);
+
+        // Custom mapping to handle OBRisk1 typo contractPresentInidicator property
+        modelMapper.createTypeMap(OBRisk1.class, FRPaymentRisk.class).addMapping(OBRisk1::getContractPresentInidicator, FRPaymentRisk::setContractPresentIndicator);
+        modelMapper.createTypeMap(FRPaymentRisk.class, OBRisk1.class).addMapping(FRPaymentRisk::getContractPresentIndicator, OBRisk1::setContractPresentInidicator);
     }
 
     /**
