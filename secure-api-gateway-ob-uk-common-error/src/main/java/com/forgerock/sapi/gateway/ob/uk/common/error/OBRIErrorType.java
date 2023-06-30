@@ -124,7 +124,7 @@ public enum OBRIErrorType {
     UNAUTHORISED_ACCOUNT(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID, // Based on expectation from OBIE Functional Conformance suite
-            "You are not authorised to access account '%s'. The account request '%s' only authorised the following accounts: '%s'"),
+            "You are not authorised to access account '%s'."),
 
     PERMISSIONS_INVALID(
             HttpStatus.FORBIDDEN,
