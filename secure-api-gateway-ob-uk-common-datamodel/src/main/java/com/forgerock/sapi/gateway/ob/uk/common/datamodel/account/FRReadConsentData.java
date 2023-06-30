@@ -15,40 +15,22 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
-import org.joda.time.DateTime;
-
 import java.util.List;
 
-/**
- * Represents a consent request to access an account.
- */
-public interface FRAccountConsent {
+import org.joda.time.DateTime;
 
-    String getClientId();
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    String getUserId();
-
-    String getAispId();
-
-    String getAispName();
-
-    List<FRExternalPermissionsCode> getPermissions();
-
-    DateTime getExpirationDateTime();
-
-    DateTime getTransactionFromDateTime();
-
-    DateTime getTransactionToDateTime();
-
-    void setUserId(String userId);
-
-    void setAccountIds(List<String> accountIds);
-
-    void setStatus(FRExternalRequestStatusCode code);
-
-    String getId();
-
-    List<String> getAccountIds();
-
-    FRExternalRequestStatusCode getStatus();
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class FRReadConsentData {
+    private List<FRExternalPermissionsCode> permissions;
+    private DateTime expirationDateTime;
+    private DateTime transactionFromDateTime;
+    private DateTime transactionToDateTime;
 }

@@ -15,24 +15,16 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.joda.time.DateTime;
-
-import java.util.List;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-public class FRAccountAccessConsent implements FRAccountConsent {
-    String id;
-    String clientId;
-    String userId;
-    String aispId;
-    String aispName;
-    FRExternalRequestStatusCode status;
-    List<String> accountIds;
-    List<FRExternalPermissionsCode> permissions;
-    DateTime expirationDateTime;
-    DateTime transactionFromDateTime;
-    DateTime transactionToDateTime;
+@NoArgsConstructor
+@AllArgsConstructor
+public class FRReadConsent {
+    private FRReadConsentData data;
+    private FRAccountRisk risk;
 }
