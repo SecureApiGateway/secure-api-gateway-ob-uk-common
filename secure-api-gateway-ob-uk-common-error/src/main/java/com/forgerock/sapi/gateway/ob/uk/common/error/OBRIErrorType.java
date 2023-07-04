@@ -129,7 +129,7 @@ public enum OBRIErrorType {
     PERMISSIONS_INVALID(
             HttpStatus.FORBIDDEN,
             ErrorCode.OBRI_PERMISSION_INVALID,
-            "Invalid permissions. To access this resource you the following permissions: '%s'."),
+            "Invalid permissions. To access this resource you need the following permissions: '%s'."),
     PERMISSIONS_TRANSACTIONS_INVALID(
             HttpStatus.BAD_REQUEST,
             ErrorCode.OBRI_PERMISSION_INVALID,
