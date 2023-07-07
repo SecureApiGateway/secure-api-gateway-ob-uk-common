@@ -707,6 +707,10 @@ public enum OBRIErrorType {
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_RESOURCE_CONSENT_MISMATCH,
             "Creditor account must be specified in the VRP request when not provided in the consent"),
+    REQUEST_VRP_CREDITOR_ACCOUNT_DOES_NOT_MATCH_CONSENT(
+            HttpStatus.BAD_REQUEST,
+            OBStandardErrorCodes1.UK_OBIE_RESOURCE_CONSENT_MISMATCH,
+            "When a creditor account is provided in the consent, the payment instruction creditor account value must match"),
     REQUEST_VRP_CONTROL_PARAMETERS_RULES(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_RULES_FAILS_CONTROL_PARAMETERS,
