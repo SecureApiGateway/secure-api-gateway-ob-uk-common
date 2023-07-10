@@ -17,6 +17,8 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
@@ -45,7 +47,8 @@ class FRChargeConverterTest {
 
     @Test
     void testConvertNullToFrCharge() {
-        assertNull(FRChargeConverter.toFRCharge(null));
+        assertNull(FRChargeConverter.toFRCharge((OBWriteDomesticConsentResponse5DataCharges) null));
+        assertNull(FRChargeConverter.toFRCharge((List<OBWriteDomesticConsentResponse5DataCharges>) null));
     }
 
     @Test
@@ -67,7 +70,8 @@ class FRChargeConverterTest {
 
     @Test
     void testConvertNullToOBWriteDomesticConsentResponse5DataCharges() {
-        assertNull(FRChargeConverter.toOBWriteDomesticConsentResponse5DataCharges(null));
+        assertNull(FRChargeConverter.toOBWriteDomesticConsentResponse5DataCharges((FRCharge) null));
+        assertNull(FRChargeConverter.toOBWriteDomesticConsentResponse5DataCharges((List<FRCharge>) null));
     }
 
 }
