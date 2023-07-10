@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.*;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticScheduledConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticScheduledConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticScheduledDataInitiation;
@@ -173,5 +174,9 @@ public class FRWriteDomesticScheduledConsentConverter {
                 .creditorPostalAddress(FRPostalAddressConverter.toOBPostalAddress6(initiation.getCreditorPostalAddress()))
                 .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation1(initiation.getRemittanceInformation()))
                 .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
+    }
+
+    public static OBWriteDomesticScheduledConsent4 toOBWriteDomesticScheduledConsent4(FRWriteDomesticScheduledConsent frConsent) {
+        return FRModelMapper.map(frConsent, OBWriteDomesticScheduledConsent4.class);
     }
 }
