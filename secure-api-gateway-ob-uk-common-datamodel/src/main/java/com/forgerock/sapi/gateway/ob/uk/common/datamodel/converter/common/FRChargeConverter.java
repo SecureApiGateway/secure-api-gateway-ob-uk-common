@@ -15,7 +15,10 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+import static java.util.stream.Collectors.*;
+
+import java.util.List;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRCharge;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 
@@ -27,8 +30,22 @@ public class FRChargeConverter {
         return FRModelMapper.map(obCharge, FRCharge.class);
     }
 
+    public static List<FRCharge> toFRCharge(List<OBWriteDomesticConsentResponse5DataCharges> obCharges) {
+        if (obCharges == null) {
+            return null;
+        }
+        return obCharges.stream().map(FRChargeConverter::toFRCharge).collect(toList());
+    }
+
     public static OBWriteDomesticConsentResponse5DataCharges toOBWriteDomesticConsentResponse5DataCharges(FRCharge frCharge) {
         return FRModelMapper.map(frCharge, OBWriteDomesticConsentResponse5DataCharges.class);
+    }
+
+    public static List<OBWriteDomesticConsentResponse5DataCharges> toOBWriteDomesticConsentResponse5DataCharges(List<FRCharge> frCharges) {
+        if (frCharges == null) {
+            return null;
+        }
+        return frCharges.stream().map(FRChargeConverter::toOBWriteDomesticConsentResponse5DataCharges).collect(toList());
     }
 
 }
