@@ -420,6 +420,8 @@ public enum OBRIErrorType {
             ErrorCode.OBRI_REQUEST_FILE_INVALID_JSON,
             "A report file was requested for payment: %s but this payment has not been processed yet. Payment status is: %s. Valid statuses are: %s"),
 
+    NO_FILE_FOR_CONSENT(HttpStatus.NOT_FOUND, ErrorCode.OBRI_NO_FILE_FOR_CONSENT,
+            "No file has been uploaded for this consent"),
 
     REQUEST_FIELD_INVALID(
             HttpStatus.BAD_REQUEST,
