@@ -18,6 +18,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRemittanceInformationConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFileConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFileConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFileDataInitiation;
@@ -152,5 +153,9 @@ public class FRWriteFileConsentConverter {
                 .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
                 .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation1(initiation.getRemittanceInformation()))
                 .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
+    }
+
+    public static OBWriteFileConsent3 toOBWriteFileConsent3(FRWriteFileConsent consent) {
+        return FRModelMapper.map(consent, OBWriteFileConsent3.class);
     }
 }
