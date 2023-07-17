@@ -20,6 +20,7 @@ public enum OBGroupName {
     AISP("aisp"),
     PISP("pisp"),
     CBPII("cbpii"),
+    INFO("info"),
     EVENT(""),
     NONE("");
 
