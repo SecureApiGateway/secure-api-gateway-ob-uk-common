@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.*;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalDataInitiation;
@@ -208,5 +209,9 @@ public class FRWriteInternationalConsentConverter {
                 .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getCreditorAccount()))
                 .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation1(initiation.getRemittanceInformation()))
                 .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
+    }
+
+    public static OBWriteInternationalConsent5 toOBWriteInternationalConsent5(FRWriteInternationalConsent frConsent) {
+        return FRModelMapper.map(frConsent, OBWriteInternationalConsent5.class);
     }
 }
