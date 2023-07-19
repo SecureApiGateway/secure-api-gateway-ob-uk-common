@@ -40,7 +40,7 @@ public enum IntentType {
 
     FUNDS_CONFIRMATION_CONSENT("FCC_", CBPII),
     DOMESTIC_VRP_PAYMENT_CONSENT("DVRP_", PISP),
-    CUSTOMER_INFO_CONSENT("CIC", INFO);
+    CUSTOMER_INFO_CONSENT("CIC_", INFO);
 
     private String intentIdPrefix;
     private OBGroupName obGroupName;

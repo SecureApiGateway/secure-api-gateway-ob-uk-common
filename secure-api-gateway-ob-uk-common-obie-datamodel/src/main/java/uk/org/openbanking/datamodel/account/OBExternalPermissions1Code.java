@@ -63,7 +63,8 @@ public enum OBExternalPermissions1Code {
 
     READTRANSACTIONSDEBITS("ReadTransactionsDebits"),
 
-    READTRANSACTIONSDETAIL("ReadTransactionsDetail");
+    READTRANSACTIONSDETAIL("ReadTransactionsDetail"),
+    READCUSTOMERINFO("ReadCustomerInfoPSU");
 
     private String value;
 
