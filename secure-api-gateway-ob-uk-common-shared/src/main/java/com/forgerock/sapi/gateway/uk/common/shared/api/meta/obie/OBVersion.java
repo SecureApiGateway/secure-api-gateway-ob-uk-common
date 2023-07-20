@@ -23,6 +23,7 @@ import org.springframework.util.StringUtils;
  */
 @Slf4j
 public enum OBVersion {
+    v1_0,
     v1_1,
     v2_0,
     v3_0,
