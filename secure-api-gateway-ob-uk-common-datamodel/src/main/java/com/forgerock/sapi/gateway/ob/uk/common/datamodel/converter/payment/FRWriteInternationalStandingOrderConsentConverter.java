@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.*;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalStandingOrderConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalStandingOrderConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalStandingOrderDataInitiation;
@@ -310,4 +311,7 @@ public class FRWriteInternationalStandingOrderConsentConverter {
                 .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
     }
 
+    public static OBWriteInternationalStandingOrderConsent6 toOBWriteInternationalStandingOrderConsent6(FRWriteInternationalStandingOrderConsent frConsent) {
+        return FRModelMapper.map(frConsent, OBWriteInternationalStandingOrderConsent6.class);
+    }
 }
