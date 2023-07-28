@@ -42,6 +42,6 @@ public class FRFundsConfirmationConsentConverterTest {
                         .expirationDateTime(DateTime.now().plusDays(30))
                 );
         final FRFundsConfirmationConsent frFundsConfirmationConsent = FRFundsConfirmationConsentConverter.toFRFundsConfirmationConsent(fundsConfirmationConsent1);
-        Assertions.assertThat(FRFundsConfirmationConsentConverter.toOBFundsConfirmationConsent1(frFundsConfirmationConsent));
+        Assertions.assertThat(FRFundsConfirmationConsentConverter.toOBFundsConfirmationConsent1(frFundsConfirmationConsent)).isEqualTo(fundsConfirmationConsent1);
     }
 }
