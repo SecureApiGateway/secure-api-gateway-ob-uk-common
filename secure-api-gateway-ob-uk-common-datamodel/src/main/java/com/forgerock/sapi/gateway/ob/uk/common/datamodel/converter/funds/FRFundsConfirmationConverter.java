@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.fund;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.funds;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.funds.FRFundsConfirmationData;
 import uk.org.openbanking.datamodel.fund.OBFundsConfirmation1;
