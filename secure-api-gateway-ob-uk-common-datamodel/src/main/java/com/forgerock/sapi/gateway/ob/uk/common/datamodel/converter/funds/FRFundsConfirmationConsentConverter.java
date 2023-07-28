@@ -13,19 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.fund;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.funds;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.funds.FRFundsConfirmationConsentData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.funds.FRFundsConfirmationConsent;
 import uk.org.openbanking.datamodel.fund.OBFundsConfirmationConsent1;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter.toFRAccountIdentifier;
 
 public class FRFundsConfirmationConsentConverter {
 
-    public static FRFundsConfirmationConsentData toFRFundsConfirmationConsentData(OBFundsConfirmationConsent1 obFundsConfirmationConsent) {
-        return obFundsConfirmationConsent == null ? null : FRFundsConfirmationConsentData.builder()
-                .expirationDateTime(obFundsConfirmationConsent.getData().getExpirationDateTime())
-                .debtorAccount(toFRAccountIdentifier(obFundsConfirmationConsent.getData().getDebtorAccount()))
-                .build();
+    public static FRFundsConfirmationConsent toFRFundsConfirmationConsent(OBFundsConfirmationConsent1 obFundsConfirmationConsent) {
+        return FRModelMapper.map(obFundsConfirmationConsent, FRFundsConfirmationConsent.class);
+    }
+
+    public static OBFundsConfirmationConsent1 toOBFundsConfirmationConsent1(FRFundsConfirmationConsent fundsConfirmationConsent) {
+        return FRModelMapper.map(fundsConfirmationConsent, OBFundsConfirmationConsent1.class);
     }
 }

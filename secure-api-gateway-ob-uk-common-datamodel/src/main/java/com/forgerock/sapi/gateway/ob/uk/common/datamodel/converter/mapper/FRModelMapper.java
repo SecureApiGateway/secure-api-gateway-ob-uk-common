@@ -38,7 +38,7 @@ public class FRModelMapper {
     }
 
     /**
-     * Recommended to only use this for classes with identical members (of which there are many in OB SDK!) with default mapping bwhaciour as this
+     * Recommended to only use this for classes with identical members (of which there are many in OB SDK!) with default mapping behaviour as this
      * avoids a lot of complexity and errors from mapping configs.
      * @param source Source
      * @param clazz Target type
