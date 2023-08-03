@@ -79,7 +79,7 @@ public enum OBRIErrorType {
     IDEMPOTENCY_KEY_REQUEST_BODY_CHANGED(
             HttpStatus.BAD_REQUEST,
             ErrorCode.FR_OBRI_IDEMPOTENCY_KEY_REQUEST_BODY_CHANGED,
-            "The provided Idempotency Key: '%s' header matched a previous request but the request body has been changed. The previous request body with id: '%s' was '%s'. The request body you submitted was: '%s'"),
+            "The provided Idempotency Key: '%s' header matched a previous request but the request body has been changed."),
     DETACHED_JWS_INVALID(
             HttpStatus.UNAUTHORIZED,
             ErrorCode.OBRI_DETACHED_JWS_INVALID,
