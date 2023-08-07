@@ -303,6 +303,7 @@ public enum OBRIErrorType {
             HttpStatus.INTERNAL_SERVER_ERROR,
             ErrorCode.OBRI_FUNDS_CONFIRMATION_INVALID,
             "The account '%s' associated with the consent not found, funds confirmation cannot be validated."),
+
     TPP_REGISTRATION_ALREADY_REGISTERED(
             HttpStatus.FORBIDDEN,
             ErrorCode.OBRI_REGISTRATION_INVALID,
