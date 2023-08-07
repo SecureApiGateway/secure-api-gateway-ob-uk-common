@@ -294,6 +294,15 @@ public enum OBRIErrorType {
             ErrorCode.OBRI_FUNDS_CONFIRMATION_INVALID,
             "Funds confirmation invalid. Funds confirmation has expired. Funds confirmation expiration date/time: '%s'"),
 
+    FUNDS_CONFIRMATION_CURRENCY_MISMATCH(
+            HttpStatus.BAD_REQUEST,
+            ErrorCode.OBRI_FUNDS_CONFIRMATION_INVALID,
+            "Funds confirmation invalid. The requested currency '%s' does not match with the currency '%s' of the account provided in the consent."),
+
+    FUNDS_CONFIRMATION_DEBTOR_ACCOUNT_NOT_FOUND(
+            HttpStatus.INTERNAL_SERVER_ERROR,
+            ErrorCode.OBRI_FUNDS_CONFIRMATION_INVALID,
+            "The account '%s' associated with the consent not found, funds confirmation cannot be validated."),
     TPP_REGISTRATION_ALREADY_REGISTERED(
             HttpStatus.FORBIDDEN,
             ErrorCode.OBRI_REGISTRATION_INVALID,
