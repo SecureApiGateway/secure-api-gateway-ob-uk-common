@@ -417,14 +417,16 @@ public enum OBRIErrorType {
             HttpStatus.BAD_REQUEST,
             ErrorCode.OBRI_REQUEST_FILE_EMPTY,
             "The file received is empty."),
-    REQUEST_FILE_XML_INVALID(
+    REQUEST_FILE_TYPE_NOT_SUPPORTED(
             HttpStatus.BAD_REQUEST,
-            ErrorCode.OBRI_REQUEST_FILE_INVALID_XML,
-            "The file received was not parsable as valid XML. Reason %s"),
-    REQUEST_FILE_JSON_INVALID(
+            ErrorCode.OBRI_REQUEST_FILE_TYPE_NOT_SUPPORTED,
+            "The Payment FileType: '%s' is not supported"
+    ),
+    REQUEST_FILE_INVALID(
             HttpStatus.BAD_REQUEST,
-            ErrorCode.OBRI_REQUEST_FILE_INVALID_JSON,
-            "The file received was not parsable as valid JSON. Reason %s"),
+            ErrorCode.OBRI_REQUEST_FILE_INVALID,
+            "The Payment file uploaded is invalid - reason: %s"
+    ),
     FILE_PAYMENT_REPORT_NOT_READY(
             HttpStatus.BAD_REQUEST,
             ErrorCode.OBRI_REQUEST_FILE_INVALID_JSON,
