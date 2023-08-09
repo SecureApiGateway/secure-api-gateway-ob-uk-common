@@ -80,8 +80,10 @@ public enum ErrorCode implements StandardErrorCode {
     OBRI_REQUEST_FILE_INVALID_XML("OBRI.Request.Object.file.invalid.xml"),
     OBRI_REQUEST_FILE_MISSING_XML_ELEMENT("OBRI.Request.Object.file.missing.xml.element"),
     OBRI_REQUEST_FILE_INVALID_JSON("OBRI.Request.Object.file.invalid.json"),
+    OBRI_REQUEST_FILE_INVALID("OBRI.Request.Object.file.invalid"),
     OBRI_REQUEST_FILE_MISSING_JSON_ELEMENT("OBRI.Request.Object.file.missing.json.element"),
     OBRI_NO_FILE_FOR_CONSENT("OBRI.No.File.For.Consent"),
+    OBRI_REQUEST_FILE_TYPE_NOT_SUPPORTED("OBRI.Request.File.Payment.FileType.Not.Supported"),
 
     OBRI_SERVER_INTERNAL_ERROR("OBRI.Server.InternalError"),
     OBRI_REQUEST_UNDEFINED_ERROR_YET("OBRI.Request.ErrorUnknown"),
