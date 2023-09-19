@@ -15,23 +15,18 @@
  */
 package com.forgerock.sapi.gateway.uk.common.shared.api.meta.forgerock;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
+import static com.forgerock.sapi.gateway.uk.common.shared.api.meta.forgerock.FRQuarterType.fromQuarterTypeString;
 
 import java.util.Arrays;
 
-import static com.forgerock.sapi.gateway.uk.common.shared.api.meta.forgerock.FRQuarterType.fromQuarterTypeString;
+import org.joda.time.DateTime;
+
+import lombok.Data;
 
 /**
  * Represents the frequency of the payments for a Standing Order Payment
  */
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class FRFrequency {
     private FRFrequencyType frequencyType;
     private String recurrence;
@@ -45,24 +40,24 @@ public class FRFrequency {
     public FRFrequency(String frequency) {
         String[] frequencyElements = frequency.split(":");
         switch (frequencyElements.length) {
-            case 1: {
-                this.frequencyType = FRFrequencyType.fromFrequencyString(frequencyElements[0]);
-                break;
-            }
-            case 2: {
-                this.frequencyType = FRFrequencyType.fromFrequencyString(frequencyElements[0]);
-                this.recurrence = frequencyElements[1];
-                break;
-            }
-            case 3: {
-                this.frequencyType = FRFrequencyType.fromFrequencyString(frequencyElements[0]);
-                this.recurrence = frequencyElements[1];
-                this.day = frequencyElements[2];
-                break;
-            }
-            default: {
-                throw new IllegalStateException("The frequency doesn't match the regex format.");
-            }
+        case 1: {
+            this.frequencyType = FRFrequencyType.fromFrequencyString(frequencyElements[0]);
+            break;
+        }
+        case 2: {
+            this.frequencyType = FRFrequencyType.fromFrequencyString(frequencyElements[0]);
+            this.recurrence = frequencyElements[1];
+            break;
+        }
+        case 3: {
+            this.frequencyType = FRFrequencyType.fromFrequencyString(frequencyElements[0]);
+            this.recurrence = frequencyElements[1];
+            this.day = frequencyElements[2];
+            break;
+        }
+        default: {
+            throw new IllegalStateException("The frequency doesn't match the regex format.");
+        }
         }
     }
 
@@ -72,24 +67,26 @@ public class FRFrequency {
      *
      * @return the corresponding sentence for each {@link FRFrequencyType}
      */
-    public String getSentence() {
+    public String getFormattedSentence() {
         switch (frequencyType) {
-            case EVERYDAY:
-            case EVERYWORKINGDAY: {
-                return frequencyType.getSentence();
-            }
-            case INTERVALWEEKDAY:
-            case INTERVALMONTHDAY:
-            case WEEKINMONTHDAY:
-            case INTERVALDAY: {
-                return String.format(frequencyType.getSentence(), getTheOrdinalNumberForRecurrence(recurrence), getTheOrdinalNumberForDay(day));
-            }
-            case QUARTERDAY: {
-                FRQuarterType quarterType = fromQuarterTypeString(recurrence);
-                return String.format(frequencyType.getSentence(), fromDateTimeToString(quarterType.getQuarter1()), fromDateTimeToString(quarterType.getQuarter2()), fromDateTimeToString(quarterType.getQuarter3()), fromDateTimeToString(quarterType.getQuarter4()));
-            }
-            default:
-                throw new IllegalStateException("Frequency type not identified");
+        case EVERYDAY:
+        case EVERYWORKINGDAY: {
+            return frequencyType.getSentence();
+        }
+        case INTERVALDAY: {
+            return String.format(frequencyType.getSentence(), getTheOrdinalNumberForRecurrence(recurrence));
+        }
+        case INTERVALWEEKDAY:
+        case INTERVALMONTHDAY:
+        case WEEKINMONTHDAY: {
+            return String.format(frequencyType.getSentence(), getTheOrdinalNumberForRecurrence(recurrence), getTheOrdinalNumberForDay(day));
+        }
+        case QUARTERDAY: {
+            FRQuarterType quarterType = fromQuarterTypeString(recurrence);
+            return String.format(frequencyType.getSentence(), fromDateTimeToString(quarterType.getQuarter1()), fromDateTimeToString(quarterType.getQuarter2()), fromDateTimeToString(quarterType.getQuarter3()), fromDateTimeToString(quarterType.getQuarter4()));
+        }
+        default:
+            throw new IllegalStateException("Frequency type not identified");
         }
     }
 
@@ -100,7 +97,7 @@ public class FRFrequency {
      * @param date the date
      * @return the date in the right format
      */
-    public String fromDateTimeToString(DateTime date) {
+    private String fromDateTimeToString(DateTime date) {
         String dateTemplate = date.toString("'%d%s' MMMM");
         int day = date.getDayOfMonth();
         String ordinalSuffix = getOrdinalSuffix(day);
@@ -113,9 +110,9 @@ public class FRFrequency {
      * @param number the number having the regex expression: (0?[1-9])|([1-2][0-9]|3[0-1])
      * @return the ordinal number
      */
-    public String getTheOrdinalNumberForRecurrence(String number) {
+    private String getTheOrdinalNumberForRecurrence(String number) {
         int intNumber = number.startsWith("0") ? Integer.parseInt(number.substring(1)) : Integer.parseInt(number);
-        return intNumber + getOrdinalSuffix(intNumber) + " ";
+        return intNumber + getOrdinalSuffix(intNumber);
     }
 
     /**
@@ -124,27 +121,27 @@ public class FRFrequency {
      * @param number the number having the regex expression: (-0[1-5]|0[1-9]|[12][0-9]|3[01])
      * @return the ordinal number
      */
-    public String getTheOrdinalNumberForDay(String number) {
+    private String getTheOrdinalNumberForDay(String number) {
         switch (number) {
-            case "-01":
-            case "-1":
-                return "last";
-            case "-02":
-            case "-2":
-                return "penultimate";
-            case "-03":
-            case "-3":
-                return "antepenultimate";
-            case "-4":
-            case "-04":
-                return "preantepenultimate";
-            case "-5":
-            case "-05":
-                return "propreantepenultimate";
-            default: {
-                int intNumber = number.startsWith("0") ? Integer.parseInt(number.substring(1)) : Integer.parseInt(number);
-                return intNumber + getOrdinalSuffix(intNumber);
-            }
+        case "-01":
+        case "-1":
+            return "last";
+        case "-02":
+        case "-2":
+            return "penultimate";
+        case "-03":
+        case "-3":
+            return "antepenultimate";
+        case "-4":
+        case "-04":
+            return "preantepenultimate";
+        case "-5":
+        case "-05":
+            return "propreantepenultimate";
+        default: {
+            int intNumber = number.startsWith("0") ? Integer.parseInt(number.substring(1)) : Integer.parseInt(number);
+            return intNumber + getOrdinalSuffix(intNumber);
+        }
         }
     }
 
@@ -154,7 +151,7 @@ public class FRFrequency {
      * @param number the number
      * @return the ordinal suffix
      */
-    public static String getOrdinalSuffix(int number) {
+    private static String getOrdinalSuffix(int number) {
         if (Arrays.asList(11, 12, 13).contains(number)) {
             return "th";
         } else if (number % 10 == 1) {
