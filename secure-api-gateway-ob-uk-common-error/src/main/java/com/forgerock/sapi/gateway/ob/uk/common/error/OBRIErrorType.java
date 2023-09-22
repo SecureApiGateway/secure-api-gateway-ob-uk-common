@@ -211,6 +211,10 @@ public enum OBRIErrorType {
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
             "The 'Risk.PaymentContextCode' for a Balance Transfer payment consent was invalid. Payment Context Code account must 'PartyToParty'"),
+    PAYMENT_BALANCE_TRANSFER_INVALID_LOCAL_INSTRUMENT(
+            HttpStatus.BAD_REQUEST,
+            OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
+            "The 'Initiation.LocalInstrument' for a Balance Transfer payment consent is invalid. It must be set to 'UK.OBIE.BalanceTransfer' or 'BalanceTransfer'."),
     PAYMENT_MONEY_TRANSFER_INVALID_CREDITOR_ACCOUNT(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
@@ -227,14 +231,18 @@ public enum OBRIErrorType {
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
             "The 'Risk.PaymentContextCode' for a Money Transfer payment consent was invalid. Payment Context Code account must 'PartyToParty'"),
+    PAYMENT_MONEY_TRANSFER_INVALID_LOCAL_INSTRUMENT(
+            HttpStatus.BAD_REQUEST,
+            OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
+            "The 'Initiation.LocalInstrument' for a Money Transfer payment consent is invalid. It must be set to 'UK.OBIE.MoneyTransfer' or 'MoneyTransfer'."),
     PAYMENT_PAYM_INVALID_PAYMENT_CONTEXT_CODE(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
-            "The 'Risk.PaymentContextCode' for a Paym payment consent was invalid. Payment Context Code account must 'PartyToParty'"),
+            "The 'Risk.PaymentContextCode' for a Paym payment consent was invalid. Payment Context Code account must be 'PartyToParty'."),
     PAYMENT_PAYM_INVALID_LOCAL_INSTRUMENT(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
-            "The 'Initiation.LocalInstrument' for Paym payment consent is invalid. It must be empty or set to 'Paym'"),
+            "The 'Initiation.LocalInstrument' for Paym payment consent is invalid. It must be empty or set to 'Paym'."),
     PAYMENT_PAYM_WRONG_CREDITOR_ACCOUNT_SCHEME(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
@@ -246,7 +254,7 @@ public enum OBRIErrorType {
     PAYMENT_PAYM_CUSTOMER_IDENTIFICATION_NOT_A_UK_MOBILE_NUMBER(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
-            "The 'CreditorAccount.Identification' field for a Paym payment consent is must be a UK mobile phone number. It start with a county code [0 | 44 | 0044 | +44] and be followed a 10 digit number. This field is mandatory for a Paym payment and should identify the mobile number."),
+            "The 'CreditorAccount.Identification' field for a Paym payment consent must be a UK mobile phone number. It starts with a county code [0 | 44 | 0044 | +44] followed by a 10 digit number. This field is mandatory for a Paym payment and should identify the mobile number."),
     PAYMENT_CODE_CONTEXT_INVALID(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
