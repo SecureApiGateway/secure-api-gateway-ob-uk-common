@@ -736,7 +736,7 @@ public enum OBRIErrorType {
     REQUEST_VRP_CONTROL_PARAMETERS_RULES_GENERIC_FAILURE(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_RULES_FAILS_CONTROL_PARAMETERS,
-            "Invalid value provided for field '%s'"),
+            "Invalid value: '%s' provided for field: '%s', %s"),
     REQUEST_VRP_CONTROL_PARAMETER_CURRENCY_MISMATCH(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_RULES_FAILS_CONTROL_PARAMETERS,
