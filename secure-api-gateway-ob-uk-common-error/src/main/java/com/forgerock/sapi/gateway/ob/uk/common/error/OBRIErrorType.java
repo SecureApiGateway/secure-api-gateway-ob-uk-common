@@ -198,11 +198,11 @@ public enum OBRIErrorType {
     PAYMENT_BALANCE_TRANSFER_INVALID_CREDITOR_ACCOUNT(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
-            "The 'Initiation.CreditorAccount.SchemeName' for a Balance Transfer payment consent is missing or has the wrong type. Creditor account must of type: Primary Account Number (UK.OBIE.PAN)"),
+            "The 'Initiation.CreditorAccount.SchemeName' for a Balance Transfer payment consent is missing or it has the wrong type. Creditor account must be Primary Account Number (UK.OBIE.PAN)."),
     PAYMENT_BALANCE_TRANSFER_INVALID_DEBTOR_ACCOUNT(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
-            "The 'Initiation.DebtorAccount.SchemeName' for a Balance Transfer payment consent is missing or has the wrong identification type. Debtor account must of type: Primary Account Number (UK.OBIE.PAN)"),
+            "The 'Initiation.DebtorAccount.SchemeName' for a Balance Transfer payment consent is missing or it has the wrong identification type. Debtor account must be Primary Account Number (UK.OBIE.PAN)."),
     PAYMENT_BALANCE_TRANSFER_INVALID_REMITTANCE_REFERENCE(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
@@ -210,7 +210,7 @@ public enum OBRIErrorType {
     PAYMENT_BALANCE_TRANSFER_INVALID_PAYMENT_CONTEXT_CODE(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
-            "The 'Risk.PaymentContextCode' for a Balance Transfer payment consent was invalid. Payment Context Code account must 'PartyToParty'"),
+            "The 'Risk.PaymentContextCode' for a Balance Transfer payment consent is invalid. Payment Context Code must be 'PartyToParty'."),
     PAYMENT_BALANCE_TRANSFER_INVALID_LOCAL_INSTRUMENT(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
@@ -218,11 +218,11 @@ public enum OBRIErrorType {
     PAYMENT_MONEY_TRANSFER_INVALID_CREDITOR_ACCOUNT(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
-            "The 'Initiation.CreditorAccount.SchemeName' for a Money Transfer payment consent is missing or has the wrong type. Creditor account must of type: Primary Account Number (UK.OBIE.SortCodeAccountNumber)"),
+            "The 'Initiation.CreditorAccount.SchemeName' for a Money Transfer payment consent is missing or it has the wrong type. Creditor account must be Primary Account Number (UK.OBIE.SortCodeAccountNumber)."),
     PAYMENT_MONEY_TRANSFER_INVALID_DEBTOR_ACCOUNT(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
-            "The 'Initiation.DebtorAccount.SchemeName' for a Money Transfer payment consent is missing or has the wrong identification type. Debtor account must of type: Primary Account Number (UK.OBIE.PAN)"),
+            "The 'Initiation.DebtorAccount.SchemeName' for a Money Transfer payment consent is missing or it has the wrong identification type. Debtor account must be Primary Account Number (UK.OBIE.PAN)."),
     PAYMENT_MONEY_TRANSFER_INVALID_REMITTANCE_REFERENCE(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
@@ -230,7 +230,7 @@ public enum OBRIErrorType {
     PAYMENT_MONEY_TRANSFER_INVALID_PAYMENT_CONTEXT_CODE(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
-            "The 'Risk.PaymentContextCode' for a Money Transfer payment consent was invalid. Payment Context Code account must 'PartyToParty'"),
+            "The 'Risk.PaymentContextCode' for a Money Transfer payment consent is invalid. Payment Context Code must be 'PartyToParty'."),
     PAYMENT_MONEY_TRANSFER_INVALID_LOCAL_INSTRUMENT(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
@@ -238,7 +238,7 @@ public enum OBRIErrorType {
     PAYMENT_PAYM_INVALID_PAYMENT_CONTEXT_CODE(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
-            "The 'Risk.PaymentContextCode' for a Paym payment consent was invalid. Payment Context Code account must be 'PartyToParty'."),
+            "The 'Risk.PaymentContextCode' for a Paym payment consent is invalid. Payment Context Code must be 'PartyToParty'."),
     PAYMENT_PAYM_INVALID_LOCAL_INSTRUMENT(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
@@ -250,11 +250,11 @@ public enum OBRIErrorType {
     PAYMENT_PAYM_MISSING_CUSTOMER_IDENTIFICATION(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
-            "The 'CreditorAccount.Identification' field for a Paym payment consent is missing. This field is mandatory for a Paym payment and should identify the mobile number."),
+            "The 'CreditorAccount.Identification' field for a Paym payment consent is missing. This field is mandatory for a Paym payment and should identify the mobile phone number."),
     PAYMENT_PAYM_CUSTOMER_IDENTIFICATION_NOT_A_UK_MOBILE_NUMBER(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
-            "The 'CreditorAccount.Identification' field for a Paym payment consent must be a UK mobile phone number. It starts with a county code [0 | 44 | 0044 | +44] followed by a 10 digit number. This field is mandatory for a Paym payment and should identify the mobile number."),
+            "The 'CreditorAccount.Identification' field for a Paym payment consent must be a UK mobile phone number. It starts with a county code [0 | 44 | 0044 | +44] followed by a 10 digit number. This field is mandatory for a Paym payment and should identify the mobile phone number."),
     PAYMENT_CODE_CONTEXT_INVALID(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID,
@@ -733,6 +733,10 @@ public enum OBRIErrorType {
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_RULES_FAILS_CONTROL_PARAMETERS,
             "The field '%s' breaches a limitation set by '%s'"),
+    REQUEST_VRP_CONTROL_PARAMETERS_RULES_GENERIC_FAILURE(
+            HttpStatus.BAD_REQUEST,
+            OBStandardErrorCodes1.UK_OBIE_RULES_FAILS_CONTROL_PARAMETERS,
+            "Invalid value provided for field '%s'"),
     REQUEST_VRP_CONTROL_PARAMETER_CURRENCY_MISMATCH(
             HttpStatus.BAD_REQUEST,
             OBStandardErrorCodes1.UK_OBIE_RULES_FAILS_CONTROL_PARAMETERS,
