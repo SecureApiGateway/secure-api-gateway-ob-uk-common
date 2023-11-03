@@ -26,27 +26,29 @@ import org.slf4j.MDC;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.forgerock.sapi.gateway.uk.common.shared.api.meta.obie.OBHeaders;
+import com.forgerock.sapi.gateway.uk.common.shared.fapi.FapiInteractionIdContext;
+
 /**
- * Filter which stores the x-fapi-interaction-id header value in the {@link MDC} log context.
+ * Filter which stores the x-fapi-interaction-id header value in the {@link MDC} log context and {@link FapiInteractionIdContext}
  *
  * This means that the x-fapi-interaction-id will be present in each log message for a request, which allows requests to
  * be traced through the system.
  */
 public class FapiInteractionIdFilter extends OncePerRequestFilter {
 
-    public static final String X_FAPI_INTERACTION_ID = "x-fapi-interaction-id";
-
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        final String xFapiInteractionId = request.getHeader(X_FAPI_INTERACTION_ID);
+        final String xFapiInteractionId = request.getHeader(OBHeaders.X_FAPI_INTERACTION_ID);
         if (StringUtils.hasText(xFapiInteractionId)) {
-            MDC.put(X_FAPI_INTERACTION_ID, xFapiInteractionId);
+            MDC.put(OBHeaders.X_FAPI_INTERACTION_ID, xFapiInteractionId);
+            FapiInteractionIdContext.setFapiInteractionId(xFapiInteractionId);
         }
         try {
             filterChain.doFilter(request, response);
         } finally {
-            MDC.remove(X_FAPI_INTERACTION_ID);
+            MDC.remove(OBHeaders.X_FAPI_INTERACTION_ID);
+            FapiInteractionIdContext.removeFapiInteractionId();
         }
     }
-
 }
