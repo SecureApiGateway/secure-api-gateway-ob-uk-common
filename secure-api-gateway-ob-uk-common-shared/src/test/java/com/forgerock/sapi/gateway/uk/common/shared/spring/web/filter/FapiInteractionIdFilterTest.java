@@ -17,6 +17,8 @@ package com.forgerock.sapi.gateway.uk.common.shared.spring.web.filter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Optional;
+
 import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +32,9 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.forgerock.sapi.gateway.uk.common.shared.api.meta.obie.OBHeaders;
+import com.forgerock.sapi.gateway.uk.common.shared.fapi.FapiInteractionIdContext;
+
 class FapiInteractionIdFilterTest {
 
     private MockHttpServletRequest request;
@@ -38,8 +43,14 @@ class FapiInteractionIdFilterTest {
     private FapiInteractionIdFilter filter;
     private String xFapiInteractionIdFromMdc;
 
+    private Optional<String> xFapiInteractionIdFromIdContext;
+
     @BeforeEach
     void setup() {
+        FapiInteractionIdContext.removeFapiInteractionId();
+        this.xFapiInteractionIdFromMdc = null;
+        this.xFapiInteractionIdFromIdContext = Optional.empty();
+
         this.request = new MockHttpServletRequest();
         this.response = new MockHttpServletResponse();
         
@@ -47,7 +58,8 @@ class FapiInteractionIdFilterTest {
         final OncePerRequestFilter captureFapiInteractionIdFilter = new OncePerRequestFilter() {
             @Override
             protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) {
-                xFapiInteractionIdFromMdc = MDC.get(FapiInteractionIdFilter.X_FAPI_INTERACTION_ID);
+                xFapiInteractionIdFromMdc = MDC.get(OBHeaders.X_FAPI_INTERACTION_ID);
+                xFapiInteractionIdFromIdContext = FapiInteractionIdContext.getFapiInteractionId();
             }
         };
         this.chain = new MockFilterChain(new HttpServlet(){}, captureFapiInteractionIdFilter);
@@ -57,21 +69,23 @@ class FapiInteractionIdFilterTest {
     @Test
     void testDoesNothingIfNoFapiIdHeader() throws Exception {
         this.filter.doFilter(this.request, this.response, this.chain);
-        assertThat(MDC.get(FapiInteractionIdFilter.X_FAPI_INTERACTION_ID)).isNull();
+        assertThat(MDC.get(OBHeaders.X_FAPI_INTERACTION_ID)).isNull();
         assertThat(xFapiInteractionIdFromMdc).isNull();
+        assertThat(FapiInteractionIdContext.getFapiInteractionId()).isEmpty();
     }
 
     @Test
     void  testStoreFapiIdHeaderInMdc() throws Exception {
         final String testInteractionId = "test-1234";
-        request.addHeader(FapiInteractionIdFilter.X_FAPI_INTERACTION_ID, testInteractionId);
+        request.addHeader(OBHeaders.X_FAPI_INTERACTION_ID, testInteractionId);
         this.filter.doFilter(this.request, this.response, this.chain);
 
         // Verify that the interactionId was found in the MDC when calling other filters
         assertThat(xFapiInteractionIdFromMdc).isEqualTo(testInteractionId);
+        assertThat(xFapiInteractionIdFromIdContext).isPresent().contains(testInteractionId);
 
         // Verify MDC is cleared once filter returns
-        assertThat(MDC.get(FapiInteractionIdFilter.X_FAPI_INTERACTION_ID)).isNull();
+        assertThat(MDC.get(OBHeaders.X_FAPI_INTERACTION_ID)).isNull();
     }
 
 }
