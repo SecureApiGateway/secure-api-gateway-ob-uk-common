@@ -19,16 +19,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * Other amount type which is not in the standard code list
  */
 @ApiModel(description = "Other amount type which is not in the standard code list")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBReadProduct2DataOtherProductTypeRepaymentOtherAmountType {
     @JsonProperty("Code")

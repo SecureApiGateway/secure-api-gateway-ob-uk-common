@@ -33,8 +33,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -42,7 +42,7 @@ import java.util.Objects;
 /**
  * OBReadConsent1Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBReadConsent1Data {
     @JsonProperty("Permissions")
     private List<PermissionsEnum> permissions = new ArrayList<PermissionsEnum>();

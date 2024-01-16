@@ -21,9 +21,9 @@ import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -33,7 +33,7 @@ import java.util.Objects;
  */
 @ApiModel(description = "Provides further details on a statement resource.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBStatement1 {
     @JsonProperty("AccountId")

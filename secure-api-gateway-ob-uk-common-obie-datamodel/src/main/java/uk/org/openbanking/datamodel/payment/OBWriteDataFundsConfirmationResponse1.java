@@ -20,14 +20,14 @@ import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.Objects;
 
 /**
  * OBWriteDataFundsConfirmationResponse1
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBWriteDataFundsConfirmationResponse1 {
     @JsonProperty("FundsAvailableResult")

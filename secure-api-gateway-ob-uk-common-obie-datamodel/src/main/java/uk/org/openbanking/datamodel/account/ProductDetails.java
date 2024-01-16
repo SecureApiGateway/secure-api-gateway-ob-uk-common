@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -28,7 +28,7 @@ import java.util.Objects;
 /**
  * ProductDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class ProductDetails {
     /**

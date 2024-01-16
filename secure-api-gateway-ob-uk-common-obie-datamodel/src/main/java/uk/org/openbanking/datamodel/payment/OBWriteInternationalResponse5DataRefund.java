@@ -18,14 +18,14 @@ package uk.org.openbanking.datamodel.payment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
  * OBWriteInternationalResponse5DataRefund
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalResponse5DataRefund {
     @JsonProperty("Creditor")
     private OBWriteInternationalResponse5DataRefundCreditor creditor;

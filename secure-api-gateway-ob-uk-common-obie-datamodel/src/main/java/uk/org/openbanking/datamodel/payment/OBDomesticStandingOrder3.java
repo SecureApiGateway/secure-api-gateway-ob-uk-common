@@ -35,17 +35,17 @@ import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a domestic standing order.
  */
 @ApiModel(description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a domestic standing order.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBDomesticStandingOrder3 {
     @JsonProperty("Frequency")
     private String frequency = null;

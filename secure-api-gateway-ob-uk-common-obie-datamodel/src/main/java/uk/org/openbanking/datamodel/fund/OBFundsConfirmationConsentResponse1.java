@@ -30,14 +30,14 @@ import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.Links;
 import uk.org.openbanking.datamodel.common.Meta;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
  * OBFundsConfirmationConsentResponse1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBFundsConfirmationConsentResponse1 {
     // validation within OBFundsConfirmationConsentDataResponse1 now mirrors OBFundsConfirmationConsentResponse1Data (to minimise impact)
     @JsonProperty("Data")

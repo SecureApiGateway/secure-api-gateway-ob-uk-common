@@ -21,16 +21,16 @@ import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBPostalAddress6;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a single domestic payment.
  */
 @ApiModel(description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a single domestic payment.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomestic2DataInitiation {
     @JsonProperty("InstructionIdentification")
     private String instructionIdentification;

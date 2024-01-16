@@ -21,15 +21,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
  * Set of elements used to provide details on the credit line.
  */
 @ApiModel(description = "Set of elements used to provide details on the credit line.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBReadBalance1DataCreditLine {
     @JsonProperty("Included")

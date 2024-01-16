@@ -22,8 +22,8 @@ import org.joda.time.DateTime;
 import org.springframework.validation.annotation.Validated;
 import uk.org.openbanking.datamodel.common.OBExternalStatus2Code;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
@@ -31,7 +31,7 @@ import java.util.Objects;
  */
 @ApiModel(description = "The multiple authorisation flow response from the ASPSP.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBMultiAuthorisation1 {
     @JsonProperty("Status")

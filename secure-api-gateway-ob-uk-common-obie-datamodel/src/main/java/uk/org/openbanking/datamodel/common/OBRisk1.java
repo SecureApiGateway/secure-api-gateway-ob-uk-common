@@ -20,15 +20,15 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.payment.OBExternalExtendedAccountType1Code;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * The Risk section is sent by the initiating party to the ASPSP. It is used to specify additional details for risk scoring for Payments.
  */
 @ApiModel(description = "The Risk section is sent by the initiating party to the ASPSP. It is used to specify additional details for risk scoring for Payments.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBRisk1   {
   
   @JsonProperty("PaymentContextCode")

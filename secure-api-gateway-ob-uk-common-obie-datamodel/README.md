@@ -66,7 +66,7 @@ When a new version of OB API is released, the following steps should be performe
        ```java
        @ApiModel(description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds using a payment file.")
        @Validated
-       @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
+       @jakarta.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
        public class OBFile1 {
            /* The Generated object OBFile1.java define a BigDecimal field like below */
            @JsonProperty("ControlSum")

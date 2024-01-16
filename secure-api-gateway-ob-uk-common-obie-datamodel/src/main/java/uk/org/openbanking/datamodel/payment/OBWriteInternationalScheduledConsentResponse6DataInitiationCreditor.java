@@ -20,15 +20,15 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBPostalAddress6;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * Party to which an amount of money is due.
  */
 @ApiModel(description = "Party to which an amount of money is due.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor {
     @JsonProperty("Name")
     private String name;

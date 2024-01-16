@@ -21,8 +21,8 @@ import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
 import uk.org.openbanking.datamodel.common.OBPostalAddress6;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
@@ -30,7 +30,7 @@ import java.util.Objects;
  */
 @ApiModel(description = "Financial institution servicing an account for the debtor.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBBranchAndFinancialInstitutionIdentification3 {
     @JsonProperty("SchemeName")

@@ -23,10 +23,10 @@ import org.springframework.validation.annotation.Validated;
 import uk.org.openbanking.datamodel.common.OBCashAccount3;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -37,7 +37,7 @@ import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDec
  */
 @ApiModel(description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds using a payment file.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBFile2 {
     @JsonProperty("FileType")

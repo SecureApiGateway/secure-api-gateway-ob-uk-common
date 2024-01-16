@@ -19,14 +19,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * OBBeneficiary5
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBBeneficiary5 {
     @JsonProperty("AccountId")

@@ -19,14 +19,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * Supporting Data provided by TPP, when requesting SCA Exemption.
  */
 @ApiModel(description = "Supporting Data provided by TPP, when requesting SCA Exemption.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBSCASupportData1 {
 
     @JsonProperty("RequestedSCAExemptionType")

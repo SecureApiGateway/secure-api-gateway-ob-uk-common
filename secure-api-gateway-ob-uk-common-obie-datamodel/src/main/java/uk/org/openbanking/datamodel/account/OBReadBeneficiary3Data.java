@@ -31,7 +31,7 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -39,7 +39,7 @@ import java.util.Objects;
 /**
  * OBReadBeneficiary3Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBReadBeneficiary3Data {
     @JsonProperty("Beneficiary")
     private List<OBBeneficiary3> beneficiary = null;

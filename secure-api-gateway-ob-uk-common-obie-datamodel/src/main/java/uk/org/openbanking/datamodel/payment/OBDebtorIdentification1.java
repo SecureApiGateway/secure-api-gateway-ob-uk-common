@@ -20,7 +20,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
@@ -28,7 +28,7 @@ import java.util.Objects;
  */
 @ApiModel(description = "Set of elements used to identify a person or an organisation.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 public class OBDebtorIdentification1 {
     @JsonProperty("Name")
     private String name = null;

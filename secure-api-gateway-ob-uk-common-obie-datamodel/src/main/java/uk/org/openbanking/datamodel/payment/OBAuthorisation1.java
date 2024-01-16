@@ -21,8 +21,8 @@ import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
@@ -30,7 +30,7 @@ import java.util.Objects;
  */
 @ApiModel(description = "The authorisation type request from the TPP.")
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBAuthorisation1 {
     @JsonProperty("AuthorisationType")

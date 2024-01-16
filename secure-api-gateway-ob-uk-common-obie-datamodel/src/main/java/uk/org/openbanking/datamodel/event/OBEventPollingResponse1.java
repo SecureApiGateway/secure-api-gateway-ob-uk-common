@@ -31,7 +31,7 @@ package uk.org.openbanking.datamodel.event;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -39,7 +39,7 @@ import java.util.Objects;
 /**
  * OBEventPollingResponse1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBEventPollingResponse1 {
     @JsonProperty("moreAvailable")
     private Boolean moreAvailable = null;

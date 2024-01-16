@@ -20,10 +20,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -33,7 +33,7 @@ import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDec
  * Further detailed information on the exchange rate that has been used in the payment transaction.
  */
 @ApiModel(description = "Further detailed information on the exchange rate that has been used in the payment transaction.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
     @JsonProperty("UnitCurrency")
     private String unitCurrency;

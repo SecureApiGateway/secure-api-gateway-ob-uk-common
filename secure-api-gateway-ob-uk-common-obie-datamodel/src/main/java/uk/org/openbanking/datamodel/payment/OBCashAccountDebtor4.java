@@ -25,7 +25,7 @@ import java.util.Objects;
  * ^ Only incuded in the response if &#x60;Data. ReadRefundAccount&#x60; is set to &#x60;Yes&#x60; in the consent.
  */
 @ApiModel(description = "^ Only incuded in the response if `Data. ReadRefundAccount` is set to `Yes` in the consent.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBCashAccountDebtor4 {
     @JsonProperty("SchemeName")
     private String schemeName;

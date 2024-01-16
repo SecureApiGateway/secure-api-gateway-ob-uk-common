@@ -20,13 +20,13 @@ import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.Links;
 import uk.org.openbanking.datamodel.common.Meta;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.Objects;
 
 /**
  * StandingOrdersGETResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 
 public class OBReadStandingOrder1 {
     @JsonProperty("Data")

@@ -21,7 +21,7 @@ import uk.org.openbanking.datamodel.common.Links;
 import uk.org.openbanking.datamodel.common.Meta;
 import uk.org.openbanking.datamodel.payment.OBPaymentDataSubmissionResponse1;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.Objects;
 
 /**

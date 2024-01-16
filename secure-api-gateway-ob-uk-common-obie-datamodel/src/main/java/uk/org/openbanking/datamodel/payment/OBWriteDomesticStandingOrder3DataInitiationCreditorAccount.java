@@ -19,15 +19,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * Identification assigned by an institution to identify an account. This identification is known by the account owner.
  */
 @ApiModel(description = "Identification assigned by an institution to identify an account. This identification is known by the account owner.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomesticStandingOrder3DataInitiationCreditorAccount {
     @JsonProperty("SchemeName")
     private String schemeName;

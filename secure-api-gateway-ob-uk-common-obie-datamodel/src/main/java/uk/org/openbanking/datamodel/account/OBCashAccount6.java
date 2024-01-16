@@ -32,14 +32,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * Unambiguous identification of the account of the debtor, in the case of a crebit transaction.
  */
 @ApiModel(description = "Unambiguous identification of the account of the debtor, in the case of a crebit transaction.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBCashAccount6 {
     @JsonProperty("SchemeName")
     private String schemeName = null;

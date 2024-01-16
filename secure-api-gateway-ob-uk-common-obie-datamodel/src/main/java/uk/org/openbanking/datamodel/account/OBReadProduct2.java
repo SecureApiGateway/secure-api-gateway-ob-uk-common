@@ -21,15 +21,15 @@ import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.Links;
 import uk.org.openbanking.datamodel.common.Meta;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
  * Product details of Other Product which is not avaiable in the standard list
  */
 @ApiModel(description = "Product details of Other Product which is not avaiable in the standard list")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBReadProduct2 {
     @JsonProperty("Data")

@@ -33,9 +33,9 @@ import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBExternalRequestStatus1Code;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -43,7 +43,7 @@ import java.util.Objects;
 /**
  * OBReadConsentResponse1Data
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBReadConsentResponse1Data {
     @JsonProperty("ConsentId")
     private String consentId = null;

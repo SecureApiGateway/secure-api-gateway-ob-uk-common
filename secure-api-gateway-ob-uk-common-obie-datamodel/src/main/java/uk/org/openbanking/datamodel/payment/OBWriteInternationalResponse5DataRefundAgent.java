@@ -20,15 +20,15 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBPostalAddress6;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * Set of elements used to uniquely and unambiguously identify a financial institution or a branch of a financial institution.
  */
 @ApiModel(description = "Set of elements used to uniquely and unambiguously identify a financial institution or a branch of a financial institution.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalResponse5DataRefundAgent {
     @JsonProperty("SchemeName")
     private String schemeName;

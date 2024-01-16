@@ -31,14 +31,14 @@ import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBCashAccount3;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
  * OBFundsConfirmationConsentData1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBFundsConfirmationConsentData1 {
     @JsonProperty("ExpirationDateTime")
     private DateTime expirationDateTime = null;

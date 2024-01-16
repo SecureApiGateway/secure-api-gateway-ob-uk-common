@@ -19,14 +19,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * Unambiguous identification of the account of the creditor, in the case of a debit transaction.
  */
 @ApiModel(description = "Unambiguous identification of the account of the creditor, in the case of a debit transaction.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBCashAccount60 {
     @JsonProperty("SchemeName")
