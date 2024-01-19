@@ -33,16 +33,16 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * Set of elements used to provide details of a charge for the payment initiation.
  */
 @ApiModel(description = "Set of elements used to provide details of a charge for the payment initiation.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBCharge2 {
     @JsonProperty("ChargeBearer")
     private OBChargeBearerType1Code chargeBearer = null;

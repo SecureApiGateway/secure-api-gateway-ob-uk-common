@@ -33,15 +33,15 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBPostalAddress6;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * Financial institution servicing an account for the creditor.
  */
 @ApiModel(description = "Financial institution servicing an account for the creditor.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteInternational2DataInitiationCreditorAgent {
     @JsonProperty("SchemeName")
     private String schemeName = null;

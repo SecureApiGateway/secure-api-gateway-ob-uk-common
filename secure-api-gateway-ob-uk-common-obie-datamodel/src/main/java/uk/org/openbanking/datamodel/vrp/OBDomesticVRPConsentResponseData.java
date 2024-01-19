@@ -22,15 +22,15 @@ import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
 /**
  * OBDomesticVRPConsentResponseData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPConsentResponseData {
 
     @JsonProperty("ReadRefundAccount")

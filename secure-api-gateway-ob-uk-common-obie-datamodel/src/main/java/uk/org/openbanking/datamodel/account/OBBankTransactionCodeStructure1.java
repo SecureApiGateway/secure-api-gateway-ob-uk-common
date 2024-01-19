@@ -19,14 +19,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
  * Set of elements used to fully identify the type of underlying transaction resulting in an entry.
  */
 @ApiModel(description = "Set of elements used to fully identify the type of underlying transaction resulting in an entry.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBBankTransactionCodeStructure1 {
     @JsonProperty("Code")

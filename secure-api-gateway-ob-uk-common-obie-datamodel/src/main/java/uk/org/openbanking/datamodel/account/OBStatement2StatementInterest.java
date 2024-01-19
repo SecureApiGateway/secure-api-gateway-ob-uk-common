@@ -19,9 +19,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -31,7 +31,7 @@ import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDec
  * Set of elements used to provide details of a generic interest amount related to the statement resource.
  */
 @ApiModel(description = "Set of elements used to provide details of a generic interest amount related to the statement resource.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBStatement2StatementInterest {
     @JsonProperty("Description")

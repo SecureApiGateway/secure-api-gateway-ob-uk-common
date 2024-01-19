@@ -20,14 +20,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.Objects;
 
 /**
  * Meta Data relevant to the payload
  */
 @ApiModel(description = "Meta Data relevant to the payload")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen")
 public class Meta {
     @JsonProperty("TotalPages")
     private Integer totalPages = null;

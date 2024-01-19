@@ -34,14 +34,14 @@ import uk.org.openbanking.datamodel.common.Links;
 import uk.org.openbanking.datamodel.common.Meta;
 import uk.org.openbanking.datamodel.common.OBRisk1;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
  * OBWriteInternationalStandingOrderConsentResponse5
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteInternationalStandingOrderConsentResponse5 {
     @JsonProperty("Data")
     private OBWriteInternationalStandingOrderConsentResponse5Data data = null;

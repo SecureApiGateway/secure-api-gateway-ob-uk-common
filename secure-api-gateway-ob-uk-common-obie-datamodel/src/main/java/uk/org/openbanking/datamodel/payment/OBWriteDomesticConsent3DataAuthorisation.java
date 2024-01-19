@@ -33,15 +33,15 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
  * The authorisation type request from the TPP.
  */
 @ApiModel(description = "The authorisation type request from the TPP.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteDomesticConsent3DataAuthorisation {
     @JsonProperty("AuthorisationType")
     private OBExternalAuthorisation1Code authorisationType = null;

@@ -19,10 +19,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -32,7 +32,7 @@ import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDec
  * Provides details on the currency exchange rate and contract.
  */
 @ApiModel(description = "Provides details on the currency exchange rate and contract.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternational3DataInitiationExchangeRateInformation {
     @JsonProperty("UnitCurrency")
     private String unitCurrency;

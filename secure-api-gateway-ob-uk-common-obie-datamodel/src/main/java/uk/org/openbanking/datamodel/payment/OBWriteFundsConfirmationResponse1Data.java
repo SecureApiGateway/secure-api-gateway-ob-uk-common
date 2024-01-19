@@ -18,7 +18,7 @@ package uk.org.openbanking.datamodel.payment;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -26,7 +26,7 @@ import java.util.Objects;
 /**
  * OBWriteFundsConfirmationResponse1Data
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteFundsConfirmationResponse1Data {
     @JsonProperty("FundsAvailableResult")
     private OBWriteFundsConfirmationResponse1DataFundsAvailableResult fundsAvailableResult;

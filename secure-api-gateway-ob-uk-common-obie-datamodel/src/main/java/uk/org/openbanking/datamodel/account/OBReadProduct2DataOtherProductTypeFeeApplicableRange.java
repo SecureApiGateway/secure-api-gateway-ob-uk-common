@@ -19,14 +19,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.Pattern;
 import java.util.Objects;
 
 /**
  * Range or amounts or rates for which the fee/charge applies
  */
 @ApiModel(description = "Range or amounts or rates for which the fee/charge applies")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
 public class OBReadProduct2DataOtherProductTypeFeeApplicableRange {
     @JsonProperty("MinimumAmount")

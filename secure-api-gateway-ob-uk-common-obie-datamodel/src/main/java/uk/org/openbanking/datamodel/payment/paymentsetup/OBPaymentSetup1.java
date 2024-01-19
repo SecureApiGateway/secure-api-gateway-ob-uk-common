@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBRisk1;
 import uk.org.openbanking.datamodel.payment.OBPaymentDataSetup1;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.Objects;
 
 /**

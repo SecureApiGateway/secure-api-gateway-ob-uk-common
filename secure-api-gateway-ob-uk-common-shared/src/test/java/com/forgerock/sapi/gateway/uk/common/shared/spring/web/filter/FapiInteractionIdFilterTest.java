@@ -19,11 +19,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Optional;
 
-import javax.servlet.FilterChain;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.MDC;
@@ -34,6 +29,11 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.forgerock.sapi.gateway.uk.common.shared.api.meta.obie.OBHeaders;
 import com.forgerock.sapi.gateway.uk.common.shared.fapi.FapiInteractionIdContext;
+
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 class FapiInteractionIdFilterTest {
 

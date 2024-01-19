@@ -20,13 +20,13 @@ import io.swagger.annotations.ApiModelProperty;
 import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.common.OBPostalAddress6;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.Objects;
 
 /**
  * OBDomesticVRPInitiation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPInitiation {
     @JsonProperty("DebtorAccount")
     private OBCashAccountDebtorWithName debtorAccount;

@@ -35,15 +35,15 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
  * The multiple authorisation flow response from the ASPSP.
  */
 @ApiModel(description = "The multiple authorisation flow response from the ASPSP.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteDomesticResponse3DataMultiAuthorisation {
     @JsonProperty("Status")
     private StatusEnum status = null;

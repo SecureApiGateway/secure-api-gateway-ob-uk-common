@@ -32,15 +32,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
 
 /**
  * Unambiguous identification of the refund account to which a refund will be made as a result of the transaction.
  */
 @ApiModel(description = "Unambiguous identification of the refund account to which a refund will be made as a result of the transaction.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBWriteDomesticResponse4DataRefund {
     @JsonProperty("Account")
     private OBWriteDomesticResponse4DataRefundAccount account = null;

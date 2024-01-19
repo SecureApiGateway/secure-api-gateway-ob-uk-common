@@ -31,7 +31,7 @@ package uk.org.openbanking.datamodel.event;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -39,7 +39,7 @@ import java.util.Objects;
 /**
  * OBCallbackUrlsResponseData1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen")
 public class OBCallbackUrlsResponseData1 {
     @JsonProperty("CallbackUrl")
     private List<OBCallbackUrlResponseData1> callbackUrl = null;
