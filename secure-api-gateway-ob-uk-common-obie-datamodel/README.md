@@ -123,15 +123,6 @@ When a new version of OB API is released, the following steps should be performe
  9. If using Intellij, run format and optimise imports on newly generated files.
  10. Run build to ensure everything compiles and copyrights are generated for new source files.
  11. Commit and raise PR.
- 12. Update manage objects used to store the consent in IDM 
- If a new fields or changes on fields has been added in the new version, the managed objects
- defined to store the consent in IDM must be updated from:
-- https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-fidc-initializer
-- https://github.com/SecureApiGateway/fr-platform-config
-- To update the managed objects in an environment dev follow the below steps:
-  - Suspend the fidc-configurator cronjob `k patch cronjobs fidc-configurator -p '{"spec" : {"suspend" : true }}'`
-  - Delete manually, the managed objects that has been updated if you want to populate them to your dev environment, from the FR cloud platform UI `https://iam.yourenvironment.forgerock.financial/admin/#managed/`
-  - Build and run the https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-fidc-initializer (review the readme file)
 
 ## Contributing
 
