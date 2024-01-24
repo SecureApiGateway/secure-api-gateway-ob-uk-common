@@ -167,6 +167,13 @@
                                     <!-- Change the package here as per the chosen spec above -->
                                     <modelPackage>uk.org.openbanking.datamodel.payment</modelPackage>
                                     <generateApis>false</generateApis>
+                                    <importMappings>
+                                        Links=uk.org.openbanking.datamodel.common.Links,
+                                        Meta=uk.org.openbanking.datamodel.common.Meta,
+                                        OBRisk1=uk.org.openbanking.datamodel.common.OBRisk1,
+                                        OBError1=uk.org.openbanking.datamodel.error.OBError1,
+                                        OBErrorResponse1=uk.org.openbanking.datamodel.error.OBErrorResponse1
+                                    </importMappings>
                                     <configOptions>
                                         <useSpringBoot3>true</useSpringBoot3>
                                         <dateLibrary>joda</dateLibrary>
