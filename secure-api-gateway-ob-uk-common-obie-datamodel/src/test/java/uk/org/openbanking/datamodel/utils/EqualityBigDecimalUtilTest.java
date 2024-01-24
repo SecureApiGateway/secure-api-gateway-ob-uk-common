@@ -41,47 +41,14 @@ public class EqualityBigDecimalUtilTest {
                         new OBCurrencyExchange5().exchangeRate(new BigDecimal("56.01200"))
                 ),
                 Arguments.arguments(
-                        "OBLoanInterestFeesChargeDetail1",
-                        new OBLoanInterestFeesChargeDetail1().feeAmount(new BigDecimal("56.01200")).feeRate(new BigDecimal("5.200")),
-                        new OBLoanInterestFeesChargeDetail1().feeAmount(new BigDecimal("56.012")).feeRate(new BigDecimal("5.2"))
+                        "OBStatement2StatementFeeInner",
+                        new OBStatement2StatementFeeInner().rate(new BigDecimal("57.32000")),
+                        new OBStatement2StatementFeeInner().rate(new BigDecimal("57.32"))
                 ),
                 Arguments.arguments(
-                        "OBLoanInterestTierBand1",
-                        new OBLoanInterestTierBand1().loanProviderInterestRate(new BigDecimal("56.0120"))
-                                .tierValueMaximum(new BigDecimal("2.20"))
-                                .tierValueMaxTerm(new BigDecimal("5.2"))
-                                .tierValueMinimum(new BigDecimal("4.1300"))
-                                .tierValueMinTerm(new BigDecimal("7.30")),
-                        new OBLoanInterestTierBand1().loanProviderInterestRate(new BigDecimal("56.012000"))
-                                .tierValueMaximum(new BigDecimal("2.2"))
-                                .tierValueMaxTerm(new BigDecimal("5.200"))
-                                .tierValueMinimum(new BigDecimal("4.13"))
-                                .tierValueMinTerm(new BigDecimal("7.3000"))
-                ),
-                Arguments.arguments(
-                        "OBRepaymentFeeChargeDetail1",
-                        new OBRepaymentFeeChargeDetail1().feeAmount(new BigDecimal("56.012")).feeRate(new BigDecimal("5.20")),
-                        new OBRepaymentFeeChargeDetail1().feeAmount(new BigDecimal("56.01200")).feeRate(new BigDecimal("5.20000"))
-                ),
-                Arguments.arguments(
-                        "OBStatement2StatementFee",
-                        new OBStatement2StatementFee().rate(new BigDecimal("57.32000")),
-                        new OBStatement2StatementFee().rate(new BigDecimal("57.32"))
-                ),
-                Arguments.arguments(
-                        "OBStatement2StatementInterest",
-                        new OBStatement2StatementInterest().rate(new BigDecimal("5677.12000")),
-                        new OBStatement2StatementInterest().rate(new BigDecimal("5677.12"))
-                ),
-                Arguments.arguments(
-                        "OBStatementFee2",
-                        new OBStatementFee2().rate(new BigDecimal("567.2000")),
-                        new OBStatementFee2().rate(new BigDecimal("567.20"))
-                ),
-                Arguments.arguments(
-                        "OBStatementInterest2",
-                        new OBStatementInterest2().rate(new BigDecimal("88.28000")),
-                        new OBStatementInterest2().rate(new BigDecimal("88.280"))
+                        "OBStatement2StatementInterestInner",
+                        new OBStatement2StatementInterestInner().rate(new BigDecimal("567.12000")),
+                        new OBStatement2StatementInterestInner().rate(new BigDecimal("567.12"))
                 ),
                 Arguments.arguments(
                         "OBExchangeRate1",
@@ -160,47 +127,14 @@ public class EqualityBigDecimalUtilTest {
                         new OBCurrencyExchange5().exchangeRate(new BigDecimal("56.01200"))
                 ),
                 Arguments.arguments(
-                        "OBLoanInterestFeesChargeDetail1",
-                        new OBLoanInterestFeesChargeDetail1().feeAmount(new BigDecimal("56.0200")).feeRate(new BigDecimal("4.200")),
-                        new OBLoanInterestFeesChargeDetail1().feeAmount(new BigDecimal("56.012")).feeRate(new BigDecimal("5.2"))
+                        "OBStatement2StatementFeeInner",
+                        new OBStatement2StatementFeeInner().rate(new BigDecimal("5.012")),
+                        new OBStatement2StatementFeeInner().rate(new BigDecimal("56.01200"))
                 ),
                 Arguments.arguments(
-                        "OBLoanInterestTierBand1",
-                        new OBLoanInterestTierBand1().loanProviderInterestRate(new BigDecimal("6.0120"))
-                                .tierValueMaximum(new BigDecimal("3.20"))
-                                .tierValueMaxTerm(new BigDecimal("5.24"))
-                                .tierValueMinimum(new BigDecimal("4.300"))
-                                .tierValueMinTerm(new BigDecimal("7.330")),
-                        new OBLoanInterestTierBand1().loanProviderInterestRate(new BigDecimal("56.012000"))
-                                .tierValueMaximum(new BigDecimal("2.2"))
-                                .tierValueMaxTerm(new BigDecimal("5.200"))
-                                .tierValueMinimum(new BigDecimal("4.13"))
-                                .tierValueMinTerm(new BigDecimal("7.3000"))
-                ),
-                Arguments.arguments(
-                        "OBRepaymentFeeChargeDetail1",
-                        new OBRepaymentFeeChargeDetail1().feeAmount(new BigDecimal("46.012")).feeRate(new BigDecimal("1.20")),
-                        new OBRepaymentFeeChargeDetail1().feeAmount(new BigDecimal("56.01200")).feeRate(new BigDecimal("5.20000"))
-                ),
-                Arguments.arguments(
-                        "OBStatement2StatementFee",
-                        new OBStatement2StatementFee().rate(new BigDecimal("576.32000")),
-                        new OBStatement2StatementFee().rate(new BigDecimal("57.32"))
-                ),
-                Arguments.arguments(
-                        "OBStatement2StatementInterest",
-                        new OBStatement2StatementInterest().rate(new BigDecimal("567.12000")),
-                        new OBStatement2StatementInterest().rate(new BigDecimal("5677.12"))
-                ),
-                Arguments.arguments(
-                        "OBStatementFee2",
-                        new OBStatementFee2().rate(new BigDecimal("57.2000")),
-                        new OBStatementFee2().rate(new BigDecimal("567.20"))
-                ),
-                Arguments.arguments(
-                        "OBStatementInterest2",
-                        new OBStatementInterest2().rate(new BigDecimal("8.28000")),
-                        new OBStatementInterest2().rate(new BigDecimal("88.280"))
+                        "OBStatement2StatementInterestInner",
+                        new OBStatement2StatementInterestInner().rate(new BigDecimal("567.12000")),
+                        new OBStatement2StatementInterestInner().rate(new BigDecimal("56.01200"))
                 ),
                 Arguments.arguments(
                         "OBExchangeRate1",

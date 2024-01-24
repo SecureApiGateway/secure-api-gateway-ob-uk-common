@@ -18,49 +18,53 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import jakarta.annotation.Generated;
+
 /**
  * Period e.g. day, week, month etc. for which the fee/charge is capped
  */
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBPeriod1Code {
+  
+  PACT("PACT"),
+  
+  PDAY("PDAY"),
+  
+  PHYR("PHYR"),
+  
+  PMTH("PMTH"),
+  
+  PQTR("PQTR"),
+  
+  PWEK("PWEK"),
+  
+  PYER("PYER");
 
-    PACT("PACT"),
+  private String value;
 
-    PDAY("PDAY"),
+  OBPeriod1Code(String value) {
+    this.value = value;
+  }
 
-    PHYR("PHYR"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    PMTH("PMTH"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    PQTR("PQTR"),
-
-    PWEK("PWEK"),
-
-    PYER("PYER");
-
-    private String value;
-
-    OBPeriod1Code(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBPeriod1Code fromValue(String value) {
+    for (OBPeriod1Code b : OBPeriod1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBPeriod1Code fromValue(String value) {
-        for (OBPeriod1Code b : OBPeriod1Code.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

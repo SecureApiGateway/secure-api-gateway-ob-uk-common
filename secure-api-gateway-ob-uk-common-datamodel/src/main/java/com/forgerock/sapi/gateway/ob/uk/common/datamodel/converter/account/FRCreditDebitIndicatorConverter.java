@@ -16,15 +16,14 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditDebitIndicator;
-import uk.org.openbanking.datamodel.account.*;
+
+import uk.org.openbanking.datamodel.account.OBCreditDebitCode0;
+import uk.org.openbanking.datamodel.account.OBCreditDebitCode1;
+import uk.org.openbanking.datamodel.account.OBCreditDebitCode2;
 
 public class FRCreditDebitIndicatorConverter {
 
     // FR to OB
-    public static OBCreditDebitCode toOBCreditDebitCode(FRCreditDebitIndicator indicator) {
-        return indicator == null ? null : OBCreditDebitCode.valueOf(indicator.name());
-    }
-
     public static OBCreditDebitCode1 toOBCreditDebitCode1(FRCreditDebitIndicator indicator) {
         return indicator == null ? null : OBCreditDebitCode1.valueOf(indicator.name());
     }
@@ -33,16 +32,8 @@ public class FRCreditDebitIndicatorConverter {
         return indicator == null ? null : OBCreditDebitCode2.valueOf(indicator.name());
     }
 
-    public static OBTransaction5.CreditDebitIndicatorEnum toOBTransaction5CreditDebitIndicatorEnum(FRCreditDebitIndicator indicator) {
-        return indicator == null ? null : OBTransaction5.CreditDebitIndicatorEnum.valueOf(indicator.name());
-    }
-
-    public static OBStatementFee2.CreditDebitIndicatorEnum toOBStatementFee2CreditDebitIndicatorEnum(FRCreditDebitIndicator indicator) {
-        return indicator == null ? null : OBStatementFee2.CreditDebitIndicatorEnum.valueOf(indicator.name());
-    }
-
-    public static OBStatementInterest2.CreditDebitIndicatorEnum toOBStatementInterest2CreditDebitIndicatorEnum(FRCreditDebitIndicator indicator) {
-        return indicator == null ? null : OBStatementInterest2.CreditDebitIndicatorEnum.valueOf(indicator.name());
+    public static OBCreditDebitCode0 toOBStatementFee2CreditDebitIndicatorEnum(FRCreditDebitIndicator indicator) {
+        return indicator == null ? null : OBCreditDebitCode0.valueOf(indicator.name());
     }
 
     public static OBCreditDebitCode0 toOBCreditDebitCode0(FRCreditDebitIndicator indicator) {
@@ -50,27 +41,11 @@ public class FRCreditDebitIndicatorConverter {
     }
 
     // OB to FR
-    public static FRCreditDebitIndicator toFRCreditDebitIndicator(OBCreditDebitCode indicator) {
-        return indicator == null ? null : FRCreditDebitIndicator.valueOf(indicator.name());
-    }
-
     public static FRCreditDebitIndicator toFRCreditDebitIndicator(OBCreditDebitCode1 indicator) {
         return indicator == null ? null : FRCreditDebitIndicator.valueOf(indicator.name());
     }
 
     public static FRCreditDebitIndicator toFRCreditDebitIndicator(OBCreditDebitCode2 indicator) {
-        return indicator == null ? null : FRCreditDebitIndicator.valueOf(indicator.name());
-    }
-
-    public static FRCreditDebitIndicator toFRCreditDebitIndicator(OBStatementFee2.CreditDebitIndicatorEnum indicator) {
-        return indicator == null ? null : FRCreditDebitIndicator.valueOf(indicator.name());
-    }
-
-    public static FRCreditDebitIndicator toFRCreditDebitIndicator(OBStatementInterest2.CreditDebitIndicatorEnum indicator) {
-        return indicator == null ? null : FRCreditDebitIndicator.valueOf(indicator.name());
-    }
-
-    public static FRCreditDebitIndicator toFRCreditDebitIndicator(OBTransaction5.CreditDebitIndicatorEnum indicator) {
         return indicator == null ? null : FRCreditDebitIndicator.valueOf(indicator.name());
     }
 

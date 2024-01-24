@@ -15,49 +15,28 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountServicer;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
-import uk.org.openbanking.datamodel.account.*;
-import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification2;
-import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
-
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter.toOBPostalAddress6;
+
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountServicer;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
+
+import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification50;
+import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification60;
+import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification61;
+import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification62;
+import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
+import uk.org.openbanking.datamodel.payment.OBBranchAndFinancialInstitutionIdentification3;
 
 
 public class FRAccountServicerConverter {
 
     // FR to OB
-    public static OBBranchAndFinancialInstitutionIdentification2 toOBBranchAndFinancialInstitutionIdentification2(FRAccountServicer creditorAgent) {
-        return creditorAgent == null ? null : new OBBranchAndFinancialInstitutionIdentification2()
-                .schemeName(toOBExternalFinancialInstitutionIdentification2Code(creditorAgent.getSchemeName()))
-                .identification(creditorAgent.getIdentification());
-    }
-
-    public static OBBranchAndFinancialInstitutionIdentification2 toOBBranchAndFinancialInstitutionIdentification2(FRAccountIdentifier creditorAccount) {
-        return creditorAccount == null ? null : new OBBranchAndFinancialInstitutionIdentification2()
-                .schemeName(toOBExternalFinancialInstitutionIdentification2Code(creditorAccount.getSchemeName()))
-                .identification(creditorAccount.getIdentification());
-    }
-
     public static OBBranchAndFinancialInstitutionIdentification3 toOBBranchAndFinancialInstitutionIdentification3(FRFinancialAgent creditorAgent) {
         return creditorAgent == null ? null : new OBBranchAndFinancialInstitutionIdentification3()
                 .schemeName(creditorAgent.getSchemeName())
                 .identification(creditorAgent.getIdentification())
                 .name(creditorAgent.getName())
                 .postalAddress(toOBPostalAddress6(creditorAgent.getPostalAddress()));
-    }
-
-    public static OBBranchAndFinancialInstitutionIdentification4 toOBBranchAndFinancialInstitutionIdentification4(FRAccountServicer servicer) {
-        return servicer == null ? null : new OBBranchAndFinancialInstitutionIdentification4()
-                .schemeName(servicer.getSchemeName())
-                .identification(servicer.getIdentification());
-    }
-
-    public static OBBranchAndFinancialInstitutionIdentification5 toOBBranchAndFinancialInstitutionIdentification5(FRAccountServicer servicer) {
-        return servicer == null ? null : new OBBranchAndFinancialInstitutionIdentification5()
-                .schemeName(servicer.getSchemeName())
-                .identification(servicer.getIdentification());
     }
 
     public static OBBranchAndFinancialInstitutionIdentification50 toOBBranchAndFinancialInstitutionIdentification50(FRAccountServicer servicer) {
@@ -98,18 +77,7 @@ public class FRAccountServicerConverter {
                 .postalAddress(toOBPostalAddress6(creditorAgent.getPostalAddress()));
     }
 
-    public static OBExternalFinancialInstitutionIdentification2Code toOBExternalFinancialInstitutionIdentification2Code(String schemeName) {
-        return schemeName == null ? null : OBExternalFinancialInstitutionIdentification2Code.valueOf(schemeName);
-    }
-
     // OB to FR
-    public static FRAccountServicer toFRAccountServicer(OBBranchAndFinancialInstitutionIdentification5 servicer) {
-        return servicer == null ? null : FRAccountServicer.builder()
-                .schemeName(servicer.getSchemeName())
-                .identification(servicer.getIdentification())
-                .build();
-    }
-
     public static FRAccountServicer toFRAccountServicer(OBBranchAndFinancialInstitutionIdentification50 servicer) {
         return servicer == null ? null : FRAccountServicer.builder()
                 .schemeName(servicer.getSchemeName())

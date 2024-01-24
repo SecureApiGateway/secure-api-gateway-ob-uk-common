@@ -20,26 +20,11 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAcco
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRFinancialInstrumentConverter;
 import uk.org.openbanking.datamodel.account.OBExternalScheduleType1Code;
-import uk.org.openbanking.datamodel.account.OBScheduledPayment1;
-import uk.org.openbanking.datamodel.account.OBScheduledPayment2;
 import uk.org.openbanking.datamodel.account.OBScheduledPayment3;
 
 public class FRScheduledPaymentConverter {
 
     // OB to FR
-    public static FRScheduledPaymentData toFRScheduledPaymentData(OBScheduledPayment2 scheduledPayment) {
-        return scheduledPayment == null ? null : FRScheduledPaymentData.builder()
-                .accountId(scheduledPayment.getAccountId())
-                .scheduledPaymentId(scheduledPayment.getScheduledPaymentId())
-                .scheduledPaymentDateTime(scheduledPayment.getScheduledPaymentDateTime())
-                .scheduledType(toFRScheduleType(scheduledPayment.getScheduledType()))
-                .reference(scheduledPayment.getReference())
-                .instructedAmount(FRAmountConverter.toFRAmount(scheduledPayment.getInstructedAmount()))
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(scheduledPayment.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(scheduledPayment.getCreditorAccount()))
-                .build();
-    }
-
     public static FRScheduledPaymentData toFRScheduledPaymentData(OBScheduledPayment3 scheduledPayment) {
         return scheduledPayment == null ? null : FRScheduledPaymentData.builder()
                 .accountId(scheduledPayment.getAccountId())
@@ -59,30 +44,6 @@ public class FRScheduledPaymentConverter {
     }
 
     // FR to OB
-    public static OBScheduledPayment1 toOBScheduledPayment1(FRScheduledPaymentData scheduledPaymentData) {
-        return scheduledPaymentData == null ? null : new OBScheduledPayment1()
-                .accountId(scheduledPaymentData.getAccountId())
-                .scheduledPaymentId(scheduledPaymentData.getScheduledPaymentId())
-                .scheduledPaymentDateTime(scheduledPaymentData.getScheduledPaymentDateTime())
-                .scheduledType(toOBExternalScheduleType1Code(scheduledPaymentData.getScheduledType()))
-                .reference(scheduledPaymentData.getReference())
-                .instructedAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(scheduledPaymentData.getInstructedAmount()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification4(scheduledPaymentData.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(scheduledPaymentData.getCreditorAccount()));
-    }
-
-    public static OBScheduledPayment2 toOBScheduledPayment2(FRScheduledPaymentData scheduledPaymentData) {
-        return scheduledPaymentData == null ? null : new OBScheduledPayment2()
-                .accountId(scheduledPaymentData.getAccountId())
-                .scheduledPaymentId(scheduledPaymentData.getScheduledPaymentId())
-                .scheduledPaymentDateTime(scheduledPaymentData.getScheduledPaymentDateTime())
-                .scheduledType(toOBExternalScheduleType1Code(scheduledPaymentData.getScheduledType()))
-                .reference(scheduledPaymentData.getReference())
-                .instructedAmount(FRAmountConverter.toAccountOBActiveOrHistoricCurrencyAndAmount(scheduledPaymentData.getInstructedAmount()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification5(scheduledPaymentData.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount5(scheduledPaymentData.getCreditorAccount()));
-    }
-
     public static OBScheduledPayment3 toOBScheduledPayment3(FRScheduledPaymentData scheduledPaymentData) {
         return scheduledPaymentData == null ? null : new OBScheduledPayment3()
                 .accountId(scheduledPaymentData.getAccountId())
@@ -99,6 +60,5 @@ public class FRScheduledPaymentConverter {
     public static OBExternalScheduleType1Code toOBExternalScheduleType1Code(FRScheduledPaymentData.FRScheduleType scheduledType) {
         return scheduledType == null ? null : OBExternalScheduleType1Code.valueOf(scheduledType.name());
     }
-
 
 }

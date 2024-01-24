@@ -15,104 +15,115 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import jakarta.validation.constraints.NotNull;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Set of elements used to fully identify the type of underlying transaction resulting in an entry.
  */
-@ApiModel(description = "Set of elements used to fully identify the type of underlying transaction resulting in an entry.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
+@Schema(name = "OBBankTransactionCodeStructure1", description = "Set of elements used to fully identify the type of underlying transaction resulting in an entry.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBBankTransactionCodeStructure1 {
-    @JsonProperty("Code")
-    private String code;
 
-    @JsonProperty("SubCode")
-    private String subCode;
+  private String code;
 
-    public OBBankTransactionCodeStructure1 code(String code) {
-        this.code = code;
-        return this;
+  private String subCode;
+
+  public OBBankTransactionCodeStructure1() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBBankTransactionCodeStructure1(String code, String subCode) {
+    this.code = code;
+    this.subCode = subCode;
+  }
+
+  public OBBankTransactionCodeStructure1 code(String code) {
+    this.code = code;
+    return this;
+  }
+
+  /**
+   * Specifies the family within a domain.
+   * @return code
+  */
+  @NotNull 
+  @Schema(name = "Code", description = "Specifies the family within a domain.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Code")
+  public String getCode() {
+    return code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public OBBankTransactionCodeStructure1 subCode(String subCode) {
+    this.subCode = subCode;
+    return this;
+  }
+
+  /**
+   * Specifies the sub-product family within a specific family.
+   * @return subCode
+  */
+  @NotNull 
+  @Schema(name = "SubCode", description = "Specifies the sub-product family within a specific family.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("SubCode")
+  public String getSubCode() {
+    return subCode;
+  }
+
+  public void setSubCode(String subCode) {
+    this.subCode = subCode;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Specifies the family within a domain.
-     *
-     * @return code
-     */
-    @ApiModelProperty(required = true, value = "Specifies the family within a domain.")
-    @NotNull
-    public String getCode() {
-        return code;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBBankTransactionCodeStructure1 obBankTransactionCodeStructure1 = (OBBankTransactionCodeStructure1) o;
+    return Objects.equals(this.code, obBankTransactionCodeStructure1.code) &&
+        Objects.equals(this.subCode, obBankTransactionCodeStructure1.subCode);
+  }
 
-    public void setCode(String code) {
-        this.code = code;
+  @Override
+  public int hashCode() {
+    return Objects.hash(code, subCode);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBBankTransactionCodeStructure1 {\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    subCode: ").append(toIndentedString(subCode)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public OBBankTransactionCodeStructure1 subCode(String subCode) {
-        this.subCode = subCode;
-        return this;
-    }
-
-    /**
-     * Specifies the sub-product family within a specific family.
-     *
-     * @return subCode
-     */
-    @ApiModelProperty(required = true, value = "Specifies the sub-product family within a specific family.")
-    @NotNull
-    public String getSubCode() {
-        return subCode;
-    }
-
-    public void setSubCode(String subCode) {
-        this.subCode = subCode;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBBankTransactionCodeStructure1 obBankTransactionCodeStructure1 = (OBBankTransactionCodeStructure1) o;
-        return Objects.equals(this.code, obBankTransactionCodeStructure1.code) &&
-                Objects.equals(this.subCode, obBankTransactionCodeStructure1.subCode);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(code, subCode);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBBankTransactionCodeStructure1 {\n");
-
-        sb.append("    code: ").append(toIndentedString(code)).append("\n");
-        sb.append("    subCode: ").append(toIndentedString(subCode)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

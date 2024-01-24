@@ -25,7 +25,7 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRReadConsent;
 
 import uk.org.openbanking.datamodel.account.OBExternalPermissions1Code;
 import uk.org.openbanking.datamodel.account.OBReadConsent1;
-import uk.org.openbanking.datamodel.account.OBReadData1;
+import uk.org.openbanking.datamodel.account.OBReadConsent1Data;
 import uk.org.openbanking.datamodel.account.OBRisk2;
 
 class FRReadConsentConverterTest {
@@ -33,7 +33,7 @@ class FRReadConsentConverterTest {
     @Test
     void testConvert() {
         OBReadConsent1 consent1 = new OBReadConsent1().
-                data(new OBReadData1()
+                data(new OBReadConsent1Data()
                         .permissions(List.of(OBExternalPermissions1Code.READACCOUNTSBASIC,
                                              OBExternalPermissions1Code.READBALANCES))
                         .expirationDateTime(DateTime.now().plusDays(30))

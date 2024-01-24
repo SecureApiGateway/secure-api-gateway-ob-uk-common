@@ -18,51 +18,55 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import jakarta.annotation.Generated;
+
 /**
  * Specifies the sub type of account (product family group).
  */
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBExternalAccountSubType1Code {
+  
+  CHARGECARD("ChargeCard"),
+  
+  CREDITCARD("CreditCard"),
+  
+  CURRENTACCOUNT("CurrentAccount"),
+  
+  EMONEY("EMoney"),
+  
+  LOAN("Loan"),
+  
+  MORTGAGE("Mortgage"),
+  
+  PREPAIDCARD("PrePaidCard"),
+  
+  SAVINGS("Savings");
 
-    CHARGECARD("ChargeCard"),
+  private String value;
 
-    CREDITCARD("CreditCard"),
+  OBExternalAccountSubType1Code(String value) {
+    this.value = value;
+  }
 
-    CURRENTACCOUNT("CurrentAccount"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    EMONEY("EMoney"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    LOAN("Loan"),
-
-    MORTGAGE("Mortgage"),
-
-    PREPAIDCARD("PrePaidCard"),
-
-    SAVINGS("Savings");
-
-    private String value;
-
-    OBExternalAccountSubType1Code(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBExternalAccountSubType1Code fromValue(String value) {
+    for (OBExternalAccountSubType1Code b : OBExternalAccountSubType1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    @JsonValue
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBExternalAccountSubType1Code fromValue(String text) {
-        for (OBExternalAccountSubType1Code b : OBExternalAccountSubType1Code.values()) {
-            if (String.valueOf(b.value).equals(text)) {
-                return b;
-            }
-        }
-        return null;
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

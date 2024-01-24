@@ -18,57 +18,65 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import jakarta.annotation.Generated;
+
 /**
  * Balance type, in a coded form.
  */
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBBalanceType1Code {
+  
+  CLOSINGAVAILABLE("ClosingAvailable"),
+  
+  CLOSINGBOOKED("ClosingBooked"),
+  
+  CLOSINGCLEARED("ClosingCleared"),
+  
+  EXPECTED("Expected"),
+  
+  FORWARDAVAILABLE("ForwardAvailable"),
+  
+  INFORMATION("Information"),
+  
+  INTERIMAVAILABLE("InterimAvailable"),
+  
+  INTERIMBOOKED("InterimBooked"),
+  
+  INTERIMCLEARED("InterimCleared"),
+  
+  OPENINGAVAILABLE("OpeningAvailable"),
+  
+  OPENINGBOOKED("OpeningBooked"),
+  
+  OPENINGCLEARED("OpeningCleared"),
+  
+  PREVIOUSLYCLOSEDBOOKED("PreviouslyClosedBooked");
 
-    CLOSINGAVAILABLE("ClosingAvailable"),
+  private String value;
 
-    CLOSINGBOOKED("ClosingBooked"),
+  OBBalanceType1Code(String value) {
+    this.value = value;
+  }
 
-    CLOSINGCLEARED("ClosingCleared"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    EXPECTED("Expected"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    FORWARDAVAILABLE("ForwardAvailable"),
-
-    INFORMATION("Information"),
-
-    INTERIMAVAILABLE("InterimAvailable"),
-
-    INTERIMBOOKED("InterimBooked"),
-
-    INTERIMCLEARED("InterimCleared"),
-
-    OPENINGAVAILABLE("OpeningAvailable"),
-
-    OPENINGBOOKED("OpeningBooked"),
-
-    OPENINGCLEARED("OpeningCleared"),
-
-    PREVIOUSLYCLOSEDBOOKED("PreviouslyClosedBooked");
-
-    private String value;
-
-    OBBalanceType1Code(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBBalanceType1Code fromValue(String value) {
+    for (OBBalanceType1Code b : OBBalanceType1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @Override
-    @JsonValue
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBBalanceType1Code fromValue(String text) {
-        for (OBBalanceType1Code b : OBBalanceType1Code.values()) {
-            if (String.valueOf(b.value).equals(text)) {
-                return b;
-            }
-        }
-        return null;
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

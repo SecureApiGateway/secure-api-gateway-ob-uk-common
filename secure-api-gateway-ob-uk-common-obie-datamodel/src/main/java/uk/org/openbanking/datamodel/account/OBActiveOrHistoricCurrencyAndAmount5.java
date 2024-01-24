@@ -15,107 +15,118 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import java.util.Objects;
 
 /**
  * Amount of money associated with the statement benefit type.
  */
-@ApiModel(description = "Amount of money associated with the statement benefit type.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
+@Schema(name = "OBActiveOrHistoricCurrencyAndAmount_5", description = "Amount of money associated with the statement benefit type.")
+@JsonTypeName("OBActiveOrHistoricCurrencyAndAmount_5")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBActiveOrHistoricCurrencyAndAmount5 {
-    @JsonProperty("Amount")
-    private String amount;
 
-    @JsonProperty("Currency")
-    private String currency;
+  private String amount;
 
-    public OBActiveOrHistoricCurrencyAndAmount5 amount(String amount) {
-        this.amount = amount;
-        return this;
+  private String currency;
+
+  public OBActiveOrHistoricCurrencyAndAmount5() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBActiveOrHistoricCurrencyAndAmount5(String amount, String currency) {
+    this.amount = amount;
+    this.currency = currency;
+  }
+
+  public OBActiveOrHistoricCurrencyAndAmount5 amount(String amount) {
+    this.amount = amount;
+    return this;
+  }
+
+  /**
+   * A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.
+   * @return amount
+  */
+  @NotNull @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$") 
+  @Schema(name = "Amount", description = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Amount")
+  public String getAmount() {
+    return amount;
+  }
+
+  public void setAmount(String amount) {
+    this.amount = amount;
+  }
+
+  public OBActiveOrHistoricCurrencyAndAmount5 currency(String currency) {
+    this.currency = currency;
+    return this;
+  }
+
+  /**
+   * A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".
+   * @return currency
+  */
+  @NotNull @Pattern(regexp = "^[A-Z]{3,3}$") 
+  @Schema(name = "Currency", description = "A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Currency")
+  public String getCurrency() {
+    return currency;
+  }
+
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.
-     *
-     * @return amount
-     */
-    @ApiModelProperty(required = true, value = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.")
-    @NotNull
-    @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$")
-    public String getAmount() {
-        return amount;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBActiveOrHistoricCurrencyAndAmount5 obActiveOrHistoricCurrencyAndAmount5 = (OBActiveOrHistoricCurrencyAndAmount5) o;
+    return Objects.equals(this.amount, obActiveOrHistoricCurrencyAndAmount5.amount) &&
+        Objects.equals(this.currency, obActiveOrHistoricCurrencyAndAmount5.currency);
+  }
 
-    public void setAmount(String amount) {
-        this.amount = amount;
+  @Override
+  public int hashCode() {
+    return Objects.hash(amount, currency);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBActiveOrHistoricCurrencyAndAmount5 {\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public OBActiveOrHistoricCurrencyAndAmount5 currency(String currency) {
-        this.currency = currency;
-        return this;
-    }
-
-    /**
-     * A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".
-     *
-     * @return currency
-     */
-    @ApiModelProperty(required = true, value = "A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".")
-    @NotNull
-    @Pattern(regexp = "^[A-Z]{3,3}$")
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBActiveOrHistoricCurrencyAndAmount5 obActiveOrHistoricCurrencyAndAmount5 = (OBActiveOrHistoricCurrencyAndAmount5) o;
-        return Objects.equals(this.amount, obActiveOrHistoricCurrencyAndAmount5.amount) &&
-                Objects.equals(this.currency, obActiveOrHistoricCurrencyAndAmount5.currency);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(amount, currency);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBActiveOrHistoricCurrencyAndAmount5 {\n");
-
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

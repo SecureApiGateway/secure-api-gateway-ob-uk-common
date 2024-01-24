@@ -116,6 +116,22 @@ public class FRAmountConverter {
         return FRModelMapper.map(amount, FRAmount.class);
     }
 
+    public static FRAmount toFRAmount(OBReadOffer1DataOfferInnerAmount amount) {
+        return FRModelMapper.map(amount, FRAmount.class);
+    }
+
+    public static FRAmount toFRAmount(OBReadOffer1DataOfferInnerFee amount) {
+        return FRModelMapper.map(amount, FRAmount.class);
+    }
+
+    public static FRAmount toFRAmount(OBReadBalance1DataBalanceInnerAmount amount) {
+        return FRModelMapper.map(amount, FRAmount.class);
+    }
+
+    public static FRAmount toFRAmount(OBReadBalance1DataBalanceInnerCreditLineInnerAmount amount) {
+        return FRModelMapper.map(amount, FRAmount.class);
+    }
+
     // FR to OB
     public static OBActiveOrHistoricCurrencyAndAmount toOBActiveOrHistoricCurrencyAndAmount(FRAmount amount) {
         return FRModelMapper.map(amount, OBActiveOrHistoricCurrencyAndAmount.class);
@@ -213,19 +229,19 @@ public class FRAmountConverter {
         return FRModelMapper.map(amount, OBTransactionCashBalanceAmount.class);
     }
 
-    public static OBReadOffer1DataAmount toOBReadOffer1DataAmount(FRAmount amount) {
-        return FRModelMapper.map(amount, OBReadOffer1DataAmount.class);
+    public static OBReadOffer1DataOfferInnerAmount toOBReadOffer1DataAmount(FRAmount amount) {
+        return FRModelMapper.map(amount, OBReadOffer1DataOfferInnerAmount.class);
     }
 
-    public static OBReadOffer1DataFee toOBReadOffer1DataFee(FRAmount amount) {
-        return FRModelMapper.map(amount, OBReadOffer1DataFee.class);
+    public static OBReadOffer1DataOfferInnerFee toOBReadOffer1DataFee(FRAmount amount) {
+        return FRModelMapper.map(amount, OBReadOffer1DataOfferInnerFee.class);
     }
 
-    public static OBReadBalance1DataAmount toOBReadBalance1DataAmount(FRAmount amount) {
-        return FRModelMapper.map(amount, OBReadBalance1DataAmount.class);
+    public static OBReadBalance1DataBalanceInnerAmount toOBReadBalance1DataAmount(FRAmount amount) {
+        return FRModelMapper.map(amount, OBReadBalance1DataBalanceInnerAmount.class);
     }
 
-    public static OBReadBalance1DataAmount1 toOBReadBalance1DataAmount1(FRAmount amount) {
-        return FRModelMapper.map(amount, OBReadBalance1DataAmount1.class);
+    public static OBReadBalance1DataBalanceInnerCreditLineInnerAmount toOBReadBalance1DataAmount1(FRAmount amount) {
+        return FRModelMapper.map(amount, OBReadBalance1DataBalanceInnerCreditLineInnerAmount.class);
     }
 }

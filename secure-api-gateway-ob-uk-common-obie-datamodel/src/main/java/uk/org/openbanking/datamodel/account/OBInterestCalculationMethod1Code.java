@@ -18,41 +18,45 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import jakarta.annotation.Generated;
+
 /**
  * Methods of calculating interest
  */
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBInterestCalculationMethod1Code {
+  
+  ITCO("ITCO"),
+  
+  ITOT("ITOT"),
+  
+  ITSI("ITSI");
 
-    ITCO("ITCO"),
+  private String value;
 
-    ITOT("ITOT"),
+  OBInterestCalculationMethod1Code(String value) {
+    this.value = value;
+  }
 
-    ITSI("ITSI");
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    private String value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    OBInterestCalculationMethod1Code(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBInterestCalculationMethod1Code fromValue(String value) {
+    for (OBInterestCalculationMethod1Code b : OBInterestCalculationMethod1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBInterestCalculationMethod1Code fromValue(String value) {
-        for (OBInterestCalculationMethod1Code b : OBInterestCalculationMethod1Code.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

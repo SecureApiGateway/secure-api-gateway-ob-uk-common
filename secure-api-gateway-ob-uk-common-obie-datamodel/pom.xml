@@ -77,6 +77,10 @@
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+        </dependency>
         <!-- Bean Validation API support -->
         <dependency>
             <groupId>jakarta.validation</groupId>
@@ -164,6 +168,7 @@
                                     <modelPackage>uk.org.openbanking.datamodel.payment</modelPackage>
                                     <generateApis>false</generateApis>
                                     <configOptions>
+                                        <useSpringBoot3>true</useSpringBoot3>
                                         <dateLibrary>joda</dateLibrary>
                                         <openApiNullable>false</openApiNullable>
                                         <hideGenerationTimestamp>true</hideGenerationTimestamp>

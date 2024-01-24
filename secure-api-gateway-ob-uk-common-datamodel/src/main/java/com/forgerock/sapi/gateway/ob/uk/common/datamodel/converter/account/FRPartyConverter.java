@@ -15,24 +15,19 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 
+import java.net.URI;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRPartyData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter;
-import uk.org.openbanking.datamodel.account.*;
+
+import uk.org.openbanking.datamodel.account.OBExternalPartyType1Code;
+import uk.org.openbanking.datamodel.account.OBParty2;
+import uk.org.openbanking.datamodel.account.OBPartyRelationships1;
+import uk.org.openbanking.datamodel.account.OBPartyRelationships1Account;
 
 public class FRPartyConverter {
 
     // FR to OB
-    public static OBParty1 toOBParty1(FRPartyData party) {
-        return party == null ? null : new OBParty1()
-                .partyId(party.getPartyId())
-                .partyNumber(party.getPartyNumber())
-                .partyType(toOBExternalPartyType1Code(party.getPartyType()))
-                .name(party.getName())
-                .emailAddress(party.getEmailAddress())
-                .phone(party.getPhone())
-                .mobile(party.getMobile())
-                .address(FRPostalAddressConverter.toOBPostalAddress8List(party.getAddresses()));
-    }
 
     public static OBParty2 toOBParty2(FRPartyData party) {
         return party == null ? null : new OBParty2()
@@ -58,7 +53,7 @@ public class FRPartyConverter {
     public static OBPartyRelationships1 toOBPartyRelationships1(FRPartyData.FRRelationship relationship) {
         return relationship == null ? null : new OBPartyRelationships1()
                 .account(new OBPartyRelationships1Account()
-                        .related(relationship.getRelated())
+                        .related(relationship.getRelated() != null ? URI.create(relationship.getRelated()) : null)
                         .id(relationship.getId()));
     }
 
@@ -87,7 +82,7 @@ public class FRPartyConverter {
 
     public static FRPartyData.FRRelationship toFRRelationship(OBPartyRelationships1 relationship) {
         return relationship == null || relationship.getAccount() == null ? null : FRPartyData.FRRelationship.builder()
-                .related(relationship.getAccount().getRelated())
+                .related(relationship.getAccount().getRelated() != null ? relationship.getAccount().getRelated().toString() : null)
                 .id(relationship.getAccount().getId())
                 .build();
     }

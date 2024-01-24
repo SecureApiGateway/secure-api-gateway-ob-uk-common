@@ -15,54 +15,21 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountBeneficiary;
-import uk.org.openbanking.datamodel.account.*;
-
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account.FRAccountServicerConverter.*;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter.*;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account.FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification60;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter.toFRAccountIdentifier;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter.toOBCashAccount50;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRFinancialInstrumentConverter.toFRFinancialAgent;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter.toFRSupplementaryData;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter.toOBSupplementaryData1;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountBeneficiary;
+
+import uk.org.openbanking.datamodel.account.OBBeneficiary5;
+import uk.org.openbanking.datamodel.account.OBBeneficiaryType1Code;
+
 public class FRAccountBeneficiaryConverter {
 
     // FR to OB
-    public static OBBeneficiary1 toOBBeneficiary1(FRAccountBeneficiary beneficiary) {
-        return beneficiary == null ? null : new OBBeneficiary1()
-                .accountId(beneficiary.getAccountId())
-                .beneficiaryId(beneficiary.getBeneficiaryId())
-                .reference(beneficiary.getReference())
-                .servicer(toOBBranchAndFinancialInstitutionIdentification2(beneficiary.getCreditorAccount()))
-                .creditorAccount(toOBCashAccount1(beneficiary.getCreditorAccount()));
-    }
-
-    public static OBBeneficiary2 toOBBeneficiary2(FRAccountBeneficiary beneficiary) {
-        return beneficiary == null ? null : new OBBeneficiary2()
-                .accountId(beneficiary.getAccountId())
-                .beneficiaryId(beneficiary.getBeneficiaryId())
-                .reference(beneficiary.getReference())
-                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification3(beneficiary.getCreditorAgent()))
-                .creditorAccount(toOBCashAccount3(beneficiary.getCreditorAccount()));
-    }
-
-    public static OBBeneficiary3 toOBBeneficiary3(FRAccountBeneficiary beneficiary) {
-        return beneficiary == null ? null : new OBBeneficiary3()
-                .accountId(beneficiary.getAccountId())
-                .beneficiaryId(beneficiary.getBeneficiaryId())
-                .reference(beneficiary.getReference())
-                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification6(beneficiary.getCreditorAgent()))
-                .creditorAccount(toOBCashAccount5(beneficiary.getCreditorAccount()));
-    }
-
-    public static OBBeneficiary4 toOBBeneficiary4(FRAccountBeneficiary beneficiary) {
-        return beneficiary == null ? null : new OBBeneficiary4()
-                .accountId(beneficiary.getAccountId())
-                .beneficiaryId(beneficiary.getBeneficiaryId())
-                .reference(beneficiary.getReference())
-                .supplementaryData(toOBSupplementaryData1(beneficiary.getSupplementaryData()))
-                .creditorAgent(toOBBranchAndFinancialInstitutionIdentification60(beneficiary.getCreditorAgent()))
-                .creditorAccount(toOBCashAccount50(beneficiary.getCreditorAccount()));
-    }
 
     public static OBBeneficiary5 toOBBeneficiary5(FRAccountBeneficiary beneficiary) {
         return beneficiary == null ? null : new OBBeneficiary5()
@@ -80,15 +47,6 @@ public class FRAccountBeneficiaryConverter {
     }
 
     // OB to FR
-    public static FRAccountBeneficiary toFRAccountBeneficiary(OBBeneficiary3 beneficiary) {
-        return beneficiary == null ? null : FRAccountBeneficiary.builder()
-                .accountId(beneficiary.getAccountId())
-                .beneficiaryId(beneficiary.getBeneficiaryId())
-                .reference(beneficiary.getReference())
-                .creditorAgent(toFRFinancialAgent(beneficiary.getCreditorAgent()))
-                .creditorAccount(toFRAccountIdentifier(beneficiary.getCreditorAccount()))
-                .build();
-    }
 
     public static FRAccountBeneficiary toFRAccountBeneficiary(OBBeneficiary5 beneficiary) {
         return beneficiary == null ? null : FRAccountBeneficiary.builder()

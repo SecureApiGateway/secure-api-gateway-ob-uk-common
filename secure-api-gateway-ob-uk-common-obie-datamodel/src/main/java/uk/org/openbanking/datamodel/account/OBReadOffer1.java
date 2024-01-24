@@ -15,131 +15,140 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.Links;
-import uk.org.openbanking.datamodel.common.Meta;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.Links;
+import uk.org.openbanking.datamodel.common.Meta;
 
 /**
  * OBReadOffer1
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBReadOffer1 {
-    @JsonProperty("Data")
-    private OBReadOffer1Data data;
 
-    @JsonProperty("Links")
-    private Links links;
+  private OBReadOffer1Data data;
 
-    @JsonProperty("Meta")
-    private Meta meta;
+  private Links links;
 
-    public OBReadOffer1 data(OBReadOffer1Data data) {
-        this.data = data;
-        return this;
+  private Meta meta;
+
+  public OBReadOffer1() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBReadOffer1(OBReadOffer1Data data) {
+    this.data = data;
+  }
+
+  public OBReadOffer1 data(OBReadOffer1Data data) {
+    this.data = data;
+    return this;
+  }
+
+  /**
+   * Get data
+   * @return data
+  */
+  @NotNull @Valid 
+  @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Data")
+  public OBReadOffer1Data getData() {
+    return data;
+  }
+
+  public void setData(OBReadOffer1Data data) {
+    this.data = data;
+  }
+
+  public OBReadOffer1 links(Links links) {
+    this.links = links;
+    return this;
+  }
+
+  /**
+   * Get links
+   * @return links
+  */
+  @Valid 
+  @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("Links")
+  public Links getLinks() {
+    return links;
+  }
+
+  public void setLinks(Links links) {
+    this.links = links;
+  }
+
+  public OBReadOffer1 meta(Meta meta) {
+    this.meta = meta;
+    return this;
+  }
+
+  /**
+   * Get meta
+   * @return meta
+  */
+  @Valid 
+  @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("Meta")
+  public Meta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(Meta meta) {
+    this.meta = meta;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get data
-     *
-     * @return data
-     */
-    @ApiModelProperty(required = true, value = "")
-    @NotNull
-    @Valid
-    public OBReadOffer1Data getData() {
-        return data;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBReadOffer1 obReadOffer1 = (OBReadOffer1) o;
+    return Objects.equals(this.data, obReadOffer1.data) &&
+        Objects.equals(this.links, obReadOffer1.links) &&
+        Objects.equals(this.meta, obReadOffer1.meta);
+  }
 
-    public void setData(OBReadOffer1Data data) {
-        this.data = data;
+  @Override
+  public int hashCode() {
+    return Objects.hash(data, links, meta);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBReadOffer1 {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public OBReadOffer1 links(Links links) {
-        this.links = links;
-        return this;
-    }
-
-    /**
-     * Get links
-     *
-     * @return links
-     */
-    @ApiModelProperty(value = "")
-    @Valid
-    public Links getLinks() {
-        return links;
-    }
-
-    public void setLinks(Links links) {
-        this.links = links;
-    }
-
-    public OBReadOffer1 meta(Meta meta) {
-        this.meta = meta;
-        return this;
-    }
-
-    /**
-     * Get meta
-     *
-     * @return meta
-     */
-    @ApiModelProperty(value = "")
-    @Valid
-    public Meta getMeta() {
-        return meta;
-    }
-
-    public void setMeta(Meta meta) {
-        this.meta = meta;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBReadOffer1 obReadOffer1 = (OBReadOffer1) o;
-        return Objects.equals(this.data, obReadOffer1.data) &&
-                Objects.equals(this.links, obReadOffer1.links) &&
-                Objects.equals(this.meta, obReadOffer1.meta);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(data, links, meta);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBReadOffer1 {\n");
-
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("    links: ").append(toIndentedString(links)).append("\n");
-        sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

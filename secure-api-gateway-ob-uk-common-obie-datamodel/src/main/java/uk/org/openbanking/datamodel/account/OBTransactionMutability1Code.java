@@ -18,39 +18,43 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import jakarta.annotation.Generated;
+
 /**
  * Specifies the Mutability of the Transaction record.
  */
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBTransactionMutability1Code {
+  
+  MUTABLE("Mutable"),
+  
+  IMMUTABLE("Immutable");
 
-    MUTABLE("Mutable"),
+  private String value;
 
-    IMMUTABLE("Immutable");
+  OBTransactionMutability1Code(String value) {
+    this.value = value;
+  }
 
-    private String value;
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    OBTransactionMutability1Code(String value) {
-        this.value = value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  @JsonCreator
+  public static OBTransactionMutability1Code fromValue(String value) {
+    for (OBTransactionMutability1Code b : OBTransactionMutability1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBTransactionMutability1Code fromValue(String value) {
-        for (OBTransactionMutability1Code b : OBTransactionMutability1Code.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 
