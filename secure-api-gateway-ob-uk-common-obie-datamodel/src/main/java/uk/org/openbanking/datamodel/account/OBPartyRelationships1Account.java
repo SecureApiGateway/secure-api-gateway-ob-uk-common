@@ -15,110 +15,120 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.net.URI;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import java.util.Objects;
 
 /**
  * Relationship to the Account resource.
  */
-@ApiModel(description = "Relationship to the Account resource.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
+@Schema(name = "OBPartyRelationships1_Account", description = "Relationship to the Account resource.")
+@JsonTypeName("OBPartyRelationships1_Account")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBPartyRelationships1Account {
-    @JsonProperty("Related")
-    private String related;
 
-    @JsonProperty("Id")
-    private String id;
+  private URI related;
 
-    public OBPartyRelationships1Account related(String related) {
-        this.related = related;
-        return this;
+  private String id;
+
+  public OBPartyRelationships1Account() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBPartyRelationships1Account(URI related, String id) {
+    this.related = related;
+    this.id = id;
+  }
+
+  public OBPartyRelationships1Account related(URI related) {
+    this.related = related;
+    return this;
+  }
+
+  /**
+   * Absolute URI to the related resource.
+   * @return related
+  */
+  @NotNull @Valid 
+  @Schema(name = "Related", description = "Absolute URI to the related resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Related")
+  public URI getRelated() {
+    return related;
+  }
+
+  public void setRelated(URI related) {
+    this.related = related;
+  }
+
+  public OBPartyRelationships1Account id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Unique identification as assigned by the ASPSP to uniquely identify the related resource.
+   * @return id
+  */
+  @NotNull @Size(min = 1, max = 40) 
+  @Schema(name = "Id", description = "Unique identification as assigned by the ASPSP to uniquely identify the related resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Id")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Absolute URI to the related resource.
-     *
-     * @return related
-     */
-    @ApiModelProperty(required = true, value = "Absolute URI to the related resource.")
-    @NotNull
-    @Valid
-    public String getRelated() {
-        return related;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBPartyRelationships1Account obPartyRelationships1Account = (OBPartyRelationships1Account) o;
+    return Objects.equals(this.related, obPartyRelationships1Account.related) &&
+        Objects.equals(this.id, obPartyRelationships1Account.id);
+  }
 
-    public void setRelated(String related) {
-        this.related = related;
+  @Override
+  public int hashCode() {
+    return Objects.hash(related, id);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBPartyRelationships1Account {\n");
+    sb.append("    related: ").append(toIndentedString(related)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public OBPartyRelationships1Account id(String id) {
-        this.id = id;
-        return this;
-    }
-
-    /**
-     * Unique identification as assigned by the ASPSP to uniquely identify the related resource.
-     *
-     * @return id
-     */
-    @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the related resource.")
-    @NotNull
-
-    @Size(min = 1, max = 40)
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBPartyRelationships1Account obPartyRelationships1Account = (OBPartyRelationships1Account) o;
-        return Objects.equals(this.related, obPartyRelationships1Account.related) &&
-                Objects.equals(this.id, obPartyRelationships1Account.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(related, id);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBPartyRelationships1Account {\n");
-
-        sb.append("    related: ").append(toIndentedString(related)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

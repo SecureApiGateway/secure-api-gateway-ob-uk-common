@@ -17,31 +17,16 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FROfferData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter;
-import uk.org.openbanking.datamodel.account.OBExternalOfferType1Code;
-import uk.org.openbanking.datamodel.account.OBOffer1;
-import uk.org.openbanking.datamodel.account.OBReadOffer1DataOffer;
+
+import uk.org.openbanking.datamodel.account.OBReadOffer1DataOfferInner;
+import uk.org.openbanking.datamodel.account.OBReadOffer1DataOfferInner.OfferTypeEnum;
 
 public class FROfferConverter {
 
     // FR to OB
-    public static OBOffer1 toOBOffer1(FROfferData offerData) {
-        return offerData == null ? null : new OBOffer1()
-                .accountId(offerData.getAccountId())
-                .offerId(offerData.getOfferId())
-                .offerType(toOBExternalOfferType1Code(offerData.getOfferType()))
-                .description(offerData.getDescription())
-                .startDateTime(offerData.getStartDateTime())
-                .endDateTime(offerData.getEndDateTime())
-                .rate(offerData.getRate())
-                .value(offerData.getValue())
-                .term(offerData.getTerm())
-                .URL(offerData.getURL())
-                .amount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(offerData.getAmount()))
-                .fee(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(offerData.getFee()));
-    }
 
-    public static OBReadOffer1DataOffer toOBReadOffer1DataOffer(FROfferData offerData) {
-        return offerData == null ? null : new OBReadOffer1DataOffer()
+    public static OBReadOffer1DataOfferInner toOBReadOffer1DataOffer(FROfferData offerData) {
+        return offerData == null ? null : new OBReadOffer1DataOfferInner()
                 .accountId(offerData.getAccountId())
                 .offerId(offerData.getOfferId())
                 .offerType(toOBReadOffer1DataOfferType(offerData.getOfferType()))
@@ -56,16 +41,12 @@ public class FROfferConverter {
                 .fee(FRAmountConverter.toOBReadOffer1DataFee(offerData.getFee()));
     }
 
-    public static OBExternalOfferType1Code toOBExternalOfferType1Code(FROfferData.FROfferType offerType) {
-        return offerType == null ? null : OBExternalOfferType1Code.valueOf(offerType.name());
-    }
-
-    public static OBReadOffer1DataOffer.OfferTypeEnum toOBReadOffer1DataOfferType(FROfferData.FROfferType offerType) {
-        return offerType == null ? null : OBReadOffer1DataOffer.OfferTypeEnum.valueOf(offerType.name());
+    public static OfferTypeEnum toOBReadOffer1DataOfferType(FROfferData.FROfferType offerType) {
+        return offerType == null ? null : OfferTypeEnum.valueOf(offerType.name());
     }
 
     // OB to FR
-    public static FROfferData toFROfferData(OBOffer1 obOffer) {
+    public static FROfferData toFROfferData(OBReadOffer1DataOfferInner obOffer) {
         return obOffer == null ? null : FROfferData.builder()
                 .accountId(obOffer.getAccountId())
                 .offerId(obOffer.getOfferId())
@@ -82,7 +63,7 @@ public class FROfferConverter {
                 .build();
     }
 
-    public static FROfferData.FROfferType toFROfferType(OBExternalOfferType1Code offerType) {
+    public static FROfferData.FROfferType toFROfferType(OfferTypeEnum offerType) {
         return offerType == null ? null : FROfferData.FROfferType.valueOf(offerType.name());
     }
 }

@@ -15,53 +15,24 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRFinancialAccount;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter;
-import uk.org.openbanking.datamodel.account.*;
-import uk.org.openbanking.datamodel.common.OBCashAccount3;
-
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRFinancialAccount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter;
+
+import uk.org.openbanking.datamodel.account.OBAccount6;
+import uk.org.openbanking.datamodel.account.OBAccount6AccountInner;
+import uk.org.openbanking.datamodel.account.OBAccountStatus1Code;
+import uk.org.openbanking.datamodel.account.OBExternalAccountSubType1Code;
+import uk.org.openbanking.datamodel.account.OBExternalAccountType1Code;
+import uk.org.openbanking.datamodel.common.OBCashAccount3;
+
 public class FRFinancialAccountConverter {
 
     // FR to OB
-    public static OBAccount1 toOBAccount1(FRFinancialAccount account) {
-        return account == null ? null : new OBAccount1()
-                .accountId(account.getAccountId())
-                .currency(account.getCurrency())
-                .nickname(account.getNickname())
-                .account(FRAccountIdentifierConverter.toOBCashAccount1(account.getAccounts().get(0)))
-                .servicer(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification2(account.getServicer()));
-    }
-
-    public static OBAccount2 toOBAccount2(FRFinancialAccount account) {
-        return account == null ? null : new OBAccount2()
-                .accountId(account.getAccountId())
-                .currency(account.getCurrency())
-                .accountType(toOBExternalAccountType1Code(account.getAccountType()))
-                .accountSubType(toOBExternalAccountSubType1Code(account.getAccountSubType()))
-                .description(account.getDescription())
-                .nickname(account.getNickname())
-                .account(toOBCashAccount3List(account.getAccounts()))
-                .servicer(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification4(account.getServicer()));
-
-    }
-
-    public static OBAccount3 toOBAccount3(FRFinancialAccount account) {
-        return account == null ? null : new OBAccount3()
-                .accountId(account.getAccountId())
-                .currency(account.getCurrency())
-                .accountType(toOBExternalAccountType1Code(account.getAccountType()))
-                .accountSubType(toOBExternalAccountSubType1Code(account.getAccountSubType()))
-                .description(account.getDescription())
-                .nickname(account.getNickname())
-                .account(toOBCashAccount5List(account.getAccounts()))
-                .servicer(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification5(account.getServicer()));
-    }
-
     public static OBAccount6 toOBAccount6(FRFinancialAccount account) {
         return account == null ? null : new OBAccount6()
                 .accountId(account.getAccountId())
@@ -96,43 +67,13 @@ public class FRFinancialAccountConverter {
                 .collect(Collectors.toList());
     }
 
-    public static List<OBAccount4Account> toOBAccount4AccountList(List<FRAccountIdentifier> accounts) {
-        return accounts == null ? null : accounts.stream()
-                .map(FRAccountIdentifierConverter::toOBAccount4Account)
-                .collect(Collectors.toList());
-    }
-
-    private static List<OBAccount6Account> toOBAccount6AccountList(List<FRAccountIdentifier> accounts) {
+    private static List<OBAccount6AccountInner> toOBAccount6AccountList(List<FRAccountIdentifier> accounts) {
         return accounts == null ? null : accounts.stream()
                 .map(FRAccountIdentifierConverter::toOBAccount6Account)
                 .collect(Collectors.toList());
     }
 
-    public static List<OBCashAccount5> toOBCashAccount5List(List<FRAccountIdentifier> accounts) {
-        return accounts == null ? null : accounts.stream()
-                .map(FRAccountIdentifierConverter::toOBCashAccount5)
-                .collect(Collectors.toList());
-    }
-
-    public static List<OBAccount3Account> toOBAccount3AccountList(List<FRAccountIdentifier> accounts) {
-        return accounts == null ? null : accounts.stream()
-                .map(FRAccountIdentifierConverter::toOBAccount3Account)
-                .collect(Collectors.toList());
-    }
-
     // OB to FR
-    public static FRFinancialAccount toFRFinancialAccount(OBAccount3 account) {
-        return account == null ? null : FRFinancialAccount.builder()
-                .accountId(account.getAccountId())
-                .currency(account.getCurrency())
-                .accountType(toFRAccountTypeCode(account.getAccountType()))
-                .accountSubType(toFRAccountSubTypeCode(account.getAccountSubType()))
-                .description(account.getDescription())
-                .nickname(account.getNickname())
-                .accounts(toFRAccountIdentifierList(account.getAccount(), FRAccountIdentifierConverter::toFRAccountIdentifier))
-                .servicer(FRAccountServicerConverter.toFRAccountServicer(account.getServicer()))
-                .build();
-    }
 
     public static FRFinancialAccount toFRFinancialAccount(OBAccount6 account) {
         return account == null ? null : FRFinancialAccount.builder()

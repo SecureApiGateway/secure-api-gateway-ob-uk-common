@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRExternalRequestStatusCode;
+
 import uk.org.openbanking.datamodel.common.OBExternalRequestStatus1Code;
 
 public class FRExternalRequestStatusCodeConverter {

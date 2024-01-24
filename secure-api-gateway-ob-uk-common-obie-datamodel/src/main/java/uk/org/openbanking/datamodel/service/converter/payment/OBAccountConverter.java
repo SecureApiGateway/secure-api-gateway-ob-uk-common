@@ -15,7 +15,6 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.account.OBCashAccount5;
 import uk.org.openbanking.datamodel.common.OBCashAccount3;
 import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.payment.*;
@@ -51,10 +50,6 @@ public class OBAccountConverter {
 
     public static OBCashAccount3 toOBCashAccount3(OBCashAccountCreditor3 creditorAccount) {
         return toAccount(new OBCashAccount3(), creditorAccount);
-    }
-
-    public static OBCashAccount5 toOBCashAccount5(OBWriteInternationalStandingOrder4DataInitiationCreditorAccount creditorAccount) {
-        return toAccount(new OBCashAccount5(), creditorAccount);
     }
 
     public static OBWriteDomestic2DataInitiationDebtorAccount toOBWriteDomestic2DataInitiationDebtorAccount(OBCashAccount3 debtorAccount) {

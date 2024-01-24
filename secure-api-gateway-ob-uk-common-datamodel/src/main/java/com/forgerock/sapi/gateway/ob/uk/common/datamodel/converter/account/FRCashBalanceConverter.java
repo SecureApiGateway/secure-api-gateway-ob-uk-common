@@ -15,36 +15,32 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account.FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter.toFRAmount;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter.toOBReadBalance1DataAmount;
+import static java.util.stream.Collectors.toList;
+
+import java.util.List;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRBalanceType;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCashBalance;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditLine;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter;
-import uk.org.openbanking.datamodel.account.*;
 
-import java.util.List;
-
-import static java.util.stream.Collectors.toList;
+import uk.org.openbanking.datamodel.account.OBBalanceType1Code;
+import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInner;
+import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInnerCreditLineInner;
 
 public class FRCashBalanceConverter {
 
     // FR to OB
-    public static OBCashBalance1 toOBCashBalance1(FRCashBalance balance) {
-        return balance == null ? null : new OBCashBalance1()
-                .accountId(balance.getAccountId())
-                .creditDebitIndicator(FRCreditDebitIndicatorConverter.toOBCreditDebitCode(balance.getCreditDebitIndicator()))
-                .type(toOBBalanceType1Code(balance.getType()))
-                .dateTime(balance.getDateTime())
-                .amount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(balance.getAmount()))
-                .creditLine(toCreditLineList(balance.getCreditLines()));
-    }
-
-    public static OBReadBalance1DataBalance toOBReadBalance1DataBalance(FRCashBalance balance) {
-        return balance == null ? null : new OBReadBalance1DataBalance()
+    public static OBReadBalance1DataBalanceInner toOBReadBalance1DataBalance(FRCashBalance balance) {
+        return balance == null ? null : new OBReadBalance1DataBalanceInner()
                 .accountId(balance.getAccountId())
                 .creditDebitIndicator(FRCreditDebitIndicatorConverter.toOBCreditDebitCode2(balance.getCreditDebitIndicator()))
                 .type(toOBBalanceType1Code(balance.getType()))
                 .dateTime(balance.getDateTime())
-                .amount(FRAmountConverter.toOBReadBalance1DataAmount(balance.getAmount()))
+                .amount(toOBReadBalance1DataAmount(balance.getAmount()))
                 .creditLine(toOBReadBalance1DataCreditLineList(balance.getCreditLines()));
     }
 
@@ -52,71 +48,55 @@ public class FRCashBalanceConverter {
         return type == null ? null : OBBalanceType1Code.valueOf(type.name());
     }
 
-    public static List<OBCreditLine1> toCreditLineList(List<FRCreditLine> creditLines) {
-        return creditLines == null ? null : creditLines.stream()
-                .map(c -> toOBCreditLine1(c))
-                .collect(toList());
-    }
-
-    public static List<OBReadBalance1DataCreditLine> toOBReadBalance1DataCreditLineList(List<FRCreditLine> creditLines) {
+    public static List<OBReadBalance1DataBalanceInnerCreditLineInner> toOBReadBalance1DataCreditLineList(List<FRCreditLine> creditLines) {
         return creditLines == null ? null : creditLines.stream()
                 .map(c -> toOBReadBalance1DataCreditLine(c))
                 .collect(toList());
     }
 
-    public static OBCreditLine1 toOBCreditLine1(FRCreditLine creditLine) {
-        return creditLine == null ? null : new OBCreditLine1()
-                .included(creditLine.getIncluded())
-                .type(toOBExternalLimitType1Code(creditLine.getType()))
-                .amount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(creditLine.getAmount()));
-    }
-
-    public static OBReadBalance1DataCreditLine toOBReadBalance1DataCreditLine(FRCreditLine creditLine) {
-        return creditLine == null ? null : new OBReadBalance1DataCreditLine()
+    public static OBReadBalance1DataBalanceInnerCreditLineInner toOBReadBalance1DataCreditLine(FRCreditLine creditLine) {
+        return creditLine == null ? null : new OBReadBalance1DataBalanceInnerCreditLineInner()
                 .included(creditLine.getIncluded())
                 .type(toOBReadBalance1DataCreditLineType(creditLine.getType()))
                 .amount(FRAmountConverter.toOBReadBalance1DataAmount1(creditLine.getAmount()));
     }
 
-    public static OBExternalLimitType1Code toOBExternalLimitType1Code(FRCreditLine.FRLimitType type) {
-        return type == null ? null : OBExternalLimitType1Code.valueOf(type.name());
-    }
-
-    public static OBReadBalance1DataCreditLine.TypeEnum toOBReadBalance1DataCreditLineType(FRCreditLine.FRLimitType type) {
-        return type == null ? null : OBReadBalance1DataCreditLine.TypeEnum.valueOf(type.name());
+    public static OBReadBalance1DataBalanceInnerCreditLineInner.TypeEnum toOBReadBalance1DataCreditLineType(FRCreditLine.FRLimitType type) {
+        return type == null ? null : OBReadBalance1DataBalanceInnerCreditLineInner.TypeEnum.valueOf(type.name());
     }
 
     // OB to FR
-    public static FRCashBalance toFRCashBalance(OBCashBalance1 balance) {
-        return balance == null ? null : FRCashBalance.builder()
-                .accountId(balance.getAccountId())
-                .creditDebitIndicator(FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator(balance.getCreditDebitIndicator()))
-                .type(toFRBalanceType(balance.getType()))
-                .dateTime(balance.getDateTime())
-                .amount(FRAmountConverter.toFRAmount(balance.getAmount()))
-                .creditLines(toFRCreditLineList(balance.getCreditLine()))
-                .build();
-    }
-
     public static FRBalanceType toFRBalanceType(OBBalanceType1Code type) {
         return type == null ? null : FRBalanceType.valueOf(type.name());
     }
 
-    public static List<FRCreditLine> toFRCreditLineList(List<OBCreditLine1> creditLines) {
+    public static FRCashBalance toFRCashBalance(OBReadBalance1DataBalanceInner balance) {
+        return balance == null ? null : FRCashBalance.builder()
+                .creditDebitIndicator(toFRCreditDebitIndicator(balance.getCreditDebitIndicator()))
+                .accountId(balance.getAccountId())
+                .amount(toFRAmount(balance.getAmount()))
+                .dateTime(balance.getDateTime())
+                .creditLines(toFRCreditLines(balance.getCreditLine()))
+                .type(toFRBalanceType(balance.getType()))
+                .build();
+    }
+
+
+    public static List<FRCreditLine> toFRCreditLines(List<OBReadBalance1DataBalanceInnerCreditLineInner> creditLines) {
         return creditLines == null ? null : creditLines.stream()
                 .map(c -> toFRCreditLine(c))
                 .collect(toList());
     }
 
-    public static FRCreditLine toFRCreditLine(OBCreditLine1 creditLine) {
+    public static FRCreditLine toFRCreditLine(OBReadBalance1DataBalanceInnerCreditLineInner creditLine) {
         return creditLine == null ? null : FRCreditLine.builder()
-                .included(creditLine.isIncluded())
+                .included(creditLine.getIncluded())
                 .type(toFRLimitType(creditLine.getType()))
-                .amount(FRAmountConverter.toFRAmount(creditLine.getAmount()))
+                .amount(toFRAmount(creditLine.getAmount()))
                 .build();
     }
 
-    public static FRCreditLine.FRLimitType toFRLimitType(OBExternalLimitType1Code type) {
+    public static FRCreditLine.FRLimitType toFRLimitType(OBReadBalance1DataBalanceInnerCreditLineInner.TypeEnum type) {
         return type == null ? null : FRCreditLine.FRLimitType.valueOf(type.name());
     }
 }

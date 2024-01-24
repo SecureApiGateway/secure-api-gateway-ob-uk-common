@@ -18,45 +18,49 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import jakarta.annotation.Generated;
+
 /**
  * Statement type, in a coded form.
  */
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBExternalStatementType1Code {
+  
+  ACCOUNTCLOSURE("AccountClosure"),
+  
+  ACCOUNTOPENING("AccountOpening"),
+  
+  ANNUAL("Annual"),
+  
+  INTERIM("Interim"),
+  
+  REGULARPERIODIC("RegularPeriodic");
 
-    ACCOUNTCLOSURE("AccountClosure"),
+  private String value;
 
-    ACCOUNTOPENING("AccountOpening"),
+  OBExternalStatementType1Code(String value) {
+    this.value = value;
+  }
 
-    ANNUAL("Annual"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    INTERIM("Interim"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    REGULARPERIODIC("RegularPeriodic");
-
-    private String value;
-
-    OBExternalStatementType1Code(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBExternalStatementType1Code fromValue(String value) {
+    for (OBExternalStatementType1Code b : OBExternalStatementType1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    @JsonValue
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBExternalStatementType1Code fromValue(String text) {
-        for (OBExternalStatementType1Code b : OBExternalStatementType1Code.values()) {
-            if (String.valueOf(b.value).equals(text)) {
-                return b;
-            }
-        }
-        return null;
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

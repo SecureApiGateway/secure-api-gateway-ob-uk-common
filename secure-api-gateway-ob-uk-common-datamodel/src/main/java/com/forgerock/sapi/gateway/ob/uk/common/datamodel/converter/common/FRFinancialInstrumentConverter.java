@@ -19,7 +19,6 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialCreditor;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account.FRAccountServicerConverter;
 import uk.org.openbanking.datamodel.account.*;
-import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification2;
 import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
 import uk.org.openbanking.datamodel.payment.OBBranchAndFinancialInstitutionIdentification3;
 import uk.org.openbanking.datamodel.payment.*;
@@ -54,13 +53,6 @@ public class FRFinancialInstrumentConverter {
                 .identification(agent.getIdentification())
                 .name(agent.getName())
                 .postalAddress(FRPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
-                .build();
-    }
-
-    public static FRFinancialAgent toFRFinancialAgent(OBBranchAndFinancialInstitutionIdentification5 agent) {
-        return agent == null ? null : FRFinancialAgent.builder()
-                .schemeName(agent.getSchemeName())
-                .identification(agent.getIdentification())
                 .build();
     }
 
@@ -154,30 +146,12 @@ public class FRFinancialInstrumentConverter {
                 .postalAddress(FRPostalAddressConverter.toOBPostalAddress6(agent.getPostalAddress()));
     }
 
-    public static OBBranchAndFinancialInstitutionIdentification2 toOBBranchAndFinancialInstitutionIdentification2(FRFinancialAgent agent) {
-        return agent == null ? null : new OBBranchAndFinancialInstitutionIdentification2()
-                .schemeName(FRAccountServicerConverter.toOBExternalFinancialInstitutionIdentification2Code(agent.getSchemeName()))
-                .identification(agent.getIdentification());
-    }
-
     public static OBBranchAndFinancialInstitutionIdentification3 toOBBranchAndFinancialInstitutionIdentification3(FRFinancialAgent agent) {
         return agent == null ? null : new OBBranchAndFinancialInstitutionIdentification3()
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
                 .postalAddress(FRPostalAddressConverter.toOBPostalAddress6(agent.getPostalAddress()));
-    }
-
-    public static OBBranchAndFinancialInstitutionIdentification4 toOBBranchAndFinancialInstitutionIdentification4(FRFinancialAgent agent) {
-        return agent == null ? null : new OBBranchAndFinancialInstitutionIdentification4()
-                .schemeName(agent.getSchemeName())
-                .identification(agent.getIdentification());
-    }
-
-    public static OBBranchAndFinancialInstitutionIdentification5 toOBBranchAndFinancialInstitutionIdentification5(FRFinancialAgent agent) {
-        return agent == null ? null : new OBBranchAndFinancialInstitutionIdentification5()
-                .schemeName(agent.getSchemeName())
-                .identification(agent.getIdentification());
     }
 
     public static OBBranchAndFinancialInstitutionIdentification51 toOBBranchAndFinancialInstitutionIdentification51(FRFinancialAgent agent) {

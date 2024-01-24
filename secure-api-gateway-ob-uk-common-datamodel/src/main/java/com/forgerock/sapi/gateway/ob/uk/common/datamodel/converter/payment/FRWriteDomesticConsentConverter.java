@@ -21,7 +21,6 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomestic
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticDataInitiation;
 import uk.org.openbanking.datamodel.payment.*;
-import uk.org.openbanking.datamodel.payment.paymentsetup.OBPaymentSetup1;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
 
@@ -128,34 +127,6 @@ public class FRWriteDomesticConsentConverter {
                 .build();
     }
 
-    public static FRWriteDomesticConsent toFRWriteDomesticConsent(OBPaymentSetup1 obPaymentSetup1) {
-        return obPaymentSetup1 == null ? null : FRWriteDomesticConsent.builder()
-                .data(toFRWriteDomesticConsentData(obPaymentSetup1.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(obPaymentSetup1.getRisk()))
-                .build();
-    }
-
-    public static FRWriteDomesticConsentData toFRWriteDomesticConsentData(OBPaymentDataSetup1 data) {
-        return data == null ? null : FRWriteDomesticConsentData.builder()
-                .initiation(toFRWriteDomesticDataInitiation(data.getInitiation()))
-                .build();
-    }
-
-    public static FRWriteDomesticDataInitiation toFRWriteDomesticDataInitiation(OBInitiation1 initiation) {
-        return initiation == null ? null : FRWriteDomesticDataInitiation.builder()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(null)
-                .instructedAmount(FRAmountConverter.toFRAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getCreditorAccount()))
-                .creditorPostalAddress(null)
-                .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(null)
-                .build();
-    }
-
-
     // FR to OB
     public static OBWriteDomestic2DataInitiation toOBWriteDomestic2DataInitiation(FRWriteDomesticDataInitiation initiation) {
         return initiation == null ? null : new OBWriteDomestic2DataInitiation()
@@ -168,18 +139,6 @@ public class FRWriteDomesticConsentConverter {
                 .creditorPostalAddress(FRPostalAddressConverter.toOBPostalAddress6(initiation.getCreditorPostalAddress()))
                 .remittanceInformation(FRRemittanceInformationConverter.toOBWriteDomestic2DataInitiationRemittanceInformation(initiation.getRemittanceInformation()))
                 .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
-    }
-
-    public static OBInitiation1 toOBInitiation1(FRWriteDomesticDataInitiation initiation) {
-        return initiation == null ? null : new OBInitiation1()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .instructedAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getInstructedAmount()))
-                //.debtorAgent(initiation.getDebtorAgent()) // this field isn't available in v3.x, so isn't stored in the repository
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccountDebtor1(initiation.getDebtorAccount()))
-                //.creditorAgent(initiation.getCreditorAgent()) // this field isn't available in v3.x, so isn't stored in the repository
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccountCreditor1(initiation.getCreditorAccount()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation1(initiation.getRemittanceInformation()));
     }
 
     public static OBDomestic1 toOBDomestic1(FRWriteDomesticDataInitiation initiation) {

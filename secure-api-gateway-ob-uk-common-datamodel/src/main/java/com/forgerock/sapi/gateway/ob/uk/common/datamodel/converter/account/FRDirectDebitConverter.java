@@ -17,9 +17,9 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRDirectDebitData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter;
-import uk.org.openbanking.datamodel.account.OBDirectDebit1;
+
 import uk.org.openbanking.datamodel.account.OBExternalDirectDebitStatus1Code;
-import uk.org.openbanking.datamodel.account.OBReadDirectDebit2DataDirectDebit;
+import uk.org.openbanking.datamodel.account.OBReadDirectDebit2DataDirectDebitInner;
 
 
 /**
@@ -28,19 +28,9 @@ import uk.org.openbanking.datamodel.account.OBReadDirectDebit2DataDirectDebit;
 public class FRDirectDebitConverter {
 
     // FR to OB
-    public static OBDirectDebit1 toOBDirectDebit1(FRDirectDebitData directDebitData) {
-        return directDebitData == null ? null : new OBDirectDebit1()
-                .accountId(directDebitData.getAccountId())
-                .directDebitId(directDebitData.getDirectDebitId())
-                .mandateIdentification(directDebitData.getMandateIdentification())
-                .directDebitStatusCode(toOBExternalDirectDebitStatus1Code(directDebitData.getDirectDebitStatusCode()))
-                .name(directDebitData.getName())
-                .previousPaymentDateTime(directDebitData.getPreviousPaymentDateTime())
-                .previousPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(directDebitData.getPreviousPaymentAmount()));
-    }
 
-    public static OBReadDirectDebit2DataDirectDebit toOBReadDirectDebit2DataDirectDebit(FRDirectDebitData directDebitData) {
-        return directDebitData == null ? null : new OBReadDirectDebit2DataDirectDebit()
+    public static OBReadDirectDebit2DataDirectDebitInner toOBReadDirectDebit2DataDirectDebit(FRDirectDebitData directDebitData) {
+        return directDebitData == null ? null : new OBReadDirectDebit2DataDirectDebitInner()
                 .accountId(directDebitData.getAccountId())
                 .directDebitId(directDebitData.getDirectDebitId())
                 .mandateIdentification(directDebitData.getMandateIdentification())
@@ -56,19 +46,7 @@ public class FRDirectDebitConverter {
     }
 
     // OB to FR
-    public static FRDirectDebitData toFRDirectDebitData(OBDirectDebit1 obDirectDebit) {
-        return obDirectDebit == null ? null : FRDirectDebitData.builder()
-                .accountId(obDirectDebit.getAccountId())
-                .directDebitId(obDirectDebit.getDirectDebitId())
-                .mandateIdentification(obDirectDebit.getMandateIdentification())
-                .directDebitStatusCode(toFRDirectDebitStatus(obDirectDebit.getDirectDebitStatusCode()))
-                .name(obDirectDebit.getName())
-                .previousPaymentDateTime(obDirectDebit.getPreviousPaymentDateTime())
-                .previousPaymentAmount(FRAmountConverter.toFRAmount(obDirectDebit.getPreviousPaymentAmount()))
-                .build();
-    }
-
-    public static FRDirectDebitData toFRDirectDebitData(OBReadDirectDebit2DataDirectDebit obDirectDebit) {
+    public static FRDirectDebitData toFRDirectDebitData(OBReadDirectDebit2DataDirectDebitInner obDirectDebit) {
         return obDirectDebit == null ? null : FRDirectDebitData.builder()
                 .accountId(obDirectDebit.getAccountId())
                 .directDebitId(obDirectDebit.getDirectDebitId())

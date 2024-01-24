@@ -18,39 +18,43 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import jakarta.annotation.Generated;
+
 /**
  * Specifies the status of the direct debit in code form.
  */
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBExternalDirectDebitStatus1Code {
+  
+  ACTIVE("Active"),
+  
+  INACTIVE("Inactive");
 
-    ACTIVE("Active"),
+  private String value;
 
-    INACTIVE("Inactive");
+  OBExternalDirectDebitStatus1Code(String value) {
+    this.value = value;
+  }
 
-    private String value;
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    OBExternalDirectDebitStatus1Code(String value) {
-        this.value = value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  @JsonCreator
+  public static OBExternalDirectDebitStatus1Code fromValue(String value) {
+    for (OBExternalDirectDebitStatus1Code b : OBExternalDirectDebitStatus1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    @JsonValue
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBExternalDirectDebitStatus1Code fromValue(String text) {
-        for (OBExternalDirectDebitStatus1Code b : OBExternalDirectDebitStatus1Code.values()) {
-            if (String.valueOf(b.value).equals(text)) {
-                return b;
-            }
-        }
-        return null;
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

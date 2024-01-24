@@ -18,41 +18,45 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import jakarta.annotation.Generated;
+
 /**
  * Categorisation of fees and charges into standard categories.
  */
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBFeeCategory1Code {
+  
+  FCOT("FCOT"),
+  
+  FCRE("FCRE"),
+  
+  FCSV("FCSV");
 
-    FCOT("FCOT"),
+  private String value;
 
-    FCRE("FCRE"),
+  OBFeeCategory1Code(String value) {
+    this.value = value;
+  }
 
-    FCSV("FCSV");
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    private String value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    OBFeeCategory1Code(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBFeeCategory1Code fromValue(String value) {
+    for (OBFeeCategory1Code b : OBFeeCategory1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBFeeCategory1Code fromValue(String value) {
-        for (OBFeeCategory1Code b : OBFeeCategory1Code.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

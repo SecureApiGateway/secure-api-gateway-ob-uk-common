@@ -33,10 +33,6 @@ public class FRAccountIdentifierConverter {
         return FRModelMapper.map(account, FRAccountIdentifier.class);
     }
 
-    public static FRAccountIdentifier toFRAccountIdentifier(OBCashAccount6 account) {
-        return FRModelMapper.map(account, FRAccountIdentifier.class);
-    }
-
     public static FRAccountIdentifier toFRAccountIdentifier(OBCashAccount51 account) {
         return FRModelMapper.map(account, FRAccountIdentifier.class);
     }
@@ -133,28 +129,8 @@ public class FRAccountIdentifierConverter {
                 .secondaryIdentification(accountIdentifier.getSecondaryIdentification());
     }
 
-    public static OBCashAccount1 toOBCashAccount1(FRAccountIdentifier account) {
-        return FRModelMapper.map(account, OBCashAccount1.class);
-    }
-
-    public static OBCashAccount2 toOBCashAccount2(FRAccountIdentifier account) {
-        return account == null ? null : new OBCashAccount2()
-                .schemeName(account.getSchemeName() == null ? null : OBExternalAccountIdentification3Code.fromValue(account.getSchemeName()))
-                .identification(account.getIdentification())
-                .name(account.getName())
-                .secondaryIdentification(account.getSecondaryIdentification());
-    }
-
     public static OBCashAccount3 toOBCashAccount3(FRAccountIdentifier account) {
         return FRModelMapper.map(account, OBCashAccount3.class);
-    }
-
-    public static OBCashAccount5 toOBCashAccount5(FRAccountIdentifier account) {
-        return FRModelMapper.map(account, OBCashAccount5.class);
-    }
-
-    public static OBCashAccount6 toOBCashAccount6(FRAccountIdentifier account) {
-        return FRModelMapper.map(account, OBCashAccount6.class);
     }
 
     public static OBCashAccount50 toOBCashAccount50(FRAccountIdentifier account) {
@@ -173,16 +149,8 @@ public class FRAccountIdentifierConverter {
         return FRModelMapper.map(account, OBCashAccount61.class);
     }
 
-    public static OBAccount3Account toOBAccount3Account(FRAccountIdentifier account) {
-        return FRModelMapper.map(account, OBAccount3Account.class);
-    }
-
-    public static OBAccount4Account toOBAccount4Account(FRAccountIdentifier account) {
-        return FRModelMapper.map(account, OBAccount4Account.class);
-    }
-
-    public static OBAccount6Account toOBAccount6Account(FRAccountIdentifier account) {
-        return FRModelMapper.map(account, OBAccount6Account.class);
+    public static OBAccount6AccountInner toOBAccount6Account(FRAccountIdentifier account) {
+        return FRModelMapper.map(account, OBAccount6AccountInner.class);
     }
 
     public static OBWriteDomestic2DataInitiationCreditorAccount toOBWriteDomestic2DataInitiationCreditorAccount(FRAccountIdentifier account) {
@@ -227,34 +195,8 @@ public class FRAccountIdentifierConverter {
     }
 
     // OB to FR
-    public static FRAccountIdentifier toFRAccountIdentifier(OBAccount3Account account) {
-        return account == null ? null : FRAccountIdentifier.builder()
-                .schemeName(account.getSchemeName())
-                .identification(account.getIdentification())
-                .name(account.getName())
-                .secondaryIdentification(account.getSecondaryIdentification())
-                .build();
-    }
 
-    public static FRAccountIdentifier toFRAccountIdentifier(OBAccount4Account account) {
-        return account == null ? null : FRAccountIdentifier.builder()
-                .schemeName(account.getSchemeName())
-                .identification(account.getIdentification())
-                .name(account.getName())
-                .secondaryIdentification(account.getSecondaryIdentification())
-                .build();
-    }
-
-    public static FRAccountIdentifier toFRAccountIdentifier(OBAccount6Account account) {
-        return account == null ? null : FRAccountIdentifier.builder()
-                .schemeName(account.getSchemeName())
-                .identification(account.getIdentification())
-                .name(account.getName())
-                .secondaryIdentification(account.getSecondaryIdentification())
-                .build();
-    }
-
-    public static FRAccountIdentifier toFRAccountIdentifier(OBCashAccount5 account) {
+    public static FRAccountIdentifier toFRAccountIdentifier(OBAccount6AccountInner account) {
         return account == null ? null : FRAccountIdentifier.builder()
                 .schemeName(account.getSchemeName())
                 .identification(account.getIdentification())

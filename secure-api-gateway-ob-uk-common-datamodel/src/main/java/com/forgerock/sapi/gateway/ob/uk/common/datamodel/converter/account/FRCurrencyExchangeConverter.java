@@ -17,6 +17,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCurrencyExchange;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter;
+
 import uk.org.openbanking.datamodel.account.OBCurrencyExchange5;
 
 public class FRCurrencyExchangeConverter {
@@ -24,13 +25,13 @@ public class FRCurrencyExchangeConverter {
     // FR to OB
     public static OBCurrencyExchange5 toOBCurrencyExchange5(FRCurrencyExchange currencyExchange) {
         return currencyExchange == null ? null : new OBCurrencyExchange5()
-        .sourceCurrency(currencyExchange.getSourceCurrency())
-        .targetCurrency(currencyExchange.getTargetCurrency())
-        .unitCurrency(currencyExchange.getUnitCurrency())
-        .exchangeRate(currencyExchange.getExchangeRate())
-        .contractIdentification(currencyExchange.getContractIdentification())
-        .quotationDate(currencyExchange.getQuotationDate())
-        .instructedAmount(FRAmountConverter.toOBCurrencyExchange5InstructedAmount(currencyExchange.getInstructedAmount()));
+                .sourceCurrency(currencyExchange.getSourceCurrency())
+                .targetCurrency(currencyExchange.getTargetCurrency())
+                .unitCurrency(currencyExchange.getUnitCurrency())
+                .exchangeRate(currencyExchange.getExchangeRate())
+                .contractIdentification(currencyExchange.getContractIdentification())
+                .quotationDate(currencyExchange.getQuotationDate())
+                .instructedAmount(FRAmountConverter.toOBCurrencyExchange5InstructedAmount(currencyExchange.getInstructedAmount()));
     }
 
     // OB to FR

@@ -18,39 +18,43 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import jakarta.annotation.Generated;
+
 /**
  * Specifies the type of account (personal or business).
  */
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBExternalAccountType1Code {
+  
+  BUSINESS("Business"),
+  
+  PERSONAL("Personal");
 
-    BUSINESS("Business"),
+  private String value;
 
-    PERSONAL("Personal");
+  OBExternalAccountType1Code(String value) {
+    this.value = value;
+  }
 
-    private String value;
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    OBExternalAccountType1Code(String value) {
-        this.value = value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  @JsonCreator
+  public static OBExternalAccountType1Code fromValue(String value) {
+    for (OBExternalAccountType1Code b : OBExternalAccountType1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    @JsonValue
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBExternalAccountType1Code fromValue(String text) {
-        for (OBExternalAccountType1Code b : OBExternalAccountType1Code.values()) {
-            if (String.valueOf(b.value).equals(text)) {
-                return b;
-            }
-        }
-        return null;
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

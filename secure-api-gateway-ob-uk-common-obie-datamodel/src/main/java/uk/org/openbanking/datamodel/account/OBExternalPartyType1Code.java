@@ -18,41 +18,45 @@ package uk.org.openbanking.datamodel.account;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import jakarta.annotation.Generated;
+
 /**
  * Party type, in a coded form.
  */
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBExternalPartyType1Code {
+  
+  DELEGATE("Delegate"),
+  
+  JOINT("Joint"),
+  
+  SOLE("Sole");
 
-    DELEGATE("Delegate"),
+  private String value;
 
-    JOINT("Joint"),
+  OBExternalPartyType1Code(String value) {
+    this.value = value;
+  }
 
-    SOLE("Sole");
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    private String value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    OBExternalPartyType1Code(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBExternalPartyType1Code fromValue(String value) {
+    for (OBExternalPartyType1Code b : OBExternalPartyType1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    @JsonValue
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBExternalPartyType1Code fromValue(String text) {
-        for (OBExternalPartyType1Code b : OBExternalPartyType1Code.values()) {
-            if (String.valueOf(b.value).equals(text)) {
-                return b;
-            }
-        }
-        return null;
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

@@ -15,90 +15,104 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 /**
  * OBReadBalance1Data
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
+@JsonTypeName("OBReadBalance1_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBReadBalance1Data {
-    @JsonProperty("Balance")
-    @Valid
-    private List<OBReadBalance1DataBalance> balance = new ArrayList<OBReadBalance1DataBalance>();
 
-    public OBReadBalance1Data balance(List<OBReadBalance1DataBalance> balance) {
-        this.balance = balance;
-        return this;
+  @Valid
+  private List<@Valid OBReadBalance1DataBalanceInner> balance = new ArrayList<>();
+
+  public OBReadBalance1Data() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBReadBalance1Data(List<@Valid OBReadBalance1DataBalanceInner> balance) {
+    this.balance = balance;
+  }
+
+  public OBReadBalance1Data balance(List<@Valid OBReadBalance1DataBalanceInner> balance) {
+    this.balance = balance;
+    return this;
+  }
+
+  public OBReadBalance1Data addBalanceItem(OBReadBalance1DataBalanceInner balanceItem) {
+    if (this.balance == null) {
+      this.balance = new ArrayList<>();
     }
+    this.balance.add(balanceItem);
+    return this;
+  }
 
-    public OBReadBalance1Data addBalanceItem(OBReadBalance1DataBalance balanceItem) {
-        this.balance.add(balanceItem);
-        return this;
+  /**
+   * Get balance
+   * @return balance
+  */
+  @NotNull @Valid @Size(min = 1) 
+  @Schema(name = "Balance", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Balance")
+  public List<@Valid OBReadBalance1DataBalanceInner> getBalance() {
+    return balance;
+  }
+
+  public void setBalance(List<@Valid OBReadBalance1DataBalanceInner> balance) {
+    this.balance = balance;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get balance
-     *
-     * @return balance
-     */
-    @ApiModelProperty(required = true, value = "")
-    @NotNull
-    @Valid
-    @Size(min = 1)
-    public List<OBReadBalance1DataBalance> getBalance() {
-        return balance;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBReadBalance1Data obReadBalance1Data = (OBReadBalance1Data) o;
+    return Objects.equals(this.balance, obReadBalance1Data.balance);
+  }
 
-    public void setBalance(List<OBReadBalance1DataBalance> balance) {
-        this.balance = balance;
+  @Override
+  public int hashCode() {
+    return Objects.hash(balance);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBReadBalance1Data {\n");
+    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBReadBalance1Data obReadBalance1Data = (OBReadBalance1Data) o;
-        return Objects.equals(this.balance, obReadBalance1Data.balance);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(balance);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBReadBalance1Data {\n");
-
-        sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 
