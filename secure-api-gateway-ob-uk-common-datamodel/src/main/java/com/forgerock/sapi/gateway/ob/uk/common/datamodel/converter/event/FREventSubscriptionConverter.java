@@ -23,7 +23,7 @@ public class FREventSubscriptionConverter {
     // OB to FR
     public static FREventSubscriptionData toFREventSubscriptionData(OBEventSubscription1 obEventSubscription) {
         return obEventSubscription == null ? null : FREventSubscriptionData.builder()
-                .callbackUrl(obEventSubscription.getData().getCallbackUrl())
+                .callbackUrl(obEventSubscription.getData().getCallbackUrl() != null ? obEventSubscription.getData().getCallbackUrl().toString() : null)
                 .version(obEventSubscription.getData().getVersion())
                 .eventTypes(obEventSubscription.getData().getEventTypes())
                 .build();
