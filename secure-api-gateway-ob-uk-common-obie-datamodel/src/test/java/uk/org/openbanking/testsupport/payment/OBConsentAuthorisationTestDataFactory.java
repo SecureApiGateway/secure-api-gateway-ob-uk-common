@@ -16,31 +16,18 @@
 package uk.org.openbanking.testsupport.payment;
 
 import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.payment.OBAuthorisation1;
-import uk.org.openbanking.datamodel.payment.OBExternalAuthorisation1Code;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent3DataAuthorisation;
+
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4DataAuthorisation;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4DataAuthorisationAuthorisationType;
 
 /**
  * Test data factory for various OB consent authorisation types.
  */
 public class OBConsentAuthorisationTestDataFactory {
 
-    public static OBAuthorisation1 aValidOBAuthorisation1() {
-        return (new OBAuthorisation1())
-                .authorisationType(OBExternalAuthorisation1Code.ANY)
-                .completionDateTime(DateTime.now());
-    }
-
-    public static OBWriteDomesticConsent3DataAuthorisation aValidOBWriteDomesticConsent3DataAuthorisation() {
-        return (new OBWriteDomesticConsent3DataAuthorisation())
-                .authorisationType(OBExternalAuthorisation1Code.ANY)
-                .completionDateTime(DateTime.now());
-    }
-
     public static OBWriteDomesticConsent4DataAuthorisation aValidOBWriteDomesticConsent4DataAuthorisation() {
         return (new OBWriteDomesticConsent4DataAuthorisation())
-                .authorisationType(OBExternalAuthorisation1Code.ANY)
+                .authorisationType(OBWriteDomesticConsent4DataAuthorisationAuthorisationType.ANY)
                 .completionDateTime(DateTime.now());
     }
 }

@@ -26,54 +26,10 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.paymen
 
 public class FRWriteDomesticConsentConverter {
 
-    // OB to FR
-    public static FRWriteDomesticConsent toFRWriteDomesticConsent(OBWriteDomesticConsent1 obWriteDomesticConsent1) {
-        return obWriteDomesticConsent1 == null ? null : FRWriteDomesticConsent.builder()
-                .data(toFRWriteDomesticConsentData(obWriteDomesticConsent1.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomesticConsent1.getRisk()))
-                .build();
-    }
-
-    public static FRWriteDomesticConsent toFRWriteDomesticConsent(OBWriteDomesticConsent2 obWriteDomesticConsent2) {
-        return obWriteDomesticConsent2 == null ? null : FRWriteDomesticConsent.builder()
-                .data(toFRWriteDomesticConsentData(obWriteDomesticConsent2.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomesticConsent2.getRisk()))
-                .build();
-    }
-
-    public static FRWriteDomesticConsent toFRWriteDomesticConsent(OBWriteDomesticConsent3 obWriteDomesticConsent3) {
-        return obWriteDomesticConsent3 == null ? null : FRWriteDomesticConsent.builder()
-                .data(toFRWriteDomesticConsentData(obWriteDomesticConsent3.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomesticConsent3.getRisk()))
-                .build();
-    }
-
     public static FRWriteDomesticConsent toFRWriteDomesticConsent(OBWriteDomesticConsent4 obWriteDomesticConsent4) {
         return obWriteDomesticConsent4 == null ? null : FRWriteDomesticConsent.builder()
                 .data(toFRWriteDomesticConsentData(obWriteDomesticConsent4.getData()))
                 .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomesticConsent4.getRisk()))
-                .build();
-    }
-
-    public static FRWriteDomesticConsentData toFRWriteDomesticConsentData(OBWriteDataDomesticConsent1 data) {
-        return data == null ? null : FRWriteDomesticConsentData.builder()
-                .initiation(toFRWriteDomesticDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .build();
-    }
-
-    public static FRWriteDomesticConsentData toFRWriteDomesticConsentData(OBWriteDataDomesticConsent2 data) {
-        return data == null ? null : FRWriteDomesticConsentData.builder()
-                .initiation(toFRWriteDomesticDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .build();
-    }
-
-    public static FRWriteDomesticConsentData toFRWriteDomesticConsentData(OBWriteDomesticConsent3Data data) {
-        return data == null ? null : FRWriteDomesticConsentData.builder()
-                .initiation(toFRWriteDomesticDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .scASupportData(toFRDataSCASupportData(data.getScASupportData()))
                 .build();
     }
 
@@ -83,20 +39,6 @@ public class FRWriteDomesticConsentConverter {
                 .initiation(toFRWriteDomesticDataInitiation(data.getInitiation()))
                 .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
                 .scASupportData(toFRDataSCASupportData(data.getScASupportData()))
-                .build();
-    }
-
-    public static FRWriteDomesticDataInitiation toFRWriteDomesticDataInitiation(OBDomestic2 initiation) {
-        return initiation == null ? null : FRWriteDomesticDataInitiation.builder()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .instructedAmount(FRAmountConverter.toFRAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getCreditorAccount()))
-                .creditorPostalAddress(FRPostalAddressConverter.toFRPostalAddress(initiation.getCreditorPostalAddress()))
-                .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(FRSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
                 .build();
     }
 
@@ -114,19 +56,6 @@ public class FRWriteDomesticConsentConverter {
                 .build();
     }
 
-    public static FRWriteDomesticDataInitiation toFRWriteDomesticDataInitiation(OBDomestic1 initiation) {
-        return initiation == null ? null : FRWriteDomesticDataInitiation.builder()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .instructedAmount(FRAmountConverter.toFRAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getCreditorAccount()))
-                .creditorPostalAddress(FRPostalAddressConverter.toFRPostalAddress(initiation.getCreditorPostalAddress()))
-                .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
-                .build();
-    }
-
     // FR to OB
     public static OBWriteDomestic2DataInitiation toOBWriteDomestic2DataInitiation(FRWriteDomesticDataInitiation initiation) {
         return initiation == null ? null : new OBWriteDomestic2DataInitiation()
@@ -138,31 +67,6 @@ public class FRWriteDomesticConsentConverter {
                 .creditorAccount(FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationCreditorAccount(initiation.getCreditorAccount()))
                 .creditorPostalAddress(FRPostalAddressConverter.toOBPostalAddress6(initiation.getCreditorPostalAddress()))
                 .remittanceInformation(FRRemittanceInformationConverter.toOBWriteDomestic2DataInitiationRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
-    }
-
-    public static OBDomestic1 toOBDomestic1(FRWriteDomesticDataInitiation initiation) {
-        return initiation == null ? null : new OBDomestic1()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .instructedAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getCreditorAccount()))
-                .creditorPostalAddress(FRPostalAddressConverter.toOBPostalAddress6(initiation.getCreditorPostalAddress()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation1(initiation.getRemittanceInformation()));
-    }
-
-    public static OBDomestic2 toOBDomestic2(FRWriteDomesticDataInitiation initiation) {
-        return initiation == null ? null : new OBDomestic2()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .instructedAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getCreditorAccount()))
-                .creditorPostalAddress(FRPostalAddressConverter.toOBPostalAddress6(initiation.getCreditorPostalAddress()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation1(initiation.getRemittanceInformation()))
                 .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
     }
 

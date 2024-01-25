@@ -15,24 +15,38 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.OBRisk1;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.OBRisk1;
 
 /**
  * OBWriteInternationalConsent5
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalConsent5 {
-    @JsonProperty("Data")
+
     private OBWriteInternationalConsent5Data data;
 
-    @JsonProperty("Risk")
     private OBRisk1 risk;
+
+    public OBWriteInternationalConsent5() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteInternationalConsent5(OBWriteInternationalConsent5Data data, OBRisk1 risk) {
+        this.data = data;
+        this.risk = risk;
+    }
 
     public OBWriteInternationalConsent5 data(OBWriteInternationalConsent5Data data) {
         this.data = data;
@@ -44,11 +58,10 @@ public class OBWriteInternationalConsent5 {
      *
      * @return data
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Data")
     public OBWriteInternationalConsent5Data getData() {
         return data;
     }
@@ -67,11 +80,10 @@ public class OBWriteInternationalConsent5 {
      *
      * @return risk
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Risk", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Risk")
     public OBRisk1 getRisk() {
         return risk;
     }
@@ -79,7 +91,6 @@ public class OBWriteInternationalConsent5 {
     public void setRisk(OBRisk1 risk) {
         this.risk = risk;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -103,7 +114,6 @@ public class OBWriteInternationalConsent5 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteInternationalConsent5 {\n");
-
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
         sb.append("}");

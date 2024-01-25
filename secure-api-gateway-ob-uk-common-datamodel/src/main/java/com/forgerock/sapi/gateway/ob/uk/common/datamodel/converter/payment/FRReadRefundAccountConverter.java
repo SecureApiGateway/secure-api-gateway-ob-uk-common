@@ -16,11 +16,17 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRReadRefundAccount;
-import uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum;
+
+import uk.org.openbanking.datamodel.vrp.OBReadRefundAccount;
+
 
 public class FRReadRefundAccountConverter {
 
-    public static FRReadRefundAccount toFRReadRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
+    public static FRReadRefundAccount toFRReadRefundAccount(OBReadRefundAccount readRefundAccount) {
+        return readRefundAccount == null ? null : FRReadRefundAccount.valueOf(readRefundAccount.name());
+    }
+
+    public static FRReadRefundAccount toFRReadRefundAccount(uk.org.openbanking.datamodel.payment.OBReadRefundAccount readRefundAccount) {
         return readRefundAccount == null ? null : FRReadRefundAccount.valueOf(readRefundAccount.name());
     }
 }

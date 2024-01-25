@@ -22,26 +22,26 @@ import java.util.List;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRCharge;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsentResponse5DataCharges;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsentResponse5DataChargesInner;
 
 public class FRChargeConverter {
 
-    public static FRCharge toFRCharge(OBWriteDomesticConsentResponse5DataCharges obCharge) {
+    public static FRCharge toFRCharge(OBWriteDomesticConsentResponse5DataChargesInner obCharge) {
         return FRModelMapper.map(obCharge, FRCharge.class);
     }
 
-    public static List<FRCharge> toFRCharge(List<OBWriteDomesticConsentResponse5DataCharges> obCharges) {
+    public static List<FRCharge> toFRCharge(List<OBWriteDomesticConsentResponse5DataChargesInner> obCharges) {
         if (obCharges == null) {
             return null;
         }
         return obCharges.stream().map(FRChargeConverter::toFRCharge).collect(toList());
     }
 
-    public static OBWriteDomesticConsentResponse5DataCharges toOBWriteDomesticConsentResponse5DataCharges(FRCharge frCharge) {
-        return FRModelMapper.map(frCharge, OBWriteDomesticConsentResponse5DataCharges.class);
+    public static OBWriteDomesticConsentResponse5DataChargesInner toOBWriteDomesticConsentResponse5DataCharges(FRCharge frCharge) {
+        return FRModelMapper.map(frCharge, OBWriteDomesticConsentResponse5DataChargesInner.class);
     }
 
-    public static List<OBWriteDomesticConsentResponse5DataCharges> toOBWriteDomesticConsentResponse5DataCharges(List<FRCharge> frCharges) {
+    public static List<OBWriteDomesticConsentResponse5DataChargesInner> toOBWriteDomesticConsentResponse5DataCharges(List<FRCharge> frCharges) {
         if (frCharges == null) {
             return null;
         }

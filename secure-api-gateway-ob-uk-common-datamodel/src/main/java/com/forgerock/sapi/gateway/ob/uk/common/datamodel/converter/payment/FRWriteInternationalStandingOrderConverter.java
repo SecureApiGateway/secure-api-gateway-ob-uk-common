@@ -22,52 +22,10 @@ import uk.org.openbanking.datamodel.payment.*;
 
 public class FRWriteInternationalStandingOrderConverter {
 
-    public static FRWriteInternationalStandingOrder toFRWriteInternationalStandingOrder(OBWriteInternationalStandingOrder1 internationalStandingOrder) {
-        return internationalStandingOrder == null ? null : FRWriteInternationalStandingOrder.builder()
-                .data(toFRWriteInternationalStandingOrderData(internationalStandingOrder.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(internationalStandingOrder.getRisk()))
-                .build();
-    }
-
-    public static FRWriteInternationalStandingOrder toFRWriteInternationalStandingOrder(OBWriteInternationalStandingOrder2 internationalStandingOrder) {
-        return internationalStandingOrder == null ? null : FRWriteInternationalStandingOrder.builder()
-                .data(toFRWriteInternationalStandingOrderData(internationalStandingOrder.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(internationalStandingOrder.getRisk()))
-                .build();
-    }
-
-    public static FRWriteInternationalStandingOrder toFRWriteInternationalStandingOrder(OBWriteInternationalStandingOrder3 internationalStandingOrder) {
-        return internationalStandingOrder == null ? null : FRWriteInternationalStandingOrder.builder()
-                .data(toFRWriteInternationalStandingOrderData(internationalStandingOrder.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(internationalStandingOrder.getRisk()))
-                .build();
-    }
-
     public static FRWriteInternationalStandingOrder toFRWriteInternationalStandingOrder(OBWriteInternationalStandingOrder4 internationalStandingOrder) {
         return internationalStandingOrder == null ? null : FRWriteInternationalStandingOrder.builder()
                 .data(toFRWriteInternationalStandingOrderData(internationalStandingOrder.getData()))
                 .risk(FRRiskConverter.toFRPaymentRisk(internationalStandingOrder.getRisk()))
-                .build();
-    }
-
-    public static FRWriteInternationalStandingOrderData toFRWriteInternationalStandingOrderData(OBWriteDataInternationalStandingOrder1 data) {
-        return data == null ? null : FRWriteInternationalStandingOrderData.builder()
-                .consentId(data.getConsentId())
-                .initiation(FRWriteInternationalStandingOrderConsentConverter.toFRWriteInternationalStandingOrderDataInitiation(data.getInitiation()))
-                .build();
-    }
-
-    public static FRWriteInternationalStandingOrderData toFRWriteInternationalStandingOrderData(OBWriteDataInternationalStandingOrder2 data) {
-        return data == null ? null : FRWriteInternationalStandingOrderData.builder()
-                .consentId(data.getConsentId())
-                .initiation(FRWriteInternationalStandingOrderConsentConverter.toFRWriteInternationalStandingOrderDataInitiation(data.getInitiation()))
-                .build();
-    }
-
-    public static FRWriteInternationalStandingOrderData toFRWriteInternationalStandingOrderData(OBWriteDataInternationalStandingOrder3 data) {
-        return data == null ? null : FRWriteInternationalStandingOrderData.builder()
-                .consentId(data.getConsentId())
-                .initiation(FRWriteInternationalStandingOrderConsentConverter.toFRWriteInternationalStandingOrderDataInitiation(data.getInitiation()))
                 .build();
     }
 

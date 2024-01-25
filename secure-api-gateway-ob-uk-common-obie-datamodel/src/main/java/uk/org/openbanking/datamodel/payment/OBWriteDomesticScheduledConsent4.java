@@ -15,24 +15,38 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.OBRisk1;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.OBRisk1;
 
 /**
  * OBWriteDomesticScheduledConsent4
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomesticScheduledConsent4 {
-    @JsonProperty("Data")
+
     private OBWriteDomesticScheduledConsent4Data data;
 
-    @JsonProperty("Risk")
     private OBRisk1 risk;
+
+    public OBWriteDomesticScheduledConsent4() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteDomesticScheduledConsent4(OBWriteDomesticScheduledConsent4Data data, OBRisk1 risk) {
+        this.data = data;
+        this.risk = risk;
+    }
 
     public OBWriteDomesticScheduledConsent4 data(OBWriteDomesticScheduledConsent4Data data) {
         this.data = data;
@@ -44,11 +58,10 @@ public class OBWriteDomesticScheduledConsent4 {
      *
      * @return data
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Data")
     public OBWriteDomesticScheduledConsent4Data getData() {
         return data;
     }
@@ -67,11 +80,10 @@ public class OBWriteDomesticScheduledConsent4 {
      *
      * @return risk
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Risk", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Risk")
     public OBRisk1 getRisk() {
         return risk;
     }
@@ -79,7 +91,6 @@ public class OBWriteDomesticScheduledConsent4 {
     public void setRisk(OBRisk1 risk) {
         this.risk = risk;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -103,7 +114,6 @@ public class OBWriteDomesticScheduledConsent4 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteDomesticScheduledConsent4 {\n");
-
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
         sb.append("}");

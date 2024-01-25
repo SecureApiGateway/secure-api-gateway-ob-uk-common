@@ -16,19 +16,20 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRInstructionPriority;
-import uk.org.openbanking.datamodel.payment.OBPriority2Code;
+
+import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationInstructionPriority;
 
 public class FRInstructionPriorityConverter {
 
     // OB to FR
-    public static FRInstructionPriority toFRInstructionPriority(OBPriority2Code instructionPriority) {
+    public static FRInstructionPriority toFRInstructionPriority(OBWriteInternational3DataInitiationInstructionPriority instructionPriority) {
         return instructionPriority == null ? null : FRInstructionPriority.valueOf(instructionPriority.name());
     }
 
 
     // FR to OB
-    public static OBPriority2Code toOBPriority2Code(FRInstructionPriority instructionPriority) {
-        return instructionPriority == null ? null : OBPriority2Code.valueOf(instructionPriority.name());
+    public static OBWriteInternational3DataInitiationInstructionPriority toOBPriority2Code(FRInstructionPriority instructionPriority) {
+        return instructionPriority == null ? null : OBWriteInternational3DataInitiationInstructionPriority.valueOf(instructionPriority.name());
     }
 
 }

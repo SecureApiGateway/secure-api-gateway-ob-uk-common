@@ -15,20 +15,29 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import com.forgerock.sapi.gateway.uk.common.shared.api.meta.share.IntentType;
-import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
-import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.payment.*;
+import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent4DataAuthorisation;
+import static uk.org.openbanking.testsupport.payment.OBRemittanceInformationTestDataFactory.aValidOBWriteDomestic2DataInitiationRemittanceInformation;
+import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
 
-import static uk.org.openbanking.testsupport.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsent4DataAuthorisation;
-import static uk.org.openbanking.testsupport.payment.OBRemittanceInformationTestDataFactory.aValidOBWriteDomestic2DataInitiationRemittanceInformation;
-import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
+import org.joda.time.DateTime;
+
+import com.forgerock.sapi.gateway.uk.common.shared.api.meta.share.IntentType;
+
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.payment.OBCashAccountDebtor4;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsentResponse5DataChargesInner;
+import uk.org.openbanking.datamodel.payment.OBWriteFile2DataInitiation;
+import uk.org.openbanking.datamodel.payment.OBWriteFileConsent3;
+import uk.org.openbanking.datamodel.payment.OBWriteFileConsent3Data;
+import uk.org.openbanking.datamodel.payment.OBWriteFileConsentResponse4;
+import uk.org.openbanking.datamodel.payment.OBWriteFileConsentResponse4Data;
+import uk.org.openbanking.datamodel.payment.OBWriteFileConsentResponse4DataStatus;
 
 /**
  * Test data factory for the {@link OBWriteFileConsent3Data}.
@@ -147,7 +156,7 @@ public class OBWriteFileConsentTestDataFactory {
                         .consentId(consentId)
                         .creationDateTime(DateTime.now())
                         .cutOffDateTime(DateTime.now())
-                        .status(OBWriteFileConsentResponse4Data.StatusEnum.AWAITINGUPLOAD)
+                        .status(OBWriteFileConsentResponse4DataStatus.AWAITINGUPLOAD)
                         .statusUpdateDateTime(DateTime.now())
                         .authorisation(consent3.getData().getAuthorisation())
                         .initiation(consent3.getData().getInitiation())
@@ -173,13 +182,13 @@ public class OBWriteFileConsentTestDataFactory {
                 .data(new OBWriteFileConsentResponse4Data()
                         .consentId(consentId)
                         .creationDateTime(DateTime.now())
-                        .status(OBWriteFileConsentResponse4Data.StatusEnum.AWAITINGUPLOAD)
+                        .status(OBWriteFileConsentResponse4DataStatus.AWAITINGUPLOAD)
                         .statusUpdateDateTime(DateTime.now())
                         .initiation(consent3.getData().getInitiation())
                 );
     }
 
-    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String consentId, OBWriteFileConsentResponse4Data.StatusEnum status, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String consentId, OBWriteFileConsentResponse4DataStatus status, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
         OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(
                 fileType,
                 fileHash,
@@ -206,7 +215,7 @@ public class OBWriteFileConsentTestDataFactory {
                 );
     }
 
-    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields(String consentId, OBWriteFileConsentResponse4Data.StatusEnum status, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields(String consentId, OBWriteFileConsentResponse4DataStatus status, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
         OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(
                 fileType,
                 fileHash,
@@ -223,8 +232,8 @@ public class OBWriteFileConsentTestDataFactory {
                 );
     }
 
-    public static OBWriteDomesticConsentResponse5DataCharges aValidOBWriteDomesticConsentResponse5DataCharges() {
-        return new OBWriteDomesticConsentResponse5DataCharges()
+    public static OBWriteDomesticConsentResponse5DataChargesInner aValidOBWriteDomesticConsentResponse5DataCharges() {
+        return new OBWriteDomesticConsentResponse5DataChargesInner()
                 .chargeBearer(OBChargeBearerType1Code.BORNEBYDEBTOR)
                 .type(CHARGE_TYPE)
                 .amount(
@@ -234,8 +243,8 @@ public class OBWriteFileConsentTestDataFactory {
                 );
     }
 
-    public static OBWriteDomesticConsentResponse5DataCharges aValidOBWriteDomesticConsentResponse5DataChargesMandatoryFields() {
-        return new OBWriteDomesticConsentResponse5DataCharges()
+    public static OBWriteDomesticConsentResponse5DataChargesInner aValidOBWriteDomesticConsentResponse5DataChargesMandatoryFields() {
+        return new OBWriteDomesticConsentResponse5DataChargesInner()
                 .chargeBearer(OBChargeBearerType1Code.BORNEBYDEBTOR)
                 .type(CHARGE_TYPE)
                 .amount(

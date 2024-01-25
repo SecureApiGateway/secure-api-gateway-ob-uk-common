@@ -32,8 +32,8 @@ public class OBAmountTestDataFactory {
                 .amount(AMOUNT);
     }
 
-    public static OBDomesticStandingOrder3FinalPaymentAmount aValidOBDomesticStandingOrder3FinalPaymentAmount() {
-        return (new OBDomesticStandingOrder3FinalPaymentAmount())
+    public static OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount aValidOBDomesticStandingOrder3FinalPaymentAmount() {
+        return (new OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount())
                 .currency(GBP)
                 .amount(AMOUNT);
     }
@@ -44,8 +44,8 @@ public class OBAmountTestDataFactory {
                 .amount(AMOUNT);
     }
 
-    public static OBDomesticStandingOrder3RecurringPaymentAmount aValidOBDomesticStandingOrder3RecurringPaymentAmount() {
-        return (new OBDomesticStandingOrder3RecurringPaymentAmount())
+    public static OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount aValidOBDomesticStandingOrder3RecurringPaymentAmount() {
+        return (new OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount())
                 .currency(GBP)
                 .amount(AMOUNT);
     }
@@ -56,8 +56,8 @@ public class OBAmountTestDataFactory {
                 .amount(AMOUNT);
     }
 
-    public static OBDomesticStandingOrder3FirstPaymentAmount aValidOBDomesticStandingOrder3FirstPaymentAmount() {
-        return (new OBDomesticStandingOrder3FirstPaymentAmount())
+    public static OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount aValidOBDomesticStandingOrder3FirstPaymentAmount() {
+        return (new OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount())
                 .currency(GBP)
                 .amount(AMOUNT);
     }
@@ -74,8 +74,8 @@ public class OBAmountTestDataFactory {
                 .amount(AMOUNT);
     }
 
-    public static OBDomestic2InstructedAmount aValidOBDomestic2InstructedAmount() {
-        return (new OBDomestic2InstructedAmount())
+    public static OBWriteDomestic2DataInitiationInstructedAmount aValidOBDomestic2InstructedAmount() {
+        return (new OBWriteDomestic2DataInitiationInstructedAmount())
                 .currency(GBP)
                 .amount(AMOUNT);
     }

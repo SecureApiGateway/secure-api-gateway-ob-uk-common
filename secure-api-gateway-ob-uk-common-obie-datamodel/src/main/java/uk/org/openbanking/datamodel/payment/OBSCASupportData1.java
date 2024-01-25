@@ -15,67 +15,68 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import jakarta.validation.constraints.Size;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 
 /**
  * Supporting Data provided by TPP, when requesting SCA Exemption.
  */
-@ApiModel(description = "Supporting Data provided by TPP, when requesting SCA Exemption.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBSCASupportData1", description = "Supporting Data provided by TPP, when requesting SCA Exemption.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBSCASupportData1 {
 
-    @JsonProperty("RequestedSCAExemptionType")
-    private OBRequestedSCAExemptionTypeEnum requestedSCAExemptionType;
+    private OBSCASupportData1RequestedSCAExemptionType requestedSCAExemptionType;
 
-    @JsonProperty("AppliedAuthenticationApproach")
-    private OBAppliedAuthenticationApproachEnum appliedAuthenticationApproach;
+    private OBSCASupportData1AppliedAuthenticationApproach appliedAuthenticationApproach;
 
-    @JsonProperty("ReferencePaymentOrderId")
     private String referencePaymentOrderId;
 
-    public OBSCASupportData1 requestedSCAExemptionType(OBRequestedSCAExemptionTypeEnum requestedSCAExemptionType) {
+    public OBSCASupportData1 requestedSCAExemptionType(OBSCASupportData1RequestedSCAExemptionType requestedSCAExemptionType) {
         this.requestedSCAExemptionType = requestedSCAExemptionType;
         return this;
     }
 
     /**
-     * This field allows a PISP to request specific SCA Exemption for a Payment Initiation
+     * Get requestedSCAExemptionType
      *
      * @return requestedSCAExemptionType
      */
-    @ApiModelProperty(value = "This field allows a PISP to request specific SCA Exemption for a Payment Initiation")
-
-
-    public OBRequestedSCAExemptionTypeEnum getRequestedSCAExemptionType() {
+    @Valid
+    @Schema(name = "RequestedSCAExemptionType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("RequestedSCAExemptionType")
+    public OBSCASupportData1RequestedSCAExemptionType getRequestedSCAExemptionType() {
         return requestedSCAExemptionType;
     }
 
-    public void setRequestedSCAExemptionType(OBRequestedSCAExemptionTypeEnum requestedSCAExemptionType) {
+    public void setRequestedSCAExemptionType(OBSCASupportData1RequestedSCAExemptionType requestedSCAExemptionType) {
         this.requestedSCAExemptionType = requestedSCAExemptionType;
     }
 
-    public OBSCASupportData1 appliedAuthenticationApproach(OBAppliedAuthenticationApproachEnum appliedAuthenticationApproach) {
+    public OBSCASupportData1 appliedAuthenticationApproach(OBSCASupportData1AppliedAuthenticationApproach appliedAuthenticationApproach) {
         this.appliedAuthenticationApproach = appliedAuthenticationApproach;
         return this;
     }
 
     /**
-     * Specifies a character string with a maximum length of 40 characters. Usage: This field indicates whether the PSU was subject to SCA performed by the TPP
+     * Get appliedAuthenticationApproach
      *
      * @return appliedAuthenticationApproach
      */
-    @ApiModelProperty(value = "Specifies a character string with a maximum length of 40 characters. Usage: This field indicates whether the PSU was subject to SCA performed by the TPP")
-
-    public OBAppliedAuthenticationApproachEnum getAppliedAuthenticationApproach() {
+    @Valid
+    @Schema(name = "AppliedAuthenticationApproach", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("AppliedAuthenticationApproach")
+    public OBSCASupportData1AppliedAuthenticationApproach getAppliedAuthenticationApproach() {
         return appliedAuthenticationApproach;
     }
 
-    public void setAppliedAuthenticationApproach(OBAppliedAuthenticationApproachEnum appliedAuthenticationApproach) {
+    public void setAppliedAuthenticationApproach(OBSCASupportData1AppliedAuthenticationApproach appliedAuthenticationApproach) {
         this.appliedAuthenticationApproach = appliedAuthenticationApproach;
     }
 
@@ -89,9 +90,9 @@ public class OBSCASupportData1 {
      *
      * @return referencePaymentOrderId
      */
-    @ApiModelProperty(value = "If the payment is recurring, then this field is populated with the transaction identifier of the previous payment occurrence so that the ASPSP can verify that the PISP, amount and the payee are the same as the previous occurrence. The value here refers to the payment id e.g. DomesticPaymentId  ")
-
     @Size(min = 1, max = 40)
+    @Schema(name = "ReferencePaymentOrderId", description = "If the payment is recurring, then this field is populated with the transaction identifier of the previous payment occurrence so that the ASPSP can verify that the PISP, amount and the payee are the same as the previous occurrence. The value here refers to the payment id e.g. DomesticPaymentId  ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ReferencePaymentOrderId")
     public String getReferencePaymentOrderId() {
         return referencePaymentOrderId;
     }
@@ -99,7 +100,6 @@ public class OBSCASupportData1 {
     public void setReferencePaymentOrderId(String referencePaymentOrderId) {
         this.referencePaymentOrderId = referencePaymentOrderId;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -124,7 +124,6 @@ public class OBSCASupportData1 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBSCASupportData1 {\n");
-
         sb.append("    requestedSCAExemptionType: ").append(toIndentedString(requestedSCAExemptionType)).append("\n");
         sb.append("    appliedAuthenticationApproach: ").append(toIndentedString(appliedAuthenticationApproach)).append("\n");
         sb.append("    referencePaymentOrderId: ").append(toIndentedString(referencePaymentOrderId)).append("\n");

@@ -15,96 +15,70 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.util.Objects;
 
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
 
 /**
  * The multiple authorisation flow response from the ASPSP.
  */
-@ApiModel(description = "The multiple authorisation flow response from the ASPSP.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBWriteDomesticResponse5_Data_MultiAuthorisation", description = "The multiple authorisation flow response from the ASPSP.")
+@JsonTypeName("OBWriteDomesticResponse5_Data_MultiAuthorisation")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomesticResponse5DataMultiAuthorisation {
-    /**
-     * Specifies the status of the authorisation flow in code form.
-     */
-    public enum StatusEnum {
-        AUTHORISED("Authorised"),
 
-        AWAITINGFURTHERAUTHORISATION("AwaitingFurtherAuthorisation"),
+    private OBWriteDomesticResponse5DataMultiAuthorisationStatus status;
 
-        REJECTED("Rejected");
-
-        private String value;
-
-        StatusEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static StatusEnum fromValue(String value) {
-            for (StatusEnum b : StatusEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
-
-    @JsonProperty("Status")
-    private StatusEnum status;
-
-    @JsonProperty("NumberRequired")
     private Integer numberRequired;
 
-    @JsonProperty("NumberReceived")
     private Integer numberReceived;
 
-    @JsonProperty("LastUpdateDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime lastUpdateDateTime;
 
-    @JsonProperty("ExpirationDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime expirationDateTime;
 
-    public OBWriteDomesticResponse5DataMultiAuthorisation status(StatusEnum status) {
+    public OBWriteDomesticResponse5DataMultiAuthorisation() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteDomesticResponse5DataMultiAuthorisation(OBWriteDomesticResponse5DataMultiAuthorisationStatus status) {
+        this.status = status;
+    }
+
+    public OBWriteDomesticResponse5DataMultiAuthorisation status(OBWriteDomesticResponse5DataMultiAuthorisationStatus status) {
         this.status = status;
         return this;
     }
 
     /**
-     * Specifies the status of the authorisation flow in code form.
+     * Get status
      *
      * @return status
      */
-    @ApiModelProperty(required = true, value = "Specifies the status of the authorisation flow in code form.")
     @NotNull
-
-
-    public StatusEnum getStatus() {
+    @Valid
+    @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Status")
+    public OBWriteDomesticResponse5DataMultiAuthorisationStatus getStatus() {
         return status;
     }
 
-    public void setStatus(StatusEnum status) {
+    public void setStatus(OBWriteDomesticResponse5DataMultiAuthorisationStatus status) {
         this.status = status;
     }
 
@@ -118,9 +92,9 @@ public class OBWriteDomesticResponse5DataMultiAuthorisation {
      *
      * @return numberRequired
      */
-    @ApiModelProperty(value = "Number of authorisations required for payment order (total required at the start of the multi authorisation journey).")
 
-
+    @Schema(name = "NumberRequired", description = "Number of authorisations required for payment order (total required at the start of the multi authorisation journey).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("NumberRequired")
     public Integer getNumberRequired() {
         return numberRequired;
     }
@@ -139,9 +113,9 @@ public class OBWriteDomesticResponse5DataMultiAuthorisation {
      *
      * @return numberReceived
      */
-    @ApiModelProperty(value = "Number of authorisations received.")
 
-
+    @Schema(name = "NumberReceived", description = "Number of authorisations received.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("NumberReceived")
     public Integer getNumberReceived() {
         return numberReceived;
     }
@@ -160,10 +134,9 @@ public class OBWriteDomesticResponse5DataMultiAuthorisation {
      *
      * @return lastUpdateDateTime
      */
-    @ApiModelProperty(value = "Last date and time at the authorisation flow was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-
     @Valid
-
+    @Schema(name = "LastUpdateDateTime", description = "Last date and time at the authorisation flow was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("LastUpdateDateTime")
     public DateTime getLastUpdateDateTime() {
         return lastUpdateDateTime;
     }
@@ -182,10 +155,9 @@ public class OBWriteDomesticResponse5DataMultiAuthorisation {
      *
      * @return expirationDateTime
      */
-    @ApiModelProperty(value = "Date and time at which the requested authorisation flow must be completed.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-
     @Valid
-
+    @Schema(name = "ExpirationDateTime", description = "Date and time at which the requested authorisation flow must be completed.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ExpirationDateTime")
     public DateTime getExpirationDateTime() {
         return expirationDateTime;
     }
@@ -193,7 +165,6 @@ public class OBWriteDomesticResponse5DataMultiAuthorisation {
     public void setExpirationDateTime(DateTime expirationDateTime) {
         this.expirationDateTime = expirationDateTime;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -220,7 +191,6 @@ public class OBWriteDomesticResponse5DataMultiAuthorisation {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteDomesticResponse5DataMultiAuthorisation {\n");
-
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    numberRequired: ").append(toIndentedString(numberRequired)).append("\n");
         sb.append("    numberReceived: ").append(toIndentedString(numberReceived)).append("\n");

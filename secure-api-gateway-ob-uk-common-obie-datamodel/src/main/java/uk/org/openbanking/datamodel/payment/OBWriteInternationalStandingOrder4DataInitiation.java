@@ -15,75 +15,80 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import java.util.Objects;
 
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for an international standing order.
  */
-@ApiModel(description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for an international standing order.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBWriteInternationalStandingOrder4_Data_Initiation", description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for an international standing order.")
+@JsonTypeName("OBWriteInternationalStandingOrder4_Data_Initiation")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalStandingOrder4DataInitiation {
-    @JsonProperty("Frequency")
+
     private String frequency;
 
-    @JsonProperty("Reference")
     private String reference;
 
-    @JsonProperty("NumberOfPayments")
     private String numberOfPayments;
 
-    @JsonProperty("FirstPaymentDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime firstPaymentDateTime;
 
-    @JsonProperty("FinalPaymentDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime finalPaymentDateTime;
 
-    @JsonProperty("Purpose")
     private String purpose;
 
-    @JsonProperty("ExtendedPurpose")
     private String extendedPurpose;
 
-    @JsonProperty("ChargeBearer")
     private OBChargeBearerType1Code chargeBearer;
 
-    @JsonProperty("CurrencyOfTransfer")
     private String currencyOfTransfer;
 
-    @JsonProperty("DestinationCountryCode")
     private String destinationCountryCode;
 
-    @JsonProperty("InstructedAmount")
     private OBWriteDomestic2DataInitiationInstructedAmount instructedAmount;
 
-    @JsonProperty("DebtorAccount")
     private OBWriteDomesticStandingOrder3DataInitiationDebtorAccount debtorAccount;
 
-    @JsonProperty("Creditor")
     private OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor creditor;
 
-    @JsonProperty("CreditorAgent")
     private OBWriteInternationalStandingOrder4DataInitiationCreditorAgent creditorAgent;
 
-    @JsonProperty("CreditorAccount")
     private OBWriteInternationalStandingOrder4DataInitiationCreditorAccount creditorAccount;
 
-    @JsonProperty("SupplementaryData")
-    @Valid
-    private OBSupplementaryData1 supplementaryData = null;
+    private OBSupplementaryData1 supplementaryData;
+
+    public OBWriteInternationalStandingOrder4DataInitiation() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteInternationalStandingOrder4DataInitiation(String frequency, DateTime firstPaymentDateTime, String currencyOfTransfer, OBWriteDomestic2DataInitiationInstructedAmount instructedAmount, OBWriteInternationalStandingOrder4DataInitiationCreditorAccount creditorAccount) {
+        this.frequency = frequency;
+        this.firstPaymentDateTime = firstPaymentDateTime;
+        this.currencyOfTransfer = currencyOfTransfer;
+        this.instructedAmount = instructedAmount;
+        this.creditorAccount = creditorAccount;
+    }
 
     public OBWriteInternationalStandingOrder4DataInitiation frequency(String frequency) {
         this.frequency = frequency;
@@ -95,10 +100,10 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return frequency
      */
-    @ApiModelProperty(required = true, value = "Individual Definitions: EvryDay - Every day EvryWorkgDay - Every working day IntrvlWkDay - An interval specified in weeks (01 to 09), and the day within the week (01 to 07) WkInMnthDay - A monthly interval, specifying the week of the month (01 to 05) and day within the week (01 to 07) IntrvlMnthDay - An interval specified in months (between 01 to 06, 12, 24), specifying the day within the month (-5 to -1, 1 to 31) QtrDay - Quarterly (either ENGLISH, SCOTTISH, or RECEIVED).  ENGLISH = Paid on the 25th March, 24th June, 29th September and 25th December.  SCOTTISH = Paid on the 2nd February, 15th May, 1st August and 11th November. RECEIVED = Paid on the 20th March, 19th June, 24th September and 20th December.  Individual Patterns: EvryDay (ScheduleCode) EvryWorkgDay (ScheduleCode) IntrvlWkDay:IntervalInWeeks:DayInWeek (ScheduleCode + IntervalInWeeks + DayInWeek) WkInMnthDay:WeekInMonth:DayInWeek (ScheduleCode + WeekInMonth + DayInWeek) IntrvlMnthDay:IntervalInMonths:DayInMonth (ScheduleCode + IntervalInMonths + DayInMonth) QtrDay: + either (ENGLISH, SCOTTISH or RECEIVED) ScheduleCode + QuarterDay The regular expression for this element combines five smaller versions for each permitted pattern. To aid legibility - the components are presented individually here: EvryDay EvryWorkgDay IntrvlWkDay:0[1-9]:0[1-7] WkInMnthDay:0[1-5]:0[1-7] IntrvlMnthDay:(0[1-6]|12|24):(-0[1-5]|0[1-9]|[12][0-9]|3[01]) QtrDay:(ENGLISH|SCOTTISH|RECEIVED) Full Regular Expression: ^(EvryDay)$|^(EvryWorkgDay)$|^(IntrvlWkDay:0[1-9]:0[1-7])$|^(WkInMnthDay:0[1-5]:0[1-7])$|^(IntrvlMnthDay:(0[1-6]|12|24):(-0[1-5]|0[1-9]|[12][0-9]|3[01]))$|^(QtrDay:(ENGLISH|SCOTTISH|RECEIVED))$")
     @NotNull
-
     @Pattern(regexp = "^(EvryDay)$|^(EvryWorkgDay)$|^(IntrvlDay:((0[2-9])|([1-2][0-9])|3[0-1]))$|^(IntrvlWkDay:0[1-9]:0[1-7])$|^(WkInMnthDay:0[1-5]:0[1-7])$|^(IntrvlMnthDay:(0[1-6]|12|24):(-0[1-5]|0[1-9]|[12][0-9]|3[01]))$|^(QtrDay:(ENGLISH|SCOTTISH|RECEIVED))$")
+    @Schema(name = "Frequency", description = "Individual Definitions: EvryDay - Every day EvryWorkgDay - Every working day IntrvlWkDay - An interval specified in weeks (01 to 09), and the day within the week (01 to 07) WkInMnthDay - A monthly interval, specifying the week of the month (01 to 05) and day within the week (01 to 07) IntrvlMnthDay - An interval specified in months (between 01 to 06, 12, 24), specifying the day within the month (-5 to -1, 1 to 31) QtrDay - Quarterly (either ENGLISH, SCOTTISH, or RECEIVED).  ENGLISH = Paid on the 25th March, 24th June, 29th September and 25th December.  SCOTTISH = Paid on the 2nd February, 15th May, 1st August and 11th November. RECEIVED = Paid on the 20th March, 19th June, 24th September and 20th December.  Individual Patterns: EvryDay (ScheduleCode) EvryWorkgDay (ScheduleCode) IntrvlWkDay:IntervalInWeeks:DayInWeek (ScheduleCode + IntervalInWeeks + DayInWeek) WkInMnthDay:WeekInMonth:DayInWeek (ScheduleCode + WeekInMonth + DayInWeek) IntrvlMnthDay:IntervalInMonths:DayInMonth (ScheduleCode + IntervalInMonths + DayInMonth) QtrDay: + either (ENGLISH, SCOTTISH or RECEIVED) ScheduleCode + QuarterDay The regular expression for this element combines five smaller versions for each permitted pattern. To aid legibility - the components are presented individually here: EvryDay EvryWorkgDay IntrvlWkDay:0[1-9]:0[1-7] WkInMnthDay:0[1-5]:0[1-7] IntrvlMnthDay:(0[1-6]|12|24):(-0[1-5]|0[1-9]|[12][0-9]|3[01]) QtrDay:(ENGLISH|SCOTTISH|RECEIVED) Full Regular Expression: ^(EvryDay)$|^(EvryWorkgDay)$|^(IntrvlWkDay:0[1-9]:0[1-7])$|^(WkInMnthDay:0[1-5]:0[1-7])$|^(IntrvlMnthDay:(0[1-6]|12|24):(-0[1-5]|0[1-9]|[12][0-9]|3[01]))$|^(QtrDay:(ENGLISH|SCOTTISH|RECEIVED))$", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Frequency")
     public String getFrequency() {
         return frequency;
     }
@@ -117,9 +122,9 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return reference
      */
-    @ApiModelProperty(value = "Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. Usage: If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money. If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.")
-
     @Size(min = 1, max = 35)
+    @Schema(name = "Reference", description = "Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. Usage: If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money. If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Reference")
     public String getReference() {
         return reference;
     }
@@ -138,9 +143,9 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return numberOfPayments
      */
-    @ApiModelProperty(value = "Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.")
-
     @Size(min = 1, max = 35)
+    @Schema(name = "NumberOfPayments", description = "Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("NumberOfPayments")
     public String getNumberOfPayments() {
         return numberOfPayments;
     }
@@ -159,11 +164,10 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return firstPaymentDateTime
      */
-    @ApiModelProperty(required = true, value = "The date on which the first payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @NotNull
-
     @Valid
-
+    @Schema(name = "FirstPaymentDateTime", description = "The date on which the first payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("FirstPaymentDateTime")
     public DateTime getFirstPaymentDateTime() {
         return firstPaymentDateTime;
     }
@@ -182,10 +186,9 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return finalPaymentDateTime
      */
-    @ApiModelProperty(value = "The date on which the final payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-
     @Valid
-
+    @Schema(name = "FinalPaymentDateTime", description = "The date on which the final payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("FinalPaymentDateTime")
     public DateTime getFinalPaymentDateTime() {
         return finalPaymentDateTime;
     }
@@ -204,9 +207,9 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return purpose
      */
-    @ApiModelProperty(value = "Specifies the external purpose code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")
-
     @Size(min = 1, max = 4)
+    @Schema(name = "Purpose", description = "Specifies the external purpose code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Purpose")
     public String getPurpose() {
         return purpose;
     }
@@ -225,9 +228,9 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return extendedPurpose
      */
-    @ApiModelProperty(value = "Specifies the purpose of an international payment, when there is no corresponding 4 character code available in the ISO20022 list of Purpose Codes.")
-
     @Size(min = 1, max = 140)
+    @Schema(name = "ExtendedPurpose", description = "Specifies the purpose of an international payment, when there is no corresponding 4 character code available in the ISO20022 list of Purpose Codes.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ExtendedPurpose")
     public String getExtendedPurpose() {
         return extendedPurpose;
     }
@@ -246,10 +249,9 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return chargeBearer
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "ChargeBearer", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ChargeBearer")
     public OBChargeBearerType1Code getChargeBearer() {
         return chargeBearer;
     }
@@ -268,10 +270,10 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return currencyOfTransfer
      */
-    @ApiModelProperty(required = true, value = "Specifies the currency of the to be transferred amount, which is different from the currency of the debtor's account.")
     @NotNull
-
     @Pattern(regexp = "^[A-Z]{3,3}$")
+    @Schema(name = "CurrencyOfTransfer", description = "Specifies the currency of the to be transferred amount, which is different from the currency of the debtor's account.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("CurrencyOfTransfer")
     public String getCurrencyOfTransfer() {
         return currencyOfTransfer;
     }
@@ -290,9 +292,9 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return destinationCountryCode
      */
-    @ApiModelProperty(value = "Country in which Credit Account is domiciled. Code to identify a country, a dependency, or another area of particular geopolitical interest, on the basis of country names obtained from the United Nations (ISO 3166, Alpha-2 code).")
-
     @Pattern(regexp = "[A-Z]{2,2}")
+    @Schema(name = "DestinationCountryCode", description = "Country in which Credit Account is domiciled. Code to identify a country, a dependency, or another area of particular geopolitical interest, on the basis of country names obtained from the United Nations (ISO 3166, Alpha-2 code).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("DestinationCountryCode")
     public String getDestinationCountryCode() {
         return destinationCountryCode;
     }
@@ -311,11 +313,10 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return instructedAmount
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "InstructedAmount", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("InstructedAmount")
     public OBWriteDomestic2DataInitiationInstructedAmount getInstructedAmount() {
         return instructedAmount;
     }
@@ -334,10 +335,9 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return debtorAccount
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("DebtorAccount")
     public OBWriteDomesticStandingOrder3DataInitiationDebtorAccount getDebtorAccount() {
         return debtorAccount;
     }
@@ -356,10 +356,9 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return creditor
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Creditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Creditor")
     public OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor getCreditor() {
         return creditor;
     }
@@ -378,10 +377,9 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return creditorAgent
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "CreditorAgent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("CreditorAgent")
     public OBWriteInternationalStandingOrder4DataInitiationCreditorAgent getCreditorAgent() {
         return creditorAgent;
     }
@@ -400,11 +398,10 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return creditorAccount
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "CreditorAccount", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("CreditorAccount")
     public OBWriteInternationalStandingOrder4DataInitiationCreditorAccount getCreditorAccount() {
         return creditorAccount;
     }
@@ -419,13 +416,13 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
     }
 
     /**
-     * Additional information that can not be captured in the structured fields and/or any other specific block.
+     * Get supplementaryData
      *
      * @return supplementaryData
      */
-    @ApiModelProperty(value = "Additional information that can not be captured in the structured fields and/or any other specific block.")
-
-
+    @Valid
+    @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SupplementaryData")
     public OBSupplementaryData1 getSupplementaryData() {
         return supplementaryData;
     }
@@ -433,7 +430,6 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
     public void setSupplementaryData(OBSupplementaryData1 supplementaryData) {
         this.supplementaryData = supplementaryData;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -471,7 +467,6 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteInternationalStandingOrder4DataInitiation {\n");
-
         sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
         sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
         sb.append("    numberOfPayments: ").append(toIndentedString(numberOfPayments)).append("\n");

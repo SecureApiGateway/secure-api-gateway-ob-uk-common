@@ -15,20 +15,34 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
 
 /**
  * OBWriteFileConsent3
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteFileConsent3 {
-    @JsonProperty("Data")
+
     private OBWriteFileConsent3Data data;
+
+    public OBWriteFileConsent3() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteFileConsent3(OBWriteFileConsent3Data data) {
+        this.data = data;
+    }
 
     public OBWriteFileConsent3 data(OBWriteFileConsent3Data data) {
         this.data = data;
@@ -40,11 +54,10 @@ public class OBWriteFileConsent3 {
      *
      * @return data
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Data")
     public OBWriteFileConsent3Data getData() {
         return data;
     }
@@ -52,7 +65,6 @@ public class OBWriteFileConsent3 {
     public void setData(OBWriteFileConsent3Data data) {
         this.data = data;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -75,7 +87,6 @@ public class OBWriteFileConsent3 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteFileConsent3 {\n");
-
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();

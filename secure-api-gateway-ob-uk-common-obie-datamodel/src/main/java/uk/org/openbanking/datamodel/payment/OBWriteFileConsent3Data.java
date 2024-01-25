@@ -15,26 +15,40 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
 
 /**
  * OBWriteFileConsent3Data
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBWriteFileConsent3_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteFileConsent3Data {
-    @JsonProperty("Initiation")
+
     private OBWriteFile2DataInitiation initiation;
 
-    @JsonProperty("Authorisation")
     private OBWriteDomesticConsent4DataAuthorisation authorisation;
 
-    @JsonProperty("SCASupportData")
     private OBSCASupportData1 scASupportData;
+
+    public OBWriteFileConsent3Data() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteFileConsent3Data(OBWriteFile2DataInitiation initiation) {
+        this.initiation = initiation;
+    }
 
     public OBWriteFileConsent3Data initiation(OBWriteFile2DataInitiation initiation) {
         this.initiation = initiation;
@@ -46,11 +60,10 @@ public class OBWriteFileConsent3Data {
      *
      * @return initiation
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Initiation")
     public OBWriteFile2DataInitiation getInitiation() {
         return initiation;
     }
@@ -69,10 +82,9 @@ public class OBWriteFileConsent3Data {
      *
      * @return authorisation
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Authorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Authorisation")
     public OBWriteDomesticConsent4DataAuthorisation getAuthorisation() {
         return authorisation;
     }
@@ -91,10 +103,9 @@ public class OBWriteFileConsent3Data {
      *
      * @return scASupportData
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "SCASupportData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SCASupportData")
     public OBSCASupportData1 getScASupportData() {
         return scASupportData;
     }
@@ -102,7 +113,6 @@ public class OBWriteFileConsent3Data {
     public void setScASupportData(OBSCASupportData1 scASupportData) {
         this.scASupportData = scASupportData;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -127,7 +137,6 @@ public class OBWriteFileConsent3Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteFileConsent3Data {\n");
-
         sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
         sb.append("    authorisation: ").append(toIndentedString(authorisation)).append("\n");
         sb.append("    scASupportData: ").append(toIndentedString(scASupportData)).append("\n");

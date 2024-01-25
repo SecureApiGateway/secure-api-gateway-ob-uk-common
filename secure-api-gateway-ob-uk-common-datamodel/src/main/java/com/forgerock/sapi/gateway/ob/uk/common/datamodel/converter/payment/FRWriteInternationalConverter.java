@@ -25,38 +25,10 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.paymen
 public class FRWriteInternationalConverter {
 
     // OB to FR
-    public static FRWriteInternational toFRWriteInternational(OBWriteInternational1 internationalPayment) {
-        return internationalPayment == null ? null : FRWriteInternational.builder()
-                .data(toFRWriteInternationalData(internationalPayment.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(internationalPayment.getRisk()))
-                .build();
-    }
-
-    public static FRWriteInternational toFRWriteInternational(OBWriteInternational2 internationalPayment) {
-        return internationalPayment == null ? null : FRWriteInternational.builder()
-                .data(toFRWriteInternationalData(internationalPayment.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(internationalPayment.getRisk()))
-                .build();
-    }
-
     public static FRWriteInternational toFRWriteInternational(OBWriteInternational3 internationalPayment) {
         return internationalPayment == null ? null : FRWriteInternational.builder()
                 .data(toFRWriteInternationalData(internationalPayment.getData()))
                 .risk(FRRiskConverter.toFRPaymentRisk(internationalPayment.getRisk()))
-                .build();
-    }
-
-    public static FRWriteInternationalData toFRWriteInternationalData(OBWriteDataInternational1 data) {
-        return data == null ? null : FRWriteInternationalData.builder()
-                .consentId(data.getConsentId())
-                .initiation(toFRWriteInternationalDataInitiation(data.getInitiation()))
-                .build();
-    }
-
-    public static FRWriteInternationalData toFRWriteInternationalData(OBWriteDataInternational2 data) {
-        return data == null ? null : FRWriteInternationalData.builder()
-                .consentId(data.getConsentId())
-                .initiation(toFRWriteInternationalDataInitiation(data.getInitiation()))
                 .build();
     }
 
@@ -68,18 +40,6 @@ public class FRWriteInternationalConverter {
     }
 
     // FR to OB
-    public static OBWriteInternational2 toOBWriteInternational2(FRWriteInternational internationalPayment) {
-        return internationalPayment == null ? null : new OBWriteInternational2()
-                .data(toOBWriteDataInternational2(internationalPayment.getData()))
-                .risk(FRRiskConverter.toOBRisk1(internationalPayment.getRisk()));
-    }
-
-    public static OBWriteDataInternational2 toOBWriteDataInternational2(FRWriteInternationalData data) {
-        return data == null ? null : new OBWriteDataInternational2()
-                .consentId(data.getConsentId())
-                .initiation(toOBInternational2(data.getInitiation()));
-    }
-
     public static OBWriteInternational3 toOBWriteInternational3(FRWriteInternational internationalPayment) {
         return internationalPayment == null ? null : new OBWriteInternational3()
                 .data(toOBWriteInternational3Data(internationalPayment.getData()))

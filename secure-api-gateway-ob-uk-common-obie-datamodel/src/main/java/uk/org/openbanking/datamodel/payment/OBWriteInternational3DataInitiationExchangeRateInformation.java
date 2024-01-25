@@ -15,36 +15,49 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
 
+import java.math.BigDecimal;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import java.math.BigDecimal;
-import java.util.Objects;
-
-import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
 
 /**
  * Provides details on the currency exchange rate and contract.
  */
-@ApiModel(description = "Provides details on the currency exchange rate and contract.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBWriteInternational3_Data_Initiation_ExchangeRateInformation", description = "Provides details on the currency exchange rate and contract.")
+@JsonTypeName("OBWriteInternational3_Data_Initiation_ExchangeRateInformation")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternational3DataInitiationExchangeRateInformation {
-    @JsonProperty("UnitCurrency")
+
     private String unitCurrency;
 
-    @JsonProperty("ExchangeRate")
     private BigDecimal exchangeRate;
 
-    @JsonProperty("RateType")
-    private OBExchangeRateType2Code rateType;
+    private OBExchangeRateType rateType;
 
-    @JsonProperty("ContractIdentification")
     private String contractIdentification;
+
+    public OBWriteInternational3DataInitiationExchangeRateInformation() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteInternational3DataInitiationExchangeRateInformation(String unitCurrency, OBExchangeRateType rateType) {
+        this.unitCurrency = unitCurrency;
+        this.rateType = rateType;
+    }
 
     public OBWriteInternational3DataInitiationExchangeRateInformation unitCurrency(String unitCurrency) {
         this.unitCurrency = unitCurrency;
@@ -56,10 +69,10 @@ public class OBWriteInternational3DataInitiationExchangeRateInformation {
      *
      * @return unitCurrency
      */
-    @ApiModelProperty(required = true, value = "Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.")
     @NotNull
-
     @Pattern(regexp = "^[A-Z]{3,3}$")
+    @Schema(name = "UnitCurrency", description = "Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("UnitCurrency")
     public String getUnitCurrency() {
         return unitCurrency;
     }
@@ -78,10 +91,9 @@ public class OBWriteInternational3DataInitiationExchangeRateInformation {
      *
      * @return exchangeRate
      */
-    @ApiModelProperty(value = "The factor used for conversion of an amount from one currency to another. This reflects the price at which one currency was bought with another currency.")
-
     @Valid
-
+    @Schema(name = "ExchangeRate", description = "The factor used for conversion of an amount from one currency to another. This reflects the price at which one currency was bought with another currency.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ExchangeRate")
     public BigDecimal getExchangeRate() {
         return exchangeRate;
     }
@@ -90,25 +102,25 @@ public class OBWriteInternational3DataInitiationExchangeRateInformation {
         this.exchangeRate = exchangeRate;
     }
 
-    public OBWriteInternational3DataInitiationExchangeRateInformation rateType(OBExchangeRateType2Code rateType) {
+    public OBWriteInternational3DataInitiationExchangeRateInformation rateType(OBExchangeRateType rateType) {
         this.rateType = rateType;
         return this;
     }
 
     /**
-     * Specifies the type used to complete the currency exchange.
+     * Get rateType
      *
      * @return rateType
      */
-    @ApiModelProperty(required = true, value = "Specifies the type used to complete the currency exchange.")
     @NotNull
-
-
-    public OBExchangeRateType2Code getRateType() {
+    @Valid
+    @Schema(name = "RateType", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("RateType")
+    public OBExchangeRateType getRateType() {
         return rateType;
     }
 
-    public void setRateType(OBExchangeRateType2Code rateType) {
+    public void setRateType(OBExchangeRateType rateType) {
         this.rateType = rateType;
     }
 
@@ -122,9 +134,9 @@ public class OBWriteInternational3DataInitiationExchangeRateInformation {
      *
      * @return contractIdentification
      */
-    @ApiModelProperty(value = "Unique and unambiguous reference to the foreign exchange contract agreed between the initiating party/creditor and the debtor agent.")
-
     @Size(min = 1, max = 256)
+    @Schema(name = "ContractIdentification", description = "Unique and unambiguous reference to the foreign exchange contract agreed between the initiating party/creditor and the debtor agent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ContractIdentification")
     public String getContractIdentification() {
         return contractIdentification;
     }
@@ -132,7 +144,6 @@ public class OBWriteInternational3DataInitiationExchangeRateInformation {
     public void setContractIdentification(String contractIdentification) {
         this.contractIdentification = contractIdentification;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -159,7 +170,6 @@ public class OBWriteInternational3DataInitiationExchangeRateInformation {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteInternational3DataInitiationExchangeRateInformation {\n");
-
         sb.append("    unitCurrency: ").append(toIndentedString(unitCurrency)).append("\n");
         sb.append("    exchangeRate: ").append(toIndentedString(exchangeRate)).append("\n");
         sb.append("    rateType: ").append(toIndentedString(rateType)).append("\n");

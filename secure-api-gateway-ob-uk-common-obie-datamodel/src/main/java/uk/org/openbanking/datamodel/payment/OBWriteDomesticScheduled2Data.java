@@ -15,24 +15,40 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import java.util.Objects;
 
 /**
  * OBWriteDomesticScheduled2Data
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBWriteDomesticScheduled2_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomesticScheduled2Data {
-    @JsonProperty("ConsentId")
+
     private String consentId;
 
-    @JsonProperty("Initiation")
     private OBWriteDomesticScheduled2DataInitiation initiation;
+
+    public OBWriteDomesticScheduled2Data() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteDomesticScheduled2Data(String consentId, OBWriteDomesticScheduled2DataInitiation initiation) {
+        this.consentId = consentId;
+        this.initiation = initiation;
+    }
 
     public OBWriteDomesticScheduled2Data consentId(String consentId) {
         this.consentId = consentId;
@@ -44,10 +60,10 @@ public class OBWriteDomesticScheduled2Data {
      *
      * @return consentId
      */
-    @ApiModelProperty(required = true, value = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.")
     @NotNull
-
     @Size(min = 1, max = 128)
+    @Schema(name = "ConsentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("ConsentId")
     public String getConsentId() {
         return consentId;
     }
@@ -66,11 +82,10 @@ public class OBWriteDomesticScheduled2Data {
      *
      * @return initiation
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Initiation")
     public OBWriteDomesticScheduled2DataInitiation getInitiation() {
         return initiation;
     }
@@ -78,7 +93,6 @@ public class OBWriteDomesticScheduled2Data {
     public void setInitiation(OBWriteDomesticScheduled2DataInitiation initiation) {
         this.initiation = initiation;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -102,7 +116,6 @@ public class OBWriteDomesticScheduled2Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteDomesticScheduled2Data {\n");
-
         sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
         sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
         sb.append("}");

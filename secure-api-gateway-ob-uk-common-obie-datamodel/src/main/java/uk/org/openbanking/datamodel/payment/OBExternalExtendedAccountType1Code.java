@@ -18,9 +18,13 @@ package uk.org.openbanking.datamodel.payment;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import jakarta.annotation.Generated;
+
 /**
  * Specifies the extended type of account.
  */
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBExternalExtendedAccountType1Code {
 
     BUSINESS("Business"),

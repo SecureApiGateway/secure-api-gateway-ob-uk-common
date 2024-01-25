@@ -15,31 +15,36 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
-import jakarta.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+
 /**
  * OBWritePaymentDetailsResponse1Data
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBWritePaymentDetailsResponse1Data {
-    @JsonProperty("PaymentStatus")
-    @Valid
-    private List<OBWritePaymentDetailsResponse1DataPaymentStatus> paymentStatus = null;
 
-    public OBWritePaymentDetailsResponse1Data paymentStatus(List<OBWritePaymentDetailsResponse1DataPaymentStatus> paymentStatus) {
+@JsonTypeName("OBWritePaymentDetailsResponse1_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+public class OBWritePaymentDetailsResponse1Data {
+
+    @Valid
+    private List<@Valid OBWritePaymentDetailsResponse1DataPaymentStatusInner> paymentStatus;
+
+    public OBWritePaymentDetailsResponse1Data paymentStatus(List<@Valid OBWritePaymentDetailsResponse1DataPaymentStatusInner> paymentStatus) {
         this.paymentStatus = paymentStatus;
         return this;
     }
 
-    public OBWritePaymentDetailsResponse1Data addPaymentStatusItem(OBWritePaymentDetailsResponse1DataPaymentStatus paymentStatusItem) {
+    public OBWritePaymentDetailsResponse1Data addPaymentStatusItem(OBWritePaymentDetailsResponse1DataPaymentStatusInner paymentStatusItem) {
         if (this.paymentStatus == null) {
-            this.paymentStatus = new ArrayList<OBWritePaymentDetailsResponse1DataPaymentStatus>();
+            this.paymentStatus = new ArrayList<>();
         }
         this.paymentStatus.add(paymentStatusItem);
         return this;
@@ -50,18 +55,16 @@ public class OBWritePaymentDetailsResponse1Data {
      *
      * @return paymentStatus
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
-    public List<OBWritePaymentDetailsResponse1DataPaymentStatus> getPaymentStatus() {
+    @Schema(name = "PaymentStatus", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("PaymentStatus")
+    public List<@Valid OBWritePaymentDetailsResponse1DataPaymentStatusInner> getPaymentStatus() {
         return paymentStatus;
     }
 
-    public void setPaymentStatus(List<OBWritePaymentDetailsResponse1DataPaymentStatus> paymentStatus) {
+    public void setPaymentStatus(List<@Valid OBWritePaymentDetailsResponse1DataPaymentStatusInner> paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -84,7 +87,6 @@ public class OBWritePaymentDetailsResponse1Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWritePaymentDetailsResponse1Data {\n");
-
         sb.append("    paymentStatus: ").append(toIndentedString(paymentStatus)).append("\n");
         sb.append("}");
         return sb.toString();

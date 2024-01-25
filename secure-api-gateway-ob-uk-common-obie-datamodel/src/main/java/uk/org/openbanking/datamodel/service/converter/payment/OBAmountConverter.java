@@ -26,22 +26,6 @@ public class OBAmountConverter {
         return toAmount(new OBActiveOrHistoricCurrencyAndAmount(), amount);
     }
 
-    public static OBActiveOrHistoricCurrencyAndAmount toOBActiveOrHistoricCurrencyAndAmount(OBDomestic2InstructedAmount amount) {
-        return toAmount(new OBActiveOrHistoricCurrencyAndAmount(), amount);
-    }
-
-    public static OBActiveOrHistoricCurrencyAndAmount toOBActiveOrHistoricCurrencyAndAmount(OBDomesticStandingOrder3FinalPaymentAmount amount) {
-        return toAmount(new OBActiveOrHistoricCurrencyAndAmount(), amount);
-    }
-
-    public static OBActiveOrHistoricCurrencyAndAmount toOBActiveOrHistoricCurrencyAndAmount(OBDomesticStandingOrder3RecurringPaymentAmount amount) {
-        return toAmount(new OBActiveOrHistoricCurrencyAndAmount(), amount);
-    }
-
-    public static OBActiveOrHistoricCurrencyAndAmount toOBActiveOrHistoricCurrencyAndAmount(OBDomesticStandingOrder3FirstPaymentAmount amount) {
-        return toAmount(new OBActiveOrHistoricCurrencyAndAmount(), amount);
-    }
-
     public static OBActiveOrHistoricCurrencyAndAmount toOBActiveOrHistoricCurrencyAndAmount(OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount amount) {
         return toAmount(new OBActiveOrHistoricCurrencyAndAmount(), amount);
     }
@@ -58,30 +42,6 @@ public class OBAmountConverter {
         return toAmount(new OBWriteDomestic2DataInitiationInstructedAmount(), amount);
     }
 
-    public static OBWriteDomestic2DataInitiationInstructedAmount toOBWriteDomestic2DataInitiationInstructedAmount(OBDomestic2InstructedAmount amount) {
-        return toAmount(new OBWriteDomestic2DataInitiationInstructedAmount(), amount);
-    }
-
-    public static OBDomestic2InstructedAmount toOBDomestic2InstructedAmount(OBActiveOrHistoricCurrencyAndAmount amount) {
-        return toAmount(new OBDomestic2InstructedAmount(), amount);
-    }
-
-    public static OBDomestic2InstructedAmount toOBDomestic2InstructedAmount(OBWriteDomestic2DataInitiationInstructedAmount amount) {
-        return toAmount(new OBDomestic2InstructedAmount(), amount);
-    }
-
-    public static OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount toOBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount(OBDomesticStandingOrder3FirstPaymentAmount amount) {
-        return toAmount(new OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount(), amount);
-    }
-
-    public static OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount toOBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount(OBDomesticStandingOrder3RecurringPaymentAmount amount) {
-        return toAmount(new OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount(), amount);
-    }
-
-    public static OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount toOBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount(OBDomesticStandingOrder3FinalPaymentAmount amount) {
-        return toAmount(new OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount(), amount);
-    }
-
     public static OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount toOBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount(OBActiveOrHistoricCurrencyAndAmount amount) {
         return toAmount(new OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount(), amount);
     }
@@ -92,30 +52,6 @@ public class OBAmountConverter {
 
     public static OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount toOBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount(OBActiveOrHistoricCurrencyAndAmount amount) {
         return toAmount(new OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount(), amount);
-    }
-
-    public static OBDomesticStandingOrder3FirstPaymentAmount toOBDomesticStandingOrder3FirstPaymentAmount(OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount amount) {
-        return toAmount(new OBDomesticStandingOrder3FirstPaymentAmount(), amount);
-    }
-
-    public static OBDomesticStandingOrder3RecurringPaymentAmount toOBDomesticStandingOrder3RecurringPaymentAmount(OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount amount) {
-        return toAmount(new OBDomesticStandingOrder3RecurringPaymentAmount(), amount);
-    }
-
-    public static OBDomesticStandingOrder3FinalPaymentAmount toOBDomesticStandingOrder3FinalPaymentAmount(OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount amount) {
-        return toAmount(new OBDomesticStandingOrder3FinalPaymentAmount(), amount);
-    }
-
-    public static OBDomesticStandingOrder3FirstPaymentAmount toOBDomesticStandingOrder3FirstPaymentAmount(OBActiveOrHistoricCurrencyAndAmount amount) {
-        return toAmount(new OBDomesticStandingOrder3FirstPaymentAmount(), amount);
-    }
-
-    public static OBDomesticStandingOrder3RecurringPaymentAmount toOBDomesticStandingOrder3RecurringPaymentAmount(OBActiveOrHistoricCurrencyAndAmount amount) {
-        return toAmount(new OBDomesticStandingOrder3RecurringPaymentAmount(), amount);
-    }
-
-    public static OBDomesticStandingOrder3FinalPaymentAmount toOBDomesticStandingOrder3FinalPaymentAmount(OBActiveOrHistoricCurrencyAndAmount amount) {
-        return toAmount(new OBDomesticStandingOrder3FinalPaymentAmount(), amount);
     }
 
     public static OBActiveOrHistoricCurrencyAndAmount toAccountOBActiveOrHistoricCurrencyAndAmount(OBWriteDomestic2DataInitiationInstructedAmount amount) {

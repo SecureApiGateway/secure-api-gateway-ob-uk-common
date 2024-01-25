@@ -15,7 +15,6 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import uk.org.openbanking.datamodel.payment.OBRemittanceInformation1;
 import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiationRemittanceInformation;
 
 /**
@@ -29,9 +28,4 @@ public class OBRemittanceInformationTestDataFactory {
                 .reference("FRESCO-037");
     }
 
-    public static OBRemittanceInformation1 aValidOBRemittanceInformation1() {
-        return (new OBRemittanceInformation1())
-                .unstructured("Internal ops code 5120103")
-                .reference("FRESCO-037");
-    }
 }

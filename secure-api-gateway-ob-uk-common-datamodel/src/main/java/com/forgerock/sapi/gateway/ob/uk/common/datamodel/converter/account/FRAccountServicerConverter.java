@@ -25,20 +25,11 @@ import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdent
 import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification61;
 import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification62;
 import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
-import uk.org.openbanking.datamodel.payment.OBBranchAndFinancialInstitutionIdentification3;
 
 
 public class FRAccountServicerConverter {
 
     // FR to OB
-    public static OBBranchAndFinancialInstitutionIdentification3 toOBBranchAndFinancialInstitutionIdentification3(FRFinancialAgent creditorAgent) {
-        return creditorAgent == null ? null : new OBBranchAndFinancialInstitutionIdentification3()
-                .schemeName(creditorAgent.getSchemeName())
-                .identification(creditorAgent.getIdentification())
-                .name(creditorAgent.getName())
-                .postalAddress(toOBPostalAddress6(creditorAgent.getPostalAddress()));
-    }
-
     public static OBBranchAndFinancialInstitutionIdentification50 toOBBranchAndFinancialInstitutionIdentification50(FRAccountServicer servicer) {
         return servicer == null ? null : new OBBranchAndFinancialInstitutionIdentification50()
                 .schemeName(servicer.getSchemeName())

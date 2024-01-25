@@ -19,7 +19,7 @@ import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.common.OBVRPAuthenticationMethods;
 import uk.org.openbanking.datamodel.common.OBVRPConsentType;
-import uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum;
+import uk.org.openbanking.datamodel.vrp.OBReadRefundAccount;
 import uk.org.openbanking.datamodel.vrp.*;
 
 import java.util.Arrays;
@@ -57,7 +57,7 @@ public class OBDomesticVrpConsentRequestTestDataFactory {
 
     public static OBDomesticVRPConsentRequestData aValidOBDomesticVRPConsentRequestData() {
         return (new OBDomesticVRPConsentRequestData())
-                .readRefundAccount(OBReadRefundAccountEnum.YES)
+                .readRefundAccount(OBReadRefundAccount.YES)
                 .controlParameters(aValidOBDomesticVRPControlParameters())
                 .initiation(aValidOBDomesticVRPInitiation());
     }
@@ -70,7 +70,7 @@ public class OBDomesticVrpConsentRequestTestDataFactory {
 
     public static OBDomesticVRPConsentRequestData aValidOBDomesticVRPConsentRequestData(List<String> psuAuthenticationMethods, List<String> vrpTypes) {
         return (new OBDomesticVRPConsentRequestData())
-                .readRefundAccount(OBReadRefundAccountEnum.YES)
+                .readRefundAccount(OBReadRefundAccount.YES)
                 .controlParameters(aValidOBDomesticVRPControlParameters(psuAuthenticationMethods, vrpTypes))
                 .initiation(aValidOBDomesticVRPInitiation());
     }

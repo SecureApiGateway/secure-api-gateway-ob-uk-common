@@ -15,31 +15,32 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.OBPostalAddress6;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.OBPostalAddress6;
 
 /**
  * Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account. This is the servicer of the beneficiary account.
  */
-@ApiModel(description = "Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account. This is the servicer of the beneficiary account.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBWriteInternationalStandingOrder4_Data_Initiation_CreditorAgent", description = "Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account. This is the servicer of the beneficiary account.")
+@JsonTypeName("OBWriteInternationalStandingOrder4_Data_Initiation_CreditorAgent")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
-    @JsonProperty("SchemeName")
+
     private String schemeName;
 
-    @JsonProperty("Identification")
     private String identification;
 
-    @JsonProperty("Name")
     private String name;
 
-    @JsonProperty("PostalAddress")
     private OBPostalAddress6 postalAddress;
 
     public OBWriteInternationalStandingOrder4DataInitiationCreditorAgent schemeName(String schemeName) {
@@ -52,9 +53,9 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
      *
      * @return schemeName
      */
-    @ApiModelProperty(value = "Name of the identification scheme, in a coded form as published in an external list.")
 
-
+    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SchemeName")
     public String getSchemeName() {
         return schemeName;
     }
@@ -73,9 +74,9 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
      *
      * @return identification
      */
-    @ApiModelProperty(value = "Unique and unambiguous identification of the servicing institution.")
-
     @Size(min = 1, max = 35)
+    @Schema(name = "Identification", description = "Unique and unambiguous identification of the servicing institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Identification")
     public String getIdentification() {
         return identification;
     }
@@ -94,9 +95,9 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
      *
      * @return name
      */
-    @ApiModelProperty(value = "Name by which an agent is known and which is usually used to identify that agent.")
-
     @Size(min = 1, max = 140)
+    @Schema(name = "Name", description = "Name by which an agent is known and which is usually used to identify that agent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Name")
     public String getName() {
         return name;
     }
@@ -115,10 +116,9 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
      *
      * @return postalAddress
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "PostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("PostalAddress")
     public OBPostalAddress6 getPostalAddress() {
         return postalAddress;
     }
@@ -126,7 +126,6 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
     public void setPostalAddress(OBPostalAddress6 postalAddress) {
         this.postalAddress = postalAddress;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -152,7 +151,6 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {\n");
-
         sb.append("    schemeName: ").append(toIndentedString(schemeName)).append("\n");
         sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");

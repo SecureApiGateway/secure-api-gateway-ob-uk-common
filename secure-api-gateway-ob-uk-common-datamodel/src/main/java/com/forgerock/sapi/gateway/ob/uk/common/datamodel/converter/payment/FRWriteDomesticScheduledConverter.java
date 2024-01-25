@@ -25,31 +25,10 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.paymen
 public class FRWriteDomesticScheduledConverter {
 
     //OB to FR
-    public static FRWriteDomesticScheduled toFRWriteDomesticScheduled(OBWriteDomesticScheduled1 obWriteDomesticScheduled1) {
-        return obWriteDomesticScheduled1 == null ? null : FRWriteDomesticScheduled.builder()
-                .data(toFRWriteDataDomesticScheduled(obWriteDomesticScheduled1.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomesticScheduled1.getRisk()))
-                .build();
-    }
-
     public static FRWriteDomesticScheduled toFRWriteDomesticScheduled(OBWriteDomesticScheduled2 obWriteDomesticScheduled2) {
         return obWriteDomesticScheduled2 == null ? null : FRWriteDomesticScheduled.builder()
                 .data(toFRWriteDataDomesticScheduled(obWriteDomesticScheduled2.getData()))
                 .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomesticScheduled2.getRisk()))
-                .build();
-    }
-
-    public static FRWriteDataDomesticScheduled toFRWriteDataDomesticScheduled(OBWriteDataDomesticScheduled1 data) {
-        return data == null ? null : FRWriteDataDomesticScheduled.builder()
-                .consentId(data.getConsentId())
-                .initiation(toFRWriteDomesticScheduledDataInitiation(data.getInitiation()))
-                .build();
-    }
-
-    public static FRWriteDataDomesticScheduled toFRWriteDataDomesticScheduled(OBWriteDataDomesticScheduled2 data) {
-        return data == null ? null : FRWriteDataDomesticScheduled.builder()
-                .consentId(data.getConsentId())
-                .initiation(toFRWriteDomesticScheduledDataInitiation(data.getInitiation()))
                 .build();
     }
 
@@ -65,12 +44,6 @@ public class FRWriteDomesticScheduledConverter {
         return domesticScheduledPayment == null ? null : new OBWriteDomesticScheduled2()
                 .data(toOBWriteDomesticScheduled2Data(domesticScheduledPayment.getData()))
                 .risk(FRRiskConverter.toOBRisk1(domesticScheduledPayment.getRisk()));
-    }
-
-    public static OBWriteDataDomesticScheduled2 toOBWriteDataDomesticScheduled2(FRWriteDataDomesticScheduled data) {
-        return data == null ? null : new OBWriteDataDomesticScheduled2()
-                .consentId(data.getConsentId())
-                .initiation(toOBDomesticScheduled2(data.getInitiation()));
     }
 
     public static OBWriteDomesticScheduled2Data toOBWriteDomesticScheduled2Data(FRWriteDataDomesticScheduled data) {

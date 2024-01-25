@@ -15,56 +15,35 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.payment.*;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+
+import org.joda.time.DateTime;
+
+import uk.org.openbanking.datamodel.payment.OBExchangeRateType;
+import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationExchangeRateInformation;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsentResponse6DataExchangeRateInformation;
 
 public class OBExchangeRateTestDataFactory {
 
     private static final String CURRENCY = "USD";
     private static final String CONTRACT_IDENTIFICATION = "/tbill/2018/T102993";
 
-    public static OBWriteInternational2DataInitiationExchangeRateInformation aValidOBWriteInternational2DataInitiationExchangeRateInformation() {
-        return (new OBWriteInternational2DataInitiationExchangeRateInformation())
-                .unitCurrency(CURRENCY)
-                .exchangeRate(BigDecimal.TEN.setScale(4, RoundingMode.HALF_EVEN))
-                .rateType(OBExchangeRateType2Code.AGREED)
-                .contractIdentification(CONTRACT_IDENTIFICATION);
-    }
-
     public static OBWriteInternational3DataInitiationExchangeRateInformation aValidOBWriteInternational3DataInitiationExchangeRateInformation() {
         return (new OBWriteInternational3DataInitiationExchangeRateInformation())
                 .unitCurrency(CURRENCY)
                 .exchangeRate(BigDecimal.TEN.setScale(4, RoundingMode.HALF_EVEN))
-                .rateType(OBExchangeRateType2Code.AGREED)
+                .rateType(OBExchangeRateType.AGREED)
                 .contractIdentification(CONTRACT_IDENTIFICATION);
-    }
-
-    public static OBWriteInternationalConsentResponse4DataExchangeRateInformation aValidOBWriteInternationalConsentResponse4DataExchangeRateInformation() {
-        return (new OBWriteInternationalConsentResponse4DataExchangeRateInformation())
-                .unitCurrency(CURRENCY)
-                .exchangeRate(BigDecimal.TEN.setScale(4, RoundingMode.HALF_EVEN))
-                .rateType(OBExchangeRateType2Code.AGREED)
-                .contractIdentification(CONTRACT_IDENTIFICATION)
-                .expirationDateTime(DateTime.now().plusDays(1));
     }
 
     public static OBWriteInternationalConsentResponse6DataExchangeRateInformation aValidOBWriteInternationalConsentResponse6DataExchangeRateInformation() {
         return (new OBWriteInternationalConsentResponse6DataExchangeRateInformation())
                 .unitCurrency(CURRENCY)
                 .exchangeRate(BigDecimal.TEN.setScale(4, RoundingMode.HALF_EVEN))
-                .rateType(OBExchangeRateType2Code.AGREED)
+                .rateType(OBExchangeRateType.AGREED)
                 .contractIdentification(CONTRACT_IDENTIFICATION)
                 .expirationDateTime(DateTime.now().plusDays(1));
     }
 
-    public static OBExchangeRate1 aValidOBExchangeRate1() {
-        return (new OBExchangeRate1())
-                .unitCurrency(CURRENCY)
-                .exchangeRate(BigDecimal.TEN.setScale(4, RoundingMode.HALF_EVEN))
-                .rateType(OBExchangeRateType2Code.AGREED)
-                .contractIdentification(CONTRACT_IDENTIFICATION);
-    }
 }
