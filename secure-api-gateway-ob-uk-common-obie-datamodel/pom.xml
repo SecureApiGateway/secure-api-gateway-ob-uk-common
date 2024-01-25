@@ -172,7 +172,10 @@
                                         Meta=uk.org.openbanking.datamodel.common.Meta,
                                         OBRisk1=uk.org.openbanking.datamodel.common.OBRisk1,
                                         OBError1=uk.org.openbanking.datamodel.error.OBError1,
-                                        OBErrorResponse1=uk.org.openbanking.datamodel.error.OBErrorResponse1
+                                        OBErrorResponse1=uk.org.openbanking.datamodel.error.OBErrorResponse1,
+                                        OBCashAccount3=uk.org.openbanking.datamodel.common.OBCashAccount3,
+                                        OBExternalRequestStatus1Code=uk.org.openbanking.datamodel.common.OBExternalRequestStatus1Code,
+                                        OBActiveOrHistoricCurrencyAndAmount=uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount
                                     </importMappings>
                                     <configOptions>
                                         <useSpringBoot3>true</useSpringBoot3>

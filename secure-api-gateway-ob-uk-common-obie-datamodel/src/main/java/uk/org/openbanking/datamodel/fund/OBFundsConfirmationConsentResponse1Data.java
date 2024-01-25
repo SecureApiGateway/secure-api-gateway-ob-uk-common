@@ -15,28 +15,32 @@
  */
 package uk.org.openbanking.datamodel.fund;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
+
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import java.util.Objects;
 
 /**
  * OBFundsConfirmationConsentResponse1Data
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 
+@JsonTypeName("OBFundsConfirmationConsentResponse1_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBFundsConfirmationConsentResponse1Data {
-    @JsonProperty("ConsentId")
+
     private String consentId;
 
-    @JsonProperty("CreationDateTime")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
@@ -79,19 +83,30 @@ public class OBFundsConfirmationConsentResponse1Data {
         }
     }
 
-    @JsonProperty("Status")
     private StatusEnum status;
 
-    @JsonProperty("StatusUpdateDateTime")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
 
-    @JsonProperty("ExpirationDateTime")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime expirationDateTime;
 
-    @JsonProperty("DebtorAccount")
     private OBFundsConfirmationConsent1DataDebtorAccount debtorAccount;
+
+    public OBFundsConfirmationConsentResponse1Data() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBFundsConfirmationConsentResponse1Data(String consentId, DateTime creationDateTime, StatusEnum status, DateTime statusUpdateDateTime, OBFundsConfirmationConsent1DataDebtorAccount debtorAccount) {
+        this.consentId = consentId;
+        this.creationDateTime = creationDateTime;
+        this.status = status;
+        this.statusUpdateDateTime = statusUpdateDateTime;
+        this.debtorAccount = debtorAccount;
+    }
 
     public OBFundsConfirmationConsentResponse1Data consentId(String consentId) {
         this.consentId = consentId;
@@ -103,9 +118,10 @@ public class OBFundsConfirmationConsentResponse1Data {
      *
      * @return consentId
      */
-    @ApiModelProperty(required = true, value = "Unique identification as assigned to identify the funds confirmation consent resource.")
     @NotNull
     @Size(min = 1, max = 128)
+    @Schema(name = "ConsentId", description = "Unique identification as assigned to identify the funds confirmation consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("ConsentId")
     public String getConsentId() {
         return consentId;
     }
@@ -124,9 +140,10 @@ public class OBFundsConfirmationConsentResponse1Data {
      *
      * @return creationDateTime
      */
-    @ApiModelProperty(required = true, value = "Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @NotNull
     @Valid
+    @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
         return creationDateTime;
     }
@@ -145,8 +162,9 @@ public class OBFundsConfirmationConsentResponse1Data {
      *
      * @return status
      */
-    @ApiModelProperty(required = true, value = "Specifies the status of consent resource in code form.")
     @NotNull
+    @Schema(name = "Status", description = "Specifies the status of consent resource in code form.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Status")
     public StatusEnum getStatus() {
         return status;
     }
@@ -165,9 +183,10 @@ public class OBFundsConfirmationConsentResponse1Data {
      *
      * @return statusUpdateDateTime
      */
-    @ApiModelProperty(required = true, value = "Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @NotNull
     @Valid
+    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
     }
@@ -186,8 +205,9 @@ public class OBFundsConfirmationConsentResponse1Data {
      *
      * @return expirationDateTime
      */
-    @ApiModelProperty(value = "Specified date and time the funds confirmation authorisation will expire. If this is not populated, the authorisation will be open ended.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @Valid
+    @Schema(name = "ExpirationDateTime", description = "Specified date and time the funds confirmation authorisation will expire. If this is not populated, the authorisation will be open ended.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ExpirationDateTime")
     public DateTime getExpirationDateTime() {
         return expirationDateTime;
     }
@@ -206,9 +226,10 @@ public class OBFundsConfirmationConsentResponse1Data {
      *
      * @return debtorAccount
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
     @Valid
+    @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("DebtorAccount")
     public OBFundsConfirmationConsent1DataDebtorAccount getDebtorAccount() {
         return debtorAccount;
     }
@@ -243,7 +264,6 @@ public class OBFundsConfirmationConsentResponse1Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBFundsConfirmationConsentResponse1Data {\n");
-
         sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
         sb.append("    creationDateTime: ").append(toIndentedString(creationDateTime)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");

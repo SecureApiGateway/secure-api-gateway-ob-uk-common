@@ -19,6 +19,7 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 import uk.org.openbanking.datamodel.account.*;
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import uk.org.openbanking.datamodel.fund.OBFundsConfirmation1DataInstructedAmount;
 import uk.org.openbanking.datamodel.payment.*;
 
 public class FRAmountConverter {
@@ -129,6 +130,10 @@ public class FRAmountConverter {
     }
 
     public static FRAmount toFRAmount(OBReadBalance1DataBalanceInnerCreditLineInnerAmount amount) {
+        return FRModelMapper.map(amount, FRAmount.class);
+    }
+
+    public static FRAmount toFRAmount(OBFundsConfirmation1DataInstructedAmount amount) {
         return FRModelMapper.map(amount, FRAmount.class);
     }
 
@@ -243,5 +248,9 @@ public class FRAmountConverter {
 
     public static OBReadBalance1DataBalanceInnerCreditLineInnerAmount toOBReadBalance1DataAmount1(FRAmount amount) {
         return FRModelMapper.map(amount, OBReadBalance1DataBalanceInnerCreditLineInnerAmount.class);
+    }
+
+    public static OBFundsConfirmation1DataInstructedAmount toOBFundsConfirmation1DataInstructedAmount(FRAmount amount) {
+        return FRModelMapper.map(amount, OBFundsConfirmation1DataInstructedAmount.class);
     }
 }
