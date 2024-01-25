@@ -15,15 +15,14 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.funds;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.funds.FRFundsConfirmationConsent;
 import org.assertj.core.api.Assertions;
-import org.joda.time.DateTime;
-
-
 import org.junit.jupiter.api.Test;
-import uk.org.openbanking.datamodel.common.OBCashAccount3;
+
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.funds.FRFundsConfirmationConsent;
+
 import uk.org.openbanking.datamodel.fund.OBFundsConfirmationConsent1;
-import uk.org.openbanking.datamodel.fund.OBFundsConfirmationConsentData1;
+import uk.org.openbanking.datamodel.fund.OBFundsConfirmationConsent1Data;
+import uk.org.openbanking.datamodel.fund.OBFundsConfirmationConsent1DataDebtorAccount;
 
 /**
  * Unit test for {@link FRFundsConfirmationConsentConverter}
@@ -33,13 +32,12 @@ public class FRFundsConfirmationConsentConverterTest {
     @Test
     void testConvert() {
         OBFundsConfirmationConsent1 fundsConfirmationConsent1 = new OBFundsConfirmationConsent1()
-                .data(new OBFundsConfirmationConsentData1()
-                        .debtorAccount(new OBCashAccount3()
+                .data(new OBFundsConfirmationConsent1Data()
+                        .debtorAccount(new OBFundsConfirmationConsent1DataDebtorAccount()
                                 .schemeName("UK.OBIE.SortCodeAccountNumber")
                                 .identification("40400422390112")
                                 .name("Mrs B Smith")
                         )
-                        .expirationDateTime(DateTime.now().plusDays(30))
                 );
         final FRFundsConfirmationConsent frFundsConfirmationConsent = FRFundsConfirmationConsentConverter.toFRFundsConfirmationConsent(fundsConfirmationConsent1);
         Assertions.assertThat(FRFundsConfirmationConsentConverter.toOBFundsConfirmationConsent1(frFundsConfirmationConsent)).isEqualTo(fundsConfirmationConsent1);
