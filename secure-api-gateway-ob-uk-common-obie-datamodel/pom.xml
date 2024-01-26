@@ -167,6 +167,10 @@
                                     <!-- Change the package here as per the chosen spec above -->
                                     <modelPackage>uk.org.openbanking.datamodel.payment</modelPackage>
                                     <generateApis>false</generateApis>
+                                    <!-- Override the default name for inline schemas
+                                         This should be used when we want to give complex inner schema names a more
+                                         sensible name.
+                                     -->
                                     <inlineSchemaNameMappings>
                                         OBWriteInternational3_Data_Initiation_ExchangeRateInformation_RateType=OBExchangeRateType,
                                         OBWriteDomesticConsentResponse5_Data_Status=OBPaymentConsentStatus,
@@ -179,21 +183,51 @@
                                     <inlineSchemaOptions>
                                         RESOLVE_INLINE_ENUMS=true,
                                     </inlineSchemaOptions>
-                                    <!-- Map a type defined in the schema to one of our existing type names
-                                         NOTE: we use the class name rather than fully qualified class name as this just
-                                         controls the name of the type in the generated code, a mapping in the importMappings
-                                         block needs to be created to then map the new type name to the fully qualified
-                                         class name to use in the import-->
+                                    <!-- Map a type defined in the schema to another type, either one which exists in
+                                         the common package or another type that will be generated.
+
+                                         A mapping configured here will cause that particular scheme type not be
+                                         generated.
+
+                                         When mapping inline schemas, the inline schema name must be used, see the
+                                         code-gen output logs to determine the inline name.
+                                         Example log: "Inline schema created as OBRisk1_DeliveryAddress. To have complete control of the model name use inlineSchemaNameMapping option
+
+                                         NOTE: we use the class name as the value rather than fully qualified class name.
+                                         This controls the class name used in generated code which references the type,
+                                         if this type is found in another package (such as the common package) then an
+                                         importMapping also needs to be specified
+                                     -->
                                     <schemaMappings>
+                                        Links=Links,
+                                        Meta=Meta,
+                                        OBRisk1=OBRisk1,
+                                        OBRisk1_DeliveryAddress=OBRisk1DeliveryAddress,
+                                        OBRisk1_PaymentContextCode=OBRisk1PaymentContextCode,
                                         OBSupplementaryData1=OBSupplementaryData1,
+                                        OBError1=OBError1,
+                                        OBErrorResponse1=OBErrorResponse1,
+                                        OBCashAccount3=OBCashAccount3,
+                                        OBExternalRequestStatus1Code=OBExternalRequestStatus1Code,
+                                        OBActiveOrHistoricCurrencyAndAmount=OBActiveOrHistoricCurrencyAndAmount,
+                                        OBPostalAddress6=OBPostalAddress6,
+                                        OBChargeBearerType1Code=OBChargeBearerType1Code,
+                                        OBCashAccountCreditor3=OBCashAccountCreditor3,
+                                        OBBranchAndFinancialInstitutionIdentification6=OBBranchAndFinancialInstitutionIdentification6,
+                                        OBExternalStatus2Code=OBExternalStatus2Code,
+                                        OBReadRefundAccount=OBReadRefundAccount,
+                                        OBAddressTypeCode=OBAddressTypeCode,
+                                        OBExternalPaymentContext1Code=OBExternalPaymentContext1Code,
                                         OBWriteInternationalStandingOrderConsentResponse7_Data_Status=OBPaymentConsentStatus,
                                         OBDomesticVRPRequest_Data_PSUInteractionType=OBVRPInteractionTypes,
                                         OBDomesticVRPConsentResponse_Data_DebtorAccount=OBCashAccountDebtorWithName,
                                         OBDomesticVRPConsentResponse_Data_ReadRefundAccount=OBReadRefundAccount,
                                         OBWriteDomesticConsent4_Data_ReadRefundAccount=OBReadRefundAccount,
                                     </schemaMappings>
-                                    <!-- Map types defined in the schema to our own implementations in common which can
-                                         be reused across OB schemas i.e. Links definition is defined in each OB API
+                                    <!-- Map types which are not generating to their fully qualified class name to use
+                                         in the import statements.
+
+                                         Note: a mapping in schemaMappings should exist for each of these entries.
 
                                          Documentation: https://github.com/OpenAPITools/openapi-generator/blob/master/docs/customization.md
                                          -->
@@ -213,6 +247,7 @@
                                         OBBranchAndFinancialInstitutionIdentification6=uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6,
                                         OBExternalStatus2Code=uk.org.openbanking.datamodel.common.OBExternalStatus2Code,
                                         OBReadRefundAccount=uk.org.openbanking.datamodel.common.OBReadRefundAccount,
+                                        OBAddressTypeCode=uk.org.openbanking.datamodel.common.OBAddressTypeCode,
                                     </importMappings>
                                     <configOptions>
                                         <useSpringBoot3>true</useSpringBoot3>
