@@ -15,28 +15,42 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
 
 /**
  * OBDomesticVRPConsentRequestData
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBDomesticVRPConsentRequest_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPConsentRequestData {
 
-    @JsonProperty("ReadRefundAccount")
-    private OBReadRefundAccount readRefundAccount; // Edited to use common OBReadRefundAccountEnum
+    private OBReadRefundAccount readRefundAccount;
 
-    @JsonProperty("ControlParameters")
     private OBDomesticVRPControlParameters controlParameters;
 
-    @JsonProperty("Initiation")
     private OBDomesticVRPInitiation initiation;
+
+    public OBDomesticVRPConsentRequestData() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBDomesticVRPConsentRequestData(OBDomesticVRPControlParameters controlParameters, OBDomesticVRPInitiation initiation) {
+        this.controlParameters = controlParameters;
+        this.initiation = initiation;
+    }
 
     public OBDomesticVRPConsentRequestData readRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
@@ -44,13 +58,13 @@ public class OBDomesticVRPConsentRequestData {
     }
 
     /**
-     * Indicates whether information about RefundAccount should be included in the payment response.
+     * Get readRefundAccount
      *
      * @return readRefundAccount
      */
-    @ApiModelProperty(value = "Indicates whether information about RefundAccount should be included in the payment response. ")
-
-
+    @Valid
+    @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ReadRefundAccount")
     public OBReadRefundAccount getReadRefundAccount() {
         return readRefundAccount;
     }
@@ -69,11 +83,10 @@ public class OBDomesticVRPConsentRequestData {
      *
      * @return controlParameters
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "ControlParameters", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("ControlParameters")
     public OBDomesticVRPControlParameters getControlParameters() {
         return controlParameters;
     }
@@ -92,11 +105,10 @@ public class OBDomesticVRPConsentRequestData {
      *
      * @return initiation
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Initiation")
     public OBDomesticVRPInitiation getInitiation() {
         return initiation;
     }
@@ -104,7 +116,6 @@ public class OBDomesticVRPConsentRequestData {
     public void setInitiation(OBDomesticVRPInitiation initiation) {
         this.initiation = initiation;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -129,7 +140,6 @@ public class OBDomesticVRPConsentRequestData {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBDomesticVRPConsentRequestData {\n");
-
         sb.append("    readRefundAccount: ").append(toIndentedString(readRefundAccount)).append("\n");
         sb.append("    controlParameters: ").append(toIndentedString(controlParameters)).append("\n");
         sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");

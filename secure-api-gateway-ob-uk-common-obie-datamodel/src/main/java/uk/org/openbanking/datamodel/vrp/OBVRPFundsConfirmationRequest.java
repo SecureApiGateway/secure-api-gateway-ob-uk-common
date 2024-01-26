@@ -15,22 +15,35 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
 
 /**
  * The OBVRPFundsConfirmationRequest object must be used to request funds availability for a specific amount in the Debtor Account included in the VRP consents.
  */
-@ApiModel(description = "The OBVRPFundsConfirmationRequest object must be used to request funds availability for a specific amount in the Debtor Account included in the VRP consents.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBVRPFundsConfirmationRequest", description = "The OBVRPFundsConfirmationRequest object must be used to request funds availability for a specific amount in the Debtor Account included in the VRP consents.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBVRPFundsConfirmationRequest {
-    @JsonProperty("Data")
+
     private OBVRPFundsConfirmationRequestData data;
+
+    public OBVRPFundsConfirmationRequest() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBVRPFundsConfirmationRequest(OBVRPFundsConfirmationRequestData data) {
+        this.data = data;
+    }
 
     public OBVRPFundsConfirmationRequest data(OBVRPFundsConfirmationRequestData data) {
         this.data = data;
@@ -42,11 +55,10 @@ public class OBVRPFundsConfirmationRequest {
      *
      * @return data
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Data")
     public OBVRPFundsConfirmationRequestData getData() {
         return data;
     }
@@ -54,7 +66,6 @@ public class OBVRPFundsConfirmationRequest {
     public void setData(OBVRPFundsConfirmationRequestData data) {
         this.data = data;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -77,7 +88,6 @@ public class OBVRPFundsConfirmationRequest {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBVRPFundsConfirmationRequest {\n");
-
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();

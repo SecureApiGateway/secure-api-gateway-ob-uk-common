@@ -30,7 +30,7 @@ import com.forgerock.sapi.gateway.uk.common.shared.api.meta.forgerock.FRFrequenc
 
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.payment.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4DataPermission;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4DataInitiation;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent6;

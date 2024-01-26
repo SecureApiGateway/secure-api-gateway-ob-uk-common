@@ -29,7 +29,7 @@ import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDa
 
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.payment.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
 import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiation;
 import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationInstructionPriority;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsent5;

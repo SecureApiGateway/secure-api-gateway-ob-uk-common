@@ -17,7 +17,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSubmissionStatus;
 import uk.org.openbanking.datamodel.payment.*;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPResponseData;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPResponseDataStatus;
 
 public class FRSubmissionStatusConverter {
 
@@ -88,17 +88,17 @@ public class FRSubmissionStatusConverter {
     }
 
     // vrp 3.1.x
-    public static FRSubmissionStatus toFRSubmissionStatus(OBDomesticVRPResponseData.StatusEnum status) {
+    public static FRSubmissionStatus toFRSubmissionStatus(OBDomesticVRPResponseDataStatus status) {
         if (status == null) {
             return null;
         }
         return FRSubmissionStatus.fromValue(status.getValue());
     }
 
-    public static OBDomesticVRPResponseData.StatusEnum toOBDomesticVRPResponseDataStatusEnum(FRSubmissionStatus status) {
+    public static OBDomesticVRPResponseDataStatus toOBDomesticVRPResponseDataStatusEnum(FRSubmissionStatus status) {
         if (status == null) {
             return null;
         }
-        return OBDomesticVRPResponseData.StatusEnum.fromValue(status.getValue());
+        return OBDomesticVRPResponseDataStatus.fromValue(status.getValue());
     }
 }

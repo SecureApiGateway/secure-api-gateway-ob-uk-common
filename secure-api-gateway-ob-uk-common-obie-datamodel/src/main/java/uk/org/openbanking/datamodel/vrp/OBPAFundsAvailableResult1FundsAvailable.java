@@ -21,19 +21,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Gets or Sets OBVRPInteractionTypes
+ * Availability result, clearly indicating the availability of funds given the Amount in the request.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBVRPInteractionTypes {
+public enum OBPAFundsAvailableResult1FundsAvailable {
 
-    INSESSION("InSession"),
+    AVAILABLE("Available"),
 
-    OFFSESSION("OffSession");
+    NOTAVAILABLE("NotAvailable");
 
     private String value;
 
-    OBVRPInteractionTypes(String value) {
+    OBPAFundsAvailableResult1FundsAvailable(String value) {
         this.value = value;
     }
 
@@ -48,8 +48,8 @@ public enum OBVRPInteractionTypes {
     }
 
     @JsonCreator
-    public static OBVRPInteractionTypes fromValue(String value) {
-        for (OBVRPInteractionTypes b : OBVRPInteractionTypes.values()) {
+    public static OBPAFundsAvailableResult1FundsAvailable fromValue(String value) {
+        for (OBPAFundsAvailableResult1FundsAvailable b : OBPAFundsAvailableResult1FundsAvailable.values()) {
             if (b.value.equals(value)) {
                 return b;
             }

@@ -30,7 +30,7 @@ import org.joda.time.DateTime;
 import com.forgerock.sapi.gateway.uk.common.shared.api.meta.forgerock.FRFrequencyType;
 
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.payment.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4DataPermission;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiation;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent5;

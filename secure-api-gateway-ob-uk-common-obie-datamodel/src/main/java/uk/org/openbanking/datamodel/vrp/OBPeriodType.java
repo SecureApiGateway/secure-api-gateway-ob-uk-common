@@ -21,19 +21,27 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Gets or Sets OBVRPInteractionTypes
+ * ^ Period type for this period limit
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBVRPInteractionTypes {
+public enum OBPeriodType {
 
-    INSESSION("InSession"),
+    DAY("Day"),
 
-    OFFSESSION("OffSession");
+    WEEK("Week"),
+
+    FORTNIGHT("Fortnight"),
+
+    MONTH("Month"),
+
+    HALF_YEAR("Half-year"),
+
+    YEAR("Year");
 
     private String value;
 
-    OBVRPInteractionTypes(String value) {
+    OBPeriodType(String value) {
         this.value = value;
     }
 
@@ -48,8 +56,8 @@ public enum OBVRPInteractionTypes {
     }
 
     @JsonCreator
-    public static OBVRPInteractionTypes fromValue(String value) {
-        for (OBVRPInteractionTypes b : OBVRPInteractionTypes.values()) {
+    public static OBPeriodType fromValue(String value) {
+        for (OBPeriodType b : OBPeriodType.values()) {
             if (b.value.equals(value)) {
                 return b;
             }

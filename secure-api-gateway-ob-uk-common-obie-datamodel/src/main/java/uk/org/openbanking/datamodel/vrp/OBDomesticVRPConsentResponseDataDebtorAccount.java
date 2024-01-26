@@ -18,6 +18,7 @@ package uk.org.openbanking.datamodel.vrp;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
@@ -25,11 +26,12 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 /**
- * OBCashAccountDebtorWithName
+ * OBDomesticVRPConsentResponseDataDebtorAccount
  */
 
+@JsonTypeName("OBDomesticVRPConsentResponse_Data_DebtorAccount")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBCashAccountDebtorWithName {
+public class OBDomesticVRPConsentResponseDataDebtorAccount {
 
     private String schemeName;
 
@@ -39,20 +41,20 @@ public class OBCashAccountDebtorWithName {
 
     private String secondaryIdentification;
 
-    public OBCashAccountDebtorWithName() {
+    public OBDomesticVRPConsentResponseDataDebtorAccount() {
         super();
     }
 
     /**
      * Constructor with only required parameters
      */
-    public OBCashAccountDebtorWithName(String schemeName, String identification, String name) {
+    public OBDomesticVRPConsentResponseDataDebtorAccount(String schemeName, String identification, String name) {
         this.schemeName = schemeName;
         this.identification = identification;
         this.name = name;
     }
 
-    public OBCashAccountDebtorWithName schemeName(String schemeName) {
+    public OBDomesticVRPConsentResponseDataDebtorAccount schemeName(String schemeName) {
         this.schemeName = schemeName;
         return this;
     }
@@ -73,7 +75,7 @@ public class OBCashAccountDebtorWithName {
         this.schemeName = schemeName;
     }
 
-    public OBCashAccountDebtorWithName identification(String identification) {
+    public OBDomesticVRPConsentResponseDataDebtorAccount identification(String identification) {
         this.identification = identification;
         return this;
     }
@@ -95,7 +97,7 @@ public class OBCashAccountDebtorWithName {
         this.identification = identification;
     }
 
-    public OBCashAccountDebtorWithName name(String name) {
+    public OBDomesticVRPConsentResponseDataDebtorAccount name(String name) {
         this.name = name;
         return this;
     }
@@ -117,7 +119,7 @@ public class OBCashAccountDebtorWithName {
         this.name = name;
     }
 
-    public OBCashAccountDebtorWithName secondaryIdentification(String secondaryIdentification) {
+    public OBDomesticVRPConsentResponseDataDebtorAccount secondaryIdentification(String secondaryIdentification) {
         this.secondaryIdentification = secondaryIdentification;
         return this;
     }
@@ -146,11 +148,11 @@ public class OBCashAccountDebtorWithName {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBCashAccountDebtorWithName obCashAccountDebtorWithName = (OBCashAccountDebtorWithName) o;
-        return Objects.equals(this.schemeName, obCashAccountDebtorWithName.schemeName) &&
-                Objects.equals(this.identification, obCashAccountDebtorWithName.identification) &&
-                Objects.equals(this.name, obCashAccountDebtorWithName.name) &&
-                Objects.equals(this.secondaryIdentification, obCashAccountDebtorWithName.secondaryIdentification);
+        OBDomesticVRPConsentResponseDataDebtorAccount obDomesticVRPConsentResponseDataDebtorAccount = (OBDomesticVRPConsentResponseDataDebtorAccount) o;
+        return Objects.equals(this.schemeName, obDomesticVRPConsentResponseDataDebtorAccount.schemeName) &&
+                Objects.equals(this.identification, obDomesticVRPConsentResponseDataDebtorAccount.identification) &&
+                Objects.equals(this.name, obDomesticVRPConsentResponseDataDebtorAccount.name) &&
+                Objects.equals(this.secondaryIdentification, obDomesticVRPConsentResponseDataDebtorAccount.secondaryIdentification);
     }
 
     @Override
@@ -161,7 +163,7 @@ public class OBCashAccountDebtorWithName {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OBCashAccountDebtorWithName {\n");
+        sb.append("class OBDomesticVRPConsentResponseDataDebtorAccount {\n");
         sb.append("    schemeName: ").append(toIndentedString(schemeName)).append("\n");
         sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");

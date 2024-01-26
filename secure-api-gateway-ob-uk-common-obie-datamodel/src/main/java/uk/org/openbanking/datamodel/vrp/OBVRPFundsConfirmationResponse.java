@@ -15,22 +15,35 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
 
 /**
  * The confirmation of funds response contains the result of a funds availability check.
  */
-@ApiModel(description = "The confirmation of funds response contains the result of a funds availability check.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBVRPFundsConfirmationResponse", description = "The confirmation of funds response contains the result of a funds availability check.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBVRPFundsConfirmationResponse {
-    @JsonProperty("Data")
+
     private OBVRPFundsConfirmationResponseData data;
+
+    public OBVRPFundsConfirmationResponse() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBVRPFundsConfirmationResponse(OBVRPFundsConfirmationResponseData data) {
+        this.data = data;
+    }
 
     public OBVRPFundsConfirmationResponse data(OBVRPFundsConfirmationResponseData data) {
         this.data = data;
@@ -42,11 +55,10 @@ public class OBVRPFundsConfirmationResponse {
      *
      * @return data
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Data")
     public OBVRPFundsConfirmationResponseData getData() {
         return data;
     }
@@ -54,7 +66,6 @@ public class OBVRPFundsConfirmationResponse {
     public void setData(OBVRPFundsConfirmationResponseData data) {
         this.data = data;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -77,7 +88,6 @@ public class OBVRPFundsConfirmationResponse {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBVRPFundsConfirmationResponse {\n");
-
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();

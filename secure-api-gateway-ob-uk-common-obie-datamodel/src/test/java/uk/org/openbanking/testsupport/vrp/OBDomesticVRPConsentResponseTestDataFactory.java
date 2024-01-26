@@ -17,7 +17,8 @@ package uk.org.openbanking.testsupport.vrp;
 
 import com.forgerock.sapi.gateway.uk.common.shared.api.meta.share.IntentType;
 import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.vrp.OBReadRefundAccount;
+
+import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
 import uk.org.openbanking.datamodel.vrp.*;
 
 import static org.joda.time.DateTime.now;

@@ -15,18 +15,21 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
-import jakarta.validation.Valid;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 
 /**
  * OBDomesticVRPDetails
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPDetails {
-    @JsonProperty("Data")
+
     private OBDomesticVRPDetailsData data;
 
     public OBDomesticVRPDetails data(OBDomesticVRPDetailsData data) {
@@ -39,10 +42,9 @@ public class OBDomesticVRPDetails {
      *
      * @return data
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Data", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Data")
     public OBDomesticVRPDetailsData getData() {
         return data;
     }
@@ -50,7 +52,6 @@ public class OBDomesticVRPDetails {
     public void setData(OBDomesticVRPDetailsData data) {
         this.data = data;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -73,7 +74,6 @@ public class OBDomesticVRPDetails {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBDomesticVRPDetails {\n");
-
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();

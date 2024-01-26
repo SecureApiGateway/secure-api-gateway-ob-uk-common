@@ -30,7 +30,7 @@ import org.joda.time.DateTime;
 
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.payment.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
 import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4DataPermission;
 import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationInstructionPriority;
 import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled3DataInitiation;

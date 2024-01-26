@@ -15,86 +15,62 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.util.Objects;
 
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
 
 /**
  * OBDomesticVRPConsentResponseData
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBDomesticVRPConsentResponse_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPConsentResponseData {
 
-    @JsonProperty("ReadRefundAccount")
-    private OBReadRefundAccount readRefundAccount; // Edited to use common OBReadRefundAccountEnum
+    private OBReadRefundAccount readRefundAccount;
 
-    @JsonProperty("ConsentId")
     private String consentId;
 
-    @JsonProperty("CreationDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    /**
-     * Specifies the status of resource in code form.
-     */
-    public enum StatusEnum {
-        AUTHORISED("Authorised"),
+    private OBDomesticVRPConsentResponseDataStatus status;
 
-        AWAITINGAUTHORISATION("AwaitingAuthorisation"),
-
-        REJECTED("Rejected");
-
-        private String value;
-
-        StatusEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static StatusEnum fromValue(String value) {
-            for (StatusEnum b : StatusEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
-
-    @JsonProperty("Status")
-    private StatusEnum status;
-
-    @JsonProperty("StatusUpdateDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
 
-    @JsonProperty("ControlParameters")
     private OBDomesticVRPControlParameters controlParameters;
 
-    @JsonProperty("Initiation")
     private OBDomesticVRPInitiation initiation;
 
-    @JsonProperty("DebtorAccount")
     private OBCashAccountDebtorWithName debtorAccount;
+
+    public OBDomesticVRPConsentResponseData() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBDomesticVRPConsentResponseData(String consentId, DateTime creationDateTime, OBDomesticVRPConsentResponseDataStatus status, DateTime statusUpdateDateTime, OBDomesticVRPControlParameters controlParameters, OBDomesticVRPInitiation initiation) {
+        this.consentId = consentId;
+        this.creationDateTime = creationDateTime;
+        this.status = status;
+        this.statusUpdateDateTime = statusUpdateDateTime;
+        this.controlParameters = controlParameters;
+        this.initiation = initiation;
+    }
 
     public OBDomesticVRPConsentResponseData readRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
@@ -102,13 +78,13 @@ public class OBDomesticVRPConsentResponseData {
     }
 
     /**
-     * Indicates whether information about RefundAccount should be included in the payment response.
+     * Get readRefundAccount
      *
      * @return readRefundAccount
      */
-    @ApiModelProperty(value = "Indicates whether information about RefundAccount should be included in the payment response. ")
-
-
+    @Valid
+    @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ReadRefundAccount")
     public OBReadRefundAccount getReadRefundAccount() {
         return readRefundAccount;
     }
@@ -127,10 +103,10 @@ public class OBDomesticVRPConsentResponseData {
      *
      * @return consentId
      */
-    @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the consent resource. ")
     @NotNull
-
     @Size(min = 1, max = 128)
+    @Schema(name = "ConsentId", description = "Unique identification as assigned by the ASPSP to uniquely identify the consent resource. ", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("ConsentId")
     public String getConsentId() {
         return consentId;
     }
@@ -149,11 +125,10 @@ public class OBDomesticVRPConsentResponseData {
      *
      * @return creationDateTime
      */
-    @ApiModelProperty(required = true, value = "Date and time at which the resource was created. ")
     @NotNull
-
     @Valid
-
+    @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created. ", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
         return creationDateTime;
     }
@@ -162,25 +137,25 @@ public class OBDomesticVRPConsentResponseData {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBDomesticVRPConsentResponseData status(StatusEnum status) {
+    public OBDomesticVRPConsentResponseData status(OBDomesticVRPConsentResponseDataStatus status) {
         this.status = status;
         return this;
     }
 
     /**
-     * Specifies the status of resource in code form.
+     * Get status
      *
      * @return status
      */
-    @ApiModelProperty(required = true, value = "Specifies the status of resource in code form. ")
     @NotNull
-
-
-    public StatusEnum getStatus() {
+    @Valid
+    @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Status")
+    public OBDomesticVRPConsentResponseDataStatus getStatus() {
         return status;
     }
 
-    public void setStatus(StatusEnum status) {
+    public void setStatus(OBDomesticVRPConsentResponseDataStatus status) {
         this.status = status;
     }
 
@@ -194,11 +169,10 @@ public class OBDomesticVRPConsentResponseData {
      *
      * @return statusUpdateDateTime
      */
-    @ApiModelProperty(required = true, value = "Date and time at which the resource status was updated. ")
     @NotNull
-
     @Valid
-
+    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. ", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
     }
@@ -217,11 +191,10 @@ public class OBDomesticVRPConsentResponseData {
      *
      * @return controlParameters
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "ControlParameters", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("ControlParameters")
     public OBDomesticVRPControlParameters getControlParameters() {
         return controlParameters;
     }
@@ -240,11 +213,10 @@ public class OBDomesticVRPConsentResponseData {
      *
      * @return initiation
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Initiation")
     public OBDomesticVRPInitiation getInitiation() {
         return initiation;
     }
@@ -263,10 +235,9 @@ public class OBDomesticVRPConsentResponseData {
      *
      * @return debtorAccount
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("DebtorAccount")
     public OBCashAccountDebtorWithName getDebtorAccount() {
         return debtorAccount;
     }
@@ -274,7 +245,6 @@ public class OBDomesticVRPConsentResponseData {
     public void setDebtorAccount(OBCashAccountDebtorWithName debtorAccount) {
         this.debtorAccount = debtorAccount;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -304,7 +274,6 @@ public class OBDomesticVRPConsentResponseData {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBDomesticVRPConsentResponseData {\n");
-
         sb.append("    readRefundAccount: ").append(toIndentedString(readRefundAccount)).append("\n");
         sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
         sb.append("    creationDateTime: ").append(toIndentedString(creationDateTime)).append("\n");

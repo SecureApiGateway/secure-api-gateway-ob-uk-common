@@ -15,23 +15,26 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import jakarta.validation.constraints.Size;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.constraints.Size;
 
 /**
  * ^ Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts&#39; receivable system.
  */
-@ApiModel(description = "^ Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBDomesticVRPInitiation_RemittanceInformation", description = "^ Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.")
+@JsonTypeName("OBDomesticVRPInitiation_RemittanceInformation")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPInitiationRemittanceInformation {
-    @JsonProperty("Unstructured")
+
     private String unstructured;
 
-    @JsonProperty("Reference")
     private String reference;
 
     public OBDomesticVRPInitiationRemittanceInformation unstructured(String unstructured) {
@@ -44,9 +47,9 @@ public class OBDomesticVRPInitiationRemittanceInformation {
      *
      * @return unstructured
      */
-    @ApiModelProperty(value = "^ Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.")
-
     @Size(min = 1, max = 140)
+    @Schema(name = "Unstructured", description = "^ Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Unstructured")
     public String getUnstructured() {
         return unstructured;
     }
@@ -65,9 +68,9 @@ public class OBDomesticVRPInitiationRemittanceInformation {
      *
      * @return reference
      */
-    @ApiModelProperty(value = "^ Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. Usage - If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money. If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.")
-
     @Size(min = 1, max = 35)
+    @Schema(name = "Reference", description = "^ Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. Usage - If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money. If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Reference")
     public String getReference() {
         return reference;
     }
@@ -75,7 +78,6 @@ public class OBDomesticVRPInitiationRemittanceInformation {
     public void setReference(String reference) {
         this.reference = reference;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -99,7 +101,6 @@ public class OBDomesticVRPInitiationRemittanceInformation {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBDomesticVRPInitiationRemittanceInformation {\n");
-
         sb.append("    unstructured: ").append(toIndentedString(unstructured)).append("\n");
         sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
         sb.append("}");

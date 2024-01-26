@@ -26,7 +26,7 @@ import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDa
 import java.util.UUID;
 
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.payment.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
 import uk.org.openbanking.datamodel.payment.OBWriteDomestic2;
 import uk.org.openbanking.datamodel.payment.OBWriteDomestic2Data;
 import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiation;

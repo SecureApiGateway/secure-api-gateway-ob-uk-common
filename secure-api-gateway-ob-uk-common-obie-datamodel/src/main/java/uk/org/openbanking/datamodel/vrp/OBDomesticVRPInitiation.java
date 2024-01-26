@@ -15,29 +15,29 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
+import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.common.OBPostalAddress6;
-
-import jakarta.validation.Valid;
-import java.util.Objects;
 
 /**
  * OBDomesticVRPInitiation
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPInitiation {
-    @JsonProperty("DebtorAccount")
+
     private OBCashAccountDebtorWithName debtorAccount;
 
-    @JsonProperty("CreditorAccount")
     private OBCashAccountCreditor3 creditorAccount;
 
-    @JsonProperty("CreditorPostalAddress")
     private OBPostalAddress6 creditorPostalAddress;
 
-    @JsonProperty("RemittanceInformation")
     private OBDomesticVRPInitiationRemittanceInformation remittanceInformation;
 
     public OBDomesticVRPInitiation debtorAccount(OBCashAccountDebtorWithName debtorAccount) {
@@ -50,10 +50,9 @@ public class OBDomesticVRPInitiation {
      *
      * @return debtorAccount
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("DebtorAccount")
     public OBCashAccountDebtorWithName getDebtorAccount() {
         return debtorAccount;
     }
@@ -72,10 +71,9 @@ public class OBDomesticVRPInitiation {
      *
      * @return creditorAccount
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "CreditorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("CreditorAccount")
     public OBCashAccountCreditor3 getCreditorAccount() {
         return creditorAccount;
     }
@@ -94,10 +92,9 @@ public class OBDomesticVRPInitiation {
      *
      * @return creditorPostalAddress
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "CreditorPostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("CreditorPostalAddress")
     public OBPostalAddress6 getCreditorPostalAddress() {
         return creditorPostalAddress;
     }
@@ -116,10 +113,9 @@ public class OBDomesticVRPInitiation {
      *
      * @return remittanceInformation
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "RemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("RemittanceInformation")
     public OBDomesticVRPInitiationRemittanceInformation getRemittanceInformation() {
         return remittanceInformation;
     }
@@ -127,7 +123,6 @@ public class OBDomesticVRPInitiation {
     public void setRemittanceInformation(OBDomesticVRPInitiationRemittanceInformation remittanceInformation) {
         this.remittanceInformation = remittanceInformation;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -153,7 +148,6 @@ public class OBDomesticVRPInitiation {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBDomesticVRPInitiation {\n");
-
         sb.append("    debtorAccount: ").append(toIndentedString(debtorAccount)).append("\n");
         sb.append("    creditorAccount: ").append(toIndentedString(creditorAccount)).append("\n");
         sb.append("    creditorPostalAddress: ").append(toIndentedString(creditorPostalAddress)).append("\n");

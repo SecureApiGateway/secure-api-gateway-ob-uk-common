@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.payment;
+package uk.org.openbanking.datamodel.vrp;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -21,19 +21,21 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies to share the refund account details with PISP
+ * Specifies the status of resource in code form.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBReadRefundAccount {
+public enum OBDomesticVRPConsentResponseDataStatus {
 
-    NO("No"),
+    AUTHORISED("Authorised"),
 
-    YES("Yes");
+    AWAITINGAUTHORISATION("AwaitingAuthorisation"),
+
+    REJECTED("Rejected");
 
     private String value;
 
-    OBReadRefundAccount(String value) {
+    OBDomesticVRPConsentResponseDataStatus(String value) {
         this.value = value;
     }
 
@@ -48,8 +50,8 @@ public enum OBReadRefundAccount {
     }
 
     @JsonCreator
-    public static OBReadRefundAccount fromValue(String value) {
-        for (OBReadRefundAccount b : OBReadRefundAccount.values()) {
+    public static OBDomesticVRPConsentResponseDataStatus fromValue(String value) {
+        for (OBDomesticVRPConsentResponseDataStatus b : OBDomesticVRPConsentResponseDataStatus.values()) {
             if (b.value.equals(value)) {
                 return b;
             }

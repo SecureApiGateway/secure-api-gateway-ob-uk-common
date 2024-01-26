@@ -168,9 +168,10 @@
                                     <modelPackage>uk.org.openbanking.datamodel.payment</modelPackage>
                                     <generateApis>false</generateApis>
                                     <inlineSchemaNameMappings>
-                                        OBWriteDomesticConsent4_Data_ReadRefundAccount=OBReadRefundAccount,
                                         OBWriteInternational3_Data_Initiation_ExchangeRateInformation_RateType=OBExchangeRateType,
-                                        OBWriteDomesticConsentResponse5_Data_Status=OBPaymentConsentStatus
+                                        OBWriteDomesticConsentResponse5_Data_Status=OBPaymentConsentStatus,
+                                        OBDomesticVRPControlParameters_PeriodicLimits_inner_PeriodAlignment=OBPeriodAlignment,
+                                        OBDomesticVRPControlParameters_PeriodicLimits_inner_PeriodType=OBPeriodType,
                                     </inlineSchemaNameMappings>
                                     <!-- RESOLVE_INLINE_ENUMS needs to be enabled to move enums which are specified as
                                          inline types in the schema to top level generated types, this then allows us to
@@ -185,7 +186,11 @@
                                          class name to use in the import-->
                                     <schemaMappings>
                                         OBSupplementaryData1=OBSupplementaryData1,
-                                        OBWriteInternationalStandingOrderConsentResponse7_Data_Status=OBPaymentConsentStatus
+                                        OBWriteInternationalStandingOrderConsentResponse7_Data_Status=OBPaymentConsentStatus,
+                                        OBDomesticVRPRequest_Data_PSUInteractionType=OBVRPInteractionTypes,
+                                        OBDomesticVRPConsentResponse_Data_DebtorAccount=OBCashAccountDebtorWithName,
+                                        OBDomesticVRPConsentResponse_Data_ReadRefundAccount=OBReadRefundAccount,
+                                        OBWriteDomesticConsent4_Data_ReadRefundAccount=OBReadRefundAccount,
                                     </schemaMappings>
                                     <!-- Map types defined in the schema to our own implementations in common which can
                                          be reused across OB schemas i.e. Links definition is defined in each OB API
@@ -206,7 +211,8 @@
                                         OBChargeBearerType1Code=uk.org.openbanking.datamodel.common.OBChargeBearerType1Code,
                                         OBCashAccountCreditor3=uk.org.openbanking.datamodel.common.OBCashAccountCreditor3,
                                         OBBranchAndFinancialInstitutionIdentification6=uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6,
-                                        OBExternalStatus2Code=uk.org.openbanking.datamodel.common.OBExternalStatus2Code
+                                        OBExternalStatus2Code=uk.org.openbanking.datamodel.common.OBExternalStatus2Code,
+                                        OBReadRefundAccount=uk.org.openbanking.datamodel.common.OBReadRefundAccount,
                                     </importMappings>
                                     <configOptions>
                                         <useSpringBoot3>true</useSpringBoot3>

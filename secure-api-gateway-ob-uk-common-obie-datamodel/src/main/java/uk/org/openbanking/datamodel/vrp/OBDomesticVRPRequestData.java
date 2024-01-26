@@ -15,33 +15,48 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import java.util.Objects;
 
 /**
  * OBDomesticVRPRequestData
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBDomesticVRPRequest_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPRequestData {
-    @JsonProperty("ConsentId")
+
     private String consentId;
 
-    @JsonProperty("PSUAuthenticationMethod")
     private String psUAuthenticationMethod;
 
-    @JsonProperty("PSUInteractionType")
     private OBVRPInteractionTypes psUInteractionType;
 
-    @JsonProperty("Initiation")
     private OBDomesticVRPInitiation initiation;
 
-    @JsonProperty("Instruction")
     private OBDomesticVRPInstruction instruction;
+
+    public OBDomesticVRPRequestData() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBDomesticVRPRequestData(String consentId, String psUAuthenticationMethod, OBDomesticVRPInitiation initiation, OBDomesticVRPInstruction instruction) {
+        this.consentId = consentId;
+        this.psUAuthenticationMethod = psUAuthenticationMethod;
+        this.initiation = initiation;
+        this.instruction = instruction;
+    }
 
     public OBDomesticVRPRequestData consentId(String consentId) {
         this.consentId = consentId;
@@ -53,10 +68,10 @@ public class OBDomesticVRPRequestData {
      *
      * @return consentId
      */
-    @ApiModelProperty(required = true, value = "Identifier for the Domestic VRP Consent that this payment is made under.")
     @NotNull
-
     @Size(min = 1, max = 128)
+    @Schema(name = "ConsentId", description = "Identifier for the Domestic VRP Consent that this payment is made under.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("ConsentId")
     public String getConsentId() {
         return consentId;
     }
@@ -75,10 +90,9 @@ public class OBDomesticVRPRequestData {
      *
      * @return psUAuthenticationMethod
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
-
+    @Schema(name = "PSUAuthenticationMethod", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("PSUAuthenticationMethod")
     public String getPsUAuthenticationMethod() {
         return psUAuthenticationMethod;
     }
@@ -97,10 +111,9 @@ public class OBDomesticVRPRequestData {
      *
      * @return psUInteractionType
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "PSUInteractionType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("PSUInteractionType")
     public OBVRPInteractionTypes getPsUInteractionType() {
         return psUInteractionType;
     }
@@ -119,11 +132,10 @@ public class OBDomesticVRPRequestData {
      *
      * @return initiation
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Initiation")
     public OBDomesticVRPInitiation getInitiation() {
         return initiation;
     }
@@ -142,11 +154,10 @@ public class OBDomesticVRPRequestData {
      *
      * @return instruction
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Instruction", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Instruction")
     public OBDomesticVRPInstruction getInstruction() {
         return instruction;
     }
@@ -154,7 +165,6 @@ public class OBDomesticVRPRequestData {
     public void setInstruction(OBDomesticVRPInstruction instruction) {
         this.instruction = instruction;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -181,7 +191,6 @@ public class OBDomesticVRPRequestData {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBDomesticVRPRequestData {\n");
-
         sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
         sb.append("    psUAuthenticationMethod: ").append(toIndentedString(psUAuthenticationMethod)).append("\n");
         sb.append("    psUInteractionType: ").append(toIndentedString(psUInteractionType)).append("\n");

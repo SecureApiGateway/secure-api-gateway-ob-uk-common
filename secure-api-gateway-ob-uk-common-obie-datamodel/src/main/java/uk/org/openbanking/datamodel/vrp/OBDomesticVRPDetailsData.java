@@ -15,31 +15,36 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
-import jakarta.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+
 /**
  * OBDomesticVRPDetailsData
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBDomesticVRPDetailsData {
-    @JsonProperty("PaymentStatus")
-    @Valid
-    private List<OBDomesticVRPDetailsDataPaymentStatus> paymentStatus = null;
 
-    public OBDomesticVRPDetailsData paymentStatus(List<OBDomesticVRPDetailsDataPaymentStatus> paymentStatus) {
+@JsonTypeName("OBDomesticVRPDetails_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+public class OBDomesticVRPDetailsData {
+
+    @Valid
+    private List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> paymentStatus;
+
+    public OBDomesticVRPDetailsData paymentStatus(List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> paymentStatus) {
         this.paymentStatus = paymentStatus;
         return this;
     }
 
-    public OBDomesticVRPDetailsData addPaymentStatusItem(OBDomesticVRPDetailsDataPaymentStatus paymentStatusItem) {
+    public OBDomesticVRPDetailsData addPaymentStatusItem(OBDomesticVRPDetailsDataPaymentStatusInner paymentStatusItem) {
         if (this.paymentStatus == null) {
-            this.paymentStatus = new ArrayList<OBDomesticVRPDetailsDataPaymentStatus>();
+            this.paymentStatus = new ArrayList<>();
         }
         this.paymentStatus.add(paymentStatusItem);
         return this;
@@ -50,18 +55,16 @@ public class OBDomesticVRPDetailsData {
      *
      * @return paymentStatus
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
-    public List<OBDomesticVRPDetailsDataPaymentStatus> getPaymentStatus() {
+    @Schema(name = "PaymentStatus", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("PaymentStatus")
+    public List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> getPaymentStatus() {
         return paymentStatus;
     }
 
-    public void setPaymentStatus(List<OBDomesticVRPDetailsDataPaymentStatus> paymentStatus) {
+    public void setPaymentStatus(List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -84,7 +87,6 @@ public class OBDomesticVRPDetailsData {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBDomesticVRPDetailsData {\n");
-
         sb.append("    paymentStatus: ").append(toIndentedString(paymentStatus)).append("\n");
         sb.append("}");
         return sb.toString();

@@ -21,19 +21,27 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Gets or Sets OBVRPInteractionTypes
+ * Specifies the status of the payment information group.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBVRPInteractionTypes {
+public enum OBDomesticVRPResponseDataStatus {
 
-    INSESSION("InSession"),
+    ACCEPTEDCREDITSETTLEMENTCOMPLETED("AcceptedCreditSettlementCompleted"),
 
-    OFFSESSION("OffSession");
+    ACCEPTEDWITHOUTPOSTING("AcceptedWithoutPosting"),
+
+    ACCEPTEDSETTLEMENTCOMPLETED("AcceptedSettlementCompleted"),
+
+    ACCEPTEDSETTLEMENTINPROCESS("AcceptedSettlementInProcess"),
+
+    PENDING("Pending"),
+
+    REJECTED("Rejected");
 
     private String value;
 
-    OBVRPInteractionTypes(String value) {
+    OBDomesticVRPResponseDataStatus(String value) {
         this.value = value;
     }
 
@@ -48,8 +56,8 @@ public enum OBVRPInteractionTypes {
     }
 
     @JsonCreator
-    public static OBVRPInteractionTypes fromValue(String value) {
-        for (OBVRPInteractionTypes b : OBVRPInteractionTypes.values()) {
+    public static OBDomesticVRPResponseDataStatus fromValue(String value) {
+        for (OBDomesticVRPResponseDataStatus b : OBDomesticVRPResponseDataStatus.values()) {
             if (b.value.equals(value)) {
                 return b;
             }

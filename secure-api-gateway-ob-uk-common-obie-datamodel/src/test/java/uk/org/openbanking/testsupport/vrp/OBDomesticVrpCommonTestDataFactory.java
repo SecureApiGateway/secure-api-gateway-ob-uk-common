@@ -90,8 +90,8 @@ public class OBDomesticVrpCommonTestDataFactory {
                 .country(ConstantsVrpTestData.COUNTRY);
     }
 
-    public static OBDomesticVRPResponseDataCharges aValidOBDomesticVRPResponseDataCharges() {
-        return (new OBDomesticVRPResponseDataCharges())
+    public static OBDomesticVRPResponseDataChargesInner aValidOBDomesticVRPResponseDataCharges() {
+        return (new OBDomesticVRPResponseDataChargesInner())
                 .amount(aValidOBActiveOrHistoricCurrencyAndAmount())
                 .chargeBearer(OBChargeBearerType1Code.BORNEBYCREDITOR)
                 .type(OBExternalPaymentChargeType1Code.BALANCETRANSFEROUT);
