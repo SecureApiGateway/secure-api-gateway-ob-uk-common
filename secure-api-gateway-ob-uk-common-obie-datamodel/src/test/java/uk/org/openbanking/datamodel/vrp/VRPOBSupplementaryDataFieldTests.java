@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
-class OBDomesticVRPControlParametersTest {
+class VRPOBSupplementaryDataFieldTests {
 
     /**
      * Test OBDomesticVRPControlParameters.supplementaryData is the correct type.
@@ -34,9 +34,25 @@ class OBDomesticVRPControlParametersTest {
      * If this test fails then update OBDomesticVRPControlParameters.supplementaryData field to be OBSupplementaryData1
      */
     @Test
-    void ensureSupplementaryDataFieldIsCorrectType() throws Exception {
+    void ensureControlParametersSupplementaryDataFieldIsCorrectType() throws Exception {
         final Field supplementaryDataField = OBDomesticVRPControlParameters.class.getDeclaredField("supplementaryData");
         assertEquals(OBSupplementaryData1.class, supplementaryDataField.getType());
     }
+
+    /**
+     * Test OBDomesticVRPInstruction.supplementaryData is the correct type.
+     *
+     * The code-gen by default produces a field of type Object, the generated code has been edited to use the
+     * common OBSupplementaryData1 type.
+     *
+     * If this test fails then update OBDomesticVRPInstruction.supplementaryData field to be OBSupplementaryData1
+     */
+    @Test
+    void ensureVRPInstructionSupplementaryDataFieldIsCorrectType() throws Exception {
+        final Field supplementaryDataField = OBDomesticVRPInstruction.class.getDeclaredField("supplementaryData");
+        assertEquals(OBSupplementaryData1.class, supplementaryDataField.getType());
+    }
+
+
 
 }

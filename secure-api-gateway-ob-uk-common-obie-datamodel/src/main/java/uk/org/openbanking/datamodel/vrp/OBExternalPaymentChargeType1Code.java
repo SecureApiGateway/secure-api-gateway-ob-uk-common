@@ -18,9 +18,13 @@ package uk.org.openbanking.datamodel.vrp;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import jakarta.annotation.Generated;
+
 /**
  * Gets or Sets OBExternalPaymentChargeType1Code
  */
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBExternalPaymentChargeType1Code {
 
     CHAPSOUT("UK.OBIE.CHAPSOut"),

@@ -15,78 +15,45 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModelProperty;
-
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 /**
- * OBDomesticVRPDetailsDataStatusDetail
+ * OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBDomesticVRPDetailsDataStatusDetail {
-    @JsonProperty("LocalInstrument")
+
+@JsonTypeName("OBDomesticVRPDetails_Data_PaymentStatus_inner_StatusDetail")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+public class OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail {
+
     private String localInstrument;
 
-    @JsonProperty("Status")
     private String status;
 
-    /**
-     * Reason Code provided for the status of a transfer.
-     */
-    public enum StatusReasonEnum {
-        CANCELLED("Cancelled"),
+    private OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetailStatusReason statusReason;
 
-        PENDINGFAILINGSETTLEMENT("PendingFailingSettlement"),
-
-        PENDINGSETTLEMENT("PendingSettlement"),
-
-        PROPRIETARY("Proprietary"),
-
-        PROPRIETARYREJECTION("ProprietaryRejection"),
-
-        SUSPENDED("Suspended"),
-
-        UNMATCHED("Unmatched");
-
-        private String value;
-
-        StatusReasonEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static StatusReasonEnum fromValue(String value) {
-            for (StatusReasonEnum b : StatusReasonEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
-
-    @JsonProperty("StatusReason")
-    private StatusReasonEnum statusReason;
-
-    @JsonProperty("StatusReasonDescription")
     private String statusReasonDescription;
 
-    public OBDomesticVRPDetailsDataStatusDetail localInstrument(String localInstrument) {
+    public OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail(String status) {
+        this.status = status;
+    }
+
+    public OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail localInstrument(String localInstrument) {
         this.localInstrument = localInstrument;
         return this;
     }
@@ -96,9 +63,9 @@ public class OBDomesticVRPDetailsDataStatusDetail {
      *
      * @return localInstrument
      */
-    @ApiModelProperty(value = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.")
 
-
+    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("LocalInstrument")
     public String getLocalInstrument() {
         return localInstrument;
     }
@@ -107,7 +74,7 @@ public class OBDomesticVRPDetailsDataStatusDetail {
         this.localInstrument = localInstrument;
     }
 
-    public OBDomesticVRPDetailsDataStatusDetail status(String status) {
+    public OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail status(String status) {
         this.status = status;
         return this;
     }
@@ -117,10 +84,10 @@ public class OBDomesticVRPDetailsDataStatusDetail {
      *
      * @return status
      */
-    @ApiModelProperty(required = true, value = "Status of a transfer, as assigned by the transaction administrator.")
     @NotNull
-
     @Size(min = 1, max = 128)
+    @Schema(name = "Status", description = "Status of a transfer, as assigned by the transaction administrator.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Status")
     public String getStatus() {
         return status;
     }
@@ -129,28 +96,28 @@ public class OBDomesticVRPDetailsDataStatusDetail {
         this.status = status;
     }
 
-    public OBDomesticVRPDetailsDataStatusDetail statusReason(StatusReasonEnum statusReason) {
+    public OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail statusReason(OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetailStatusReason statusReason) {
         this.statusReason = statusReason;
         return this;
     }
 
     /**
-     * Reason Code provided for the status of a transfer.
+     * Get statusReason
      *
      * @return statusReason
      */
-    @ApiModelProperty(value = "Reason Code provided for the status of a transfer.")
-
-
-    public StatusReasonEnum getStatusReason() {
+    @Valid
+    @Schema(name = "StatusReason", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("StatusReason")
+    public OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetailStatusReason getStatusReason() {
         return statusReason;
     }
 
-    public void setStatusReason(StatusReasonEnum statusReason) {
+    public void setStatusReason(OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetailStatusReason statusReason) {
         this.statusReason = statusReason;
     }
 
-    public OBDomesticVRPDetailsDataStatusDetail statusReasonDescription(String statusReasonDescription) {
+    public OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail statusReasonDescription(String statusReasonDescription) {
         this.statusReasonDescription = statusReasonDescription;
         return this;
     }
@@ -160,9 +127,9 @@ public class OBDomesticVRPDetailsDataStatusDetail {
      *
      * @return statusReasonDescription
      */
-    @ApiModelProperty(value = "Reason provided for the status of a transfer.")
-
     @Size(min = 1, max = 128)
+    @Schema(name = "StatusReasonDescription", description = "Reason provided for the status of a transfer.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("StatusReasonDescription")
     public String getStatusReasonDescription() {
         return statusReasonDescription;
     }
@@ -170,7 +137,6 @@ public class OBDomesticVRPDetailsDataStatusDetail {
     public void setStatusReasonDescription(String statusReasonDescription) {
         this.statusReasonDescription = statusReasonDescription;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -180,11 +146,11 @@ public class OBDomesticVRPDetailsDataStatusDetail {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBDomesticVRPDetailsDataStatusDetail obDomesticVRPDetailsDataStatusDetail = (OBDomesticVRPDetailsDataStatusDetail) o;
-        return Objects.equals(this.localInstrument, obDomesticVRPDetailsDataStatusDetail.localInstrument) &&
-                Objects.equals(this.status, obDomesticVRPDetailsDataStatusDetail.status) &&
-                Objects.equals(this.statusReason, obDomesticVRPDetailsDataStatusDetail.statusReason) &&
-                Objects.equals(this.statusReasonDescription, obDomesticVRPDetailsDataStatusDetail.statusReasonDescription);
+        OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail obDomesticVRPDetailsDataPaymentStatusInnerStatusDetail = (OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail) o;
+        return Objects.equals(this.localInstrument, obDomesticVRPDetailsDataPaymentStatusInnerStatusDetail.localInstrument) &&
+                Objects.equals(this.status, obDomesticVRPDetailsDataPaymentStatusInnerStatusDetail.status) &&
+                Objects.equals(this.statusReason, obDomesticVRPDetailsDataPaymentStatusInnerStatusDetail.statusReason) &&
+                Objects.equals(this.statusReasonDescription, obDomesticVRPDetailsDataPaymentStatusInnerStatusDetail.statusReasonDescription);
     }
 
     @Override
@@ -195,8 +161,7 @@ public class OBDomesticVRPDetailsDataStatusDetail {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OBDomesticVRPDetailsDataStatusDetail {\n");
-
+        sb.append("class OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail {\n");
         sb.append("    localInstrument: ").append(toIndentedString(localInstrument)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");

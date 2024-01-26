@@ -15,23 +15,24 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import jakarta.validation.constraints.Size;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.constraints.Size;
 
 /**
  * Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts&#39; receivable system.
  */
-@ApiModel(description = "Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBVRPRemittanceInformation", description = "Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBVRPRemittanceInformation {
-    @JsonProperty("Unstructured")
+
     private String unstructured;
 
-    @JsonProperty("Reference")
     private String reference;
 
     public OBVRPRemittanceInformation unstructured(String unstructured) {
@@ -44,9 +45,9 @@ public class OBVRPRemittanceInformation {
      *
      * @return unstructured
      */
-    @ApiModelProperty(value = "Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.")
-
     @Size(min = 1, max = 140)
+    @Schema(name = "Unstructured", description = "Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Unstructured")
     public String getUnstructured() {
         return unstructured;
     }
@@ -65,9 +66,9 @@ public class OBVRPRemittanceInformation {
      *
      * @return reference
      */
-    @ApiModelProperty(value = "Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. The PISP must populate this with the same value as specified in the `Data.Initiation.RemittanceInformation.Reference` of the consent.")
-
     @Size(min = 1, max = 35)
+    @Schema(name = "Reference", description = "Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. The PISP must populate this with the same value as specified in the `Data.Initiation.RemittanceInformation.Reference` of the consent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Reference")
     public String getReference() {
         return reference;
     }
@@ -75,7 +76,6 @@ public class OBVRPRemittanceInformation {
     public void setReference(String reference) {
         this.reference = reference;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -99,7 +99,6 @@ public class OBVRPRemittanceInformation {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBVRPRemittanceInformation {\n");
-
         sb.append("    unstructured: ").append(toIndentedString(unstructured)).append("\n");
         sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
         sb.append("}");

@@ -15,32 +15,47 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
-import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 
 /**
  * Set of elements used to provide details of a charge for the payment initiation.
  */
-@ApiModel(description = "Set of elements used to provide details of a charge for the payment initiation.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBDomesticVRPResponseDataCharges {
-    @JsonProperty("ChargeBearer")
+
+@Schema(name = "OBDomesticVRPResponse_Data_Charges_inner", description = "Set of elements used to provide details of a charge for the payment initiation.")
+@JsonTypeName("OBDomesticVRPResponse_Data_Charges_inner")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+public class OBDomesticVRPResponseDataChargesInner {
+
     private OBChargeBearerType1Code chargeBearer;
 
-    @JsonProperty("Type")
     private OBExternalPaymentChargeType1Code type;
 
-    @JsonProperty("Amount")
     private OBActiveOrHistoricCurrencyAndAmount amount;
 
-    public OBDomesticVRPResponseDataCharges chargeBearer(OBChargeBearerType1Code chargeBearer) {
+    public OBDomesticVRPResponseDataChargesInner() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBDomesticVRPResponseDataChargesInner(OBChargeBearerType1Code chargeBearer, OBExternalPaymentChargeType1Code type, OBActiveOrHistoricCurrencyAndAmount amount) {
+        this.chargeBearer = chargeBearer;
+        this.type = type;
+        this.amount = amount;
+    }
+
+    public OBDomesticVRPResponseDataChargesInner chargeBearer(OBChargeBearerType1Code chargeBearer) {
         this.chargeBearer = chargeBearer;
         return this;
     }
@@ -50,11 +65,10 @@ public class OBDomesticVRPResponseDataCharges {
      *
      * @return chargeBearer
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "ChargeBearer", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("ChargeBearer")
     public OBChargeBearerType1Code getChargeBearer() {
         return chargeBearer;
     }
@@ -63,7 +77,7 @@ public class OBDomesticVRPResponseDataCharges {
         this.chargeBearer = chargeBearer;
     }
 
-    public OBDomesticVRPResponseDataCharges type(OBExternalPaymentChargeType1Code type) {
+    public OBDomesticVRPResponseDataChargesInner type(OBExternalPaymentChargeType1Code type) {
         this.type = type;
         return this;
     }
@@ -73,11 +87,10 @@ public class OBDomesticVRPResponseDataCharges {
      *
      * @return type
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Type", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Type")
     public OBExternalPaymentChargeType1Code getType() {
         return type;
     }
@@ -86,7 +99,7 @@ public class OBDomesticVRPResponseDataCharges {
         this.type = type;
     }
 
-    public OBDomesticVRPResponseDataCharges amount(OBActiveOrHistoricCurrencyAndAmount amount) {
+    public OBDomesticVRPResponseDataChargesInner amount(OBActiveOrHistoricCurrencyAndAmount amount) {
         this.amount = amount;
         return this;
     }
@@ -96,11 +109,10 @@ public class OBDomesticVRPResponseDataCharges {
      *
      * @return amount
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Amount")
     public OBActiveOrHistoricCurrencyAndAmount getAmount() {
         return amount;
     }
@@ -108,7 +120,6 @@ public class OBDomesticVRPResponseDataCharges {
     public void setAmount(OBActiveOrHistoricCurrencyAndAmount amount) {
         this.amount = amount;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -118,10 +129,10 @@ public class OBDomesticVRPResponseDataCharges {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBDomesticVRPResponseDataCharges obDomesticVRPResponseDataCharges = (OBDomesticVRPResponseDataCharges) o;
-        return Objects.equals(this.chargeBearer, obDomesticVRPResponseDataCharges.chargeBearer) &&
-                Objects.equals(this.type, obDomesticVRPResponseDataCharges.type) &&
-                Objects.equals(this.amount, obDomesticVRPResponseDataCharges.amount);
+        OBDomesticVRPResponseDataChargesInner obDomesticVRPResponseDataChargesInner = (OBDomesticVRPResponseDataChargesInner) o;
+        return Objects.equals(this.chargeBearer, obDomesticVRPResponseDataChargesInner.chargeBearer) &&
+                Objects.equals(this.type, obDomesticVRPResponseDataChargesInner.type) &&
+                Objects.equals(this.amount, obDomesticVRPResponseDataChargesInner.amount);
     }
 
     @Override
@@ -132,8 +143,7 @@ public class OBDomesticVRPResponseDataCharges {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OBDomesticVRPResponseDataCharges {\n");
-
+        sb.append("class OBDomesticVRPResponseDataChargesInner {\n");
         sb.append("    chargeBearer: ").append(toIndentedString(chargeBearer)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");

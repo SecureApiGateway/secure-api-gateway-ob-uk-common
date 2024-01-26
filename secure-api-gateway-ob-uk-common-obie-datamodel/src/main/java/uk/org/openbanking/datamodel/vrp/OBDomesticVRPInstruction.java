@@ -15,46 +15,56 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
+import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.common.OBPostalAddress6;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-import java.util.Objects;
-
 /**
  * OBDomesticVRPInstruction
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPInstruction {
-    @JsonProperty("InstructionIdentification")
+
     private String instructionIdentification;
 
-    @JsonProperty("EndToEndIdentification")
     private String endToEndIdentification;
 
-    @JsonProperty("RemittanceInformation")
     private OBVRPRemittanceInformation remittanceInformation;
 
-    @JsonProperty("LocalInstrument")
     private String localInstrument;
 
-    @JsonProperty("InstructedAmount")
     private OBActiveOrHistoricCurrencyAndAmount instructedAmount;
 
-    @JsonProperty("CreditorPostalAddress")
     private OBPostalAddress6 creditorPostalAddress;
 
-    @JsonProperty("CreditorAccount")
     private OBCashAccountCreditor3 creditorAccount;
 
-    @JsonProperty("SupplementaryData")
-    private OBSupplementaryData1 supplementaryData; // Edited to use common OBSupplementaryData1
+    private OBSupplementaryData1 supplementaryData;
+
+    public OBDomesticVRPInstruction() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBDomesticVRPInstruction(String instructionIdentification, String endToEndIdentification, OBActiveOrHistoricCurrencyAndAmount instructedAmount, OBCashAccountCreditor3 creditorAccount) {
+        this.instructionIdentification = instructionIdentification;
+        this.endToEndIdentification = endToEndIdentification;
+        this.instructedAmount = instructedAmount;
+        this.creditorAccount = creditorAccount;
+    }
 
     public OBDomesticVRPInstruction instructionIdentification(String instructionIdentification) {
         this.instructionIdentification = instructionIdentification;
@@ -66,10 +76,10 @@ public class OBDomesticVRPInstruction {
      *
      * @return instructionIdentification
      */
-    @ApiModelProperty(required = true, value = "Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction. Usage: the instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.")
     @NotNull
-
     @Size(min = 1, max = 35)
+    @Schema(name = "InstructionIdentification", description = "Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction. Usage: the instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("InstructionIdentification")
     public String getInstructionIdentification() {
         return instructionIdentification;
     }
@@ -88,10 +98,10 @@ public class OBDomesticVRPInstruction {
      *
      * @return endToEndIdentification
      */
-    @ApiModelProperty(required = true, value = "Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain. Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction. OB: The Faster Payments Scheme can only access 31 characters for the EndToEndIdentification field")
     @NotNull
-
     @Size(min = 1, max = 35)
+    @Schema(name = "EndToEndIdentification", description = "Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain. Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction. OB: The Faster Payments Scheme can only access 31 characters for the EndToEndIdentification field", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("EndToEndIdentification")
     public String getEndToEndIdentification() {
         return endToEndIdentification;
     }
@@ -110,10 +120,9 @@ public class OBDomesticVRPInstruction {
      *
      * @return remittanceInformation
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "RemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("RemittanceInformation")
     public OBVRPRemittanceInformation getRemittanceInformation() {
         return remittanceInformation;
     }
@@ -132,9 +141,9 @@ public class OBDomesticVRPInstruction {
      *
      * @return localInstrument
      */
-    @ApiModelProperty(value = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.")
 
-
+    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("LocalInstrument")
     public String getLocalInstrument() {
         return localInstrument;
     }
@@ -153,11 +162,10 @@ public class OBDomesticVRPInstruction {
      *
      * @return instructedAmount
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "InstructedAmount", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("InstructedAmount")
     public OBActiveOrHistoricCurrencyAndAmount getInstructedAmount() {
         return instructedAmount;
     }
@@ -176,10 +184,9 @@ public class OBDomesticVRPInstruction {
      *
      * @return creditorPostalAddress
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "CreditorPostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("CreditorPostalAddress")
     public OBPostalAddress6 getCreditorPostalAddress() {
         return creditorPostalAddress;
     }
@@ -198,11 +205,10 @@ public class OBDomesticVRPInstruction {
      *
      * @return creditorAccount
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "CreditorAccount", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("CreditorAccount")
     public OBCashAccountCreditor3 getCreditorAccount() {
         return creditorAccount;
     }
@@ -221,9 +227,9 @@ public class OBDomesticVRPInstruction {
      *
      * @return supplementaryData
      */
-    @ApiModelProperty(value = "Additional information that can not be captured in the structured fields and/or any other specific block. ")
 
-
+    @Schema(name = "SupplementaryData", description = "Additional information that can not be captured in the structured fields and/or any other specific block. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SupplementaryData")
     public OBSupplementaryData1 getSupplementaryData() {
         return supplementaryData;
     }
@@ -231,7 +237,6 @@ public class OBDomesticVRPInstruction {
     public void setSupplementaryData(OBSupplementaryData1 supplementaryData) {
         this.supplementaryData = supplementaryData;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -261,7 +266,6 @@ public class OBDomesticVRPInstruction {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBDomesticVRPInstruction {\n");
-
         sb.append("    instructionIdentification: ").append(toIndentedString(instructionIdentification)).append("\n");
         sb.append("    endToEndIdentification: ").append(toIndentedString(endToEndIdentification)).append("\n");
         sb.append("    remittanceInformation: ").append(toIndentedString(remittanceInformation)).append("\n");

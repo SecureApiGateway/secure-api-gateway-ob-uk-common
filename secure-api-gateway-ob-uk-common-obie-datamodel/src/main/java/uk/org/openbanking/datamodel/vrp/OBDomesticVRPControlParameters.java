@@ -15,56 +15,65 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+
 /**
  * OBDomesticVRPControlParameters
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPControlParameters {
-    @JsonProperty("ValidFromDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime validFromDateTime;
 
-    @JsonProperty("ValidToDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime validToDateTime;
 
-    @JsonProperty("MaximumIndividualAmount")
     private OBActiveOrHistoricCurrencyAndAmount maximumIndividualAmount;
 
-    @JsonProperty("PeriodicLimits")
     @Valid
-    private List<OBDomesticVRPControlParametersPeriodicLimits> periodicLimits = new ArrayList<OBDomesticVRPControlParametersPeriodicLimits>();
+    private List<@Valid OBDomesticVRPControlParametersPeriodicLimitsInner> periodicLimits = new ArrayList<>();
 
-    @JsonProperty("VRPType")
     @Valid
-    private List<String> vrPType = new ArrayList<String>();
+    private List<@Valid String> vrPType = new ArrayList<>();
 
-    @JsonProperty("PSUAuthenticationMethods")
     @Valid
-    private List<String> psUAuthenticationMethods = new ArrayList<String>();
+    private List<@Valid String> psUAuthenticationMethods = new ArrayList<>();
 
-    @JsonProperty("PSUInteractionTypes")
     @Valid
-    private List<OBVRPInteractionTypes> psUInteractionTypes = null;
+    private List<@Valid OBVRPInteractionTypes> psUInteractionTypes;
+
+    private OBSupplementaryData1 supplementaryData;
+
+    public OBDomesticVRPControlParameters() {
+        super();
+    }
 
     /**
-     * Generated code editted to use common OBSupplementaryData1 type for this field
+     * Constructor with only required parameters
      */
-    @JsonProperty("SupplementaryData")
-    private OBSupplementaryData1 supplementaryData;
+    public OBDomesticVRPControlParameters(OBActiveOrHistoricCurrencyAndAmount maximumIndividualAmount, List<@Valid OBDomesticVRPControlParametersPeriodicLimitsInner> periodicLimits, List<@Valid String> vrPType, List<@Valid String> psUAuthenticationMethods) {
+        this.maximumIndividualAmount = maximumIndividualAmount;
+        this.periodicLimits = periodicLimits;
+        this.vrPType = vrPType;
+        this.psUAuthenticationMethods = psUAuthenticationMethods;
+    }
 
     public OBDomesticVRPControlParameters validFromDateTime(DateTime validFromDateTime) {
         this.validFromDateTime = validFromDateTime;
@@ -76,10 +85,9 @@ public class OBDomesticVRPControlParameters {
      *
      * @return validFromDateTime
      */
-    @ApiModelProperty(value = "^ Start date time for which the consent remains valid.")
-
     @Valid
-
+    @Schema(name = "ValidFromDateTime", description = "^ Start date time for which the consent remains valid.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ValidFromDateTime")
     public DateTime getValidFromDateTime() {
         return validFromDateTime;
     }
@@ -98,10 +106,9 @@ public class OBDomesticVRPControlParameters {
      *
      * @return validToDateTime
      */
-    @ApiModelProperty(value = "^ End date time for which the consent remains valid.")
-
     @Valid
-
+    @Schema(name = "ValidToDateTime", description = "^ End date time for which the consent remains valid.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ValidToDateTime")
     public DateTime getValidToDateTime() {
         return validToDateTime;
     }
@@ -120,11 +127,10 @@ public class OBDomesticVRPControlParameters {
      *
      * @return maximumIndividualAmount
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "MaximumIndividualAmount", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("MaximumIndividualAmount")
     public OBActiveOrHistoricCurrencyAndAmount getMaximumIndividualAmount() {
         return maximumIndividualAmount;
     }
@@ -133,14 +139,14 @@ public class OBDomesticVRPControlParameters {
         this.maximumIndividualAmount = maximumIndividualAmount;
     }
 
-    public OBDomesticVRPControlParameters periodicLimits(List<OBDomesticVRPControlParametersPeriodicLimits> periodicLimits) {
+    public OBDomesticVRPControlParameters periodicLimits(List<@Valid OBDomesticVRPControlParametersPeriodicLimitsInner> periodicLimits) {
         this.periodicLimits = periodicLimits;
         return this;
     }
 
-    public OBDomesticVRPControlParameters addPeriodicLimitsItem(OBDomesticVRPControlParametersPeriodicLimits periodicLimitsItem) {
+    public OBDomesticVRPControlParameters addPeriodicLimitsItem(OBDomesticVRPControlParametersPeriodicLimitsInner periodicLimitsItem) {
         if (this.periodicLimits == null) {
-            this.periodicLimits = new ArrayList<OBDomesticVRPControlParametersPeriodicLimits>();
+            this.periodicLimits = new ArrayList<>();
         }
         this.periodicLimits.add(periodicLimitsItem);
         return this;
@@ -151,27 +157,27 @@ public class OBDomesticVRPControlParameters {
      *
      * @return periodicLimits
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
     @Size(min = 1)
-    public List<OBDomesticVRPControlParametersPeriodicLimits> getPeriodicLimits() {
+    @Schema(name = "PeriodicLimits", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("PeriodicLimits")
+    public List<@Valid OBDomesticVRPControlParametersPeriodicLimitsInner> getPeriodicLimits() {
         return periodicLimits;
     }
 
-    public void setPeriodicLimits(List<OBDomesticVRPControlParametersPeriodicLimits> periodicLimits) {
+    public void setPeriodicLimits(List<@Valid OBDomesticVRPControlParametersPeriodicLimitsInner> periodicLimits) {
         this.periodicLimits = periodicLimits;
     }
 
-    public OBDomesticVRPControlParameters vrPType(List<String> vrPType) {
+    public OBDomesticVRPControlParameters vrPType(List<@Valid String> vrPType) {
         this.vrPType = vrPType;
         return this;
     }
 
     public OBDomesticVRPControlParameters addVrPTypeItem(String vrPTypeItem) {
         if (this.vrPType == null) {
-            this.vrPType = new ArrayList<String>();
+            this.vrPType = new ArrayList<>();
         }
         this.vrPType.add(vrPTypeItem);
         return this;
@@ -182,26 +188,26 @@ public class OBDomesticVRPControlParameters {
      *
      * @return vrPType
      */
-    @ApiModelProperty(required = true, value = "^ The types of payments that can be made under this VRP consent. This can be used to indicate whether this include sweeping payment or other ecommerce payments.")
     @NotNull
-
     @Size(min = 1)
-    public List<String> getVrPType() {
+    @Schema(name = "VRPType", description = "^ The types of payments that can be made under this VRP consent. This can be used to indicate whether this include sweeping payment or other ecommerce payments.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("VRPType")
+    public List<@Valid String> getVrPType() {
         return vrPType;
     }
 
-    public void setVrPType(List<String> vrPType) {
+    public void setVrPType(List<@Valid String> vrPType) {
         this.vrPType = vrPType;
     }
 
-    public OBDomesticVRPControlParameters psUAuthenticationMethods(List<String> psUAuthenticationMethods) {
+    public OBDomesticVRPControlParameters psUAuthenticationMethods(List<@Valid String> psUAuthenticationMethods) {
         this.psUAuthenticationMethods = psUAuthenticationMethods;
         return this;
     }
 
     public OBDomesticVRPControlParameters addPsUAuthenticationMethodsItem(String psUAuthenticationMethodsItem) {
         if (this.psUAuthenticationMethods == null) {
-            this.psUAuthenticationMethods = new ArrayList<String>();
+            this.psUAuthenticationMethods = new ArrayList<>();
         }
         this.psUAuthenticationMethods.add(psUAuthenticationMethodsItem);
         return this;
@@ -212,26 +218,26 @@ public class OBDomesticVRPControlParameters {
      *
      * @return psUAuthenticationMethods
      */
-    @ApiModelProperty(required = true, value = "^ Indicates that the PSU authentication methods supported.")
     @NotNull
-
     @Size(min = 1)
-    public List<String> getPsUAuthenticationMethods() {
+    @Schema(name = "PSUAuthenticationMethods", description = "^ Indicates that the PSU authentication methods supported.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("PSUAuthenticationMethods")
+    public List<@Valid String> getPsUAuthenticationMethods() {
         return psUAuthenticationMethods;
     }
 
-    public void setPsUAuthenticationMethods(List<String> psUAuthenticationMethods) {
+    public void setPsUAuthenticationMethods(List<@Valid String> psUAuthenticationMethods) {
         this.psUAuthenticationMethods = psUAuthenticationMethods;
     }
 
-    public OBDomesticVRPControlParameters psUInteractionTypes(List<OBVRPInteractionTypes> psUInteractionTypes) {
+    public OBDomesticVRPControlParameters psUInteractionTypes(List<@Valid OBVRPInteractionTypes> psUInteractionTypes) {
         this.psUInteractionTypes = psUInteractionTypes;
         return this;
     }
 
     public OBDomesticVRPControlParameters addPsUInteractionTypesItem(OBVRPInteractionTypes psUInteractionTypesItem) {
         if (this.psUInteractionTypes == null) {
-            this.psUInteractionTypes = new ArrayList<OBVRPInteractionTypes>();
+            this.psUInteractionTypes = new ArrayList<>();
         }
         this.psUInteractionTypes.add(psUInteractionTypesItem);
         return this;
@@ -242,15 +248,14 @@ public class OBDomesticVRPControlParameters {
      *
      * @return psUInteractionTypes
      */
-    @ApiModelProperty(value = "^ Indicates interaction type, currently if customer is present or not present.")
-
     @Valid
-
-    public List<OBVRPInteractionTypes> getPsUInteractionTypes() {
+    @Schema(name = "PSUInteractionTypes", description = "^ Indicates interaction type, currently if customer is present or not present.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("PSUInteractionTypes")
+    public List<@Valid OBVRPInteractionTypes> getPsUInteractionTypes() {
         return psUInteractionTypes;
     }
 
-    public void setPsUInteractionTypes(List<OBVRPInteractionTypes> psUInteractionTypes) {
+    public void setPsUInteractionTypes(List<@Valid OBVRPInteractionTypes> psUInteractionTypes) {
         this.psUInteractionTypes = psUInteractionTypes;
     }
 
@@ -264,9 +269,9 @@ public class OBDomesticVRPControlParameters {
      *
      * @return supplementaryData
      */
-    @ApiModelProperty(value = "^ Additional information that can not be captured in the structured fields and/or any other specific block")
 
-
+    @Schema(name = "SupplementaryData", description = "^ Additional information that can not be captured in the structured fields and/or any other specific block", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SupplementaryData")
     public OBSupplementaryData1 getSupplementaryData() {
         return supplementaryData;
     }
@@ -274,7 +279,6 @@ public class OBDomesticVRPControlParameters {
     public void setSupplementaryData(OBSupplementaryData1 supplementaryData) {
         this.supplementaryData = supplementaryData;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -304,7 +308,6 @@ public class OBDomesticVRPControlParameters {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBDomesticVRPControlParameters {\n");
-
         sb.append("    validFromDateTime: ").append(toIndentedString(validFromDateTime)).append("\n");
         sb.append("    validToDateTime: ").append(toIndentedString(validToDateTime)).append("\n");
         sb.append("    maximumIndividualAmount: ").append(toIndentedString(maximumIndividualAmount)).append("\n");

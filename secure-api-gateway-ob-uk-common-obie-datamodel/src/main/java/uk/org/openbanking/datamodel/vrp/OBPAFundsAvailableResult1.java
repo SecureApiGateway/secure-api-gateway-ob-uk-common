@@ -15,64 +15,42 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.util.Objects;
 
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
 
 /**
  * Availability result, clearly indicating the availability of funds given the Amount in the request.
  */
-@ApiModel(description = "Availability result, clearly indicating the availability of funds given the Amount in the request.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBPAFundsAvailableResult1", description = "Availability result, clearly indicating the availability of funds given the Amount in the request.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBPAFundsAvailableResult1 {
-    @JsonProperty("FundsAvailableDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime fundsAvailableDateTime;
 
-    /**
-     * Availability result, clearly indicating the availability of funds given the Amount in the request.
-     */
-    public enum FundsAvailableEnum {
-        AVAILABLE("Available"),
+    private OBPAFundsAvailableResult1FundsAvailable fundsAvailable;
 
-        NOTAVAILABLE("NotAvailable");
-
-        private String value;
-
-        FundsAvailableEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static FundsAvailableEnum fromValue(String value) {
-            for (FundsAvailableEnum b : FundsAvailableEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
+    public OBPAFundsAvailableResult1() {
+        super();
     }
 
-    @JsonProperty("FundsAvailable")
-    private FundsAvailableEnum fundsAvailable;
+    /**
+     * Constructor with only required parameters
+     */
+    public OBPAFundsAvailableResult1(DateTime fundsAvailableDateTime, OBPAFundsAvailableResult1FundsAvailable fundsAvailable) {
+        this.fundsAvailableDateTime = fundsAvailableDateTime;
+        this.fundsAvailable = fundsAvailable;
+    }
 
     public OBPAFundsAvailableResult1 fundsAvailableDateTime(DateTime fundsAvailableDateTime) {
         this.fundsAvailableDateTime = fundsAvailableDateTime;
@@ -84,11 +62,10 @@ public class OBPAFundsAvailableResult1 {
      *
      * @return fundsAvailableDateTime
      */
-    @ApiModelProperty(required = true, value = "Date and time at which the funds availability check was generated.")
     @NotNull
-
     @Valid
-
+    @Schema(name = "FundsAvailableDateTime", description = "Date and time at which the funds availability check was generated.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("FundsAvailableDateTime")
     public DateTime getFundsAvailableDateTime() {
         return fundsAvailableDateTime;
     }
@@ -97,28 +74,27 @@ public class OBPAFundsAvailableResult1 {
         this.fundsAvailableDateTime = fundsAvailableDateTime;
     }
 
-    public OBPAFundsAvailableResult1 fundsAvailable(FundsAvailableEnum fundsAvailable) {
+    public OBPAFundsAvailableResult1 fundsAvailable(OBPAFundsAvailableResult1FundsAvailable fundsAvailable) {
         this.fundsAvailable = fundsAvailable;
         return this;
     }
 
     /**
-     * Availability result, clearly indicating the availability of funds given the Amount in the request.
+     * Get fundsAvailable
      *
      * @return fundsAvailable
      */
-    @ApiModelProperty(required = true, value = "Availability result, clearly indicating the availability of funds given the Amount in the request.")
     @NotNull
-
-
-    public FundsAvailableEnum getFundsAvailable() {
+    @Valid
+    @Schema(name = "FundsAvailable", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("FundsAvailable")
+    public OBPAFundsAvailableResult1FundsAvailable getFundsAvailable() {
         return fundsAvailable;
     }
 
-    public void setFundsAvailable(FundsAvailableEnum fundsAvailable) {
+    public void setFundsAvailable(OBPAFundsAvailableResult1FundsAvailable fundsAvailable) {
         this.fundsAvailable = fundsAvailable;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -142,7 +118,6 @@ public class OBPAFundsAvailableResult1 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBPAFundsAvailableResult1 {\n");
-
         sb.append("    fundsAvailableDateTime: ").append(toIndentedString(fundsAvailableDateTime)).append("\n");
         sb.append("    fundsAvailable: ").append(toIndentedString(fundsAvailable)).append("\n");
         sb.append("}");

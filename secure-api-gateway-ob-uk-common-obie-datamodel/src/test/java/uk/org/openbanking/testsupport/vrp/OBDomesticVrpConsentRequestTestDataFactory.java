@@ -15,19 +15,29 @@
  */
 package uk.org.openbanking.testsupport.vrp;
 
-import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.common.OBVRPAuthenticationMethods;
-import uk.org.openbanking.datamodel.common.OBVRPConsentType;
-import uk.org.openbanking.datamodel.vrp.OBReadRefundAccount;
-import uk.org.openbanking.datamodel.vrp.*;
+import static org.joda.time.DateTime.now;
+import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
+import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBActiveOrHistoricCurrencyAndAmount;
+import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBDomesticVRPInitiation;
+import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.aValidOBDomesticVRPInitiationMandatoryFields;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.joda.time.DateTime.now;
-import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;
-import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFactory.*;
+import org.joda.time.DateTime;
+
+import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.common.OBVRPAuthenticationMethods;
+import uk.org.openbanking.datamodel.common.OBVRPConsentType;
+import uk.org.openbanking.datamodel.vrp.OBCashAccountDebtorWithName;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPConsentRequest;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPConsentRequestData;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPControlParameters;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPControlParametersPeriodicLimitsInner;
+import uk.org.openbanking.datamodel.vrp.OBPeriodAlignment;
+import uk.org.openbanking.datamodel.vrp.OBPeriodType;
+import uk.org.openbanking.datamodel.vrp.OBVRPInteractionTypes;
 
 public class OBDomesticVrpConsentRequestTestDataFactory {
 
@@ -134,11 +144,11 @@ public class OBDomesticVrpConsentRequestTestDataFactory {
     }
 
 
-    public static List<OBDomesticVRPControlParametersPeriodicLimits> aValidOBDomesticVRPControlParametersPeriodicLimits() {
-        return Arrays.asList((new OBDomesticVRPControlParametersPeriodicLimits())
+    public static List<OBDomesticVRPControlParametersPeriodicLimitsInner> aValidOBDomesticVRPControlParametersPeriodicLimits() {
+        return Arrays.asList((new OBDomesticVRPControlParametersPeriodicLimitsInner())
                 .amount(ConstantsVrpTestData.AMOUNT)
                 .currency(ConstantsVrpTestData.GBP)
-                .periodAlignment(OBDomesticVRPControlParametersPeriodicLimits.PeriodAlignmentEnum.CALENDAR)
-                .periodType(OBDomesticVRPControlParametersPeriodicLimits.PeriodTypeEnum.MONTH));
+                .periodAlignment(OBPeriodAlignment.CALENDAR)
+                .periodType(OBPeriodType.MONTH));
     }
 }

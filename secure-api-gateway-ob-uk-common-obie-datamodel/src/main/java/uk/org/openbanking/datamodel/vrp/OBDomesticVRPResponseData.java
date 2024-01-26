@@ -15,113 +15,79 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 /**
  * OBDomesticVRPResponseData
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBDomesticVRPResponse_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPResponseData {
-    @JsonProperty("DomesticVRPId")
+
     private String domesticVRPId;
 
-    @JsonProperty("ConsentId")
     private String consentId;
 
-    @JsonProperty("CreationDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    /**
-     * Specifies the status of the payment information group.
-     */
-    public enum StatusEnum {
-        ACCEPTEDCREDITSETTLEMENTCOMPLETED("AcceptedCreditSettlementCompleted"),
+    private OBDomesticVRPResponseDataStatus status;
 
-        ACCEPTEDWITHOUTPOSTING("AcceptedWithoutPosting"),
-
-        ACCEPTEDSETTLEMENTCOMPLETED("AcceptedSettlementCompleted"),
-
-        ACCEPTEDSETTLEMENTINPROCESS("AcceptedSettlementInProcess"),
-
-        PENDING("Pending"),
-
-        REJECTED("Rejected");
-
-        private String value;
-
-        StatusEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static StatusEnum fromValue(String value) {
-            for (StatusEnum b : StatusEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
-
-    @JsonProperty("Status")
-    private StatusEnum status;
-
-    @JsonProperty("StatusReason")
     private String statusReason;
 
-    @JsonProperty("StatusReasonDescription")
     private String statusReasonDescription;
 
-    @JsonProperty("StatusUpdateDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
 
-    @JsonProperty("ExpectedExecutionDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime expectedExecutionDateTime;
 
-    @JsonProperty("ExpectedSettlementDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime expectedSettlementDateTime;
 
-    @JsonProperty("Refund")
     private OBCashAccountDebtorWithName refund;
 
-    @JsonProperty("Charges")
     @Valid
-    private List<OBDomesticVRPResponseDataCharges> charges = null;
+    private List<@Valid OBDomesticVRPResponseDataChargesInner> charges;
 
-    @JsonProperty("Initiation")
     private OBDomesticVRPInitiation initiation;
 
-    @JsonProperty("Instruction")
     private OBDomesticVRPInstruction instruction;
 
-    @JsonProperty("DebtorAccount")
     private OBCashAccountDebtorWithName debtorAccount;
+
+    public OBDomesticVRPResponseData() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBDomesticVRPResponseData(String domesticVRPId, String consentId, DateTime creationDateTime, OBDomesticVRPResponseDataStatus status, DateTime statusUpdateDateTime, OBDomesticVRPInitiation initiation, OBDomesticVRPInstruction instruction) {
+        this.domesticVRPId = domesticVRPId;
+        this.consentId = consentId;
+        this.creationDateTime = creationDateTime;
+        this.status = status;
+        this.statusUpdateDateTime = statusUpdateDateTime;
+        this.initiation = initiation;
+        this.instruction = instruction;
+    }
 
     public OBDomesticVRPResponseData domesticVRPId(String domesticVRPId) {
         this.domesticVRPId = domesticVRPId;
@@ -133,10 +99,10 @@ public class OBDomesticVRPResponseData {
      *
      * @return domesticVRPId
      */
-    @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the domestic payment resource. ")
     @NotNull
-
     @Size(min = 1, max = 40)
+    @Schema(name = "DomesticVRPId", description = "Unique identification as assigned by the ASPSP to uniquely identify the domestic payment resource. ", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("DomesticVRPId")
     public String getDomesticVRPId() {
         return domesticVRPId;
     }
@@ -155,10 +121,10 @@ public class OBDomesticVRPResponseData {
      *
      * @return consentId
      */
-    @ApiModelProperty(required = true, value = "Identifier for the Domestic VRP Consent that this payment is made under. ")
     @NotNull
-
     @Size(min = 1, max = 128)
+    @Schema(name = "ConsentId", description = "Identifier for the Domestic VRP Consent that this payment is made under. ", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("ConsentId")
     public String getConsentId() {
         return consentId;
     }
@@ -177,11 +143,10 @@ public class OBDomesticVRPResponseData {
      *
      * @return creationDateTime
      */
-    @ApiModelProperty(required = true, value = "Date and time at which the resource was created. ")
     @NotNull
-
     @Valid
-
+    @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created. ", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
         return creationDateTime;
     }
@@ -190,25 +155,25 @@ public class OBDomesticVRPResponseData {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBDomesticVRPResponseData status(StatusEnum status) {
+    public OBDomesticVRPResponseData status(OBDomesticVRPResponseDataStatus status) {
         this.status = status;
         return this;
     }
 
     /**
-     * Specifies the status of the payment information group.
+     * Get status
      *
      * @return status
      */
-    @ApiModelProperty(required = true, value = "Specifies the status of the payment information group.")
     @NotNull
-
-
-    public StatusEnum getStatus() {
+    @Valid
+    @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Status")
+    public OBDomesticVRPResponseDataStatus getStatus() {
         return status;
     }
 
-    public void setStatus(StatusEnum status) {
+    public void setStatus(OBDomesticVRPResponseDataStatus status) {
         this.status = status;
     }
 
@@ -222,9 +187,9 @@ public class OBDomesticVRPResponseData {
      *
      * @return statusReason
      */
-    @ApiModelProperty(value = "Reason Code provided for the status of a VRP. To be documented in the Developer Portal. ")
 
-
+    @Schema(name = "StatusReason", description = "Reason Code provided for the status of a VRP. To be documented in the Developer Portal. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("StatusReason")
     public String getStatusReason() {
         return statusReason;
     }
@@ -243,9 +208,9 @@ public class OBDomesticVRPResponseData {
      *
      * @return statusReasonDescription
      */
-    @ApiModelProperty(value = "Description related to provided Status/StatusReason ")
-
     @Size(min = 1, max = 256)
+    @Schema(name = "StatusReasonDescription", description = "Description related to provided Status/StatusReason ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("StatusReasonDescription")
     public String getStatusReasonDescription() {
         return statusReasonDescription;
     }
@@ -264,11 +229,10 @@ public class OBDomesticVRPResponseData {
      *
      * @return statusUpdateDateTime
      */
-    @ApiModelProperty(required = true, value = "Date and time at which the resource status was updated. ")
     @NotNull
-
     @Valid
-
+    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. ", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
     }
@@ -287,10 +251,9 @@ public class OBDomesticVRPResponseData {
      *
      * @return expectedExecutionDateTime
      */
-    @ApiModelProperty(value = "Expected execution date and time for the payment resource. ")
-
     @Valid
-
+    @Schema(name = "ExpectedExecutionDateTime", description = "Expected execution date and time for the payment resource. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ExpectedExecutionDateTime")
     public DateTime getExpectedExecutionDateTime() {
         return expectedExecutionDateTime;
     }
@@ -309,10 +272,9 @@ public class OBDomesticVRPResponseData {
      *
      * @return expectedSettlementDateTime
      */
-    @ApiModelProperty(value = "Expected settlement date and time for the payment resource. ")
-
     @Valid
-
+    @Schema(name = "ExpectedSettlementDateTime", description = "Expected settlement date and time for the payment resource. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ExpectedSettlementDateTime")
     public DateTime getExpectedSettlementDateTime() {
         return expectedSettlementDateTime;
     }
@@ -331,10 +293,9 @@ public class OBDomesticVRPResponseData {
      *
      * @return refund
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Refund")
     public OBCashAccountDebtorWithName getRefund() {
         return refund;
     }
@@ -343,14 +304,14 @@ public class OBDomesticVRPResponseData {
         this.refund = refund;
     }
 
-    public OBDomesticVRPResponseData charges(List<OBDomesticVRPResponseDataCharges> charges) {
+    public OBDomesticVRPResponseData charges(List<@Valid OBDomesticVRPResponseDataChargesInner> charges) {
         this.charges = charges;
         return this;
     }
 
-    public OBDomesticVRPResponseData addChargesItem(OBDomesticVRPResponseDataCharges chargesItem) {
+    public OBDomesticVRPResponseData addChargesItem(OBDomesticVRPResponseDataChargesInner chargesItem) {
         if (this.charges == null) {
-            this.charges = new ArrayList<OBDomesticVRPResponseDataCharges>();
+            this.charges = new ArrayList<>();
         }
         this.charges.add(chargesItem);
         return this;
@@ -361,15 +322,14 @@ public class OBDomesticVRPResponseData {
      *
      * @return charges
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
-    public List<OBDomesticVRPResponseDataCharges> getCharges() {
+    @Schema(name = "Charges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Charges")
+    public List<@Valid OBDomesticVRPResponseDataChargesInner> getCharges() {
         return charges;
     }
 
-    public void setCharges(List<OBDomesticVRPResponseDataCharges> charges) {
+    public void setCharges(List<@Valid OBDomesticVRPResponseDataChargesInner> charges) {
         this.charges = charges;
     }
 
@@ -383,11 +343,10 @@ public class OBDomesticVRPResponseData {
      *
      * @return initiation
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Initiation")
     public OBDomesticVRPInitiation getInitiation() {
         return initiation;
     }
@@ -406,11 +365,10 @@ public class OBDomesticVRPResponseData {
      *
      * @return instruction
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Instruction", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Instruction")
     public OBDomesticVRPInstruction getInstruction() {
         return instruction;
     }
@@ -429,10 +387,9 @@ public class OBDomesticVRPResponseData {
      *
      * @return debtorAccount
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("DebtorAccount")
     public OBCashAccountDebtorWithName getDebtorAccount() {
         return debtorAccount;
     }
@@ -440,7 +397,6 @@ public class OBDomesticVRPResponseData {
     public void setDebtorAccount(OBCashAccountDebtorWithName debtorAccount) {
         this.debtorAccount = debtorAccount;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -476,7 +432,6 @@ public class OBDomesticVRPResponseData {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBDomesticVRPResponseData {\n");
-
         sb.append("    domesticVRPId: ").append(toIndentedString(domesticVRPId)).append("\n");
         sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
         sb.append("    creationDateTime: ").append(toIndentedString(creationDateTime)).append("\n");

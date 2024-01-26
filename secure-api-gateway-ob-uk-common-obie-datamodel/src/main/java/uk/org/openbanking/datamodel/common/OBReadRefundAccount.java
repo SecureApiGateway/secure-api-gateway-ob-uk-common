@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.vrp;
+package uk.org.openbanking.datamodel.common;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -21,19 +21,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Gets or Sets OBVRPInteractionTypes
+ * Specifies to share the refund account details with PISP
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBVRPInteractionTypes {
+public enum OBReadRefundAccount {
 
-    INSESSION("InSession"),
+    NO("No"),
 
-    OFFSESSION("OffSession");
+    YES("Yes");
 
     private String value;
 
-    OBVRPInteractionTypes(String value) {
+    OBReadRefundAccount(String value) {
         this.value = value;
     }
 
@@ -48,8 +48,8 @@ public enum OBVRPInteractionTypes {
     }
 
     @JsonCreator
-    public static OBVRPInteractionTypes fromValue(String value) {
-        for (OBVRPInteractionTypes b : OBVRPInteractionTypes.values()) {
+    public static OBReadRefundAccount fromValue(String value) {
+        for (OBReadRefundAccount b : OBReadRefundAccount.values()) {
             if (b.value.equals(value)) {
                 return b;
             }

@@ -21,19 +21,29 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Gets or Sets OBVRPInteractionTypes
+ * Reason Code provided for the status of a transfer.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBVRPInteractionTypes {
+public enum OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetailStatusReason {
 
-    INSESSION("InSession"),
+    CANCELLED("Cancelled"),
 
-    OFFSESSION("OffSession");
+    PENDINGFAILINGSETTLEMENT("PendingFailingSettlement"),
+
+    PENDINGSETTLEMENT("PendingSettlement"),
+
+    PROPRIETARY("Proprietary"),
+
+    PROPRIETARYREJECTION("ProprietaryRejection"),
+
+    SUSPENDED("Suspended"),
+
+    UNMATCHED("Unmatched");
 
     private String value;
 
-    OBVRPInteractionTypes(String value) {
+    OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetailStatusReason(String value) {
         this.value = value;
     }
 
@@ -48,8 +58,8 @@ public enum OBVRPInteractionTypes {
     }
 
     @JsonCreator
-    public static OBVRPInteractionTypes fromValue(String value) {
-        for (OBVRPInteractionTypes b : OBVRPInteractionTypes.values()) {
+    public static OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetailStatusReason fromValue(String value) {
+        for (OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetailStatusReason b : OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetailStatusReason.values()) {
             if (b.value.equals(value)) {
                 return b;
             }

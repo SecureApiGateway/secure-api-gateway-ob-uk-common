@@ -18,25 +18,24 @@ package uk.org.openbanking.datamodel.vrp;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsentResponse5Data;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsent5Data;
+import jakarta.annotation.Generated;
 
 /**
- * Specifies to share the refund account details with PISP.
- *
- * <p>
- * N.B. This enum has been created manually and should be used instead of all the equivalent enums that are created in
- * classes such as {@link OBWriteDomesticConsentResponse5Data} or {@link OBWriteInternationalConsent5Data} etc. This
- * makes migrating to new API versions considerably easier.
+ * Gets or Sets OBExternalStatus2Code
  */
-public enum OBReadRefundAccount {
-    NO("No"),
 
-    YES("Yes");
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+public enum OBExternalStatus2Code {
+
+    AUTHORISED("Authorised"),
+
+    AWAITINGFURTHERAUTHORISATION("AwaitingFurtherAuthorisation"),
+
+    REJECTED("Rejected");
 
     private String value;
 
-    OBReadRefundAccount(String value) {
+    OBExternalStatus2Code(String value) {
         this.value = value;
     }
 
@@ -51,12 +50,13 @@ public enum OBReadRefundAccount {
     }
 
     @JsonCreator
-    public static OBReadRefundAccount fromValue(String text) {
-        for (OBReadRefundAccount b : OBReadRefundAccount.values()) {
-            if (String.valueOf(b.value).equals(text)) {
+    public static OBExternalStatus2Code fromValue(String value) {
+        for (OBExternalStatus2Code b : OBExternalStatus2Code.values()) {
+            if (b.value.equals(value)) {
                 return b;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 }
+

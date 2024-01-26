@@ -15,28 +15,43 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 /**
  * OBVRPFundsConfirmationRequestData
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBVRPFundsConfirmationRequest_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBVRPFundsConfirmationRequestData {
-    @JsonProperty("ConsentId")
+
     private String consentId;
 
-    @JsonProperty("Reference")
     private String reference;
 
-    @JsonProperty("InstructedAmount")
     private OBActiveOrHistoricCurrencyAndAmount instructedAmount;
+
+    public OBVRPFundsConfirmationRequestData() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBVRPFundsConfirmationRequestData(String consentId, OBActiveOrHistoricCurrencyAndAmount instructedAmount) {
+        this.consentId = consentId;
+        this.instructedAmount = instructedAmount;
+    }
 
     public OBVRPFundsConfirmationRequestData consentId(String consentId) {
         this.consentId = consentId;
@@ -48,10 +63,10 @@ public class OBVRPFundsConfirmationRequestData {
      *
      * @return consentId
      */
-    @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.")
     @NotNull
-
     @Size(min = 1, max = 128)
+    @Schema(name = "ConsentId", description = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("ConsentId")
     public String getConsentId() {
         return consentId;
     }
@@ -70,9 +85,9 @@ public class OBVRPFundsConfirmationRequestData {
      *
      * @return reference
      */
-    @ApiModelProperty(value = "Unique reference, as assigned by the PISP, to unambiguously refer to the request related to the payment transaction.")
-
     @Size(min = 1, max = 35)
+    @Schema(name = "Reference", description = "Unique reference, as assigned by the PISP, to unambiguously refer to the request related to the payment transaction.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Reference")
     public String getReference() {
         return reference;
     }
@@ -91,11 +106,10 @@ public class OBVRPFundsConfirmationRequestData {
      *
      * @return instructedAmount
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "InstructedAmount", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("InstructedAmount")
     public OBActiveOrHistoricCurrencyAndAmount getInstructedAmount() {
         return instructedAmount;
     }
@@ -103,7 +117,6 @@ public class OBVRPFundsConfirmationRequestData {
     public void setInstructedAmount(OBActiveOrHistoricCurrencyAndAmount instructedAmount) {
         this.instructedAmount = instructedAmount;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -128,7 +141,6 @@ public class OBVRPFundsConfirmationRequestData {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBVRPFundsConfirmationRequestData {\n");
-
         sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
         sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
         sb.append("    instructedAmount: ").append(toIndentedString(instructedAmount)).append("\n");

@@ -15,24 +15,38 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.OBRisk1;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.OBRisk1;
 
 /**
  * OBDomesticVRPConsentRequest
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPConsentRequest {
-    @JsonProperty("Data")
+
     private OBDomesticVRPConsentRequestData data;
 
-    @JsonProperty("Risk")
     private OBRisk1 risk;
+
+    public OBDomesticVRPConsentRequest() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBDomesticVRPConsentRequest(OBDomesticVRPConsentRequestData data, OBRisk1 risk) {
+        this.data = data;
+        this.risk = risk;
+    }
 
     public OBDomesticVRPConsentRequest data(OBDomesticVRPConsentRequestData data) {
         this.data = data;
@@ -44,11 +58,10 @@ public class OBDomesticVRPConsentRequest {
      *
      * @return data
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Data")
     public OBDomesticVRPConsentRequestData getData() {
         return data;
     }
@@ -67,11 +80,10 @@ public class OBDomesticVRPConsentRequest {
      *
      * @return risk
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Risk", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Risk")
     public OBRisk1 getRisk() {
         return risk;
     }
@@ -79,7 +91,6 @@ public class OBDomesticVRPConsentRequest {
     public void setRisk(OBRisk1 risk) {
         this.risk = risk;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -103,7 +114,6 @@ public class OBDomesticVRPConsentRequest {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBDomesticVRPConsentRequest {\n");
-
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
         sb.append("}");

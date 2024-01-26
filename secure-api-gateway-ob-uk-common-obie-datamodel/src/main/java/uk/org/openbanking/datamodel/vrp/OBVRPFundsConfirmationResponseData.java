@@ -15,39 +15,56 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
+import java.util.Objects;
 
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 
 /**
  * OBVRPFundsConfirmationResponseData
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBVRPFundsConfirmationResponse_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBVRPFundsConfirmationResponseData {
-    @JsonProperty("FundsConfirmationId")
+
     private String fundsConfirmationId;
 
-    @JsonProperty("ConsentId")
     private String consentId;
 
-    @JsonProperty("CreationDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    @JsonProperty("Reference")
     private String reference;
 
-    @JsonProperty("FundsAvailableResult")
     private OBPAFundsAvailableResult1 fundsAvailableResult;
 
-    @JsonProperty("InstructedAmount")
     private OBActiveOrHistoricCurrencyAndAmount instructedAmount;
+
+    public OBVRPFundsConfirmationResponseData() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBVRPFundsConfirmationResponseData(String fundsConfirmationId, String consentId, DateTime creationDateTime, OBPAFundsAvailableResult1 fundsAvailableResult, OBActiveOrHistoricCurrencyAndAmount instructedAmount) {
+        this.fundsConfirmationId = fundsConfirmationId;
+        this.consentId = consentId;
+        this.creationDateTime = creationDateTime;
+        this.fundsAvailableResult = fundsAvailableResult;
+        this.instructedAmount = instructedAmount;
+    }
 
     public OBVRPFundsConfirmationResponseData fundsConfirmationId(String fundsConfirmationId) {
         this.fundsConfirmationId = fundsConfirmationId;
@@ -59,10 +76,10 @@ public class OBVRPFundsConfirmationResponseData {
      *
      * @return fundsConfirmationId
      */
-    @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation resource.")
     @NotNull
-
     @Size(min = 1, max = 40)
+    @Schema(name = "FundsConfirmationId", description = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("FundsConfirmationId")
     public String getFundsConfirmationId() {
         return fundsConfirmationId;
     }
@@ -81,10 +98,10 @@ public class OBVRPFundsConfirmationResponseData {
      *
      * @return consentId
      */
-    @ApiModelProperty(required = true, value = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.")
     @NotNull
-
     @Size(min = 1, max = 128)
+    @Schema(name = "ConsentId", description = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("ConsentId")
     public String getConsentId() {
         return consentId;
     }
@@ -103,11 +120,10 @@ public class OBVRPFundsConfirmationResponseData {
      *
      * @return creationDateTime
      */
-    @ApiModelProperty(required = true, value = "Date and time at which the resource was created.")
     @NotNull
-
     @Valid
-
+    @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
         return creationDateTime;
     }
@@ -126,9 +142,9 @@ public class OBVRPFundsConfirmationResponseData {
      *
      * @return reference
      */
-    @ApiModelProperty(value = "Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.")
-
     @Size(min = 1, max = 35)
+    @Schema(name = "Reference", description = "Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Reference")
     public String getReference() {
         return reference;
     }
@@ -147,11 +163,10 @@ public class OBVRPFundsConfirmationResponseData {
      *
      * @return fundsAvailableResult
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "FundsAvailableResult", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("FundsAvailableResult")
     public OBPAFundsAvailableResult1 getFundsAvailableResult() {
         return fundsAvailableResult;
     }
@@ -170,11 +185,10 @@ public class OBVRPFundsConfirmationResponseData {
      *
      * @return instructedAmount
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "InstructedAmount", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("InstructedAmount")
     public OBActiveOrHistoricCurrencyAndAmount getInstructedAmount() {
         return instructedAmount;
     }
@@ -182,7 +196,6 @@ public class OBVRPFundsConfirmationResponseData {
     public void setInstructedAmount(OBActiveOrHistoricCurrencyAndAmount instructedAmount) {
         this.instructedAmount = instructedAmount;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -210,7 +223,6 @@ public class OBVRPFundsConfirmationResponseData {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBVRPFundsConfirmationResponseData {\n");
-
         sb.append("    fundsConfirmationId: ").append(toIndentedString(fundsConfirmationId)).append("\n");
         sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
         sb.append("    creationDateTime: ").append(toIndentedString(creationDateTime)).append("\n");

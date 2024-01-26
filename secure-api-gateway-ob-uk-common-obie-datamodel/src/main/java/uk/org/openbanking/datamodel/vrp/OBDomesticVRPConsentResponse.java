@@ -15,31 +15,45 @@
  */
 package uk.org.openbanking.datamodel.vrp;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.Links;
-import uk.org.openbanking.datamodel.common.OBRisk1;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.Links;
+import uk.org.openbanking.datamodel.common.OBRisk1;
 
 /**
  * OBDomesticVRPConsentResponse
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPConsentResponse {
-    @JsonProperty("Data")
+
     private OBDomesticVRPConsentResponseData data;
 
-    @JsonProperty("Risk")
     private OBRisk1 risk;
 
-    @JsonProperty("Links")
     private Links links;
 
-    @JsonProperty("Meta")
     private Object meta;
+
+    public OBDomesticVRPConsentResponse() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBDomesticVRPConsentResponse(OBDomesticVRPConsentResponseData data, OBRisk1 risk, Links links, Object meta) {
+        this.data = data;
+        this.risk = risk;
+        this.links = links;
+        this.meta = meta;
+    }
 
     public OBDomesticVRPConsentResponse data(OBDomesticVRPConsentResponseData data) {
         this.data = data;
@@ -51,11 +65,10 @@ public class OBDomesticVRPConsentResponse {
      *
      * @return data
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Data")
     public OBDomesticVRPConsentResponseData getData() {
         return data;
     }
@@ -74,11 +87,10 @@ public class OBDomesticVRPConsentResponse {
      *
      * @return risk
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Risk", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Risk")
     public OBRisk1 getRisk() {
         return risk;
     }
@@ -97,11 +109,10 @@ public class OBDomesticVRPConsentResponse {
      *
      * @return links
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Links", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Links")
     public Links getLinks() {
         return links;
     }
@@ -120,10 +131,9 @@ public class OBDomesticVRPConsentResponse {
      *
      * @return meta
      */
-    @ApiModelProperty(required = true, value = "Meta Data relevant to the payload. At present no fields are used for VRP.")
     @NotNull
-
-
+    @Schema(name = "Meta", description = "Meta Data relevant to the payload. At present no fields are used for VRP.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Meta")
     public Object getMeta() {
         return meta;
     }
@@ -131,7 +141,6 @@ public class OBDomesticVRPConsentResponse {
     public void setMeta(Object meta) {
         this.meta = meta;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -157,7 +166,6 @@ public class OBDomesticVRPConsentResponse {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBDomesticVRPConsentResponse {\n");
-
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
         sb.append("    links: ").append(toIndentedString(links)).append("\n");

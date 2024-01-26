@@ -21,19 +21,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Gets or Sets OBVRPInteractionTypes
+ * ^ Specifies whether the period starts on the date of consent creation or lines up with a calendar
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBVRPInteractionTypes {
+public enum OBDomesticVRPControlParametersPeriodicLimitsInnerPeriodAlignment {
 
-    INSESSION("InSession"),
+    CONSENT("Consent"),
 
-    OFFSESSION("OffSession");
+    CALENDAR("Calendar");
 
     private String value;
 
-    OBVRPInteractionTypes(String value) {
+    OBDomesticVRPControlParametersPeriodicLimitsInnerPeriodAlignment(String value) {
         this.value = value;
     }
 
@@ -48,8 +48,8 @@ public enum OBVRPInteractionTypes {
     }
 
     @JsonCreator
-    public static OBVRPInteractionTypes fromValue(String value) {
-        for (OBVRPInteractionTypes b : OBVRPInteractionTypes.values()) {
+    public static OBDomesticVRPControlParametersPeriodicLimitsInnerPeriodAlignment fromValue(String value) {
+        for (OBDomesticVRPControlParametersPeriodicLimitsInnerPeriodAlignment b : OBDomesticVRPControlParametersPeriodicLimitsInnerPeriodAlignment.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
