@@ -25,20 +25,6 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.paymen
 
 public class FRWriteDomesticStandingOrderConverter {
 
-    public static FRWriteDomesticStandingOrder toFRWriteDomesticStandingOrder(OBWriteDomesticStandingOrder1 obWriteDomesticStandingOrder1) {
-        return obWriteDomesticStandingOrder1 == null ? null : FRWriteDomesticStandingOrder.builder()
-                .data(toFRWriteDataDomesticStandingOrder(obWriteDomesticStandingOrder1.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomesticStandingOrder1.getRisk()))
-                .build();
-    }
-
-    public static FRWriteDomesticStandingOrder toFRWriteDomesticStandingOrder(OBWriteDomesticStandingOrder2 obWriteDomesticStandingOrder2) {
-        return obWriteDomesticStandingOrder2 == null ? null : FRWriteDomesticStandingOrder.builder()
-                .data(toFRWriteDataDomesticStandingOrder(obWriteDomesticStandingOrder2.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomesticStandingOrder2.getRisk()))
-                .build();
-    }
-
     public static FRWriteDomesticStandingOrder toFRWriteDomesticStandingOrder(OBWriteDomesticStandingOrder3 obWriteDomesticStandingOrder3) {
         return obWriteDomesticStandingOrder3 == null ? null : FRWriteDomesticStandingOrder.builder()
                 .data(toFRWriteDataDomesticStandingOrder(obWriteDomesticStandingOrder3.getData()))
@@ -46,35 +32,7 @@ public class FRWriteDomesticStandingOrderConverter {
                 .build();
     }
 
-    public static FRWriteDataDomesticStandingOrder toFRWriteDataDomesticStandingOrder(OBWriteDataDomesticStandingOrder1 data) {
-        return data == null ? null : FRWriteDataDomesticStandingOrder.builder()
-                .consentId(data.getConsentId())
-                .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
-                .build();
-    }
-
-    public static FRWriteDataDomesticStandingOrder toFRWriteDataDomesticStandingOrder(OBWriteDataDomesticStandingOrder2 data) {
-        return data == null ? null : FRWriteDataDomesticStandingOrder.builder()
-                .consentId(data.getConsentId())
-                .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
-                .build();
-    }
-
-    public static FRWriteDataDomesticStandingOrder toFRWriteDataDomesticStandingOrder(OBWriteDataDomesticStandingOrder3 data) {
-        return data == null ? null : FRWriteDataDomesticStandingOrder.builder()
-                .consentId(data.getConsentId())
-                .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
-                .build();
-    }
-
     public static FRWriteDataDomesticStandingOrder toFRWriteDataDomesticStandingOrder(OBWriteDomesticStandingOrder3Data data) {
-        return data == null ? null : FRWriteDataDomesticStandingOrder.builder()
-                .consentId(data.getConsentId())
-                .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
-                .build();
-    }
-
-    public static FRWriteDataDomesticStandingOrder toFRWriteDomesticStandingOrder(OBWriteDataDomesticStandingOrder3 data) {
         return data == null ? null : FRWriteDataDomesticStandingOrder.builder()
                 .consentId(data.getConsentId())
                 .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))

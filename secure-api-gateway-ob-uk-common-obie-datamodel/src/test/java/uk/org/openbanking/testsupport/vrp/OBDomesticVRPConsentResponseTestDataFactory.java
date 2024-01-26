@@ -17,7 +17,7 @@ package uk.org.openbanking.testsupport.vrp;
 
 import com.forgerock.sapi.gateway.uk.common.shared.api.meta.share.IntentType;
 import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum;
+import uk.org.openbanking.datamodel.vrp.OBReadRefundAccount;
 import uk.org.openbanking.datamodel.vrp.*;
 
 import static org.joda.time.DateTime.now;
@@ -81,7 +81,7 @@ public class OBDomesticVRPConsentResponseTestDataFactory {
         DateTime now = now();
         return (new OBDomesticVRPConsentResponseData()
                 .consentId(requestData.getConsentId())
-                .readRefundAccount(OBReadRefundAccountEnum.YES)
+                .readRefundAccount(OBReadRefundAccount.YES)
                 .controlParameters(aValidOBDomesticVRPControlParameters())
                 .creationDateTime(now)
                 .debtorAccount(requestData.getInitiation().getDebtorAccount())

@@ -15,73 +15,86 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
 
 /**
  * OBWriteInternationalStandingOrderConsent6Data
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBWriteInternationalStandingOrderConsent6_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalStandingOrderConsent6Data {
-    @JsonProperty("Permission")
-    private OBExternalPermissions2Code permission;
 
-    @JsonProperty("ReadRefundAccount")
-    private OBReadRefundAccountEnum readRefundAccount;
+    private OBWriteDomesticScheduledConsent4DataPermission permission;
 
-    @JsonProperty("Initiation")
+    private OBReadRefundAccount readRefundAccount;
+
     private OBWriteInternationalStandingOrder4DataInitiation initiation;
 
-    @JsonProperty("Authorisation")
     private OBWriteDomesticConsent4DataAuthorisation authorisation;
 
-    @JsonProperty("SCASupportData")
     private OBSCASupportData1 scASupportData;
 
-    public OBWriteInternationalStandingOrderConsent6Data permission(OBExternalPermissions2Code permission) {
+    public OBWriteInternationalStandingOrderConsent6Data() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteInternationalStandingOrderConsent6Data(OBWriteDomesticScheduledConsent4DataPermission permission, OBWriteInternationalStandingOrder4DataInitiation initiation) {
+        this.permission = permission;
+        this.initiation = initiation;
+    }
+
+    public OBWriteInternationalStandingOrderConsent6Data permission(OBWriteDomesticScheduledConsent4DataPermission permission) {
         this.permission = permission;
         return this;
     }
 
     /**
-     * Specifies the Open Banking service request types.
+     * Get permission
      *
      * @return permission
      */
-    @ApiModelProperty(required = true, value = "Specifies the Open Banking service request types.")
     @NotNull
-
-
-    public OBExternalPermissions2Code getPermission() {
+    @Valid
+    @Schema(name = "Permission", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Permission")
+    public OBWriteDomesticScheduledConsent4DataPermission getPermission() {
         return permission;
     }
 
-    public void setPermission(OBExternalPermissions2Code permission) {
+    public void setPermission(OBWriteDomesticScheduledConsent4DataPermission permission) {
         this.permission = permission;
     }
 
-    public OBWriteInternationalStandingOrderConsent6Data readRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
+    public OBWriteInternationalStandingOrderConsent6Data readRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
 
     /**
-     * Specifies to share the refund account details with PISP
+     * Get readRefundAccount
      *
      * @return readRefundAccount
      */
-    @ApiModelProperty(value = "Specifies to share the refund account details with PISP")
-
-
-    public OBReadRefundAccountEnum getReadRefundAccount() {
+    @Valid
+    @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ReadRefundAccount")
+    public OBReadRefundAccount getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
+    public void setReadRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 
@@ -95,11 +108,10 @@ public class OBWriteInternationalStandingOrderConsent6Data {
      *
      * @return initiation
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Initiation")
     public OBWriteInternationalStandingOrder4DataInitiation getInitiation() {
         return initiation;
     }
@@ -118,10 +130,9 @@ public class OBWriteInternationalStandingOrderConsent6Data {
      *
      * @return authorisation
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Authorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Authorisation")
     public OBWriteDomesticConsent4DataAuthorisation getAuthorisation() {
         return authorisation;
     }
@@ -140,10 +151,9 @@ public class OBWriteInternationalStandingOrderConsent6Data {
      *
      * @return scASupportData
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "SCASupportData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SCASupportData")
     public OBSCASupportData1 getScASupportData() {
         return scASupportData;
     }
@@ -151,7 +161,6 @@ public class OBWriteInternationalStandingOrderConsent6Data {
     public void setScASupportData(OBSCASupportData1 scASupportData) {
         this.scASupportData = scASupportData;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -178,7 +187,6 @@ public class OBWriteInternationalStandingOrderConsent6Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteInternationalStandingOrderConsent6Data {\n");
-
         sb.append("    permission: ").append(toIndentedString(permission)).append("\n");
         sb.append("    readRefundAccount: ").append(toIndentedString(readRefundAccount)).append("\n");
         sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");

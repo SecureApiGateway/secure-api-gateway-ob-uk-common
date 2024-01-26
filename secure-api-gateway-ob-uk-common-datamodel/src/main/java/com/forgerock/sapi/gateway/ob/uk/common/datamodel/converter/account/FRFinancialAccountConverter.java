@@ -28,7 +28,6 @@ import uk.org.openbanking.datamodel.account.OBAccount6AccountInner;
 import uk.org.openbanking.datamodel.account.OBAccountStatus1Code;
 import uk.org.openbanking.datamodel.account.OBExternalAccountSubType1Code;
 import uk.org.openbanking.datamodel.account.OBExternalAccountType1Code;
-import uk.org.openbanking.datamodel.common.OBCashAccount3;
 
 public class FRFinancialAccountConverter {
 
@@ -59,12 +58,6 @@ public class FRFinancialAccountConverter {
 
     public static OBExternalAccountSubType1Code toOBExternalAccountSubType1Code(FRFinancialAccount.FRAccountSubTypeCode accountSubType) {
         return accountSubType == null ? null : OBExternalAccountSubType1Code.valueOf(accountSubType.name());
-    }
-
-    public static List<OBCashAccount3> toOBCashAccount3List(List<FRAccountIdentifier> accounts) {
-        return accounts == null ? null : accounts.stream()
-                .map(FRAccountIdentifierConverter::toOBCashAccount3)
-                .collect(Collectors.toList());
     }
 
     private static List<OBAccount6AccountInner> toOBAccount6AccountList(List<FRAccountIdentifier> accounts) {

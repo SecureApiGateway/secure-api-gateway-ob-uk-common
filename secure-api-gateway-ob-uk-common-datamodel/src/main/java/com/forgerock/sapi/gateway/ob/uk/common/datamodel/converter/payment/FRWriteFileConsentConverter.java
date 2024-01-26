@@ -29,35 +29,9 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.paymen
 public class FRWriteFileConsentConverter {
 
     // OB to FR
-    public static FRWriteFileConsent toFRWriteFileConsent(OBWriteFileConsent1 obWriteFileConsent1) {
-        return obWriteFileConsent1 == null ? null : FRWriteFileConsent.builder()
-                .data(toFRWriteFileConsentData(obWriteFileConsent1.getData()))
-                .build();
-    }
-
-    public static FRWriteFileConsent toFRWriteFileConsent(OBWriteFileConsent2 obWriteFileConsent2) {
-        return obWriteFileConsent2 == null ? null : FRWriteFileConsent.builder()
-                .data(toFRWriteFileConsentData(obWriteFileConsent2.getData()))
-                .build();
-    }
-
     public static FRWriteFileConsent toFRWriteFileConsent(OBWriteFileConsent3 obWriteFileConsent3) {
         return obWriteFileConsent3 == null ? null : FRWriteFileConsent.builder()
                 .data(toFRWriteFileConsentData(obWriteFileConsent3.getData()))
-                .build();
-    }
-
-    public static FRWriteFileConsentData toFRWriteFileConsentData(OBWriteDataFileConsent1 data) {
-        return data == null ? null : FRWriteFileConsentData.builder()
-                .initiation(toFRWriteFileDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .build();
-    }
-
-    public static FRWriteFileConsentData toFRWriteFileConsentData(OBWriteDataFileConsent2 data) {
-        return data == null ? null : FRWriteFileConsentData.builder()
-                .initiation(toFRWriteFileDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
                 .build();
     }
 
@@ -66,35 +40,6 @@ public class FRWriteFileConsentConverter {
                 .initiation(toFRWriteFileDataInitiation(data.getInitiation()))
                 .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
                 .scASupportData(toFRDataSCASupportData(data.getScASupportData()))
-                .build();
-    }
-
-    public static FRWriteFileDataInitiation toFRWriteFileDataInitiation(OBFile1 initiation) {
-        return initiation == null ? null : FRWriteFileDataInitiation.builder()
-                .fileType(initiation.getFileType())
-                .fileHash(initiation.getFileHash())
-                .fileReference(initiation.getFileReference())
-                .numberOfTransactions(initiation.getNumberOfTransactions())
-                .controlSum(initiation.getControlSum())
-                .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
-                .localInstrument(initiation.getLocalInstrument())
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
-                .build();
-    }
-
-    public static FRWriteFileDataInitiation toFRWriteFileDataInitiation(OBFile2 initiation) {
-        return initiation == null ? null : FRWriteFileDataInitiation.builder()
-                .fileType(initiation.getFileType())
-                .fileHash(initiation.getFileHash())
-                .fileReference(initiation.getFileReference())
-                .numberOfTransactions(initiation.getNumberOfTransactions())
-                .controlSum(initiation.getControlSum())
-                .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
-                .localInstrument(initiation.getLocalInstrument())
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(FRSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
                 .build();
     }
 
@@ -125,33 +70,6 @@ public class FRWriteFileConsentConverter {
                 .localInstrument(initiation.getLocalInstrument())
                 .debtorAccount(FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationDebtorAccount(initiation.getDebtorAccount()))
                 .remittanceInformation(FRRemittanceInformationConverter.toOBWriteDomestic2DataInitiationRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
-    }
-
-    public static OBFile1 toOBFile1(FRWriteFileDataInitiation initiation) {
-        return initiation == null ? null : new OBFile1()
-                .fileType(initiation.getFileType())
-                .fileHash(initiation.getFileHash())
-                .fileReference(initiation.getFileReference())
-                .numberOfTransactions(initiation.getNumberOfTransactions())
-                .controlSum(initiation.getControlSum())
-                .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
-                .localInstrument(initiation.getLocalInstrument())
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation1(initiation.getRemittanceInformation()));
-    }
-
-    public static OBFile2 toOBFile2(FRWriteFileDataInitiation initiation) {
-        return initiation == null ? null : new OBFile2()
-                .fileType(initiation.getFileType())
-                .fileHash(initiation.getFileHash())
-                .fileReference(initiation.getFileReference())
-                .numberOfTransactions(initiation.getNumberOfTransactions())
-                .controlSum(initiation.getControlSum())
-                .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
-                .localInstrument(initiation.getLocalInstrument())
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation1(initiation.getRemittanceInformation()))
                 .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
     }
 

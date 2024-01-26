@@ -15,7 +15,6 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import uk.org.openbanking.datamodel.common.OBCashAccount3;
 import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.payment.*;
 
@@ -63,28 +62,12 @@ public class OBAccountTestDataFactory {
                 .secondaryIdentification("44");
     }
 
-    public static OBWriteInternationalStandingOrder3DataInitiationCreditorAccount aValidOBWriteInternationalStandingOrder3DataInitiationCreditorAccount() {
-        return (new OBWriteInternationalStandingOrder3DataInitiationCreditorAccount())
-                .schemeName("UK.OBIE.SortCodeAccountNumber")
-                .identification("18080021325694")
-                .name("Mr Ian Brown")
-                .secondaryIdentification("33");
-    }
-
     public static OBWriteInternationalStandingOrder4DataInitiationCreditorAccount aValidOBWriteInternationalStandingOrder4DataInitiationCreditorAccount() {
         return (new OBWriteInternationalStandingOrder4DataInitiationCreditorAccount())
                 .schemeName("UK.OBIE.SortCodeAccountNumber")
                 .identification("90611424625555")
                 .name("Mr Steven Morrissey")
                 .secondaryIdentification("44");
-    }
-
-    public static OBCashAccount3 aValidOBCashAccount3() {
-        return (new OBCashAccount3())
-                .schemeName("UK.OBIE.SortCodeAccountNumber")
-                .identification("90611424625566")
-                .name("Mr Johnny Marr")
-                .secondaryIdentification("55");
     }
 
     public static OBCashAccountCreditor3 aValidOBCashAccountCreditor3() {

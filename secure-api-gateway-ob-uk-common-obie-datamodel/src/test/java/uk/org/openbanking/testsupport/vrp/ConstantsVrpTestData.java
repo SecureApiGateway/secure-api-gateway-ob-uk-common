@@ -15,10 +15,6 @@
  */
 package uk.org.openbanking.testsupport.vrp;
 
-
-import uk.org.openbanking.datamodel.common.OBExternalAccountIdentification4Code;
-import uk.org.openbanking.datamodel.common.OBExternalLocalInstrument1Code;
-
 public interface ConstantsVrpTestData {
     // Generic
     String CONSENT_PREFIX = "DVRP_";
@@ -34,12 +30,12 @@ public interface ConstantsVrpTestData {
     String SUPPLEMENTARY_DATA = "{}";
     String ACCOUNT_IDENTIFICATION = "08080021325698";
     String ACCOUNT_NAME = "Mr Tim Burgess";
-    String ACCOUNT_SCHEME_NAME = OBExternalAccountIdentification4Code.SORTCODEACCOUNTNUMBER.getValue();
+    String ACCOUNT_SCHEME_NAME = "UK.OBIE.SortCodeAccountNumber";
 
     // Instruction
     String INSTRUCTION_IDENTIFICATION = "32409753409ASFD";
     String END_TO_END_IDENTIFICATION = "12345678";
-    String LOCAL_INSTRUMENT = OBExternalLocalInstrument1Code.BACS.getValue();
+    String LOCAL_INSTRUMENT = "UK.OBIE.BACS";
 
     // Address
     String BUILDING_NUMBER = "1";

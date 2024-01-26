@@ -16,19 +16,12 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
-import uk.org.openbanking.datamodel.payment.OBRemittanceInformation1;
+
 import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiationRemittanceInformation;
 import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInitiationRemittanceInformation;
 import uk.org.openbanking.datamodel.vrp.OBVRPRemittanceInformation;
 
 public class FRRemittanceInformationConverter {
-
-    public static FRRemittanceInformation toFRRemittanceInformation(OBRemittanceInformation1 remittanceInformation) {
-        return remittanceInformation == null ? null : FRRemittanceInformation.builder()
-                .unstructured(remittanceInformation.getUnstructured())
-                .reference(remittanceInformation.getReference())
-                .build();
-    }
 
     public static FRRemittanceInformation toFRRemittanceInformation(OBWriteDomestic2DataInitiationRemittanceInformation remittanceInformation) {
         return remittanceInformation == null ? null : FRRemittanceInformation.builder()
@@ -49,12 +42,6 @@ public class FRRemittanceInformationConverter {
                 .unstructured(remittanceInformation.getUnstructured())
                 .reference(remittanceInformation.getReference())
                 .build();
-    }
-
-    public static OBRemittanceInformation1 toOBRemittanceInformation1(FRRemittanceInformation remittanceInformation) {
-        return remittanceInformation == null ? null : new OBRemittanceInformation1()
-                .unstructured(remittanceInformation.getUnstructured())
-                .reference(remittanceInformation.getReference());
     }
 
     public static OBWriteDomestic2DataInitiationRemittanceInformation toOBWriteDomestic2DataInitiationRemittanceInformation(FRRemittanceInformation remittanceInformation) {

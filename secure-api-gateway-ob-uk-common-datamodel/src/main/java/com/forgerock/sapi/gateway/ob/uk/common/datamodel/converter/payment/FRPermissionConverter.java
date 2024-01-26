@@ -16,17 +16,18 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPermission;
-import uk.org.openbanking.datamodel.payment.OBExternalPermissions2Code;
+
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4DataPermission;
 
 public class FRPermissionConverter {
 
     // OB to FR
-    public static FRPermission toFRPermission(OBExternalPermissions2Code permission) {
+    public static FRPermission toFRPermission(OBWriteDomesticScheduledConsent4DataPermission permission) {
         return permission == null ? null : FRPermission.valueOf(permission.name());
     }
 
     // FR to OB
-    public static OBExternalPermissions2Code toOBExternalPermissions2Code(FRPermission permission) {
-        return permission == null ? null : OBExternalPermissions2Code.valueOf(permission.name());
+    public static OBWriteDomesticScheduledConsent4DataPermission toOBExternalPermissions2Code(FRPermission permission) {
+        return permission == null ? null : OBWriteDomesticScheduledConsent4DataPermission.valueOf(permission.name());
     }
 }

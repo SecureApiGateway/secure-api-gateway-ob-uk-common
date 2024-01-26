@@ -15,106 +15,76 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 /**
  * OBWriteInternationalScheduledResponse6Data
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBWriteInternationalScheduledResponse6_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalScheduledResponse6Data {
-    @JsonProperty("InternationalScheduledPaymentId")
+
     private String internationalScheduledPaymentId;
 
-    @JsonProperty("ConsentId")
     private String consentId;
 
-    @JsonProperty("CreationDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    /**
-     * Specifies the status of the payment order resource.
-     */
-    public enum StatusEnum {
-        CANCELLED("Cancelled"),
+    private OBWriteDomesticScheduledResponse5DataStatus status;
 
-        INITIATIONCOMPLETED("InitiationCompleted"),
-
-        INITIATIONFAILED("InitiationFailed"),
-
-        INITIATIONPENDING("InitiationPending");
-
-        private String value;
-
-        StatusEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static StatusEnum fromValue(String value) {
-            for (StatusEnum b : StatusEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
-
-    @JsonProperty("Status")
-    private StatusEnum status;
-
-    @JsonProperty("StatusUpdateDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
 
-    @JsonProperty("ExpectedExecutionDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime expectedExecutionDateTime;
 
-    @JsonProperty("ExpectedSettlementDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime expectedSettlementDateTime;
 
-    @JsonProperty("Refund")
     private OBWriteInternationalResponse5DataRefund refund;
 
-    @JsonProperty("Charges")
     @Valid
-    private List<OBWriteDomesticConsentResponse5DataCharges> charges = null;
+    private List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges;
 
-    @JsonProperty("ExchangeRateInformation")
     private OBWriteInternationalConsentResponse6DataExchangeRateInformation exchangeRateInformation;
 
-    @JsonProperty("Initiation")
     private OBWriteInternationalScheduled3DataInitiation initiation;
 
-    @JsonProperty("MultiAuthorisation")
     private OBWriteDomesticResponse5DataMultiAuthorisation multiAuthorisation;
 
-    @JsonProperty("Debtor")
     private OBCashAccountDebtor4 debtor;
+
+    public OBWriteInternationalScheduledResponse6Data() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteInternationalScheduledResponse6Data(String internationalScheduledPaymentId, String consentId, DateTime creationDateTime, OBWriteDomesticScheduledResponse5DataStatus status, DateTime statusUpdateDateTime, OBWriteInternationalScheduled3DataInitiation initiation) {
+        this.internationalScheduledPaymentId = internationalScheduledPaymentId;
+        this.consentId = consentId;
+        this.creationDateTime = creationDateTime;
+        this.status = status;
+        this.statusUpdateDateTime = statusUpdateDateTime;
+        this.initiation = initiation;
+    }
 
     public OBWriteInternationalScheduledResponse6Data internationalScheduledPaymentId(String internationalScheduledPaymentId) {
         this.internationalScheduledPaymentId = internationalScheduledPaymentId;
@@ -126,10 +96,10 @@ public class OBWriteInternationalScheduledResponse6Data {
      *
      * @return internationalScheduledPaymentId
      */
-    @ApiModelProperty(required = true, value = "OB: Unique identification as assigned by the ASPSP to uniquely identify the international scheduled payment resource.")
     @NotNull
-
     @Size(min = 1, max = 40)
+    @Schema(name = "InternationalScheduledPaymentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the international scheduled payment resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("InternationalScheduledPaymentId")
     public String getInternationalScheduledPaymentId() {
         return internationalScheduledPaymentId;
     }
@@ -148,10 +118,10 @@ public class OBWriteInternationalScheduledResponse6Data {
      *
      * @return consentId
      */
-    @ApiModelProperty(required = true, value = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.")
     @NotNull
-
     @Size(min = 1, max = 128)
+    @Schema(name = "ConsentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("ConsentId")
     public String getConsentId() {
         return consentId;
     }
@@ -170,11 +140,10 @@ public class OBWriteInternationalScheduledResponse6Data {
      *
      * @return creationDateTime
      */
-    @ApiModelProperty(required = true, value = "Date and time at which the message was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @NotNull
-
     @Valid
-
+    @Schema(name = "CreationDateTime", description = "Date and time at which the message was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
         return creationDateTime;
     }
@@ -183,25 +152,25 @@ public class OBWriteInternationalScheduledResponse6Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteInternationalScheduledResponse6Data status(StatusEnum status) {
+    public OBWriteInternationalScheduledResponse6Data status(OBWriteDomesticScheduledResponse5DataStatus status) {
         this.status = status;
         return this;
     }
 
     /**
-     * Specifies the status of the payment order resource.
+     * Get status
      *
      * @return status
      */
-    @ApiModelProperty(required = true, value = "Specifies the status of the payment order resource.")
     @NotNull
-
-
-    public StatusEnum getStatus() {
+    @Valid
+    @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Status")
+    public OBWriteDomesticScheduledResponse5DataStatus getStatus() {
         return status;
     }
 
-    public void setStatus(StatusEnum status) {
+    public void setStatus(OBWriteDomesticScheduledResponse5DataStatus status) {
         this.status = status;
     }
 
@@ -215,11 +184,10 @@ public class OBWriteInternationalScheduledResponse6Data {
      *
      * @return statusUpdateDateTime
      */
-    @ApiModelProperty(required = true, value = "Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @NotNull
-
     @Valid
-
+    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
     }
@@ -238,10 +206,9 @@ public class OBWriteInternationalScheduledResponse6Data {
      *
      * @return expectedExecutionDateTime
      */
-    @ApiModelProperty(value = "Expected execution date and time for the payment resource.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-
     @Valid
-
+    @Schema(name = "ExpectedExecutionDateTime", description = "Expected execution date and time for the payment resource.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ExpectedExecutionDateTime")
     public DateTime getExpectedExecutionDateTime() {
         return expectedExecutionDateTime;
     }
@@ -260,10 +227,9 @@ public class OBWriteInternationalScheduledResponse6Data {
      *
      * @return expectedSettlementDateTime
      */
-    @ApiModelProperty(value = "Expected settlement date and time for the payment resource.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-
     @Valid
-
+    @Schema(name = "ExpectedSettlementDateTime", description = "Expected settlement date and time for the payment resource.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ExpectedSettlementDateTime")
     public DateTime getExpectedSettlementDateTime() {
         return expectedSettlementDateTime;
     }
@@ -282,10 +248,9 @@ public class OBWriteInternationalScheduledResponse6Data {
      *
      * @return refund
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Refund")
     public OBWriteInternationalResponse5DataRefund getRefund() {
         return refund;
     }
@@ -294,14 +259,14 @@ public class OBWriteInternationalScheduledResponse6Data {
         this.refund = refund;
     }
 
-    public OBWriteInternationalScheduledResponse6Data charges(List<OBWriteDomesticConsentResponse5DataCharges> charges) {
+    public OBWriteInternationalScheduledResponse6Data charges(List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges) {
         this.charges = charges;
         return this;
     }
 
-    public OBWriteInternationalScheduledResponse6Data addChargesItem(OBWriteDomesticConsentResponse5DataCharges chargesItem) {
+    public OBWriteInternationalScheduledResponse6Data addChargesItem(OBWriteDomesticConsentResponse5DataChargesInner chargesItem) {
         if (this.charges == null) {
-            this.charges = new ArrayList<OBWriteDomesticConsentResponse5DataCharges>();
+            this.charges = new ArrayList<>();
         }
         this.charges.add(chargesItem);
         return this;
@@ -312,15 +277,14 @@ public class OBWriteInternationalScheduledResponse6Data {
      *
      * @return charges
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
-    public List<OBWriteDomesticConsentResponse5DataCharges> getCharges() {
+    @Schema(name = "Charges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Charges")
+    public List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> getCharges() {
         return charges;
     }
 
-    public void setCharges(List<OBWriteDomesticConsentResponse5DataCharges> charges) {
+    public void setCharges(List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges) {
         this.charges = charges;
     }
 
@@ -334,10 +298,9 @@ public class OBWriteInternationalScheduledResponse6Data {
      *
      * @return exchangeRateInformation
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "ExchangeRateInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ExchangeRateInformation")
     public OBWriteInternationalConsentResponse6DataExchangeRateInformation getExchangeRateInformation() {
         return exchangeRateInformation;
     }
@@ -356,11 +319,10 @@ public class OBWriteInternationalScheduledResponse6Data {
      *
      * @return initiation
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Initiation")
     public OBWriteInternationalScheduled3DataInitiation getInitiation() {
         return initiation;
     }
@@ -379,10 +341,9 @@ public class OBWriteInternationalScheduledResponse6Data {
      *
      * @return multiAuthorisation
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "MultiAuthorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("MultiAuthorisation")
     public OBWriteDomesticResponse5DataMultiAuthorisation getMultiAuthorisation() {
         return multiAuthorisation;
     }
@@ -401,10 +362,9 @@ public class OBWriteInternationalScheduledResponse6Data {
      *
      * @return debtor
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Debtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Debtor")
     public OBCashAccountDebtor4 getDebtor() {
         return debtor;
     }
@@ -412,7 +372,6 @@ public class OBWriteInternationalScheduledResponse6Data {
     public void setDebtor(OBCashAccountDebtor4 debtor) {
         this.debtor = debtor;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -447,7 +406,6 @@ public class OBWriteInternationalScheduledResponse6Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteInternationalScheduledResponse6Data {\n");
-
         sb.append("    internationalScheduledPaymentId: ").append(toIndentedString(internationalScheduledPaymentId)).append("\n");
         sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
         sb.append("    creationDateTime: ").append(toIndentedString(creationDateTime)).append("\n");

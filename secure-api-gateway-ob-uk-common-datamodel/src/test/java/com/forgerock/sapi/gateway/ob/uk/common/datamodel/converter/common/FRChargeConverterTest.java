@@ -27,13 +27,13 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRChargeBearerTy
 
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsentResponse5DataCharges;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsentResponse5DataChargesInner;
 
 class FRChargeConverterTest {
 
     @Test
     void testConvertOBWriteDomesticConsentResponse5DataChargesToFrCharge() {
-        final OBWriteDomesticConsentResponse5DataCharges obCharge = new OBWriteDomesticConsentResponse5DataCharges()
+        final OBWriteDomesticConsentResponse5DataChargesInner obCharge = new OBWriteDomesticConsentResponse5DataChargesInner()
                 .chargeBearer(OBChargeBearerType1Code.SHARED)
                 .amount(new OBActiveOrHistoricCurrencyAndAmount()
                         .currency("GBP").amount("999.12"))
@@ -47,8 +47,8 @@ class FRChargeConverterTest {
 
     @Test
     void testConvertNullToFrCharge() {
-        assertNull(FRChargeConverter.toFRCharge((OBWriteDomesticConsentResponse5DataCharges) null));
-        assertNull(FRChargeConverter.toFRCharge((List<OBWriteDomesticConsentResponse5DataCharges>) null));
+        assertNull(FRChargeConverter.toFRCharge((OBWriteDomesticConsentResponse5DataChargesInner) null));
+        assertNull(FRChargeConverter.toFRCharge((List<OBWriteDomesticConsentResponse5DataChargesInner>) null));
     }
 
     @Test
@@ -62,7 +62,7 @@ class FRChargeConverterTest {
                         build())
                 .build();
 
-        final OBWriteDomesticConsentResponse5DataCharges obCharge = FRChargeConverter.toOBWriteDomesticConsentResponse5DataCharges(frCharge);
+        final OBWriteDomesticConsentResponse5DataChargesInner obCharge = FRChargeConverter.toOBWriteDomesticConsentResponse5DataCharges(frCharge);
         assertEquals("fee", obCharge.getType());
         assertEquals(OBChargeBearerType1Code.BORNEBYDEBTOR, obCharge.getChargeBearer());
         assertEquals(new OBActiveOrHistoricCurrencyAndAmount().amount("0.01").currency("EUR"), obCharge.getAmount());

@@ -17,22 +17,20 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialCreditor;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account.FRAccountServicerConverter;
-import uk.org.openbanking.datamodel.account.*;
+
+import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification51;
+import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification60;
+import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification61;
+import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification62;
 import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
-import uk.org.openbanking.datamodel.payment.OBBranchAndFinancialInstitutionIdentification3;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationCreditor;
+import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationCreditorAgent;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAgent;
 
 public class FRFinancialInstrumentConverter {
 
     // OB to FR
-    public static FRFinancialCreditor toFRFinancialCreditor(OBPartyIdentification43 creditor) {
-        return creditor == null ? null : FRFinancialCreditor.builder()
-                .name(creditor.getName())
-                .postalAddress(FRPostalAddressConverter.toFRPostalAddress(creditor.getPostalAddress()))
-                .build();
-    }
-
     public static FRFinancialCreditor toFRFinancialCreditor(OBWriteInternational3DataInitiationCreditor creditor) {
         return creditor == null ? null : FRFinancialCreditor.builder()
                 .name(creditor.getName())
@@ -44,15 +42,6 @@ public class FRFinancialInstrumentConverter {
         return creditor == null ? null : FRFinancialCreditor.builder()
                 .name(creditor.getName())
                 .postalAddress(FRPostalAddressConverter.toFRPostalAddress(creditor.getPostalAddress()))
-                .build();
-    }
-
-    public static FRFinancialAgent toFRFinancialAgent(OBBranchAndFinancialInstitutionIdentification3 agent) {
-        return agent == null ? null : FRFinancialAgent.builder()
-                .schemeName(agent.getSchemeName())
-                .identification(agent.getIdentification())
-                .name(agent.getName())
-                .postalAddress(FRPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
                 .build();
     }
 
@@ -146,14 +135,6 @@ public class FRFinancialInstrumentConverter {
                 .postalAddress(FRPostalAddressConverter.toOBPostalAddress6(agent.getPostalAddress()));
     }
 
-    public static OBBranchAndFinancialInstitutionIdentification3 toOBBranchAndFinancialInstitutionIdentification3(FRFinancialAgent agent) {
-        return agent == null ? null : new OBBranchAndFinancialInstitutionIdentification3()
-                .schemeName(agent.getSchemeName())
-                .identification(agent.getIdentification())
-                .name(agent.getName())
-                .postalAddress(FRPostalAddressConverter.toOBPostalAddress6(agent.getPostalAddress()));
-    }
-
     public static OBBranchAndFinancialInstitutionIdentification51 toOBBranchAndFinancialInstitutionIdentification51(FRFinancialAgent agent) {
         return agent == null ? null : new OBBranchAndFinancialInstitutionIdentification51()
                 .schemeName(agent.getSchemeName())
@@ -166,12 +147,6 @@ public class FRFinancialInstrumentConverter {
                 .identification(agent.getIdentification())
                 .name(agent.getName())
                 .postalAddress(FRPostalAddressConverter.toOBPostalAddress6(agent.getPostalAddress()));
-    }
-
-    public static OBPartyIdentification43 toOBPartyIdentification43(FRFinancialCreditor creditor) {
-        return creditor == null ? null : new OBPartyIdentification43()
-                .name(creditor.getName())
-                .postalAddress(FRPostalAddressConverter.toOBPostalAddress6(creditor.getPostalAddress()));
     }
 
 }

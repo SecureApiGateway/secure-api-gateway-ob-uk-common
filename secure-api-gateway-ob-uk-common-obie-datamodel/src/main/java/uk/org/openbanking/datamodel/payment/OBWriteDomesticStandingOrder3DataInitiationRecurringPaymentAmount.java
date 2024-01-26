@@ -15,25 +15,40 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import java.util.Objects;
 
 /**
  * The amount of the recurring Standing Order
  */
-@ApiModel(description = "The amount of the recurring Standing Order")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBWriteDomesticStandingOrder3_Data_Initiation_RecurringPaymentAmount", description = "The amount of the recurring Standing Order")
+@JsonTypeName("OBWriteDomesticStandingOrder3_Data_Initiation_RecurringPaymentAmount")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount {
-    @JsonProperty("Amount")
+
     private String amount;
 
-    @JsonProperty("Currency")
     private String currency;
+
+    public OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount(String amount, String currency) {
+        this.amount = amount;
+        this.currency = currency;
+    }
 
     public OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount amount(String amount) {
         this.amount = amount;
@@ -45,10 +60,10 @@ public class OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount {
      *
      * @return amount
      */
-    @ApiModelProperty(required = true, value = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.")
     @NotNull
-
     @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$")
+    @Schema(name = "Amount", description = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Amount")
     public String getAmount() {
         return amount;
     }
@@ -67,10 +82,10 @@ public class OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount {
      *
      * @return currency
      */
-    @ApiModelProperty(required = true, value = "A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".")
     @NotNull
-
     @Pattern(regexp = "^[A-Z]{3,3}$")
+    @Schema(name = "Currency", description = "A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Currency")
     public String getCurrency() {
         return currency;
     }
@@ -78,7 +93,6 @@ public class OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount {
     public void setCurrency(String currency) {
         this.currency = currency;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -102,7 +116,6 @@ public class OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount {\n");
-
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("}");

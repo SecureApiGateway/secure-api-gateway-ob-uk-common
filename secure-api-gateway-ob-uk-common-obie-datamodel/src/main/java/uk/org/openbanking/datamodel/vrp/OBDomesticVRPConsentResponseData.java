@@ -20,11 +20,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModelProperty;
 import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
 import java.util.Objects;
 
 /**
@@ -34,7 +34,7 @@ import java.util.Objects;
 public class OBDomesticVRPConsentResponseData {
 
     @JsonProperty("ReadRefundAccount")
-    private OBReadRefundAccountEnum readRefundAccount; // Edited to use common OBReadRefundAccountEnum
+    private OBReadRefundAccount readRefundAccount; // Edited to use common OBReadRefundAccountEnum
 
     @JsonProperty("ConsentId")
     private String consentId;
@@ -96,7 +96,7 @@ public class OBDomesticVRPConsentResponseData {
     @JsonProperty("DebtorAccount")
     private OBCashAccountDebtorWithName debtorAccount;
 
-    public OBDomesticVRPConsentResponseData readRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
+    public OBDomesticVRPConsentResponseData readRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
@@ -109,11 +109,11 @@ public class OBDomesticVRPConsentResponseData {
     @ApiModelProperty(value = "Indicates whether information about RefundAccount should be included in the payment response. ")
 
 
-    public OBReadRefundAccountEnum getReadRefundAccount() {
+    public OBReadRefundAccount getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
+    public void setReadRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 

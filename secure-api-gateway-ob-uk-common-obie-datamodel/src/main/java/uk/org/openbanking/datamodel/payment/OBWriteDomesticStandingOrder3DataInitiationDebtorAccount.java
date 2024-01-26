@@ -15,31 +15,44 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import java.util.Objects;
 
 /**
  * Provides the details to identify the debtor account.
  */
-@ApiModel(description = "Provides the details to identify the debtor account.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBWriteDomesticStandingOrder3_Data_Initiation_DebtorAccount", description = "Provides the details to identify the debtor account.")
+@JsonTypeName("OBWriteDomesticStandingOrder3_Data_Initiation_DebtorAccount")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomesticStandingOrder3DataInitiationDebtorAccount {
-    @JsonProperty("SchemeName")
+
     private String schemeName;
 
-    @JsonProperty("Identification")
     private String identification;
 
-    @JsonProperty("Name")
     private String name;
 
-    @JsonProperty("SecondaryIdentification")
     private String secondaryIdentification;
+
+    public OBWriteDomesticStandingOrder3DataInitiationDebtorAccount() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteDomesticStandingOrder3DataInitiationDebtorAccount(String schemeName, String identification) {
+        this.schemeName = schemeName;
+        this.identification = identification;
+    }
 
     public OBWriteDomesticStandingOrder3DataInitiationDebtorAccount schemeName(String schemeName) {
         this.schemeName = schemeName;
@@ -51,10 +64,9 @@ public class OBWriteDomesticStandingOrder3DataInitiationDebtorAccount {
      *
      * @return schemeName
      */
-    @ApiModelProperty(required = true, value = "Name of the identification scheme, in a coded form as published in an external list.")
     @NotNull
-
-
+    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("SchemeName")
     public String getSchemeName() {
         return schemeName;
     }
@@ -73,10 +85,10 @@ public class OBWriteDomesticStandingOrder3DataInitiationDebtorAccount {
      *
      * @return identification
      */
-    @ApiModelProperty(required = true, value = "Identification assigned by an institution to identify an account. This identification is known by the account owner.")
     @NotNull
-
     @Size(min = 1, max = 256)
+    @Schema(name = "Identification", description = "Identification assigned by an institution to identify an account. This identification is known by the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Identification")
     public String getIdentification() {
         return identification;
     }
@@ -95,9 +107,9 @@ public class OBWriteDomesticStandingOrder3DataInitiationDebtorAccount {
      *
      * @return name
      */
-    @ApiModelProperty(value = "The account name is the name or names of the account owner(s) represented at an account level, as displayed by the ASPSP's online channels. Note, the account name is not the product name or the nickname of the account.")
-
     @Size(min = 1, max = 350)
+    @Schema(name = "Name", description = "The account name is the name or names of the account owner(s) represented at an account level, as displayed by the ASPSP's online channels. Note, the account name is not the product name or the nickname of the account.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Name")
     public String getName() {
         return name;
     }
@@ -116,9 +128,9 @@ public class OBWriteDomesticStandingOrder3DataInitiationDebtorAccount {
      *
      * @return secondaryIdentification
      */
-    @ApiModelProperty(value = "This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).")
-
     @Size(min = 1, max = 34)
+    @Schema(name = "SecondaryIdentification", description = "This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SecondaryIdentification")
     public String getSecondaryIdentification() {
         return secondaryIdentification;
     }
@@ -126,7 +138,6 @@ public class OBWriteDomesticStandingOrder3DataInitiationDebtorAccount {
     public void setSecondaryIdentification(String secondaryIdentification) {
         this.secondaryIdentification = secondaryIdentification;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -152,7 +163,6 @@ public class OBWriteDomesticStandingOrder3DataInitiationDebtorAccount {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteDomesticStandingOrder3DataInitiationDebtorAccount {\n");
-
         sb.append("    schemeName: ").append(toIndentedString(schemeName)).append("\n");
         sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");

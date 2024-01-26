@@ -27,56 +27,10 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.paymen
 public class FRWriteDomesticScheduledConsentConverter {
 
     // OB to FR
-    public static FRWriteDomesticScheduledConsent toFRWriteDomesticScheduledConsent(OBWriteDomesticScheduledConsent1 obWriteDomesticScheduledConsent1) {
-        return obWriteDomesticScheduledConsent1 == null ? null : FRWriteDomesticScheduledConsent.builder()
-                .data(toFRWriteDomesticScheduledConsentData(obWriteDomesticScheduledConsent1.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomesticScheduledConsent1.getRisk()))
-                .build();
-    }
-
-    public static FRWriteDomesticScheduledConsent toFRWriteDomesticScheduledConsent(OBWriteDomesticScheduledConsent2 obWriteDomesticScheduledConsent2) {
-        return obWriteDomesticScheduledConsent2 == null ? null : FRWriteDomesticScheduledConsent.builder()
-                .data(toFRWriteDomesticScheduledConsentData(obWriteDomesticScheduledConsent2.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomesticScheduledConsent2.getRisk()))
-                .build();
-    }
-
-    public static FRWriteDomesticScheduledConsent toFRWriteDomesticScheduledConsent(OBWriteDomesticScheduledConsent3 obWriteDomesticScheduledConsent3) {
-        return obWriteDomesticScheduledConsent3 == null ? null : FRWriteDomesticScheduledConsent.builder()
-                .data(toFRWriteDomesticScheduledConsentData(obWriteDomesticScheduledConsent3.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomesticScheduledConsent3.getRisk()))
-                .build();
-    }
-
     public static FRWriteDomesticScheduledConsent toFRWriteDomesticScheduledConsent(OBWriteDomesticScheduledConsent4 obWriteDomesticScheduledConsent4) {
         return obWriteDomesticScheduledConsent4 == null ? null : FRWriteDomesticScheduledConsent.builder()
                 .data(toFRWriteDomesticScheduledConsentData(obWriteDomesticScheduledConsent4.getData()))
                 .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomesticScheduledConsent4.getRisk()))
-                .build();
-    }
-
-    public static FRWriteDomesticScheduledConsentData toFRWriteDomesticScheduledConsentData(OBWriteDataDomesticScheduledConsent1 data) {
-        return data == null ? null : FRWriteDomesticScheduledConsentData.builder()
-                .permission(FRPermissionConverter.toFRPermission(data.getPermission()))
-                .initiation(toFRWriteDomesticScheduledDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .build();
-    }
-
-    public static FRWriteDomesticScheduledConsentData toFRWriteDomesticScheduledConsentData(OBWriteDataDomesticScheduledConsent2 data) {
-        return data == null ? null : FRWriteDomesticScheduledConsentData.builder()
-                .permission(FRPermissionConverter.toFRPermission(data.getPermission()))
-                .initiation(toFRWriteDomesticScheduledDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .build();
-    }
-
-    public static FRWriteDomesticScheduledConsentData toFRWriteDomesticScheduledConsentData(OBWriteDomesticScheduledConsent3Data data) {
-        return data == null ? null : FRWriteDomesticScheduledConsentData.builder()
-                .permission(FRPermissionConverter.toFRPermission(data.getPermission()))
-                .initiation(toFRWriteDomesticScheduledDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .scASupportData(toFRDataSCASupportData(data.getScASupportData()))
                 .build();
     }
 
@@ -87,35 +41,6 @@ public class FRWriteDomesticScheduledConsentConverter {
                 .initiation(toFRWriteDomesticScheduledDataInitiation(data.getInitiation()))
                 .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
                 .scASupportData(toFRDataSCASupportData(data.getScASupportData()))
-                .build();
-    }
-
-    public static FRWriteDomesticScheduledDataInitiation toFRWriteDomesticScheduledDataInitiation(OBDomesticScheduled1 initiation) {
-        return initiation == null ? null : FRWriteDomesticScheduledDataInitiation.builder()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
-                .instructedAmount(FRAmountConverter.toFRAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getCreditorAccount()))
-                .creditorPostalAddress(FRPostalAddressConverter.toFRPostalAddress(initiation.getCreditorPostalAddress()))
-                .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
-                .build();
-    }
-
-    public static FRWriteDomesticScheduledDataInitiation toFRWriteDomesticScheduledDataInitiation(OBDomesticScheduled2 initiation) {
-        return initiation == null ? null : FRWriteDomesticScheduledDataInitiation.builder()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
-                .instructedAmount(FRAmountConverter.toFRAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getCreditorAccount()))
-                .creditorPostalAddress(FRPostalAddressConverter.toFRPostalAddress(initiation.getCreditorPostalAddress()))
-                .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(FRSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
                 .build();
     }
 
@@ -146,33 +71,6 @@ public class FRWriteDomesticScheduledConsentConverter {
                 .creditorAccount(FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationCreditorAccount(initiation.getCreditorAccount()))
                 .creditorPostalAddress(FRPostalAddressConverter.toOBPostalAddress6(initiation.getCreditorPostalAddress()))
                 .remittanceInformation(FRRemittanceInformationConverter.toOBWriteDomestic2DataInitiationRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
-    }
-
-    public static OBDomesticScheduled1 toOBDomesticScheduled1(FRWriteDomesticScheduledDataInitiation initiation) {
-        return initiation == null ? null : new OBDomesticScheduled1()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
-                .instructedAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getCreditorAccount()))
-                .creditorPostalAddress(FRPostalAddressConverter.toOBPostalAddress6(initiation.getCreditorPostalAddress()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation1(initiation.getRemittanceInformation()));
-    }
-
-    public static OBDomesticScheduled2 toOBDomesticScheduled2(FRWriteDomesticScheduledDataInitiation initiation) {
-        return initiation == null ? null : new OBDomesticScheduled2()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
-                .instructedAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getCreditorAccount()))
-                .creditorPostalAddress(FRPostalAddressConverter.toOBPostalAddress6(initiation.getCreditorPostalAddress()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation1(initiation.getRemittanceInformation()))
                 .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
     }
 

@@ -22,53 +22,14 @@ import static uk.org.openbanking.datamodel.service.converter.payment.ConverterHe
 
 public class OBInternationalIdentifierConverter {
 
-    public static OBWriteInternational3DataInitiationCreditorAgent toOBWriteInternational3DataInitiationCreditorAgent(OBBranchAndFinancialInstitutionIdentification3 creditorAgent) {
-        return toAgent(new OBWriteInternational3DataInitiationCreditorAgent(), creditorAgent);
-    }
-
-    public static OBBranchAndFinancialInstitutionIdentification3 toOBBranchAndFinancialInstitutionIdentification3(OBBranchAndFinancialInstitutionIdentification6 creditorAgent) {
-        return toAgent(new OBBranchAndFinancialInstitutionIdentification3(), creditorAgent);
-    }
-
-    public static OBBranchAndFinancialInstitutionIdentification3 toOBBranchAndFinancialInstitutionIdentification3(OBWriteInternational3DataInitiationCreditorAgent creditorAgent) {
-        return toAgent(new OBBranchAndFinancialInstitutionIdentification3(), creditorAgent);
-    }
-
-    public static OBBranchAndFinancialInstitutionIdentification3 toOBBranchAndFinancialInstitutionIdentification3(OBWriteInternationalStandingOrder4DataInitiationCreditorAgent creditorAgent) {
-        return toAgent(new OBBranchAndFinancialInstitutionIdentification3(), creditorAgent);
-    }
-
     public static OBBranchAndFinancialInstitutionIdentification6 toOBBranchAndFinancialInstitutionIdentification6(OBWriteInternationalStandingOrder4DataInitiationCreditorAgent creditorAgent) {
         return toAgent(new OBBranchAndFinancialInstitutionIdentification6(), creditorAgent);
-    }
-
-    public static OBBranchAndFinancialInstitutionIdentification6 toOBBranchAndFinancialInstitutionIdentification6(OBBranchAndFinancialInstitutionIdentification3 creditorAgent) {
-        return toAgent(new OBBranchAndFinancialInstitutionIdentification6(), creditorAgent);
-    }
-
-    public static OBWriteInternationalStandingOrder4DataInitiationCreditorAgent toOBWriteInternationalStandingOrder4DataInitiationCreditorAgent(OBBranchAndFinancialInstitutionIdentification3 creditorAgent) {
-        return toAgent(new OBWriteInternationalStandingOrder4DataInitiationCreditorAgent(), creditorAgent);
     }
 
     public static OBWriteInternationalStandingOrder4DataInitiationCreditorAgent toOBWriteInternationalStandingOrder4DataInitiationCreditorAgent(OBBranchAndFinancialInstitutionIdentification6 creditorAgent) {
         return toAgent(new OBWriteInternationalStandingOrder4DataInitiationCreditorAgent(), creditorAgent);
     }
 
-    public static OBWriteInternational3DataInitiationCreditor toOBWriteInternational3DataInitiationCreditor(OBPartyIdentification43 creditor) {
-        return toCreditor(new OBWriteInternational3DataInitiationCreditor(), creditor);
-    }
-
-    public static OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor toOBWriteInternationalScheduledConsentResponse6DataInitiationCreditor(OBPartyIdentification43 creditor) {
-        return toCreditor(new OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor(), creditor);
-    }
-
-    public static OBPartyIdentification43 toOBPartyIdentification43(OBWriteInternational3DataInitiationCreditor creditor) {
-        return toCreditor(new OBPartyIdentification43(), creditor);
-    }
-
-    public static OBPartyIdentification43 toOBPartyIdentification43(OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor creditor) {
-        return toCreditor(new OBPartyIdentification43(), creditor);
-    }
 
     private static <T, U> T toAgent(T newAgent, U originalAgent) {
         if (originalAgent == null) {

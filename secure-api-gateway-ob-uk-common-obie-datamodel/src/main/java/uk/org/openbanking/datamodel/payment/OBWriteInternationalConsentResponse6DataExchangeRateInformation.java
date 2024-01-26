@@ -15,41 +15,56 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
 
+import java.math.BigDecimal;
+import java.util.Objects;
+
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import java.math.BigDecimal;
-import java.util.Objects;
-
-import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
 
 /**
  * Further detailed information on the exchange rate that has been used in the payment transaction.
  */
-@ApiModel(description = "Further detailed information on the exchange rate that has been used in the payment transaction.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBWriteInternationalConsentResponse6_Data_ExchangeRateInformation", description = "Further detailed information on the exchange rate that has been used in the payment transaction.")
+@JsonTypeName("OBWriteInternationalConsentResponse6_Data_ExchangeRateInformation")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
-    @JsonProperty("UnitCurrency")
+
     private String unitCurrency;
 
-    @JsonProperty("ExchangeRate")
     private BigDecimal exchangeRate;
 
-    @JsonProperty("RateType")
-    private OBExchangeRateType2Code rateType;
+    private OBExchangeRateType rateType;
 
-    @JsonProperty("ContractIdentification")
     private String contractIdentification;
 
-    @JsonProperty("ExpirationDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime expirationDateTime;
+
+    public OBWriteInternationalConsentResponse6DataExchangeRateInformation() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteInternationalConsentResponse6DataExchangeRateInformation(String unitCurrency, BigDecimal exchangeRate, OBExchangeRateType rateType) {
+        this.unitCurrency = unitCurrency;
+        this.exchangeRate = exchangeRate;
+        this.rateType = rateType;
+    }
 
     public OBWriteInternationalConsentResponse6DataExchangeRateInformation unitCurrency(String unitCurrency) {
         this.unitCurrency = unitCurrency;
@@ -61,10 +76,10 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
      *
      * @return unitCurrency
      */
-    @ApiModelProperty(required = true, value = "Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.")
     @NotNull
-
     @Pattern(regexp = "^[A-Z]{3,3}$")
+    @Schema(name = "UnitCurrency", description = "Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("UnitCurrency")
     public String getUnitCurrency() {
         return unitCurrency;
     }
@@ -83,11 +98,10 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
      *
      * @return exchangeRate
      */
-    @ApiModelProperty(required = true, value = "The factor used for conversion of an amount from one currency to another. This reflects the price at which one currency was bought with another currency.")
     @NotNull
-
     @Valid
-
+    @Schema(name = "ExchangeRate", description = "The factor used for conversion of an amount from one currency to another. This reflects the price at which one currency was bought with another currency.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("ExchangeRate")
     public BigDecimal getExchangeRate() {
         return exchangeRate;
     }
@@ -96,25 +110,25 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
         this.exchangeRate = exchangeRate;
     }
 
-    public OBWriteInternationalConsentResponse6DataExchangeRateInformation rateType(OBExchangeRateType2Code rateType) {
+    public OBWriteInternationalConsentResponse6DataExchangeRateInformation rateType(OBExchangeRateType rateType) {
         this.rateType = rateType;
         return this;
     }
 
     /**
-     * Specifies the type used to complete the currency exchange.
+     * Get rateType
      *
      * @return rateType
      */
-    @ApiModelProperty(required = true, value = "Specifies the type used to complete the currency exchange.")
     @NotNull
-
-
-    public OBExchangeRateType2Code getRateType() {
+    @Valid
+    @Schema(name = "RateType", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("RateType")
+    public OBExchangeRateType getRateType() {
         return rateType;
     }
 
-    public void setRateType(OBExchangeRateType2Code rateType) {
+    public void setRateType(OBExchangeRateType rateType) {
         this.rateType = rateType;
     }
 
@@ -128,9 +142,9 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
      *
      * @return contractIdentification
      */
-    @ApiModelProperty(value = "Unique and unambiguous reference to the foreign exchange contract agreed between the initiating party/creditor and the debtor agent.")
-
     @Size(min = 1, max = 256)
+    @Schema(name = "ContractIdentification", description = "Unique and unambiguous reference to the foreign exchange contract agreed between the initiating party/creditor and the debtor agent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ContractIdentification")
     public String getContractIdentification() {
         return contractIdentification;
     }
@@ -149,10 +163,9 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
      *
      * @return expirationDateTime
      */
-    @ApiModelProperty(value = "Specified date and time the exchange rate agreement will expire.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-
     @Valid
-
+    @Schema(name = "ExpirationDateTime", description = "Specified date and time the exchange rate agreement will expire.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ExpirationDateTime")
     public DateTime getExpirationDateTime() {
         return expirationDateTime;
     }
@@ -160,7 +173,6 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
     public void setExpirationDateTime(DateTime expirationDateTime) {
         this.expirationDateTime = expirationDateTime;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -188,7 +200,6 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteInternationalConsentResponse6DataExchangeRateInformation {\n");
-
         sb.append("    unitCurrency: ").append(toIndentedString(unitCurrency)).append("\n");
         sb.append("    exchangeRate: ").append(toIndentedString(exchangeRate)).append("\n");
         sb.append("    rateType: ").append(toIndentedString(rateType)).append("\n");

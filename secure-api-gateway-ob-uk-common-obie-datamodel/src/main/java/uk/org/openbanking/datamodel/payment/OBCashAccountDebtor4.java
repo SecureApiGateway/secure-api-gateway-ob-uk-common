@@ -15,28 +15,27 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 
 /**
  * ^ Only incuded in the response if &#x60;Data. ReadRefundAccount&#x60; is set to &#x60;Yes&#x60; in the consent.
  */
-@ApiModel(description = "^ Only incuded in the response if `Data. ReadRefundAccount` is set to `Yes` in the consent.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBCashAccountDebtor4", description = "^ Only incuded in the response if `Data. ReadRefundAccount` is set to `Yes` in the consent.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBCashAccountDebtor4 {
-    @JsonProperty("SchemeName")
+
     private String schemeName;
 
-    @JsonProperty("Identification")
     private String identification;
 
-    @JsonProperty("Name")
     private String name;
 
-    @JsonProperty("SecondaryIdentification")
     private String secondaryIdentification;
 
     public OBCashAccountDebtor4 schemeName(String schemeName) {
@@ -49,9 +48,9 @@ public class OBCashAccountDebtor4 {
      *
      * @return schemeName
      */
-    @ApiModelProperty(value = "^ Name of the identification scheme, in a coded form as published in an external list. | Namespaced Enumeration OBExternalAccountIdentification4Code")
 
-
+    @Schema(name = "SchemeName", description = "^ Name of the identification scheme, in a coded form as published in an external list. | Namespaced Enumeration OBExternalAccountIdentification4Code", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SchemeName")
     public String getSchemeName() {
         return schemeName;
     }
@@ -70,9 +69,9 @@ public class OBCashAccountDebtor4 {
      *
      * @return identification
      */
-    @ApiModelProperty(value = "^ Identification assigned by an institution to identify an account. This identification is known by the account owner. | Max256Text")
 
-
+    @Schema(name = "Identification", description = "^ Identification assigned by an institution to identify an account. This identification is known by the account owner. | Max256Text", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Identification")
     public String getIdentification() {
         return identification;
     }
@@ -91,9 +90,9 @@ public class OBCashAccountDebtor4 {
      *
      * @return name
      */
-    @ApiModelProperty(value = "^ Name of the account, as assigned by the account servicing institution.  Usage The account name is the name or names of the account owner(s) represented at an account level. The account name is not the product name or the nickname of the account.")
 
-
+    @Schema(name = "Name", description = "^ Name of the account, as assigned by the account servicing institution.  Usage The account name is the name or names of the account owner(s) represented at an account level. The account name is not the product name or the nickname of the account.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Name")
     public String getName() {
         return name;
     }
@@ -112,9 +111,9 @@ public class OBCashAccountDebtor4 {
      *
      * @return secondaryIdentification
      */
-    @ApiModelProperty(value = "^ This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination) | Max34Text")
 
-
+    @Schema(name = "SecondaryIdentification", description = "^ This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination) | Max34Text", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SecondaryIdentification")
     public String getSecondaryIdentification() {
         return secondaryIdentification;
     }
@@ -122,7 +121,6 @@ public class OBCashAccountDebtor4 {
     public void setSecondaryIdentification(String secondaryIdentification) {
         this.secondaryIdentification = secondaryIdentification;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -148,7 +146,6 @@ public class OBCashAccountDebtor4 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBCashAccountDebtor4 {\n");
-
         sb.append("    schemeName: ").append(toIndentedString(schemeName)).append("\n");
         sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");

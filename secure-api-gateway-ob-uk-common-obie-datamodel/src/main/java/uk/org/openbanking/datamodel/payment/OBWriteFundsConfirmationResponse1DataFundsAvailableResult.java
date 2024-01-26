@@ -15,27 +15,44 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.util.Objects;
 
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
 
 /**
  * Result of a funds availability check.
  */
-@ApiModel(description = "Result of a funds availability check.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBWriteFundsConfirmationResponse1_Data_FundsAvailableResult", description = "Result of a funds availability check.")
+@JsonTypeName("OBWriteFundsConfirmationResponse1_Data_FundsAvailableResult")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteFundsConfirmationResponse1DataFundsAvailableResult {
-    @JsonProperty("FundsAvailableDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime fundsAvailableDateTime;
 
-    @JsonProperty("FundsAvailable")
     private Boolean fundsAvailable;
+
+    public OBWriteFundsConfirmationResponse1DataFundsAvailableResult() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteFundsConfirmationResponse1DataFundsAvailableResult(DateTime fundsAvailableDateTime, Boolean fundsAvailable) {
+        this.fundsAvailableDateTime = fundsAvailableDateTime;
+        this.fundsAvailable = fundsAvailable;
+    }
 
     public OBWriteFundsConfirmationResponse1DataFundsAvailableResult fundsAvailableDateTime(DateTime fundsAvailableDateTime) {
         this.fundsAvailableDateTime = fundsAvailableDateTime;
@@ -47,11 +64,10 @@ public class OBWriteFundsConfirmationResponse1DataFundsAvailableResult {
      *
      * @return fundsAvailableDateTime
      */
-    @ApiModelProperty(required = true, value = "Date and time at which the funds availability check was generated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @NotNull
-
     @Valid
-
+    @Schema(name = "FundsAvailableDateTime", description = "Date and time at which the funds availability check was generated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("FundsAvailableDateTime")
     public DateTime getFundsAvailableDateTime() {
         return fundsAvailableDateTime;
     }
@@ -70,10 +86,9 @@ public class OBWriteFundsConfirmationResponse1DataFundsAvailableResult {
      *
      * @return fundsAvailable
      */
-    @ApiModelProperty(required = true, value = "Flag to indicate the availability of funds given the Amount in the consent request.")
     @NotNull
-
-
+    @Schema(name = "FundsAvailable", description = "Flag to indicate the availability of funds given the Amount in the consent request.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("FundsAvailable")
     public Boolean getFundsAvailable() {
         return fundsAvailable;
     }
@@ -81,7 +96,6 @@ public class OBWriteFundsConfirmationResponse1DataFundsAvailableResult {
     public void setFundsAvailable(Boolean fundsAvailable) {
         this.fundsAvailable = fundsAvailable;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -105,7 +119,6 @@ public class OBWriteFundsConfirmationResponse1DataFundsAvailableResult {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteFundsConfirmationResponse1DataFundsAvailableResult {\n");
-
         sb.append("    fundsAvailableDateTime: ").append(toIndentedString(fundsAvailableDateTime)).append("\n");
         sb.append("    fundsAvailable: ").append(toIndentedString(fundsAvailable)).append("\n");
         sb.append("}");

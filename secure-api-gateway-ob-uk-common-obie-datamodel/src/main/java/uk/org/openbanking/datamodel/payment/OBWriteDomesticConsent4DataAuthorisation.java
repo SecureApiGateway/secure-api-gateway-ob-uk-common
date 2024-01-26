@@ -15,48 +15,63 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.util.Objects;
 
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
 
 /**
  * The authorisation type request from the TPP.
  */
-@ApiModel(description = "The authorisation type request from the TPP.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBWriteDomesticConsent4DataAuthorisation {
-    
-    @JsonProperty("AuthorisationType")
-    private OBExternalAuthorisation1Code authorisationType;
 
-    @JsonProperty("CompletionDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+@Schema(name = "OBWriteDomesticConsent4_Data_Authorisation", description = "The authorisation type request from the TPP.")
+@JsonTypeName("OBWriteDomesticConsent4_Data_Authorisation")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+public class OBWriteDomesticConsent4DataAuthorisation {
+
+    private OBWriteDomesticConsent4DataAuthorisationAuthorisationType authorisationType;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime completionDateTime;
 
-    public OBWriteDomesticConsent4DataAuthorisation authorisationType(OBExternalAuthorisation1Code authorisationType) {
+    public OBWriteDomesticConsent4DataAuthorisation() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteDomesticConsent4DataAuthorisation(OBWriteDomesticConsent4DataAuthorisationAuthorisationType authorisationType) {
+        this.authorisationType = authorisationType;
+    }
+
+    public OBWriteDomesticConsent4DataAuthorisation authorisationType(OBWriteDomesticConsent4DataAuthorisationAuthorisationType authorisationType) {
         this.authorisationType = authorisationType;
         return this;
     }
 
     /**
-     * Type of authorisation flow requested.
+     * Get authorisationType
      *
      * @return authorisationType
      */
-    @ApiModelProperty(required = true, value = "Type of authorisation flow requested.")
     @NotNull
-
-
-    public OBExternalAuthorisation1Code getAuthorisationType() {
+    @Valid
+    @Schema(name = "AuthorisationType", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("AuthorisationType")
+    public OBWriteDomesticConsent4DataAuthorisationAuthorisationType getAuthorisationType() {
         return authorisationType;
     }
 
-    public void setAuthorisationType(OBExternalAuthorisation1Code authorisationType) {
+    public void setAuthorisationType(OBWriteDomesticConsent4DataAuthorisationAuthorisationType authorisationType) {
         this.authorisationType = authorisationType;
     }
 
@@ -70,10 +85,9 @@ public class OBWriteDomesticConsent4DataAuthorisation {
      *
      * @return completionDateTime
      */
-    @ApiModelProperty(value = "Date and time at which the requested authorisation flow must be completed.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-
     @Valid
-
+    @Schema(name = "CompletionDateTime", description = "Date and time at which the requested authorisation flow must be completed.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("CompletionDateTime")
     public DateTime getCompletionDateTime() {
         return completionDateTime;
     }
@@ -81,7 +95,6 @@ public class OBWriteDomesticConsent4DataAuthorisation {
     public void setCompletionDateTime(DateTime completionDateTime) {
         this.completionDateTime = completionDateTime;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -105,7 +118,6 @@ public class OBWriteDomesticConsent4DataAuthorisation {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteDomesticConsent4DataAuthorisation {\n");
-
         sb.append("    authorisationType: ").append(toIndentedString(authorisationType)).append("\n");
         sb.append("    completionDateTime: ").append(toIndentedString(completionDateTime)).append("\n");
         sb.append("}");

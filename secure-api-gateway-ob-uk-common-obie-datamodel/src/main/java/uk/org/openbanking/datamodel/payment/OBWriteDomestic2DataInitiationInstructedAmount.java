@@ -15,25 +15,40 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import java.util.Objects;
 
 /**
  * Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party. Usage: This amount has to be transported unchanged through the transaction chain.
  */
-@ApiModel(description = "Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party. Usage: This amount has to be transported unchanged through the transaction chain.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBWriteDomestic2_Data_Initiation_InstructedAmount", description = "Amount of money to be moved between the debtor and creditor, before deduction of charges, expressed in the currency as ordered by the initiating party. Usage: This amount has to be transported unchanged through the transaction chain.")
+@JsonTypeName("OBWriteDomestic2_Data_Initiation_InstructedAmount")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomestic2DataInitiationInstructedAmount {
-    @JsonProperty("Amount")
+
     private String amount;
 
-    @JsonProperty("Currency")
     private String currency;
+
+    public OBWriteDomestic2DataInitiationInstructedAmount() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteDomestic2DataInitiationInstructedAmount(String amount, String currency) {
+        this.amount = amount;
+        this.currency = currency;
+    }
 
     public OBWriteDomestic2DataInitiationInstructedAmount amount(String amount) {
         this.amount = amount;
@@ -45,10 +60,10 @@ public class OBWriteDomestic2DataInitiationInstructedAmount {
      *
      * @return amount
      */
-    @ApiModelProperty(required = true, value = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.")
     @NotNull
-
     @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$")
+    @Schema(name = "Amount", description = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Amount")
     public String getAmount() {
         return amount;
     }
@@ -67,10 +82,10 @@ public class OBWriteDomestic2DataInitiationInstructedAmount {
      *
      * @return currency
      */
-    @ApiModelProperty(required = true, value = "A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".")
     @NotNull
-
     @Pattern(regexp = "^[A-Z]{3,3}$")
+    @Schema(name = "Currency", description = "A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Currency")
     public String getCurrency() {
         return currency;
     }
@@ -78,7 +93,6 @@ public class OBWriteDomestic2DataInitiationInstructedAmount {
     public void setCurrency(String currency) {
         this.currency = currency;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -102,7 +116,6 @@ public class OBWriteDomestic2DataInitiationInstructedAmount {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteDomestic2DataInitiationInstructedAmount {\n");
-
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("}");

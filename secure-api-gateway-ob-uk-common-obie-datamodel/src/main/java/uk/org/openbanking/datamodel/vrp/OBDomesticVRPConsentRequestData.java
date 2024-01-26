@@ -17,10 +17,10 @@ package uk.org.openbanking.datamodel.vrp;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.payment.OBReadRefundAccountEnum;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+
 import java.util.Objects;
 
 /**
@@ -30,7 +30,7 @@ import java.util.Objects;
 public class OBDomesticVRPConsentRequestData {
 
     @JsonProperty("ReadRefundAccount")
-    private OBReadRefundAccountEnum readRefundAccount; // Edited to use common OBReadRefundAccountEnum
+    private OBReadRefundAccount readRefundAccount; // Edited to use common OBReadRefundAccountEnum
 
     @JsonProperty("ControlParameters")
     private OBDomesticVRPControlParameters controlParameters;
@@ -38,7 +38,7 @@ public class OBDomesticVRPConsentRequestData {
     @JsonProperty("Initiation")
     private OBDomesticVRPInitiation initiation;
 
-    public OBDomesticVRPConsentRequestData readRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
+    public OBDomesticVRPConsentRequestData readRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
@@ -51,11 +51,11 @@ public class OBDomesticVRPConsentRequestData {
     @ApiModelProperty(value = "Indicates whether information about RefundAccount should be included in the payment response. ")
 
 
-    public OBReadRefundAccountEnum getReadRefundAccount() {
+    public OBReadRefundAccount getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
+    public void setReadRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 

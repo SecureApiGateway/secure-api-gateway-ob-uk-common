@@ -15,50 +15,59 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.OBPostalAddress6;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.OBPostalAddress6;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a single domestic payment.
  */
-@ApiModel(description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a single domestic payment.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBWriteDomestic2_Data_Initiation", description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a single domestic payment.")
+@JsonTypeName("OBWriteDomestic2_Data_Initiation")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomestic2DataInitiation {
-    @JsonProperty("InstructionIdentification")
+
     private String instructionIdentification;
 
-    @JsonProperty("EndToEndIdentification")
     private String endToEndIdentification;
 
-    @JsonProperty("LocalInstrument")
     private String localInstrument;
 
-    @JsonProperty("InstructedAmount")
     private OBWriteDomestic2DataInitiationInstructedAmount instructedAmount;
 
-    @JsonProperty("DebtorAccount")
     private OBWriteDomestic2DataInitiationDebtorAccount debtorAccount;
 
-    @JsonProperty("CreditorAccount")
     private OBWriteDomestic2DataInitiationCreditorAccount creditorAccount;
 
-    @JsonProperty("CreditorPostalAddress")
     private OBPostalAddress6 creditorPostalAddress;
 
-    @JsonProperty("RemittanceInformation")
     private OBWriteDomestic2DataInitiationRemittanceInformation remittanceInformation;
 
-    @JsonProperty("SupplementaryData")
-    @Valid
-    private OBSupplementaryData1 supplementaryData = null;
+    private OBSupplementaryData1 supplementaryData;
+
+    public OBWriteDomestic2DataInitiation() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteDomestic2DataInitiation(String instructionIdentification, String endToEndIdentification, OBWriteDomestic2DataInitiationInstructedAmount instructedAmount, OBWriteDomestic2DataInitiationCreditorAccount creditorAccount) {
+        this.instructionIdentification = instructionIdentification;
+        this.endToEndIdentification = endToEndIdentification;
+        this.instructedAmount = instructedAmount;
+        this.creditorAccount = creditorAccount;
+    }
 
     public OBWriteDomestic2DataInitiation instructionIdentification(String instructionIdentification) {
         this.instructionIdentification = instructionIdentification;
@@ -70,10 +79,10 @@ public class OBWriteDomestic2DataInitiation {
      *
      * @return instructionIdentification
      */
-    @ApiModelProperty(required = true, value = "Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction. Usage: the  instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.")
     @NotNull
-
     @Size(min = 1, max = 35)
+    @Schema(name = "InstructionIdentification", description = "Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction. Usage: the  instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("InstructionIdentification")
     public String getInstructionIdentification() {
         return instructionIdentification;
     }
@@ -92,10 +101,10 @@ public class OBWriteDomestic2DataInitiation {
      *
      * @return endToEndIdentification
      */
-    @ApiModelProperty(required = true, value = "Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain. Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction. OB: The Faster Payments Scheme can only access 31 characters for the EndToEndIdentification field.")
     @NotNull
-
     @Size(min = 1, max = 35)
+    @Schema(name = "EndToEndIdentification", description = "Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain. Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction. OB: The Faster Payments Scheme can only access 31 characters for the EndToEndIdentification field.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("EndToEndIdentification")
     public String getEndToEndIdentification() {
         return endToEndIdentification;
     }
@@ -114,9 +123,9 @@ public class OBWriteDomestic2DataInitiation {
      *
      * @return localInstrument
      */
-    @ApiModelProperty(value = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.")
 
-
+    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("LocalInstrument")
     public String getLocalInstrument() {
         return localInstrument;
     }
@@ -135,11 +144,10 @@ public class OBWriteDomestic2DataInitiation {
      *
      * @return instructedAmount
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "InstructedAmount", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("InstructedAmount")
     public OBWriteDomestic2DataInitiationInstructedAmount getInstructedAmount() {
         return instructedAmount;
     }
@@ -158,10 +166,9 @@ public class OBWriteDomestic2DataInitiation {
      *
      * @return debtorAccount
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("DebtorAccount")
     public OBWriteDomestic2DataInitiationDebtorAccount getDebtorAccount() {
         return debtorAccount;
     }
@@ -180,11 +187,10 @@ public class OBWriteDomestic2DataInitiation {
      *
      * @return creditorAccount
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "CreditorAccount", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("CreditorAccount")
     public OBWriteDomestic2DataInitiationCreditorAccount getCreditorAccount() {
         return creditorAccount;
     }
@@ -203,10 +209,9 @@ public class OBWriteDomestic2DataInitiation {
      *
      * @return creditorPostalAddress
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "CreditorPostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("CreditorPostalAddress")
     public OBPostalAddress6 getCreditorPostalAddress() {
         return creditorPostalAddress;
     }
@@ -225,10 +230,9 @@ public class OBWriteDomestic2DataInitiation {
      *
      * @return remittanceInformation
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "RemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("RemittanceInformation")
     public OBWriteDomestic2DataInitiationRemittanceInformation getRemittanceInformation() {
         return remittanceInformation;
     }
@@ -242,15 +246,14 @@ public class OBWriteDomestic2DataInitiation {
         return this;
     }
 
-
     /**
-     * Additional information that can not be captured in the structured fields and/or any other specific block.
+     * Get supplementaryData
      *
      * @return supplementaryData
      */
-    @ApiModelProperty(value = "Additional information that can not be captured in the structured fields and/or any other specific block.")
-
-
+    @Valid
+    @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SupplementaryData")
     public OBSupplementaryData1 getSupplementaryData() {
         return supplementaryData;
     }
@@ -258,7 +261,6 @@ public class OBWriteDomestic2DataInitiation {
     public void setSupplementaryData(OBSupplementaryData1 supplementaryData) {
         this.supplementaryData = supplementaryData;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -289,7 +291,6 @@ public class OBWriteDomestic2DataInitiation {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteDomestic2DataInitiation {\n");
-
         sb.append("    instructionIdentification: ").append(toIndentedString(instructionIdentification)).append("\n");
         sb.append("    endToEndIdentification: ").append(toIndentedString(endToEndIdentification)).append("\n");
         sb.append("    localInstrument: ").append(toIndentedString(localInstrument)).append("\n");

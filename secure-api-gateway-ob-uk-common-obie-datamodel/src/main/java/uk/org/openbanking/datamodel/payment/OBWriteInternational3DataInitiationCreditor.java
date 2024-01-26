@@ -15,25 +15,28 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.OBPostalAddress6;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.OBPostalAddress6;
 
 /**
  * Party to which an amount of money is due.
  */
-@ApiModel(description = "Party to which an amount of money is due.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBWriteInternational3_Data_Initiation_Creditor", description = "Party to which an amount of money is due.")
+@JsonTypeName("OBWriteInternational3_Data_Initiation_Creditor")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternational3DataInitiationCreditor {
-    @JsonProperty("Name")
+
     private String name;
 
-    @JsonProperty("PostalAddress")
     private OBPostalAddress6 postalAddress;
 
     public OBWriteInternational3DataInitiationCreditor name(String name) {
@@ -46,9 +49,9 @@ public class OBWriteInternational3DataInitiationCreditor {
      *
      * @return name
      */
-    @ApiModelProperty(value = "Name by which a party is known and which is usually used to identify that party.")
-
     @Size(min = 1, max = 140)
+    @Schema(name = "Name", description = "Name by which a party is known and which is usually used to identify that party.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Name")
     public String getName() {
         return name;
     }
@@ -67,10 +70,9 @@ public class OBWriteInternational3DataInitiationCreditor {
      *
      * @return postalAddress
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "PostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("PostalAddress")
     public OBPostalAddress6 getPostalAddress() {
         return postalAddress;
     }
@@ -78,7 +80,6 @@ public class OBWriteInternational3DataInitiationCreditor {
     public void setPostalAddress(OBPostalAddress6 postalAddress) {
         this.postalAddress = postalAddress;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -102,7 +103,6 @@ public class OBWriteInternational3DataInitiationCreditor {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteInternational3DataInitiationCreditor {\n");
-
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
         sb.append("}");

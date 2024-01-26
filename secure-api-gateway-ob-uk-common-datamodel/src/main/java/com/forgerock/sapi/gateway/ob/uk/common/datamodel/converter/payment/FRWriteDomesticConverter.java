@@ -25,13 +25,6 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.paymen
 public class FRWriteDomesticConverter {
 
     // OB to FR
-    public static FRWriteDomestic toFRWriteDomestic(OBWriteDomestic1 obWriteDomestic1) {
-        return obWriteDomestic1 == null ? null : FRWriteDomestic.builder()
-                .data(toFRWriteDataDomestic(obWriteDomestic1.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(obWriteDomestic1.getRisk()))
-                .build();
-    }
-
     public static FRWriteDomestic toFRWriteDomestic(OBWriteDomestic2 obWriteDomestic2) {
         return obWriteDomestic2 == null ? null : FRWriteDomestic.builder()
                 .data(toFRWriteDataDomestic(obWriteDomestic2.getData()))
@@ -39,21 +32,7 @@ public class FRWriteDomesticConverter {
                 .build();
     }
 
-    public static FRWriteDataDomestic toFRWriteDataDomestic(OBWriteDataDomestic1 data) {
-        return data == null ? null : FRWriteDataDomestic.builder()
-                .consentId(data.getConsentId())
-                .initiation(toFRWriteDomesticDataInitiation(data.getInitiation()))
-                .build();
-    }
-
     public static FRWriteDataDomestic toFRWriteDataDomestic(OBWriteDomestic2Data data) {
-        return data == null ? null : FRWriteDataDomestic.builder()
-                .consentId(data.getConsentId())
-                .initiation(toFRWriteDomesticDataInitiation(data.getInitiation()))
-                .build();
-    }
-
-    public static FRWriteDataDomestic toFRWriteDataDomestic(OBWriteDataDomestic2 data) {
         return data == null ? null : FRWriteDataDomestic.builder()
                 .consentId(data.getConsentId())
                 .initiation(toFRWriteDomesticDataInitiation(data.getInitiation()))
@@ -65,12 +44,6 @@ public class FRWriteDomesticConverter {
         return domesticPayment == null ? null : new OBWriteDomestic2()
                 .data(toOBWriteDomestic2Data(domesticPayment.getData()))
                 .risk(FRRiskConverter.toOBRisk1(domesticPayment.getRisk()));
-    }
-
-    public static OBWriteDataDomestic2 toOBWriteDataDomestic2(FRWriteDataDomestic data) {
-        return data == null ? null : new OBWriteDataDomestic2()
-                .consentId(data.getConsentId())
-                .initiation(toOBDomestic2(data.getInitiation()));
     }
 
     public static OBWriteDomestic2Data toOBWriteDomestic2Data(FRWriteDataDomestic data) {

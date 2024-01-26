@@ -15,25 +15,27 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-
-import jakarta.validation.Valid;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 /**
  * OBWriteFundsConfirmationResponse1Data
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBWriteFundsConfirmationResponse1_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteFundsConfirmationResponse1Data {
-    @JsonProperty("FundsAvailableResult")
+
     private OBWriteFundsConfirmationResponse1DataFundsAvailableResult fundsAvailableResult;
 
-    @JsonProperty("SupplementaryData")
-    @Valid
-    private Map<String, Object> supplementaryData = null;
+    private OBSupplementaryData1 supplementaryData;
 
     public OBWriteFundsConfirmationResponse1Data fundsAvailableResult(OBWriteFundsConfirmationResponse1DataFundsAvailableResult fundsAvailableResult) {
         this.fundsAvailableResult = fundsAvailableResult;
@@ -45,10 +47,9 @@ public class OBWriteFundsConfirmationResponse1Data {
      *
      * @return fundsAvailableResult
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "FundsAvailableResult", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("FundsAvailableResult")
     public OBWriteFundsConfirmationResponse1DataFundsAvailableResult getFundsAvailableResult() {
         return fundsAvailableResult;
     }
@@ -57,35 +58,26 @@ public class OBWriteFundsConfirmationResponse1Data {
         this.fundsAvailableResult = fundsAvailableResult;
     }
 
-    public OBWriteFundsConfirmationResponse1Data supplementaryData(Map<String, Object> supplementaryData) {
+    public OBWriteFundsConfirmationResponse1Data supplementaryData(OBSupplementaryData1 supplementaryData) {
         this.supplementaryData = supplementaryData;
-        return this;
-    }
-
-    public OBWriteFundsConfirmationResponse1Data putSupplementaryDataItem(String key, Object supplementaryDataItem) {
-        if (this.supplementaryData == null) {
-            this.supplementaryData = new HashMap<String, Object>();
-        }
-        this.supplementaryData.put(key, supplementaryDataItem);
         return this;
     }
 
     /**
-     * Additional information that can not be captured in the structured fields and/or any other specific block.
+     * Get supplementaryData
      *
      * @return supplementaryData
      */
-    @ApiModelProperty(value = "Additional information that can not be captured in the structured fields and/or any other specific block.")
-
-
-    public Map<String, Object> getSupplementaryData() {
+    @Valid
+    @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SupplementaryData")
+    public OBSupplementaryData1 getSupplementaryData() {
         return supplementaryData;
     }
 
-    public void setSupplementaryData(Map<String, Object> supplementaryData) {
+    public void setSupplementaryData(OBSupplementaryData1 supplementaryData) {
         this.supplementaryData = supplementaryData;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -109,7 +101,6 @@ public class OBWriteFundsConfirmationResponse1Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteFundsConfirmationResponse1Data {\n");
-
         sb.append("    fundsAvailableResult: ").append(toIndentedString(fundsAvailableResult)).append("\n");
         sb.append("    supplementaryData: ").append(toIndentedString(supplementaryData)).append("\n");
         sb.append("}");

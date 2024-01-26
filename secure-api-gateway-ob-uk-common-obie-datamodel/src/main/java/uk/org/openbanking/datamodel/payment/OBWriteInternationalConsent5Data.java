@@ -15,49 +15,61 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
 
 /**
  * OBWriteInternationalConsent5Data
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBWriteInternationalConsent5_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalConsent5Data {
 
-    @JsonProperty("ReadRefundAccount")
-    private OBReadRefundAccountEnum readRefundAccount;
+    private OBReadRefundAccount readRefundAccount;
 
-    @JsonProperty("Initiation")
     private OBWriteInternational3DataInitiation initiation;
 
-    @JsonProperty("Authorisation")
     private OBWriteDomesticConsent4DataAuthorisation authorisation;
 
-    @JsonProperty("SCASupportData")
     private OBSCASupportData1 scASupportData;
 
-    public OBWriteInternationalConsent5Data readRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
+    public OBWriteInternationalConsent5Data() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteInternationalConsent5Data(OBWriteInternational3DataInitiation initiation) {
+        this.initiation = initiation;
+    }
+
+    public OBWriteInternationalConsent5Data readRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
 
     /**
-     * Specifies to share the refund account details with PISP
+     * Get readRefundAccount
      *
      * @return readRefundAccount
      */
-    @ApiModelProperty(value = "Specifies to share the refund account details with PISP")
-
-
-    public OBReadRefundAccountEnum getReadRefundAccount() {
+    @Valid
+    @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ReadRefundAccount")
+    public OBReadRefundAccount getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(OBReadRefundAccountEnum readRefundAccount) {
+    public void setReadRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 
@@ -71,11 +83,10 @@ public class OBWriteInternationalConsent5Data {
      *
      * @return initiation
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Initiation")
     public OBWriteInternational3DataInitiation getInitiation() {
         return initiation;
     }
@@ -94,10 +105,9 @@ public class OBWriteInternationalConsent5Data {
      *
      * @return authorisation
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Authorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Authorisation")
     public OBWriteDomesticConsent4DataAuthorisation getAuthorisation() {
         return authorisation;
     }
@@ -116,10 +126,9 @@ public class OBWriteInternationalConsent5Data {
      *
      * @return scASupportData
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "SCASupportData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SCASupportData")
     public OBSCASupportData1 getScASupportData() {
         return scASupportData;
     }
@@ -127,7 +136,6 @@ public class OBWriteInternationalConsent5Data {
     public void setScASupportData(OBSCASupportData1 scASupportData) {
         this.scASupportData = scASupportData;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -153,7 +161,6 @@ public class OBWriteInternationalConsent5Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteInternationalConsent5Data {\n");
-
         sb.append("    readRefundAccount: ").append(toIndentedString(readRefundAccount)).append("\n");
         sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
         sb.append("    authorisation: ").append(toIndentedString(authorisation)).append("\n");

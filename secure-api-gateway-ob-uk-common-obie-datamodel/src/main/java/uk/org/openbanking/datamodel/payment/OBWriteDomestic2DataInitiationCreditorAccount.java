@@ -15,31 +15,45 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import java.util.Objects;
 
 /**
  * Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.
  */
-@ApiModel(description = "Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBWriteDomestic2_Data_Initiation_CreditorAccount", description = "Unambiguous identification of the account of the creditor to which a credit entry will be posted as a result of the payment transaction.")
+@JsonTypeName("OBWriteDomestic2_Data_Initiation_CreditorAccount")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomestic2DataInitiationCreditorAccount {
-    @JsonProperty("SchemeName")
+
     private String schemeName;
 
-    @JsonProperty("Identification")
     private String identification;
 
-    @JsonProperty("Name")
     private String name;
 
-    @JsonProperty("SecondaryIdentification")
     private String secondaryIdentification;
+
+    public OBWriteDomestic2DataInitiationCreditorAccount() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteDomestic2DataInitiationCreditorAccount(String schemeName, String identification, String name) {
+        this.schemeName = schemeName;
+        this.identification = identification;
+        this.name = name;
+    }
 
     public OBWriteDomestic2DataInitiationCreditorAccount schemeName(String schemeName) {
         this.schemeName = schemeName;
@@ -51,10 +65,9 @@ public class OBWriteDomestic2DataInitiationCreditorAccount {
      *
      * @return schemeName
      */
-    @ApiModelProperty(required = true, value = "Name of the identification scheme, in a coded form as published in an external list.")
     @NotNull
-
-
+    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("SchemeName")
     public String getSchemeName() {
         return schemeName;
     }
@@ -73,10 +86,10 @@ public class OBWriteDomestic2DataInitiationCreditorAccount {
      *
      * @return identification
      */
-    @ApiModelProperty(required = true, value = "Identification assigned by an institution to identify an account. This identification is known by the account owner.")
     @NotNull
-
     @Size(min = 1, max = 256)
+    @Schema(name = "Identification", description = "Identification assigned by an institution to identify an account. This identification is known by the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Identification")
     public String getIdentification() {
         return identification;
     }
@@ -95,10 +108,10 @@ public class OBWriteDomestic2DataInitiationCreditorAccount {
      *
      * @return name
      */
-    @ApiModelProperty(required = true, value = "The account name is the name or names of the account owner(s) represented at an account level. Note, the account name is not the product name or the nickname of the account. OB: ASPSPs may carry out name validation for Confirmation of Payee, but it is not mandatory.")
     @NotNull
-
     @Size(min = 1, max = 350)
+    @Schema(name = "Name", description = "The account name is the name or names of the account owner(s) represented at an account level. Note, the account name is not the product name or the nickname of the account. OB: ASPSPs may carry out name validation for Confirmation of Payee, but it is not mandatory.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Name")
     public String getName() {
         return name;
     }
@@ -117,9 +130,9 @@ public class OBWriteDomestic2DataInitiationCreditorAccount {
      *
      * @return secondaryIdentification
      */
-    @ApiModelProperty(value = "This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).")
-
     @Size(min = 1, max = 34)
+    @Schema(name = "SecondaryIdentification", description = "This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SecondaryIdentification")
     public String getSecondaryIdentification() {
         return secondaryIdentification;
     }
@@ -127,7 +140,6 @@ public class OBWriteDomestic2DataInitiationCreditorAccount {
     public void setSecondaryIdentification(String secondaryIdentification) {
         this.secondaryIdentification = secondaryIdentification;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -153,7 +165,6 @@ public class OBWriteDomestic2DataInitiationCreditorAccount {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteDomestic2DataInitiationCreditorAccount {\n");
-
         sb.append("    schemeName: ").append(toIndentedString(schemeName)).append("\n");
         sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");

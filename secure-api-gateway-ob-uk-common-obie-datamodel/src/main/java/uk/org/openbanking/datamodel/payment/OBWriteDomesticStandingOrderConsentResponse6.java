@@ -15,32 +15,44 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
+import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import uk.org.openbanking.datamodel.common.Links;
 import uk.org.openbanking.datamodel.common.Meta;
 import uk.org.openbanking.datamodel.common.OBRisk1;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
-
 /**
  * OBWriteDomesticStandingOrderConsentResponse6
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomesticStandingOrderConsentResponse6 {
-    @JsonProperty("Data")
+
     private OBWriteDomesticStandingOrderConsentResponse6Data data;
 
-    @JsonProperty("Risk")
     private OBRisk1 risk;
 
-    @JsonProperty("Links")
     private Links links;
 
-    @JsonProperty("Meta")
     private Meta meta;
+
+    public OBWriteDomesticStandingOrderConsentResponse6() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteDomesticStandingOrderConsentResponse6(OBWriteDomesticStandingOrderConsentResponse6Data data, OBRisk1 risk) {
+        this.data = data;
+        this.risk = risk;
+    }
 
     public OBWriteDomesticStandingOrderConsentResponse6 data(OBWriteDomesticStandingOrderConsentResponse6Data data) {
         this.data = data;
@@ -52,11 +64,10 @@ public class OBWriteDomesticStandingOrderConsentResponse6 {
      *
      * @return data
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Data")
     public OBWriteDomesticStandingOrderConsentResponse6Data getData() {
         return data;
     }
@@ -75,11 +86,10 @@ public class OBWriteDomesticStandingOrderConsentResponse6 {
      *
      * @return risk
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Risk", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Risk")
     public OBRisk1 getRisk() {
         return risk;
     }
@@ -98,10 +108,9 @@ public class OBWriteDomesticStandingOrderConsentResponse6 {
      *
      * @return links
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Links")
     public Links getLinks() {
         return links;
     }
@@ -120,10 +129,9 @@ public class OBWriteDomesticStandingOrderConsentResponse6 {
      *
      * @return meta
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Meta")
     public Meta getMeta() {
         return meta;
     }
@@ -131,7 +139,6 @@ public class OBWriteDomesticStandingOrderConsentResponse6 {
     public void setMeta(Meta meta) {
         this.meta = meta;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -157,7 +164,6 @@ public class OBWriteDomesticStandingOrderConsentResponse6 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteDomesticStandingOrderConsentResponse6 {\n");
-
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
         sb.append("    links: ").append(toIndentedString(links)).append("\n");

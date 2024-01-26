@@ -15,50 +15,15 @@
  */
 package uk.org.openbanking.datamodel.service.converter.payment;
 
-import uk.org.openbanking.datamodel.common.OBCashAccount3;
-import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
-import uk.org.openbanking.datamodel.payment.*;
-
 import static uk.org.openbanking.datamodel.service.converter.payment.ConverterHelper.copyField;
 
+import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
+import uk.org.openbanking.datamodel.payment.OBCashAccountDebtor4;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAccount;
+
 public class OBAccountConverter {
-
-    public static OBCashAccount3 toOBCashAccount3(OBWriteDomestic2DataInitiationDebtorAccount debtorAccount) {
-        return toAccount(new OBCashAccount3(), debtorAccount);
-    }
-
-    public static OBCashAccount3 toOBCashAccount3(OBWriteDomestic2DataInitiationCreditorAccount creditorAccount) {
-        return toAccount(new OBCashAccount3(), creditorAccount);
-    }
-
-    public static OBCashAccount3 toOBCashAccount3(OBWriteDomesticStandingOrder3DataInitiationCreditorAccount creditorAccount) {
-        return toAccount(new OBCashAccount3(), creditorAccount);
-    }
-
-    public static OBCashAccount3 toOBCashAccount3(OBWriteInternationalStandingOrder4DataInitiationCreditorAccount creditorAccount) {
-        return toAccount(new OBCashAccount3(), creditorAccount);
-    }
-
-
-    public static OBCashAccount3 toOBCashAccount3(OBWriteDomesticStandingOrder3DataInitiationDebtorAccount debtorAccount) {
-        return toAccount(new OBCashAccount3(), debtorAccount);
-    }
-
-    public static OBCashAccount3 toOBCashAccount3(OBCashAccountDebtor4 debtorAccount) {
-        return toAccount(new OBCashAccount3(), debtorAccount);
-    }
-
-    public static OBCashAccount3 toOBCashAccount3(OBCashAccountCreditor3 creditorAccount) {
-        return toAccount(new OBCashAccount3(), creditorAccount);
-    }
-
-    public static OBWriteDomestic2DataInitiationDebtorAccount toOBWriteDomestic2DataInitiationDebtorAccount(OBCashAccount3 debtorAccount) {
-        return toAccount(new OBWriteDomestic2DataInitiationDebtorAccount(), debtorAccount);
-    }
-
-    public static OBWriteDomestic2DataInitiationCreditorAccount toOBWriteDomestic2DataInitiationCreditorAccount(OBCashAccount3 creditorAccount) {
-        return toAccount(new OBWriteDomestic2DataInitiationCreditorAccount(), creditorAccount);
-    }
 
     public static OBWriteDomesticStandingOrder3DataInitiationDebtorAccount toOBWriteDomesticStandingOrder3DataInitiationDebtorAccount(OBCashAccountDebtor4 debtorAccount) {
         return toAccount(new OBWriteDomesticStandingOrder3DataInitiationDebtorAccount(), debtorAccount);
@@ -68,33 +33,12 @@ public class OBAccountConverter {
         return toAccount(new OBWriteDomesticStandingOrder3DataInitiationCreditorAccount(), creditorAccount);
     }
 
-    public static OBWriteDomesticStandingOrder3DataInitiationDebtorAccount toOBWriteDomesticStandingOrder3DataInitiationDebtorAccount(OBCashAccount3 debtorAccount) {
-        return toAccount(new OBWriteDomesticStandingOrder3DataInitiationDebtorAccount(), debtorAccount);
-    }
-
-    public static OBWriteInternationalStandingOrder4DataInitiationCreditorAccount toOBWriteInternationalStandingOrder4DataInitiationCreditorAccount(OBCashAccount3 creditorAccount) {
-        return toAccount(new OBWriteInternationalStandingOrder4DataInitiationCreditorAccount(), creditorAccount);
-    }
-
-    public static OBWriteDomesticStandingOrder3DataInitiationCreditorAccount toOBWriteDomesticStandingOrder3DataInitiationCreditorAccount(OBCashAccount3 creditorAccount) {
-        return toAccount(new OBWriteDomesticStandingOrder3DataInitiationCreditorAccount(), creditorAccount);
-
-    }
-
     public static OBWriteInternationalStandingOrder4DataInitiationCreditorAccount toOBWriteInternationalStandingOrder4DataInitiationCreditorAccount(OBCashAccountCreditor3 creditorAccount) {
         return toAccount(new OBWriteInternationalStandingOrder4DataInitiationCreditorAccount(), creditorAccount);
     }
 
     public static OBCashAccountDebtor4 toOBCashAccountDebtor4(OBWriteDomesticStandingOrder3DataInitiationDebtorAccount debtorAccount) {
         return toAccount(new OBCashAccountDebtor4(), debtorAccount);
-    }
-
-    public static OBCashAccountDebtor4 toOBCashAccountDebtor4(OBCashAccount3 debtorAccount) {
-        return toAccount(new OBCashAccountDebtor4(), debtorAccount);
-    }
-
-    public static OBCashAccountCreditor3 toOBCashAccountCreditor3(OBCashAccount3 creditorAccount) {
-        return toAccount(new OBCashAccountCreditor3(), creditorAccount);
     }
 
     public static OBCashAccountCreditor3 toOBCashAccountCreditor3(OBWriteDomesticStandingOrder3DataInitiationCreditorAccount creditorAccount) {

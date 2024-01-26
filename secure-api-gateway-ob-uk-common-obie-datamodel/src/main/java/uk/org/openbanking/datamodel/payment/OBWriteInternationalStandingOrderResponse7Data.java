@@ -15,95 +15,68 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 /**
  * OBWriteInternationalStandingOrderResponse7Data
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBWriteInternationalStandingOrderResponse7_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalStandingOrderResponse7Data {
-    @JsonProperty("InternationalStandingOrderId")
+
     private String internationalStandingOrderId;
 
-    @JsonProperty("ConsentId")
     private String consentId;
 
-    @JsonProperty("CreationDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    /**
-     * Specifies the status of resource in code form.
-     */
-    public enum StatusEnum {
-        CANCELLED("Cancelled"),
+    private OBWriteInternationalStandingOrderResponse7DataStatus status;
 
-        INITIATIONCOMPLETED("InitiationCompleted"),
-
-        INITIATIONFAILED("InitiationFailed"),
-
-        INITIATIONPENDING("InitiationPending");
-
-        private String value;
-
-        StatusEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static StatusEnum fromValue(String value) {
-            for (StatusEnum b : StatusEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
-
-    @JsonProperty("Status")
-    private StatusEnum status;
-
-    @JsonProperty("StatusUpdateDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
 
-    @JsonProperty("Refund")
     private OBWriteInternationalStandingOrderResponse7DataRefund refund;
 
-    @JsonProperty("Charges")
     @Valid
-    private List<OBWriteDomesticConsentResponse5DataCharges> charges = null;
+    private List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges;
 
-    @JsonProperty("Initiation")
     private OBWriteInternationalStandingOrderConsentResponse7DataInitiation initiation;
 
-    @JsonProperty("MultiAuthorisation")
     private OBWriteDomesticResponse5DataMultiAuthorisation multiAuthorisation;
 
-    @JsonProperty("Debtor")
     private OBCashAccountDebtor4 debtor;
+
+    public OBWriteInternationalStandingOrderResponse7Data() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteInternationalStandingOrderResponse7Data(String internationalStandingOrderId, String consentId, DateTime creationDateTime, OBWriteInternationalStandingOrderResponse7DataStatus status, DateTime statusUpdateDateTime, OBWriteInternationalStandingOrderConsentResponse7DataInitiation initiation) {
+        this.internationalStandingOrderId = internationalStandingOrderId;
+        this.consentId = consentId;
+        this.creationDateTime = creationDateTime;
+        this.status = status;
+        this.statusUpdateDateTime = statusUpdateDateTime;
+        this.initiation = initiation;
+    }
 
     public OBWriteInternationalStandingOrderResponse7Data internationalStandingOrderId(String internationalStandingOrderId) {
         this.internationalStandingOrderId = internationalStandingOrderId;
@@ -115,10 +88,10 @@ public class OBWriteInternationalStandingOrderResponse7Data {
      *
      * @return internationalStandingOrderId
      */
-    @ApiModelProperty(required = true, value = "OB: Unique identification as assigned by the ASPSP to uniquely identify the international standing order resource.")
     @NotNull
-
     @Size(min = 1, max = 40)
+    @Schema(name = "InternationalStandingOrderId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the international standing order resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("InternationalStandingOrderId")
     public String getInternationalStandingOrderId() {
         return internationalStandingOrderId;
     }
@@ -137,10 +110,10 @@ public class OBWriteInternationalStandingOrderResponse7Data {
      *
      * @return consentId
      */
-    @ApiModelProperty(required = true, value = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.")
     @NotNull
-
     @Size(min = 1, max = 128)
+    @Schema(name = "ConsentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("ConsentId")
     public String getConsentId() {
         return consentId;
     }
@@ -159,11 +132,10 @@ public class OBWriteInternationalStandingOrderResponse7Data {
      *
      * @return creationDateTime
      */
-    @ApiModelProperty(required = true, value = "Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @NotNull
-
     @Valid
-
+    @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
         return creationDateTime;
     }
@@ -172,25 +144,25 @@ public class OBWriteInternationalStandingOrderResponse7Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteInternationalStandingOrderResponse7Data status(StatusEnum status) {
+    public OBWriteInternationalStandingOrderResponse7Data status(OBWriteInternationalStandingOrderResponse7DataStatus status) {
         this.status = status;
         return this;
     }
 
     /**
-     * Specifies the status of resource in code form.
+     * Get status
      *
      * @return status
      */
-    @ApiModelProperty(required = true, value = "Specifies the status of resource in code form.")
     @NotNull
-
-
-    public StatusEnum getStatus() {
+    @Valid
+    @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Status")
+    public OBWriteInternationalStandingOrderResponse7DataStatus getStatus() {
         return status;
     }
 
-    public void setStatus(StatusEnum status) {
+    public void setStatus(OBWriteInternationalStandingOrderResponse7DataStatus status) {
         this.status = status;
     }
 
@@ -204,11 +176,10 @@ public class OBWriteInternationalStandingOrderResponse7Data {
      *
      * @return statusUpdateDateTime
      */
-    @ApiModelProperty(required = true, value = "Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
     @NotNull
-
     @Valid
-
+    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
     }
@@ -227,10 +198,9 @@ public class OBWriteInternationalStandingOrderResponse7Data {
      *
      * @return refund
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Refund")
     public OBWriteInternationalStandingOrderResponse7DataRefund getRefund() {
         return refund;
     }
@@ -239,14 +209,14 @@ public class OBWriteInternationalStandingOrderResponse7Data {
         this.refund = refund;
     }
 
-    public OBWriteInternationalStandingOrderResponse7Data charges(List<OBWriteDomesticConsentResponse5DataCharges> charges) {
+    public OBWriteInternationalStandingOrderResponse7Data charges(List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges) {
         this.charges = charges;
         return this;
     }
 
-    public OBWriteInternationalStandingOrderResponse7Data addChargesItem(OBWriteDomesticConsentResponse5DataCharges chargesItem) {
+    public OBWriteInternationalStandingOrderResponse7Data addChargesItem(OBWriteDomesticConsentResponse5DataChargesInner chargesItem) {
         if (this.charges == null) {
-            this.charges = new ArrayList<OBWriteDomesticConsentResponse5DataCharges>();
+            this.charges = new ArrayList<>();
         }
         this.charges.add(chargesItem);
         return this;
@@ -257,15 +227,14 @@ public class OBWriteInternationalStandingOrderResponse7Data {
      *
      * @return charges
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
-    public List<OBWriteDomesticConsentResponse5DataCharges> getCharges() {
+    @Schema(name = "Charges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Charges")
+    public List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> getCharges() {
         return charges;
     }
 
-    public void setCharges(List<OBWriteDomesticConsentResponse5DataCharges> charges) {
+    public void setCharges(List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges) {
         this.charges = charges;
     }
 
@@ -279,11 +248,10 @@ public class OBWriteInternationalStandingOrderResponse7Data {
      *
      * @return initiation
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Initiation")
     public OBWriteInternationalStandingOrderConsentResponse7DataInitiation getInitiation() {
         return initiation;
     }
@@ -302,10 +270,9 @@ public class OBWriteInternationalStandingOrderResponse7Data {
      *
      * @return multiAuthorisation
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "MultiAuthorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("MultiAuthorisation")
     public OBWriteDomesticResponse5DataMultiAuthorisation getMultiAuthorisation() {
         return multiAuthorisation;
     }
@@ -324,10 +291,9 @@ public class OBWriteInternationalStandingOrderResponse7Data {
      *
      * @return debtor
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Debtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Debtor")
     public OBCashAccountDebtor4 getDebtor() {
         return debtor;
     }
@@ -335,7 +301,6 @@ public class OBWriteInternationalStandingOrderResponse7Data {
     public void setDebtor(OBCashAccountDebtor4 debtor) {
         this.debtor = debtor;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -367,7 +332,6 @@ public class OBWriteInternationalStandingOrderResponse7Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteInternationalStandingOrderResponse7Data {\n");
-
         sb.append("    internationalStandingOrderId: ").append(toIndentedString(internationalStandingOrderId)).append("\n");
         sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
         sb.append("    creationDateTime: ").append(toIndentedString(creationDateTime)).append("\n");

@@ -15,24 +15,40 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import java.util.Objects;
 
 /**
  * OBWriteDomesticStandingOrder3Data
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBWriteDomesticStandingOrder3_Data")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomesticStandingOrder3Data {
-    @JsonProperty("ConsentId")
+
     private String consentId;
 
-    @JsonProperty("Initiation")
     private OBWriteDomesticStandingOrder3DataInitiation initiation;
+
+    public OBWriteDomesticStandingOrder3Data() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteDomesticStandingOrder3Data(String consentId, OBWriteDomesticStandingOrder3DataInitiation initiation) {
+        this.consentId = consentId;
+        this.initiation = initiation;
+    }
 
     public OBWriteDomesticStandingOrder3Data consentId(String consentId) {
         this.consentId = consentId;
@@ -44,10 +60,10 @@ public class OBWriteDomesticStandingOrder3Data {
      *
      * @return consentId
      */
-    @ApiModelProperty(required = true, value = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.")
     @NotNull
-
     @Size(min = 1, max = 128)
+    @Schema(name = "ConsentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("ConsentId")
     public String getConsentId() {
         return consentId;
     }
@@ -66,11 +82,10 @@ public class OBWriteDomesticStandingOrder3Data {
      *
      * @return initiation
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Initiation")
     public OBWriteDomesticStandingOrder3DataInitiation getInitiation() {
         return initiation;
     }
@@ -78,7 +93,6 @@ public class OBWriteDomesticStandingOrder3Data {
     public void setInitiation(OBWriteDomesticStandingOrder3DataInitiation initiation) {
         this.initiation = initiation;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -102,7 +116,6 @@ public class OBWriteDomesticStandingOrder3Data {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteDomesticStandingOrder3Data {\n");
-
         sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
         sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
         sb.append("}");

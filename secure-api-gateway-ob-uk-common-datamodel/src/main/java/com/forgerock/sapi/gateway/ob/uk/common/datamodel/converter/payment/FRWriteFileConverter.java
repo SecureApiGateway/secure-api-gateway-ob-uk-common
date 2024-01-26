@@ -24,29 +24,9 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.paymen
 public class FRWriteFileConverter {
 
     // OB to FR
-    public static FRWriteFile toFRWriteFile(OBWriteFile1 obWriteFile1) {
-        return obWriteFile1 == null ? null : FRWriteFile.builder()
-                .data(toFRWriteDataFile(obWriteFile1.getData()))
-                .build();
-    }
-
     public static FRWriteFile toFRWriteFile(OBWriteFile2 obWriteFile2) {
         return obWriteFile2 == null ? null : FRWriteFile.builder()
                 .data(toFRWriteDataFile(obWriteFile2.getData()))
-                .build();
-    }
-
-    public static FRWriteDataFile toFRWriteDataFile(OBWriteDataFile1 data) {
-        return data == null ? null : FRWriteDataFile.builder()
-                .consentId(data.getConsentId())
-                .initiation(toFRWriteFileDataInitiation(data.getInitiation()))
-                .build();
-    }
-
-    public static FRWriteDataFile toFRWriteDataFile(OBWriteDataFile2 data) {
-        return data == null ? null : FRWriteDataFile.builder()
-                .consentId(data.getConsentId())
-                .initiation(toFRWriteFileDataInitiation(data.getInitiation()))
                 .build();
     }
 
@@ -61,12 +41,6 @@ public class FRWriteFileConverter {
     public static OBWriteFile2 toOBWriteFile2(FRWriteFile filePayment) {
         return filePayment == null ? null : new OBWriteFile2()
                 .data(toOBWriteFile2Data(filePayment.getData()));
-    }
-
-    public static OBWriteDataFile2 toOBWriteDataFile2(FRWriteDataFile data) {
-        return data == null ? null : new OBWriteDataFile2()
-                .consentId(data.getConsentId())
-                .initiation(toOBFile2(data.getInitiation()));
     }
 
     public static OBWriteFile2Data toOBWriteFile2Data(FRWriteDataFile data) {

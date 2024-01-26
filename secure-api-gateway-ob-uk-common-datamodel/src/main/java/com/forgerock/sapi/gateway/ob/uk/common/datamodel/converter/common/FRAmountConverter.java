@@ -73,22 +73,6 @@ public class FRAmountConverter {
         return FRModelMapper.map(amount, FRAmount.class);
     }
 
-    public static FRAmount toFRAmount(OBDomestic2InstructedAmount amount) {
-        return FRModelMapper.map(amount, FRAmount.class);
-    }
-
-    public static FRAmount toFRAmount(OBDomesticStandingOrder3FirstPaymentAmount amount) {
-        return FRModelMapper.map(amount, FRAmount.class);
-    }
-
-    public static FRAmount toFRAmount(OBDomesticStandingOrder3FinalPaymentAmount amount) {
-        return FRModelMapper.map(amount, FRAmount.class);
-    }
-
-    public static FRAmount toFRAmount(OBDomesticStandingOrder3RecurringPaymentAmount amount) {
-        return FRModelMapper.map(amount, FRAmount.class);
-    }
-
     public static FRAmount toFRAmount(OBWriteDomestic2DataInitiationInstructedAmount amount) {
         return FRModelMapper.map(amount, FRAmount.class);
     }
@@ -198,10 +182,6 @@ public class FRAmountConverter {
         return FRModelMapper.map(amount, OBWriteDomestic2DataInitiationInstructedAmount.class);
     }
 
-    public static OBDomestic2InstructedAmount toOBDomestic2InstructedAmount(FRAmount amount) {
-        return FRModelMapper.map(amount, OBDomestic2InstructedAmount.class);
-    }
-
     public static OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount toOBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount(FRAmount amount) {
         return FRModelMapper.map(amount, OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount.class);
     }
@@ -212,18 +192,6 @@ public class FRAmountConverter {
 
     public static OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount toOBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount(FRAmount amount) {
         return FRModelMapper.map(amount, OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount.class);
-    }
-
-    public static OBDomesticStandingOrder3FirstPaymentAmount toOBDomesticStandingOrder3FirstPaymentAmount(FRAmount amount) {
-        return FRModelMapper.map(amount, OBDomesticStandingOrder3FirstPaymentAmount.class);
-    }
-
-    public static OBDomesticStandingOrder3RecurringPaymentAmount toOBDomesticStandingOrder3RecurringPaymentAmount(FRAmount amount) {
-        return FRModelMapper.map(amount, OBDomesticStandingOrder3RecurringPaymentAmount.class);
-    }
-
-    public static OBDomesticStandingOrder3FinalPaymentAmount toOBDomesticStandingOrder3FinalPaymentAmount(FRAmount amount) {
-        return FRModelMapper.map(amount, OBDomesticStandingOrder3FinalPaymentAmount.class);
     }
 
     public static OBCurrencyExchange5InstructedAmount toOBCurrencyExchange5InstructedAmount(FRAmount amount) {

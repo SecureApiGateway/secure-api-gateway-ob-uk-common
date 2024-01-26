@@ -15,60 +15,66 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import lombok.extern.slf4j.Slf4j;
-import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
 
+import java.math.BigDecimal;
+import java.util.Objects;
+
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import java.math.BigDecimal;
-import java.util.Objects;
-
-import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds using a payment file.
  */
-@Slf4j
-@ApiModel(description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds using a payment file.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Schema(name = "OBWriteFile2_Data_Initiation", description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds using a payment file.")
+@JsonTypeName("OBWriteFile2_Data_Initiation")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteFile2DataInitiation {
-    @JsonProperty("FileType")
+
     private String fileType;
 
-    @JsonProperty("FileHash")
     private String fileHash;
 
-    @JsonProperty("FileReference")
     private String fileReference;
 
-    @JsonProperty("NumberOfTransactions")
     private String numberOfTransactions;
 
-    @JsonProperty("ControlSum")
     private BigDecimal controlSum;
 
-    @JsonProperty("RequestedExecutionDateTime")
-    @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime requestedExecutionDateTime;
 
-    @JsonProperty("LocalInstrument")
     private String localInstrument;
 
-    @JsonProperty("DebtorAccount")
     private OBWriteDomestic2DataInitiationDebtorAccount debtorAccount;
 
-    @JsonProperty("RemittanceInformation")
     private OBWriteDomestic2DataInitiationRemittanceInformation remittanceInformation;
 
-    @JsonProperty("SupplementaryData")
-    @Valid
-    private OBSupplementaryData1 supplementaryData = null;
+    private OBSupplementaryData1 supplementaryData;
+
+    public OBWriteFile2DataInitiation() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteFile2DataInitiation(String fileType, String fileHash) {
+        this.fileType = fileType;
+        this.fileHash = fileHash;
+    }
 
     public OBWriteFile2DataInitiation fileType(String fileType) {
         this.fileType = fileType;
@@ -80,10 +86,9 @@ public class OBWriteFile2DataInitiation {
      *
      * @return fileType
      */
-    @ApiModelProperty(required = true, value = "Specifies the payment file type.")
     @NotNull
-
-
+    @Schema(name = "FileType", description = "Specifies the payment file type.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("FileType")
     public String getFileType() {
         return fileType;
     }
@@ -102,10 +107,10 @@ public class OBWriteFile2DataInitiation {
      *
      * @return fileHash
      */
-    @ApiModelProperty(required = true, value = "A base64 encoding of a SHA256 hash of the file to be uploaded.")
     @NotNull
-
     @Size(min = 1, max = 44)
+    @Schema(name = "FileHash", description = "A base64 encoding of a SHA256 hash of the file to be uploaded.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("FileHash")
     public String getFileHash() {
         return fileHash;
     }
@@ -124,9 +129,9 @@ public class OBWriteFile2DataInitiation {
      *
      * @return fileReference
      */
-    @ApiModelProperty(value = "Reference for the file.")
-
     @Size(min = 1, max = 40)
+    @Schema(name = "FileReference", description = "Reference for the file.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("FileReference")
     public String getFileReference() {
         return fileReference;
     }
@@ -145,9 +150,9 @@ public class OBWriteFile2DataInitiation {
      *
      * @return numberOfTransactions
      */
-    @ApiModelProperty(value = "Number of individual transactions contained in the payment information group.")
-
     @Pattern(regexp = "[0-9]{1,15}")
+    @Schema(name = "NumberOfTransactions", description = "Number of individual transactions contained in the payment information group.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("NumberOfTransactions")
     public String getNumberOfTransactions() {
         return numberOfTransactions;
     }
@@ -166,10 +171,9 @@ public class OBWriteFile2DataInitiation {
      *
      * @return controlSum
      */
-    @ApiModelProperty(value = "Total of all individual amounts included in the group, irrespective of currencies.")
-
     @Valid
-
+    @Schema(name = "ControlSum", description = "Total of all individual amounts included in the group, irrespective of currencies.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ControlSum")
     public BigDecimal getControlSum() {
         return controlSum;
     }
@@ -188,10 +192,9 @@ public class OBWriteFile2DataInitiation {
      *
      * @return requestedExecutionDateTime
      */
-    @ApiModelProperty(value = "Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00")
-
     @Valid
-
+    @Schema(name = "RequestedExecutionDateTime", description = "Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("RequestedExecutionDateTime")
     public DateTime getRequestedExecutionDateTime() {
         return requestedExecutionDateTime;
     }
@@ -210,9 +213,9 @@ public class OBWriteFile2DataInitiation {
      *
      * @return localInstrument
      */
-    @ApiModelProperty(value = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.")
 
-
+    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("LocalInstrument")
     public String getLocalInstrument() {
         return localInstrument;
     }
@@ -231,10 +234,9 @@ public class OBWriteFile2DataInitiation {
      *
      * @return debtorAccount
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("DebtorAccount")
     public OBWriteDomestic2DataInitiationDebtorAccount getDebtorAccount() {
         return debtorAccount;
     }
@@ -253,10 +255,9 @@ public class OBWriteFile2DataInitiation {
      *
      * @return remittanceInformation
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "RemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("RemittanceInformation")
     public OBWriteDomestic2DataInitiationRemittanceInformation getRemittanceInformation() {
         return remittanceInformation;
     }
@@ -271,13 +272,13 @@ public class OBWriteFile2DataInitiation {
     }
 
     /**
-     * Additional information that can not be captured in the structured fields and/or any other specific block.
+     * Get supplementaryData
      *
      * @return supplementaryData
      */
-    @ApiModelProperty(value = "Additional information that can not be captured in the structured fields and/or any other specific block.")
-
-
+    @Valid
+    @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SupplementaryData")
     public OBSupplementaryData1 getSupplementaryData() {
         return supplementaryData;
     }
@@ -286,15 +287,12 @@ public class OBWriteFile2DataInitiation {
         this.supplementaryData = supplementaryData;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
-            log.debug("this == o");
             return true;
         }
         if (o == null || getClass() != o.getClass()) {
-            log.debug("o == null || getClass() != o.getClass():: {}, {}", getClass(), o.getClass());
             return false;
         }
         OBWriteFile2DataInitiation obWriteFile2DataInitiation = (OBWriteFile2DataInitiation) o;
@@ -320,7 +318,6 @@ public class OBWriteFile2DataInitiation {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteFile2DataInitiation {\n");
-
         sb.append("    fileType: ").append(toIndentedString(fileType)).append("\n");
         sb.append("    fileHash: ").append(toIndentedString(fileHash)).append("\n");
         sb.append("    fileReference: ").append(toIndentedString(fileReference)).append("\n");

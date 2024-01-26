@@ -15,28 +15,40 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.common.Links;
-import uk.org.openbanking.datamodel.common.Meta;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
+import uk.org.openbanking.datamodel.common.Links;
+import uk.org.openbanking.datamodel.common.Meta;
 
 /**
  * OBWriteFileResponse3
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteFileResponse3 {
-    @JsonProperty("Data")
+
     private OBWriteFileResponse3Data data;
 
-    @JsonProperty("Links")
     private Links links;
 
-    @JsonProperty("Meta")
     private Meta meta;
+
+    public OBWriteFileResponse3() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteFileResponse3(OBWriteFileResponse3Data data) {
+        this.data = data;
+    }
 
     public OBWriteFileResponse3 data(OBWriteFileResponse3Data data) {
         this.data = data;
@@ -48,11 +60,10 @@ public class OBWriteFileResponse3 {
      *
      * @return data
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Data")
     public OBWriteFileResponse3Data getData() {
         return data;
     }
@@ -71,10 +82,9 @@ public class OBWriteFileResponse3 {
      *
      * @return links
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Links")
     public Links getLinks() {
         return links;
     }
@@ -93,10 +103,9 @@ public class OBWriteFileResponse3 {
      *
      * @return meta
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Meta")
     public Meta getMeta() {
         return meta;
     }
@@ -104,7 +113,6 @@ public class OBWriteFileResponse3 {
     public void setMeta(Meta meta) {
         this.meta = meta;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -129,7 +137,6 @@ public class OBWriteFileResponse3 {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteFileResponse3 {\n");
-
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    links: ").append(toIndentedString(links)).append("\n");
         sb.append("    meta: ").append(toIndentedString(meta)).append("\n");

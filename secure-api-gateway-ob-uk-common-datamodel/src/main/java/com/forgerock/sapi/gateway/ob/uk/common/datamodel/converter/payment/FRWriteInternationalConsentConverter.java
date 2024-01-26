@@ -20,61 +20,15 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRMode
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalDataInitiation;
-import uk.org.openbanking.datamodel.common.OBCashAccount3;
 import uk.org.openbanking.datamodel.payment.*;
-
-import static uk.org.openbanking.datamodel.service.converter.payment.CountryCodeHelper.determineCountryCode;
 
 public class FRWriteInternationalConsentConverter {
 
     // OB to FR
-    public static FRWriteInternationalConsent toFRWriteInternationalConsent(OBWriteInternationalConsent1 obWriteInternationalConsent1) {
-        return obWriteInternationalConsent1 == null ? null : FRWriteInternationalConsent.builder()
-                .data(toFRWriteInternationalConsentData(obWriteInternationalConsent1.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(obWriteInternationalConsent1.getRisk()))
-                .build();
-    }
-
-    public static FRWriteInternationalConsent toFRWriteInternationalConsent(OBWriteInternationalConsent2 obWriteInternationalConsent2) {
-        return obWriteInternationalConsent2 == null ? null : FRWriteInternationalConsent.builder()
-                .data(toFRWriteInternationalConsentData(obWriteInternationalConsent2.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(obWriteInternationalConsent2.getRisk()))
-                .build();
-    }
-
-    public static FRWriteInternationalConsent toFRWriteInternationalConsent(OBWriteInternationalConsent4 obWriteInternationalConsent4) {
-        return obWriteInternationalConsent4 == null ? null : FRWriteInternationalConsent.builder()
-                .data(toFRWriteInternationalConsentData(obWriteInternationalConsent4.getData()))
-                .risk(FRRiskConverter.toFRPaymentRisk(obWriteInternationalConsent4.getRisk()))
-                .build();
-    }
-
     public static FRWriteInternationalConsent toFRWriteInternationalConsent(OBWriteInternationalConsent5 obWriteInternationalConsent5) {
         return obWriteInternationalConsent5 == null ? null : FRWriteInternationalConsent.builder()
                 .data(toFRWriteInternationalConsentData(obWriteInternationalConsent5.getData()))
                 .risk(FRRiskConverter.toFRPaymentRisk(obWriteInternationalConsent5.getRisk()))
-                .build();
-    }
-
-    public static FRWriteInternationalConsentData toFRWriteInternationalConsentData(OBWriteDataInternationalConsent1 data) {
-        return data == null ? null : FRWriteInternationalConsentData.builder()
-                .initiation(toFRWriteInternationalDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .build();
-    }
-
-    public static FRWriteInternationalConsentData toFRWriteInternationalConsentData(OBWriteDataInternationalConsent2 data) {
-        return data == null ? null : FRWriteInternationalConsentData.builder()
-                .initiation(toFRWriteInternationalDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .build();
-    }
-
-    public static FRWriteInternationalConsentData toFRWriteInternationalConsentData(OBWriteInternationalConsent4Data data) {
-        return data == null ? null : FRWriteInternationalConsentData.builder()
-                .initiation(toFRWriteInternationalDataInitiation(data.getInitiation()))
-                .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
-                .scASupportData(FRDataSCASupportDataConverter.toFRDataSCASupportData(data.getScASupportData()))
                 .build();
     }
 
@@ -84,49 +38,6 @@ public class FRWriteInternationalConsentConverter {
                 .initiation(toFRWriteInternationalDataInitiation(data.getInitiation()))
                 .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
                 .scASupportData(FRDataSCASupportDataConverter.toFRDataSCASupportData(data.getScASupportData()))
-                .build();
-    }
-
-    public static FRWriteInternationalDataInitiation toFRWriteInternationalDataInitiation(OBInternational1 initiation) {
-        OBCashAccount3 creditorAccount = initiation.getCreditorAccount();
-        return initiation == null ? null : FRWriteInternationalDataInitiation.builder()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .instructionPriority(FRInstructionPriorityConverter.toFRInstructionPriority(initiation.getInstructionPriority()))
-                .purpose(initiation.getPurpose())
-                .chargeBearer(FRChargeBearerConverter.toFRChargeBearerType(initiation.getChargeBearer()))
-                .currencyOfTransfer(initiation.getCurrencyOfTransfer())
-                .destinationCountryCode(determineCountryCode(creditorAccount.getSchemeName(), creditorAccount.getIdentification())) // default value to prevent validation error
-                .instructedAmount(FRAmountConverter.toFRAmount(initiation.getInstructedAmount()))
-                .exchangeRateInformation(FRExchangeRateConverter.toFRExchangeRateInformation(initiation.getExchangeRateInformation()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toFRFinancialCreditor(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(creditorAccount))
-                .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
-                .build();
-    }
-
-    public static FRWriteInternationalDataInitiation toFRWriteInternationalDataInitiation(OBInternational2 initiation) {
-        OBCashAccount3 creditorAccount = initiation.getCreditorAccount();
-        return initiation == null ? null : FRWriteInternationalDataInitiation.builder()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .instructionPriority(FRInstructionPriorityConverter.toFRInstructionPriority(initiation.getInstructionPriority()))
-                .purpose(initiation.getPurpose())
-                .chargeBearer(FRChargeBearerConverter.toFRChargeBearerType(initiation.getChargeBearer()))
-                .currencyOfTransfer(initiation.getCurrencyOfTransfer())
-                .destinationCountryCode(determineCountryCode(creditorAccount.getSchemeName(), creditorAccount.getIdentification())) // default value to prevent validation error
-                .instructedAmount(FRAmountConverter.toFRAmount(initiation.getInstructedAmount()))
-                .exchangeRateInformation(FRExchangeRateConverter.toFRExchangeRateInformation(initiation.getExchangeRateInformation()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toFRFinancialCreditor(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(creditorAccount))
-                .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(FRSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
                 .build();
     }
 
@@ -171,43 +82,6 @@ public class FRWriteInternationalConsentConverter {
                 .creditorAgent(FRFinancialInstrumentConverter.toOBWriteInternational3DataInitiationCreditorAgent(initiation.getCreditorAgent()))
                 .creditorAccount(FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationCreditorAccount(initiation.getCreditorAccount()))
                 .remittanceInformation(FRRemittanceInformationConverter.toOBWriteDomestic2DataInitiationRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
-    }
-
-    public static OBInternational1 toOBInternational1(FRWriteInternationalDataInitiation initiation) {
-        return initiation == null ? null : new OBInternational1()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .instructionPriority(FRInstructionPriorityConverter.toOBPriority2Code(initiation.getInstructionPriority()))
-                .purpose(initiation.getPurpose())
-                .chargeBearer(FRChargeBearerConverter.toOBChargeBearerType1Code(initiation.getChargeBearer()))
-                .currencyOfTransfer(initiation.getCurrencyOfTransfer())
-                .instructedAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getInstructedAmount()))
-                .exchangeRateInformation(FRExchangeRateConverter.toOBExchangeRate1(initiation.getExchangeRateInformation()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toOBPartyIdentification43(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification3(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getCreditorAccount()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation1(initiation.getRemittanceInformation()));
-    }
-
-    public static OBInternational2 toOBInternational2(FRWriteInternationalDataInitiation initiation) {
-        return initiation == null ? null : new OBInternational2()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .instructionPriority(FRInstructionPriorityConverter.toOBPriority2Code(initiation.getInstructionPriority()))
-                .purpose(initiation.getPurpose())
-                .chargeBearer(FRChargeBearerConverter.toOBChargeBearerType1Code(initiation.getChargeBearer()))
-                .currencyOfTransfer(initiation.getCurrencyOfTransfer())
-                .instructedAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount(initiation.getInstructedAmount()))
-                .exchangeRateInformation(FRExchangeRateConverter.toOBExchangeRate1(initiation.getExchangeRateInformation()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toOBPartyIdentification43(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBBranchAndFinancialInstitutionIdentification3(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBCashAccount3(initiation.getCreditorAccount()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation1(initiation.getRemittanceInformation()))
                 .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
     }
 

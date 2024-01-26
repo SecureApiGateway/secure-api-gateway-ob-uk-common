@@ -15,26 +15,40 @@
  */
 package uk.org.openbanking.datamodel.payment;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.util.Objects;
 
 /**
  * OBWriteInternationalStandingOrderResponse7DataRefund
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+
+@JsonTypeName("OBWriteInternationalStandingOrderResponse7_Data_Refund")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalStandingOrderResponse7DataRefund {
-    @JsonProperty("Creditor")
+
     private OBWriteInternationalStandingOrderResponse7DataRefundCreditor creditor;
 
-    @JsonProperty("Agent")
     private OBWriteInternationalResponse5DataRefundAgent agent;
 
-    @JsonProperty("Account")
     private OBWriteDomesticResponse5DataRefundAccount account;
+
+    public OBWriteInternationalStandingOrderResponse7DataRefund() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBWriteInternationalStandingOrderResponse7DataRefund(OBWriteDomesticResponse5DataRefundAccount account) {
+        this.account = account;
+    }
 
     public OBWriteInternationalStandingOrderResponse7DataRefund creditor(OBWriteInternationalStandingOrderResponse7DataRefundCreditor creditor) {
         this.creditor = creditor;
@@ -46,10 +60,9 @@ public class OBWriteInternationalStandingOrderResponse7DataRefund {
      *
      * @return creditor
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Creditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Creditor")
     public OBWriteInternationalStandingOrderResponse7DataRefundCreditor getCreditor() {
         return creditor;
     }
@@ -68,10 +81,9 @@ public class OBWriteInternationalStandingOrderResponse7DataRefund {
      *
      * @return agent
      */
-    @ApiModelProperty(value = "")
-
     @Valid
-
+    @Schema(name = "Agent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Agent")
     public OBWriteInternationalResponse5DataRefundAgent getAgent() {
         return agent;
     }
@@ -90,11 +102,10 @@ public class OBWriteInternationalStandingOrderResponse7DataRefund {
      *
      * @return account
      */
-    @ApiModelProperty(required = true, value = "")
     @NotNull
-
     @Valid
-
+    @Schema(name = "Account", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Account")
     public OBWriteDomesticResponse5DataRefundAccount getAccount() {
         return account;
     }
@@ -102,7 +113,6 @@ public class OBWriteInternationalStandingOrderResponse7DataRefund {
     public void setAccount(OBWriteDomesticResponse5DataRefundAccount account) {
         this.account = account;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -127,7 +137,6 @@ public class OBWriteInternationalStandingOrderResponse7DataRefund {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteInternationalStandingOrderResponse7DataRefund {\n");
-
         sb.append("    creditor: ").append(toIndentedString(creditor)).append("\n");
         sb.append("    agent: ").append(toIndentedString(agent)).append("\n");
         sb.append("    account: ").append(toIndentedString(account)).append("\n");
