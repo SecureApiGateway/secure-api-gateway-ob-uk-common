@@ -26,49 +26,49 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBFeeType1Code {
-  
-  FEPF("FEPF"),
-  
-  FTOT("FTOT"),
-  
-  FYAF("FYAF"),
-  
-  FYAM("FYAM"),
-  
-  FYAQ("FYAQ"),
-  
-  FYCP("FYCP"),
-  
-  FYDB("FYDB"),
-  
-  FYMI("FYMI"),
-  
-  FYXX("FYXX");
 
-  private String value;
+    FEPF("FEPF"),
 
-  OBFeeType1Code(String value) {
-    this.value = value;
-  }
+    FTOT("FTOT"),
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    FYAF("FYAF"),
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    FYAM("FYAM"),
 
-  @JsonCreator
-  public static OBFeeType1Code fromValue(String value) {
-    for (OBFeeType1Code b : OBFeeType1Code.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    FYAQ("FYAQ"),
+
+    FYCP("FYCP"),
+
+    FYDB("FYDB"),
+
+    FYMI("FYMI"),
+
+    FYXX("FYXX");
+
+    private String value;
+
+    OBFeeType1Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBFeeType1Code fromValue(String value) {
+        for (OBFeeType1Code b : OBFeeType1Code.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 

@@ -26,57 +26,57 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBBalanceType1Code {
-  
-  CLOSINGAVAILABLE("ClosingAvailable"),
-  
-  CLOSINGBOOKED("ClosingBooked"),
-  
-  CLOSINGCLEARED("ClosingCleared"),
-  
-  EXPECTED("Expected"),
-  
-  FORWARDAVAILABLE("ForwardAvailable"),
-  
-  INFORMATION("Information"),
-  
-  INTERIMAVAILABLE("InterimAvailable"),
-  
-  INTERIMBOOKED("InterimBooked"),
-  
-  INTERIMCLEARED("InterimCleared"),
-  
-  OPENINGAVAILABLE("OpeningAvailable"),
-  
-  OPENINGBOOKED("OpeningBooked"),
-  
-  OPENINGCLEARED("OpeningCleared"),
-  
-  PREVIOUSLYCLOSEDBOOKED("PreviouslyClosedBooked");
 
-  private String value;
+    CLOSINGAVAILABLE("ClosingAvailable"),
 
-  OBBalanceType1Code(String value) {
-    this.value = value;
-  }
+    CLOSINGBOOKED("ClosingBooked"),
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    CLOSINGCLEARED("ClosingCleared"),
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    EXPECTED("Expected"),
 
-  @JsonCreator
-  public static OBBalanceType1Code fromValue(String value) {
-    for (OBBalanceType1Code b : OBBalanceType1Code.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    FORWARDAVAILABLE("ForwardAvailable"),
+
+    INFORMATION("Information"),
+
+    INTERIMAVAILABLE("InterimAvailable"),
+
+    INTERIMBOOKED("InterimBooked"),
+
+    INTERIMCLEARED("InterimCleared"),
+
+    OPENINGAVAILABLE("OpeningAvailable"),
+
+    OPENINGBOOKED("OpeningBooked"),
+
+    OPENINGCLEARED("OpeningCleared"),
+
+    PREVIOUSLYCLOSEDBOOKED("PreviouslyClosedBooked");
+
+    private String value;
+
+    OBBalanceType1Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBBalanceType1Code fromValue(String value) {
+        for (OBBalanceType1Code b : OBBalanceType1Code.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 

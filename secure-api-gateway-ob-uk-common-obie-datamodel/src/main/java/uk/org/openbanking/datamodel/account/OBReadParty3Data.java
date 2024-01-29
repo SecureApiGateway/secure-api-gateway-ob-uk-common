@@ -34,72 +34,73 @@ import jakarta.validation.Valid;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBReadParty3Data {
 
-  @Valid
-  private List<@Valid OBParty2> party;
+    @Valid
+    private List<@Valid OBParty2> party;
 
-  public OBReadParty3Data party(List<@Valid OBParty2> party) {
-    this.party = party;
-    return this;
-  }
-
-  public OBReadParty3Data addPartyItem(OBParty2 partyItem) {
-    if (this.party == null) {
-      this.party = new ArrayList<>();
+    public OBReadParty3Data party(List<@Valid OBParty2> party) {
+        this.party = party;
+        return this;
     }
-    this.party.add(partyItem);
-    return this;
-  }
 
-  /**
-   * Get party
-   * @return party
-  */
-  @Valid 
-  @Schema(name = "Party", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("Party")
-  public List<@Valid OBParty2> getParty() {
-    return party;
-  }
-
-  public void setParty(List<@Valid OBParty2> party) {
-    this.party = party;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBReadParty3Data addPartyItem(OBParty2 partyItem) {
+        if (this.party == null) {
+            this.party = new ArrayList<>();
+        }
+        this.party.add(partyItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get party
+     *
+     * @return party
+     */
+    @Valid
+    @Schema(name = "Party", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Party")
+    public List<@Valid OBParty2> getParty() {
+        return party;
     }
-    OBReadParty3Data obReadParty3Data = (OBReadParty3Data) o;
-    return Objects.equals(this.party, obReadParty3Data.party);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(party);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBReadParty3Data {\n");
-    sb.append("    party: ").append(toIndentedString(party)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setParty(List<@Valid OBParty2> party) {
+        this.party = party;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBReadParty3Data obReadParty3Data = (OBReadParty3Data) o;
+        return Objects.equals(this.party, obReadParty3Data.party);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(party);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBReadParty3Data {\n");
+        sb.append("    party: ").append(toIndentedString(party)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

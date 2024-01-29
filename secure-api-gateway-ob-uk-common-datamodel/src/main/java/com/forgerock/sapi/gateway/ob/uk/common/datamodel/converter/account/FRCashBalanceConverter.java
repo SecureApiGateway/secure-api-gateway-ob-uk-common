@@ -30,6 +30,7 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmou
 import uk.org.openbanking.datamodel.account.OBBalanceType1Code;
 import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInner;
 import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInnerCreditLineInner;
+import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInnerCreditLineInnerType;
 
 public class FRCashBalanceConverter {
 
@@ -61,8 +62,8 @@ public class FRCashBalanceConverter {
                 .amount(FRAmountConverter.toOBReadBalance1DataAmount1(creditLine.getAmount()));
     }
 
-    public static OBReadBalance1DataBalanceInnerCreditLineInner.TypeEnum toOBReadBalance1DataCreditLineType(FRCreditLine.FRLimitType type) {
-        return type == null ? null : OBReadBalance1DataBalanceInnerCreditLineInner.TypeEnum.valueOf(type.name());
+    public static OBReadBalance1DataBalanceInnerCreditLineInnerType toOBReadBalance1DataCreditLineType(FRCreditLine.FRLimitType type) {
+        return type == null ? null : OBReadBalance1DataBalanceInnerCreditLineInnerType.valueOf(type.name());
     }
 
     // OB to FR
@@ -96,7 +97,7 @@ public class FRCashBalanceConverter {
                 .build();
     }
 
-    public static FRCreditLine.FRLimitType toFRLimitType(OBReadBalance1DataBalanceInnerCreditLineInner.TypeEnum type) {
+    public static FRCreditLine.FRLimitType toFRLimitType(OBReadBalance1DataBalanceInnerCreditLineInnerType type) {
         return type == null ? null : FRCreditLine.FRLimitType.valueOf(type.name());
     }
 }

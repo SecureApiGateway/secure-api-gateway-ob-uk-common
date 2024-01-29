@@ -15,10 +15,24 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
+import java.net.URI;
+import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import java.time.OffsetDateTime;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+
 import jakarta.annotation.Generated;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Specifies the status of account resource in code form.
@@ -26,41 +40,41 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBAccountStatus1Code {
-  
-  DELETED("Deleted"),
-  
-  DISABLED("Disabled"),
-  
-  ENABLED("Enabled"),
-  
-  PENDING("Pending"),
-  
-  PROFORMA("ProForma");
 
-  private String value;
+    DELETED("Deleted"),
 
-  OBAccountStatus1Code(String value) {
-    this.value = value;
-  }
+    DISABLED("Disabled"),
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    ENABLED("Enabled"),
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    PENDING("Pending"),
 
-  @JsonCreator
-  public static OBAccountStatus1Code fromValue(String value) {
-    for (OBAccountStatus1Code b : OBAccountStatus1Code.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    PROFORMA("ProForma");
+
+    private String value;
+
+    OBAccountStatus1Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBAccountStatus1Code fromValue(String value) {
+        for (OBAccountStatus1Code b : OBAccountStatus1Code.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 

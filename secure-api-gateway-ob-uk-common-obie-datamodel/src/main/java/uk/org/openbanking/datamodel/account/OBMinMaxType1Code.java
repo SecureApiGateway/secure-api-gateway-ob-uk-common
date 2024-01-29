@@ -26,35 +26,35 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBMinMaxType1Code {
-  
-  FMMN("FMMN"),
-  
-  FMMX("FMMX");
 
-  private String value;
+    FMMN("FMMN"),
 
-  OBMinMaxType1Code(String value) {
-    this.value = value;
-  }
+    FMMX("FMMX");
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    private String value;
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static OBMinMaxType1Code fromValue(String value) {
-    for (OBMinMaxType1Code b : OBMinMaxType1Code.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    OBMinMaxType1Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBMinMaxType1Code fromValue(String value) {
+        for (OBMinMaxType1Code b : OBMinMaxType1Code.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 

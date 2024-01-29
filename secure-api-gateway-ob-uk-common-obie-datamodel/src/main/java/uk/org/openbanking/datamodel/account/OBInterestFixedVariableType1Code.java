@@ -26,35 +26,35 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBInterestFixedVariableType1Code {
-  
-  INFI("INFI"),
-  
-  INVA("INVA");
 
-  private String value;
+    INFI("INFI"),
 
-  OBInterestFixedVariableType1Code(String value) {
-    this.value = value;
-  }
+    INVA("INVA");
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    private String value;
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static OBInterestFixedVariableType1Code fromValue(String value) {
-    for (OBInterestFixedVariableType1Code b : OBInterestFixedVariableType1Code.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    OBInterestFixedVariableType1Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBInterestFixedVariableType1Code fromValue(String value) {
+        for (OBInterestFixedVariableType1Code b : OBInterestFixedVariableType1Code.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 

@@ -26,37 +26,37 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBEntryStatus1Code {
-  
-  BOOKED("Booked"),
-  
-  PENDING("Pending"),
-  
-  REJECTED("Rejected");
 
-  private String value;
+    BOOKED("Booked"),
 
-  OBEntryStatus1Code(String value) {
-    this.value = value;
-  }
+    PENDING("Pending"),
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    REJECTED("Rejected");
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    private String value;
 
-  @JsonCreator
-  public static OBEntryStatus1Code fromValue(String value) {
-    for (OBEntryStatus1Code b : OBEntryStatus1Code.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    OBEntryStatus1Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBEntryStatus1Code fromValue(String value) {
+        for (OBEntryStatus1Code b : OBEntryStatus1Code.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 

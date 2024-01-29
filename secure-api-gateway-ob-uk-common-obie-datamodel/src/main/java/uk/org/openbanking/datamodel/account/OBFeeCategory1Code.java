@@ -26,37 +26,37 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBFeeCategory1Code {
-  
-  FCOT("FCOT"),
-  
-  FCRE("FCRE"),
-  
-  FCSV("FCSV");
 
-  private String value;
+    FCOT("FCOT"),
 
-  OBFeeCategory1Code(String value) {
-    this.value = value;
-  }
+    FCRE("FCRE"),
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    FCSV("FCSV");
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    private String value;
 
-  @JsonCreator
-  public static OBFeeCategory1Code fromValue(String value) {
-    for (OBFeeCategory1Code b : OBFeeCategory1Code.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    OBFeeCategory1Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBFeeCategory1Code fromValue(String value) {
+        for (OBFeeCategory1Code b : OBFeeCategory1Code.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 

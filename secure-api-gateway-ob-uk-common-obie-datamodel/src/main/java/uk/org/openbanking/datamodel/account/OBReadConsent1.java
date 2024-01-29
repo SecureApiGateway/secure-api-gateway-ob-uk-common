@@ -31,99 +31,103 @@ import jakarta.validation.constraints.NotNull;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBReadConsent1 {
 
-  private OBReadConsent1Data data;
+    private OBReadConsent1Data data;
 
-  private OBRisk2 risk;
+    private OBRisk2 risk;
 
-  public OBReadConsent1() {
-    super();
-  }
-
-  /**
-   * Constructor with only required parameters
-   */
-  public OBReadConsent1(OBReadConsent1Data data, OBRisk2 risk) {
-    this.data = data;
-    this.risk = risk;
-  }
-
-  public OBReadConsent1 data(OBReadConsent1Data data) {
-    this.data = data;
-    return this;
-  }
-
-  /**
-   * Get data
-   * @return data
-  */
-  @NotNull @Valid 
-  @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("Data")
-  public OBReadConsent1Data getData() {
-    return data;
-  }
-
-  public void setData(OBReadConsent1Data data) {
-    this.data = data;
-  }
-
-  public OBReadConsent1 risk(OBRisk2 risk) {
-    this.risk = risk;
-    return this;
-  }
-
-  /**
-   * The Risk section is sent by the initiating party to the ASPSP. It is used to specify additional details for risk scoring for Account Info.
-   * @return risk
-  */
-  @NotNull 
-  @Schema(name = "Risk", description = "The Risk section is sent by the initiating party to the ASPSP. It is used to specify additional details for risk scoring for Account Info.", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("Risk")
-  public OBRisk2 getRisk() {
-    return risk;
-  }
-
-  public void setRisk(OBRisk2 risk) {
-    this.risk = risk;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBReadConsent1() {
+        super();
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBReadConsent1(OBReadConsent1Data data, OBRisk2 risk) {
+        this.data = data;
+        this.risk = risk;
     }
-    OBReadConsent1 obReadConsent1 = (OBReadConsent1) o;
-    return Objects.equals(this.data, obReadConsent1.data) &&
-        Objects.equals(this.risk, obReadConsent1.risk);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data, risk);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBReadConsent1 {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public OBReadConsent1 data(OBReadConsent1Data data) {
+        this.data = data;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Get data
+     *
+     * @return data
+     */
+    @NotNull
+    @Valid
+    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Data")
+    public OBReadConsent1Data getData() {
+        return data;
+    }
+
+    public void setData(OBReadConsent1Data data) {
+        this.data = data;
+    }
+
+    public OBReadConsent1 risk(OBRisk2 risk) {
+        this.risk = risk;
+        return this;
+    }
+
+    /**
+     * Get risk
+     *
+     * @return risk
+     */
+    @NotNull
+    @Valid
+    @Schema(name = "Risk", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Risk")
+    public OBRisk2 getRisk() {
+        return risk;
+    }
+
+    public void setRisk(OBRisk2 risk) {
+        this.risk = risk;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBReadConsent1 obReadConsent1 = (OBReadConsent1) o;
+        return Objects.equals(this.data, obReadConsent1.data) &&
+                Objects.equals(this.risk, obReadConsent1.risk);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, risk);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBReadConsent1 {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

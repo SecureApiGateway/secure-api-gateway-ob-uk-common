@@ -26,35 +26,35 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBExternalDirectDebitStatus1Code {
-  
-  ACTIVE("Active"),
-  
-  INACTIVE("Inactive");
 
-  private String value;
+    ACTIVE("Active"),
 
-  OBExternalDirectDebitStatus1Code(String value) {
-    this.value = value;
-  }
+    INACTIVE("Inactive");
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    private String value;
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static OBExternalDirectDebitStatus1Code fromValue(String value) {
-    for (OBExternalDirectDebitStatus1Code b : OBExternalDirectDebitStatus1Code.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    OBExternalDirectDebitStatus1Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalDirectDebitStatus1Code fromValue(String value) {
+        for (OBExternalDirectDebitStatus1Code b : OBExternalDirectDebitStatus1Code.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 

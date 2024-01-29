@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRExternalPermissionsCode;
 
-import uk.org.openbanking.datamodel.account.OBExternalPermissions1Code;
+import uk.org.openbanking.datamodel.common.OBExternalPermissions1Code;
 
 public class FRExternalPermissionsCodeConverter {
 

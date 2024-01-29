@@ -33,123 +33,129 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OtherTariffType {
 
-  private String code;
+    private String code;
 
-  private String name;
+    private String name;
 
-  private String description;
+    private String description;
 
-  public OtherTariffType() {
-    super();
-  }
-
-  /**
-   * Constructor with only required parameters
-   */
-  public OtherTariffType(String name, String description) {
-    this.name = name;
-    this.description = description;
-  }
-
-  public OtherTariffType code(String code) {
-    this.code = code;
-    return this;
-  }
-
-  /**
-   * The four letter Mnemonic used within an XML file to identify a code
-   * @return code
-  */
-  @Pattern(regexp = "^\\w{0,4}$") @Size(min = 0, max = 4) 
-  @Schema(name = "Code", description = "The four letter Mnemonic used within an XML file to identify a code", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("Code")
-  public String getCode() {
-    return code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public OtherTariffType name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Long name associated with the code
-   * @return name
-  */
-  @NotNull @Size(min = 1, max = 70) 
-  @Schema(name = "Name", description = "Long name associated with the code", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("Name")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public OtherTariffType description(String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Description to describe the purpose of the code
-   * @return description
-  */
-  @NotNull @Size(min = 1, max = 350) 
-  @Schema(name = "Description", description = "Description to describe the purpose of the code", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("Description")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OtherTariffType() {
+        super();
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OtherTariffType(String name, String description) {
+        this.name = name;
+        this.description = description;
     }
-    OtherTariffType otherTariffType = (OtherTariffType) o;
-    return Objects.equals(this.code, otherTariffType.code) &&
-        Objects.equals(this.name, otherTariffType.name) &&
-        Objects.equals(this.description, otherTariffType.description);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(code, name, description);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OtherTariffType {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public OtherTariffType code(String code) {
+        this.code = code;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The four letter Mnemonic used within an XML file to identify a code
+     *
+     * @return code
+     */
+    @Pattern(regexp = "^\\w{0,4}$")
+    @Size(min = 0, max = 4)
+    @Schema(name = "Code", description = "The four letter Mnemonic used within an XML file to identify a code", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Code")
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public OtherTariffType name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Long name associated with the code
+     *
+     * @return name
+     */
+    @NotNull
+    @Size(min = 1, max = 70)
+    @Schema(name = "Name", description = "Long name associated with the code", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public OtherTariffType description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Description to describe the purpose of the code
+     *
+     * @return description
+     */
+    @NotNull
+    @Size(min = 1, max = 350)
+    @Schema(name = "Description", description = "Description to describe the purpose of the code", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Description")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OtherTariffType otherTariffType = (OtherTariffType) o;
+        return Objects.equals(this.code, otherTariffType.code) &&
+                Objects.equals(this.name, otherTariffType.name) &&
+                Objects.equals(this.description, otherTariffType.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, name, description);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OtherTariffType {\n");
+        sb.append("    code: ").append(toIndentedString(code)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

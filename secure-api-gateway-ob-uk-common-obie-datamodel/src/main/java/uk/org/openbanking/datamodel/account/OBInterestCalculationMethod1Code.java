@@ -26,37 +26,37 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBInterestCalculationMethod1Code {
-  
-  ITCO("ITCO"),
-  
-  ITOT("ITOT"),
-  
-  ITSI("ITSI");
 
-  private String value;
+    ITCO("ITCO"),
 
-  OBInterestCalculationMethod1Code(String value) {
-    this.value = value;
-  }
+    ITOT("ITOT"),
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    ITSI("ITSI");
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    private String value;
 
-  @JsonCreator
-  public static OBInterestCalculationMethod1Code fromValue(String value) {
-    for (OBInterestCalculationMethod1Code b : OBInterestCalculationMethod1Code.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    OBInterestCalculationMethod1Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBInterestCalculationMethod1Code fromValue(String value) {
+        for (OBInterestCalculationMethod1Code b : OBInterestCalculationMethod1Code.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 

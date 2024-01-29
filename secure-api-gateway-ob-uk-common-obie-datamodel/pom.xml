@@ -202,13 +202,13 @@
                                         Links=Links,
                                         Meta=Meta,
                                         OBRisk1=OBRisk1,
+                                        OBRisk2=OBRisk2,
                                         OBRisk1_DeliveryAddress=OBRisk1DeliveryAddress,
                                         OBRisk1_PaymentContextCode=OBRisk1PaymentContextCode,
                                         OBSupplementaryData1=OBSupplementaryData1,
                                         OBError1=OBError1,
                                         OBErrorResponse1=OBErrorResponse1,
                                         OBCashAccount3=OBCashAccount3,
-                                        OBExternalRequestStatus1Code=OBExternalRequestStatus1Code,
                                         OBActiveOrHistoricCurrencyAndAmount=OBActiveOrHistoricCurrencyAndAmount,
                                         OBPostalAddress6=OBPostalAddress6,
                                         OBChargeBearerType1Code=OBChargeBearerType1Code,
@@ -223,6 +223,8 @@
                                         OBDomesticVRPConsentResponse_Data_DebtorAccount=OBCashAccountDebtorWithName,
                                         OBDomesticVRPConsentResponse_Data_ReadRefundAccount=OBReadRefundAccount,
                                         OBWriteDomesticConsent4_Data_ReadRefundAccount=OBReadRefundAccount,
+                                        OBReadConsentResponse1_Data_Status=OBExternalRequestStatus1Code,
+                                        OBReadConsent1_Data_Permissions_inner=OBExternalPermissions1Code,
                                     </schemaMappings>
                                     <!-- Map types which are not generating to their fully qualified class name to use
                                          in the import statements.
@@ -248,6 +250,7 @@
                                         OBExternalStatus2Code=uk.org.openbanking.datamodel.common.OBExternalStatus2Code,
                                         OBReadRefundAccount=uk.org.openbanking.datamodel.common.OBReadRefundAccount,
                                         OBAddressTypeCode=uk.org.openbanking.datamodel.common.OBAddressTypeCode,
+                                        OBExternalPermissions1Code=uk.org.openbanking.datamodel.common.OBExternalPermissions1Code
                                     </importMappings>
                                     <configOptions>
                                         <useSpringBoot3>true</useSpringBoot3>

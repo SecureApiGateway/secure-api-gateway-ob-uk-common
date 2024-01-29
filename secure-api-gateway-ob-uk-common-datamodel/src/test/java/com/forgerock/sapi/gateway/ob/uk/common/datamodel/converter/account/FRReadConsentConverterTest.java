@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRReadConsent;
 
-import uk.org.openbanking.datamodel.account.OBExternalPermissions1Code;
+import uk.org.openbanking.datamodel.common.OBExternalPermissions1Code;
 import uk.org.openbanking.datamodel.account.OBReadConsent1;
 import uk.org.openbanking.datamodel.account.OBReadConsent1Data;
 import uk.org.openbanking.datamodel.account.OBRisk2;

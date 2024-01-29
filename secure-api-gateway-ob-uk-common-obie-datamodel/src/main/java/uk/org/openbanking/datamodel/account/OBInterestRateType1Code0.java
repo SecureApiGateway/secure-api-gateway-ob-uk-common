@@ -15,10 +15,24 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
+import java.net.URI;
+import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import java.time.OffsetDateTime;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+
 import jakarta.annotation.Generated;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Rate type for overdraft fee/charge (where it is charged in terms of a rate rather than an amount)
@@ -26,43 +40,43 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBInterestRateType1Code0 {
-  
-  INBB("INBB"),
-  
-  INFR("INFR"),
-  
-  INGR("INGR"),
-  
-  INLR("INLR"),
-  
-  INNE("INNE"),
-  
-  INOT("INOT");
 
-  private String value;
+    INBB("INBB"),
 
-  OBInterestRateType1Code0(String value) {
-    this.value = value;
-  }
+    INFR("INFR"),
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    INGR("INGR"),
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    INLR("INLR"),
 
-  @JsonCreator
-  public static OBInterestRateType1Code0 fromValue(String value) {
-    for (OBInterestRateType1Code0 b : OBInterestRateType1Code0.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    INNE("INNE"),
+
+    INOT("INOT");
+
+    private String value;
+
+    OBInterestRateType1Code0(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBInterestRateType1Code0 fromValue(String value) {
+        for (OBInterestRateType1Code0 b : OBInterestRateType1Code0.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 

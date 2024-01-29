@@ -26,45 +26,45 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBPeriod1Code {
-  
-  PACT("PACT"),
-  
-  PDAY("PDAY"),
-  
-  PHYR("PHYR"),
-  
-  PMTH("PMTH"),
-  
-  PQTR("PQTR"),
-  
-  PWEK("PWEK"),
-  
-  PYER("PYER");
 
-  private String value;
+    PACT("PACT"),
 
-  OBPeriod1Code(String value) {
-    this.value = value;
-  }
+    PDAY("PDAY"),
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    PHYR("PHYR"),
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    PMTH("PMTH"),
 
-  @JsonCreator
-  public static OBPeriod1Code fromValue(String value) {
-    for (OBPeriod1Code b : OBPeriod1Code.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    PQTR("PQTR"),
+
+    PWEK("PWEK"),
+
+    PYER("PYER");
+
+    private String value;
+
+    OBPeriod1Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBPeriod1Code fromValue(String value) {
+        for (OBPeriod1Code b : OBPeriod1Code.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 

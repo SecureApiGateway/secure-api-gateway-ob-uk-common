@@ -15,18 +15,29 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import uk.org.openbanking.datamodel.account.OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner;
+
+import java.time.OffsetDateTime;
+
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+
+import jakarta.annotation.Generated;
 
 /**
  * Borrowing details
@@ -37,116 +48,120 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBReadProduct2DataProductInnerOtherProductTypeOverdraft {
 
-  @Valid
-  private List<@Size(min = 1, max = 2000)String> notes;
+    @Valid
+    private List<@Size(min = 1, max = 2000) String> notes;
 
-  @Valid
-  private List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner> overdraftTierBandSet = new ArrayList<>();
+    @Valid
+    private List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner> overdraftTierBandSet = new ArrayList<>();
 
-  public OBReadProduct2DataProductInnerOtherProductTypeOverdraft() {
-    super();
-  }
-
-  /**
-   * Constructor with only required parameters
-   */
-  public OBReadProduct2DataProductInnerOtherProductTypeOverdraft(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner> overdraftTierBandSet) {
-    this.overdraftTierBandSet = overdraftTierBandSet;
-  }
-
-  public OBReadProduct2DataProductInnerOtherProductTypeOverdraft notes(List<@Size(min = 1, max = 2000)String> notes) {
-    this.notes = notes;
-    return this;
-  }
-
-  public OBReadProduct2DataProductInnerOtherProductTypeOverdraft addNotesItem(String notesItem) {
-    if (this.notes == null) {
-      this.notes = new ArrayList<>();
+    public OBReadProduct2DataProductInnerOtherProductTypeOverdraft() {
+        super();
     }
-    this.notes.add(notesItem);
-    return this;
-  }
 
-  /**
-   * Get notes
-   * @return notes
-  */
-  
-  @Schema(name = "Notes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("Notes")
-  public List<@Size(min = 1, max = 2000)String> getNotes() {
-    return notes;
-  }
-
-  public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
-    this.notes = notes;
-  }
-
-  public OBReadProduct2DataProductInnerOtherProductTypeOverdraft overdraftTierBandSet(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner> overdraftTierBandSet) {
-    this.overdraftTierBandSet = overdraftTierBandSet;
-    return this;
-  }
-
-  public OBReadProduct2DataProductInnerOtherProductTypeOverdraft addOverdraftTierBandSetItem(OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner overdraftTierBandSetItem) {
-    if (this.overdraftTierBandSet == null) {
-      this.overdraftTierBandSet = new ArrayList<>();
+    /**
+     * Constructor with only required parameters
+     */
+    public OBReadProduct2DataProductInnerOtherProductTypeOverdraft(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner> overdraftTierBandSet) {
+        this.overdraftTierBandSet = overdraftTierBandSet;
     }
-    this.overdraftTierBandSet.add(overdraftTierBandSetItem);
-    return this;
-  }
 
-  /**
-   * Get overdraftTierBandSet
-   * @return overdraftTierBandSet
-  */
-  @NotNull @Valid @Size(min = 1) 
-  @Schema(name = "OverdraftTierBandSet", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("OverdraftTierBandSet")
-  public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner> getOverdraftTierBandSet() {
-    return overdraftTierBandSet;
-  }
-
-  public void setOverdraftTierBandSet(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner> overdraftTierBandSet) {
-    this.overdraftTierBandSet = overdraftTierBandSet;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBReadProduct2DataProductInnerOtherProductTypeOverdraft notes(List<@Size(min = 1, max = 2000) String> notes) {
+        this.notes = notes;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public OBReadProduct2DataProductInnerOtherProductTypeOverdraft addNotesItem(String notesItem) {
+        if (this.notes == null) {
+            this.notes = new ArrayList<>();
+        }
+        this.notes.add(notesItem);
+        return this;
     }
-    OBReadProduct2DataProductInnerOtherProductTypeOverdraft obReadProduct2DataProductInnerOtherProductTypeOverdraft = (OBReadProduct2DataProductInnerOtherProductTypeOverdraft) o;
-    return Objects.equals(this.notes, obReadProduct2DataProductInnerOtherProductTypeOverdraft.notes) &&
-        Objects.equals(this.overdraftTierBandSet, obReadProduct2DataProductInnerOtherProductTypeOverdraft.overdraftTierBandSet);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(notes, overdraftTierBandSet);
-  }
+    /**
+     * Get notes
+     *
+     * @return notes
+     */
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBReadProduct2DataProductInnerOtherProductTypeOverdraft {\n");
-    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
-    sb.append("    overdraftTierBandSet: ").append(toIndentedString(overdraftTierBandSet)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    @Schema(name = "Notes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Notes")
+    public List<@Size(min = 1, max = 2000) String> getNotes() {
+        return notes;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+        this.notes = notes;
+    }
+
+    public OBReadProduct2DataProductInnerOtherProductTypeOverdraft overdraftTierBandSet(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner> overdraftTierBandSet) {
+        this.overdraftTierBandSet = overdraftTierBandSet;
+        return this;
+    }
+
+    public OBReadProduct2DataProductInnerOtherProductTypeOverdraft addOverdraftTierBandSetItem(OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner overdraftTierBandSetItem) {
+        if (this.overdraftTierBandSet == null) {
+            this.overdraftTierBandSet = new ArrayList<>();
+        }
+        this.overdraftTierBandSet.add(overdraftTierBandSetItem);
+        return this;
+    }
+
+    /**
+     * Get overdraftTierBandSet
+     *
+     * @return overdraftTierBandSet
+     */
+    @NotNull
+    @Valid
+    @Size(min = 1)
+    @Schema(name = "OverdraftTierBandSet", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("OverdraftTierBandSet")
+    public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner> getOverdraftTierBandSet() {
+        return overdraftTierBandSet;
+    }
+
+    public void setOverdraftTierBandSet(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner> overdraftTierBandSet) {
+        this.overdraftTierBandSet = overdraftTierBandSet;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBReadProduct2DataProductInnerOtherProductTypeOverdraft obReadProduct2DataProductInnerOtherProductTypeOverdraft = (OBReadProduct2DataProductInnerOtherProductTypeOverdraft) o;
+        return Objects.equals(this.notes, obReadProduct2DataProductInnerOtherProductTypeOverdraft.notes) &&
+                Objects.equals(this.overdraftTierBandSet, obReadProduct2DataProductInnerOtherProductTypeOverdraft.overdraftTierBandSet);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(notes, overdraftTierBandSet);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBReadProduct2DataProductInnerOtherProductTypeOverdraft {\n");
+        sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
+        sb.append("    overdraftTierBandSet: ").append(toIndentedString(overdraftTierBandSet)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

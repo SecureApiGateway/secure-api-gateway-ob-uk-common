@@ -19,7 +19,7 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FROfferData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter;
 
 import uk.org.openbanking.datamodel.account.OBReadOffer1DataOfferInner;
-import uk.org.openbanking.datamodel.account.OBReadOffer1DataOfferInner.OfferTypeEnum;
+import uk.org.openbanking.datamodel.account.OBReadOffer1DataOfferInnerOfferType;
 
 public class FROfferConverter {
 
@@ -41,8 +41,8 @@ public class FROfferConverter {
                 .fee(FRAmountConverter.toOBReadOffer1DataFee(offerData.getFee()));
     }
 
-    public static OfferTypeEnum toOBReadOffer1DataOfferType(FROfferData.FROfferType offerType) {
-        return offerType == null ? null : OfferTypeEnum.valueOf(offerType.name());
+    public static OBReadOffer1DataOfferInnerOfferType toOBReadOffer1DataOfferType(FROfferData.FROfferType offerType) {
+        return offerType == null ? null : OBReadOffer1DataOfferInnerOfferType.valueOf(offerType.name());
     }
 
     // OB to FR
@@ -63,7 +63,7 @@ public class FROfferConverter {
                 .build();
     }
 
-    public static FROfferData.FROfferType toFROfferType(OfferTypeEnum offerType) {
+    public static FROfferData.FROfferType toFROfferType(OBReadOffer1DataOfferInnerOfferType offerType) {
         return offerType == null ? null : FROfferData.FROfferType.valueOf(offerType.name());
     }
 }

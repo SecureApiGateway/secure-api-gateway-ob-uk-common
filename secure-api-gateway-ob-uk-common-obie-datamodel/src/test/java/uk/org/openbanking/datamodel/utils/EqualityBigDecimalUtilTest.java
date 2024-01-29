@@ -76,7 +76,10 @@ public class EqualityBigDecimalUtilTest {
     @ParameterizedTest(name = "OBObject {0}")
     @MethodSource("argumentsProviderTrue")
     public <T> void equalsShouldReturnTrue(String obObject, T obObjectTo, T toOBObject) {
-        assertThat(obObjectTo.equals(toOBObject)).isTrue();
+        assertThat(obObjectTo.equals(toOBObject))
+                .overridingErrorMessage(obObject + " requires equals method generated code updated to use EqualityVerificationUtil.BigDecimalUtil.isEqual method")
+                .isTrue();
+
     }
 
     private static Stream<Arguments> argumentsProviderFalse() {

@@ -35,116 +35,120 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class Overdraft {
 
-  @Valid
-  private List<@Size(min = 1, max = 2000)String> notes;
+    @Valid
+    private List<@Size(min = 1, max = 2000) String> notes;
 
-  @Valid
-  private List<@Valid OverdraftTierBandSetInner> overdraftTierBandSet = new ArrayList<>();
+    @Valid
+    private List<@Valid OverdraftTierBandSetInner> overdraftTierBandSet = new ArrayList<>();
 
-  public Overdraft() {
-    super();
-  }
-
-  /**
-   * Constructor with only required parameters
-   */
-  public Overdraft(List<@Valid OverdraftTierBandSetInner> overdraftTierBandSet) {
-    this.overdraftTierBandSet = overdraftTierBandSet;
-  }
-
-  public Overdraft notes(List<@Size(min = 1, max = 2000)String> notes) {
-    this.notes = notes;
-    return this;
-  }
-
-  public Overdraft addNotesItem(String notesItem) {
-    if (this.notes == null) {
-      this.notes = new ArrayList<>();
+    public Overdraft() {
+        super();
     }
-    this.notes.add(notesItem);
-    return this;
-  }
 
-  /**
-   * Associated Notes about the overdraft rates
-   * @return notes
-  */
-  
-  @Schema(name = "Notes", description = "Associated Notes about the overdraft rates", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("Notes")
-  public List<@Size(min = 1, max = 2000)String> getNotes() {
-    return notes;
-  }
-
-  public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
-    this.notes = notes;
-  }
-
-  public Overdraft overdraftTierBandSet(List<@Valid OverdraftTierBandSetInner> overdraftTierBandSet) {
-    this.overdraftTierBandSet = overdraftTierBandSet;
-    return this;
-  }
-
-  public Overdraft addOverdraftTierBandSetItem(OverdraftTierBandSetInner overdraftTierBandSetItem) {
-    if (this.overdraftTierBandSet == null) {
-      this.overdraftTierBandSet = new ArrayList<>();
+    /**
+     * Constructor with only required parameters
+     */
+    public Overdraft(List<@Valid OverdraftTierBandSetInner> overdraftTierBandSet) {
+        this.overdraftTierBandSet = overdraftTierBandSet;
     }
-    this.overdraftTierBandSet.add(overdraftTierBandSetItem);
-    return this;
-  }
 
-  /**
-   * Tier band set details
-   * @return overdraftTierBandSet
-  */
-  @NotNull @Valid @Size(min = 1) 
-  @Schema(name = "OverdraftTierBandSet", description = "Tier band set details", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("OverdraftTierBandSet")
-  public List<@Valid OverdraftTierBandSetInner> getOverdraftTierBandSet() {
-    return overdraftTierBandSet;
-  }
-
-  public void setOverdraftTierBandSet(List<@Valid OverdraftTierBandSetInner> overdraftTierBandSet) {
-    this.overdraftTierBandSet = overdraftTierBandSet;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public Overdraft notes(List<@Size(min = 1, max = 2000) String> notes) {
+        this.notes = notes;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public Overdraft addNotesItem(String notesItem) {
+        if (this.notes == null) {
+            this.notes = new ArrayList<>();
+        }
+        this.notes.add(notesItem);
+        return this;
     }
-    Overdraft overdraft = (Overdraft) o;
-    return Objects.equals(this.notes, overdraft.notes) &&
-        Objects.equals(this.overdraftTierBandSet, overdraft.overdraftTierBandSet);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(notes, overdraftTierBandSet);
-  }
+    /**
+     * Associated Notes about the overdraft rates
+     *
+     * @return notes
+     */
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Overdraft {\n");
-    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
-    sb.append("    overdraftTierBandSet: ").append(toIndentedString(overdraftTierBandSet)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    @Schema(name = "Notes", description = "Associated Notes about the overdraft rates", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Notes")
+    public List<@Size(min = 1, max = 2000) String> getNotes() {
+        return notes;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+        this.notes = notes;
+    }
+
+    public Overdraft overdraftTierBandSet(List<@Valid OverdraftTierBandSetInner> overdraftTierBandSet) {
+        this.overdraftTierBandSet = overdraftTierBandSet;
+        return this;
+    }
+
+    public Overdraft addOverdraftTierBandSetItem(OverdraftTierBandSetInner overdraftTierBandSetItem) {
+        if (this.overdraftTierBandSet == null) {
+            this.overdraftTierBandSet = new ArrayList<>();
+        }
+        this.overdraftTierBandSet.add(overdraftTierBandSetItem);
+        return this;
+    }
+
+    /**
+     * Tier band set details
+     *
+     * @return overdraftTierBandSet
+     */
+    @NotNull
+    @Valid
+    @Size(min = 1)
+    @Schema(name = "OverdraftTierBandSet", description = "Tier band set details", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("OverdraftTierBandSet")
+    public List<@Valid OverdraftTierBandSetInner> getOverdraftTierBandSet() {
+        return overdraftTierBandSet;
+    }
+
+    public void setOverdraftTierBandSet(List<@Valid OverdraftTierBandSetInner> overdraftTierBandSet) {
+        this.overdraftTierBandSet = overdraftTierBandSet;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Overdraft overdraft = (Overdraft) o;
+        return Objects.equals(this.notes, overdraft.notes) &&
+                Objects.equals(this.overdraftTierBandSet, overdraft.overdraftTierBandSet);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(notes, overdraftTierBandSet);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Overdraft {\n");
+        sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
+        sb.append("    overdraftTierBandSet: ").append(toIndentedString(overdraftTierBandSet)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

@@ -15,10 +15,24 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
+import java.net.URI;
+import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import java.time.OffsetDateTime;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+
 import jakarta.annotation.Generated;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Statement type, in a coded form.
@@ -26,41 +40,41 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBExternalStatementType1Code {
-  
-  ACCOUNTCLOSURE("AccountClosure"),
-  
-  ACCOUNTOPENING("AccountOpening"),
-  
-  ANNUAL("Annual"),
-  
-  INTERIM("Interim"),
-  
-  REGULARPERIODIC("RegularPeriodic");
 
-  private String value;
+    ACCOUNTCLOSURE("AccountClosure"),
 
-  OBExternalStatementType1Code(String value) {
-    this.value = value;
-  }
+    ACCOUNTOPENING("AccountOpening"),
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    ANNUAL("Annual"),
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
+    INTERIM("Interim"),
 
-  @JsonCreator
-  public static OBExternalStatementType1Code fromValue(String value) {
-    for (OBExternalStatementType1Code b : OBExternalStatementType1Code.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    REGULARPERIODIC("RegularPeriodic");
+
+    private String value;
+
+    OBExternalStatementType1Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalStatementType1Code fromValue(String value) {
+        for (OBExternalStatementType1Code b : OBExternalStatementType1Code.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 
