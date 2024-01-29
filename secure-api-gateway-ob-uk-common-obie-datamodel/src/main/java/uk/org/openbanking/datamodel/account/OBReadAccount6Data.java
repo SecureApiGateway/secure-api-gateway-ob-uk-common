@@ -34,72 +34,73 @@ import jakarta.validation.Valid;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBReadAccount6Data {
 
-  @Valid
-  private List<@Valid OBAccount6> account;
+    @Valid
+    private List<@Valid OBAccount6> account;
 
-  public OBReadAccount6Data account(List<@Valid OBAccount6> account) {
-    this.account = account;
-    return this;
-  }
-
-  public OBReadAccount6Data addAccountItem(OBAccount6 accountItem) {
-    if (this.account == null) {
-      this.account = new ArrayList<>();
+    public OBReadAccount6Data account(List<@Valid OBAccount6> account) {
+        this.account = account;
+        return this;
     }
-    this.account.add(accountItem);
-    return this;
-  }
 
-  /**
-   * Get account
-   * @return account
-  */
-  @Valid 
-  @Schema(name = "Account", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("Account")
-  public List<@Valid OBAccount6> getAccount() {
-    return account;
-  }
-
-  public void setAccount(List<@Valid OBAccount6> account) {
-    this.account = account;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBReadAccount6Data addAccountItem(OBAccount6 accountItem) {
+        if (this.account == null) {
+            this.account = new ArrayList<>();
+        }
+        this.account.add(accountItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get account
+     *
+     * @return account
+     */
+    @Valid
+    @Schema(name = "Account", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Account")
+    public List<@Valid OBAccount6> getAccount() {
+        return account;
     }
-    OBReadAccount6Data obReadAccount6Data = (OBReadAccount6Data) o;
-    return Objects.equals(this.account, obReadAccount6Data.account);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(account);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBReadAccount6Data {\n");
-    sb.append("    account: ").append(toIndentedString(account)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setAccount(List<@Valid OBAccount6> account) {
+        this.account = account;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBReadAccount6Data obReadAccount6Data = (OBReadAccount6Data) o;
+        return Objects.equals(this.account, obReadAccount6Data.account);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(account);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBReadAccount6Data {\n");
+        sb.append("    account: ").append(toIndentedString(account)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

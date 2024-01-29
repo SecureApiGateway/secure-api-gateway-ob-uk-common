@@ -15,10 +15,24 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
+import java.net.URI;
+import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import java.time.OffsetDateTime;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+
 import jakarta.annotation.Generated;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Specifies the scheduled payment date type requested
@@ -26,35 +40,35 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBExternalScheduleType1Code {
-  
-  ARRIVAL("Arrival"),
-  
-  EXECUTION("Execution");
 
-  private String value;
+    ARRIVAL("Arrival"),
 
-  OBExternalScheduleType1Code(String value) {
-    this.value = value;
-  }
+    EXECUTION("Execution");
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    private String value;
 
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static OBExternalScheduleType1Code fromValue(String value) {
-    for (OBExternalScheduleType1Code b : OBExternalScheduleType1Code.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
+    OBExternalScheduleType1Code(String value) {
+        this.value = value;
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @JsonCreator
+    public static OBExternalScheduleType1Code fromValue(String value) {
+        for (OBExternalScheduleType1Code b : OBExternalScheduleType1Code.values()) {
+            if (b.value.equals(value)) {
+                return b;
+            }
+        }
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
 }
 

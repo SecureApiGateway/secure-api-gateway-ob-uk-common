@@ -31,6 +31,8 @@ import uk.org.openbanking.datamodel.account.OBEntryStatus1Code;
 import uk.org.openbanking.datamodel.account.OBMerchantDetails1;
 import uk.org.openbanking.datamodel.account.OBTransaction6;
 import uk.org.openbanking.datamodel.account.OBTransactionCardInstrument1;
+import uk.org.openbanking.datamodel.account.OBTransactionCardInstrument1AuthorisationType;
+import uk.org.openbanking.datamodel.account.OBTransactionCardInstrument1CardSchemeName;
 import uk.org.openbanking.datamodel.account.OBTransactionCashBalance;
 import uk.org.openbanking.datamodel.account.OBTransactionMutability1Code;
 import uk.org.openbanking.datamodel.account.ProprietaryBankTransactionCodeStructure1;
@@ -106,12 +108,12 @@ public class FRTransactionConverter {
                 .merchantCategoryCode(merchantDetails.getMerchantCategoryCode());
     }
 
-    public static OBTransactionCardInstrument1.CardSchemeNameEnum toOBTransactionCardInstrument1CardSchemeName(FRTransactionData.FRCardScheme cardSchemeName) {
-        return cardSchemeName == null ? null : OBTransactionCardInstrument1.CardSchemeNameEnum.valueOf(cardSchemeName.name());
+    public static OBTransactionCardInstrument1CardSchemeName toOBTransactionCardInstrument1CardSchemeName(FRTransactionData.FRCardScheme cardSchemeName) {
+        return cardSchemeName == null ? null : OBTransactionCardInstrument1CardSchemeName.valueOf(cardSchemeName.name());
     }
 
-    public static OBTransactionCardInstrument1.AuthorisationTypeEnum toOBTransactionCardInstrument1AuthorisationType(FRTransactionData.FRCardAuthorisationType authorisationType) {
-        return authorisationType == null ? null : OBTransactionCardInstrument1.AuthorisationTypeEnum.valueOf(authorisationType.name());
+    public static OBTransactionCardInstrument1AuthorisationType toOBTransactionCardInstrument1AuthorisationType(FRTransactionData.FRCardAuthorisationType authorisationType) {
+        return authorisationType == null ? null : OBTransactionCardInstrument1AuthorisationType.valueOf(authorisationType.name());
     }
 
     // OB to FR
@@ -191,11 +193,11 @@ public class FRTransactionConverter {
                 .build();
     }
 
-    public static FRTransactionData.FRCardScheme toFRCardScheme(OBTransactionCardInstrument1.CardSchemeNameEnum cardSchemeName) {
+    public static FRTransactionData.FRCardScheme toFRCardScheme(OBTransactionCardInstrument1CardSchemeName cardSchemeName) {
         return cardSchemeName == null ? null : FRTransactionData.FRCardScheme.valueOf(cardSchemeName.name());
     }
 
-    public static FRTransactionData.FRCardAuthorisationType toFRCardAuthorisationType(OBTransactionCardInstrument1.AuthorisationTypeEnum authorisationType) {
+    public static FRTransactionData.FRCardAuthorisationType toFRCardAuthorisationType(OBTransactionCardInstrument1AuthorisationType authorisationType) {
         return authorisationType == null ? null : FRTransactionData.FRCardAuthorisationType.valueOf(authorisationType.name());
     }
 }

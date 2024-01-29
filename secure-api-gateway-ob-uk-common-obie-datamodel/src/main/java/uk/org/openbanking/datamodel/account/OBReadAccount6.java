@@ -33,122 +33,126 @@ import uk.org.openbanking.datamodel.common.Meta;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBReadAccount6 {
 
-  private OBReadAccount6Data data;
+    private OBReadAccount6Data data;
 
-  private Links links;
+    private Links links;
 
-  private Meta meta;
+    private Meta meta;
 
-  public OBReadAccount6() {
-    super();
-  }
-
-  /**
-   * Constructor with only required parameters
-   */
-  public OBReadAccount6(OBReadAccount6Data data) {
-    this.data = data;
-  }
-
-  public OBReadAccount6 data(OBReadAccount6Data data) {
-    this.data = data;
-    return this;
-  }
-
-  /**
-   * Get data
-   * @return data
-  */
-  @NotNull @Valid 
-  @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("Data")
-  public OBReadAccount6Data getData() {
-    return data;
-  }
-
-  public void setData(OBReadAccount6Data data) {
-    this.data = data;
-  }
-
-  public OBReadAccount6 links(Links links) {
-    this.links = links;
-    return this;
-  }
-
-  /**
-   * Get links
-   * @return links
-  */
-  @Valid 
-  @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("Links")
-  public Links getLinks() {
-    return links;
-  }
-
-  public void setLinks(Links links) {
-    this.links = links;
-  }
-
-  public OBReadAccount6 meta(Meta meta) {
-    this.meta = meta;
-    return this;
-  }
-
-  /**
-   * Get meta
-   * @return meta
-  */
-  @Valid 
-  @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("Meta")
-  public Meta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(Meta meta) {
-    this.meta = meta;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBReadAccount6() {
+        super();
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBReadAccount6(OBReadAccount6Data data) {
+        this.data = data;
     }
-    OBReadAccount6 obReadAccount6 = (OBReadAccount6) o;
-    return Objects.equals(this.data, obReadAccount6.data) &&
-        Objects.equals(this.links, obReadAccount6.links) &&
-        Objects.equals(this.meta, obReadAccount6.meta);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data, links, meta);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBReadAccount6 {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    links: ").append(toIndentedString(links)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public OBReadAccount6 data(OBReadAccount6Data data) {
+        this.data = data;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Get data
+     *
+     * @return data
+     */
+    @NotNull
+    @Valid
+    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Data")
+    public OBReadAccount6Data getData() {
+        return data;
+    }
+
+    public void setData(OBReadAccount6Data data) {
+        this.data = data;
+    }
+
+    public OBReadAccount6 links(Links links) {
+        this.links = links;
+        return this;
+    }
+
+    /**
+     * Get links
+     *
+     * @return links
+     */
+    @Valid
+    @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Links")
+    public Links getLinks() {
+        return links;
+    }
+
+    public void setLinks(Links links) {
+        this.links = links;
+    }
+
+    public OBReadAccount6 meta(Meta meta) {
+        this.meta = meta;
+        return this;
+    }
+
+    /**
+     * Get meta
+     *
+     * @return meta
+     */
+    @Valid
+    @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Meta")
+    public Meta getMeta() {
+        return meta;
+    }
+
+    public void setMeta(Meta meta) {
+        this.meta = meta;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBReadAccount6 obReadAccount6 = (OBReadAccount6) o;
+        return Objects.equals(this.data, obReadAccount6.data) &&
+                Objects.equals(this.links, obReadAccount6.links) &&
+                Objects.equals(this.meta, obReadAccount6.meta);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, links, meta);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBReadAccount6 {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("    links: ").append(toIndentedString(links)).append("\n");
+        sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 

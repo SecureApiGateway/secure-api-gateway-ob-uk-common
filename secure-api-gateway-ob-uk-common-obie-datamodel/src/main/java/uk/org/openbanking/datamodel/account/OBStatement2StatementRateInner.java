@@ -15,15 +15,23 @@
  */
 package uk.org.openbanking.datamodel.account;
 
+import java.net.URI;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
+import java.time.OffsetDateTime;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 
 /**
  * Set of elements used to provide details of a generic rate related to the statement resource.
@@ -34,99 +42,102 @@ import jakarta.validation.constraints.Pattern;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBStatement2StatementRateInner {
 
-  private String rate;
+    private String rate;
 
-  private String type;
+    private String type;
 
-  public OBStatement2StatementRateInner() {
-    super();
-  }
-
-  /**
-   * Constructor with only required parameters
-   */
-  public OBStatement2StatementRateInner(String rate, String type) {
-    this.rate = rate;
-    this.type = type;
-  }
-
-  public OBStatement2StatementRateInner rate(String rate) {
-    this.rate = rate;
-    return this;
-  }
-
-  /**
-   * Rate associated with the statement rate type.
-   * @return rate
-  */
-  @NotNull @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$") 
-  @Schema(name = "Rate", description = "Rate associated with the statement rate type.", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("Rate")
-  public String getRate() {
-    return rate;
-  }
-
-  public void setRate(String rate) {
-    this.rate = rate;
-  }
-
-  public OBStatement2StatementRateInner type(String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Statement rate type, in a coded form.
-   * @return type
-  */
-  @NotNull 
-  @Schema(name = "Type", description = "Statement rate type, in a coded form.", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("Type")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OBStatement2StatementRateInner() {
+        super();
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBStatement2StatementRateInner(String rate, String type) {
+        this.rate = rate;
+        this.type = type;
     }
-    OBStatement2StatementRateInner obStatement2StatementRateInner = (OBStatement2StatementRateInner) o;
-    return Objects.equals(this.rate, obStatement2StatementRateInner.rate) &&
-        Objects.equals(this.type, obStatement2StatementRateInner.type);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(rate, type);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OBStatement2StatementRateInner {\n");
-    sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public OBStatement2StatementRateInner rate(String rate) {
+        this.rate = rate;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Rate associated with the statement rate type.
+     *
+     * @return rate
+     */
+    @NotNull
+    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
+    @Schema(name = "Rate", description = "Rate associated with the statement rate type.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Rate")
+    public String getRate() {
+        return rate;
+    }
+
+    public void setRate(String rate) {
+        this.rate = rate;
+    }
+
+    public OBStatement2StatementRateInner type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * Statement rate type, in a coded form.
+     *
+     * @return type
+     */
+    @NotNull
+    @Schema(name = "Type", description = "Statement rate type, in a coded form.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("Type")
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OBStatement2StatementRateInner obStatement2StatementRateInner = (OBStatement2StatementRateInner) o;
+        return Objects.equals(this.rate, obStatement2StatementRateInner.rate) &&
+                Objects.equals(this.type, obStatement2StatementRateInner.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(rate, type);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OBStatement2StatementRateInner {\n");
+        sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
 
