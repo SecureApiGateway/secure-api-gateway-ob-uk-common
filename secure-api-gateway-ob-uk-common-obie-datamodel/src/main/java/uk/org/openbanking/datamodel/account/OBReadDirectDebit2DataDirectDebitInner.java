@@ -15,30 +15,19 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import java.net.URI;
 import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount0;
-import uk.org.openbanking.datamodel.account.OBExternalDirectDebitStatus1Code;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
-import java.time.OffsetDateTime;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Account to or from which a cash entry is made.

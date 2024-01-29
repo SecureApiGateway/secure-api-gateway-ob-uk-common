@@ -15,24 +15,13 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import java.net.URI;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 
-import uk.org.openbanking.datamodel.account.OBPartyRelationships1Account;
-
-import java.time.OffsetDateTime;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 
 /**
  * The Party&#39;s relationships with other resources.

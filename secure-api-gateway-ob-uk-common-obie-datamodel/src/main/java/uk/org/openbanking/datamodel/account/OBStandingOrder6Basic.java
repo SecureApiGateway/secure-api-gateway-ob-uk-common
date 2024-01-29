@@ -15,33 +15,20 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import java.net.URI;
 import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount11;
-import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount2;
-import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount3;
-import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount4;
-import uk.org.openbanking.datamodel.account.OBExternalStandingOrderStatus1Code;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.time.OffsetDateTime;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 /**
  * OBStandingOrder6Basic

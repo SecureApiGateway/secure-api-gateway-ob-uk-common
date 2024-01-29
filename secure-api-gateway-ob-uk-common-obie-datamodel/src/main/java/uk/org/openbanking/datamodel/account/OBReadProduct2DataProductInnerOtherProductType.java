@@ -15,35 +15,19 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import uk.org.openbanking.datamodel.account.OBReadProduct2DataProductInnerOtherProductTypeCreditInterest;
-import uk.org.openbanking.datamodel.account.OBReadProduct2DataProductInnerOtherProductTypeLoanInterest;
-import uk.org.openbanking.datamodel.account.OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner;
-import uk.org.openbanking.datamodel.account.OBReadProduct2DataProductInnerOtherProductTypeOverdraft;
-import uk.org.openbanking.datamodel.account.OBReadProduct2DataProductInnerOtherProductTypeProductDetails;
-import uk.org.openbanking.datamodel.account.OBReadProduct2DataProductInnerOtherProductTypeRepayment;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-
-import java.time.OffsetDateTime;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 /**
  * Other product type details associated with the account.
