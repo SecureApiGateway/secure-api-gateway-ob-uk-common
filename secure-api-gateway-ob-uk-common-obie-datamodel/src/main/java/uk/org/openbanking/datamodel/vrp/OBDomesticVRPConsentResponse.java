@@ -24,6 +24,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import uk.org.openbanking.datamodel.common.Links;
+import uk.org.openbanking.datamodel.common.Meta;
 import uk.org.openbanking.datamodel.common.OBRisk1;
 
 /**
@@ -39,7 +40,7 @@ public class OBDomesticVRPConsentResponse {
 
     private Links links;
 
-    private Object meta;
+    private Meta meta;
 
     public OBDomesticVRPConsentResponse() {
         super();
@@ -48,7 +49,7 @@ public class OBDomesticVRPConsentResponse {
     /**
      * Constructor with only required parameters
      */
-    public OBDomesticVRPConsentResponse(OBDomesticVRPConsentResponseData data, OBRisk1 risk, Links links, Object meta) {
+    public OBDomesticVRPConsentResponse(OBDomesticVRPConsentResponseData data, OBRisk1 risk, Links links, Meta meta) {
         this.data = data;
         this.risk = risk;
         this.links = links;
@@ -121,24 +122,25 @@ public class OBDomesticVRPConsentResponse {
         this.links = links;
     }
 
-    public OBDomesticVRPConsentResponse meta(Object meta) {
+    public OBDomesticVRPConsentResponse meta(Meta meta) {
         this.meta = meta;
         return this;
     }
 
     /**
-     * Meta Data relevant to the payload. At present no fields are used for VRP.
+     * Get meta
      *
      * @return meta
      */
     @NotNull
-    @Schema(name = "Meta", description = "Meta Data relevant to the payload. At present no fields are used for VRP.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Valid
+    @Schema(name = "Meta", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Meta")
-    public Object getMeta() {
+    public Meta getMeta() {
         return meta;
     }
 
-    public void setMeta(Object meta) {
+    public void setMeta(Meta meta) {
         this.meta = meta;
     }
 
