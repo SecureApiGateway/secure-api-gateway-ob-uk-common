@@ -15,36 +15,21 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import java.net.URI;
-import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import uk.org.openbanking.datamodel.account.OBBalanceType1Code;
-import uk.org.openbanking.datamodel.account.OBCreditDebitCode2;
-import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInnerAmount;
-import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInnerCreditLineInner;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
-import java.time.OffsetDateTime;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Set of elements used to define the balance details.

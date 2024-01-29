@@ -15,47 +15,21 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import java.net.URI;
-import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount10;
-import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount9;
-import uk.org.openbanking.datamodel.account.OBBankTransactionCodeStructure1;
-import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification61;
-import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification62;
-import uk.org.openbanking.datamodel.account.OBCashAccount60;
-import uk.org.openbanking.datamodel.account.OBCashAccount61;
-import uk.org.openbanking.datamodel.account.OBCreditDebitCode1;
-import uk.org.openbanking.datamodel.account.OBCurrencyExchange5;
-import uk.org.openbanking.datamodel.account.OBEntryStatus1Code;
-import uk.org.openbanking.datamodel.account.OBMerchantDetails1;
-import uk.org.openbanking.datamodel.account.OBTransactionCardInstrument1;
-import uk.org.openbanking.datamodel.account.OBTransactionCashBalance;
-import uk.org.openbanking.datamodel.account.OBTransactionMutability1Code;
-import uk.org.openbanking.datamodel.account.ProprietaryBankTransactionCodeStructure1;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.time.OffsetDateTime;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 /**
  * Provides further details on an entry in the report.

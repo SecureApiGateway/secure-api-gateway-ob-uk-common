@@ -15,24 +15,10 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import java.net.URI;
-import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonValue;
-
-import java.time.OffsetDateTime;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-
-import jakarta.annotation.Generated;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+
+import jakarta.annotation.Generated;
 
 /**
  * Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another. Read more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd

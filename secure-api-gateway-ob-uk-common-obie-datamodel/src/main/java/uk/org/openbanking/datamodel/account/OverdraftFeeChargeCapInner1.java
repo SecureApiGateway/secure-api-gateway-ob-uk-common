@@ -15,33 +15,19 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import uk.org.openbanking.datamodel.account.CappingPeriod1;
-import uk.org.openbanking.datamodel.account.FeeType2Inner1;
-import uk.org.openbanking.datamodel.account.MinMaxType1;
-import uk.org.openbanking.datamodel.account.OtherFeeTypeInner;
-
-import java.time.OffsetDateTime;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 /**
  * Details about any caps (maximum charges) that apply to a particular fee/charge

@@ -15,24 +15,10 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import java.net.URI;
-import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonValue;
-
-import java.time.OffsetDateTime;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-
-import jakarta.annotation.Generated;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+
+import jakarta.annotation.Generated;
 
 /**
  * Interest rate types, other than AER, which financial institutions may use to describe the annual interest rate payable to the PCA.

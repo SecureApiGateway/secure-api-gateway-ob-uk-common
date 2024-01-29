@@ -15,33 +15,18 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import uk.org.openbanking.datamodel.account.OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerFeeChargeDetailInner;
-import uk.org.openbanking.datamodel.account.OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerFeeChargeDetailInnerFeeChargeCapInner;
-import uk.org.openbanking.datamodel.account.OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerOtherTariffType;
-import uk.org.openbanking.datamodel.account.OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerTariffType;
-
-import java.time.OffsetDateTime;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Contains details of fees and charges which are not associated with either Overdraft or features/benefits

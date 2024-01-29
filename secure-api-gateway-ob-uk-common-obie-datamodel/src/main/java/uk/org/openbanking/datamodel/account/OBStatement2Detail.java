@@ -15,39 +15,20 @@
  */
 package uk.org.openbanking.datamodel.account;
 
-import java.net.URI;
-import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import uk.org.openbanking.datamodel.account.OBExternalStatementType1Code;
-import uk.org.openbanking.datamodel.account.OBStatement2StatementAmountInner;
-import uk.org.openbanking.datamodel.account.OBStatement2StatementBenefitInner;
-import uk.org.openbanking.datamodel.account.OBStatement2StatementDateTimeInner;
-import uk.org.openbanking.datamodel.account.OBStatement2StatementFeeInner;
-import uk.org.openbanking.datamodel.account.OBStatement2StatementInterestInner;
-import uk.org.openbanking.datamodel.account.OBStatement2StatementRateInner;
-import uk.org.openbanking.datamodel.account.OBStatement2StatementValueInner;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.time.OffsetDateTime;
-
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Provides further details on a statement resource.
