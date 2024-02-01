@@ -11,10 +11,9 @@
 #
 name: "CodeQL"
 
+# Scan when merging to master and on a weekly schedule
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
     branches: [ "master" ]
   schedule:
     - cron: '39 6 * * 1'
@@ -50,9 +49,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - uses: actions/setup-java@v1
+    - uses: actions/setup-java@v4
       with:
-        java-version: 17
+        java-version: '17'
+        cache: 'maven'
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
