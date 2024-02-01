@@ -52,6 +52,7 @@ jobs:
     - uses: actions/setup-java@v4
       with:
         java-version: '17'
+        distribution: 'zulu'
         cache: 'maven'
 
     # Initializes the CodeQL tools for scanning.
