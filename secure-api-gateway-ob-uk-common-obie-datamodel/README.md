@@ -21,12 +21,12 @@ In your pom file you should use the `secure-api-gateway-ob-uk-common-bom` import
 
 ### How to Build
 
-This is a Java Maven project, compiled using JDK 14.
+This is a Java Maven project, compiled using JDK 17.
 
 #### Prerequisites
 
 You need the following on your development machine;
-Java 14 or later
+Java 17
 Maven 3.6.0 or later
 
 #### Building
