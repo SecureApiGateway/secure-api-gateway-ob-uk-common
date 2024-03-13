@@ -20,10 +20,8 @@ import java.util.Objects;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
@@ -44,46 +42,7 @@ public class OBFundsConfirmationConsentResponse1Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    /**
-     * Specifies the status of consent resource in code form.
-     */
-    public enum StatusEnum {
-        AUTHORISED("Authorised"),
-
-        AWAITINGAUTHORISATION("AwaitingAuthorisation"),
-
-        REJECTED("Rejected"),
-
-        REVOKED("Revoked");
-
-        private String value;
-
-        StatusEnum(String value) {
-            this.value = value;
-        }
-
-        @JsonValue
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        @JsonCreator
-        public static StatusEnum fromValue(String value) {
-            for (StatusEnum b : StatusEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-    }
-
-    private StatusEnum status;
+    private OBFundsConfirmationConsentResponse1DataStatus status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -100,7 +59,7 @@ public class OBFundsConfirmationConsentResponse1Data {
     /**
      * Constructor with only required parameters
      */
-    public OBFundsConfirmationConsentResponse1Data(String consentId, DateTime creationDateTime, StatusEnum status, DateTime statusUpdateDateTime, OBFundsConfirmationConsent1DataDebtorAccount debtorAccount) {
+    public OBFundsConfirmationConsentResponse1Data(String consentId, DateTime creationDateTime, OBFundsConfirmationConsentResponse1DataStatus status, DateTime statusUpdateDateTime, OBFundsConfirmationConsent1DataDebtorAccount debtorAccount) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -152,24 +111,25 @@ public class OBFundsConfirmationConsentResponse1Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBFundsConfirmationConsentResponse1Data status(StatusEnum status) {
+    public OBFundsConfirmationConsentResponse1Data status(OBFundsConfirmationConsentResponse1DataStatus status) {
         this.status = status;
         return this;
     }
 
     /**
-     * Specifies the status of consent resource in code form.
+     * Get status
      *
      * @return status
      */
     @NotNull
-    @Schema(name = "Status", description = "Specifies the status of consent resource in code form.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Valid
+    @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public StatusEnum getStatus() {
+    public OBFundsConfirmationConsentResponse1DataStatus getStatus() {
         return status;
     }
 
-    public void setStatus(StatusEnum status) {
+    public void setStatus(OBFundsConfirmationConsentResponse1DataStatus status) {
         this.status = status;
     }
 

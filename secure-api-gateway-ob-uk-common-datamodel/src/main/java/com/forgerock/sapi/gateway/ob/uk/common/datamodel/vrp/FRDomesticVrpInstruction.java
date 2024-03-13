@@ -16,7 +16,12 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.*;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPostalAddress;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSupplementaryData;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

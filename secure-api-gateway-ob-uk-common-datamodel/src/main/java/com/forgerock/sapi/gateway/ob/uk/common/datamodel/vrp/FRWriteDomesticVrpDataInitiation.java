@@ -18,6 +18,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPostalAddress;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -79,6 +79,8 @@ public class OBStatement2 {
     @Valid
     private List<@Valid OBStatement2StatementValueInner> statementValue;
 
+    private OBReadBalance1DataTotalValue totalValue;
+
     public OBStatement2() {
         super();
     }
@@ -478,6 +480,27 @@ public class OBStatement2 {
         this.statementValue = statementValue;
     }
 
+    public OBStatement2 totalValue(OBReadBalance1DataTotalValue totalValue) {
+        this.totalValue = totalValue;
+        return this;
+    }
+
+    /**
+     * Get totalValue
+     *
+     * @return totalValue
+     */
+    @Valid
+    @Schema(name = "TotalValue", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("TotalValue")
+    public OBReadBalance1DataTotalValue getTotalValue() {
+        return totalValue;
+    }
+
+    public void setTotalValue(OBReadBalance1DataTotalValue totalValue) {
+        this.totalValue = totalValue;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -501,12 +524,13 @@ public class OBStatement2 {
                 Objects.equals(this.statementAmount, obStatement2.statementAmount) &&
                 Objects.equals(this.statementDateTime, obStatement2.statementDateTime) &&
                 Objects.equals(this.statementRate, obStatement2.statementRate) &&
-                Objects.equals(this.statementValue, obStatement2.statementValue);
+                Objects.equals(this.statementValue, obStatement2.statementValue) &&
+                Objects.equals(this.totalValue, obStatement2.totalValue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, statementId, statementReference, type, startDateTime, endDateTime, creationDateTime, statementDescription, statementBenefit, statementFee, statementInterest, statementAmount, statementDateTime, statementRate, statementValue);
+        return Objects.hash(accountId, statementId, statementReference, type, startDateTime, endDateTime, creationDateTime, statementDescription, statementBenefit, statementFee, statementInterest, statementAmount, statementDateTime, statementRate, statementValue, totalValue);
     }
 
     @Override
@@ -528,6 +552,7 @@ public class OBStatement2 {
         sb.append("    statementDateTime: ").append(toIndentedString(statementDateTime)).append("\n");
         sb.append("    statementRate: ").append(toIndentedString(statementRate)).append("\n");
         sb.append("    statementValue: ").append(toIndentedString(statementValue)).append("\n");
+        sb.append("    totalValue: ").append(toIndentedString(totalValue)).append("\n");
         sb.append("}");
         return sb.toString();
     }

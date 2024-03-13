@@ -15,11 +15,12 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.customerinfo;
 
+import org.joda.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.LocalDate;
 
 
 @Data

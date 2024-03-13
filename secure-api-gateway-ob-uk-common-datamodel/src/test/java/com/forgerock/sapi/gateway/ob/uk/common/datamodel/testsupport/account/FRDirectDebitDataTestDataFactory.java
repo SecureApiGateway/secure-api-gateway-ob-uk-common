@@ -15,12 +15,13 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRDirectDebitData;
-import org.joda.time.DateTime;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAmountTestDataFactory.aValidFRAmount;
 
 import java.util.UUID;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAmountTestDataFactory.aValidFRAmount;
+import org.joda.time.DateTime;
+
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRDirectDebitData;
 
 /**
  * Test data factory for {@link FRDirectDebitData}.

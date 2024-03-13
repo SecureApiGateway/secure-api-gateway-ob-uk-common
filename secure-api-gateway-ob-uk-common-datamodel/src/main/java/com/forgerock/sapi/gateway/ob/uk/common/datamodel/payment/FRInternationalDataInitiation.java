@@ -18,7 +18,12 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.*;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRChargeBearerType;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialCreditor;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSupplementaryData;
 
 /**
  * Represents the values that are common across the various international payment "initiation" objects.

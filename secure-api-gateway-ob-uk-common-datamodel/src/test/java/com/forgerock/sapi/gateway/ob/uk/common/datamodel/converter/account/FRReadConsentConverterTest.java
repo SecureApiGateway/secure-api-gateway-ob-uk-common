@@ -23,10 +23,10 @@ import org.junit.jupiter.api.Test;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRReadConsent;
 
-import uk.org.openbanking.datamodel.common.OBExternalPermissions1Code;
 import uk.org.openbanking.datamodel.account.OBReadConsent1;
 import uk.org.openbanking.datamodel.account.OBReadConsent1Data;
 import uk.org.openbanking.datamodel.account.OBRisk2;
+import uk.org.openbanking.datamodel.common.OBExternalPermissions1Code;
 
 class FRReadConsentConverterTest {
 
@@ -35,7 +35,7 @@ class FRReadConsentConverterTest {
         OBReadConsent1 consent1 = new OBReadConsent1().
                 data(new OBReadConsent1Data()
                         .permissions(List.of(OBExternalPermissions1Code.READACCOUNTSBASIC,
-                                             OBExternalPermissions1Code.READBALANCES))
+                                OBExternalPermissions1Code.READBALANCES))
                         .expirationDateTime(DateTime.now().plusDays(30))
                         .transactionToDateTime(DateTime.now())
                         .transactionFromDateTime(DateTime.now().minusDays(90)))

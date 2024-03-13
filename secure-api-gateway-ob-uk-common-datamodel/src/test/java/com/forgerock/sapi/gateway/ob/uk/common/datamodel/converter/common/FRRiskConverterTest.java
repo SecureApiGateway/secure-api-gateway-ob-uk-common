@@ -15,18 +15,20 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPaymentRisk;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
+
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPaymentRisk;
+
 import uk.org.openbanking.datamodel.common.OBRisk1;
 import uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FRRiskConverterTest {
 
     @Test
     void shouldConvertOBRisk1() {
-        final OBRisk1[] testData = new OBRisk1[] {
+        final OBRisk1[] testData = new OBRisk1[]{
                 OBRisk1TestDataFactory.aValidOBRisk1(),
                 OBRisk1TestDataFactory.aValidOBRisk1MandatoryFields()
         };

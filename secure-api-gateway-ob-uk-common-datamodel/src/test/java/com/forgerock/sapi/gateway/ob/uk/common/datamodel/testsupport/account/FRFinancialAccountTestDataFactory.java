@@ -15,12 +15,13 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.account;
 
+import java.util.List;
+
+import org.joda.time.DateTime;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountServicer;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRFinancialAccount;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAccountIdentifierTestDataFactory;
-import org.joda.time.DateTime;
-
-import java.util.List;
 
 /**
  * Test data factory for {@link FRFinancialAccount}.

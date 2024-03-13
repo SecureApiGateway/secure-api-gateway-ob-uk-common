@@ -16,7 +16,11 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSubmissionStatus;
-import uk.org.openbanking.datamodel.payment.*;
+
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticResponse5DataStatus;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledResponse5DataStatus;
+import uk.org.openbanking.datamodel.payment.OBWriteFileResponse3DataStatus;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderResponse7DataStatus;
 import uk.org.openbanking.datamodel.vrp.OBDomesticVRPResponseDataStatus;
 
 public class FRSubmissionStatusConverter {

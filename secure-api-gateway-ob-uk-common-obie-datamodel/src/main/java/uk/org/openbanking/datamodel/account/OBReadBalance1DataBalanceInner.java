@@ -54,6 +54,8 @@ public class OBReadBalance1DataBalanceInner {
     @Valid
     private List<@Valid OBReadBalance1DataBalanceInnerCreditLineInner> creditLine;
 
+    private OBReadBalance1DataBalanceInnerLocalAmount localAmount;
+
     public OBReadBalance1DataBalanceInner() {
         super();
     }
@@ -208,6 +210,27 @@ public class OBReadBalance1DataBalanceInner {
         this.creditLine = creditLine;
     }
 
+    public OBReadBalance1DataBalanceInner localAmount(OBReadBalance1DataBalanceInnerLocalAmount localAmount) {
+        this.localAmount = localAmount;
+        return this;
+    }
+
+    /**
+     * Get localAmount
+     *
+     * @return localAmount
+     */
+    @Valid
+    @Schema(name = "LocalAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("LocalAmount")
+    public OBReadBalance1DataBalanceInnerLocalAmount getLocalAmount() {
+        return localAmount;
+    }
+
+    public void setLocalAmount(OBReadBalance1DataBalanceInnerLocalAmount localAmount) {
+        this.localAmount = localAmount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -222,12 +245,13 @@ public class OBReadBalance1DataBalanceInner {
                 Objects.equals(this.type, obReadBalance1DataBalanceInner.type) &&
                 Objects.equals(this.dateTime, obReadBalance1DataBalanceInner.dateTime) &&
                 Objects.equals(this.amount, obReadBalance1DataBalanceInner.amount) &&
-                Objects.equals(this.creditLine, obReadBalance1DataBalanceInner.creditLine);
+                Objects.equals(this.creditLine, obReadBalance1DataBalanceInner.creditLine) &&
+                Objects.equals(this.localAmount, obReadBalance1DataBalanceInner.localAmount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, creditDebitIndicator, type, dateTime, amount, creditLine);
+        return Objects.hash(accountId, creditDebitIndicator, type, dateTime, amount, creditLine, localAmount);
     }
 
     @Override
@@ -240,6 +264,7 @@ public class OBReadBalance1DataBalanceInner {
         sb.append("    dateTime: ").append(toIndentedString(dateTime)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    creditLine: ").append(toIndentedString(creditLine)).append("\n");
+        sb.append("    localAmount: ").append(toIndentedString(localAmount)).append("\n");
         sb.append("}");
         return sb.toString();
     }

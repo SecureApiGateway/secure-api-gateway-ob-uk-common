@@ -16,11 +16,15 @@
 package uk.org.openbanking.datamodel.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+
 import java.util.Objects;
 
 /**
@@ -35,6 +39,9 @@ public class OBActiveOrHistoricCurrencyAndAmount {
 
     @JsonProperty("Currency")
     private String currency;
+
+    @JsonProperty("SubType")
+    private String subType;
 
     public OBActiveOrHistoricCurrencyAndAmount amount(String amount) {
         this.amount = amount;
@@ -78,6 +85,29 @@ public class OBActiveOrHistoricCurrencyAndAmount {
         this.currency = currency;
     }
 
+    public OBActiveOrHistoricCurrencyAndAmount subType(String subType) {
+        this.subType = subType;
+        return this;
+    }
+
+    /**
+     * The amount in the domestic or base accounting currency. Default is Base Currency (BCUR) if not specified
+     * Values:
+     * - BaseCurrency
+     * - LocalCurrency
+     *
+     * @return subType
+     */
+    @Valid
+    @Schema(name = "SubType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SubType")
+    public String getSubType() {
+        return subType;
+    }
+
+    public void setSubType(String subType) {
+        this.subType = subType;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -89,12 +119,13 @@ public class OBActiveOrHistoricCurrencyAndAmount {
         }
         OBActiveOrHistoricCurrencyAndAmount obActiveOrHistoricCurrencyAndAmount = (OBActiveOrHistoricCurrencyAndAmount) o;
         return Objects.equals(this.amount, obActiveOrHistoricCurrencyAndAmount.amount) &&
-                Objects.equals(this.currency, obActiveOrHistoricCurrencyAndAmount.currency);
+                Objects.equals(this.currency, obActiveOrHistoricCurrencyAndAmount.currency) &&
+                Objects.equals(this.subType, obActiveOrHistoricCurrencyAndAmount.subType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amount, currency);
+        return Objects.hash(amount, currency, subType);
     }
 
     @Override
@@ -104,6 +135,7 @@ public class OBActiveOrHistoricCurrencyAndAmount {
 
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("    subType: ").append(toIndentedString(subType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

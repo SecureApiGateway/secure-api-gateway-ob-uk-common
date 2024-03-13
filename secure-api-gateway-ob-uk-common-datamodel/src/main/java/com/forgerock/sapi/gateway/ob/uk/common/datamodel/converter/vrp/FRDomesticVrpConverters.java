@@ -15,19 +15,9 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.vrp;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRemittanceInformationConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRiskConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpInstruction;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpRequest;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpRequestData;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRWriteDomesticVrpDataInitiation;
-import lombok.extern.slf4j.Slf4j;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInitiation;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInstruction;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequest;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequestData;
-
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter.*;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter.toFRAccountIdentifier;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter.toOBCashAccountCreditor3;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter.toOBCashAccountDebtorWithName;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter.toFRAmount;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter.toFRPostalAddress;
@@ -35,6 +25,19 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRiskConverter.toOBRisk1;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter.toFRSupplementaryData;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter.toOBSupplementaryData1;
+
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRemittanceInformationConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRiskConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpInstruction;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpRequest;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpRequestData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRWriteDomesticVrpDataInitiation;
+
+import lombok.extern.slf4j.Slf4j;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInitiation;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInstruction;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequest;
+import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequestData;
 
 @Slf4j
 public class FRDomesticVrpConverters {
@@ -52,12 +55,13 @@ public class FRDomesticVrpConverters {
         return frDomesticVRPRequest;
     }
 
-    public static FRDomesticVrpRequestData toFRDomesticVRPRequestData(OBDomesticVRPRequestData obDomesticVRPRequestData){
+    public static FRDomesticVrpRequestData toFRDomesticVRPRequestData(OBDomesticVRPRequestData obDomesticVRPRequestData) {
         return obDomesticVRPRequestData == null ? null : FRDomesticVrpRequestData.builder()
                 .consentId(obDomesticVRPRequestData.getConsentId())
                 .initiation(toFRDomesticVRPInitiation(obDomesticVRPRequestData.getInitiation()))
                 .psuAuthenticationMethod(obDomesticVRPRequestData.getPsUAuthenticationMethod())
                 .psUInteractionType(FRVrpInteractionTypesConverter.toFRVRPInteractionTypes(obDomesticVRPRequestData.getPsUInteractionType()))
+                .vrPType(obDomesticVRPRequestData.getVrPType())
                 .instruction(toFRDomesticVRPInstruction(obDomesticVRPRequestData.getInstruction()))
                 .build();
     }
@@ -77,7 +81,6 @@ public class FRDomesticVrpConverters {
     }
 
 
-
     public static FRWriteDomesticVrpDataInitiation toFRDomesticVRPInitiation(OBDomesticVRPInitiation initiation) {
         FRWriteDomesticVrpDataInitiation frInitiation = FRWriteDomesticVrpDataInitiation.builder()
                 .creditorAccount(toFRAccountIdentifier(initiation.getCreditorAccount()))
@@ -88,22 +91,23 @@ public class FRDomesticVrpConverters {
         return frInitiation;
     }
 
-    public static OBDomesticVRPRequest toOBDomesticVRPRequest(FRDomesticVrpRequest frDomesticVRPRequest){
+    public static OBDomesticVRPRequest toOBDomesticVRPRequest(FRDomesticVrpRequest frDomesticVRPRequest) {
         return frDomesticVRPRequest == null ? null : new OBDomesticVRPRequest()
                 .data(toOBDomesticVRPRequestData(frDomesticVRPRequest.getData()))
                 .risk(toOBRisk1(frDomesticVRPRequest.getRisk()));
     }
 
-    public static OBDomesticVRPRequestData toOBDomesticVRPRequestData(FRDomesticVrpRequestData data){
+    public static OBDomesticVRPRequestData toOBDomesticVRPRequestData(FRDomesticVrpRequestData data) {
         return data == null ? null : new OBDomesticVRPRequestData()
                 .consentId(data.getConsentId())
                 .psUAuthenticationMethod(data.getPsuAuthenticationMethod())
                 .psUInteractionType(FRVrpInteractionTypesConverter.toFRVRPInteractionTypes(data.getPsUInteractionType()))
+                .vrPType(data.getVrPType())
                 .initiation(toOBDomesticVRPInitiation(data.getInitiation()))
                 .instruction(toOBDomesticVRPInstruction(data.getInstruction()));
     }
 
-    public static OBDomesticVRPInitiation toOBDomesticVRPInitiation(FRWriteDomesticVrpDataInitiation initiation){
+    public static OBDomesticVRPInitiation toOBDomesticVRPInitiation(FRWriteDomesticVrpDataInitiation initiation) {
         return initiation == null ? null : new OBDomesticVRPInitiation()
                 .creditorAccount(toOBCashAccountCreditor3(initiation.getCreditorAccount()))
                 .creditorPostalAddress(toOBPostalAddress6(initiation.getCreditorPostalAddress()))
@@ -113,7 +117,7 @@ public class FRDomesticVrpConverters {
 
     }
 
-    public static OBDomesticVRPInstruction toOBDomesticVRPInstruction(FRDomesticVrpInstruction instruction){
+    public static OBDomesticVRPInstruction toOBDomesticVRPInstruction(FRDomesticVrpInstruction instruction) {
         return instruction == null ? null : new OBDomesticVRPInstruction()
                 .endToEndIdentification(instruction.getEndToEndIdentification())
                 .instructionIdentification(instruction.getInstructionIdentification())

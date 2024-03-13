@@ -17,9 +17,8 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.funds;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.funds.FRFundsConfirmationConsent;
-import uk.org.openbanking.datamodel.fund.OBFundsConfirmationConsent1;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter.toFRAccountIdentifier;
+import uk.org.openbanking.datamodel.fund.OBFundsConfirmationConsent1;
 
 public class FRFundsConfirmationConsentConverter {
 

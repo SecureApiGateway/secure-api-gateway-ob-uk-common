@@ -15,12 +15,14 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.funds;
 
+import org.joda.time.DateTime;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
 /**
  * Represents {@code OBFundsConfirmationConsentData1} in the OB data model. Note that

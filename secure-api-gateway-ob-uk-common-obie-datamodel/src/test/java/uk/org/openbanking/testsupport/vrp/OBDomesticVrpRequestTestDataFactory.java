@@ -26,6 +26,7 @@ import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFact
 import java.util.UUID;
 
 import uk.org.openbanking.datamodel.common.OBVRPAuthenticationMethods;
+import uk.org.openbanking.datamodel.common.OBVRPConsentType;
 import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInstruction;
 import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequest;
 import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequestData;
@@ -50,6 +51,7 @@ public class OBDomesticVrpRequestTestDataFactory {
                 .consentId(ConstantsVrpTestData.CONSENT_PREFIX + UUID.randomUUID())
                 .psUAuthenticationMethod(OBVRPAuthenticationMethods.SCA_NOT_REQUIRED.getValue())
                 .psUInteractionType(OBVRPInteractionTypes.INSESSION)
+                .vrPType(OBVRPConsentType.SWEEPING.getValue())
                 .initiation(aValidOBDomesticVRPInitiation())
                 .instruction(aValidOBDomesticVRPInstruction());
 
@@ -60,6 +62,7 @@ public class OBDomesticVrpRequestTestDataFactory {
                 .consentId(consentId)
                 .psUAuthenticationMethod(OBVRPAuthenticationMethods.SCA_NOT_REQUIRED.getValue())
                 .psUInteractionType(OBVRPInteractionTypes.INSESSION)
+                .vrPType(OBVRPConsentType.SWEEPING.getValue())
                 .initiation(aValidOBDomesticVRPInitiation())
                 .instruction(aValidOBDomesticVRPInstruction());
 

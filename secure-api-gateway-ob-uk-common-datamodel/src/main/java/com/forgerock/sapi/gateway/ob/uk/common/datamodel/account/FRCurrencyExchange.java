@@ -15,14 +15,16 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
+import java.math.BigDecimal;
+
+import org.joda.time.DateTime;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
-
-import java.math.BigDecimal;
 
 /**
  * Represents {@code OBCurrencyExchange5} in the OB data model. It is stored within mongo (instead of the OB object),

@@ -15,18 +15,20 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
+import java.util.List;
+import java.util.stream.Stream;
+
+import org.joda.time.DateTime;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
-
-import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * Represents {@code OBAccount6} in the OB data model. It is stored within mongo (instead of the OB object),
@@ -57,7 +59,7 @@ public class FRFinancialAccount {
 
     @JsonIgnore
     public FRAccountIdentifier getFirstAccount() {
-        if(this.accounts == null || this.accounts.size()==0)
+        if (this.accounts == null || this.accounts.size() == 0)
             return null;
         return this.accounts.get(0);
     }
@@ -129,7 +131,8 @@ public class FRFinancialAccount {
         LOAN("Loan"),
         MORTGAGE("Mortgage"),
         PREPAIDCARD("PrePaidCard"),
-        SAVINGS("Savings");
+        SAVINGS("Savings"),
+        WALLET("Wallet");
 
         private String value;
 
@@ -154,5 +157,4 @@ public class FRFinancialAccount {
                     .orElse(null);
         }
     }
-
 }

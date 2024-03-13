@@ -28,6 +28,7 @@ public class FRDomesticVrpRequestData {
     public String consentId;
     public String psuAuthenticationMethod;
     public FRVRPInteractionTypes psUInteractionType;
+    public String vrPType;
     public FRWriteDomesticVrpDataInitiation initiation;
     public FRDomesticVrpInstruction instruction;
 }

@@ -226,7 +226,6 @@ public class OBStatement2StatementFeeInner {
         return Objects.equals(this.description, obStatement2StatementFeeInner.description) &&
                 Objects.equals(this.creditDebitIndicator, obStatement2StatementFeeInner.creditDebitIndicator) &&
                 Objects.equals(this.type, obStatement2StatementFeeInner.type) &&
-                // TODO: temporary fix for https://github.com/SecureApiGateway/SecureApiGateway/issues/981
                 isEqual(this.rate, obStatement2StatementFeeInner.rate) &&
                 Objects.equals(this.rateType, obStatement2StatementFeeInner.rateType) &&
                 Objects.equals(this.frequency, obStatement2StatementFeeInner.frequency) &&

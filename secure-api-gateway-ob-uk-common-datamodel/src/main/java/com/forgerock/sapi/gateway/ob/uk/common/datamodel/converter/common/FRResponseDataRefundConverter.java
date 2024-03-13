@@ -20,7 +20,14 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialCreditor;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRResponseDataRefund;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRInternationalResponseDataRefund;
-import uk.org.openbanking.datamodel.payment.*;
+
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticResponse5DataRefund;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticResponse5DataRefundAccount;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalResponse5DataRefund;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalResponse5DataRefundAgent;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalResponse5DataRefundCreditor;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderResponse7DataRefund;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderResponse7DataRefundCreditor;
 import uk.org.openbanking.datamodel.vrp.OBCashAccountDebtorWithName;
 
 /**

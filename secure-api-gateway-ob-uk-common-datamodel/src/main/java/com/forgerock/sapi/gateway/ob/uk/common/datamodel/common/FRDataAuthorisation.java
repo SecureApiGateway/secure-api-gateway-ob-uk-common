@@ -15,13 +15,14 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.common;
 
+import java.util.stream.Stream;
+
+import org.joda.time.DateTime;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
-
-import java.util.stream.Stream;
 
 /**
  * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in

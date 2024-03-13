@@ -15,7 +15,8 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.List;
 
@@ -36,13 +37,13 @@ class FRChargeConverterTest {
         final OBWriteDomesticConsentResponse5DataChargesInner obCharge = new OBWriteDomesticConsentResponse5DataChargesInner()
                 .chargeBearer(OBChargeBearerType1Code.SHARED)
                 .amount(new OBActiveOrHistoricCurrencyAndAmount()
-                        .currency("GBP").amount("999.12"))
+                        .currency("GBP").amount("999.12").subType(""))
                 .type("transaction fee");
 
         final FRCharge frCharge = FRChargeConverter.toFRCharge(obCharge);
         assertEquals("transaction fee", frCharge.getType());
         assertEquals(FRChargeBearerType.SHARED, frCharge.getChargeBearer());
-        assertEquals(new FRAmount("999.12", "GBP"), frCharge.getAmount());
+        assertEquals(new FRAmount("999.12", "GBP", ""), frCharge.getAmount());
     }
 
     @Test

@@ -300,7 +300,6 @@ public class OBWriteFile2DataInitiation {
                 Objects.equals(this.fileHash, obWriteFile2DataInitiation.fileHash) &&
                 Objects.equals(this.fileReference, obWriteFile2DataInitiation.fileReference) &&
                 Objects.equals(this.numberOfTransactions, obWriteFile2DataInitiation.numberOfTransactions) &&
-                // TODO: temporary fix for https://github.com/SecureApiGateway/SecureApiGateway/issues/981
                 isEqual(this.controlSum, obWriteFile2DataInitiation.controlSum) &&
                 Objects.equals(this.requestedExecutionDateTime, obWriteFile2DataInitiation.requestedExecutionDateTime) &&
                 Objects.equals(this.localInstrument, obWriteFile2DataInitiation.localInstrument) &&

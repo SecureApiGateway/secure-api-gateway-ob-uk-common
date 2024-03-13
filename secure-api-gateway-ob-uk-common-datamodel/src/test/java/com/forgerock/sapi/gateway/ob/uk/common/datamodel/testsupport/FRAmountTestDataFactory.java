@@ -35,6 +35,7 @@ public class FRAmountTestDataFactory {
     public static FRAmount.FRAmountBuilder aValidFRAmountBuilder() {
         return FRAmount.builder()
                 .currency("GBP")
-                .amount("10.00");
+                .amount("10.00")
+                .subType("BaseCurrency");
     }
 }

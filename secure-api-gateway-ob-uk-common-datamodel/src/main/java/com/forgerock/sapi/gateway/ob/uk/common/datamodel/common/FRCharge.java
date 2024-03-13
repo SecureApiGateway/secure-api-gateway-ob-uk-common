@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 /**
  * Common representation of a Charge, typically used in the OBIE Payment API to indicate a cost incurred to a chargeBearer
  * in order for the transaction to be made.
- *
+ * <p>
  * Example OBIE schema type: {@link uk.org.openbanking.datamodel.payment.OBWriteDomesticConsentResponse5DataCharges}
  */
 @Data

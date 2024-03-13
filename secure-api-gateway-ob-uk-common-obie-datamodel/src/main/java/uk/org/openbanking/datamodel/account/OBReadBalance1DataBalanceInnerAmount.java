@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
@@ -37,6 +38,8 @@ public class OBReadBalance1DataBalanceInnerAmount {
     private String amount;
 
     private String currency;
+
+    private OBReadBalance1DataBalanceInnerAmountSubType subType = OBReadBalance1DataBalanceInnerAmountSubType.BASECURRENCY;
 
     public OBReadBalance1DataBalanceInnerAmount() {
         super();
@@ -94,6 +97,27 @@ public class OBReadBalance1DataBalanceInnerAmount {
         this.currency = currency;
     }
 
+    public OBReadBalance1DataBalanceInnerAmount subType(OBReadBalance1DataBalanceInnerAmountSubType subType) {
+        this.subType = subType;
+        return this;
+    }
+
+    /**
+     * Get subType
+     *
+     * @return subType
+     */
+    @Valid
+    @Schema(name = "SubType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("SubType")
+    public OBReadBalance1DataBalanceInnerAmountSubType getSubType() {
+        return subType;
+    }
+
+    public void setSubType(OBReadBalance1DataBalanceInnerAmountSubType subType) {
+        this.subType = subType;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -104,12 +128,13 @@ public class OBReadBalance1DataBalanceInnerAmount {
         }
         OBReadBalance1DataBalanceInnerAmount obReadBalance1DataBalanceInnerAmount = (OBReadBalance1DataBalanceInnerAmount) o;
         return Objects.equals(this.amount, obReadBalance1DataBalanceInnerAmount.amount) &&
-                Objects.equals(this.currency, obReadBalance1DataBalanceInnerAmount.currency);
+                Objects.equals(this.currency, obReadBalance1DataBalanceInnerAmount.currency) &&
+                Objects.equals(this.subType, obReadBalance1DataBalanceInnerAmount.subType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amount, currency);
+        return Objects.hash(amount, currency, subType);
     }
 
     @Override
@@ -118,6 +143,7 @@ public class OBReadBalance1DataBalanceInnerAmount {
         sb.append("class OBReadBalance1DataBalanceInnerAmount {\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("    subType: ").append(toIndentedString(subType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

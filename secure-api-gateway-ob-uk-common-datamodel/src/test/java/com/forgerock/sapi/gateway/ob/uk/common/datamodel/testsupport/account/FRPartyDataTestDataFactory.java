@@ -15,12 +15,12 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRPartyData;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRPostalAddressTestDataFactory.aValidFRPostalAddress;
 
 import java.util.List;
 import java.util.UUID;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRPostalAddressTestDataFactory.aValidFRPostalAddress;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRPartyData;
 
 /**
  * Test data factory for {@link FRPartyData}.

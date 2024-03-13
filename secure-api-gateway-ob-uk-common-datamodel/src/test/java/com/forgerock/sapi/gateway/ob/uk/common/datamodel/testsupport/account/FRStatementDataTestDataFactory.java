@@ -15,13 +15,14 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.account;
 
+import java.util.List;
+import java.util.UUID;
+
+import org.joda.time.DateTime;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditDebitIndicator;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRStatementData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAmountTestDataFactory;
-import org.joda.time.DateTime;
-
-import java.util.List;
-import java.util.UUID;
 
 /**
  * Test data factory for {@link FRStatementData}.
@@ -54,11 +55,13 @@ public class FRStatementDataTestDataFactory {
                                 .creditDebitIndicator(FRCreditDebitIndicator.CREDIT)
                                 .type("PreviousClosingBalance")
                                 .amount(FRAmountTestDataFactory.aValidFRAmount())
+                                .localAmount(FRAmountTestDataFactory.aValidFRAmount())
                                 .build(),
                         FRStatementData.FRStatementAmount.builder()
                                 .creditDebitIndicator(FRCreditDebitIndicator.CREDIT)
                                 .type("ClosingBalance")
                                 .amount(FRAmountTestDataFactory.aValidFRAmount())
+                                .localAmount(FRAmountTestDataFactory.aValidFRAmount())
                                 .build()
                 ))
                 .build();

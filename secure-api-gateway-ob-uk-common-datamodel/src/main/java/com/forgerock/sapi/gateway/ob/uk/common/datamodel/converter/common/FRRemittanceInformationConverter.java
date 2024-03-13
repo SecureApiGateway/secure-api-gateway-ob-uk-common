@@ -50,7 +50,7 @@ public class FRRemittanceInformationConverter {
                 .reference(remittanceInformation.getReference());
     }
 
-    public static OBVRPRemittanceInformation toOBVRPRemittanceInformation(FRRemittanceInformation remittanceInformation){
+    public static OBVRPRemittanceInformation toOBVRPRemittanceInformation(FRRemittanceInformation remittanceInformation) {
         return remittanceInformation == null ? null : new OBVRPRemittanceInformation()
                 .reference(remittanceInformation.getReference())
                 .unstructured(remittanceInformation.getUnstructured());

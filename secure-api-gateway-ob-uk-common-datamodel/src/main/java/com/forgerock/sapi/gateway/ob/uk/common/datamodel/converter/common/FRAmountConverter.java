@@ -17,10 +17,33 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
-import uk.org.openbanking.datamodel.account.*;
+
+import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount0;
+import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount1;
+import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount10;
+import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount11;
+import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount2;
+import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount3;
+import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount4;
+import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount5;
+import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount6;
+import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount7;
+import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount8;
+import uk.org.openbanking.datamodel.account.OBActiveOrHistoricCurrencyAndAmount9;
+import uk.org.openbanking.datamodel.account.OBCurrencyExchange5InstructedAmount;
+import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInnerAmount;
+import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInnerCreditLineInnerAmount;
+import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInnerLocalAmount;
+import uk.org.openbanking.datamodel.account.OBReadOffer1DataOfferInnerAmount;
+import uk.org.openbanking.datamodel.account.OBReadOffer1DataOfferInnerFee;
+import uk.org.openbanking.datamodel.account.OBStatement2StatementAmountInnerLocalAmount;
+import uk.org.openbanking.datamodel.account.OBTransactionCashBalanceAmount;
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.fund.OBFundsConfirmation1DataInstructedAmount;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiationInstructedAmount;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount;
+import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount;
 
 public class FRAmountConverter {
 
@@ -115,6 +138,14 @@ public class FRAmountConverter {
 
     public static FRAmount toFRAmount(OBReadBalance1DataBalanceInnerCreditLineInnerAmount amount) {
         return FRModelMapper.map(amount, FRAmount.class);
+    }
+
+    public static FRAmount toFRAmount(OBReadBalance1DataBalanceInnerLocalAmount localAmount) {
+        return FRModelMapper.map(localAmount, FRAmount.class);
+    }
+
+    public static FRAmount toFRAmount(OBStatement2StatementAmountInnerLocalAmount localAmount) {
+        return FRModelMapper.map(localAmount, FRAmount.class);
     }
 
     public static FRAmount toFRAmount(OBFundsConfirmation1DataInstructedAmount amount) {
@@ -216,6 +247,14 @@ public class FRAmountConverter {
 
     public static OBReadBalance1DataBalanceInnerCreditLineInnerAmount toOBReadBalance1DataAmount1(FRAmount amount) {
         return FRModelMapper.map(amount, OBReadBalance1DataBalanceInnerCreditLineInnerAmount.class);
+    }
+
+    public static OBReadBalance1DataBalanceInnerLocalAmount toOBReadBalance1DataAmount2(FRAmount localAmount) {
+        return FRModelMapper.map(localAmount, OBReadBalance1DataBalanceInnerLocalAmount.class);
+    }
+
+    public static OBStatement2StatementAmountInnerLocalAmount toOBStatement2StatementAmount1(FRAmount localAmount) {
+        return FRModelMapper.map(localAmount, OBStatement2StatementAmountInnerLocalAmount.class);
     }
 
     public static OBFundsConfirmation1DataInstructedAmount toOBFundsConfirmation1DataInstructedAmount(FRAmount amount) {

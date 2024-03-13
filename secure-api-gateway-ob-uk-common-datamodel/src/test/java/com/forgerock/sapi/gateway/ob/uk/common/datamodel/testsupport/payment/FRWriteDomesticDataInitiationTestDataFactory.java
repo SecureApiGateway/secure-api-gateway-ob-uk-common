@@ -15,13 +15,13 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.payment;
 
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.payment.FRRemittanceInformationTestDataFactory.aValidFRRemittanceInformation;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticDataInitiation;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticDataInitiation.FRWriteDomesticDataInitiationBuilder;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAccountIdentifierTestDataFactory;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAmountTestDataFactory;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRPostalAddressTestDataFactory;
-
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.payment.FRRemittanceInformationTestDataFactory.aValidFRRemittanceInformation;
 
 /**
  * Test data factory for {@link FRWriteDomesticDataInitiation}.

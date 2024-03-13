@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
  * <p>
  * This class is stored within mongo (instead of the OB model), in order to make it easier to introduce new versions
  * of the Read/Write API.
- *</p>
+ * </p>
  *
  * <p>
  * Note that this object is used across multiple versions of the Read/Write API, meaning that some values won't be

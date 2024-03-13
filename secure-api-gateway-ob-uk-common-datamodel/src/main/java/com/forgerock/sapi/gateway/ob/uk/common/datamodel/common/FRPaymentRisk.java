@@ -15,12 +15,12 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.common;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 /**
  * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in
@@ -47,14 +47,14 @@ public class FRPaymentRisk {
     private Boolean contractPresentIndicator;
 
     /**
- * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order
- * to make it easier to introduce new versions of the Read/Write API.
- *
- * <p>
- * Note that this object is used across multiple versions of the Read/Write API, meaning that some values won't be
- * populated. For this reason it is a mutable {@link Data} rather than an immutable {@link lombok.Value} one.
- * </p>
- */
+     * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order
+     * to make it easier to introduce new versions of the Read/Write API.
+     *
+     * <p>
+     * Note that this object is used across multiple versions of the Read/Write API, meaning that some values won't be
+     * populated. For this reason it is a mutable {@link Data} rather than an immutable {@link lombok.Value} one.
+     * </p>
+     */
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
