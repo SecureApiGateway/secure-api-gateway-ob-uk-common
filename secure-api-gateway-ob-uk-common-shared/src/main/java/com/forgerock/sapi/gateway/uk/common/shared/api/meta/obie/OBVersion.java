@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.uk.common.shared.api.meta.obie;
 
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.util.StringUtils;
 
 /**
@@ -37,11 +38,13 @@ public enum OBVersion {
     v3_1_7,
     v3_1_8,
     v3_1_9,
-    v3_1_10;
+    v3_1_10,
+    v3_1_11;
 
     /**
      * Provides the OBversion object if exist <br/>
      * Accepts formats 'vX.X.X' and 'X.X.X'
+     *
      * @param version string representation
      * @return the version Enum object
      */
@@ -72,6 +75,7 @@ public enum OBVersion {
 
     /**
      * Provides the canonical value of version stripping 'v' and replacing '_' for '.'
+     *
      * @return canonical string version formatted to x.x.x
      */
     public String getCanonicalVersion() {
@@ -80,6 +84,7 @@ public enum OBVersion {
 
     /**
      * Provides the canonical Enum name replacing '_' for '.'
+     *
      * @return canonical Enum name formatted to vX.X.X
      */
     public String getCanonicalName() {
