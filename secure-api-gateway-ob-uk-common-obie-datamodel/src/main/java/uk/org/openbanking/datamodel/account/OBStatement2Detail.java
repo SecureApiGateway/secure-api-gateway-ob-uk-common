@@ -68,7 +68,7 @@ public class OBStatement2Detail {
     private List<@Valid OBStatement2StatementInterestInner> statementInterest;
 
     @Valid
-    private List<@Valid OBStatement2StatementAmountInner> statementAmount;
+    private List<@Valid OBStatement2DetailStatementAmountInner> statementAmount;
 
     @Valid
     private List<@Valid OBStatement2StatementDateTimeInner> statementDateTime;
@@ -362,12 +362,12 @@ public class OBStatement2Detail {
         this.statementInterest = statementInterest;
     }
 
-    public OBStatement2Detail statementAmount(List<@Valid OBStatement2StatementAmountInner> statementAmount) {
+    public OBStatement2Detail statementAmount(List<@Valid OBStatement2DetailStatementAmountInner> statementAmount) {
         this.statementAmount = statementAmount;
         return this;
     }
 
-    public OBStatement2Detail addStatementAmountItem(OBStatement2StatementAmountInner statementAmountItem) {
+    public OBStatement2Detail addStatementAmountItem(OBStatement2DetailStatementAmountInner statementAmountItem) {
         if (this.statementAmount == null) {
             this.statementAmount = new ArrayList<>();
         }
@@ -383,11 +383,11 @@ public class OBStatement2Detail {
     @Valid
     @Schema(name = "StatementAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatementAmount")
-    public List<@Valid OBStatement2StatementAmountInner> getStatementAmount() {
+    public List<@Valid OBStatement2DetailStatementAmountInner> getStatementAmount() {
         return statementAmount;
     }
 
-    public void setStatementAmount(List<@Valid OBStatement2StatementAmountInner> statementAmount) {
+    public void setStatementAmount(List<@Valid OBStatement2DetailStatementAmountInner> statementAmount) {
         this.statementAmount = statementAmount;
     }
 

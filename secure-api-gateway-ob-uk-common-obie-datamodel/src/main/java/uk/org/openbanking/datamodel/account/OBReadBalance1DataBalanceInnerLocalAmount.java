@@ -27,33 +27,33 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 /**
- * Amount of money associated with the amount type.
+ * Optional component providing the equivalent of Amount in local currency. Default is Local Currency (LCUR) if not specified
  */
 
-@Schema(name = "OBActiveOrHistoricCurrencyAndAmount_8", description = "Amount of money associated with the amount type.")
-@JsonTypeName("OBActiveOrHistoricCurrencyAndAmount_8")
+@Schema(name = "OBReadBalance1_Data_Balance_inner_LocalAmount", description = "Optional component providing the equivalent of Amount in local currency. Default is Local Currency (LCUR) if not specified")
+@JsonTypeName("OBReadBalance1_Data_Balance_inner_LocalAmount")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBActiveOrHistoricCurrencyAndAmount8 {
+public class OBReadBalance1DataBalanceInnerLocalAmount {
 
     private String amount;
 
     private String currency;
 
-    private OBExternalBalanceSubType1Code subType;
+    private OBReadBalance1DataBalanceInnerLocalAmountSubType subType = OBReadBalance1DataBalanceInnerLocalAmountSubType.LOCALCURRENCY;
 
-    public OBActiveOrHistoricCurrencyAndAmount8() {
+    public OBReadBalance1DataBalanceInnerLocalAmount() {
         super();
     }
 
     /**
      * Constructor with only required parameters
      */
-    public OBActiveOrHistoricCurrencyAndAmount8(String amount, String currency) {
+    public OBReadBalance1DataBalanceInnerLocalAmount(String amount, String currency) {
         this.amount = amount;
         this.currency = currency;
     }
 
-    public OBActiveOrHistoricCurrencyAndAmount8 amount(String amount) {
+    public OBReadBalance1DataBalanceInnerLocalAmount amount(String amount) {
         this.amount = amount;
         return this;
     }
@@ -75,7 +75,7 @@ public class OBActiveOrHistoricCurrencyAndAmount8 {
         this.amount = amount;
     }
 
-    public OBActiveOrHistoricCurrencyAndAmount8 currency(String currency) {
+    public OBReadBalance1DataBalanceInnerLocalAmount currency(String currency) {
         this.currency = currency;
         return this;
     }
@@ -97,7 +97,7 @@ public class OBActiveOrHistoricCurrencyAndAmount8 {
         this.currency = currency;
     }
 
-    public OBActiveOrHistoricCurrencyAndAmount8 subType(OBExternalBalanceSubType1Code subType) {
+    public OBReadBalance1DataBalanceInnerLocalAmount subType(OBReadBalance1DataBalanceInnerLocalAmountSubType subType) {
         this.subType = subType;
         return this;
     }
@@ -110,11 +110,11 @@ public class OBActiveOrHistoricCurrencyAndAmount8 {
     @Valid
     @Schema(name = "SubType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SubType")
-    public OBExternalBalanceSubType1Code getSubType() {
+    public OBReadBalance1DataBalanceInnerLocalAmountSubType getSubType() {
         return subType;
     }
 
-    public void setSubType(OBExternalBalanceSubType1Code subType) {
+    public void setSubType(OBReadBalance1DataBalanceInnerLocalAmountSubType subType) {
         this.subType = subType;
     }
 
@@ -126,10 +126,10 @@ public class OBActiveOrHistoricCurrencyAndAmount8 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBActiveOrHistoricCurrencyAndAmount8 obActiveOrHistoricCurrencyAndAmount8 = (OBActiveOrHistoricCurrencyAndAmount8) o;
-        return Objects.equals(this.amount, obActiveOrHistoricCurrencyAndAmount8.amount) &&
-                Objects.equals(this.currency, obActiveOrHistoricCurrencyAndAmount8.currency) &&
-                Objects.equals(this.subType, obActiveOrHistoricCurrencyAndAmount8.subType);
+        OBReadBalance1DataBalanceInnerLocalAmount obReadBalance1DataBalanceInnerLocalAmount = (OBReadBalance1DataBalanceInnerLocalAmount) o;
+        return Objects.equals(this.amount, obReadBalance1DataBalanceInnerLocalAmount.amount) &&
+                Objects.equals(this.currency, obReadBalance1DataBalanceInnerLocalAmount.currency) &&
+                Objects.equals(this.subType, obReadBalance1DataBalanceInnerLocalAmount.subType);
     }
 
     @Override
@@ -140,7 +140,7 @@ public class OBActiveOrHistoricCurrencyAndAmount8 {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OBActiveOrHistoricCurrencyAndAmount8 {\n");
+        sb.append("class OBReadBalance1DataBalanceInnerLocalAmount {\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
         sb.append("    subType: ").append(toIndentedString(subType)).append("\n");

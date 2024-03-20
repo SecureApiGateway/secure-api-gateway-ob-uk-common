@@ -21,33 +21,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the sub type of account (product family group).
+ * The amount in the local market currency for which the asset is held.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBExternalAccountSubType1Code {
+public enum OBReadBalance1DataBalanceInnerLocalAmountSubType {
 
-    CHARGECARD("ChargeCard"),
+    BASECURRENCY("BaseCurrency"),
 
-    CREDITCARD("CreditCard"),
-
-    CURRENTACCOUNT("CurrentAccount"),
-
-    EMONEY("EMoney"),
-
-    LOAN("Loan"),
-
-    MORTGAGE("Mortgage"),
-
-    PREPAIDCARD("PrePaidCard"),
-
-    SAVINGS("Savings"),
-
-    WALLET("Wallet");
+    LOCALCURRENCY("LocalCurrency");
 
     private String value;
 
-    OBExternalAccountSubType1Code(String value) {
+    OBReadBalance1DataBalanceInnerLocalAmountSubType(String value) {
         this.value = value;
     }
 
@@ -62,8 +48,8 @@ public enum OBExternalAccountSubType1Code {
     }
 
     @JsonCreator
-    public static OBExternalAccountSubType1Code fromValue(String value) {
-        for (OBExternalAccountSubType1Code b : OBExternalAccountSubType1Code.values()) {
+    public static OBReadBalance1DataBalanceInnerLocalAmountSubType fromValue(String value) {
+        for (OBReadBalance1DataBalanceInnerLocalAmountSubType b : OBReadBalance1DataBalanceInnerLocalAmountSubType.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
