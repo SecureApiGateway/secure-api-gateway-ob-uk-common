@@ -22,38 +22,35 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 /**
- * Amount of money associated with the amount type.
+ * Combined sum of all Amounts in the accounts base currency
  */
 
-@Schema(name = "OBActiveOrHistoricCurrencyAndAmount_8", description = "Amount of money associated with the amount type.")
-@JsonTypeName("OBActiveOrHistoricCurrencyAndAmount_8")
+@Schema(name = "OBReadBalance1_Data_TotalValue", description = "Combined sum of all Amounts in the accounts base currency")
+@JsonTypeName("OBReadBalance1_Data_TotalValue")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBActiveOrHistoricCurrencyAndAmount8 {
+public class OBReadBalance1DataTotalValue {
 
     private String amount;
 
     private String currency;
 
-    private OBExternalBalanceSubType1Code subType;
-
-    public OBActiveOrHistoricCurrencyAndAmount8() {
+    public OBReadBalance1DataTotalValue() {
         super();
     }
 
     /**
      * Constructor with only required parameters
      */
-    public OBActiveOrHistoricCurrencyAndAmount8(String amount, String currency) {
+    public OBReadBalance1DataTotalValue(String amount, String currency) {
         this.amount = amount;
         this.currency = currency;
     }
 
-    public OBActiveOrHistoricCurrencyAndAmount8 amount(String amount) {
+    public OBReadBalance1DataTotalValue amount(String amount) {
         this.amount = amount;
         return this;
     }
@@ -75,7 +72,7 @@ public class OBActiveOrHistoricCurrencyAndAmount8 {
         this.amount = amount;
     }
 
-    public OBActiveOrHistoricCurrencyAndAmount8 currency(String currency) {
+    public OBReadBalance1DataTotalValue currency(String currency) {
         this.currency = currency;
         return this;
     }
@@ -97,27 +94,6 @@ public class OBActiveOrHistoricCurrencyAndAmount8 {
         this.currency = currency;
     }
 
-    public OBActiveOrHistoricCurrencyAndAmount8 subType(OBExternalBalanceSubType1Code subType) {
-        this.subType = subType;
-        return this;
-    }
-
-    /**
-     * Get subType
-     *
-     * @return subType
-     */
-    @Valid
-    @Schema(name = "SubType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("SubType")
-    public OBExternalBalanceSubType1Code getSubType() {
-        return subType;
-    }
-
-    public void setSubType(OBExternalBalanceSubType1Code subType) {
-        this.subType = subType;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -126,24 +102,22 @@ public class OBActiveOrHistoricCurrencyAndAmount8 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBActiveOrHistoricCurrencyAndAmount8 obActiveOrHistoricCurrencyAndAmount8 = (OBActiveOrHistoricCurrencyAndAmount8) o;
-        return Objects.equals(this.amount, obActiveOrHistoricCurrencyAndAmount8.amount) &&
-                Objects.equals(this.currency, obActiveOrHistoricCurrencyAndAmount8.currency) &&
-                Objects.equals(this.subType, obActiveOrHistoricCurrencyAndAmount8.subType);
+        OBReadBalance1DataTotalValue obReadBalance1DataTotalValue = (OBReadBalance1DataTotalValue) o;
+        return Objects.equals(this.amount, obReadBalance1DataTotalValue.amount) &&
+                Objects.equals(this.currency, obReadBalance1DataTotalValue.currency);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(amount, currency, subType);
+        return Objects.hash(amount, currency);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OBActiveOrHistoricCurrencyAndAmount8 {\n");
+        sb.append("class OBReadBalance1DataTotalValue {\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
         sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    subType: ").append(toIndentedString(subType)).append("\n");
         sb.append("}");
         return sb.toString();
     }

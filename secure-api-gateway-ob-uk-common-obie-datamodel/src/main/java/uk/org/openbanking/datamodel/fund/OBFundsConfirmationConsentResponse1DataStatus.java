@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.account;
+package uk.org.openbanking.datamodel.fund;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -21,33 +21,23 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the sub type of account (product family group).
+ * Specifies the status of consent resource in code form.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBExternalAccountSubType1Code {
+public enum OBFundsConfirmationConsentResponse1DataStatus {
 
-    CHARGECARD("ChargeCard"),
+    AUTHORISED("Authorised"),
 
-    CREDITCARD("CreditCard"),
+    AWAITINGAUTHORISATION("AwaitingAuthorisation"),
 
-    CURRENTACCOUNT("CurrentAccount"),
+    REJECTED("Rejected"),
 
-    EMONEY("EMoney"),
-
-    LOAN("Loan"),
-
-    MORTGAGE("Mortgage"),
-
-    PREPAIDCARD("PrePaidCard"),
-
-    SAVINGS("Savings"),
-
-    WALLET("Wallet");
+    REVOKED("Revoked");
 
     private String value;
 
-    OBExternalAccountSubType1Code(String value) {
+    OBFundsConfirmationConsentResponse1DataStatus(String value) {
         this.value = value;
     }
 
@@ -62,8 +52,8 @@ public enum OBExternalAccountSubType1Code {
     }
 
     @JsonCreator
-    public static OBExternalAccountSubType1Code fromValue(String value) {
-        for (OBExternalAccountSubType1Code b : OBExternalAccountSubType1Code.values()) {
+    public static OBFundsConfirmationConsentResponse1DataStatus fromValue(String value) {
+        for (OBFundsConfirmationConsentResponse1DataStatus b : OBFundsConfirmationConsentResponse1DataStatus.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
