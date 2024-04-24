@@ -1,25 +1,12 @@
-name: pull-request
-
-on: [pull_request]
-
+name: PR - Build and Deploy
+on:
+  pull_request:
+    paths-ignore:
+      - '**/README.md'
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    name: Check PR integrity
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-java@v4
-        name: set java and maven cache
-        with:
-          distribution: 'zulu'
-          java-version: '17'
-          architecture: x64
-          cache: 'maven'
-
-      - name: Build and Test
-        run: mvn -B clean package --file pom.xml
-
-      - uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_ACCESS_TOKEN }}
+  run_pr-template:
+    name: PR - Build
+    uses: SecureApiGateway/secure-api-gateway-ci/.github/workflows/reusable-pr.yml@main
+    secrets: inherit
+    with:
+      componentName: secure-api-gateway-ob-uk-common
