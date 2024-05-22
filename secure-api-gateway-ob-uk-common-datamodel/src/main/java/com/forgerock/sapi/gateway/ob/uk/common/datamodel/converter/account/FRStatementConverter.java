@@ -28,6 +28,7 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmou
 
 import lombok.extern.slf4j.Slf4j;
 import uk.org.openbanking.datamodel.account.OBExternalStatementType1Code;
+import uk.org.openbanking.datamodel.account.OBReadBalance1DataTotalValue;
 import uk.org.openbanking.datamodel.account.OBStatement2;
 import uk.org.openbanking.datamodel.account.OBStatement2StatementAmountInner;
 import uk.org.openbanking.datamodel.account.OBStatement2StatementBenefitInner;
@@ -176,7 +177,8 @@ public class FRStatementConverter {
         return statementAmount == null ? null : new OBStatement2StatementAmountInner()
                 .creditDebitIndicator(toOBCreditDebitCode0(statementAmount.getCreditDebitIndicator()))
                 .type(statementAmount.getType())
-                .amount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount8(statementAmount.getAmount()));
+                .amount(FRAmountConverter.toOBReadBalance1DataAmount(statementAmount.getAmount()))
+                .localAmount(FRAmountConverter.toOBStatement2StatementAmount1(statementAmount.getLocalAmount()));
     }
 
     // OB to FR
@@ -197,6 +199,7 @@ public class FRStatementConverter {
                 .statementRates(toStatementRatesList(obStatement.getStatementRate(), FRStatementConverter::toFRStatementRate))
                 .statementValues(toStatementValuesList(obStatement.getStatementValue(), FRStatementConverter::toFRStatementValue))
                 .statementAmounts(toStatementAmountsList(obStatement.getStatementAmount(), FRStatementConverter::toFRStatementAmount))
+                .totalValue(toFRTotalValue(obStatement.getTotalValue()))
                 .build();
     }
 
@@ -309,11 +312,19 @@ public class FRStatementConverter {
         }
     }
 
+    public static FRStatementData.FRTotalValue toFRTotalValue(OBReadBalance1DataTotalValue totalValue) {
+        return totalValue == null ? null : FRStatementData.FRTotalValue.builder()
+                .amount(totalValue.getAmount())
+                .currency(totalValue.getCurrency())
+                .build();
+    }
+
     public static FRStatementData.FRStatementAmount toFRStatementAmount(OBStatement2StatementAmountInner statementAmount) {
         return statementAmount == null ? null : FRStatementData.FRStatementAmount.builder()
                 .creditDebitIndicator(toFRCreditDebitIndicator(statementAmount.getCreditDebitIndicator()))
                 .type(statementAmount.getType())
                 .amount(FRAmountConverter.toFRAmount(statementAmount.getAmount()))
+                .localAmount(FRAmountConverter.toFRAmount(statementAmount.getLocalAmount()))
                 .build();
     }
 }

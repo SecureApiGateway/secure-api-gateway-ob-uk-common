@@ -41,7 +41,9 @@ public enum OBExternalAccountSubType1Code {
 
     PREPAIDCARD("PrePaidCard"),
 
-    SAVINGS("Savings");
+    SAVINGS("Savings"),
+
+    WALLET("Wallet");
 
     private String value;
 

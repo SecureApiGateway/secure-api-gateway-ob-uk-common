@@ -15,10 +15,10 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.payment;
 
+import static java.util.Collections.singletonList;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRExternalPaymentContextCode;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPaymentRisk;
-
-import static java.util.Collections.singletonList;
 
 /**
  * Test data factory for {@link FRPaymentRisk}.

@@ -15,14 +15,14 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.customerinfo;
 
+import java.util.List;
+
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import uk.org.openbanking.datamodel.customerinfo.CustomerInfoAddress;
-
-import jakarta.validation.Valid;
-import java.util.List;
 
 @Data
 @Builder

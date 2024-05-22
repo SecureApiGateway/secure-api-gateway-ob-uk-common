@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRExternalExtendedAccountTypeCode;
+
 import uk.org.openbanking.datamodel.payment.OBExternalExtendedAccountType1Code;
 
 public class FRExternalExtendedAccountTypeCodeConverter {

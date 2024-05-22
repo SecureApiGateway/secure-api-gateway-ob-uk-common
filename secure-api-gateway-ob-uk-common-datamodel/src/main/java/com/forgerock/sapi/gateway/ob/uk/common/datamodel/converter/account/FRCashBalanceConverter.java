@@ -18,6 +18,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account.FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter.toFRAmount;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter.toOBReadBalance1DataAmount;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter.toOBReadBalance1DataAmount2;
 import static java.util.stream.Collectors.toList;
 
 import java.util.List;
@@ -25,12 +26,15 @@ import java.util.List;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRBalanceType;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCashBalance;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditLine;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter;
 
 import uk.org.openbanking.datamodel.account.OBBalanceType1Code;
 import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInner;
+import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInnerAmountSubType;
 import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInnerCreditLineInner;
 import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInnerCreditLineInnerType;
+import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInnerLocalAmountSubType;
 
 public class FRCashBalanceConverter {
 
@@ -42,7 +46,8 @@ public class FRCashBalanceConverter {
                 .type(toOBBalanceType1Code(balance.getType()))
                 .dateTime(balance.getDateTime())
                 .amount(toOBReadBalance1DataAmount(balance.getAmount()))
-                .creditLine(toOBReadBalance1DataCreditLineList(balance.getCreditLines()));
+                .creditLine(toOBReadBalance1DataCreditLineList(balance.getCreditLines()))
+                .localAmount(toOBReadBalance1DataAmount2(balance.getLocalAmount()));
     }
 
     public static OBBalanceType1Code toOBBalanceType1Code(FRBalanceType type) {
@@ -66,6 +71,14 @@ public class FRCashBalanceConverter {
         return type == null ? null : OBReadBalance1DataBalanceInnerCreditLineInnerType.valueOf(type.name());
     }
 
+    public static OBReadBalance1DataBalanceInnerAmountSubType toOBReadBalance1DataBalanceInnerAmountSubType(FRAmount.FRSubType subType) {
+        return subType == null ? null : OBReadBalance1DataBalanceInnerAmountSubType.valueOf(subType.name());
+    }
+
+    public static OBReadBalance1DataBalanceInnerLocalAmountSubType toOBReadBalance1DataBalanceInnerLocalAmountSubType(FRAmount.FRSubType subType) {
+        return subType == null ? null : OBReadBalance1DataBalanceInnerLocalAmountSubType.valueOf(subType.name());
+    }
+
     // OB to FR
     public static FRBalanceType toFRBalanceType(OBBalanceType1Code type) {
         return type == null ? null : FRBalanceType.valueOf(type.name());
@@ -79,6 +92,7 @@ public class FRCashBalanceConverter {
                 .dateTime(balance.getDateTime())
                 .creditLines(toFRCreditLines(balance.getCreditLine()))
                 .type(toFRBalanceType(balance.getType()))
+                .localAmount(toFRAmount(balance.getLocalAmount()))
                 .build();
     }
 
@@ -99,5 +113,13 @@ public class FRCashBalanceConverter {
 
     public static FRCreditLine.FRLimitType toFRLimitType(OBReadBalance1DataBalanceInnerCreditLineInnerType type) {
         return type == null ? null : FRCreditLine.FRLimitType.valueOf(type.name());
+    }
+
+    public static FRAmount.FRSubType toFRSubType(OBReadBalance1DataBalanceInnerAmountSubType subType) {
+        return subType == null ? null : FRAmount.FRSubType.valueOf(subType.name());
+    }
+
+    public static FRAmount.FRSubType toFRSubType(OBReadBalance1DataBalanceInnerLocalAmountSubType subType) {
+        return subType == null ? null : FRAmount.FRSubType.valueOf(subType.name());
     }
 }

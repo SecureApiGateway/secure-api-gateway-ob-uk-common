@@ -15,14 +15,16 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
+import java.util.List;
+
+import org.joda.time.DateTime;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
-
-import java.util.List;
 
 /**
  * Represents {@code OBCashBalance1} in the OB data model. It is stored within mongo (instead of the OB object),
@@ -45,4 +47,5 @@ public class FRCashBalance {
     private DateTime dateTime;
     private FRAmount amount;
     private List<FRCreditLine> creditLines;
+    private FRAmount localAmount;
 }

@@ -15,15 +15,16 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
+import java.util.stream.Stream;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSupplementaryData;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.stream.Stream;
 
 /**
  * Represents {@code OBBeneficiary5} in the OB data model. It is stored within mongo (instead of the OB object), in

@@ -15,14 +15,15 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
+import java.util.List;
+import java.util.stream.Stream;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPostalAddress;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * Represents {@code OBParty2} in the OB data model. It is stored within mongo (instead of the OB object), in order

@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.funds;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -18,6 +18,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRDataAuthorisation;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRDataSCASupportData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRReadRefundAccount;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

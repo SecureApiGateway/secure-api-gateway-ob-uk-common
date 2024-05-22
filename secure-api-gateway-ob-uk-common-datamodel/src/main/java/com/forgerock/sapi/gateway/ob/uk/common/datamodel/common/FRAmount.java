@@ -15,6 +15,11 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.common;
 
+import java.util.stream.Stream;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,4 +42,34 @@ public class FRAmount {
 
     private String amount;
     private String currency;
+    private String subType;
+
+    public enum FRSubType {
+        BASECURRENCY("BaseCurrency"),
+
+        LOCALCURRENCY("LocalCurrency");
+
+        private String value;
+
+        FRSubType(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @JsonValue
+        public String toString() {
+            return value;
+        }
+
+        @JsonCreator
+        public static FRAmount.FRSubType fromValue(String value) {
+            return Stream.of(values())
+                    .filter(type -> type.getValue().equals(value))
+                    .findFirst()
+                    .orElse(null);
+        }
+    }
 }

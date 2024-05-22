@@ -15,13 +15,14 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPostalAddress;
+
 import uk.org.openbanking.datamodel.account.OBParty2AddressInner;
 import uk.org.openbanking.datamodel.common.OBAddressTypeCode;
 import uk.org.openbanking.datamodel.common.OBPostalAddress6;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class FRPostalAddressConverter {
 

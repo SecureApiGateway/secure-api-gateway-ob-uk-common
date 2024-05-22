@@ -43,7 +43,13 @@ public enum OBExternalAccountIdentification4Code {
     /**
      * Paym Scheme to make payments via mobile
      */
-    PAYM("UK.OBIE.Paym");
+    PAYM("UK.OBIE.Paym"),
+
+    /**
+     * Wallet - identifier scheme used to identify the account of a customer. Random generated string (usually generated when the account is created, depending on the provider)
+     * TODO: Add specific details.
+     */
+    WALLET("UK.OBIE.Wallet");
 
     private String value;
 

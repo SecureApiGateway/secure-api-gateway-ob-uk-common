@@ -15,10 +15,10 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
+import java.util.List;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Data
 @NoArgsConstructor
