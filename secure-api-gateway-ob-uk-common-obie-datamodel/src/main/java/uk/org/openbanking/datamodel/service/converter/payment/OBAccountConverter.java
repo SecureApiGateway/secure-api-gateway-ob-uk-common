@@ -18,10 +18,10 @@ package uk.org.openbanking.datamodel.service.converter.payment;
 import static uk.org.openbanking.datamodel.service.converter.payment.ConverterHelper.copyField;
 
 import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
-import uk.org.openbanking.datamodel.payment.OBCashAccountDebtor4;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.payment.v3.OBCashAccountDebtor4;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalStandingOrder4DataInitiationCreditorAccount;
 
 public class OBAccountConverter {
 

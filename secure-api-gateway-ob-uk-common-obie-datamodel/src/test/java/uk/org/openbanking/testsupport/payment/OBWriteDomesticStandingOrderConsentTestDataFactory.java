@@ -31,10 +31,10 @@ import com.forgerock.sapi.gateway.uk.common.shared.api.meta.forgerock.FRFrequenc
 
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4DataPermission;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiation;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent5;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent5Data;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticScheduledConsent4DataPermission;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiation;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrderConsent5;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrderConsent5Data;
 
 /**
  * Test data factory for the various "OBWriteDomesticStandingOrderConsent" classes.

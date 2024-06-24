@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticScheduledConsent;
 
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticScheduledConsent4;
 import uk.org.openbanking.testsupport.payment.OBWriteDomesticScheduledConsentTestDataFactory;
 
 class FRWriteDomesticScheduledConsentConverterTest {

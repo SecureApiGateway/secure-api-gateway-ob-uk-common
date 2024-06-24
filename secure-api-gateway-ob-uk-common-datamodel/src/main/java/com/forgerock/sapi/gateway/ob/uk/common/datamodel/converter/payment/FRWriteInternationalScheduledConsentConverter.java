@@ -35,10 +35,10 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternat
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalScheduledConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalScheduledDataInitiation;
 
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled3DataInitiation;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5Data;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsentResponse6DataInitiation;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalScheduled3DataInitiation;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalScheduledConsent5;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalScheduledConsent5Data;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalScheduledConsentResponse6DataInitiation;
 
 public class FRWriteInternationalScheduledConsentConverter {
 

@@ -16,7 +16,10 @@
 package uk.org.openbanking.testsupport.payment;
 
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomestic2DataInitiationInstructedAmount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount;
 
 /**
  * Test data factory for the various OB classes that represent money.

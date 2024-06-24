@@ -17,9 +17,9 @@ package uk.org.openbanking.testsupport.payment;
 
 import java.util.UUID;
 
-import uk.org.openbanking.datamodel.payment.OBSCASupportData1;
-import uk.org.openbanking.datamodel.payment.OBSCASupportData1AppliedAuthenticationApproach;
-import uk.org.openbanking.datamodel.payment.OBSCASupportData1RequestedSCAExemptionType;
+import uk.org.openbanking.datamodel.payment.v3.OBSCASupportData1;
+import uk.org.openbanking.datamodel.payment.v3.OBSCASupportData1AppliedAuthenticationApproach;
+import uk.org.openbanking.datamodel.payment.v3.OBSCASupportData1RequestedSCAExemptionType;
 
 /**
  * Test data factory for the various "SCASupportData" classes.

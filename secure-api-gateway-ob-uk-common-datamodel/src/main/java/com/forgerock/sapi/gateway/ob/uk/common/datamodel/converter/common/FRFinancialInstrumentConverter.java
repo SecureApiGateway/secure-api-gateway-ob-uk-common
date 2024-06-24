@@ -23,10 +23,10 @@ import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdent
 import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification61;
 import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification62;
 import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationCreditor;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationCreditorAgent;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAgent;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternational3DataInitiationCreditor;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternational3DataInitiationCreditorAgent;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalStandingOrder4DataInitiationCreditorAgent;
 
 public class FRFinancialInstrumentConverter {
 

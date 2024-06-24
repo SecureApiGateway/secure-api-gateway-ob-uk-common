@@ -19,7 +19,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import uk.org.openbanking.datamodel.account.*;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteFile2DataInitiation;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternational3DataInitiationExchangeRateInformation;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalConsentResponse6DataExchangeRateInformation;
 
 import java.math.BigDecimal;
 import java.util.stream.Stream;

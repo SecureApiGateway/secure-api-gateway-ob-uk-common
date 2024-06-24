@@ -23,7 +23,7 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRMode
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrderConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrderConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrderDataInitiation;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.v3.*;
 
 public class FRWriteDomesticStandingOrderConsentConverter {
 

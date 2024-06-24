@@ -27,10 +27,10 @@ import org.joda.time.DateTime;
 
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduled2DataInitiation;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4Data;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4DataPermission;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticScheduled2DataInitiation;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticScheduledConsent4;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticScheduledConsent4Data;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticScheduledConsent4DataPermission;
 
 /**
  * Test data factory for the various "OBWriteDomesticScheduledConsent" classes.

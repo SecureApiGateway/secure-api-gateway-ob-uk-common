@@ -20,7 +20,7 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRMode
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticScheduledConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticScheduledConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticScheduledDataInitiation;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.v3.*;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
 

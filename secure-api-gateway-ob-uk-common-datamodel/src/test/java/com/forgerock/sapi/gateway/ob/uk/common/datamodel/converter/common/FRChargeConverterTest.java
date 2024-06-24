@@ -27,7 +27,7 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRChargeBearerTy
 
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsentResponse5DataChargesInner;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticConsentResponse5DataChargesInner;
 
 class FRChargeConverterTest {
 

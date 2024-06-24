@@ -30,14 +30,14 @@ import com.forgerock.sapi.gateway.uk.common.shared.api.meta.share.IntentType;
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.payment.OBCashAccountDebtor4;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsentResponse5DataChargesInner;
-import uk.org.openbanking.datamodel.payment.OBWriteFile2DataInitiation;
-import uk.org.openbanking.datamodel.payment.OBWriteFileConsent3;
-import uk.org.openbanking.datamodel.payment.OBWriteFileConsent3Data;
-import uk.org.openbanking.datamodel.payment.OBWriteFileConsentResponse4;
-import uk.org.openbanking.datamodel.payment.OBWriteFileConsentResponse4Data;
-import uk.org.openbanking.datamodel.payment.OBWriteFileConsentResponse4DataStatus;
+import uk.org.openbanking.datamodel.payment.v3.OBCashAccountDebtor4;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticConsentResponse5DataChargesInner;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteFile2DataInitiation;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteFileConsent3;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteFileConsent3Data;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteFileConsentResponse4;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteFileConsentResponse4Data;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteFileConsentResponse4DataStatus;
 
 /**
  * Test data factory for the {@link OBWriteFileConsent3Data}.

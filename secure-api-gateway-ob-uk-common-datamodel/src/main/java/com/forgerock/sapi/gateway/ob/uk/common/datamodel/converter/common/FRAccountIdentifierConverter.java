@@ -25,12 +25,12 @@ import uk.org.openbanking.datamodel.account.OBCashAccount60;
 import uk.org.openbanking.datamodel.account.OBCashAccount61;
 import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.fund.OBFundsConfirmationConsent1DataDebtorAccount;
-import uk.org.openbanking.datamodel.payment.OBCashAccountDebtor4;
-import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiationCreditorAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiationDebtorAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.payment.v3.OBCashAccountDebtor4;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomestic2DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomestic2DataInitiationDebtorAccount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalStandingOrder4DataInitiationCreditorAccount;
 import uk.org.openbanking.datamodel.vrp.OBCashAccountDebtorWithName;
 
 public class FRAccountIdentifierConverter {

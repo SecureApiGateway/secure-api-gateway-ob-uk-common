@@ -20,7 +20,10 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRMode
 import uk.org.openbanking.datamodel.account.*;
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.fund.OBFundsConfirmation1DataInstructedAmount;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomestic2DataInitiationInstructedAmount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount;
 
 public class FRAmountConverter {
 

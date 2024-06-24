@@ -30,10 +30,10 @@ import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDa
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiation;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationInstructionPriority;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsent5;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsent5Data;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternational3DataInitiation;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternational3DataInitiationInstructionPriority;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalConsent5;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalConsent5Data;
 
 /**
  * Test data factory for the various "OBWriteInternationalConsent" classes.

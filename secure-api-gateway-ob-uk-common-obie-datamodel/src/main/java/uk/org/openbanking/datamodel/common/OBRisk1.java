@@ -18,7 +18,7 @@ package uk.org.openbanking.datamodel.common;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import uk.org.openbanking.datamodel.payment.OBExternalExtendedAccountType1Code;
+import uk.org.openbanking.datamodel.payment.v3.OBExternalExtendedAccountType1Code;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;

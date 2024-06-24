@@ -27,11 +27,11 @@ import java.util.UUID;
 
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteDomestic2;
-import uk.org.openbanking.datamodel.payment.OBWriteDomestic2Data;
-import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiation;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4Data;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomestic2;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomestic2Data;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomestic2DataInitiation;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticConsent4;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticConsent4Data;
 
 /**
  * Test data factory for the various "OBWriteDomesticConsent" classes.

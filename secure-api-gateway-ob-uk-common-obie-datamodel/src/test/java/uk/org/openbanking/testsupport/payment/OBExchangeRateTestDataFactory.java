@@ -20,9 +20,9 @@ import java.math.RoundingMode;
 
 import org.joda.time.DateTime;
 
-import uk.org.openbanking.datamodel.payment.OBExchangeRateType;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationExchangeRateInformation;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsentResponse6DataExchangeRateInformation;
+import uk.org.openbanking.datamodel.payment.v3.OBExchangeRateType;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternational3DataInitiationExchangeRateInformation;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalConsentResponse6DataExchangeRateInformation;
 
 public class OBExchangeRateTestDataFactory {
 

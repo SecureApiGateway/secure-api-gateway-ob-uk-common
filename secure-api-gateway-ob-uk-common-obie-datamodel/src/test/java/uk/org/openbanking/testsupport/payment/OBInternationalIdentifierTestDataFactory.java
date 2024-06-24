@@ -16,7 +16,10 @@
 package uk.org.openbanking.testsupport.payment;
 
 import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternational3DataInitiationCreditor;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternational3DataInitiationCreditorAgent;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalStandingOrder4DataInitiationCreditorAgent;
 
 import static uk.org.openbanking.testsupport.payment.OBPostalAddress6TestDataFactory.aValidOBPostalAddress6;
 

@@ -16,7 +16,12 @@
 package uk.org.openbanking.testsupport.payment;
 
 import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.v3.OBCashAccountDebtor4;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomestic2DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomestic2DataInitiationDebtorAccount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteInternationalStandingOrder4DataInitiationCreditorAccount;
 
 /**
  * Test data factory for various OB account types.

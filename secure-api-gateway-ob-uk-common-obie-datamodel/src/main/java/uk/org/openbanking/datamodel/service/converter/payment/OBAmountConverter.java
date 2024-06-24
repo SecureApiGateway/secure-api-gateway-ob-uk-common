@@ -16,7 +16,10 @@
 package uk.org.openbanking.datamodel.service.converter.payment;
 
 import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomestic2DataInitiationInstructedAmount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount;
+import uk.org.openbanking.datamodel.payment.v3.OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount;
 
 import static uk.org.openbanking.datamodel.service.converter.payment.ConverterHelper.copyField;
 
