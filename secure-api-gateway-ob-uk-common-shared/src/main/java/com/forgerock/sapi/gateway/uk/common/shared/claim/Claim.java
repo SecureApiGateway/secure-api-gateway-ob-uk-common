@@ -15,12 +15,10 @@
  */
 package com.forgerock.sapi.gateway.uk.common.shared.claim;
 
-import com.nimbusds.jose.shaded.json.JSONArray;
-import com.nimbusds.jose.shaded.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -28,8 +26,8 @@ import java.util.Objects;
  */
 public class Claim {
 
-    private boolean essential;
-    private List<String> values;
+    private final boolean essential;
+    private final List<String> values;
 
     public Claim(boolean essential, String... values) {
         this.essential = essential;
@@ -39,19 +37,6 @@ public class Claim {
     public Claim(boolean essential, List<String> values) {
         this.essential = essential;
         this.values = values;
-    }
-
-    public JSONObject toJson() {
-        JSONObject json = new JSONObject();
-        if (values.size() == 1) {
-            json.put("value", values.get(0));
-        } else if (values.size() > 1) {
-            JSONArray jsonValues = new JSONArray();
-            jsonValues.addAll(values);
-            json.put("values", jsonValues);
-        }
-        json.put("essential", essential);
-        return json;
     }
 
     public boolean isEssential() {
@@ -66,7 +51,7 @@ public class Claim {
         return values.get(0);
     }
 
-    public static Claim parseClaim(JSONObject json) {
+    public static Claim parseClaim(Map<String, Object> json) {
         boolean essential = false;
         List<String> values = new ArrayList<>();
         if (json.containsKey("essential")) {
@@ -76,9 +61,8 @@ public class Claim {
             values.add((String) json.get("value"));
         }
         if (json.containsKey("values")) {
-            JSONArray array = (JSONArray) json.get("values");
-            String[] valuesAsArray = array.toArray(new String[0]);
-            values.addAll(Arrays.asList(valuesAsArray));
+            List<Object> rawValues = (List) json.get("values");
+            rawValues.forEach(value -> values.add(String.valueOf(value)));
         }
         return new Claim(essential, values);
     }
