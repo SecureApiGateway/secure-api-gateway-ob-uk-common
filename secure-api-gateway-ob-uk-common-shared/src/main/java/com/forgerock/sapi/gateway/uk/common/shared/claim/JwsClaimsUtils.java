@@ -16,8 +16,6 @@
 package com.forgerock.sapi.gateway.uk.common.shared.claim;
 
 import com.forgerock.sapi.gateway.uk.common.shared.api.meta.obie.OBConstants;
-import com.nimbusds.jose.shaded.json.JSONObject;
-import com.nimbusds.jose.util.JSONObjectUtils;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
 import lombok.extern.slf4j.Slf4j;
@@ -41,18 +39,7 @@ public class JwsClaimsUtils {
     public static Claims getClaims(SignedJWT signedJWT) throws ParseException {
         JWTClaimsSet claimSet = signedJWT.getJWTClaimsSet();
         Map<String, Object> jsonClaimSet = claimSet.getJSONObjectClaim(OBConstants.OIDCClaim.CLAIMS);
-        Claims claims = Claims.parseClaims(new JSONObject(jsonClaimSet));
+        Claims claims = Claims.parseClaims(jsonClaimSet);
         return claims;
-    }
-
-    public static String getContactField(JSONObject contactJsonObject, String field){
-        String fieldValue = null;
-        try{
-            fieldValue = JSONObjectUtils.getString(contactJsonObject, field);
-        } catch(ParseException pe) {
-            log.warn("Warning: ParseException getting field {} as string from {}",
-                    field, JSONObjectUtils.toJSONString(contactJsonObject));
-        }
-        return fieldValue;
     }
 }

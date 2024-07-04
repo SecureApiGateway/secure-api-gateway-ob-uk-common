@@ -15,7 +15,6 @@
  */
 package com.forgerock.sapi.gateway.uk.common.shared.claim;
 
-import com.nimbusds.jose.shaded.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -68,16 +67,16 @@ public class Claims {
         return claims;
     }
 
-    public static Claims parseClaims(JSONObject claimsJson) {
-        return new Claims(parseClaimsFrom("user_info", claimsJson), parseClaimsFrom("id_token", claimsJson));
+    public static Claims parseClaims(Map<String, Object> claimsJson) {
+        return new Claims(parseClaimsFrom("userinfo", claimsJson), parseClaimsFrom("id_token", claimsJson));
     }
 
-    public static Map<String, Claim> parseClaimsFrom(String key, JSONObject json) {
+    public static Map<String, Claim> parseClaimsFrom(String key, Map<String, Object> json) {
         Map<String, Claim> claims = new HashMap<>();
         if (json.containsKey(key)) {
-            JSONObject claimsAsJson = (JSONObject) json.get(key);
+            Map<String, Object>  claimsAsJson = (Map<String, Object>) json.get(key);
             for (Object claimKey : claimsAsJson.keySet()) {
-                claims.put((String) claimKey, Claim.parseClaim((JSONObject) claimsAsJson.get(claimKey)));
+                claims.put((String) claimKey, Claim.parseClaim((Map<String, Object>) claimsAsJson.get(claimKey)));
             }
         }
         return claims;
