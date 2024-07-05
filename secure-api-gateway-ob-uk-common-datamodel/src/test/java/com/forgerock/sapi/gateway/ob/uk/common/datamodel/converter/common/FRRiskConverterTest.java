@@ -17,7 +17,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPaymentRisk;
 import org.junit.jupiter.api.Test;
-import uk.org.openbanking.datamodel.common.OBRisk1;
+import uk.org.openbanking.datamodel.v3.common.OBRisk1;
 import uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

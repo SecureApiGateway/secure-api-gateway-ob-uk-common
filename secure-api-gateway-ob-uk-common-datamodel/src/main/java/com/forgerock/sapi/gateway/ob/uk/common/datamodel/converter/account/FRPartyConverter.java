@@ -20,10 +20,10 @@ import java.net.URI;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRPartyData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter;
 
-import uk.org.openbanking.datamodel.account.OBExternalPartyType1Code;
-import uk.org.openbanking.datamodel.account.OBParty2;
-import uk.org.openbanking.datamodel.account.OBPartyRelationships1;
-import uk.org.openbanking.datamodel.account.OBPartyRelationships1Account;
+import uk.org.openbanking.datamodel.v3.account.OBExternalPartyType1Code;
+import uk.org.openbanking.datamodel.v3.account.OBParty2;
+import uk.org.openbanking.datamodel.v3.account.OBPartyRelationships1;
+import uk.org.openbanking.datamodel.v3.account.OBPartyRelationships1Account;
 
 public class FRPartyConverter {
 

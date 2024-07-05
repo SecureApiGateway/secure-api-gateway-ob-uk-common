@@ -17,8 +17,8 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRDataAuthorisation;
 
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4DataAuthorisation;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4DataAuthorisationAuthorisationType;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticConsent4DataAuthorisation;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticConsent4DataAuthorisationAuthorisationType;
 
 public class FRDataAuthorisationConverter {
 

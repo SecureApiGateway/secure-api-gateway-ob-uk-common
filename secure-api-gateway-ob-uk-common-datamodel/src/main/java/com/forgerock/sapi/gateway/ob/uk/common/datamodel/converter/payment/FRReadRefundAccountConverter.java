@@ -17,7 +17,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRReadRefundAccount;
 
-import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.v3.common.OBReadRefundAccount;
 
 public class FRReadRefundAccountConverter {
 

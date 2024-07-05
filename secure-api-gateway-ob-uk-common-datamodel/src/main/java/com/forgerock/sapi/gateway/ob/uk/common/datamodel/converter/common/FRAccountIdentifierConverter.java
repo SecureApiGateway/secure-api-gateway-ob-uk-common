@@ -18,20 +18,20 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 
-import uk.org.openbanking.datamodel.account.OBAccount6AccountInner;
-import uk.org.openbanking.datamodel.account.OBCashAccount50;
-import uk.org.openbanking.datamodel.account.OBCashAccount51;
-import uk.org.openbanking.datamodel.account.OBCashAccount60;
-import uk.org.openbanking.datamodel.account.OBCashAccount61;
-import uk.org.openbanking.datamodel.common.OBCashAccountCreditor3;
-import uk.org.openbanking.datamodel.fund.OBFundsConfirmationConsent1DataDebtorAccount;
-import uk.org.openbanking.datamodel.payment.OBCashAccountDebtor4;
-import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiationCreditorAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiationDebtorAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAccount;
-import uk.org.openbanking.datamodel.vrp.OBCashAccountDebtorWithName;
+import uk.org.openbanking.datamodel.v3.account.OBAccount6AccountInner;
+import uk.org.openbanking.datamodel.v3.account.OBCashAccount50;
+import uk.org.openbanking.datamodel.v3.account.OBCashAccount51;
+import uk.org.openbanking.datamodel.v3.account.OBCashAccount60;
+import uk.org.openbanking.datamodel.v3.account.OBCashAccount61;
+import uk.org.openbanking.datamodel.v3.common.OBCashAccountCreditor3;
+import uk.org.openbanking.datamodel.v3.fund.OBFundsConfirmationConsent1DataDebtorAccount;
+import uk.org.openbanking.datamodel.v3.payment.OBCashAccountDebtor4;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteDomestic2DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteDomestic2DataInitiationDebtorAccount;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.v3.vrp.OBCashAccountDebtorWithName;
 
 public class FRAccountIdentifierConverter {
 

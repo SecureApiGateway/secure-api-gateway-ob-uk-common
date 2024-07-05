@@ -17,7 +17,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.vrp;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRVRPInteractionTypes;
 
-import uk.org.openbanking.datamodel.vrp.OBVRPInteractionTypes;
+import uk.org.openbanking.datamodel.v3.vrp.OBVRPInteractionTypes;
 
 public class FRVrpInteractionTypesConverter {
 

@@ -17,8 +17,8 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountRisk;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPaymentRisk;
-import uk.org.openbanking.datamodel.account.OBRisk2;
-import uk.org.openbanking.datamodel.common.OBRisk1;
+import uk.org.openbanking.datamodel.v3.account.OBRisk2;
+import uk.org.openbanking.datamodel.v3.common.OBRisk1;
 
 public class FRRiskConverter {
 

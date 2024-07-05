@@ -17,8 +17,8 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.event;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.event.FREventPolling;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.event.FREventPollingError;
-import uk.org.openbanking.datamodel.event.OBEventPolling1;
-import uk.org.openbanking.datamodel.event.OBEventPolling1SetErrsValue;
+import uk.org.openbanking.datamodel.v3.event.OBEventPolling1;
+import uk.org.openbanking.datamodel.v3.event.OBEventPolling1SetErrsValue;
 
 import java.util.Map;
 import java.util.stream.Collectors;
