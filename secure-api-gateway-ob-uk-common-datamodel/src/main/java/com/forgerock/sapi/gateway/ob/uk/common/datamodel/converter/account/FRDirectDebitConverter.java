@@ -18,8 +18,8 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRDirectDebitData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter;
 
-import uk.org.openbanking.datamodel.account.OBExternalDirectDebitStatus1Code;
-import uk.org.openbanking.datamodel.account.OBReadDirectDebit2DataDirectDebitInner;
+import uk.org.openbanking.datamodel.v3.account.OBExternalDirectDebitStatus1Code;
+import uk.org.openbanking.datamodel.v3.account.OBReadDirectDebit2DataDirectDebitInner;
 
 
 /**

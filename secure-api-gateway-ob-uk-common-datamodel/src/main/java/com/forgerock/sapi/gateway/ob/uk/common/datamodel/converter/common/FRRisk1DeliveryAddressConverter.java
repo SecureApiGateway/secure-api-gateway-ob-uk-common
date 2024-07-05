@@ -16,7 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPaymentRisk;
-import uk.org.openbanking.datamodel.common.OBRisk1DeliveryAddress;
+import uk.org.openbanking.datamodel.v3.common.OBRisk1DeliveryAddress;
 
 public class FRRisk1DeliveryAddressConverter {
 

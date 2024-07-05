@@ -15,8 +15,19 @@
  */
 package uk.org.openbanking.testsupport.vrp;
 
-import uk.org.openbanking.datamodel.common.*;
-import uk.org.openbanking.datamodel.vrp.*;
+import uk.org.openbanking.datamodel.v3.common.OBActiveOrHistoricCurrencyAndAmount;
+import uk.org.openbanking.datamodel.v3.common.OBAddressTypeCode;
+import uk.org.openbanking.datamodel.v3.common.OBBranchAndFinancialInstitutionIdentification6;
+import uk.org.openbanking.datamodel.v3.common.OBCashAccountCreditor3;
+import uk.org.openbanking.datamodel.v3.common.OBChargeBearerType1Code;
+import uk.org.openbanking.datamodel.v3.common.OBPostalAddress6;
+import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v3.vrp.OBCashAccountDebtorWithName;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPInitiation;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPInitiationRemittanceInformation;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPResponseDataChargesInner;
+import uk.org.openbanking.datamodel.v3.vrp.OBExternalPaymentChargeType1Code;
+import uk.org.openbanking.datamodel.v3.vrp.OBVRPRemittanceInformation;
 
 
 public class OBDomesticVrpCommonTestDataFactory {

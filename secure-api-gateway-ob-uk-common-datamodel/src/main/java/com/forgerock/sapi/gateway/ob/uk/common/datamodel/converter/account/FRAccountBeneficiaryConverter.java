@@ -24,8 +24,8 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountBeneficiary;
 
-import uk.org.openbanking.datamodel.account.OBBeneficiary5;
-import uk.org.openbanking.datamodel.account.OBBeneficiaryType1Code;
+import uk.org.openbanking.datamodel.v3.account.OBBeneficiary5;
+import uk.org.openbanking.datamodel.v3.account.OBBeneficiaryType1Code;
 
 public class FRAccountBeneficiaryConverter {
 
