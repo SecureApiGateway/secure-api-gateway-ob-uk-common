@@ -18,8 +18,8 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FROfferData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter;
 
-import uk.org.openbanking.datamodel.account.OBReadOffer1DataOfferInner;
-import uk.org.openbanking.datamodel.account.OBReadOffer1DataOfferInnerOfferType;
+import uk.org.openbanking.datamodel.v3.account.OBReadOffer1DataOfferInner;
+import uk.org.openbanking.datamodel.v3.account.OBReadOffer1DataOfferInnerOfferType;
 
 public class FROfferConverter {
 

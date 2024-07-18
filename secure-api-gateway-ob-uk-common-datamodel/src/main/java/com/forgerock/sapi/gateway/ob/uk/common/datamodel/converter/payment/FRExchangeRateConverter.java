@@ -17,9 +17,9 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRExchangeRateInformation;
 
-import uk.org.openbanking.datamodel.payment.OBExchangeRateType;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationExchangeRateInformation;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsentResponse6DataExchangeRateInformation;
+import uk.org.openbanking.datamodel.v3.payment.OBExchangeRateType;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternational3DataInitiationExchangeRateInformation;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalConsentResponse6DataExchangeRateInformation;
 
 public class FRExchangeRateConverter {
 

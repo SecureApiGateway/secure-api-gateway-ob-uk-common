@@ -15,10 +15,10 @@
  */
 package uk.org.openbanking.testsupport.payment;
 
-import uk.org.openbanking.datamodel.common.OBExternalPaymentContext1Code;
-import uk.org.openbanking.datamodel.common.OBRisk1;
-import uk.org.openbanking.datamodel.common.OBRisk1DeliveryAddress;
-import uk.org.openbanking.datamodel.payment.OBExternalExtendedAccountType1Code;
+import uk.org.openbanking.datamodel.v3.common.OBExternalPaymentContext1Code;
+import uk.org.openbanking.datamodel.v3.common.OBRisk1;
+import uk.org.openbanking.datamodel.v3.common.OBRisk1DeliveryAddress;
+import uk.org.openbanking.datamodel.v3.payment.OBExternalExtendedAccountType1Code;
 
 import java.util.Collections;
 

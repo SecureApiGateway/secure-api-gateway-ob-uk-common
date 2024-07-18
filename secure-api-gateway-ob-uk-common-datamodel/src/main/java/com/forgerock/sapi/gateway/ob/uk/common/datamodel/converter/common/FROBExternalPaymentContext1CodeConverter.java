@@ -16,7 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRExternalPaymentContextCode;
-import uk.org.openbanking.datamodel.common.OBExternalPaymentContext1Code;
+import uk.org.openbanking.datamodel.v3.common.OBExternalPaymentContext1Code;
 
 public class FROBExternalPaymentContext1CodeConverter {
     public static FRExternalPaymentContextCode toFRExternalPaymentContextCode(OBExternalPaymentContext1Code obExternalPaymentContext1Code) {

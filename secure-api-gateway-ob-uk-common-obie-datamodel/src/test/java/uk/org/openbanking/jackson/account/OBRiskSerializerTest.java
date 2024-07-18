@@ -17,14 +17,15 @@ package uk.org.openbanking.jackson.account;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
-import uk.org.openbanking.datamodel.account.OBRisk2;
+import uk.org.openbanking.datamodel.v3.account.OBRisk2;
+import uk.org.openbanking.jackson.v3.account.OBRisk2Serializer;
 
 import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Unit test for {@link uk.org.openbanking.jackson.account.OBRisk2Serializer}.
+ * Unit test for {@link OBRisk2Serializer}.
  */
 public class OBRiskSerializerTest {
 

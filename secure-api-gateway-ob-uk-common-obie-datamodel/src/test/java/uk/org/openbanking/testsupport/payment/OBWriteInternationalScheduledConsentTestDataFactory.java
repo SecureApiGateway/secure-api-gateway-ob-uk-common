@@ -28,14 +28,14 @@ import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDa
 
 import org.joda.time.DateTime;
 
-import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4DataPermission;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationInstructionPriority;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduled3DataInitiation;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsent5Data;
+import uk.org.openbanking.datamodel.v3.common.OBChargeBearerType1Code;
+import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v3.common.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticScheduledConsent4DataPermission;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternational3DataInitiationInstructionPriority;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalScheduled3DataInitiation;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalScheduledConsent5;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalScheduledConsent5Data;
 
 /**
  * Test data factory for the various "OBWriteInternationalScheduledConsent" classes.

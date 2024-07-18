@@ -22,10 +22,10 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpReques
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpRequestData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRWriteDomesticVrpDataInitiation;
 import lombok.extern.slf4j.Slf4j;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInitiation;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInstruction;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequest;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequestData;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPInitiation;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPInstruction;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPRequest;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPRequestData;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter.*;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter.toFRAmount;

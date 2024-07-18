@@ -26,16 +26,16 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmou
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRFinancialInstrumentConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter;
 
-import uk.org.openbanking.datamodel.account.OBBankTransactionCodeStructure1;
-import uk.org.openbanking.datamodel.account.OBEntryStatus1Code;
-import uk.org.openbanking.datamodel.account.OBMerchantDetails1;
-import uk.org.openbanking.datamodel.account.OBTransaction6;
-import uk.org.openbanking.datamodel.account.OBTransactionCardInstrument1;
-import uk.org.openbanking.datamodel.account.OBTransactionCardInstrument1AuthorisationType;
-import uk.org.openbanking.datamodel.account.OBTransactionCardInstrument1CardSchemeName;
-import uk.org.openbanking.datamodel.account.OBTransactionCashBalance;
-import uk.org.openbanking.datamodel.account.OBTransactionMutability1Code;
-import uk.org.openbanking.datamodel.account.ProprietaryBankTransactionCodeStructure1;
+import uk.org.openbanking.datamodel.v3.account.OBBankTransactionCodeStructure1;
+import uk.org.openbanking.datamodel.v3.account.OBEntryStatus1Code;
+import uk.org.openbanking.datamodel.v3.account.OBMerchantDetails1;
+import uk.org.openbanking.datamodel.v3.account.OBTransaction6;
+import uk.org.openbanking.datamodel.v3.account.OBTransactionCardInstrument1;
+import uk.org.openbanking.datamodel.v3.account.OBTransactionCardInstrument1AuthorisationType;
+import uk.org.openbanking.datamodel.v3.account.OBTransactionCardInstrument1CardSchemeName;
+import uk.org.openbanking.datamodel.v3.account.OBTransactionCashBalance;
+import uk.org.openbanking.datamodel.v3.account.OBTransactionMutability1Code;
+import uk.org.openbanking.datamodel.v3.account.ProprietaryBankTransactionCodeStructure1;
 
 public class FRTransactionConverter {
 

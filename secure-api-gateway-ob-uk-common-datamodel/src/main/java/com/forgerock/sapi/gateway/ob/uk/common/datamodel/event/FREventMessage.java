@@ -27,7 +27,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import uk.org.openbanking.datamodel.event.OBEventNotification1;
+import uk.org.openbanking.datamodel.v3.event.OBEventNotification1;
 
 @Data
 @AllArgsConstructor

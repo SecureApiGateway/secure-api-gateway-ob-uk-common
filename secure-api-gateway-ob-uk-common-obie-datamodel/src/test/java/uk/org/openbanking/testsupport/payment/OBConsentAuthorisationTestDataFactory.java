@@ -17,8 +17,8 @@ package uk.org.openbanking.testsupport.payment;
 
 import org.joda.time.DateTime;
 
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4DataAuthorisation;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4DataAuthorisationAuthorisationType;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticConsent4DataAuthorisation;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticConsent4DataAuthorisationAuthorisationType;
 
 /**
  * Test data factory for various OB consent authorisation types.
