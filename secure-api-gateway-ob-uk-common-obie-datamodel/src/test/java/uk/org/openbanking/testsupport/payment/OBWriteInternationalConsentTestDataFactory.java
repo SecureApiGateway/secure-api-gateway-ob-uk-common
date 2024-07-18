@@ -27,13 +27,13 @@ import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aVal
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1MandatoryFields;
 import static uk.org.openbanking.testsupport.payment.OBWriteDomesticScaSupportDataTestDataFactory.aValidOBSCASupportData1;
 
-import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiation;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationInstructionPriority;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsent5;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalConsent5Data;
+import uk.org.openbanking.datamodel.v3.common.OBChargeBearerType1Code;
+import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v3.common.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternational3DataInitiation;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternational3DataInitiationInstructionPriority;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalConsent5;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalConsent5Data;
 
 /**
  * Test data factory for the various "OBWriteInternationalConsent" classes.

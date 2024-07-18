@@ -16,7 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRLinks;
-import uk.org.openbanking.datamodel.common.Links;
+import uk.org.openbanking.datamodel.v3.common.Links;
 
 import java.net.URI;
 

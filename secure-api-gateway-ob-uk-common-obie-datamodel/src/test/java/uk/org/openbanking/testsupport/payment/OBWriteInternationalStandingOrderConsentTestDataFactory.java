@@ -28,13 +28,13 @@ import org.joda.time.DateTime;
 
 import com.forgerock.sapi.gateway.uk.common.shared.api.meta.forgerock.FRFrequencyType;
 
-import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticScheduledConsent4DataPermission;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4DataInitiation;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent6;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrderConsent6Data;
+import uk.org.openbanking.datamodel.v3.common.OBChargeBearerType1Code;
+import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v3.common.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticScheduledConsent4DataPermission;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalStandingOrder4DataInitiation;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalStandingOrderConsent6;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalStandingOrderConsent6Data;
 
 /**
  * Test data factory for the various "OBWriteInternationalStandingOrderConsent" classes.

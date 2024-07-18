@@ -18,7 +18,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.vrp;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVRPConsent;
 
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPConsentRequest;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPConsentRequest;
 
 public class FRDomesticVRPConsentConverters {
 

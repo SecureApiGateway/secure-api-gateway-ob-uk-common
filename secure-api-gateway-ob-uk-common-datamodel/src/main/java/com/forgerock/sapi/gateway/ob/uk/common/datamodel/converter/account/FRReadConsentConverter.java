@@ -18,7 +18,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRReadConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 
-import uk.org.openbanking.datamodel.account.OBReadConsent1;
+import uk.org.openbanking.datamodel.v3.account.OBReadConsent1;
 
 public class FRReadConsentConverter {
 

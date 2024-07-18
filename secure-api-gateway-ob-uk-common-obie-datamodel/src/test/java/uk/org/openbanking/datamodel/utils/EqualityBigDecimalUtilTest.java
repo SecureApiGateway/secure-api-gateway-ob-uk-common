@@ -18,8 +18,13 @@ package uk.org.openbanking.datamodel.utils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import uk.org.openbanking.datamodel.account.*;
-import uk.org.openbanking.datamodel.payment.*;
+
+import uk.org.openbanking.datamodel.v3.account.OBCurrencyExchange5;
+import uk.org.openbanking.datamodel.v3.account.OBStatement2StatementFeeInner;
+import uk.org.openbanking.datamodel.v3.account.OBStatement2StatementInterestInner;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteFile2DataInitiation;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternational3DataInitiationExchangeRateInformation;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalConsentResponse6DataExchangeRateInformation;
 
 import java.math.BigDecimal;
 import java.util.stream.Stream;

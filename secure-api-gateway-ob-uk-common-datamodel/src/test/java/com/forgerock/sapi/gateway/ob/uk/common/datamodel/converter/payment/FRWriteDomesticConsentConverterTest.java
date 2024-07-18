@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticConsent;
 
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsent4;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticConsent4;
 import uk.org.openbanking.testsupport.payment.OBWriteDomesticConsentTestDataFactory;
 
 class FRWriteDomesticConsentConverterTest {

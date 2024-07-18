@@ -19,7 +19,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import uk.org.openbanking.datamodel.customerinfo.CustomerInfoAddress;
+import uk.org.openbanking.datamodel.v3.customerinfo.CustomerInfoAddress;
 
 import jakarta.validation.Valid;
 import java.util.List;

@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrderConsent;
 
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticStandingOrderConsent5;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticStandingOrderConsent5;
 import uk.org.openbanking.testsupport.payment.OBWriteDomesticStandingOrderConsentTestDataFactory;
 
 class FRWriteDomesticStandingOrderConsentConverterTest {

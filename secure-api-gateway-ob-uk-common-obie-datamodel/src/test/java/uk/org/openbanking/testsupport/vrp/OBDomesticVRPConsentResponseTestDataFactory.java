@@ -18,8 +18,13 @@ package uk.org.openbanking.testsupport.vrp;
 import com.forgerock.sapi.gateway.uk.common.shared.api.meta.share.IntentType;
 import org.joda.time.DateTime;
 
-import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
-import uk.org.openbanking.datamodel.vrp.*;
+import uk.org.openbanking.datamodel.v3.common.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPConsentRequest;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPConsentRequestData;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPConsentResponse;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPConsentResponseData;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPRequest;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPRequestData;
 
 import static org.joda.time.DateTime.now;
 import static uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory.aValidOBRisk1;

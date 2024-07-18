@@ -17,9 +17,9 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditDebitIndicator;
 
-import uk.org.openbanking.datamodel.account.OBCreditDebitCode0;
-import uk.org.openbanking.datamodel.account.OBCreditDebitCode1;
-import uk.org.openbanking.datamodel.account.OBCreditDebitCode2;
+import uk.org.openbanking.datamodel.v3.account.OBCreditDebitCode0;
+import uk.org.openbanking.datamodel.v3.account.OBCreditDebitCode1;
+import uk.org.openbanking.datamodel.v3.account.OBCreditDebitCode2;
 
 public class FRCreditDebitIndicatorConverter {
 

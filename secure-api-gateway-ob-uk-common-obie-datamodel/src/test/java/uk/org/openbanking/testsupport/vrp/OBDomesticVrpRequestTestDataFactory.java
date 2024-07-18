@@ -25,11 +25,11 @@ import static uk.org.openbanking.testsupport.vrp.OBDomesticVrpCommonTestDataFact
 
 import java.util.UUID;
 
-import uk.org.openbanking.datamodel.common.OBVRPAuthenticationMethods;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInstruction;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequest;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequestData;
-import uk.org.openbanking.datamodel.vrp.OBVRPInteractionTypes;
+import uk.org.openbanking.datamodel.v3.common.OBVRPAuthenticationMethods;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPInstruction;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPRequest;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPRequestData;
+import uk.org.openbanking.datamodel.v3.vrp.OBVRPInteractionTypes;
 
 public class OBDomesticVrpRequestTestDataFactory {
 

@@ -20,11 +20,11 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountServicer;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
 
-import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification50;
-import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification60;
-import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification61;
-import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification62;
-import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
+import uk.org.openbanking.datamodel.v3.account.OBBranchAndFinancialInstitutionIdentification50;
+import uk.org.openbanking.datamodel.v3.account.OBBranchAndFinancialInstitutionIdentification60;
+import uk.org.openbanking.datamodel.v3.account.OBBranchAndFinancialInstitutionIdentification61;
+import uk.org.openbanking.datamodel.v3.account.OBBranchAndFinancialInstitutionIdentification62;
+import uk.org.openbanking.datamodel.v3.common.OBBranchAndFinancialInstitutionIdentification6;
 
 
 public class FRAccountServicerConverter {

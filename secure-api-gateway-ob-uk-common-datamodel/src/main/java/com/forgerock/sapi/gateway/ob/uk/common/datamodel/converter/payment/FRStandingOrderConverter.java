@@ -20,7 +20,8 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAcco
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRFinancialInstrumentConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter;
-import uk.org.openbanking.datamodel.account.*;
+import uk.org.openbanking.datamodel.v3.account.OBExternalStandingOrderStatus1Code;
+import uk.org.openbanking.datamodel.v3.account.OBStandingOrder6;
 
 public class FRStandingOrderConverter {
 

@@ -20,7 +20,9 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRMode
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalDataInitiation;
-import uk.org.openbanking.datamodel.payment.*;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternational3DataInitiation;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalConsent5;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalConsent5Data;
 
 public class FRWriteInternationalConsentConverter {
 

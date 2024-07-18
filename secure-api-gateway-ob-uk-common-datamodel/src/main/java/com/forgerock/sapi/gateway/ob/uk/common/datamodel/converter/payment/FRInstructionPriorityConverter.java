@@ -17,7 +17,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRInstructionPriority;
 
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationInstructionPriority;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternational3DataInitiationInstructionPriority;
 
 public class FRInstructionPriorityConverter {
 
