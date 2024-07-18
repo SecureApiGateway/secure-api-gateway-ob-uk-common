@@ -27,15 +27,15 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRStatementData
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter;
 
 import lombok.extern.slf4j.Slf4j;
-import uk.org.openbanking.datamodel.account.OBExternalStatementType1Code;
-import uk.org.openbanking.datamodel.account.OBStatement2;
-import uk.org.openbanking.datamodel.account.OBStatement2StatementAmountInner;
-import uk.org.openbanking.datamodel.account.OBStatement2StatementBenefitInner;
-import uk.org.openbanking.datamodel.account.OBStatement2StatementDateTimeInner;
-import uk.org.openbanking.datamodel.account.OBStatement2StatementFeeInner;
-import uk.org.openbanking.datamodel.account.OBStatement2StatementInterestInner;
-import uk.org.openbanking.datamodel.account.OBStatement2StatementRateInner;
-import uk.org.openbanking.datamodel.account.OBStatement2StatementValueInner;
+import uk.org.openbanking.datamodel.v3.account.OBExternalStatementType1Code;
+import uk.org.openbanking.datamodel.v3.account.OBStatement2;
+import uk.org.openbanking.datamodel.v3.account.OBStatement2StatementAmountInner;
+import uk.org.openbanking.datamodel.v3.account.OBStatement2StatementBenefitInner;
+import uk.org.openbanking.datamodel.v3.account.OBStatement2StatementDateTimeInner;
+import uk.org.openbanking.datamodel.v3.account.OBStatement2StatementFeeInner;
+import uk.org.openbanking.datamodel.v3.account.OBStatement2StatementInterestInner;
+import uk.org.openbanking.datamodel.v3.account.OBStatement2StatementRateInner;
+import uk.org.openbanking.datamodel.v3.account.OBStatement2StatementValueInner;
 
 /**
  * Converter for 'FRStatement' documents.

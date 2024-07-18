@@ -19,7 +19,7 @@ import org.modelmapper.ModelMapper;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPaymentRisk;
 
-import uk.org.openbanking.datamodel.common.OBRisk1;
+import uk.org.openbanking.datamodel.v3.common.OBRisk1;
 
 /**
  * This is used to wrap a singleton model mapper so config can be set in one place without requiring DI/Spring in a common lib.

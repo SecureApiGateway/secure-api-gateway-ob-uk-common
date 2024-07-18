@@ -16,7 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.event;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.event.FREventSubscriptionData;
-import uk.org.openbanking.datamodel.event.OBEventSubscription1;
+import uk.org.openbanking.datamodel.v3.event.OBEventSubscription1;
 
 public class FREventSubscriptionConverter {
 

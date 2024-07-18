@@ -23,11 +23,11 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRFinancialAcco
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter;
 
-import uk.org.openbanking.datamodel.account.OBAccount6;
-import uk.org.openbanking.datamodel.account.OBAccount6AccountInner;
-import uk.org.openbanking.datamodel.account.OBAccountStatus1Code;
-import uk.org.openbanking.datamodel.account.OBExternalAccountSubType1Code;
-import uk.org.openbanking.datamodel.account.OBExternalAccountType1Code;
+import uk.org.openbanking.datamodel.v3.account.OBAccount6;
+import uk.org.openbanking.datamodel.v3.account.OBAccount6AccountInner;
+import uk.org.openbanking.datamodel.v3.account.OBAccountStatus1Code;
+import uk.org.openbanking.datamodel.v3.account.OBExternalAccountSubType1Code;
+import uk.org.openbanking.datamodel.v3.account.OBExternalAccountType1Code;
 
 public class FRFinancialAccountConverter {
 

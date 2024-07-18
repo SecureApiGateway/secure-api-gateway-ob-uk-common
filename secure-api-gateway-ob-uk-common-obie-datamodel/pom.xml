@@ -234,23 +234,23 @@
                                          Documentation: https://github.com/OpenAPITools/openapi-generator/blob/master/docs/customization.md
                                          -->
                                     <importMappings>
-                                        Links=uk.org.openbanking.datamodel.common.Links,
-                                        Meta=uk.org.openbanking.datamodel.common.Meta,
-                                        OBRisk1=uk.org.openbanking.datamodel.common.OBRisk1,
-                                        OBSupplementaryData1=uk.org.openbanking.datamodel.common.OBSupplementaryData1,
-                                        OBError1=uk.org.openbanking.datamodel.error.OBError1,
-                                        OBErrorResponse1=uk.org.openbanking.datamodel.error.OBErrorResponse1,
+                                        Links=uk.org.openbanking.datamodel.v3.common.Links,
+                                        Meta=uk.org.openbanking.datamodel.v3.common.Meta,
+                                        OBRisk1=uk.org.openbanking.datamodel.v3.common.OBRisk1,
+                                        OBSupplementaryData1=uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1,
+                                        OBError1=uk.org.openbanking.datamodel.v3.error.OBError1,
+                                        OBErrorResponse1=uk.org.openbanking.datamodel.v3.error.OBErrorResponse1,
                                         OBCashAccount3=uk.org.openbanking.datamodel.common.OBCashAccount3,
-                                        OBExternalRequestStatus1Code=uk.org.openbanking.datamodel.common.OBExternalRequestStatus1Code,
-                                        OBActiveOrHistoricCurrencyAndAmount=uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount,
-                                        OBPostalAddress6=uk.org.openbanking.datamodel.common.OBPostalAddress6,
-                                        OBChargeBearerType1Code=uk.org.openbanking.datamodel.common.OBChargeBearerType1Code,
-                                        OBCashAccountCreditor3=uk.org.openbanking.datamodel.common.OBCashAccountCreditor3,
-                                        OBBranchAndFinancialInstitutionIdentification6=uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6,
+                                        OBExternalRequestStatus1Code=uk.org.openbanking.datamodel.v3.common.OBExternalRequestStatus1Code,
+                                        OBActiveOrHistoricCurrencyAndAmount=uk.org.openbanking.datamodel.v3.common.OBActiveOrHistoricCurrencyAndAmount,
+                                        OBPostalAddress6=uk.org.openbanking.datamodel.v3.common.OBPostalAddress6,
+                                        OBChargeBearerType1Code=uk.org.openbanking.datamodel.v3.common.OBChargeBearerType1Code,
+                                        OBCashAccountCreditor3=uk.org.openbanking.datamodel.v3.common.OBCashAccountCreditor3,
+                                        OBBranchAndFinancialInstitutionIdentification6=uk.org.openbanking.datamodel.v3.common.OBBranchAndFinancialInstitutionIdentification6,
                                         OBExternalStatus2Code=uk.org.openbanking.datamodel.common.OBExternalStatus2Code,
-                                        OBReadRefundAccount=uk.org.openbanking.datamodel.common.OBReadRefundAccount,
-                                        OBAddressTypeCode=uk.org.openbanking.datamodel.common.OBAddressTypeCode,
-                                        OBExternalPermissions1Code=uk.org.openbanking.datamodel.common.OBExternalPermissions1Code
+                                        OBReadRefundAccount=uk.org.openbanking.datamodel.v3.common.OBReadRefundAccount,
+                                        OBAddressTypeCode=uk.org.openbanking.datamodel.v3.common.OBAddressTypeCode,
+                                        OBExternalPermissions1Code=uk.org.openbanking.datamodel.v3.common.OBExternalPermissions1Code
                                     </importMappings>
                                     <configOptions>
                                         <useSpringBoot3>true</useSpringBoot3>

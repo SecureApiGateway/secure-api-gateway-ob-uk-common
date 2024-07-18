@@ -27,10 +27,10 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCashBalance;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditLine;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter;
 
-import uk.org.openbanking.datamodel.account.OBBalanceType1Code;
-import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInner;
-import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInnerCreditLineInner;
-import uk.org.openbanking.datamodel.account.OBReadBalance1DataBalanceInnerCreditLineInnerType;
+import uk.org.openbanking.datamodel.v3.account.OBBalanceType1Code;
+import uk.org.openbanking.datamodel.v3.account.OBReadBalance1DataBalanceInner;
+import uk.org.openbanking.datamodel.v3.account.OBReadBalance1DataBalanceInnerCreditLineInner;
+import uk.org.openbanking.datamodel.v3.account.OBReadBalance1DataBalanceInnerCreditLineInnerType;
 
 public class FRCashBalanceConverter {
 

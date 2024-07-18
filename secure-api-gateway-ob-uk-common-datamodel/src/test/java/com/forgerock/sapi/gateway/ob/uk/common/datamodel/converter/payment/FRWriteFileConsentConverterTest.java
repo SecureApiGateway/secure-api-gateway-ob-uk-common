@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFileConsent;
 
-import uk.org.openbanking.datamodel.payment.OBWriteFileConsent3;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteFileConsent3;
 import uk.org.openbanking.testsupport.payment.OBWriteFileConsentTestDataFactory;
 
 class FRWriteFileConsentConverterTest {

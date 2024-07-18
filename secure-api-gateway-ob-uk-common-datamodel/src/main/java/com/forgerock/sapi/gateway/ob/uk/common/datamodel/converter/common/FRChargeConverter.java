@@ -22,7 +22,7 @@ import java.util.List;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRCharge;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 
-import uk.org.openbanking.datamodel.payment.OBWriteDomesticConsentResponse5DataChargesInner;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticConsentResponse5DataChargesInner;
 
 public class FRChargeConverter {
 
