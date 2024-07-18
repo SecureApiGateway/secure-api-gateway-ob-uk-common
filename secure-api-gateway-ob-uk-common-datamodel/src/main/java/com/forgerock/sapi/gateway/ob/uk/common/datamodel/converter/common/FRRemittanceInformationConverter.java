@@ -17,9 +17,9 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
 
-import uk.org.openbanking.datamodel.payment.OBWriteDomestic2DataInitiationRemittanceInformation;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPInitiationRemittanceInformation;
-import uk.org.openbanking.datamodel.vrp.OBVRPRemittanceInformation;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteDomestic2DataInitiationRemittanceInformation;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPInitiationRemittanceInformation;
+import uk.org.openbanking.datamodel.v3.vrp.OBVRPRemittanceInformation;
 
 public class FRRemittanceInformationConverter {
 

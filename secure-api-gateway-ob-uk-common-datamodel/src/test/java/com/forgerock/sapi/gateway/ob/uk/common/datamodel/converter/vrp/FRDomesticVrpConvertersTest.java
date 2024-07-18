@@ -17,7 +17,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.vrp;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpRequest;
 import org.junit.jupiter.api.Test;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPRequest;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPRequest;
 import uk.org.openbanking.testsupport.vrp.OBDomesticVrpRequestTestDataFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

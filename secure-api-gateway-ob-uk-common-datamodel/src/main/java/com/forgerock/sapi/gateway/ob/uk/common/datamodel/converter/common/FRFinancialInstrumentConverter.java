@@ -18,15 +18,15 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialCreditor;
 
-import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification51;
-import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification60;
-import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification61;
-import uk.org.openbanking.datamodel.account.OBBranchAndFinancialInstitutionIdentification62;
-import uk.org.openbanking.datamodel.common.OBBranchAndFinancialInstitutionIdentification6;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationCreditor;
-import uk.org.openbanking.datamodel.payment.OBWriteInternational3DataInitiationCreditorAgent;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor;
-import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAgent;
+import uk.org.openbanking.datamodel.v3.account.OBBranchAndFinancialInstitutionIdentification51;
+import uk.org.openbanking.datamodel.v3.account.OBBranchAndFinancialInstitutionIdentification60;
+import uk.org.openbanking.datamodel.v3.account.OBBranchAndFinancialInstitutionIdentification61;
+import uk.org.openbanking.datamodel.v3.account.OBBranchAndFinancialInstitutionIdentification62;
+import uk.org.openbanking.datamodel.v3.common.OBBranchAndFinancialInstitutionIdentification6;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternational3DataInitiationCreditor;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternational3DataInitiationCreditorAgent;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor;
+import uk.org.openbanking.datamodel.v3.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAgent;
 
 public class FRFinancialInstrumentConverter {
 

@@ -21,6 +21,10 @@ import java.lang.reflect.Field;
 
 import org.junit.jupiter.api.Test;
 
+import uk.org.openbanking.datamodel.v3.account.OBReadConsent1;
+import uk.org.openbanking.datamodel.v3.account.OBReadConsentResponse1;
+import uk.org.openbanking.datamodel.v3.account.OBRisk2;
+
 public class AccountOBRisk2FieldTests {
 
     /**

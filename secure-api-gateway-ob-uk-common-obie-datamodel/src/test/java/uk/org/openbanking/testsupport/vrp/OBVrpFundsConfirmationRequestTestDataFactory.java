@@ -15,9 +15,9 @@
  */
 package uk.org.openbanking.testsupport.vrp;
 
-import uk.org.openbanking.datamodel.common.OBActiveOrHistoricCurrencyAndAmount;
-import uk.org.openbanking.datamodel.vrp.OBVRPFundsConfirmationRequest;
-import uk.org.openbanking.datamodel.vrp.OBVRPFundsConfirmationRequestData;
+import uk.org.openbanking.datamodel.v3.common.OBActiveOrHistoricCurrencyAndAmount;
+import uk.org.openbanking.datamodel.v3.vrp.OBVRPFundsConfirmationRequest;
+import uk.org.openbanking.datamodel.v3.vrp.OBVRPFundsConfirmationRequestData;
 
 import java.util.UUID;
 

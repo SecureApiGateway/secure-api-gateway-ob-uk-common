@@ -21,7 +21,9 @@ import java.lang.reflect.Field;
 
 import org.junit.jupiter.api.Test;
 
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPControlParameters;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPInstruction;
 
 class VRPOBSupplementaryDataFieldTests {
 

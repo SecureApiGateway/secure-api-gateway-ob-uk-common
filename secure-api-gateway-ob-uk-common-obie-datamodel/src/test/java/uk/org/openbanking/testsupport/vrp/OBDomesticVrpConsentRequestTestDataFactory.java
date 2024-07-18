@@ -26,18 +26,18 @@ import java.util.List;
 
 import org.joda.time.DateTime;
 
-import uk.org.openbanking.datamodel.common.OBReadRefundAccount;
-import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.common.OBVRPAuthenticationMethods;
-import uk.org.openbanking.datamodel.common.OBVRPConsentType;
-import uk.org.openbanking.datamodel.vrp.OBCashAccountDebtorWithName;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPConsentRequest;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPConsentRequestData;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPControlParameters;
-import uk.org.openbanking.datamodel.vrp.OBDomesticVRPControlParametersPeriodicLimitsInner;
-import uk.org.openbanking.datamodel.vrp.OBPeriodAlignment;
-import uk.org.openbanking.datamodel.vrp.OBPeriodType;
-import uk.org.openbanking.datamodel.vrp.OBVRPInteractionTypes;
+import uk.org.openbanking.datamodel.v3.common.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v3.common.OBVRPAuthenticationMethods;
+import uk.org.openbanking.datamodel.v3.common.OBVRPConsentType;
+import uk.org.openbanking.datamodel.v3.vrp.OBCashAccountDebtorWithName;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPConsentRequest;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPConsentRequestData;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPControlParameters;
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPControlParametersPeriodicLimitsInner;
+import uk.org.openbanking.datamodel.v3.vrp.OBPeriodAlignment;
+import uk.org.openbanking.datamodel.v3.vrp.OBPeriodType;
+import uk.org.openbanking.datamodel.v3.vrp.OBVRPInteractionTypes;
 
 public class OBDomesticVrpConsentRequestTestDataFactory {
 

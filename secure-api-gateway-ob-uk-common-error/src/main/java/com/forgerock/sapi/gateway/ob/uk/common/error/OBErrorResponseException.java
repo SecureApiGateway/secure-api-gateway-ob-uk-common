@@ -16,7 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.error;
 
 import org.springframework.http.HttpStatus;
-import uk.org.openbanking.datamodel.error.OBError1;
+import uk.org.openbanking.datamodel.v3.error.OBError1;
 
 import java.util.ArrayList;
 import java.util.Collections;
