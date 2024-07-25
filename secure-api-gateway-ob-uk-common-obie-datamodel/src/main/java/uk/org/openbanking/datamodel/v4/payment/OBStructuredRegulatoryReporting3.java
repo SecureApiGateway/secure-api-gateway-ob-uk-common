@@ -29,7 +29,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import uk.org.openbanking.datamodel.v3.common.OBActiveOrHistoricCurrencyAndAmount;
+import uk.org.openbanking.datamodel.v4.common.OBActiveOrHistoricCurrencyAndAmount;
 
 /**
  * Set of elements used to provide details on the regulatory reporting information.
