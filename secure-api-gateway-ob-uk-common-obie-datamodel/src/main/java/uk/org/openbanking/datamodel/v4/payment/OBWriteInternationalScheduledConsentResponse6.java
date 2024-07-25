@@ -23,9 +23,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import uk.org.openbanking.datamodel.v3.common.Links;
-import uk.org.openbanking.datamodel.v3.common.Meta;
-import uk.org.openbanking.datamodel.v3.common.OBRisk1;
+import uk.org.openbanking.datamodel.v4.common.Links;
+import uk.org.openbanking.datamodel.v4.common.Meta;
+import uk.org.openbanking.datamodel.v4.common.OBRisk1;
 
 /**
  * OBWriteInternationalScheduledConsentResponse6
