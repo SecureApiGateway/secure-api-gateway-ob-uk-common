@@ -24,6 +24,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
 
 /**
  * Ultimate party to which an amount of money is due.

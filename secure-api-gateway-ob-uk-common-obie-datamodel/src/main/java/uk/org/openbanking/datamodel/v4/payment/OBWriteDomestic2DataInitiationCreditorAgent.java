@@ -25,6 +25,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
 
 /**
  * Financial institution servicing an account for the creditor.

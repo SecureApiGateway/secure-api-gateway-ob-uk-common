@@ -234,23 +234,26 @@
                                          Documentation: https://github.com/OpenAPITools/openapi-generator/blob/master/docs/customization.md
                                          -->
                                     <importMappings>
-                                        Links=uk.org.openbanking.datamodel.v3.common.Links,
-                                        Meta=uk.org.openbanking.datamodel.v3.common.Meta,
-                                        OBRisk1=uk.org.openbanking.datamodel.v3.common.OBRisk1,
+                                        <!-- v3 common types to reuse -->
                                         OBSupplementaryData1=uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1,
-                                        OBError1=uk.org.openbanking.datamodel.v3.error.OBError1,
-                                        OBErrorResponse1=uk.org.openbanking.datamodel.v3.error.OBErrorResponse1,
+
+                                        <!-- v4 common types to reuse -->
+                                        Links=uk.org.openbanking.datamodel.v4.common.Links,
+                                        Meta=uk.org.openbanking.datamodel.v4.common.Meta,
+                                        OBRisk1=uk.org.openbanking.datamodel.v4.common.OBRisk1,
+                                        OBError1=uk.org.openbanking.datamodel.v4.error.OBError1,
+                                        OBErrorResponse1=uk.org.openbanking.datamodel.v4.error.OBErrorResponse1,
                                         OBCashAccount3=uk.org.openbanking.datamodel.common.OBCashAccount3,
-                                        OBExternalRequestStatus1Code=uk.org.openbanking.datamodel.v3.common.OBExternalRequestStatus1Code,
-                                        OBActiveOrHistoricCurrencyAndAmount=uk.org.openbanking.datamodel.v3.common.OBActiveOrHistoricCurrencyAndAmount,
-                                        OBPostalAddress6=uk.org.openbanking.datamodel.v3.common.OBPostalAddress6,
-                                        OBChargeBearerType1Code=uk.org.openbanking.datamodel.v3.common.OBChargeBearerType1Code,
-                                        OBCashAccountCreditor3=uk.org.openbanking.datamodel.v3.common.OBCashAccountCreditor3,
-                                        OBBranchAndFinancialInstitutionIdentification6=uk.org.openbanking.datamodel.v3.common.OBBranchAndFinancialInstitutionIdentification6,
-                                        OBExternalStatus2Code=uk.org.openbanking.datamodel.common.OBExternalStatus2Code,
-                                        OBReadRefundAccount=uk.org.openbanking.datamodel.v3.common.OBReadRefundAccount,
-                                        OBAddressTypeCode=uk.org.openbanking.datamodel.v3.common.OBAddressTypeCode,
-                                        OBExternalPermissions1Code=uk.org.openbanking.datamodel.v3.common.OBExternalPermissions1Code
+                                        OBExternalRequestStatus1Code=uk.org.openbanking.datamodel.v4.common.OBExternalRequestStatus1Code,
+                                        OBActiveOrHistoricCurrencyAndAmount=uk.org.openbanking.datamodel.v4.common.OBActiveOrHistoricCurrencyAndAmount,
+                                        OBPostalAddress7=uk.org.openbanking.datamodel.v4.common.OBPostalAddress7,
+                                        OBChargeBearerType1Code=uk.org.openbanking.datamodel.v4.common.OBChargeBearerType1Code,
+                                        OBCashAccountCreditor3=uk.org.openbanking.datamodel.v4.common.OBCashAccountCreditor3,
+                                        OBBranchAndFinancialInstitutionIdentification6=uk.org.openbanking.datamodel.v4.common.OBBranchAndFinancialInstitutionIdentification6,
+                                        OBExternalStatus2Code=uk.org.openbanking.datamodel.v4.common.OBExternalStatus2Code,
+                                        OBReadRefundAccount=uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount,
+                                        OBAddressTypeCode=uk.org.openbanking.datamodel.v4.common.OBAddressTypeCode,
+                                        OBExternalPermissions1Code=uk.org.openbanking.datamodel.v4.common.OBExternalPermissions1Code
                                     </importMappings>
                                     <configOptions>
                                         <useSpringBoot3>true</useSpringBoot3>
