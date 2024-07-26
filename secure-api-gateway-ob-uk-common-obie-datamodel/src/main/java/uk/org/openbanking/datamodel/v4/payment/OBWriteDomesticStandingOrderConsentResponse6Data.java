@@ -45,7 +45,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBWriteDomesticScheduledConsentResponse5DataStatus status;
+    private OBPaymentConsentStatus status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -78,7 +78,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticStandingOrderConsentResponse6Data(String consentId, DateTime creationDateTime, OBWriteDomesticScheduledConsentResponse5DataStatus status, DateTime statusUpdateDateTime, OBWriteDomesticScheduledConsent4DataPermission permission, OBWriteDomesticStandingOrderConsentResponse6DataInitiation initiation) {
+    public OBWriteDomesticStandingOrderConsentResponse6Data(String consentId, DateTime creationDateTime, OBPaymentConsentStatus status, DateTime statusUpdateDateTime, OBWriteDomesticScheduledConsent4DataPermission permission, OBWriteDomesticStandingOrderConsentResponse6DataInitiation initiation) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -131,7 +131,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteDomesticStandingOrderConsentResponse6Data status(OBWriteDomesticScheduledConsentResponse5DataStatus status) {
+    public OBWriteDomesticStandingOrderConsentResponse6Data status(OBPaymentConsentStatus status) {
         this.status = status;
         return this;
     }
@@ -145,11 +145,11 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWriteDomesticScheduledConsentResponse5DataStatus getStatus() {
+    public OBPaymentConsentStatus getStatus() {
         return status;
     }
 
-    public void setStatus(OBWriteDomesticScheduledConsentResponse5DataStatus status) {
+    public void setStatus(OBPaymentConsentStatus status) {
         this.status = status;
     }
 
