@@ -24,6 +24,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.ExternalProxyAccountType1Code;
 
 /**
  * Specifies an alternate assumed name for the identification of the account.
