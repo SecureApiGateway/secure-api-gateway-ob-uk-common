@@ -160,12 +160,12 @@
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/payment-initiation-openapi.yaml</inputSpec>-->
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/vrp-openapi-3.1.9r7.yaml</inputSpec>-->
                                     <inputSpec>
-                                        ${project.basedir}/src/main/resources/specification/4.0.0/payment-initiation-openapi.yaml
+                                        ${project.basedir}/src/main/resources/specification/4.0.0/account-info-openapi.yaml
                                     </inputSpec>
                                     <output>${project.build.directory}/generated-sources/swagger</output>
                                     <generatorName>spring</generatorName>
                                     <!-- Change the package here as per the chosen spec above -->
-                                    <modelPackage>uk.org.openbanking.datamodel.v4.payment</modelPackage>
+                                    <modelPackage>uk.org.openbanking.datamodel.v4.account</modelPackage>
                                     <generateApis>false</generateApis>
                                     <!-- Override the default name for inline schemas
                                          This should be used when we want to give complex inner schema names a more
@@ -178,6 +178,8 @@
                                         OBWriteInternationalStandingOrderConsentResponse7_Data_Status=OBPaymentConsentStatus,
                                         OBDomesticVRPControlParameters_PeriodicLimits_inner_PeriodAlignment=OBPeriodAlignment,
                                         OBDomesticVRPControlParameters_PeriodicLimits_inner_PeriodType=OBPeriodType,
+                                        OBReadConsent1_Data_Permissions_inner=OBInternalPermissions1Code,
+                                        OBReadConsentResponse1_Data_Status=OBReadConsentStatus
                                     </inlineSchemaNameMappings>
                                     <!-- RESOLVE_INLINE_ENUMS needs to be enabled to move enums which are specified as
                                          inline types in the schema to top level generated types, this then allows us to
@@ -224,8 +226,8 @@
                                         OBDomesticVRPConsentResponse_Data_DebtorAccount=OBCashAccountDebtorWithName,
                                         OBDomesticVRPConsentResponse_Data_ReadRefundAccount=OBReadRefundAccount,
                                         OBWriteDomesticConsent4_Data_ReadRefundAccount=OBReadRefundAccount,
-                                        OBReadConsentResponse1_Data_Status=OBExternalRequestStatus1Code,
-                                        OBReadConsent1_Data_Permissions_inner=OBExternalPermissions1Code,
+                                        ExternalCategoryPurpose1Code=ExternalCategoryPurpose1Code,
+                                        ExternalProxyAccountType1Code=ExternalProxyAccountType1Code
                                     </schemaMappings>
                                     <!-- Map types which are not generating to their fully qualified class name to use
                                          in the import statements.
@@ -237,6 +239,7 @@
                                     <importMappings>
                                         <!-- v3 common types to reuse -->
                                         OBSupplementaryData1=uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1,
+                                        OBRisk2=uk.org.openbanking.datamodel.v3.account.OBRisk2,
 
                                         <!-- v4 common types to reuse -->
                                         Links=uk.org.openbanking.datamodel.v4.common.Links,
@@ -245,7 +248,6 @@
                                         OBError1=uk.org.openbanking.datamodel.v4.error.OBError1,
                                         OBErrorResponse1=uk.org.openbanking.datamodel.v4.error.OBErrorResponse1,
                                         OBCashAccount3=uk.org.openbanking.datamodel.common.OBCashAccount3,
-                                        OBExternalRequestStatus1Code=uk.org.openbanking.datamodel.v4.common.OBExternalRequestStatus1Code,
                                         OBActiveOrHistoricCurrencyAndAmount=uk.org.openbanking.datamodel.v4.common.OBActiveOrHistoricCurrencyAndAmount,
                                         OBPostalAddress7=uk.org.openbanking.datamodel.v4.common.OBPostalAddress7,
                                         OBChargeBearerType1Code=uk.org.openbanking.datamodel.v4.common.OBChargeBearerType1Code,
@@ -253,8 +255,9 @@
                                         OBBranchAndFinancialInstitutionIdentification6=uk.org.openbanking.datamodel.v4.common.OBBranchAndFinancialInstitutionIdentification6,
                                         OBExternalStatus2Code=uk.org.openbanking.datamodel.v4.common.OBExternalStatus2Code,
                                         OBReadRefundAccount=uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount,
-                                        OBAddressTypeCode=uk.org.openbanking.datamodel.v4.common.OBAddressTypeCode,
-                                        OBExternalPermissions1Code=uk.org.openbanking.datamodel.v4.common.OBExternalPermissions1Code
+                                        OBAddressTypeCode=uk.org.openbanking.datamodel.v4.common.OBAddressTypeCode
+                                        ExternalCategoryPurpose1Code=uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code,
+                                        ExternalProxyAccountType1Code=uk.org.openbanking.datamodel.v4.common.ExternalProxyAccountType1Code
                                     </importMappings>
                                     <configOptions>
                                         <useSpringBoot3>true</useSpringBoot3>

@@ -23,9 +23,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
-import uk.org.openbanking.datamodel.v4.payment.ExternalCategoryPurpose1Code;
-import uk.org.openbanking.datamodel.v4.payment.ExternalPurpose1Code;
-import uk.org.openbanking.datamodel.v4.payment.OBInternalExtendedAccountType1Code;
 
 /**
  * The Risk section is sent by the initiating party to the ASPSP. It is used to specify additional details for risk scoring for Payments.
