@@ -160,12 +160,12 @@
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/payment-initiation-openapi.yaml</inputSpec>-->
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/vrp-openapi-3.1.9r7.yaml</inputSpec>-->
                                     <inputSpec>
-                                        ${project.basedir}/src/main/resources/specification/4.0.0/confirmation-funds-openapi.yaml
+                                        ${project.basedir}/src/main/resources/specification/4.0.0/vrp-openapi.yaml
                                     </inputSpec>
                                     <output>${project.build.directory}/generated-sources/swagger</output>
                                     <generatorName>spring</generatorName>
                                     <!-- Change the package here as per the chosen spec above -->
-                                    <modelPackage>uk.org.openbanking.datamodel.v4.fund</modelPackage>
+                                    <modelPackage>uk.org.openbanking.datamodel.v4.vrp</modelPackage>
                                     <generateApis>false</generateApis>
                                     <!-- Override the default name for inline schemas
                                          This should be used when we want to give complex inner schema names a more
@@ -228,7 +228,11 @@
                                         OBDomesticVRPConsentResponse_Data_ReadRefundAccount=OBReadRefundAccount,
                                         OBWriteDomesticConsent4_Data_ReadRefundAccount=OBReadRefundAccount,
                                         ExternalCategoryPurpose1Code=ExternalCategoryPurpose1Code,
-                                        ExternalProxyAccountType1Code=ExternalProxyAccountType1Code
+                                        ExternalProxyAccountType1Code=ExternalProxyAccountType1Code,
+                                        ExternalPurpose1Code=ExternalPurpose1Code,
+                                        ExternalCreditorReferenceType1Code=ExternalCreditorReferenceType1Code,
+                                        ExternalDocumentType1Code=ExternalDocumentType1Code,
+                                        OBPostalAddress7=OBPostalAddress7
                                     </schemaMappings>
                                     <!-- Map types which are not generating to their fully qualified class name to use
                                          in the import statements.
@@ -258,7 +262,10 @@
                                         OBReadRefundAccount=uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount,
                                         OBAddressTypeCode=uk.org.openbanking.datamodel.v4.common.OBAddressTypeCode
                                         ExternalCategoryPurpose1Code=uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code,
-                                        ExternalProxyAccountType1Code=uk.org.openbanking.datamodel.v4.common.ExternalProxyAccountType1Code
+                                        ExternalProxyAccountType1Code=uk.org.openbanking.datamodel.v4.common.ExternalProxyAccountType1Code,
+                                        ExternalPurpose1Code=uk.org.openbanking.datamodel.v4.common.ExternalPurpose1Code,
+                                        ExternalCreditorReferenceType1Code=uk.org.openbanking.datamodel.v4.common.ExternalCreditorReferenceType1Code,
+                                        ExternalDocumentType1Code=uk.org.openbanking.datamodel.v4.common.ExternalDocumentType1Code
                                     </importMappings>
                                     <configOptions>
                                         <useSpringBoot3>true</useSpringBoot3>

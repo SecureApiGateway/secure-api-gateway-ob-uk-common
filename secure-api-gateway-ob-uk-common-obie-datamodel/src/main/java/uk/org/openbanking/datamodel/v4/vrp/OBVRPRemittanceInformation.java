@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.v4.payment;
+package uk.org.openbanking.datamodel.v4.vrp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,11 +31,12 @@ import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.ExternalDocumentType1Code;
 
 /**
- * OBReferredDocumentInformation
+ * Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts&#39; receivable system.
  */
 
+@Schema(name = "OBVRPRemittanceInformation", description = "Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts' receivable system.")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBReferredDocumentInformation {
+public class OBVRPRemittanceInformation {
 
     private ExternalDocumentType1Code code;
 
@@ -47,9 +48,9 @@ public class OBReferredDocumentInformation {
     private DateTime relatedDate;
 
     @Valid
-    private List<String> lineDetails;
+    private List<@Size(min = 1, max = 256) String> lineDetails;
 
-    public OBReferredDocumentInformation code(ExternalDocumentType1Code code) {
+    public OBVRPRemittanceInformation code(ExternalDocumentType1Code code) {
         this.code = code;
         return this;
     }
@@ -70,7 +71,7 @@ public class OBReferredDocumentInformation {
         this.code = code;
     }
 
-    public OBReferredDocumentInformation issuer(String issuer) {
+    public OBVRPRemittanceInformation issuer(String issuer) {
         this.issuer = issuer;
         return this;
     }
@@ -91,7 +92,7 @@ public class OBReferredDocumentInformation {
         this.issuer = issuer;
     }
 
-    public OBReferredDocumentInformation number(String number) {
+    public OBVRPRemittanceInformation number(String number) {
         this.number = number;
         return this;
     }
@@ -112,7 +113,7 @@ public class OBReferredDocumentInformation {
         this.number = number;
     }
 
-    public OBReferredDocumentInformation relatedDate(DateTime relatedDate) {
+    public OBVRPRemittanceInformation relatedDate(DateTime relatedDate) {
         this.relatedDate = relatedDate;
         return this;
     }
@@ -133,12 +134,12 @@ public class OBReferredDocumentInformation {
         this.relatedDate = relatedDate;
     }
 
-    public OBReferredDocumentInformation lineDetails(List<String> lineDetails) {
+    public OBVRPRemittanceInformation lineDetails(List<@Size(min = 1, max = 256) String> lineDetails) {
         this.lineDetails = lineDetails;
         return this;
     }
 
-    public OBReferredDocumentInformation addLineDetailsItem(String lineDetailsItem) {
+    public OBVRPRemittanceInformation addLineDetailsItem(String lineDetailsItem) {
         if (this.lineDetails == null) {
             this.lineDetails = new ArrayList<>();
         }
@@ -154,11 +155,11 @@ public class OBReferredDocumentInformation {
 
     @Schema(name = "LineDetails", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LineDetails")
-    public List<String> getLineDetails() {
+    public List<@Size(min = 1, max = 256) String> getLineDetails() {
         return lineDetails;
     }
 
-    public void setLineDetails(List<String> lineDetails) {
+    public void setLineDetails(List<@Size(min = 1, max = 256) String> lineDetails) {
         this.lineDetails = lineDetails;
     }
 
@@ -170,12 +171,12 @@ public class OBReferredDocumentInformation {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBReferredDocumentInformation obReferredDocumentInformation = (OBReferredDocumentInformation) o;
-        return Objects.equals(this.code, obReferredDocumentInformation.code) &&
-                Objects.equals(this.issuer, obReferredDocumentInformation.issuer) &&
-                Objects.equals(this.number, obReferredDocumentInformation.number) &&
-                Objects.equals(this.relatedDate, obReferredDocumentInformation.relatedDate) &&
-                Objects.equals(this.lineDetails, obReferredDocumentInformation.lineDetails);
+        OBVRPRemittanceInformation obVRPRemittanceInformation = (OBVRPRemittanceInformation) o;
+        return Objects.equals(this.code, obVRPRemittanceInformation.code) &&
+                Objects.equals(this.issuer, obVRPRemittanceInformation.issuer) &&
+                Objects.equals(this.number, obVRPRemittanceInformation.number) &&
+                Objects.equals(this.relatedDate, obVRPRemittanceInformation.relatedDate) &&
+                Objects.equals(this.lineDetails, obVRPRemittanceInformation.lineDetails);
     }
 
     @Override
@@ -186,7 +187,7 @@ public class OBReferredDocumentInformation {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OBReferredDocumentInformation {\n");
+        sb.append("class OBVRPRemittanceInformation {\n");
         sb.append("    code: ").append(toIndentedString(code)).append("\n");
         sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
         sb.append("    number: ").append(toIndentedString(number)).append("\n");

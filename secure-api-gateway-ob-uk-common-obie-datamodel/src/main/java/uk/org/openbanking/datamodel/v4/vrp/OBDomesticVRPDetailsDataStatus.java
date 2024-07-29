@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.v4.payment;
+package uk.org.openbanking.datamodel.v4.vrp;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -21,47 +21,41 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the document type as published in an external document type code list. For more information see `ExternalDocumentType1Code` [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+ * Status of a transfer, as assigned by the transaction       administrator.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum ExternalDocumentType1Code {
+public enum OBDomesticVRPDetailsDataStatus {
 
-    CINV("CINV"),
+    RCVD("RCVD"),
 
-    CNFA("CNFA"),
+    RJCT("RJCT"),
 
-    CONT("CONT"),
+    CANC("CANC"),
 
-    CREN("CREN"),
+    PDNG("PDNG"),
 
-    DEBN("DEBN"),
+    ACTC("ACTC"),
 
-    DISP("DISP"),
+    ACCP("ACCP"),
 
-    DNFA("DNFA"),
+    ACFC("ACFC"),
 
-    HIRI("HIRI"),
+    ACSP("ACSP"),
 
-    INVS("INVS"),
+    ACWC("ACWC"),
 
-    MSIN("MSIN"),
+    ACSC("ACSC"),
 
-    PROF("PROF"),
+    ACWP("ACWP"),
 
-    PUOR("PUOR"),
+    ACCC("ACCC"),
 
-    QUOT("QUOT"),
-
-    SBIN("SBIN"),
-
-    SPRR("SPRR"),
-
-    TISH("TISH");
+    BLCK("BLCK");
 
     private String value;
 
-    ExternalDocumentType1Code(String value) {
+    OBDomesticVRPDetailsDataStatus(String value) {
         this.value = value;
     }
 
@@ -76,8 +70,8 @@ public enum ExternalDocumentType1Code {
     }
 
     @JsonCreator
-    public static ExternalDocumentType1Code fromValue(String value) {
-        for (ExternalDocumentType1Code b : ExternalDocumentType1Code.values()) {
+    public static OBDomesticVRPDetailsDataStatus fromValue(String value) {
+        for (OBDomesticVRPDetailsDataStatus b : OBDomesticVRPDetailsDataStatus.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
