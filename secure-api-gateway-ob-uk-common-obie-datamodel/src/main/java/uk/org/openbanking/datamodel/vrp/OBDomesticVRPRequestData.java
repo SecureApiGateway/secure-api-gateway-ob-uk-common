@@ -40,6 +40,8 @@ public class OBDomesticVRPRequestData {
 
     private OBVRPInteractionTypes psUInteractionType;
 
+    private String vrPType;
+
     private OBDomesticVRPInitiation initiation;
 
     private OBDomesticVRPInstruction instruction;
@@ -51,9 +53,10 @@ public class OBDomesticVRPRequestData {
     /**
      * Constructor with only required parameters
      */
-    public OBDomesticVRPRequestData(String consentId, String psUAuthenticationMethod, OBDomesticVRPInitiation initiation, OBDomesticVRPInstruction instruction) {
+    public OBDomesticVRPRequestData(String consentId, String psUAuthenticationMethod, String vrPType, OBDomesticVRPInitiation initiation, OBDomesticVRPInstruction instruction) {
         this.consentId = consentId;
         this.psUAuthenticationMethod = psUAuthenticationMethod;
+        this.vrPType = vrPType;
         this.initiation = initiation;
         this.instruction = instruction;
     }
@@ -122,6 +125,27 @@ public class OBDomesticVRPRequestData {
         this.psUInteractionType = psUInteractionType;
     }
 
+    public OBDomesticVRPRequestData vrPType(String vrPType) {
+        this.vrPType = vrPType;
+        return this;
+    }
+
+    /**
+     * Get vrPType
+     *
+     * @return vrPType
+     */
+    @NotNull
+    @Schema(name = "VRPType", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("VRPType")
+    public String getVrPType() {
+        return vrPType;
+    }
+
+    public void setVrPType(String vrPType) {
+        this.vrPType = vrPType;
+    }
+
     public OBDomesticVRPRequestData initiation(OBDomesticVRPInitiation initiation) {
         this.initiation = initiation;
         return this;
@@ -178,13 +202,14 @@ public class OBDomesticVRPRequestData {
         return Objects.equals(this.consentId, obDomesticVRPRequestData.consentId) &&
                 Objects.equals(this.psUAuthenticationMethod, obDomesticVRPRequestData.psUAuthenticationMethod) &&
                 Objects.equals(this.psUInteractionType, obDomesticVRPRequestData.psUInteractionType) &&
+                Objects.equals(this.vrPType, obDomesticVRPRequestData.vrPType) &&
                 Objects.equals(this.initiation, obDomesticVRPRequestData.initiation) &&
                 Objects.equals(this.instruction, obDomesticVRPRequestData.instruction);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(consentId, psUAuthenticationMethod, psUInteractionType, initiation, instruction);
+        return Objects.hash(consentId, psUAuthenticationMethod, psUInteractionType, vrPType, initiation, instruction);
     }
 
     @Override
@@ -194,6 +219,7 @@ public class OBDomesticVRPRequestData {
         sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
         sb.append("    psUAuthenticationMethod: ").append(toIndentedString(psUAuthenticationMethod)).append("\n");
         sb.append("    psUInteractionType: ").append(toIndentedString(psUInteractionType)).append("\n");
+        sb.append("    vrPType: ").append(toIndentedString(vrPType)).append("\n");
         sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
         sb.append("    instruction: ").append(toIndentedString(instruction)).append("\n");
         sb.append("}");

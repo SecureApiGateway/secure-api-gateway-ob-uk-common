@@ -18,7 +18,9 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRiskConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalStandingOrder;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalStandingOrderData;
-import uk.org.openbanking.datamodel.payment.*;
+
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4;
+import uk.org.openbanking.datamodel.payment.OBWriteInternationalStandingOrder4Data;
 
 public class FRWriteInternationalStandingOrderConverter {
 

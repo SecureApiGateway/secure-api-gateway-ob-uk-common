@@ -15,17 +15,19 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
+
+import org.joda.time.DateTime;
+
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Represents {@code OBStatement2} in the OB data model. It is stored within mongo (instead of the OB object),
@@ -57,6 +59,7 @@ public class FRStatementData {
     private List<FRStatementRate> statementRates;
     private List<FRStatementValue> statementValues;
     private List<FRStatementAmount> statementAmounts;
+    private FRTotalValue totalValue;
 
     public void addStatementAmount(FRStatementAmount statementAmount) {
         if (statementAmounts == null) {
@@ -168,5 +171,15 @@ public class FRStatementData {
         private FRCreditDebitIndicator creditDebitIndicator;
         private String type;
         private FRAmount amount;
+        private FRAmount localAmount;
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class FRTotalValue {
+        private String amount;
+        private String currency;
     }
 }

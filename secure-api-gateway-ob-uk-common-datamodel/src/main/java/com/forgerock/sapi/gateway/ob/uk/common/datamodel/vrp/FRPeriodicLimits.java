@@ -43,6 +43,7 @@ public class FRPeriodicLimits {
     private PeriodTypeEnum periodType;
     private PeriodAlignmentEnum periodAlignment;
     private FRSupplementaryData supplementaryData;
+
     /**
      * ^ Period type for this period limit
      */

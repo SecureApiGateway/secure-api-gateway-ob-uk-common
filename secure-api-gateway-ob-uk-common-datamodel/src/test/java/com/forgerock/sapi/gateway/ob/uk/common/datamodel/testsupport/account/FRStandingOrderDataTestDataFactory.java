@@ -15,14 +15,15 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRStandingOrderData;
-import org.joda.time.DateTime;
-
-import java.util.UUID;
-
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAccountIdentifierTestDataFactory.aValidFRAccountIdentifier;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAmountTestDataFactory.aValidFRAmount;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRFinancialAgentTestDataFactory.aValidFRFinancialAgent;
+
+import java.util.UUID;
+
+import org.joda.time.DateTime;
+
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRStandingOrderData;
 
 /**
  * Test data factory for {@link FRStandingOrderData}.

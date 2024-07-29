@@ -39,6 +39,8 @@ public class OBReadBalance1Data {
     @Valid
     private List<@Valid OBReadBalance1DataBalanceInner> balance = new ArrayList<>();
 
+    private OBReadBalance1DataTotalValue totalValue;
+
     public OBReadBalance1Data() {
         super();
     }
@@ -81,6 +83,27 @@ public class OBReadBalance1Data {
         this.balance = balance;
     }
 
+    public OBReadBalance1Data totalValue(OBReadBalance1DataTotalValue totalValue) {
+        this.totalValue = totalValue;
+        return this;
+    }
+
+    /**
+     * Get totalValue
+     *
+     * @return totalValue
+     */
+    @Valid
+    @Schema(name = "TotalValue", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("TotalValue")
+    public OBReadBalance1DataTotalValue getTotalValue() {
+        return totalValue;
+    }
+
+    public void setTotalValue(OBReadBalance1DataTotalValue totalValue) {
+        this.totalValue = totalValue;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -90,12 +113,13 @@ public class OBReadBalance1Data {
             return false;
         }
         OBReadBalance1Data obReadBalance1Data = (OBReadBalance1Data) o;
-        return Objects.equals(this.balance, obReadBalance1Data.balance);
+        return Objects.equals(this.balance, obReadBalance1Data.balance) &&
+                Objects.equals(this.totalValue, obReadBalance1Data.totalValue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(balance);
+        return Objects.hash(balance, totalValue);
     }
 
     @Override
@@ -103,6 +127,7 @@ public class OBReadBalance1Data {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBReadBalance1Data {\n");
         sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
+        sb.append("    totalValue: ").append(toIndentedString(totalValue)).append("\n");
         sb.append("}");
         return sb.toString();
     }

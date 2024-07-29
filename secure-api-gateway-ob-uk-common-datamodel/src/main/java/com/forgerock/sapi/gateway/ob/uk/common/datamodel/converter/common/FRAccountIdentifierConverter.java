@@ -76,7 +76,7 @@ public class FRAccountIdentifierConverter {
         return FRModelMapper.map(account, FRAccountIdentifier.class);
     }
 
-    public static FRAccountIdentifier toFRAccountIdentifier(OBCashAccountDebtorWithName account){
+    public static FRAccountIdentifier toFRAccountIdentifier(OBCashAccountDebtorWithName account) {
         return account == null ? null : FRAccountIdentifier.builder()
                 .schemeName(account.getSchemeName())
                 .identification(account.getIdentification())
@@ -86,7 +86,7 @@ public class FRAccountIdentifierConverter {
     }
 
     public static FRAccountIdentifier toFRAccountIdentifier(OBFundsConfirmationConsent1DataDebtorAccount account) {
-        return account == null ? null :FRAccountIdentifier.builder()
+        return account == null ? null : FRAccountIdentifier.builder()
                 .schemeName(account.getSchemeName() == null ? null : account.getSchemeName())
                 .identification(account.getIdentification())
                 .name(account.getName())
@@ -95,9 +95,10 @@ public class FRAccountIdentifierConverter {
     }
 
     // FR to OB
-    public static OBFundsConfirmationConsent1DataDebtorAccount toOBFundsConfirmationConsent1DataDebtorAccount(FRAccountIdentifier account){
+    public static OBFundsConfirmationConsent1DataDebtorAccount toOBFundsConfirmationConsent1DataDebtorAccount(FRAccountIdentifier account) {
         return FRModelMapper.map(account, OBFundsConfirmationConsent1DataDebtorAccount.class);
     }
+
     public static OBCashAccountCreditor3 toOBCashAccountCreditor3(FRAccountIdentifier account) {
         return FRModelMapper.map(account, OBCashAccountCreditor3.class);
     }

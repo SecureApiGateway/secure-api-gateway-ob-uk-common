@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSupplementaryData;
+
 import uk.org.openbanking.datamodel.common.OBSupplementaryData1;
 
 public class FRSupplementaryDataConverter {

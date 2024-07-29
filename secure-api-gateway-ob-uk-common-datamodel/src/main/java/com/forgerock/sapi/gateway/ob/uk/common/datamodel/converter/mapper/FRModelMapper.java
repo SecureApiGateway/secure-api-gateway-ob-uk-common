@@ -28,6 +28,7 @@ import uk.org.openbanking.datamodel.common.OBRisk1;
 public class FRModelMapper {
 
     private static final ModelMapper modelMapper = new ModelMapper();
+
     static {
         // Set project wide config here
         modelMapper.getConfiguration().setSkipNullEnabled(true);
@@ -40,14 +41,15 @@ public class FRModelMapper {
     /**
      * Recommended to only use this for classes with identical members (of which there are many in OB SDK!) with default mapping behaviour as this
      * avoids a lot of complexity and errors from mapping configs.
+     *
      * @param source Source
-     * @param clazz Target type
-     * @param <T> Target type
-     * @param <V> Source type
+     * @param clazz  Target type
+     * @param <T>    Target type
+     * @param <V>    Source type
      * @return Target
      */
-    public static  <T,V> T map(V source, Class<T> clazz) {
-        if (source==null) return null;
+    public static <T, V> T map(V source, Class<T> clazz) {
+        if (source == null) return null;
         return modelMapper.map(source, clazz);
     }
 }

@@ -47,7 +47,7 @@ public class FREventMessages {
     }
 
     public FREventMessages addOBEventNotification1Item(OBEventNotification1 obEventNotification2) {
-        if(Objects.isNull(obEventNotification1List)) {
+        if (Objects.isNull(obEventNotification1List)) {
             obEventNotification1List = new ArrayList<>();
         }
         this.obEventNotification1List.add(obEventNotification2);

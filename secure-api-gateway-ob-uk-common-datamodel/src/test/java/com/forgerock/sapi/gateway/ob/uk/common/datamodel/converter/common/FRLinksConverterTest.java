@@ -15,14 +15,16 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRLinks;
-import org.junit.jupiter.api.Test;
-import uk.org.openbanking.datamodel.common.Links;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.net.URI;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import org.junit.jupiter.api.Test;
+
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRLinks;
+
+import uk.org.openbanking.datamodel.common.Links;
 
 class FRLinksConverterTest {
 

@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRMeta;
+
 import uk.org.openbanking.datamodel.common.Meta;
 
 public class FRMetaConverter {

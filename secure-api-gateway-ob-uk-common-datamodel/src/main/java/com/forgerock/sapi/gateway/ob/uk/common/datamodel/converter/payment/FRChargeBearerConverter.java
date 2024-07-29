@@ -16,15 +16,16 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRChargeBearerType;
+
 import uk.org.openbanking.datamodel.common.OBChargeBearerType1Code;
 
 public class FRChargeBearerConverter {
 
     public static FRChargeBearerType toFRChargeBearerType(OBChargeBearerType1Code obChargeBearerType1Code) {
-        return obChargeBearerType1Code == null? null : FRChargeBearerType.valueOf(obChargeBearerType1Code.name());
+        return obChargeBearerType1Code == null ? null : FRChargeBearerType.valueOf(obChargeBearerType1Code.name());
     }
 
     public static OBChargeBearerType1Code toOBChargeBearerType1Code(FRChargeBearerType frChargeBearerType) {
-        return frChargeBearerType == null? null : OBChargeBearerType1Code.valueOf(frChargeBearerType.name());
+        return frChargeBearerType == null ? null : OBChargeBearerType1Code.valueOf(frChargeBearerType.name());
     }
 }

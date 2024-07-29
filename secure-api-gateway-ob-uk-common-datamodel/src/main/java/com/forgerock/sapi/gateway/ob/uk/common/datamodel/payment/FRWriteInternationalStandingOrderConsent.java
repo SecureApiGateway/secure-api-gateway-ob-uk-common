@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPaymentRisk;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -38,7 +38,9 @@ public class OBStatement2StatementAmountInner {
 
     private String type;
 
-    private OBActiveOrHistoricCurrencyAndAmount8 amount;
+    private OBReadBalance1DataBalanceInnerAmount amount;
+
+    private OBStatement2StatementAmountInnerLocalAmount localAmount;
 
     public OBStatement2StatementAmountInner() {
         super();
@@ -47,7 +49,7 @@ public class OBStatement2StatementAmountInner {
     /**
      * Constructor with only required parameters
      */
-    public OBStatement2StatementAmountInner(OBCreditDebitCode0 creditDebitIndicator, String type, OBActiveOrHistoricCurrencyAndAmount8 amount) {
+    public OBStatement2StatementAmountInner(OBCreditDebitCode0 creditDebitIndicator, String type, OBReadBalance1DataBalanceInnerAmount amount) {
         this.creditDebitIndicator = creditDebitIndicator;
         this.type = type;
         this.amount = amount;
@@ -96,7 +98,7 @@ public class OBStatement2StatementAmountInner {
         this.type = type;
     }
 
-    public OBStatement2StatementAmountInner amount(OBActiveOrHistoricCurrencyAndAmount8 amount) {
+    public OBStatement2StatementAmountInner amount(OBReadBalance1DataBalanceInnerAmount amount) {
         this.amount = amount;
         return this;
     }
@@ -110,12 +112,33 @@ public class OBStatement2StatementAmountInner {
     @Valid
     @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Amount")
-    public OBActiveOrHistoricCurrencyAndAmount8 getAmount() {
+    public OBReadBalance1DataBalanceInnerAmount getAmount() {
         return amount;
     }
 
-    public void setAmount(OBActiveOrHistoricCurrencyAndAmount8 amount) {
+    public void setAmount(OBReadBalance1DataBalanceInnerAmount amount) {
         this.amount = amount;
+    }
+
+    public OBStatement2StatementAmountInner localAmount(OBStatement2StatementAmountInnerLocalAmount localAmount) {
+        this.localAmount = localAmount;
+        return this;
+    }
+
+    /**
+     * Get localAmount
+     *
+     * @return localAmount
+     */
+    @Valid
+    @Schema(name = "LocalAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("LocalAmount")
+    public OBStatement2StatementAmountInnerLocalAmount getLocalAmount() {
+        return localAmount;
+    }
+
+    public void setLocalAmount(OBStatement2StatementAmountInnerLocalAmount localAmount) {
+        this.localAmount = localAmount;
     }
 
     @Override
@@ -129,12 +152,13 @@ public class OBStatement2StatementAmountInner {
         OBStatement2StatementAmountInner obStatement2StatementAmountInner = (OBStatement2StatementAmountInner) o;
         return Objects.equals(this.creditDebitIndicator, obStatement2StatementAmountInner.creditDebitIndicator) &&
                 Objects.equals(this.type, obStatement2StatementAmountInner.type) &&
-                Objects.equals(this.amount, obStatement2StatementAmountInner.amount);
+                Objects.equals(this.amount, obStatement2StatementAmountInner.amount) &&
+                Objects.equals(this.localAmount, obStatement2StatementAmountInner.localAmount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(creditDebitIndicator, type, amount);
+        return Objects.hash(creditDebitIndicator, type, amount, localAmount);
     }
 
     @Override
@@ -144,6 +168,7 @@ public class OBStatement2StatementAmountInner {
         sb.append("    creditDebitIndicator: ").append(toIndentedString(creditDebitIndicator)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    localAmount: ").append(toIndentedString(localAmount)).append("\n");
         sb.append("}");
         return sb.toString();
     }
