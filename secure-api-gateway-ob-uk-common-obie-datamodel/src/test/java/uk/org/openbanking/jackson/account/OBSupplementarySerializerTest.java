@@ -18,7 +18,7 @@ package uk.org.openbanking.jackson.account;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
-import uk.org.openbanking.jackson.v3.account.OBSupplementaryData1Serializer;
+import uk.org.openbanking.jackson.v3.common.OBSupplementaryData1Serializer;
 
 import java.io.IOException;
 
