@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.v4.common;
+package uk.org.openbanking.datamodel.v4.error;
 
 import java.util.Objects;
 

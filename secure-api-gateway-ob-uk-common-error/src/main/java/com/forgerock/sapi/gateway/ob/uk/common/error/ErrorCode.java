@@ -17,7 +17,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.error;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import uk.org.openbanking.datamodel.v3.error.StandardErrorCode;
+import uk.org.openbanking.datamodel.error.StandardErrorCode;
 
 public enum ErrorCode implements StandardErrorCode {
 

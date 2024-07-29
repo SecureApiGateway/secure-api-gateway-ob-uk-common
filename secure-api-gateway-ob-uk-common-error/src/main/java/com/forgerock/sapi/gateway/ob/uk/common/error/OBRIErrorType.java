@@ -19,9 +19,9 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.forgerock.sapi.gateway.uk.common.shared.api.meta.obie.OBHeaders;
 import org.springframework.http.HttpStatus;
+import uk.org.openbanking.datamodel.error.OBStandardErrorCodes1;
+import uk.org.openbanking.datamodel.error.StandardErrorCode;
 import uk.org.openbanking.datamodel.v3.error.OBError1;
-import uk.org.openbanking.datamodel.v3.error.OBStandardErrorCodes1;
-import uk.org.openbanking.datamodel.v3.error.StandardErrorCode;
 
 @JsonDeserialize(using = OBRIErrorTypeDeserializer.class)
 @JsonSerialize(using = OBRIErrorTypeSerializer.class)
