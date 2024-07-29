@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.v4.payment;
+package uk.org.openbanking.datamodel.v4.vrp;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -21,27 +21,23 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the type of creditor reference as published in an external creditor reference type code set.  External code sets can be downloaded from www.iso20022.org. *`DISP`-Document is a dispatch advice. *`FXDR`-Document is a pre-agreed or pre-arranged foreign exchange transaction to which the payment transaction refers. *`PUOR`-Document is a purchase order. *`RPIN`-Document is a linked payment instruction to which the current payment instruction is related, for example, in a cover scenario. *`RADM`-Document is a remittance advice sent separately from the current transaction. *`SCOR`-Document is a structured communication reference provided by the creditor to identify the referred transaction.
+ * Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum ExternalCreditorReferenceType1Code {
+public enum OBInternalChargeBearerType1Code {
 
-    DISP("DISP"),
+    BORNEBYCREDITOR("BorneByCreditor"),
 
-    FXDR("FXDR"),
+    BORNEBYDEBTOR("BorneByDebtor"),
 
-    PUOR("PUOR"),
+    FOLLOWINGSERVICELEVEL("FollowingServiceLevel"),
 
-    RPIN("RPIN"),
-
-    RADM("RADM"),
-
-    SCOR("SCOR");
+    SHARED("Shared");
 
     private String value;
 
-    ExternalCreditorReferenceType1Code(String value) {
+    OBInternalChargeBearerType1Code(String value) {
         this.value = value;
     }
 
@@ -56,8 +52,8 @@ public enum ExternalCreditorReferenceType1Code {
     }
 
     @JsonCreator
-    public static ExternalCreditorReferenceType1Code fromValue(String value) {
-        for (ExternalCreditorReferenceType1Code b : ExternalCreditorReferenceType1Code.values()) {
+    public static OBInternalChargeBearerType1Code fromValue(String value) {
+        for (OBInternalChargeBearerType1Code b : OBInternalChargeBearerType1Code.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
