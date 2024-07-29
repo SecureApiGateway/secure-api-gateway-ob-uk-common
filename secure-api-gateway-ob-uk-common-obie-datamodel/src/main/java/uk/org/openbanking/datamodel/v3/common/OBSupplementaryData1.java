@@ -19,8 +19,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.annotations.ApiModel;
 import org.springframework.validation.annotation.Validated;
-import uk.org.openbanking.jackson.v3.payment.OBSupplementaryData1Deserializer;
-import uk.org.openbanking.jackson.v3.payment.OBSupplementaryData1Serializer;
+import uk.org.openbanking.jackson.v3.common.OBSupplementaryData1Deserializer;
+import uk.org.openbanking.jackson.v3.common.OBSupplementaryData1Serializer;
 
 import java.util.Objects;
 
