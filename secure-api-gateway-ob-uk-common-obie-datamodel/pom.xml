@@ -160,12 +160,12 @@
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/payment-initiation-openapi.yaml</inputSpec>-->
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/vrp-openapi-3.1.9r7.yaml</inputSpec>-->
                                     <inputSpec>
-                                        ${project.basedir}/src/main/resources/specification/4.0.0/account-info-openapi.yaml
+                                        ${project.basedir}/src/main/resources/specification/4.0.0/confirmation-funds-openapi.yaml
                                     </inputSpec>
                                     <output>${project.build.directory}/generated-sources/swagger</output>
                                     <generatorName>spring</generatorName>
                                     <!-- Change the package here as per the chosen spec above -->
-                                    <modelPackage>uk.org.openbanking.datamodel.v4.account</modelPackage>
+                                    <modelPackage>uk.org.openbanking.datamodel.v4.fund</modelPackage>
                                     <generateApis>false</generateApis>
                                     <!-- Override the default name for inline schemas
                                          This should be used when we want to give complex inner schema names a more
@@ -179,7 +179,8 @@
                                         OBDomesticVRPControlParameters_PeriodicLimits_inner_PeriodAlignment=OBPeriodAlignment,
                                         OBDomesticVRPControlParameters_PeriodicLimits_inner_PeriodType=OBPeriodType,
                                         OBReadConsent1_Data_Permissions_inner=OBInternalPermissions1Code,
-                                        OBReadConsentResponse1_Data_Status=OBReadConsentStatus
+                                        OBReadConsentResponse1_Data_Status=OBReadConsentStatus,
+                                        OBFundsConfirmationConsentResponse1_Data_Status=OBFundsConfirmationConsentStatus
                                     </inlineSchemaNameMappings>
                                     <!-- RESOLVE_INLINE_ENUMS needs to be enabled to move enums which are specified as
                                          inline types in the schema to top level generated types, this then allows us to
