@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.v4.payment;
+package uk.org.openbanking.datamodel.v4.vrp;
 
 import java.util.Objects;
 
