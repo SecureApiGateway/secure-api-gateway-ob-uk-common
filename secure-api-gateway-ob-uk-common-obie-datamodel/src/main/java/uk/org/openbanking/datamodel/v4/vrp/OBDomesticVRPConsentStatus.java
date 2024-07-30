@@ -25,7 +25,7 @@ import jakarta.annotation.Generated;
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBDomesticVRPConsentResponseDataStatus {
+public enum OBDomesticVRPConsentStatus {
 
     AWAU("AWAU"),
 
@@ -37,7 +37,7 @@ public enum OBDomesticVRPConsentResponseDataStatus {
 
     private String value;
 
-    OBDomesticVRPConsentResponseDataStatus(String value) {
+    OBDomesticVRPConsentStatus(String value) {
         this.value = value;
     }
 
@@ -52,8 +52,8 @@ public enum OBDomesticVRPConsentResponseDataStatus {
     }
 
     @JsonCreator
-    public static OBDomesticVRPConsentResponseDataStatus fromValue(String value) {
-        for (OBDomesticVRPConsentResponseDataStatus b : OBDomesticVRPConsentResponseDataStatus.values()) {
+    public static OBDomesticVRPConsentStatus fromValue(String value) {
+        for (OBDomesticVRPConsentStatus b : OBDomesticVRPConsentStatus.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
