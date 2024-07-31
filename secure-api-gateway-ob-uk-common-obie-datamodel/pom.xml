@@ -223,6 +223,7 @@
                                         OBExternalStatus2Code=OBExternalStatus2Code,
                                         OBReadRefundAccount=OBReadRefundAccount,
                                         OBAddressTypeCode=OBAddressTypeCode,
+                                        OBAddressType2Code=OBAddressType2Code,
                                         OBExternalPaymentContext1Code=OBExternalPaymentContext1Code,
                                         OBDomesticVRPRequest_Data_PSUInteractionType=OBVRPInteractionTypes,
                                         OBDomesticVRPConsentResponse_Data_DebtorAccount=OBCashAccountDebtorWithName,
@@ -261,7 +262,8 @@
                                         OBBranchAndFinancialInstitutionIdentification6=uk.org.openbanking.datamodel.v4.common.OBBranchAndFinancialInstitutionIdentification6,
                                         OBExternalStatus2Code=uk.org.openbanking.datamodel.v4.common.OBExternalStatus2Code,
                                         OBReadRefundAccount=uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount,
-                                        OBAddressTypeCode=uk.org.openbanking.datamodel.v4.common.OBAddressTypeCode
+                                        OBAddressTypeCode=uk.org.openbanking.datamodel.v4.common.OBAddressTypeCode,
+                                        OBAddressType2Code=uk.org.openbanking.datamodel.v4.common.OBAddressType2Code,
                                         ExternalCategoryPurpose1Code=uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code,
                                         ExternalProxyAccountType1Code=uk.org.openbanking.datamodel.v4.common.ExternalProxyAccountType1Code,
                                         ExternalPurpose1Code=uk.org.openbanking.datamodel.v4.common.ExternalPurpose1Code,
