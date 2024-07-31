@@ -275,6 +275,8 @@
                                         <dateLibrary>joda</dateLibrary>
                                         <openApiNullable>false</openApiNullable>
                                         <hideGenerationTimestamp>true</hideGenerationTimestamp>
+                                        <interfaceOnly>true</interfaceOnly>
+                                        <skipDefaultInterface>true</skipDefaultInterface>
                                     </configOptions>
                                     <globalProperties>
                                         <verbose>true</verbose>
