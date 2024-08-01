@@ -39,7 +39,8 @@ public enum OBVersion {
     v3_1_8,
     v3_1_9,
     v3_1_10,
-    v3_1_11;
+    v3_1_11,
+    v4_0_0;
 
     /**
      * Provides the OBversion object if exist <br/>
@@ -50,7 +51,7 @@ public enum OBVersion {
      */
     public static OBVersion fromString(String version) {
         try {
-            if (!StringUtils.isEmpty(version)) {
+            if (StringUtils.hasText(version)) {
                 if (!version.startsWith("v")) {
                     version = "v".concat(version);
                 }
