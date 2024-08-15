@@ -13,21 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.payment;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.common;
 
 import java.util.List;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
+import org.joda.time.DateTime;
 
-/**
- * Test data factory for {@link FRRemittanceInformation}
- */
-public class FRRemittanceInformationTestDataFactory {
+public class FRReferredDocumentInformation {
 
-    public static FRRemittanceInformation aValidFRRemittanceInformation() {
-        return FRRemittanceInformation.builder()
-                .reference("123456")
-                .unstructured(List.of("INV.001"))
-                .build();
-    }
+    private FRExternalDocumentTypeCode code;
+    private String issuer;
+    private String number;
+    private DateTime relatedDate;
+    private List<String> lineDetails;
 }

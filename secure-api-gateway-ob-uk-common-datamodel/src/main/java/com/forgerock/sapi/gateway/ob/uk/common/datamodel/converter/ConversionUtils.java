@@ -13,21 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.payment;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter;
 
 import java.util.List;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
+public class ConversionUtils {
 
-/**
- * Test data factory for {@link FRRemittanceInformation}
- */
-public class FRRemittanceInformationTestDataFactory {
-
-    public static FRRemittanceInformation aValidFRRemittanceInformation() {
-        return FRRemittanceInformation.builder()
-                .reference("123456")
-                .unstructured(List.of("INV.001"))
-                .build();
+    private ConversionUtils() {
     }
+
+    public static String convertListToSingleString(List<String> values) {
+        if (values != null && !values.isEmpty()) {
+            return values.get(0);
+        }
+        return null;
+    }
+
 }
