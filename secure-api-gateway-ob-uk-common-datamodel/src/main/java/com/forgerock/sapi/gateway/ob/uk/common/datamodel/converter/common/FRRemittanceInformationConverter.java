@@ -15,6 +15,10 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.ConversionUtils.convertListToSingleString;
+
+import java.util.List;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
 
 import uk.org.openbanking.datamodel.v3.payment.OBWriteDomestic2DataInitiationRemittanceInformation;
@@ -25,35 +29,35 @@ public class FRRemittanceInformationConverter {
 
     public static FRRemittanceInformation toFRRemittanceInformation(OBWriteDomestic2DataInitiationRemittanceInformation remittanceInformation) {
         return remittanceInformation == null ? null : FRRemittanceInformation.builder()
-                .unstructured(remittanceInformation.getUnstructured())
+                .unstructured(List.of(remittanceInformation.getUnstructured()))
                 .reference(remittanceInformation.getReference())
                 .build();
     }
 
     public static FRRemittanceInformation toFRRemittanceInformation(OBDomesticVRPInitiationRemittanceInformation remittanceInformation) {
         return remittanceInformation == null ? null : FRRemittanceInformation.builder()
-                .unstructured(remittanceInformation.getUnstructured())
+                .unstructured(List.of(remittanceInformation.getUnstructured()))
                 .reference(remittanceInformation.getReference())
                 .build();
     }
 
     public static FRRemittanceInformation toFRRemittanceInformation(OBVRPRemittanceInformation remittanceInformation) {
         return remittanceInformation == null ? null : FRRemittanceInformation.builder()
-                .unstructured(remittanceInformation.getUnstructured())
+                .unstructured(List.of(remittanceInformation.getUnstructured()))
                 .reference(remittanceInformation.getReference())
                 .build();
     }
 
     public static OBWriteDomestic2DataInitiationRemittanceInformation toOBWriteDomestic2DataInitiationRemittanceInformation(FRRemittanceInformation remittanceInformation) {
         return remittanceInformation == null ? null : new OBWriteDomestic2DataInitiationRemittanceInformation()
-                .unstructured(remittanceInformation.getUnstructured())
+                .unstructured(convertListToSingleString(remittanceInformation.getUnstructured()))
                 .reference(remittanceInformation.getReference());
     }
 
     public static OBVRPRemittanceInformation toOBVRPRemittanceInformation(FRRemittanceInformation remittanceInformation){
         return remittanceInformation == null ? null : new OBVRPRemittanceInformation()
                 .reference(remittanceInformation.getReference())
-                .unstructured(remittanceInformation.getUnstructured());
+                .unstructured(convertListToSingleString(remittanceInformation.getUnstructured()));
     }
 
     public static OBDomesticVRPInitiationRemittanceInformation toOBDomesticVRPInitiationRemittanceInformation(
@@ -61,6 +65,9 @@ public class FRRemittanceInformationConverter {
     ) {
         return remittanceInformation == null ? null : new OBDomesticVRPInitiationRemittanceInformation()
                 .reference(remittanceInformation.getReference())
-                .unstructured(remittanceInformation.getUnstructured());
+                // Convert the unstructured field to a single element, in v3 only a single value is allowed whereas v4 permits a list
+                .unstructured(convertListToSingleString(remittanceInformation.getUnstructured()));
     }
+
+
 }

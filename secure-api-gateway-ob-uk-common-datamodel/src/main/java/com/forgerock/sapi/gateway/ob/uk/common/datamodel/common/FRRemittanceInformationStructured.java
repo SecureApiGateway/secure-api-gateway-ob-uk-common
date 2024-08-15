@@ -15,31 +15,23 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.common;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRProxy;
+import java.util.List;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order to make it easier to introduce new
- * versions of the Read/Write API.
- *
- * <p>
- * Note that this object is used across multiple versions of the Read/Write API, meaning that some values won't be populated. For this reason it is
- * a mutable {@link Data} rather than an immutable {@link lombok.Value} one.
- * </p>
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class FRAccountIdentifier {
-    private String schemeName;
-    private String identification;
-    private String name;
-    private String secondaryIdentification;
-    private String accountId;
-    private FRProxy proxy;
+public class FRRemittanceInformationStructured {
+    private List<@Valid FRReferredDocumentInformation> referredDocumentInformation;
+    private Integer referredDocumentAmount;
+    private FRRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation;
+    private String invoicer;
+    private String invoicee;
+    private String taxRemittance;
 }

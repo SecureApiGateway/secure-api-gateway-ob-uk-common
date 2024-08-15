@@ -15,14 +15,19 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment;
 
+import java.util.List;
+
+import org.joda.time.DateTime;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSupplementaryData;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
 /**
  * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order
@@ -51,4 +56,11 @@ public class FRWriteDomesticStandingOrderDataInitiation implements FRDomesticDat
     private FRAccountIdentifier debtorAccount;
     private FRAccountIdentifier creditorAccount;
     private FRSupplementaryData supplementaryData;
+
+    // v4 fields
+    private FRRemittanceInformation remittanceInformation;
+    private FRMandateRelatedInformation mandateRelatedInformation;
+    private FRUltimateDebtor ultimateDebtor;
+    private FRUltimateCreditor ultimateCreditor;
+    private List<FRStructuredRegulatoryReporting> regulatoryReporting;
 }
