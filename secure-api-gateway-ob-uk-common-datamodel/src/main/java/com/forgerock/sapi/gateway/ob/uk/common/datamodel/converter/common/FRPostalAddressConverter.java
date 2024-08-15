@@ -15,26 +15,62 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
+import static java.util.stream.Collectors.toMap;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPostalAddress;
+
 import uk.org.openbanking.datamodel.v3.account.OBParty2AddressInner;
 import uk.org.openbanking.datamodel.v3.common.OBAddressTypeCode;
 import uk.org.openbanking.datamodel.v3.common.OBPostalAddress6;
+import uk.org.openbanking.datamodel.v4.common.OBAddressType2Code;
+import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 public class FRPostalAddressConverter {
 
+    /**
+     * Contains mappings of {@link OBAddressTypeCode} to {@link OBAddressType2Code} String values.
+     * This collection can also be used to determine if a value is a v3 value by testing if matching key exists.
+     */
+    private static final Map<String, String> v3tov4AddressType;
+    /**
+     * Contains mappings of {@link OBAddressType2Code} to {@link OBAddressTypeCode} String values.
+     * This collection can also be used to determine if a value is a v4 value by testing if matching key exists.
+     */
+    private static final Map<String, String> v4tov3AddressType;
+
+    static {
+        final Map<String, String> addressTypeTranslations = new HashMap<>();
+        addressTypeTranslations.put("Business", "BIZZ");
+        addressTypeTranslations.put("Correspondence", "CORR");
+        addressTypeTranslations.put("DeliveryTo", "DLVY");
+        addressTypeTranslations.put("MailTo", "MLTO");
+        addressTypeTranslations.put("POBox", "PBOX");
+        addressTypeTranslations.put("Postal", "ADDR");
+        addressTypeTranslations.put("Residential", "HOME");
+        addressTypeTranslations.put("Statement", "STAT");
+
+        v3tov4AddressType = Collections.unmodifiableMap(addressTypeTranslations);
+        // v4 is the inverse of the v3 mappings
+        v4tov3AddressType = addressTypeTranslations.entrySet().stream().collect(toMap(Entry::getValue, Entry::getKey));
+    }
+
     // OB to FR
     public static List<FRPostalAddress> toFRPostalAddressList(List<OBParty2AddressInner> addresses) {
         return addresses == null ? null : addresses.stream()
-                .map(a -> toFRPostalAddress(a))
+                .map(FRPostalAddressConverter::toFRPostalAddress)
                 .collect(Collectors.toList());
     }
 
     public static FRPostalAddress toFRPostalAddress(OBParty2AddressInner address) {
         return address == null ? null : FRPostalAddress.builder()
-                .addressType(toAddressTypeCode(address.getAddressType()))
+                .addressType(toAddressType(address.getAddressType()))
                 .streetName(address.getStreetName())
                 .buildingNumber(address.getBuildingNumber())
                 .postCode(address.getPostCode())
@@ -47,7 +83,7 @@ public class FRPostalAddressConverter {
 
     public static FRPostalAddress toFRPostalAddress(OBPostalAddress6 address) {
         return address == null ? null : FRPostalAddress.builder()
-                .addressType(toAddressTypeCode(address.getAddressType()))
+                .addressType(toAddressType(address.getAddressType()))
                 .department(address.getDepartment())
                 .subDepartment(address.getSubDepartment())
                 .streetName(address.getStreetName())
@@ -60,8 +96,35 @@ public class FRPostalAddressConverter {
                 .build();
     }
 
-    public static FRPostalAddress.AddressTypeCode toAddressTypeCode(OBAddressTypeCode addressType) {
-        return addressType == null ? null : FRPostalAddress.AddressTypeCode.valueOf(addressType.name());
+    public static FRPostalAddress toFRPostalAddress(OBPostalAddress7 address) {
+        return address == null ? null : FRPostalAddress.builder()
+                .addressType(toAddressType(address.getAddressType()))
+                .department(address.getDepartment())
+                .subDepartment(address.getSubDepartment())
+                .streetName(address.getStreetName())
+                .buildingNumber(address.getBuildingNumber())
+                .postCode(address.getPostCode())
+                .townName(address.getTownName())
+                .countrySubDivision(address.getCountrySubDivision())
+                .country(address.getCountry())
+                .addressLine(address.getAddressLine())
+                .buildingName(address.getBuildingName())
+                .floor(address.getFloor())
+                .unitNumber(address.getUnitNumber())
+                .room(address.getRoom())
+                .postBox(address.getPostBox())
+                .townLocationName(address.getTownLocationName())
+                .districtName(address.getDistrictName())
+                .careOf(address.getCareOf())
+                .build();
+    }
+
+    public static String toAddressType(OBAddressTypeCode addressType) {
+        return addressType == null ? null : addressType.getValue();
+    }
+
+    public static String toAddressType(OBAddressType2Code addressType) {
+        return addressType == null ? null : addressType.getValue();
     }
 
     // FR to OB
@@ -85,6 +148,28 @@ public class FRPostalAddressConverter {
                 .addressLine(address.getAddressLine());
     }
 
+    public static OBPostalAddress7 toOBPostalAddress7(FRPostalAddress address) {
+        return address == null ? null : new OBPostalAddress7()
+                .addressType(toOBAddressType2Code(address.getAddressType()))
+                .department(address.getDepartment())
+                .subDepartment(address.getSubDepartment())
+                .streetName(address.getStreetName())
+                .buildingNumber(address.getBuildingNumber())
+                .postCode(address.getPostCode())
+                .townName(address.getTownName())
+                .countrySubDivision(address.getCountrySubDivision())
+                .country(address.getCountry())
+                .addressLine(address.getAddressLine())
+                .buildingName(address.getBuildingName())
+                .floor(address.getFloor())
+                .unitNumber(address.getUnitNumber())
+                .room(address.getRoom())
+                .postBox(address.getPostBox())
+                .townLocationName(address.getTownLocationName())
+                .districtName(address.getDistrictName())
+                .careOf(address.getCareOf());
+    }
+
     private static OBParty2AddressInner toOBParty2Address(FRPostalAddress address) {
         return address == null ? null : new OBParty2AddressInner()
                 .addressType(toOBAddressTypeCode(address.getAddressType()))
@@ -97,12 +182,28 @@ public class FRPostalAddressConverter {
                 .country(address.getCountry());
     }
 
-    public static OBAddressTypeCode toOBAddressTypeCode(FRPostalAddress.AddressTypeCode addressType) {
-        return addressType == null ? null : OBAddressTypeCode.valueOf(addressType.name());
+    public static OBAddressTypeCode toOBAddressTypeCode(String addressType) {
+        if (addressType == null) {
+            return null;
+        }
+        if (v3tov4AddressType.containsKey(addressType)) {
+            return OBAddressTypeCode.fromValue(addressType);
+        } else if (v4tov3AddressType.containsKey(addressType)) {
+            return OBAddressTypeCode.fromValue(v4tov3AddressType.get(addressType));
+        }
+        throw new IllegalArgumentException("Unknown address type: " + addressType);
     }
 
-    public static FRPostalAddress.AddressTypeCode toFRAddressTypeCode(OBAddressTypeCode obAddressTypeCode) {
-        return obAddressTypeCode == null ? null : FRPostalAddress.AddressTypeCode.valueOf(obAddressTypeCode.name());
+    public static OBAddressType2Code toOBAddressType2Code(String addressType) {
+        if (addressType == null) {
+            return null;
+        }
+        if (v4tov3AddressType.containsKey(addressType)) {
+            return OBAddressType2Code.fromValue(addressType);
+        } else if (v3tov4AddressType.containsKey(addressType)) {
+            return OBAddressType2Code.fromValue(v3tov4AddressType.get(addressType));
+        }
+        throw new IllegalArgumentException("Unknown address type: " + addressType);
     }
 
 }

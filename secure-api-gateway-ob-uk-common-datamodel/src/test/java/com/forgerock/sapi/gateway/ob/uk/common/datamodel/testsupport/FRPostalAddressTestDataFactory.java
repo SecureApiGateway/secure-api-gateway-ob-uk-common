@@ -15,7 +15,12 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport;
 
+import java.util.List;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPostalAddress;
+
+import uk.org.openbanking.datamodel.v4.common.OBAddressType2Code;
+import uk.org.openbanking.datamodel.v4.common.OBAddressTypeCode;
 
 /**
  * Test data factory for {@link FRPostalAddress}.
@@ -27,13 +32,34 @@ public class FRPostalAddressTestDataFactory {
      */
     public static FRPostalAddress aValidFRPostalAddress() {
         return FRPostalAddress.builder()
-                .addressType(FRPostalAddress.AddressTypeCode.RESIDENTIAL)
+                .addressType(OBAddressTypeCode.RESIDENTIAL.getValue())
                 .buildingNumber("21")
                 .streetName("Jagger Road")
                 .townName("Stroud")
                 .postCode("GL5 3AA")
                 .countrySubDivision("Gloucestershire")
                 .country("UK")
+                .build();
+    }
+
+    public static FRPostalAddress aValidFRPostalAddress7() {
+        return FRPostalAddress.builder()
+                .addressType(OBAddressType2Code.HOME.getValue())
+                .buildingNumber("21")
+                .streetName("Jagger Road")
+                .townName("Stroud")
+                .postCode("GL5 3AA")
+                .countrySubDivision("Gloucestershire")
+                .country("UK")
+                .room("1")
+                .careOf("Dave")
+                .floor("Ground")
+                .districtName("Somewhere")
+                .townLocationName("Outskirts")
+                .postBox("POBOX123")
+                .unitNumber("42")
+                .buildingName("The Lodge")
+                .addressLine(List.of("Extra Address Line1", "Extra Address Line2"))
                 .build();
     }
 }

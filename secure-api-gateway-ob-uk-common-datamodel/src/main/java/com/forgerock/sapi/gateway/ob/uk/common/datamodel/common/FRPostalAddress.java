@@ -15,13 +15,13 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.common;
 
+import java.util.List;
+import java.util.stream.Stream;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order
@@ -38,46 +38,23 @@ import java.util.stream.Stream;
 @Builder
 public class FRPostalAddress {
 
-    private AddressTypeCode addressType;
+    private String addressType;
     private String department;
     private String subDepartment;
     private String streetName;
     private String buildingNumber;
+    private String buildingName;
+    private String floor;
+    private String unitNumber;
+    private String room;
+    private String postBox;
+    private String townLocationName;
+    private String districtName;
+    private String careOf;
     private String postCode;
     private String townName;
     private String countrySubDivision;
     private String country;
     private List<String> addressLine;
 
-    public enum AddressTypeCode {
-        BUSINESS("Business"),
-        CORRESPONDENCE("Correspondence"),
-        DELIVERYTO("DeliveryTo"),
-        MAILTO("MailTo"),
-        POBOX("POBox"),
-        POSTAL("Postal"),
-        RESIDENTIAL("Residential"),
-        STATEMENT("Statement");
-
-        private String value;
-
-        AddressTypeCode(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        public String toString() {
-            return value;
-        }
-
-        public static AddressTypeCode fromValue(String value) {
-            return Stream.of(values())
-                    .filter(type -> type.getValue().equals(value))
-                    .findFirst()
-                    .orElse(null);
-        }
-    }
 }
