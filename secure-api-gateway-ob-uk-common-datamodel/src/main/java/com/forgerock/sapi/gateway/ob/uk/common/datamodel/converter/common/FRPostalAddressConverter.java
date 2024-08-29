@@ -47,14 +47,14 @@ public class FRPostalAddressConverter {
 
     static {
         final Map<String, String> addressTypeTranslations = new HashMap<>();
-        addressTypeTranslations.put("Business", "BIZZ");
-        addressTypeTranslations.put("Correspondence", "CORR");
-        addressTypeTranslations.put("DeliveryTo", "DLVY");
-        addressTypeTranslations.put("MailTo", "MLTO");
-        addressTypeTranslations.put("POBox", "PBOX");
-        addressTypeTranslations.put("Postal", "ADDR");
-        addressTypeTranslations.put("Residential", "HOME");
-        addressTypeTranslations.put("Statement", "STAT");
+        addressTypeTranslations.put("BUSINESS", "BIZZ");
+        addressTypeTranslations.put("CORRESPONDENCE", "CORR");
+        addressTypeTranslations.put("DELIVERYTO", "DLVY");
+        addressTypeTranslations.put("MAILTO", "MLTO");
+        addressTypeTranslations.put("POBOX", "PBOX");
+        addressTypeTranslations.put("POSTAL", "ADDR");
+        addressTypeTranslations.put("RESIDENTIAL", "HOME");
+        addressTypeTranslations.put("STATEMENT", "STAT");
 
         v3tov4AddressType = Collections.unmodifiableMap(addressTypeTranslations);
         // v4 is the inverse of the v3 mappings
@@ -120,11 +120,11 @@ public class FRPostalAddressConverter {
     }
 
     public static String toAddressType(OBAddressTypeCode addressType) {
-        return addressType == null ? null : addressType.getValue();
+        return addressType == null ? null : addressType.name();
     }
 
     public static String toAddressType(OBAddressType2Code addressType) {
-        return addressType == null ? null : addressType.getValue();
+        return addressType == null ? null : addressType.name();
     }
 
     // FR to OB
@@ -187,9 +187,9 @@ public class FRPostalAddressConverter {
             return null;
         }
         if (v3tov4AddressType.containsKey(addressType)) {
-            return OBAddressTypeCode.fromValue(addressType);
+            return OBAddressTypeCode.valueOf(addressType);
         } else if (v4tov3AddressType.containsKey(addressType)) {
-            return OBAddressTypeCode.fromValue(v4tov3AddressType.get(addressType));
+            return OBAddressTypeCode.valueOf(v4tov3AddressType.get(addressType));
         }
         throw new IllegalArgumentException("Unknown address type: " + addressType);
     }

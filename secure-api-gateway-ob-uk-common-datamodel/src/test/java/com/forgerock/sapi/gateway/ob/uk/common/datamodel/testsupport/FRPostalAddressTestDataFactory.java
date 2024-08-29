@@ -32,7 +32,7 @@ public class FRPostalAddressTestDataFactory {
      */
     public static FRPostalAddress aValidFRPostalAddress() {
         return FRPostalAddress.builder()
-                .addressType(OBAddressTypeCode.RESIDENTIAL.getValue())
+                .addressType(OBAddressTypeCode.RESIDENTIAL.name())
                 .buildingNumber("21")
                 .streetName("Jagger Road")
                 .townName("Stroud")
@@ -44,7 +44,7 @@ public class FRPostalAddressTestDataFactory {
 
     public static FRPostalAddress aValidFRPostalAddress7() {
         return FRPostalAddress.builder()
-                .addressType(OBAddressType2Code.HOME.getValue())
+                .addressType(OBAddressType2Code.HOME.name())
                 .buildingNumber("21")
                 .streetName("Jagger Road")
                 .townName("Stroud")
