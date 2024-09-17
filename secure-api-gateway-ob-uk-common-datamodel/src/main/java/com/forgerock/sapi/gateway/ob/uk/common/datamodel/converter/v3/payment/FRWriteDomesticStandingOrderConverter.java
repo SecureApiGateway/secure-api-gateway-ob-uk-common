@@ -15,14 +15,15 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.payment;
 
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.payment.FRWriteDomesticStandingOrderConsentConverter.toFRWriteDomesticStandingOrderDataInitiation;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.payment.FRWriteDomesticStandingOrderConsentConverter.toOBWriteDomesticStandingOrder3DataInitiation;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRRiskConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDataDomesticStandingOrder;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrder;
+
 import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticStandingOrder3;
 import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticStandingOrder3Data;
-
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.payment.FRWriteDomesticStandingOrderConsentConverter.toFRWriteDomesticStandingOrderDataInitiation;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.payment.FRWriteDomesticStandingOrderConsentConverter.toOBWriteDomesticStandingOrder3DataInitiation;
 
 public class FRWriteDomesticStandingOrderConverter {
 

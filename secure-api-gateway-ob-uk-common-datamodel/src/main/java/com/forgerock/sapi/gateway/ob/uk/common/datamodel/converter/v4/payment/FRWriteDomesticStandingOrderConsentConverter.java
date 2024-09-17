@@ -15,21 +15,11 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRRemittanceInformationConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRSupplementaryDataConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAmountConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRRiskConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRSupplementaryDataConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.mapper.FRModelMapper;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRDataAuthorisationConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRDataSCASupportDataConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRPermissionConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRReadRefundAccountConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRMandateRelatedInformation;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRRegulatoryAuthority;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRUltimateCreditor;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRUltimateDebtor;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrderConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrderConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrderDataInitiation;

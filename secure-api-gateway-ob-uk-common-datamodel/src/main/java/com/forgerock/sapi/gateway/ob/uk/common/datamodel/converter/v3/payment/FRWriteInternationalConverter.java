@@ -15,13 +15,15 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.payment;
 
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.payment.FRWriteInternationalConsentConverter.toFRWriteInternationalDataInitiation;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.payment.FRWriteInternationalConsentConverter.toOBWriteInternational3DataInitiation;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRRiskConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternational;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalData;
+
 import uk.org.openbanking.datamodel.v3.payment.OBWriteInternational3;
 import uk.org.openbanking.datamodel.v3.payment.OBWriteInternational3Data;
-
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.payment.FRWriteInternationalConsentConverter.*;
 
 public class FRWriteInternationalConverter {
 
