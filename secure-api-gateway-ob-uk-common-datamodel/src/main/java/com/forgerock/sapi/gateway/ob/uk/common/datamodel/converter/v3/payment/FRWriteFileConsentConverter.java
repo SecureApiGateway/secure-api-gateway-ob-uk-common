@@ -15,6 +15,8 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.payment;
 
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRAccountIdentifierConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRRemittanceInformationConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRSupplementaryDataConverter;
@@ -22,11 +24,10 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.mapper.FRM
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFileConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFileConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFileDataInitiation;
+
 import uk.org.openbanking.datamodel.v3.payment.OBWriteFile2DataInitiation;
 import uk.org.openbanking.datamodel.v3.payment.OBWriteFileConsent3;
 import uk.org.openbanking.datamodel.v3.payment.OBWriteFileConsent3Data;
-
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
 
 public class FRWriteFileConsentConverter {
 

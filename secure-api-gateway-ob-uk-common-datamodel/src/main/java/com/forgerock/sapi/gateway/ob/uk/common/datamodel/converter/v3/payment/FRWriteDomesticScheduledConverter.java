@@ -21,6 +21,7 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.pay
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRRiskConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDataDomesticScheduled;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticScheduled;
+
 import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticScheduled2;
 import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticScheduled2Data;
 
