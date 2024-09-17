@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,4 +31,32 @@ public class FRRegulatoryReporting {
     private FRRegulatoryReportingDebitCreditReportingIndicator debitCreditReportingIndicator;
     private FRRegulatoryAuthority authority;
     private List<FRStructuredRegulatoryReporting> details;
+
+    public enum FRRegulatoryReportingDebitCreditReportingIndicator {
+
+        CRED("CRED"),
+        DEBT("DEBT"),
+        BOTH("BOTH");
+
+        private final String value;
+
+        FRRegulatoryReportingDebitCreditReportingIndicator(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public String toString() {
+            return value;
+        }
+
+        public static FRRegulatoryReportingDebitCreditReportingIndicator fromValue(String value) {
+            return Stream.of(values())
+                    .filter(code -> code.getValue().equals(value))
+                    .findFirst()
+                    .orElse(null);
+        }
+    }
 }
