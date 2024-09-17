@@ -15,12 +15,20 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment;
 
+import java.util.stream.Stream;
+
 import org.joda.time.DateTime;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
+import uk.org.openbanking.datamodel.v4.payment.OBFrequency6;
 
 @Data
 @NoArgsConstructor
@@ -30,11 +38,38 @@ public class FRMandateRelatedInformation {
 
     private String mandateIdentification;
     private FRExternalMandateClassificationCode classification;
-    private FRExternalCategoryPurposeCode categoryPurposeCode;
+    private ExternalCategoryPurpose1Code categoryPurposeCode;
     private DateTime firstPaymentDateTime;
     private DateTime recurringPaymentDateTime;
     private DateTime finalPaymentDateTime;
-    private FRStandingOrderFrequency frequency;
+    private OBFrequency6 frequency;
     private String reason;
 
+    public enum FRExternalMandateClassificationCode {
+
+        FIXE("FIXE"),
+        USGB("USGB"),
+        VARI("VARI");
+
+        private final String value;
+
+        FRExternalMandateClassificationCode(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public String toString() {
+            return value;
+        }
+
+        public static FRExternalMandateClassificationCode fromValue(String value) {
+            return Stream.of(values())
+                    .filter(code -> code.getValue().equals(value))
+                    .findFirst()
+                    .orElse(null);
+        }
+    }
 }
