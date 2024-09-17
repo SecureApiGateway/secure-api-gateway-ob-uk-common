@@ -16,6 +16,8 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPaymentRisk;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRRiskConverter;
+
 import org.junit.jupiter.api.Test;
 import uk.org.openbanking.datamodel.v3.common.OBRisk1;
 import uk.org.openbanking.testsupport.payment.OBRisk1TestDataFactory;

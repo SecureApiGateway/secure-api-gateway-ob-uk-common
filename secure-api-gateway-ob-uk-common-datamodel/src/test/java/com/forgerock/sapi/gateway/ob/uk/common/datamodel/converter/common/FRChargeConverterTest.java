@@ -24,6 +24,7 @@ import org.junit.jupiter.api.Test;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRCharge;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRChargeBearerType;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRChargeConverter;
 
 import uk.org.openbanking.datamodel.v3.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.v3.common.OBChargeBearerType1Code;
