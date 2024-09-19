@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * The amount in the local market currency for which the asset is held.
+ * Balance sub type, in a coded form. Default if not specified is LCUR of the account
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")

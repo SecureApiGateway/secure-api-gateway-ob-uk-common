@@ -79,6 +79,8 @@ public class OBStatement2Detail {
     @Valid
     private List<@Valid OBStatement2StatementValueInner> statementValue;
 
+    private OBReadBalance1DataTotalValue totalValue;
+
     public OBStatement2Detail() {
         super();
     }
@@ -186,13 +188,13 @@ public class OBStatement2Detail {
     }
 
     /**
-     * Date and time at which the statement period starts.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which the statement period starts. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return startDateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "StartDateTime", example = "2017-07-12T00:00Z", description = "Date and time at which the statement period starts.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "StartDateTime", example = "2017-07-12T00:00Z", description = "Date and time at which the statement period starts. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("StartDateTime")
     public DateTime getStartDateTime() {
         return startDateTime;
@@ -208,13 +210,13 @@ public class OBStatement2Detail {
     }
 
     /**
-     * Date and time at which the statement period ends.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which the statement period ends. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return endDateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "EndDateTime", example = "2017-07-12T00:00Z", description = "Date and time at which the statement period ends.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "EndDateTime", example = "2017-07-12T00:00Z", description = "Date and time at which the statement period ends. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("EndDateTime")
     public DateTime getEndDateTime() {
         return endDateTime;
@@ -230,13 +232,13 @@ public class OBStatement2Detail {
     }
 
     /**
-     * Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return creationDateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "CreationDateTime", example = "2024-05-29T00:00Z", description = "Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "CreationDateTime", example = "2024-05-29T00:00Z", description = "Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
         return creationDateTime;
@@ -478,6 +480,27 @@ public class OBStatement2Detail {
         this.statementValue = statementValue;
     }
 
+    public OBStatement2Detail totalValue(OBReadBalance1DataTotalValue totalValue) {
+        this.totalValue = totalValue;
+        return this;
+    }
+
+    /**
+     * Get totalValue
+     *
+     * @return totalValue
+     */
+    @Valid
+    @Schema(name = "TotalValue", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("TotalValue")
+    public OBReadBalance1DataTotalValue getTotalValue() {
+        return totalValue;
+    }
+
+    public void setTotalValue(OBReadBalance1DataTotalValue totalValue) {
+        this.totalValue = totalValue;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -501,12 +524,13 @@ public class OBStatement2Detail {
                 Objects.equals(this.statementAmount, obStatement2Detail.statementAmount) &&
                 Objects.equals(this.statementDateTime, obStatement2Detail.statementDateTime) &&
                 Objects.equals(this.statementRate, obStatement2Detail.statementRate) &&
-                Objects.equals(this.statementValue, obStatement2Detail.statementValue);
+                Objects.equals(this.statementValue, obStatement2Detail.statementValue) &&
+                Objects.equals(this.totalValue, obStatement2Detail.totalValue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, statementId, statementReference, type, startDateTime, endDateTime, creationDateTime, statementDescription, statementBenefit, statementFee, statementInterest, statementAmount, statementDateTime, statementRate, statementValue);
+        return Objects.hash(accountId, statementId, statementReference, type, startDateTime, endDateTime, creationDateTime, statementDescription, statementBenefit, statementFee, statementInterest, statementAmount, statementDateTime, statementRate, statementValue, totalValue);
     }
 
     @Override
@@ -528,6 +552,7 @@ public class OBStatement2Detail {
         sb.append("    statementDateTime: ").append(toIndentedString(statementDateTime)).append("\n");
         sb.append("    statementRate: ").append(toIndentedString(statementRate)).append("\n");
         sb.append("    statementValue: ").append(toIndentedString(statementValue)).append("\n");
+        sb.append("    totalValue: ").append(toIndentedString(totalValue)).append("\n");
         sb.append("}");
         return sb.toString();
     }

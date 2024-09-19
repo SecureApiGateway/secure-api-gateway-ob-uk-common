@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Amount sub type, in a coded form.
+ * Amount sub type, in a coded form. Default if not specified is BCUR of the account.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")

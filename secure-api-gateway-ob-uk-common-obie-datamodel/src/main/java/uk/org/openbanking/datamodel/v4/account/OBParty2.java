@@ -167,12 +167,12 @@ public class OBParty2 {
     }
 
     /**
-     * Specifies a character string with a maximum length of 350 characters.
+     * The full legal name of the party.
      *
      * @return fullLegalName
      */
     @Size(min = 1, max = 350)
-    @Schema(name = "FullLegalName", example = "Jane Smith", description = "Specifies a character string with a maximum length of 350 characters.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "FullLegalName", example = "Jane Smith", description = "The full legal name of the party.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FullLegalName")
     public String getFullLegalName() {
         return fullLegalName;
@@ -188,12 +188,12 @@ public class OBParty2 {
     }
 
     /**
-     * Legal standing of the party.
+     * Legal standing of the party. For a full list refer to `OBInternalLegalStructureType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return legalStructure
      */
 
-    @Schema(name = "LegalStructure", example = "UK.OBIE.Individual", description = "Legal standing of the party.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "LegalStructure", example = "UK.OBIE.Individual", description = "Legal standing of the party. For a full list refer to `OBInternalLegalStructureType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LegalStructure")
     public String getLegalStructure() {
         return legalStructure;
@@ -213,7 +213,7 @@ public class OBParty2 {
      *
      * @return LEI
      */
-    @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
+    @Pattern(regexp = "^[A-Z0-9]{18,18}[0-9]{2,2}$")
     @Size(min = 1, max = 20)
     @Schema(name = "LEI", example = "IZ9Q00LZEVUKWCQY6X15", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LEI")
@@ -231,12 +231,12 @@ public class OBParty2 {
     }
 
     /**
-     * Get beneficialOwnership
+     * A flag to indicate a party's beneficial ownership of the related account
      *
      * @return beneficialOwnership
      */
 
-    @Schema(name = "BeneficialOwnership", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "BeneficialOwnership", description = "A flag to indicate a party's beneficial ownership of the related account", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("BeneficialOwnership")
     public Boolean getBeneficialOwnership() {
         return beneficialOwnership;
@@ -252,12 +252,12 @@ public class OBParty2 {
     }
 
     /**
-     * A party’s role with respect to the related account.
+     * A party’s role with respect to the related account. For a full list refer to `OBInternalAccountRole1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return accountRole
      */
 
-    @Schema(name = "AccountRole", description = "A party’s role with respect to the related account.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "AccountRole", description = "A party’s role with respect to the related account. For a full list refer to `OBInternalAccountRole1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AccountRole")
     public String getAccountRole() {
         return accountRole;

@@ -38,7 +38,7 @@ public class OBStatement2StatementAmountInner {
 
     private String type;
 
-    private OBReadBalance1DataBalanceInnerAmount amount;
+    private OBStatement2StatementAmountInnerAmount amount;
 
     private OBStatement2StatementAmountInnerLocalAmount localAmount;
 
@@ -49,7 +49,7 @@ public class OBStatement2StatementAmountInner {
     /**
      * Constructor with only required parameters
      */
-    public OBStatement2StatementAmountInner(OBCreditDebitCode0 creditDebitIndicator, String type, OBReadBalance1DataBalanceInnerAmount amount) {
+    public OBStatement2StatementAmountInner(OBCreditDebitCode0 creditDebitIndicator, String type, OBStatement2StatementAmountInnerAmount amount) {
         this.creditDebitIndicator = creditDebitIndicator;
         this.type = type;
         this.amount = amount;
@@ -98,7 +98,7 @@ public class OBStatement2StatementAmountInner {
         this.type = type;
     }
 
-    public OBStatement2StatementAmountInner amount(OBReadBalance1DataBalanceInnerAmount amount) {
+    public OBStatement2StatementAmountInner amount(OBStatement2StatementAmountInnerAmount amount) {
         this.amount = amount;
         return this;
     }
@@ -112,11 +112,11 @@ public class OBStatement2StatementAmountInner {
     @Valid
     @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Amount")
-    public OBReadBalance1DataBalanceInnerAmount getAmount() {
+    public OBStatement2StatementAmountInnerAmount getAmount() {
         return amount;
     }
 
-    public void setAmount(OBReadBalance1DataBalanceInnerAmount amount) {
+    public void setAmount(OBStatement2StatementAmountInnerAmount amount) {
         this.amount = amount;
     }
 

@@ -26,10 +26,10 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 /**
- * Set of elements to describe the card instrument used in the transaction.
+ * Set of elements to describe the card instrument used in the transaction. &lt;br /&gt; For a full list of enumeration values refer to &#x60;OBInternalCardSchemeType1Code&#x60; in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
  */
 
-@Schema(name = "OBTransactionCardInstrument1", description = "Set of elements to describe the card instrument used in the transaction.")
+@Schema(name = "OBTransactionCardInstrument1", description = "Set of elements to describe the card instrument used in the transaction. <br /> For a full list of enumeration values refer to `OBInternalCardSchemeType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBTransactionCardInstrument1 {
 

@@ -92,12 +92,12 @@ public class OBReadProduct2DataProductInner {
     }
 
     /**
-     * The unique ID that has been internally assigned by the financial institution to each of the current account banking products they market to their retail and/or small to medium enterprise (SME) customers.
+     * Identifier within the parent organisation for the product. Must be unique in the organisation
      *
      * @return productId
      */
     @Size(min = 1, max = 40)
-    @Schema(name = "ProductId", example = "51B", description = "The unique ID that has been internally assigned by the financial institution to each of the current account banking products they market to their retail and/or small to medium enterprise (SME) customers.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "ProductId", example = "51B", description = "Identifier within the parent organisation for the product. Must be unique in the organisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ProductId")
     public String getProductId() {
         return productId;
@@ -135,12 +135,12 @@ public class OBReadProduct2DataProductInner {
     }
 
     /**
-     * Any secondary Identification which  supports Product Identifier to uniquely identify the current account banking products.
+     * Any secondary Identification which supports Product Identifier to uniquely identify the current account banking products.
      *
      * @return secondaryProductId
      */
     @Size(min = 1, max = 70)
-    @Schema(name = "SecondaryProductId", example = "CA78", description = "Any secondary Identification which  supports Product Identifier to uniquely identify the current account banking products.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "SecondaryProductId", example = "CA78", description = "Any secondary Identification which supports Product Identifier to uniquely identify the current account banking products.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SecondaryProductId")
     public String getSecondaryProductId() {
         return secondaryProductId;
@@ -178,12 +178,12 @@ public class OBReadProduct2DataProductInner {
     }
 
     /**
-     * Unique and unambiguous identification of a  Product Marketing State.
+     * Unique and unambiguous identification of a Product Marketing State.
      *
      * @return marketingStateId
      */
     @Size(min = 1, max = 35)
-    @Schema(name = "MarketingStateId", example = "22878123", description = "Unique and unambiguous identification of a  Product Marketing State.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "MarketingStateId", example = "22878123", description = "Unique and unambiguous identification of a Product Marketing State.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MarketingStateId")
     public String getMarketingStateId() {
         return marketingStateId;

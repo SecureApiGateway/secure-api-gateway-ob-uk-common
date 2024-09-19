@@ -52,12 +52,12 @@ public class OBBranchAndFinancialInstitutionIdentification60 {
     }
 
     /**
-     * Name of the identification scheme, in a coded form as published in an external list.
+     * Name of the identification scheme, in a coded form as published in an external list.<br/> For a full list of enumeration values refer to `OBInternalFinancialInstitutionIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return schemeName
      */
 
-    @Schema(name = "SchemeName", example = "UK.OBIE.SortCodeAccountNumber", description = "Name of the identification scheme, in a coded form as published in an external list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "SchemeName", example = "UK.OBIE.BICFI", description = "Name of the identification scheme, in a coded form as published in an external list.<br/> For a full list of enumeration values refer to `OBInternalFinancialInstitutionIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SchemeName")
     public String getSchemeName() {
         return schemeName;
@@ -140,7 +140,7 @@ public class OBBranchAndFinancialInstitutionIdentification60 {
      *
      * @return LEI
      */
-    @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
+    @Pattern(regexp = "^[A-Z0-9]{18,18}[0-9]{2,2}$")
     @Size(min = 1, max = 20)
     @Schema(name = "LEI", example = "IZ9Q00LZEVUKWCQY6X15", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LEI")

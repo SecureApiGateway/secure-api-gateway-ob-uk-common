@@ -58,12 +58,12 @@ public class OBBranchAndFinancialInstitutionIdentification50 {
     }
 
     /**
-     * Name of the identification scheme, in a coded form as published in an external list.
+     * Name of the identification scheme, in a coded form as published in an external list.<br/> For a full list of enumeration values refer to `OBInternalFinancialInstitutionIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return schemeName
      */
     @NotNull
-    @Schema(name = "SchemeName", example = "UK.OBIE.SortCodeAccountNumber", description = "Name of the identification scheme, in a coded form as published in an external list.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "SchemeName", example = "UK.OBIE.BICFI", description = "Name of the identification scheme, in a coded form as published in an external list.<br/> For a full list of enumeration values refer to `OBInternalFinancialInstitutionIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("SchemeName")
     public String getSchemeName() {
         return schemeName;

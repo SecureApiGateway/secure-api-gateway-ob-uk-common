@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Indicates whether the amount is a credit or a debit.  Usage: A zero amount is considered to be a credit amount.
+ * Indicates whether the amount is a credit or a debit. For a full list of values see `OBInternalCreditDebitCode` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)<br /> Usage: A zero amount is considered to be a credit amount.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")

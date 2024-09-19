@@ -112,12 +112,12 @@ public class OBStatement2StatementFeeInner {
     }
 
     /**
-     * Fee type, in a coded form.
+     * Fee type, in a coded form. For a full list of values see `OBInternalStatementFeeType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return type
      */
     @NotNull
-    @Schema(name = "Type", example = "UK.OBIE.Annual", description = "Fee type, in a coded form.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "Type", example = "UK.OBIE.Annual", description = "Fee type, in a coded form. For a full list of values see `OBInternalStatementFeeType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
     public String getType() {
         return type;
@@ -154,12 +154,12 @@ public class OBStatement2StatementFeeInner {
     }
 
     /**
-     * Description that may be available for the statement fee rate type.
+     * Description that may be available for the statement fee rate type. For a full list of values see `OBInternalStatementFeeRateType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return rateType
      */
 
-    @Schema(name = "RateType", example = "UK.OBIE.AER", description = "Description that may be available for the statement fee rate type.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "RateType", example = "UK.OBIE.AER", description = "Description that may be available for the statement fee rate type. For a full list of values see `OBInternalStatementFeeRateType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RateType")
     public String getRateType() {
         return rateType;
@@ -175,12 +175,12 @@ public class OBStatement2StatementFeeInner {
     }
 
     /**
-     * How frequently the fee is applied to the Account.
+     * How frequently the fee is applied to the Account. For a full list of values see `OBInternalStatementFeeFrequency1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return frequency
      */
 
-    @Schema(name = "Frequency", example = "UK.OBIE.StatementMonthly", description = "How frequently the fee is applied to the Account.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Frequency", example = "UK.OBIE.StatementMonthly", description = "How frequently the fee is applied to the Account. For a full list of values see `OBInternalStatementFeeFrequency1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Frequency")
     public String getFrequency() {
         return frequency;

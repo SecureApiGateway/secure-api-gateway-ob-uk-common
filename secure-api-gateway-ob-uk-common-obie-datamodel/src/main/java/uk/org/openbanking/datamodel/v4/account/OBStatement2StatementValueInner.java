@@ -78,12 +78,12 @@ public class OBStatement2StatementValueInner {
     }
 
     /**
-     * Statement value type, in a coded form.
+     * Statement value type, in a coded form. For a full list of values see `OBInternalStatementValueType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return type
      */
     @NotNull
-    @Schema(name = "Type", example = "UK.OBIE.Credit", description = "Statement value type, in a coded form.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "Type", example = "UK.OBIE.Credit", description = "Statement value type, in a coded form. For a full list of values see `OBInternalStatementValueType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
     public String getType() {
         return type;

@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * For a full description see `ExternalDocumentFormat1Code` [here](https://github.com/OpenBankingUK/External_internal_CodeSets)
+ * For a full list of enumeration values refer to `ExternalDocumentFormat1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_internal_CodeSets)
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
@@ -31,7 +31,7 @@ public enum OBFileFormat {
 
     DXML("DXML"),
 
-    SDHS("SDHS"),
+    SDSH("SDSH"),
 
     WORD("WORD"),
 

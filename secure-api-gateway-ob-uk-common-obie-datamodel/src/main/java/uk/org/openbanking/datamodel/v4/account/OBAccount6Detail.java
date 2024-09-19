@@ -65,7 +65,10 @@ public class OBAccount6Detail {
     private String switchStatus;
 
     @Valid
-    private List<@Valid OBAccount6DetailAccountInner> account = new ArrayList<>();
+    private List<@Valid OBAccount6AccountInner> account = new ArrayList<>();
+
+    @Valid
+    private List<@Valid StatementFrequencyAndFormatInner> statementFrequencyAndFormat;
 
     private OBBranchAndFinancialInstitutionIdentification50 servicer;
 
@@ -76,11 +79,8 @@ public class OBAccount6Detail {
     /**
      * Constructor with only required parameters
      */
-    public OBAccount6Detail(String accountId, String currency, OBInternalAccountType1Code accountCategory, OBExternalAccountSubType1Code accountTypeCode, List<@Valid OBAccount6DetailAccountInner> account) {
+    public OBAccount6Detail(String accountId, List<@Valid OBAccount6AccountInner> account) {
         this.accountId = accountId;
-        this.currency = currency;
-        this.accountCategory = accountCategory;
-        this.accountTypeCode = accountTypeCode;
         this.account = account;
     }
 
@@ -133,12 +133,12 @@ public class OBAccount6Detail {
     }
 
     /**
-     * Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return statusUpdateDateTime
      */
     @Valid
-    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
@@ -158,9 +158,8 @@ public class OBAccount6Detail {
      *
      * @return currency
      */
-    @NotNull
     @Pattern(regexp = "^[A-Z]{3,3}$")
-    @Schema(name = "Currency", description = "Identification of the currency in which the account is held.  Usage: Currency should only be used in case one and the same account number covers several currencies and the initiating party needs to identify which currency needs to be used for settlement on the account.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "Currency", description = "Identification of the currency in which the account is held.  Usage: Currency should only be used in case one and the same account number covers several currencies and the initiating party needs to identify which currency needs to be used for settlement on the account.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Currency")
     public String getCurrency() {
         return currency;
@@ -180,9 +179,8 @@ public class OBAccount6Detail {
      *
      * @return accountCategory
      */
-    @NotNull
     @Valid
-    @Schema(name = "AccountCategory", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "AccountCategory", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AccountCategory")
     public OBInternalAccountType1Code getAccountCategory() {
         return accountCategory;
@@ -202,9 +200,8 @@ public class OBAccount6Detail {
      *
      * @return accountTypeCode
      */
-    @NotNull
     @Valid
-    @Schema(name = "AccountTypeCode", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "AccountTypeCode", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AccountTypeCode")
     public OBExternalAccountSubType1Code getAccountTypeCode() {
         return accountTypeCode;
@@ -262,12 +259,12 @@ public class OBAccount6Detail {
     }
 
     /**
-     * Date on which the account and related basic services are effectively operational for the account owner.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date on which the account and related basic services are effectively operational for the account owner. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return openingDate
      */
     @Valid
-    @Schema(name = "OpeningDate", description = "Date on which the account and related basic services are effectively operational for the account owner.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "OpeningDate", description = "Date on which the account and related basic services are effectively operational for the account owner. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OpeningDate")
     public DateTime getOpeningDate() {
         return openingDate;
@@ -283,12 +280,12 @@ public class OBAccount6Detail {
     }
 
     /**
-     * Maturity date of the account.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Maturity date of the account. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return maturityDate
      */
     @Valid
-    @Schema(name = "MaturityDate", description = "Maturity date of the account.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "MaturityDate", description = "Maturity date of the account. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MaturityDate")
     public DateTime getMaturityDate() {
         return maturityDate;
@@ -304,12 +301,12 @@ public class OBAccount6Detail {
     }
 
     /**
-     * Specifies the switch status for the account, in a coded form.
+     * Specifies the switch status for the account, in a coded form. <br /> For a full list of enumeration values refer to `OBInternalSwitchStatusCode` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return switchStatus
      */
 
-    @Schema(name = "SwitchStatus", description = "Specifies the switch status for the account, in a coded form.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "SwitchStatus", description = "Specifies the switch status for the account, in a coded form. <br /> For a full list of enumeration values refer to `OBInternalSwitchStatusCode` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SwitchStatus")
     public String getSwitchStatus() {
         return switchStatus;
@@ -319,12 +316,12 @@ public class OBAccount6Detail {
         this.switchStatus = switchStatus;
     }
 
-    public OBAccount6Detail account(List<@Valid OBAccount6DetailAccountInner> account) {
+    public OBAccount6Detail account(List<@Valid OBAccount6AccountInner> account) {
         this.account = account;
         return this;
     }
 
-    public OBAccount6Detail addAccountItem(OBAccount6DetailAccountInner accountItem) {
+    public OBAccount6Detail addAccountItem(OBAccount6AccountInner accountItem) {
         if (this.account == null) {
             this.account = new ArrayList<>();
         }
@@ -341,12 +338,41 @@ public class OBAccount6Detail {
     @Valid
     @Schema(name = "Account", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Account")
-    public List<@Valid OBAccount6DetailAccountInner> getAccount() {
+    public List<@Valid OBAccount6AccountInner> getAccount() {
         return account;
     }
 
-    public void setAccount(List<@Valid OBAccount6DetailAccountInner> account) {
+    public void setAccount(List<@Valid OBAccount6AccountInner> account) {
         this.account = account;
+    }
+
+    public OBAccount6Detail statementFrequencyAndFormat(List<@Valid StatementFrequencyAndFormatInner> statementFrequencyAndFormat) {
+        this.statementFrequencyAndFormat = statementFrequencyAndFormat;
+        return this;
+    }
+
+    public OBAccount6Detail addStatementFrequencyAndFormatItem(StatementFrequencyAndFormatInner statementFrequencyAndFormatItem) {
+        if (this.statementFrequencyAndFormat == null) {
+            this.statementFrequencyAndFormat = new ArrayList<>();
+        }
+        this.statementFrequencyAndFormat.add(statementFrequencyAndFormatItem);
+        return this;
+    }
+
+    /**
+     * Get statementFrequencyAndFormat
+     *
+     * @return statementFrequencyAndFormat
+     */
+    @Valid
+    @Schema(name = "StatementFrequencyAndFormat", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("StatementFrequencyAndFormat")
+    public List<@Valid StatementFrequencyAndFormatInner> getStatementFrequencyAndFormat() {
+        return statementFrequencyAndFormat;
+    }
+
+    public void setStatementFrequencyAndFormat(List<@Valid StatementFrequencyAndFormatInner> statementFrequencyAndFormat) {
+        this.statementFrequencyAndFormat = statementFrequencyAndFormat;
     }
 
     public OBAccount6Detail servicer(OBBranchAndFinancialInstitutionIdentification50 servicer) {
@@ -391,12 +417,13 @@ public class OBAccount6Detail {
                 Objects.equals(this.maturityDate, obAccount6Detail.maturityDate) &&
                 Objects.equals(this.switchStatus, obAccount6Detail.switchStatus) &&
                 Objects.equals(this.account, obAccount6Detail.account) &&
+                Objects.equals(this.statementFrequencyAndFormat, obAccount6Detail.statementFrequencyAndFormat) &&
                 Objects.equals(this.servicer, obAccount6Detail.servicer);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, status, statusUpdateDateTime, currency, accountCategory, accountTypeCode, description, nickname, openingDate, maturityDate, switchStatus, account, servicer);
+        return Objects.hash(accountId, status, statusUpdateDateTime, currency, accountCategory, accountTypeCode, description, nickname, openingDate, maturityDate, switchStatus, account, statementFrequencyAndFormat, servicer);
     }
 
     @Override
@@ -415,6 +442,7 @@ public class OBAccount6Detail {
         sb.append("    maturityDate: ").append(toIndentedString(maturityDate)).append("\n");
         sb.append("    switchStatus: ").append(toIndentedString(switchStatus)).append("\n");
         sb.append("    account: ").append(toIndentedString(account)).append("\n");
+        sb.append("    statementFrequencyAndFormat: ").append(toIndentedString(statementFrequencyAndFormat)).append("\n");
         sb.append("    servicer: ").append(toIndentedString(servicer)).append("\n");
         sb.append("}");
         return sb.toString();

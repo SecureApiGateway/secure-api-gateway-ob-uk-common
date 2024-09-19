@@ -40,7 +40,7 @@ public class OBUltimateDebtor1 {
 
     private String LEI;
 
-    private OBInternalAccountIdentification4Code schemeName;
+    private String schemeName;
 
     private OBPostalAddress7 postalAddress;
 
@@ -96,7 +96,7 @@ public class OBUltimateDebtor1 {
      *
      * @return LEI
      */
-    @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
+    @Pattern(regexp = "^[A-Z0-9]{18,18}[0-9]{2,2}$")
     @Size(min = 1, max = 20)
     @Schema(name = "LEI", example = "IZ9Q00LZEVUKWCQY6X15", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LEI")
@@ -108,24 +108,24 @@ public class OBUltimateDebtor1 {
         this.LEI = LEI;
     }
 
-    public OBUltimateDebtor1 schemeName(OBInternalAccountIdentification4Code schemeName) {
+    public OBUltimateDebtor1 schemeName(String schemeName) {
         this.schemeName = schemeName;
         return this;
     }
 
     /**
-     * Get schemeName
+     * Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return schemeName
      */
-    @Valid
-    @Schema(name = "SchemeName", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+
+    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SchemeName")
-    public OBInternalAccountIdentification4Code getSchemeName() {
+    public String getSchemeName() {
         return schemeName;
     }
 
-    public void setSchemeName(OBInternalAccountIdentification4Code schemeName) {
+    public void setSchemeName(String schemeName) {
         this.schemeName = schemeName;
     }
 

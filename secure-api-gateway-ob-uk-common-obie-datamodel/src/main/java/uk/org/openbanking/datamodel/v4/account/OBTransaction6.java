@@ -82,7 +82,7 @@ public class OBTransaction6 {
 
     private OBMerchantDetails1 merchantDetails;
 
-    private OBBranchAndFinancialInstitutionIdentification51 creditorAgent;
+    private OBBranchAndFinancialInstitutionIdentification61 creditorAgent;
 
     private OBCashAccount60 creditorAccount;
 
@@ -281,13 +281,13 @@ public class OBTransaction6 {
     }
 
     /**
-     * Date and time when a transaction entry is posted to an account on the account servicer's books. Usage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time when a transaction entry is posted to an account on the account servicer's books. Usage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return bookingDateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "BookingDateTime", description = "Date and time when a transaction entry is posted to an account on the account servicer's books. Usage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "BookingDateTime", description = "Date and time when a transaction entry is posted to an account on the account servicer's books. Usage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("BookingDateTime")
     public DateTime getBookingDateTime() {
         return bookingDateTime;
@@ -303,12 +303,12 @@ public class OBTransaction6 {
     }
 
     /**
-     * Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit transaction entry. Usage: If transaction entry status is pending and value date is present, then the value date refers to an expected/requested value date. For transaction entries subject to availability/float and for which availability information is provided, the value date must not be used. In this case the availability component identifies the number of availability days.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit transaction entry. Usage: If transaction entry status is pending and value date is present, then the value date refers to an expected/requested value date. For transaction entries subject to availability/float and for which availability information is provided, the value date must not be used. In this case the availability component identifies the number of availability days. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return valueDateTime
      */
     @Valid
-    @Schema(name = "ValueDateTime", description = "Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit transaction entry. Usage: If transaction entry status is pending and value date is present, then the value date refers to an expected/requested value date. For transaction entries subject to availability/float and for which availability information is provided, the value date must not be used. In this case the availability component identifies the number of availability days.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "ValueDateTime", description = "Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit transaction entry. Usage: If transaction entry status is pending and value date is present, then the value date refers to an expected/requested value date. For transaction entries subject to availability/float and for which availability information is provided, the value date must not be used. In this case the availability component identifies the number of availability days. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ValueDateTime")
     public DateTime getValueDateTime() {
         return valueDateTime;
@@ -537,7 +537,7 @@ public class OBTransaction6 {
         this.merchantDetails = merchantDetails;
     }
 
-    public OBTransaction6 creditorAgent(OBBranchAndFinancialInstitutionIdentification51 creditorAgent) {
+    public OBTransaction6 creditorAgent(OBBranchAndFinancialInstitutionIdentification61 creditorAgent) {
         this.creditorAgent = creditorAgent;
         return this;
     }
@@ -550,11 +550,11 @@ public class OBTransaction6 {
     @Valid
     @Schema(name = "CreditorAgent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorAgent")
-    public OBBranchAndFinancialInstitutionIdentification51 getCreditorAgent() {
+    public OBBranchAndFinancialInstitutionIdentification61 getCreditorAgent() {
         return creditorAgent;
     }
 
-    public void setCreditorAgent(OBBranchAndFinancialInstitutionIdentification51 creditorAgent) {
+    public void setCreditorAgent(OBBranchAndFinancialInstitutionIdentification61 creditorAgent) {
         this.creditorAgent = creditorAgent;
     }
 

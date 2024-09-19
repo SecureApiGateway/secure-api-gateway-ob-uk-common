@@ -44,7 +44,7 @@ public class OBReadBalance1DataBalanceInner {
 
     private OBCreditDebitCode2 creditDebitIndicator;
 
-    private OBInternalAccountIdentification4Code type;
+    private OBBalanceType1Code type;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime dateTime;
@@ -63,7 +63,7 @@ public class OBReadBalance1DataBalanceInner {
     /**
      * Constructor with only required parameters
      */
-    public OBReadBalance1DataBalanceInner(String accountId, OBCreditDebitCode2 creditDebitIndicator, OBInternalAccountIdentification4Code type, DateTime dateTime, OBReadBalance1DataBalanceInnerAmount amount) {
+    public OBReadBalance1DataBalanceInner(String accountId, OBCreditDebitCode2 creditDebitIndicator, OBBalanceType1Code type, DateTime dateTime, OBReadBalance1DataBalanceInnerAmount amount) {
         this.accountId = accountId;
         this.creditDebitIndicator = creditDebitIndicator;
         this.type = type;
@@ -115,7 +115,7 @@ public class OBReadBalance1DataBalanceInner {
         this.creditDebitIndicator = creditDebitIndicator;
     }
 
-    public OBReadBalance1DataBalanceInner type(OBInternalAccountIdentification4Code type) {
+    public OBReadBalance1DataBalanceInner type(OBBalanceType1Code type) {
         this.type = type;
         return this;
     }
@@ -129,11 +129,11 @@ public class OBReadBalance1DataBalanceInner {
     @Valid
     @Schema(name = "Type", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
-    public OBInternalAccountIdentification4Code getType() {
+    public OBBalanceType1Code getType() {
         return type;
     }
 
-    public void setType(OBInternalAccountIdentification4Code type) {
+    public void setType(OBBalanceType1Code type) {
         this.type = type;
     }
 
@@ -143,13 +143,13 @@ public class OBReadBalance1DataBalanceInner {
     }
 
     /**
-     * Indicates the date (and time) of the balance.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Indicates the date (and time) of the balance. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return dateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "DateTime", description = "Indicates the date (and time) of the balance.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "DateTime", description = "Indicates the date (and time) of the balance. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("DateTime")
     public DateTime getDateTime() {
         return dateTime;

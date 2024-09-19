@@ -34,7 +34,7 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBCashAccount60 {
 
-    private OBInternalAccountIdentification4Code schemeName;
+    private String schemeName;
 
     private String identification;
 
@@ -44,24 +44,24 @@ public class OBCashAccount60 {
 
     private OBProxy1 proxy;
 
-    public OBCashAccount60 schemeName(OBInternalAccountIdentification4Code schemeName) {
+    public OBCashAccount60 schemeName(String schemeName) {
         this.schemeName = schemeName;
         return this;
     }
 
     /**
-     * Get schemeName
+     * Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return schemeName
      */
-    @Valid
-    @Schema(name = "SchemeName", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+
+    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SchemeName")
-    public OBInternalAccountIdentification4Code getSchemeName() {
+    public String getSchemeName() {
         return schemeName;
     }
 
-    public void setSchemeName(OBInternalAccountIdentification4Code schemeName) {
+    public void setSchemeName(String schemeName) {
         this.schemeName = schemeName;
     }
 

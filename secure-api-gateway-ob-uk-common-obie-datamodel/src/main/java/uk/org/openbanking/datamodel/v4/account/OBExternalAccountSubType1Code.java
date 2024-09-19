@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the sub type of account (product family group) using ISO 20022 values.
+ * Specifies the sub type of account (product family group) <br /> For a full list of enumeration values refer to `OBExternalCashAccountType1Code` *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
@@ -49,8 +49,6 @@ public enum OBExternalAccountSubType1Code {
 
     MOMA("MOMA"),
 
-    NFCA("NFCA"),
-
     NREX("NREX"),
 
     ODFT("ODFT"),
@@ -72,6 +70,8 @@ public enum OBExternalAccountSubType1Code {
     TRAS("TRAS"),
 
     VACC("VACC"),
+
+    NFCA("NFCA"),
 
     MORT("MORT"),
 

@@ -30,10 +30,10 @@ import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
 
 /**
- * Other product type details associated with the account.
+ * This field provides extension to the ProductType enumeration. If ProductType - \&quot;Other\&quot; is chosen, this field must be populated with name, and description for ASPSP specific product type.
  */
 
-@Schema(name = "OBReadProduct2_Data_Product_inner_OtherProductType", description = "Other product type details associated with the account.")
+@Schema(name = "OBReadProduct2_Data_Product_inner_OtherProductType", description = "This field provides extension to the ProductType enumeration. If ProductType - \"Other\" is chosen, this field must be populated with name, and description for ASPSP specific product type.")
 @JsonTypeName("OBReadProduct2_Data_Product_inner_OtherProductType")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBReadProduct2DataProductInnerOtherProductType {
@@ -75,13 +75,13 @@ public class OBReadProduct2DataProductInnerOtherProductType {
     }
 
     /**
-     * Long name associated with the product
+     * Name of \"Other\" product type.
      *
      * @return name
      */
     @NotNull
     @Size(min = 1, max = 350)
-    @Schema(name = "Name", example = "e-Wallet", description = "Long name associated with the product", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "Name", example = "e-Wallet", description = "Name of \"Other\" product type.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Name")
     public String getName() {
         return name;
@@ -97,13 +97,13 @@ public class OBReadProduct2DataProductInnerOtherProductType {
     }
 
     /**
-     * Description of the Product associated with the account
+     * Description of \"Other\" product type
      *
      * @return description
      */
     @NotNull
     @Size(min = 1, max = 350)
-    @Schema(name = "Description", example = "Virtual wallet", description = "Description of the Product associated with the account", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "Description", example = "Virtual wallet", description = "Description of \"Other\" product type", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Description")
     public String getDescription() {
         return description;

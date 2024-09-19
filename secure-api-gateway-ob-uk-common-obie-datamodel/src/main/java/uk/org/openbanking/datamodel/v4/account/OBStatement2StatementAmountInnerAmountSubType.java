@@ -21,19 +21,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Indicates whether the balance is a credit or a debit balance.  Usage: A zero balance is considered to be a credit balance. <br /> For a full list of enumeration values refer to `OBInternalCreditDebitCode` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+ * The amount in the domestic or base accounting currency. Default is Base Currency (BCUR) if not specified
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBCreditDebitCode2 {
+public enum OBStatement2StatementAmountInnerAmountSubType {
 
-    CREDIT("Credit"),
+    BCUR("BCUR"),
 
-    DEBIT("Debit");
+    LCUR("LCUR");
 
     private String value;
 
-    OBCreditDebitCode2(String value) {
+    OBStatement2StatementAmountInnerAmountSubType(String value) {
         this.value = value;
     }
 
@@ -48,8 +48,8 @@ public enum OBCreditDebitCode2 {
     }
 
     @JsonCreator
-    public static OBCreditDebitCode2 fromValue(String value) {
-        for (OBCreditDebitCode2 b : OBCreditDebitCode2.values()) {
+    public static OBStatement2StatementAmountInnerAmountSubType fromValue(String value) {
+        for (OBStatement2StatementAmountInnerAmountSubType b : OBStatement2StatementAmountInnerAmountSubType.values()) {
             if (b.value.equals(value)) {
                 return b;
             }

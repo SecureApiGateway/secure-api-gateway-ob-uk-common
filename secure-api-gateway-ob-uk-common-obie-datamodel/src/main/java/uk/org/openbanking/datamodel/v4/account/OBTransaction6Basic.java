@@ -30,6 +30,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
 
 /**
  * Provides further details on an entry in the report.
@@ -72,9 +73,16 @@ public class OBTransaction6Basic {
 
     private ProprietaryBankTransactionCodeStructure1 proprietaryBankTransactionCode;
 
+    @Valid
+    private List<@Valid OBExtendedProprietaryBankTransactionCode> extendedProprietaryBankTransactionCodes;
+
     private OBTransactionCardInstrument1 cardInstrument;
 
     private OBSupplementaryData1 supplementaryData;
+
+    private ExternalCategoryPurpose1Code categoryPurposeCode;
+
+    private OBExternalPurpose1Code paymentPurposeCode;
 
     public OBTransaction6Basic() {
         super();
@@ -255,13 +263,13 @@ public class OBTransaction6Basic {
     }
 
     /**
-     * Date and time when a transaction entry is posted to an account on the account servicer's books. Usage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time when a transaction entry is posted to an account on the account servicer's books. Usage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return bookingDateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "BookingDateTime", description = "Date and time when a transaction entry is posted to an account on the account servicer's books. Usage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "BookingDateTime", description = "Date and time when a transaction entry is posted to an account on the account servicer's books. Usage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("BookingDateTime")
     public DateTime getBookingDateTime() {
         return bookingDateTime;
@@ -277,12 +285,12 @@ public class OBTransaction6Basic {
     }
 
     /**
-     * Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit transaction entry. Usage: If transaction entry status is pending and value date is present, then the value date refers to an expected/requested value date. For transaction entries subject to availability/float and for which availability information is provided, the value date must not be used. In this case the availability component identifies the number of availability days.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit transaction entry. Usage: If transaction entry status is pending and value date is present, then the value date refers to an expected/requested value date. For transaction entries subject to availability/float and for which availability information is provided, the value date must not be used. In this case the availability component identifies the number of availability days. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return valueDateTime
      */
     @Valid
-    @Schema(name = "ValueDateTime", description = "Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit transaction entry. Usage: If transaction entry status is pending and value date is present, then the value date refers to an expected/requested value date. For transaction entries subject to availability/float and for which availability information is provided, the value date must not be used. In this case the availability component identifies the number of availability days.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "ValueDateTime", description = "Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit transaction entry. Usage: If transaction entry status is pending and value date is present, then the value date refers to an expected/requested value date. For transaction entries subject to availability/float and for which availability information is provided, the value date must not be used. In this case the availability component identifies the number of availability days. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ValueDateTime")
     public DateTime getValueDateTime() {
         return valueDateTime;
@@ -419,6 +427,35 @@ public class OBTransaction6Basic {
         this.proprietaryBankTransactionCode = proprietaryBankTransactionCode;
     }
 
+    public OBTransaction6Basic extendedProprietaryBankTransactionCodes(List<@Valid OBExtendedProprietaryBankTransactionCode> extendedProprietaryBankTransactionCodes) {
+        this.extendedProprietaryBankTransactionCodes = extendedProprietaryBankTransactionCodes;
+        return this;
+    }
+
+    public OBTransaction6Basic addExtendedProprietaryBankTransactionCodesItem(OBExtendedProprietaryBankTransactionCode extendedProprietaryBankTransactionCodesItem) {
+        if (this.extendedProprietaryBankTransactionCodes == null) {
+            this.extendedProprietaryBankTransactionCodes = new ArrayList<>();
+        }
+        this.extendedProprietaryBankTransactionCodes.add(extendedProprietaryBankTransactionCodesItem);
+        return this;
+    }
+
+    /**
+     * Get extendedProprietaryBankTransactionCodes
+     *
+     * @return extendedProprietaryBankTransactionCodes
+     */
+    @Valid
+    @Schema(name = "ExtendedProprietaryBankTransactionCodes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("ExtendedProprietaryBankTransactionCodes")
+    public List<@Valid OBExtendedProprietaryBankTransactionCode> getExtendedProprietaryBankTransactionCodes() {
+        return extendedProprietaryBankTransactionCodes;
+    }
+
+    public void setExtendedProprietaryBankTransactionCodes(List<@Valid OBExtendedProprietaryBankTransactionCode> extendedProprietaryBankTransactionCodes) {
+        this.extendedProprietaryBankTransactionCodes = extendedProprietaryBankTransactionCodes;
+    }
+
     public OBTransaction6Basic cardInstrument(OBTransactionCardInstrument1 cardInstrument) {
         this.cardInstrument = cardInstrument;
         return this;
@@ -461,6 +498,48 @@ public class OBTransaction6Basic {
         this.supplementaryData = supplementaryData;
     }
 
+    public OBTransaction6Basic categoryPurposeCode(ExternalCategoryPurpose1Code categoryPurposeCode) {
+        this.categoryPurposeCode = categoryPurposeCode;
+        return this;
+    }
+
+    /**
+     * Get categoryPurposeCode
+     *
+     * @return categoryPurposeCode
+     */
+    @Valid
+    @Schema(name = "CategoryPurposeCode", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("CategoryPurposeCode")
+    public ExternalCategoryPurpose1Code getCategoryPurposeCode() {
+        return categoryPurposeCode;
+    }
+
+    public void setCategoryPurposeCode(ExternalCategoryPurpose1Code categoryPurposeCode) {
+        this.categoryPurposeCode = categoryPurposeCode;
+    }
+
+    public OBTransaction6Basic paymentPurposeCode(OBExternalPurpose1Code paymentPurposeCode) {
+        this.paymentPurposeCode = paymentPurposeCode;
+        return this;
+    }
+
+    /**
+     * Get paymentPurposeCode
+     *
+     * @return paymentPurposeCode
+     */
+    @Valid
+    @Schema(name = "PaymentPurposeCode", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("PaymentPurposeCode")
+    public OBExternalPurpose1Code getPaymentPurposeCode() {
+        return paymentPurposeCode;
+    }
+
+    public void setPaymentPurposeCode(OBExternalPurpose1Code paymentPurposeCode) {
+        this.paymentPurposeCode = paymentPurposeCode;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -485,13 +564,16 @@ public class OBTransaction6Basic {
                 Objects.equals(this.currencyExchange, obTransaction6Basic.currencyExchange) &&
                 Objects.equals(this.bankTransactionCode, obTransaction6Basic.bankTransactionCode) &&
                 Objects.equals(this.proprietaryBankTransactionCode, obTransaction6Basic.proprietaryBankTransactionCode) &&
+                Objects.equals(this.extendedProprietaryBankTransactionCodes, obTransaction6Basic.extendedProprietaryBankTransactionCodes) &&
                 Objects.equals(this.cardInstrument, obTransaction6Basic.cardInstrument) &&
-                Objects.equals(this.supplementaryData, obTransaction6Basic.supplementaryData);
+                Objects.equals(this.supplementaryData, obTransaction6Basic.supplementaryData) &&
+                Objects.equals(this.categoryPurposeCode, obTransaction6Basic.categoryPurposeCode) &&
+                Objects.equals(this.paymentPurposeCode, obTransaction6Basic.paymentPurposeCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, transactionId, transactionReference, statementReference, creditDebitIndicator, status, transactionMutability, bookingDateTime, valueDateTime, addressLine, amount, chargeAmount, currencyExchange, bankTransactionCode, proprietaryBankTransactionCode, cardInstrument, supplementaryData);
+        return Objects.hash(accountId, transactionId, transactionReference, statementReference, creditDebitIndicator, status, transactionMutability, bookingDateTime, valueDateTime, addressLine, amount, chargeAmount, currencyExchange, bankTransactionCode, proprietaryBankTransactionCode, extendedProprietaryBankTransactionCodes, cardInstrument, supplementaryData, categoryPurposeCode, paymentPurposeCode);
     }
 
     @Override
@@ -513,8 +595,11 @@ public class OBTransaction6Basic {
         sb.append("    currencyExchange: ").append(toIndentedString(currencyExchange)).append("\n");
         sb.append("    bankTransactionCode: ").append(toIndentedString(bankTransactionCode)).append("\n");
         sb.append("    proprietaryBankTransactionCode: ").append(toIndentedString(proprietaryBankTransactionCode)).append("\n");
+        sb.append("    extendedProprietaryBankTransactionCodes: ").append(toIndentedString(extendedProprietaryBankTransactionCodes)).append("\n");
         sb.append("    cardInstrument: ").append(toIndentedString(cardInstrument)).append("\n");
         sb.append("    supplementaryData: ").append(toIndentedString(supplementaryData)).append("\n");
+        sb.append("    categoryPurposeCode: ").append(toIndentedString(categoryPurposeCode)).append("\n");
+        sb.append("    paymentPurposeCode: ").append(toIndentedString(paymentPurposeCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

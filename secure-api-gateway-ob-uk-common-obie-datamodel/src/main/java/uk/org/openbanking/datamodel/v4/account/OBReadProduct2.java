@@ -27,10 +27,10 @@ import uk.org.openbanking.datamodel.v4.common.Links;
 import uk.org.openbanking.datamodel.v4.common.Meta;
 
 /**
- * Product details of Other Product which is not avaiable in the standard list
+ * Product details of Other Product which is not available in the standard list
  */
 
-@Schema(name = "OBReadProduct2", description = "Product details of Other Product which is not avaiable in the standard list")
+@Schema(name = "OBReadProduct2", description = "Product details of Other Product which is not available in the standard list")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBReadProduct2 {
 
