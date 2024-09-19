@@ -15,11 +15,16 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRRemittanceInformationConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRSupplementaryDataConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAmountConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRRiskConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.mapper.FRModelMapper;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRMandateRelatedInformationConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRUltimateCreditorConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRUltimateDebtorConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRRegulatoryAuthorityConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.mapper.FRModelMapper;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrderConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrderConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrderDataInitiation;
@@ -27,6 +32,7 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomestic
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3DataInitiation;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrderConsent5;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrderConsent5Data;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrderConsent5DataInitiation;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrderConsentResponse6DataInitiation;
 
 public class FRWriteDomesticStandingOrderConsentConverter {
@@ -49,7 +55,7 @@ public class FRWriteDomesticStandingOrderConsentConverter {
                 .build();
     }
 
-    public static FRWriteDomesticStandingOrderDataInitiation toFRWriteDomesticStandingOrderDataInitiation(OBWriteDomesticStandingOrder3DataInitiation initiation) {
+    public static FRWriteDomesticStandingOrderDataInitiation toFRWriteDomesticStandingOrderDataInitiation(OBWriteDomesticStandingOrderConsent5DataInitiation initiation) {
         return initiation == null ? null : FRWriteDomesticStandingOrderDataInitiation.builder()
                 .firstPaymentAmount(FRAmountConverter.toFRAmount(initiation.getFirstPaymentAmount()))
                 .recurringPaymentAmount(FRAmountConverter.toFRAmount(initiation.getRecurringPaymentAmount()))
@@ -58,9 +64,10 @@ public class FRWriteDomesticStandingOrderConsentConverter {
                 .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getCreditorAccount()))
                 .supplementaryData(FRSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
                 .mandateRelatedInformation(FRMandateRelatedInformationConverter.toFRMandateRelatedInformation(initiation.getMandateRelatedInformation()))
+                .regulatoryReporting(FRRegulatoryAuthorityConverter.toOBRegulatoryAuthority(initiation.getRegulatoryReporting()))
                 .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
-                .ultimateCreditor(FRUltimateCreditor1Converter.toOBUltimateCreditor1(initiation.getUltimateCreditor()))
-                .ultimateDebtor(FRUltimateDebtor1Converter.toOBUltimateDebtor1(initiation.getUltimateDebtor()))
+                .ultimateCreditor(FRUltimateCreditorConverter.toOBUltimateCreditor(initiation.getUltimateCreditor()))
+                .ultimateDebtor(FRUltimateDebtorConverter.toOBUltimateDebtor(initiation.getUltimateDebtor()))
                 .build();
     }
 
@@ -75,9 +82,9 @@ public class FRWriteDomesticStandingOrderConsentConverter {
                 .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()))
                 .mandateRelatedInformation(FRMandateRelatedInformationConverter.toOBWriteMandateRelatedInformation(initiation.getMandateRelatedInformation()))
                 .regulatoryReporting(FRRegulatoryAuthorityConverter.toOBRegulatoryAuthority(initiation.getRegulatoryReporting()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBWriteDomestic2DataInitiationRemittanceInformation(initiation.getRemittanceInformation()))
-                .ultimateCreditor(FRUltimateCreditor1Converter.toOBUltimateCreditor1(initiation.getUltimateCreditor()))
-                .ultimateDebtor(FRUltimateDebtor1Converter.toOBUltimateDebtor1(initiation.getUltimateDebtor()));
+                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation2(initiation.getRemittanceInformation()))
+                .ultimateCreditor(FRUltimateCreditorConverter.toOBUltimateCreditor(initiation.getUltimateCreditor()))
+                .ultimateDebtor(FRUltimateDebtorConverter.toOBUltimateDebtor(initiation.getUltimateDebtor()));
     }
 
     public static OBWriteDomesticStandingOrderConsentResponse6DataInitiation toOBWriteDomesticStandingOrderConsentResponse6DataInitiation(FRWriteDomesticStandingOrderDataInitiation initiation) {
@@ -90,9 +97,9 @@ public class FRWriteDomesticStandingOrderConsentConverter {
                 .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()))
                 .mandateRelatedInformation(FRMandateRelatedInformationConverter.toOBWriteMandateRelatedInformation(initiation.getMandateRelatedInformation()))
                 .regulatoryReporting(FRRegulatoryAuthorityConverter.toOBRegulatoryAuthority(initiation.getRegulatoryReporting()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBWriteDomestic2DataInitiationRemittanceInformation(initiation.getRemittanceInformation()))
-                .ultimateCreditor(FRUltimateCreditor1Converter.toOBUltimateCreditor1(initiation.getUltimateCreditor()))
-                .ultimateDebtor(FRUltimateDebtor1Converter.toOBUltimateDebtor1(initiation.getUltimateDebtor()));
+                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation2(initiation.getRemittanceInformation()))
+                .ultimateCreditor(FRUltimateCreditorConverter.toOBUltimateCreditor(initiation.getUltimateCreditor()))
+                .ultimateDebtor(FRUltimateDebtorConverter.toOBUltimateDebtor(initiation.getUltimateDebtor()));
     }
 
 
