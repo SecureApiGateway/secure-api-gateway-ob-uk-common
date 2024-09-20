@@ -61,7 +61,7 @@ public class OBWriteInternationalConsent5DataInitiation {
 
     private OBWriteDomestic2DataInitiationDebtorAccount debtorAccount;
 
-    private OBWriteInternational3DataInitiationCreditor creditor;
+    private OBWriteInternationalConsent5DataInitiationCreditor creditor;
 
     private OBWriteDomestic2DataInitiationCreditorAgent creditorAgent;
 
@@ -143,12 +143,12 @@ public class OBWriteInternationalConsent5DataInitiation {
     }
 
     /**
-     * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
+     * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return localInstrument
      */
 
-    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LocalInstrument")
     public String getLocalInstrument() {
         return localInstrument;
@@ -328,7 +328,7 @@ public class OBWriteInternationalConsent5DataInitiation {
         this.debtorAccount = debtorAccount;
     }
 
-    public OBWriteInternationalConsent5DataInitiation creditor(OBWriteInternational3DataInitiationCreditor creditor) {
+    public OBWriteInternationalConsent5DataInitiation creditor(OBWriteInternationalConsent5DataInitiationCreditor creditor) {
         this.creditor = creditor;
         return this;
     }
@@ -341,11 +341,11 @@ public class OBWriteInternationalConsent5DataInitiation {
     @Valid
     @Schema(name = "Creditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Creditor")
-    public OBWriteInternational3DataInitiationCreditor getCreditor() {
+    public OBWriteInternationalConsent5DataInitiationCreditor getCreditor() {
         return creditor;
     }
 
-    public void setCreditor(OBWriteInternational3DataInitiationCreditor creditor) {
+    public void setCreditor(OBWriteInternationalConsent5DataInitiationCreditor creditor) {
         this.creditor = creditor;
     }
 

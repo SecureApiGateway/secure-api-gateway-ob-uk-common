@@ -38,7 +38,7 @@ public class OBRemittanceInformation2 {
     private List<@Valid OBRemittanceInformationStructured> structured;
 
     @Valid
-    private List<@Size(min = 1, max = 256) String> unstructured;
+    private List<@Size(min = 1, max = 140) String> unstructured;
 
     public OBRemittanceInformation2 structured(List<@Valid OBRemittanceInformationStructured> structured) {
         this.structured = structured;
@@ -69,7 +69,7 @@ public class OBRemittanceInformation2 {
         this.structured = structured;
     }
 
-    public OBRemittanceInformation2 unstructured(List<@Size(min = 1, max = 256) String> unstructured) {
+    public OBRemittanceInformation2 unstructured(List<@Size(min = 1, max = 140) String> unstructured) {
         this.unstructured = unstructured;
         return this;
     }
@@ -90,11 +90,11 @@ public class OBRemittanceInformation2 {
 
     @Schema(name = "Unstructured", description = "Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Unstructured")
-    public List<@Size(min = 1, max = 256) String> getUnstructured() {
+    public List<@Size(min = 1, max = 140) String> getUnstructured() {
         return unstructured;
     }
 
-    public void setUnstructured(List<@Size(min = 1, max = 256) String> unstructured) {
+    public void setUnstructured(List<@Size(min = 1, max = 140) String> unstructured) {
         this.unstructured = unstructured;
     }
 

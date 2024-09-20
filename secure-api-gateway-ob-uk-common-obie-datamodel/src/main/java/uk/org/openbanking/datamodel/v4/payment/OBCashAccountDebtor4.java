@@ -25,10 +25,10 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 /**
- * ^ Only incuded in the response if &#x60;Data. ReadRefundAccount&#x60; is set to &#x60;Yes&#x60; in the consent.
+ * ^ Only included in the response if &#x60;Data. ReadRefundAccount&#x60; is set to &#x60;Yes&#x60; in the consent.
  */
 
-@Schema(name = "OBCashAccountDebtor4", description = "^ Only incuded in the response if `Data. ReadRefundAccount` is set to `Yes` in the consent.")
+@Schema(name = "OBCashAccountDebtor4", description = "^ Only included in the response if `Data. ReadRefundAccount` is set to `Yes` in the consent.")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBCashAccountDebtor4 {
 

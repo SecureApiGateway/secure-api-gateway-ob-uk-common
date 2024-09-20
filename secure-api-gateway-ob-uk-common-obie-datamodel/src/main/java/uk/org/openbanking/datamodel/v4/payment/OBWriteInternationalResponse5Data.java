@@ -46,7 +46,7 @@ public class OBWriteInternationalResponse5Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBWriteDomesticResponse5DataStatus status;
+    private OBWriteInternationalResponse5DataStatus status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -67,9 +67,9 @@ public class OBWriteInternationalResponse5Data {
 
     private OBWriteInternationalConsentResponse6DataExchangeRateInformation exchangeRateInformation;
 
-    private OBWriteInternational3DataInitiation initiation;
+    private OBWriteInternationalConsent5DataInitiation initiation;
 
-    private OBWriteDomesticResponse5DataMultiAuthorisation multiAuthorisation;
+    private OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation;
 
     private OBCashAccountDebtor4 debtor;
 
@@ -80,7 +80,7 @@ public class OBWriteInternationalResponse5Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteInternationalResponse5Data(String internationalPaymentId, String consentId, DateTime creationDateTime, OBWriteDomesticResponse5DataStatus status, DateTime statusUpdateDateTime, OBWriteInternational3DataInitiation initiation) {
+    public OBWriteInternationalResponse5Data(String internationalPaymentId, String consentId, DateTime creationDateTime, OBWriteInternationalResponse5DataStatus status, DateTime statusUpdateDateTime, OBWriteInternationalConsent5DataInitiation initiation) {
         this.internationalPaymentId = internationalPaymentId;
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
@@ -139,13 +139,13 @@ public class OBWriteInternationalResponse5Data {
     }
 
     /**
-     * Date and time at which the message was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which the message was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return creationDateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "CreationDateTime", description = "Date and time at which the message was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "CreationDateTime", description = "Date and time at which the message was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
         return creationDateTime;
@@ -155,7 +155,7 @@ public class OBWriteInternationalResponse5Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteInternationalResponse5Data status(OBWriteDomesticResponse5DataStatus status) {
+    public OBWriteInternationalResponse5Data status(OBWriteInternationalResponse5DataStatus status) {
         this.status = status;
         return this;
     }
@@ -169,11 +169,11 @@ public class OBWriteInternationalResponse5Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWriteDomesticResponse5DataStatus getStatus() {
+    public OBWriteInternationalResponse5DataStatus getStatus() {
         return status;
     }
 
-    public void setStatus(OBWriteDomesticResponse5DataStatus status) {
+    public void setStatus(OBWriteInternationalResponse5DataStatus status) {
         this.status = status;
     }
 
@@ -183,13 +183,13 @@ public class OBWriteInternationalResponse5Data {
     }
 
     /**
-     * Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return statusUpdateDateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
@@ -234,12 +234,12 @@ public class OBWriteInternationalResponse5Data {
     }
 
     /**
-     * Expected execution date and time for the payment resource.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Expected execution date and time for the payment resource. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return expectedExecutionDateTime
      */
     @Valid
-    @Schema(name = "ExpectedExecutionDateTime", description = "Expected execution date and time for the payment resource.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "ExpectedExecutionDateTime", description = "Expected execution date and time for the payment resource. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExpectedExecutionDateTime")
     public DateTime getExpectedExecutionDateTime() {
         return expectedExecutionDateTime;
@@ -255,12 +255,12 @@ public class OBWriteInternationalResponse5Data {
     }
 
     /**
-     * Expected settlement date and time for the payment resource.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Expected settlement date and time for the payment resource. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return expectedSettlementDateTime
      */
     @Valid
-    @Schema(name = "ExpectedSettlementDateTime", description = "Expected settlement date and time for the payment resource.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "ExpectedSettlementDateTime", description = "Expected settlement date and time for the payment resource. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExpectedSettlementDateTime")
     public DateTime getExpectedSettlementDateTime() {
         return expectedSettlementDateTime;
@@ -341,7 +341,7 @@ public class OBWriteInternationalResponse5Data {
         this.exchangeRateInformation = exchangeRateInformation;
     }
 
-    public OBWriteInternationalResponse5Data initiation(OBWriteInternational3DataInitiation initiation) {
+    public OBWriteInternationalResponse5Data initiation(OBWriteInternationalConsent5DataInitiation initiation) {
         this.initiation = initiation;
         return this;
     }
@@ -355,15 +355,15 @@ public class OBWriteInternationalResponse5Data {
     @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
-    public OBWriteInternational3DataInitiation getInitiation() {
+    public OBWriteInternationalConsent5DataInitiation getInitiation() {
         return initiation;
     }
 
-    public void setInitiation(OBWriteInternational3DataInitiation initiation) {
+    public void setInitiation(OBWriteInternationalConsent5DataInitiation initiation) {
         this.initiation = initiation;
     }
 
-    public OBWriteInternationalResponse5Data multiAuthorisation(OBWriteDomesticResponse5DataMultiAuthorisation multiAuthorisation) {
+    public OBWriteInternationalResponse5Data multiAuthorisation(OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation) {
         this.multiAuthorisation = multiAuthorisation;
         return this;
     }
@@ -376,11 +376,11 @@ public class OBWriteInternationalResponse5Data {
     @Valid
     @Schema(name = "MultiAuthorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MultiAuthorisation")
-    public OBWriteDomesticResponse5DataMultiAuthorisation getMultiAuthorisation() {
+    public OBWriteDomesticScheduledResponse5DataMultiAuthorisation getMultiAuthorisation() {
         return multiAuthorisation;
     }
 
-    public void setMultiAuthorisation(OBWriteDomesticResponse5DataMultiAuthorisation multiAuthorisation) {
+    public void setMultiAuthorisation(OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation) {
         this.multiAuthorisation = multiAuthorisation;
     }
 

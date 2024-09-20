@@ -50,8 +50,6 @@ public class OBWriteInternationalScheduled3DataInitiation {
 
     private OBWriteInternational3DataInitiationInstructionPriority instructionPriority;
 
-    private String purpose;
-
     private String extendedPurpose;
 
     private OBInternalChargeBearerType1Code chargeBearer;
@@ -69,9 +67,9 @@ public class OBWriteInternationalScheduled3DataInitiation {
 
     private OBWriteDomestic2DataInitiationDebtorAccount debtorAccount;
 
-    private OBWriteInternational3DataInitiationCreditor creditor;
+    private OBWriteInternationalConsent5DataInitiationCreditor creditor;
 
-    private OBWriteDomestic2DataInitiationCreditorAgent creditorAgent;
+    private OBWriteInternationalScheduled3DataInitiationCreditorAgent creditorAgent;
 
     private OBWriteDomestic2DataInitiationCreditorAccount creditorAccount;
 
@@ -150,12 +148,12 @@ public class OBWriteInternationalScheduled3DataInitiation {
     }
 
     /**
-     * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
+     * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return localInstrument
      */
 
-    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LocalInstrument")
     public String getLocalInstrument() {
         return localInstrument;
@@ -184,27 +182,6 @@ public class OBWriteInternationalScheduled3DataInitiation {
 
     public void setInstructionPriority(OBWriteInternational3DataInitiationInstructionPriority instructionPriority) {
         this.instructionPriority = instructionPriority;
-    }
-
-    public OBWriteInternationalScheduled3DataInitiation purpose(String purpose) {
-        this.purpose = purpose;
-        return this;
-    }
-
-    /**
-     * Specifies the external purpose code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.
-     *
-     * @return purpose
-     */
-    @Size(min = 1, max = 4)
-    @Schema(name = "Purpose", description = "Specifies the external purpose code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Purpose")
-    public String getPurpose() {
-        return purpose;
-    }
-
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
     }
 
     public OBWriteInternationalScheduled3DataInitiation extendedPurpose(String extendedPurpose) {
@@ -255,13 +232,13 @@ public class OBWriteInternationalScheduled3DataInitiation {
     }
 
     /**
-     * Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return requestedExecutionDateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "RequestedExecutionDateTime", description = "Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "RequestedExecutionDateTime", description = "Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("RequestedExecutionDateTime")
     public DateTime getRequestedExecutionDateTime() {
         return requestedExecutionDateTime;
@@ -378,7 +355,7 @@ public class OBWriteInternationalScheduled3DataInitiation {
         this.debtorAccount = debtorAccount;
     }
 
-    public OBWriteInternationalScheduled3DataInitiation creditor(OBWriteInternational3DataInitiationCreditor creditor) {
+    public OBWriteInternationalScheduled3DataInitiation creditor(OBWriteInternationalConsent5DataInitiationCreditor creditor) {
         this.creditor = creditor;
         return this;
     }
@@ -391,15 +368,15 @@ public class OBWriteInternationalScheduled3DataInitiation {
     @Valid
     @Schema(name = "Creditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Creditor")
-    public OBWriteInternational3DataInitiationCreditor getCreditor() {
+    public OBWriteInternationalConsent5DataInitiationCreditor getCreditor() {
         return creditor;
     }
 
-    public void setCreditor(OBWriteInternational3DataInitiationCreditor creditor) {
+    public void setCreditor(OBWriteInternationalConsent5DataInitiationCreditor creditor) {
         this.creditor = creditor;
     }
 
-    public OBWriteInternationalScheduled3DataInitiation creditorAgent(OBWriteDomestic2DataInitiationCreditorAgent creditorAgent) {
+    public OBWriteInternationalScheduled3DataInitiation creditorAgent(OBWriteInternationalScheduled3DataInitiationCreditorAgent creditorAgent) {
         this.creditorAgent = creditorAgent;
         return this;
     }
@@ -412,11 +389,11 @@ public class OBWriteInternationalScheduled3DataInitiation {
     @Valid
     @Schema(name = "CreditorAgent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorAgent")
-    public OBWriteDomestic2DataInitiationCreditorAgent getCreditorAgent() {
+    public OBWriteInternationalScheduled3DataInitiationCreditorAgent getCreditorAgent() {
         return creditorAgent;
     }
 
-    public void setCreditorAgent(OBWriteDomestic2DataInitiationCreditorAgent creditorAgent) {
+    public void setCreditorAgent(OBWriteInternationalScheduled3DataInitiationCreditorAgent creditorAgent) {
         this.creditorAgent = creditorAgent;
     }
 
@@ -569,7 +546,6 @@ public class OBWriteInternationalScheduled3DataInitiation {
                 Objects.equals(this.endToEndIdentification, obWriteInternationalScheduled3DataInitiation.endToEndIdentification) &&
                 Objects.equals(this.localInstrument, obWriteInternationalScheduled3DataInitiation.localInstrument) &&
                 Objects.equals(this.instructionPriority, obWriteInternationalScheduled3DataInitiation.instructionPriority) &&
-                Objects.equals(this.purpose, obWriteInternationalScheduled3DataInitiation.purpose) &&
                 Objects.equals(this.extendedPurpose, obWriteInternationalScheduled3DataInitiation.extendedPurpose) &&
                 Objects.equals(this.chargeBearer, obWriteInternationalScheduled3DataInitiation.chargeBearer) &&
                 Objects.equals(this.requestedExecutionDateTime, obWriteInternationalScheduled3DataInitiation.requestedExecutionDateTime) &&
@@ -590,7 +566,7 @@ public class OBWriteInternationalScheduled3DataInitiation {
 
     @Override
     public int hashCode() {
-        return Objects.hash(instructionIdentification, endToEndIdentification, localInstrument, instructionPriority, purpose, extendedPurpose, chargeBearer, requestedExecutionDateTime, currencyOfTransfer, destinationCountryCode, instructedAmount, exchangeRateInformation, debtorAccount, creditor, creditorAgent, creditorAccount, ultimateCreditor, ultimateDebtor, regulatoryReporting, remittanceInformation, supplementaryData);
+        return Objects.hash(instructionIdentification, endToEndIdentification, localInstrument, instructionPriority, extendedPurpose, chargeBearer, requestedExecutionDateTime, currencyOfTransfer, destinationCountryCode, instructedAmount, exchangeRateInformation, debtorAccount, creditor, creditorAgent, creditorAccount, ultimateCreditor, ultimateDebtor, regulatoryReporting, remittanceInformation, supplementaryData);
     }
 
     @Override
@@ -601,7 +577,6 @@ public class OBWriteInternationalScheduled3DataInitiation {
         sb.append("    endToEndIdentification: ").append(toIndentedString(endToEndIdentification)).append("\n");
         sb.append("    localInstrument: ").append(toIndentedString(localInstrument)).append("\n");
         sb.append("    instructionPriority: ").append(toIndentedString(instructionPriority)).append("\n");
-        sb.append("    purpose: ").append(toIndentedString(purpose)).append("\n");
         sb.append("    extendedPurpose: ").append(toIndentedString(extendedPurpose)).append("\n");
         sb.append("    chargeBearer: ").append(toIndentedString(chargeBearer)).append("\n");
         sb.append("    requestedExecutionDateTime: ").append(toIndentedString(requestedExecutionDateTime)).append("\n");

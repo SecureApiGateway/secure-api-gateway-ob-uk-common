@@ -15,6 +15,8 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -190,12 +192,12 @@ public class OBWriteFileResponse3DataInitiation {
     }
 
     /**
-     * Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return requestedExecutionDateTime
      */
     @Valid
-    @Schema(name = "RequestedExecutionDateTime", description = "Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "RequestedExecutionDateTime", description = "Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RequestedExecutionDateTime")
     public DateTime getRequestedExecutionDateTime() {
         return requestedExecutionDateTime;
@@ -211,12 +213,12 @@ public class OBWriteFileResponse3DataInitiation {
     }
 
     /**
-     * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
+     * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return localInstrument
      */
 
-    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LocalInstrument")
     public String getLocalInstrument() {
         return localInstrument;
@@ -344,7 +346,7 @@ public class OBWriteFileResponse3DataInitiation {
                 Objects.equals(this.fileHash, obWriteFileResponse3DataInitiation.fileHash) &&
                 Objects.equals(this.fileReference, obWriteFileResponse3DataInitiation.fileReference) &&
                 Objects.equals(this.numberOfTransactions, obWriteFileResponse3DataInitiation.numberOfTransactions) &&
-                Objects.equals(this.controlSum, obWriteFileResponse3DataInitiation.controlSum) &&
+                isEqual(this.controlSum, obWriteFileResponse3DataInitiation.controlSum) &&
                 Objects.equals(this.requestedExecutionDateTime, obWriteFileResponse3DataInitiation.requestedExecutionDateTime) &&
                 Objects.equals(this.localInstrument, obWriteFileResponse3DataInitiation.localInstrument) &&
                 Objects.equals(this.debtorAccount, obWriteFileResponse3DataInitiation.debtorAccount) &&

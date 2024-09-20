@@ -47,8 +47,6 @@ public class OBWriteInternational3DataInitiation {
 
     private OBWriteInternational3DataInitiationInstructionPriority instructionPriority;
 
-    private String purpose;
-
     private String extendedPurpose;
 
     private OBInternalChargeBearerType1Code chargeBearer;
@@ -145,12 +143,12 @@ public class OBWriteInternational3DataInitiation {
     }
 
     /**
-     * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
+     * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return localInstrument
      */
 
-    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LocalInstrument")
     public String getLocalInstrument() {
         return localInstrument;
@@ -179,27 +177,6 @@ public class OBWriteInternational3DataInitiation {
 
     public void setInstructionPriority(OBWriteInternational3DataInitiationInstructionPriority instructionPriority) {
         this.instructionPriority = instructionPriority;
-    }
-
-    public OBWriteInternational3DataInitiation purpose(String purpose) {
-        this.purpose = purpose;
-        return this;
-    }
-
-    /**
-     * Specifies the external purpose code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.
-     *
-     * @return purpose
-     */
-    @Size(min = 1, max = 4)
-    @Schema(name = "Purpose", description = "Specifies the external purpose code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Purpose")
-    public String getPurpose() {
-        return purpose;
-    }
-
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
     }
 
     public OBWriteInternational3DataInitiation extendedPurpose(String extendedPurpose) {
@@ -542,7 +519,6 @@ public class OBWriteInternational3DataInitiation {
                 Objects.equals(this.endToEndIdentification, obWriteInternational3DataInitiation.endToEndIdentification) &&
                 Objects.equals(this.localInstrument, obWriteInternational3DataInitiation.localInstrument) &&
                 Objects.equals(this.instructionPriority, obWriteInternational3DataInitiation.instructionPriority) &&
-                Objects.equals(this.purpose, obWriteInternational3DataInitiation.purpose) &&
                 Objects.equals(this.extendedPurpose, obWriteInternational3DataInitiation.extendedPurpose) &&
                 Objects.equals(this.chargeBearer, obWriteInternational3DataInitiation.chargeBearer) &&
                 Objects.equals(this.currencyOfTransfer, obWriteInternational3DataInitiation.currencyOfTransfer) &&
@@ -562,7 +538,7 @@ public class OBWriteInternational3DataInitiation {
 
     @Override
     public int hashCode() {
-        return Objects.hash(instructionIdentification, endToEndIdentification, localInstrument, instructionPriority, purpose, extendedPurpose, chargeBearer, currencyOfTransfer, destinationCountryCode, instructedAmount, exchangeRateInformation, debtorAccount, creditor, creditorAgent, creditorAccount, ultimateCreditor, ultimateDebtor, regulatoryReporting, remittanceInformation, supplementaryData);
+        return Objects.hash(instructionIdentification, endToEndIdentification, localInstrument, instructionPriority, extendedPurpose, chargeBearer, currencyOfTransfer, destinationCountryCode, instructedAmount, exchangeRateInformation, debtorAccount, creditor, creditorAgent, creditorAccount, ultimateCreditor, ultimateDebtor, regulatoryReporting, remittanceInformation, supplementaryData);
     }
 
     @Override
@@ -573,7 +549,6 @@ public class OBWriteInternational3DataInitiation {
         sb.append("    endToEndIdentification: ").append(toIndentedString(endToEndIdentification)).append("\n");
         sb.append("    localInstrument: ").append(toIndentedString(localInstrument)).append("\n");
         sb.append("    instructionPriority: ").append(toIndentedString(instructionPriority)).append("\n");
-        sb.append("    purpose: ").append(toIndentedString(purpose)).append("\n");
         sb.append("    extendedPurpose: ").append(toIndentedString(extendedPurpose)).append("\n");
         sb.append("    chargeBearer: ").append(toIndentedString(chargeBearer)).append("\n");
         sb.append("    currencyOfTransfer: ").append(toIndentedString(currencyOfTransfer)).append("\n");

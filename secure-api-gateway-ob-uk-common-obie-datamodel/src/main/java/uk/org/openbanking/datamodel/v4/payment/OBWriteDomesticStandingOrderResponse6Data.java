@@ -59,9 +59,9 @@ public class OBWriteDomesticStandingOrderResponse6Data {
     @Valid
     private List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges;
 
-    private OBWriteDomesticStandingOrderResponse6DataInitiation initiation;
+    private OBWriteDomesticStandingOrder3DataInitiation initiation;
 
-    private OBWriteDomesticResponse5DataMultiAuthorisation multiAuthorisation;
+    private OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation;
 
     private OBCashAccountDebtor4 debtor;
 
@@ -72,7 +72,7 @@ public class OBWriteDomesticStandingOrderResponse6Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticStandingOrderResponse6Data(String domesticStandingOrderId, String consentId, DateTime creationDateTime, OBWriteDomesticStandingOrderResponse6DataStatus status, DateTime statusUpdateDateTime, OBWriteDomesticStandingOrderResponse6DataInitiation initiation) {
+    public OBWriteDomesticStandingOrderResponse6Data(String domesticStandingOrderId, String consentId, DateTime creationDateTime, OBWriteDomesticStandingOrderResponse6DataStatus status, DateTime statusUpdateDateTime, OBWriteDomesticStandingOrder3DataInitiation initiation) {
         this.domesticStandingOrderId = domesticStandingOrderId;
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
@@ -131,13 +131,13 @@ public class OBWriteDomesticStandingOrderResponse6Data {
     }
 
     /**
-     * Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return creationDateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
         return creationDateTime;
@@ -175,13 +175,13 @@ public class OBWriteDomesticStandingOrderResponse6Data {
     }
 
     /**
-     * Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return statusUpdateDateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
@@ -270,7 +270,7 @@ public class OBWriteDomesticStandingOrderResponse6Data {
         this.charges = charges;
     }
 
-    public OBWriteDomesticStandingOrderResponse6Data initiation(OBWriteDomesticStandingOrderResponse6DataInitiation initiation) {
+    public OBWriteDomesticStandingOrderResponse6Data initiation(OBWriteDomesticStandingOrder3DataInitiation initiation) {
         this.initiation = initiation;
         return this;
     }
@@ -284,15 +284,15 @@ public class OBWriteDomesticStandingOrderResponse6Data {
     @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
-    public OBWriteDomesticStandingOrderResponse6DataInitiation getInitiation() {
+    public OBWriteDomesticStandingOrder3DataInitiation getInitiation() {
         return initiation;
     }
 
-    public void setInitiation(OBWriteDomesticStandingOrderResponse6DataInitiation initiation) {
+    public void setInitiation(OBWriteDomesticStandingOrder3DataInitiation initiation) {
         this.initiation = initiation;
     }
 
-    public OBWriteDomesticStandingOrderResponse6Data multiAuthorisation(OBWriteDomesticResponse5DataMultiAuthorisation multiAuthorisation) {
+    public OBWriteDomesticStandingOrderResponse6Data multiAuthorisation(OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation) {
         this.multiAuthorisation = multiAuthorisation;
         return this;
     }
@@ -305,11 +305,11 @@ public class OBWriteDomesticStandingOrderResponse6Data {
     @Valid
     @Schema(name = "MultiAuthorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MultiAuthorisation")
-    public OBWriteDomesticResponse5DataMultiAuthorisation getMultiAuthorisation() {
+    public OBWriteDomesticScheduledResponse5DataMultiAuthorisation getMultiAuthorisation() {
         return multiAuthorisation;
     }
 
-    public void setMultiAuthorisation(OBWriteDomesticResponse5DataMultiAuthorisation multiAuthorisation) {
+    public void setMultiAuthorisation(OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation) {
         this.multiAuthorisation = multiAuthorisation;
     }
 

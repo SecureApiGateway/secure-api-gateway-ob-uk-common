@@ -82,12 +82,12 @@ public class OBWriteDomesticConsentResponse5DataChargesInner {
     }
 
     /**
-     * Charge type, in a coded form.
+     * Charge type, in a coded form. For a full list of values refer to `OBInternalPaymentChargeType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return type
      */
     @NotNull
-    @Schema(name = "Type", description = "Charge type, in a coded form.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "Type", description = "Charge type, in a coded form. For a full list of values refer to `OBInternalPaymentChargeType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
     public String getType() {
         return type;

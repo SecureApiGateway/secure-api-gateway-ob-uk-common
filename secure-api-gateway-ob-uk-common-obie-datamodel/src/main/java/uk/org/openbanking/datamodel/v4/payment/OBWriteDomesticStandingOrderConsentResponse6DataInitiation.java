@@ -68,9 +68,10 @@ public class OBWriteDomesticStandingOrderConsentResponse6DataInitiation {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticStandingOrderConsentResponse6DataInitiation(OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount firstPaymentAmount, OBWriteDomesticStandingOrder3DataInitiationCreditorAccount creditorAccount) {
+    public OBWriteDomesticStandingOrderConsentResponse6DataInitiation(OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount firstPaymentAmount, OBWriteDomesticStandingOrder3DataInitiationCreditorAccount creditorAccount, OBMandateRelatedInformation1 mandateRelatedInformation) {
         this.firstPaymentAmount = firstPaymentAmount;
         this.creditorAccount = creditorAccount;
+        this.mandateRelatedInformation = mandateRelatedInformation;
     }
 
     public OBWriteDomesticStandingOrderConsentResponse6DataInitiation remittanceInformation(OBRemittanceInformation2 remittanceInformation) {
@@ -283,8 +284,9 @@ public class OBWriteDomesticStandingOrderConsentResponse6DataInitiation {
      *
      * @return mandateRelatedInformation
      */
+    @NotNull
     @Valid
-    @Schema(name = "MandateRelatedInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "MandateRelatedInformation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("MandateRelatedInformation")
     public OBMandateRelatedInformation1 getMandateRelatedInformation() {
         return mandateRelatedInformation;
