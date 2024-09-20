@@ -15,7 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRInternalExtendedAccountTypeCode;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRInternalExtendedAccountTypeCode;
 
 import uk.org.openbanking.datamodel.v4.common.OBInternalExtendedAccountType1Code;
 

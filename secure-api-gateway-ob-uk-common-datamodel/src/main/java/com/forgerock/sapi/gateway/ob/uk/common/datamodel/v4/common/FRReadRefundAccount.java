@@ -13,15 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRReadRefundAccount;
+import java.util.stream.Stream;
 
-import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
+public enum FRReadRefundAccount {
 
-public class FRReadRefundAccountConverter {
+    NO("No"),
+    YES("Yes");
 
-    public static FRReadRefundAccount toFRReadRefundAccount(OBReadRefundAccount readRefundAccount) {
-        return readRefundAccount == null ? null : FRReadRefundAccount.valueOf(readRefundAccount.name());
+    private String value;
+
+    FRReadRefundAccount(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public String toString() {
+        return value;
+    }
+
+    public static FRReadRefundAccount fromValue(String value) {
+        return Stream.of(values())
+                .filter(v -> v.getValue().equals(value))
+                .findFirst()
+                .orElse(null);
     }
 }

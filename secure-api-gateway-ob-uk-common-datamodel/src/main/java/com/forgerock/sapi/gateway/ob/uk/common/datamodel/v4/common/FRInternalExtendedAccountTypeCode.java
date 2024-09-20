@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.common;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common;
 
 import java.util.stream.Stream;
 
@@ -21,33 +21,7 @@ public enum FRInternalExtendedAccountTypeCode {
 
     BUSINESS("Business"),
 
-    BUSINESSSAVINGSACCOUNT("BusinessSavingsAccount"),
-
-    CHARITY("Charity"),
-
-    COLLECTION("Collection"),
-
-    CORPORATE("Corporate"),
-
-    EWALLET("Ewallet"),
-
-    GOVERNMENT("Government"),
-
-    INVESTMENT("Investment"),
-
-    ISA("ISA"),
-
-    JOINTPERSONAL("JointPersonal"),
-
-    PENSION("Pension"),
-
-    PERSONAL("Personal"),
-
-    PERSONALSAVINGSACCOUNT("PersonalSavingsAccount"),
-
-    PREMIER("Premier"),
-
-    WEALTH("Wealth");
+    PERSONAL("Personal");
 
     private String value;
 

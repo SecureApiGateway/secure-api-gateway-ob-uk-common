@@ -16,12 +16,9 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountRisk;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPaymentRisk;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FROBExternalPaymentContext1CodeConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRPostalAddressConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRRisk1DeliveryAddressConverter;
-
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRPaymentRisk;
 import uk.org.openbanking.datamodel.v3.account.OBRisk2;
+import uk.org.openbanking.datamodel.v4.common.ExternalPurpose1Code;
 import uk.org.openbanking.datamodel.v4.common.OBRisk1;
 
 public class FRRiskConverter {
@@ -33,7 +30,7 @@ public class FRRiskConverter {
                 .merchantCustomerIdentification(obRisk1.getMerchantCustomerIdentification())
                 .paymentContextCode(FROBExternalPaymentContext1CodeConverter.toFRExternalPaymentContextCode(obRisk1.getPaymentContextCode()))
                 .contractPresentIndicator(obRisk1.getContractPresentIndicator())
-                .paymentPurposeCode(obRisk1.getPaymentPurposeCode())
+                .paymentPurposeCode(obRisk1.getPaymentPurposeCode().getValue())
                 .beneficiaryAccountType(FRInternalExtendedAccountTypeCodeConverter.toFRInternalExtendedAccountTypeCode(obRisk1.getBeneficiaryAccountType()))
                 .beneficiaryPrepopulatedIndicator(obRisk1.getBeneficiaryPrepopulatedIndicator())
                 .categoryPurposeCode(obRisk1.getCategoryPurposeCode())
@@ -55,7 +52,7 @@ public class FRRiskConverter {
                 .beneficiaryAccountType(FRInternalExtendedAccountTypeCodeConverter.toOBInternalExtendedAccountType1Code(frPaymentRisk.getBeneficiaryAccountType()))
                 .beneficiaryPrepopulatedIndicator(frPaymentRisk.getBeneficiaryPrepopulatedIndicator())
                 .contractPresentIndicator(frPaymentRisk.getContractPresentIndicator())
-                .paymentPurposeCode(frPaymentRisk.getPaymentPurposeCode());
+                .paymentPurposeCode(ExternalPurpose1Code.valueOf(frPaymentRisk.getPaymentPurposeCode()));
     }
 
     public static OBRisk2 toOBRisk2(FRAccountRisk frRisk) {

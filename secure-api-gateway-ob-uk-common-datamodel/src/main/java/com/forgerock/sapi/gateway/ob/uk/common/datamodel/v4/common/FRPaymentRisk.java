@@ -13,12 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.common;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRExternalPaymentContextCode;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRExternalCategoryPurposeCode;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
 
 import java.util.List;
 
@@ -41,20 +44,21 @@ public class FRPaymentRisk {
     private String merchantCategoryCode;
     private String merchantCustomerIdentification;
     private FRRiskDeliveryAddress deliveryAddress;
-    private FRExternalExtendedAccountTypeCode beneficiaryAccountType;
+    private FRInternalExtendedAccountTypeCode beneficiaryAccountType;
     private String paymentPurposeCode;
     private Boolean beneficiaryPrepopulatedIndicator;
     private Boolean contractPresentIndicator;
+    private ExternalCategoryPurpose1Code categoryPurposeCode;
 
     /**
-     * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order
-     * to make it easier to introduce new versions of the Read/Write API.
-     *
-     * <p>
-     * Note that this object is used across multiple versions of the Read/Write API, meaning that some values won't be
-     * populated. For this reason it is a mutable {@link Data} rather than an immutable {@link lombok.Value} one.
-     * </p>
-     */
+ * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order
+ * to make it easier to introduce new versions of the Read/Write API.
+ *
+ * <p>
+ * Note that this object is used across multiple versions of the Read/Write API, meaning that some values won't be
+ * populated. For this reason it is a mutable {@link Data} rather than an immutable {@link lombok.Value} one.
+ * </p>
+ */
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
@@ -68,5 +72,18 @@ public class FRPaymentRisk {
         private String townName;
         private String countrySubDivision;
         private String country;
+
+        // v4 fields
+        private String addressType;
+        private String department;
+        private String subDepartment;
+        private String buildingName;
+        private String floor;
+        private String unitNumber;
+        private String room;
+        private String postBox;
+        private String townLocationName;
+        private String districtName;
+        private String careOf;
     }
 }
