@@ -22,7 +22,6 @@ import org.joda.time.DateTime;
 import org.junit.jupiter.api.Test;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRReadConsent;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.account.FRReadConsentConverter;
 
 import uk.org.openbanking.datamodel.v3.common.OBExternalPermissions1Code;
 import uk.org.openbanking.datamodel.v3.account.OBReadConsent1;

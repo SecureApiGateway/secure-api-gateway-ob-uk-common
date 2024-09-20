@@ -18,7 +18,6 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.funds;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.funds.FRFundsConfirmationConsentConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.funds.FRFundsConfirmationConsent;
 
 import uk.org.openbanking.datamodel.v3.fund.OBFundsConfirmationConsent1;

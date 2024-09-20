@@ -15,33 +15,33 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRDataAuthorisation;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRDataAuthorisation;
 
-import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsent4DataAuthorisation;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsent4DataAuthorisationAuthorisationType;
+import uk.org.openbanking.datamodel.v4.payment.OBPaymentConsentAuthorisation;
+import uk.org.openbanking.datamodel.v4.payment.OBPaymentConsentAuthorisationType;
 
 public class FRDataAuthorisationConverter {
 
     // OB to FR
-    public static FRDataAuthorisation toFRDataAuthorisation(OBWriteDomesticConsent4DataAuthorisation authorisation) {
+    public static FRDataAuthorisation toFRDataAuthorisation(OBPaymentConsentAuthorisation authorisation) {
         return authorisation == null ? null : FRDataAuthorisation.builder()
                 .authorisationType(toFRAuthorisationType(authorisation.getAuthorisationType()))
                 .completionDateTime(authorisation.getCompletionDateTime())
                 .build();
     }
 
-    public static FRDataAuthorisation.AuthorisationType toFRAuthorisationType(OBWriteDomesticConsent4DataAuthorisationAuthorisationType authorisationType) {
+    public static FRDataAuthorisation.AuthorisationType toFRAuthorisationType(OBPaymentConsentAuthorisationType authorisationType) {
         return authorisationType == null ? null : FRDataAuthorisation.AuthorisationType.valueOf(authorisationType.name());
     }
 
     // FR to OB
-    public static OBWriteDomesticConsent4DataAuthorisation toOBWriteDomesticConsent4DataAuthorisation(FRDataAuthorisation authorisation) {
-        return authorisation == null ? null : new OBWriteDomesticConsent4DataAuthorisation()
+    public static OBPaymentConsentAuthorisation toOBWriteDomesticConsent4DataAuthorisation(FRDataAuthorisation authorisation) {
+        return authorisation == null ? null : new OBPaymentConsentAuthorisation()
                 .authorisationType(toOBExternalAuthorisation1Code(authorisation.getAuthorisationType()))
                 .completionDateTime(authorisation.getCompletionDateTime());
     }
 
-    public static OBWriteDomesticConsent4DataAuthorisationAuthorisationType toOBExternalAuthorisation1Code(FRDataAuthorisation.AuthorisationType authorisationType) {
-        return authorisationType == null ? null : OBWriteDomesticConsent4DataAuthorisationAuthorisationType.valueOf(authorisationType.name());
+    public static OBPaymentConsentAuthorisationType toOBExternalAuthorisation1Code(FRDataAuthorisation.AuthorisationType authorisationType) {
+        return authorisationType == null ? null : OBPaymentConsentAuthorisationType.valueOf(authorisationType.name());
     }
 }

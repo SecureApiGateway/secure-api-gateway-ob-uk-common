@@ -15,22 +15,21 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
-import org.joda.time.DateTime;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
 import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * OBWriteDomesticConsentResponse5Data
@@ -53,7 +52,7 @@ public class OBWriteDomesticConsentResponse5Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
 
-    private OBWriteDomesticConsentResponse5DataReadRefundAccount readRefundAccount;
+    private OBReadRefundAccount readRefundAccount;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime cutOffDateTime;
@@ -69,7 +68,7 @@ public class OBWriteDomesticConsentResponse5Data {
 
     private OBWriteDomestic2DataInitiation initiation;
 
-    private OBWriteDomesticConsentDataAuthorisation authorisation;
+    private OBPaymentConsentAuthorisation authorisation;
 
     private OBSCASupportData1 scASupportData;
 
@@ -207,7 +206,7 @@ public class OBWriteDomesticConsentResponse5Data {
         this.statusUpdateDateTime = statusUpdateDateTime;
     }
 
-    public OBWriteDomesticConsentResponse5Data readRefundAccount(OBWriteDomesticConsentResponse5DataReadRefundAccount readRefundAccount) {
+    public OBWriteDomesticConsentResponse5Data readRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
@@ -220,11 +219,11 @@ public class OBWriteDomesticConsentResponse5Data {
     @Valid
     @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReadRefundAccount")
-    public OBWriteDomesticConsentResponse5DataReadRefundAccount getReadRefundAccount() {
+    public OBReadRefundAccount getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(OBWriteDomesticConsentResponse5DataReadRefundAccount readRefundAccount) {
+    public void setReadRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 
@@ -342,7 +341,7 @@ public class OBWriteDomesticConsentResponse5Data {
         this.initiation = initiation;
     }
 
-    public OBWriteDomesticConsentResponse5Data authorisation(OBWriteDomesticConsentDataAuthorisation authorisation) {
+    public OBWriteDomesticConsentResponse5Data authorisation(OBPaymentConsentAuthorisation authorisation) {
         this.authorisation = authorisation;
         return this;
     }
@@ -355,11 +354,11 @@ public class OBWriteDomesticConsentResponse5Data {
     @Valid
     @Schema(name = "Authorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Authorisation")
-    public OBWriteDomesticConsentDataAuthorisation getAuthorisation() {
+    public OBPaymentConsentAuthorisation getAuthorisation() {
         return authorisation;
     }
 
-    public void setAuthorisation(OBWriteDomesticConsentDataAuthorisation authorisation) {
+    public void setAuthorisation(OBPaymentConsentAuthorisation authorisation) {
         this.authorisation = authorisation;
     }
 
