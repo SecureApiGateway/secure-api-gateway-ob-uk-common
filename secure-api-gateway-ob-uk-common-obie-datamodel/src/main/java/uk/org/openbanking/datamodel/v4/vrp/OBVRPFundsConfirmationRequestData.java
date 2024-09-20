@@ -81,12 +81,12 @@ public class OBVRPFundsConfirmationRequestData {
     }
 
     /**
-     * Unique reference, as assigned by the PISP, to unambiguously refer to the request related to the payment transaction.
+     * Unique reference, as assigned by the PISP, to unambiguously refer to the request related to the payment transaction. This must be the same value as the `Reference` field in the consent.
      *
      * @return reference
      */
     @Size(min = 1, max = 35)
-    @Schema(name = "Reference", description = "Unique reference, as assigned by the PISP, to unambiguously refer to the request related to the payment transaction.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Reference", description = "Unique reference, as assigned by the PISP, to unambiguously refer to the request related to the payment transaction. This must be the same value as the `Reference` field in the consent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Reference")
     public String getReference() {
         return reference;

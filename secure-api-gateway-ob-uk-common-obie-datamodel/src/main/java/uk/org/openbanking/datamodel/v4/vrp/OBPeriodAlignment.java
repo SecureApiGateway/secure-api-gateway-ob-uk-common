@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * ^ Specifies whether the period starts on the date of consent creation or lines up with a calendar
+ * Specifies whether the period starts on the date of consent creation or lines up with a calendar. As the ISO calendar does not support or provide any guidance on when a fortnight should start, a `PeriodType` of `Fortnight` the `PeriodAlignment` must be `Consent`.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")

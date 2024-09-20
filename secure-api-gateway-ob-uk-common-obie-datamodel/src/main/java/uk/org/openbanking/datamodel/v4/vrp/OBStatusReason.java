@@ -42,12 +42,12 @@ public class OBStatusReason {
     }
 
     /**
-     * Specifies the status reason in a code form.   For a full description see `OBExternalStatusReason1Code` [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+     * Specifies the status reason in a code form.  For a full list of values refer to `OBExternalStatusReason1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return statusReasonCode
      */
     @Size(min = 1, max = 4)
-    @Schema(name = "StatusReasonCode", example = "ERIN", description = "Specifies the status reason in a code form.   For a full description see `OBExternalStatusReason1Code` [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "StatusReasonCode", example = "ERIN", description = "Specifies the status reason in a code form.  For a full list of values refer to `OBExternalStatusReason1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusReasonCode")
     public String getStatusReasonCode() {
         return statusReasonCode;

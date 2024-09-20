@@ -96,12 +96,12 @@ public class OBRegulatoryReporting1 {
     }
 
     /**
-     * Get details
+     * Set of elements used to provide details on the regulatory reporting information.
      *
      * @return details
      */
     @Valid
-    @Schema(name = "Details", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Details", description = "Set of elements used to provide details on the regulatory reporting information.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Details")
     public List<@Valid OBStructuredRegulatoryReporting3> getDetails() {
         return details;

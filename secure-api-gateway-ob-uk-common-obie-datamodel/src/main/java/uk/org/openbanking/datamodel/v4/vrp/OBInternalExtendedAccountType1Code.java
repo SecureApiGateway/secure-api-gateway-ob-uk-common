@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the extended type of account.
+ * Specifies the extended type of account if known. For a full set of values refer to `OBInternalExtendedAccountType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")

@@ -63,12 +63,12 @@ public class OBRemittanceInformationStructured {
     }
 
     /**
-     * Get referredDocumentInformation
+     * Provides the identification and the content of the referred document.
      *
      * @return referredDocumentInformation
      */
     @Valid
-    @Schema(name = "ReferredDocumentInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "ReferredDocumentInformation", description = "Provides the identification and the content of the referred document.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReferredDocumentInformation")
     public List<@Valid OBReferredDocumentInformation> getReferredDocumentInformation() {
         return referredDocumentInformation;
@@ -126,12 +126,12 @@ public class OBRemittanceInformationStructured {
     }
 
     /**
-     * Identification assigned by an institution to identify an account. This identification is known by the account owner.
+     * Identification of the organisation issuing the invoice, when it is different from the creditor or ultimate creditor
      *
      * @return invoicer
      */
-    @Size(min = 1, max = 256)
-    @Schema(name = "Invoicer", description = "Identification assigned by an institution to identify an account. This identification is known by the account owner.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Size(max = 256)
+    @Schema(name = "Invoicer", description = "Identification of the organisation issuing the invoice, when it is different from the creditor or ultimate creditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Invoicer")
     public String getInvoicer() {
         return invoicer;
@@ -147,12 +147,12 @@ public class OBRemittanceInformationStructured {
     }
 
     /**
-     * Identification assigned by an institution to identify an account. This identification is known by the account owner.
+     * Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.
      *
      * @return invoicee
      */
-    @Size(min = 1, max = 256)
-    @Schema(name = "Invoicee", description = "Identification assigned by an institution to identify an account. This identification is known by the account owner.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Size(max = 256)
+    @Schema(name = "Invoicee", description = "Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Invoicee")
     public String getInvoicee() {
         return invoicee;

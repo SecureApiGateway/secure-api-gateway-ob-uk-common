@@ -21,11 +21,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the status of the payment information group. For a full list of values refer to `ExternalPaymentTransactionStatus1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+ * Status of a transfer, as assigned by the transaction administrator.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBDomesticVRPResponseDataStatus {
+public enum OBDomesticVRPDetailsDataPaymentStatusInnerStatus {
 
     RCVD("RCVD"),
 
@@ -55,7 +55,7 @@ public enum OBDomesticVRPResponseDataStatus {
 
     private String value;
 
-    OBDomesticVRPResponseDataStatus(String value) {
+    OBDomesticVRPDetailsDataPaymentStatusInnerStatus(String value) {
         this.value = value;
     }
 
@@ -70,8 +70,8 @@ public enum OBDomesticVRPResponseDataStatus {
     }
 
     @JsonCreator
-    public static OBDomesticVRPResponseDataStatus fromValue(String value) {
-        for (OBDomesticVRPResponseDataStatus b : OBDomesticVRPResponseDataStatus.values()) {
+    public static OBDomesticVRPDetailsDataPaymentStatusInnerStatus fromValue(String value) {
+        for (OBDomesticVRPDetailsDataPaymentStatusInnerStatus b : OBDomesticVRPDetailsDataPaymentStatusInnerStatus.values()) {
             if (b.value.equals(value)) {
                 return b;
             }

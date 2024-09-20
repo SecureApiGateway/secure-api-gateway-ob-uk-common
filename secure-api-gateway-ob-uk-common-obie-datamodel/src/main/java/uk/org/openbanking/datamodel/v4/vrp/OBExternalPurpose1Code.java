@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * For a full description see `ExternalPurpose1Code` [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+ * For a full set of values refer to `ExternalPurpose1Code` in *ISO_External_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")

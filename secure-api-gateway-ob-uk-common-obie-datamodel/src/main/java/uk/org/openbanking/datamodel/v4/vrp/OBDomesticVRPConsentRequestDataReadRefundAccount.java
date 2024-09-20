@@ -21,41 +21,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the status of the payment information group. For a full list of values refer to `ExternalPaymentTransactionStatus1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+ * Indicates whether the `RefundAccount` object should be included in the response
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBDomesticVRPResponseDataStatus {
+public enum OBDomesticVRPConsentRequestDataReadRefundAccount {
 
-    RCVD("RCVD"),
+    YES("Yes"),
 
-    RJCT("RJCT"),
-
-    CANC("CANC"),
-
-    PDNG("PDNG"),
-
-    ACTC("ACTC"),
-
-    ACCP("ACCP"),
-
-    ACFC("ACFC"),
-
-    ACSP("ACSP"),
-
-    ACWC("ACWC"),
-
-    ACSC("ACSC"),
-
-    ACWP("ACWP"),
-
-    ACCC("ACCC"),
-
-    BLCK("BLCK");
+    NO("No");
 
     private String value;
 
-    OBDomesticVRPResponseDataStatus(String value) {
+    OBDomesticVRPConsentRequestDataReadRefundAccount(String value) {
         this.value = value;
     }
 
@@ -70,8 +48,8 @@ public enum OBDomesticVRPResponseDataStatus {
     }
 
     @JsonCreator
-    public static OBDomesticVRPResponseDataStatus fromValue(String value) {
-        for (OBDomesticVRPResponseDataStatus b : OBDomesticVRPResponseDataStatus.values()) {
+    public static OBDomesticVRPConsentRequestDataReadRefundAccount fromValue(String value) {
+        for (OBDomesticVRPConsentRequestDataReadRefundAccount b : OBDomesticVRPConsentRequestDataReadRefundAccount.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
