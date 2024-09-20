@@ -30,10 +30,10 @@ import jakarta.validation.constraints.Size;
  * Unambiguous identification of the account of the debtor to which a confirmation of funds consent will be applied.
  */
 
-@Schema(name = "OBFundsConfirmationConsent1_Data_DebtorAccount", description = "Unambiguous identification of the account of the debtor to which a confirmation of funds consent will be applied.")
-@JsonTypeName("OBFundsConfirmationConsent1_Data_DebtorAccount")
+@Schema(name = "OBFundsConfirmationConsentResponse1_Data_DebtorAccount", description = "Unambiguous identification of the account of the debtor to which a confirmation of funds consent will be applied.")
+@JsonTypeName("OBFundsConfirmationConsentResponse1_Data_DebtorAccount")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBFundsConfirmationConsent1DataDebtorAccount {
+public class OBFundsConfirmationConsentResponse1DataDebtorAccount {
 
     private String schemeName;
 
@@ -45,30 +45,30 @@ public class OBFundsConfirmationConsent1DataDebtorAccount {
 
     private OBProxy1 proxy;
 
-    public OBFundsConfirmationConsent1DataDebtorAccount() {
+    public OBFundsConfirmationConsentResponse1DataDebtorAccount() {
         super();
     }
 
     /**
      * Constructor with only required parameters
      */
-    public OBFundsConfirmationConsent1DataDebtorAccount(String schemeName, String identification) {
+    public OBFundsConfirmationConsentResponse1DataDebtorAccount(String schemeName, String identification) {
         this.schemeName = schemeName;
         this.identification = identification;
     }
 
-    public OBFundsConfirmationConsent1DataDebtorAccount schemeName(String schemeName) {
+    public OBFundsConfirmationConsentResponse1DataDebtorAccount schemeName(String schemeName) {
         this.schemeName = schemeName;
         return this;
     }
 
     /**
-     * Name of the identification scheme, in a coded form as published in an external list. For a full list of values see `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+     * Name of the identification scheme, in a coded form as published in an external list. For a full list of values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return schemeName
      */
     @NotNull
-    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. For a full list of values see `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. For a full list of values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("SchemeName")
     public String getSchemeName() {
         return schemeName;
@@ -78,7 +78,7 @@ public class OBFundsConfirmationConsent1DataDebtorAccount {
         this.schemeName = schemeName;
     }
 
-    public OBFundsConfirmationConsent1DataDebtorAccount identification(String identification) {
+    public OBFundsConfirmationConsentResponse1DataDebtorAccount identification(String identification) {
         this.identification = identification;
         return this;
     }
@@ -100,7 +100,7 @@ public class OBFundsConfirmationConsent1DataDebtorAccount {
         this.identification = identification;
     }
 
-    public OBFundsConfirmationConsent1DataDebtorAccount name(String name) {
+    public OBFundsConfirmationConsentResponse1DataDebtorAccount name(String name) {
         this.name = name;
         return this;
     }
@@ -121,7 +121,7 @@ public class OBFundsConfirmationConsent1DataDebtorAccount {
         this.name = name;
     }
 
-    public OBFundsConfirmationConsent1DataDebtorAccount secondaryIdentification(String secondaryIdentification) {
+    public OBFundsConfirmationConsentResponse1DataDebtorAccount secondaryIdentification(String secondaryIdentification) {
         this.secondaryIdentification = secondaryIdentification;
         return this;
     }
@@ -142,7 +142,7 @@ public class OBFundsConfirmationConsent1DataDebtorAccount {
         this.secondaryIdentification = secondaryIdentification;
     }
 
-    public OBFundsConfirmationConsent1DataDebtorAccount proxy(OBProxy1 proxy) {
+    public OBFundsConfirmationConsentResponse1DataDebtorAccount proxy(OBProxy1 proxy) {
         this.proxy = proxy;
         return this;
     }
@@ -171,12 +171,12 @@ public class OBFundsConfirmationConsent1DataDebtorAccount {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBFundsConfirmationConsent1DataDebtorAccount obFundsConfirmationConsent1DataDebtorAccount = (OBFundsConfirmationConsent1DataDebtorAccount) o;
-        return Objects.equals(this.schemeName, obFundsConfirmationConsent1DataDebtorAccount.schemeName) &&
-                Objects.equals(this.identification, obFundsConfirmationConsent1DataDebtorAccount.identification) &&
-                Objects.equals(this.name, obFundsConfirmationConsent1DataDebtorAccount.name) &&
-                Objects.equals(this.secondaryIdentification, obFundsConfirmationConsent1DataDebtorAccount.secondaryIdentification) &&
-                Objects.equals(this.proxy, obFundsConfirmationConsent1DataDebtorAccount.proxy);
+        OBFundsConfirmationConsentResponse1DataDebtorAccount obFundsConfirmationConsentResponse1DataDebtorAccount = (OBFundsConfirmationConsentResponse1DataDebtorAccount) o;
+        return Objects.equals(this.schemeName, obFundsConfirmationConsentResponse1DataDebtorAccount.schemeName) &&
+                Objects.equals(this.identification, obFundsConfirmationConsentResponse1DataDebtorAccount.identification) &&
+                Objects.equals(this.name, obFundsConfirmationConsentResponse1DataDebtorAccount.name) &&
+                Objects.equals(this.secondaryIdentification, obFundsConfirmationConsentResponse1DataDebtorAccount.secondaryIdentification) &&
+                Objects.equals(this.proxy, obFundsConfirmationConsentResponse1DataDebtorAccount.proxy);
     }
 
     @Override
@@ -187,7 +187,7 @@ public class OBFundsConfirmationConsent1DataDebtorAccount {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OBFundsConfirmationConsent1DataDebtorAccount {\n");
+        sb.append("class OBFundsConfirmationConsentResponse1DataDebtorAccount {\n");
         sb.append("    schemeName: ").append(toIndentedString(schemeName)).append("\n");
         sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");

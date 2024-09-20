@@ -152,8 +152,8 @@
                                 <configuration>
                                     <!-- Only one input file is supported. Uncomment the relevant spec as required -->
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/4.0.0/account-info-openapi-4r2.yaml</inputSpec>-->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/confirmation-funds-openapi.yaml</inputSpec>-->
-                                    <inputSpec>${project.basedir}/src/main/resources/specification/4.0.0/event-notifications-openapi-4r2.yaml</inputSpec>
+                                    <inputSpec>${project.basedir}/src/main/resources/specification/4.0.0/confirmation-funds-openapi-4r2.yaml</inputSpec>
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/4.0.0/event-notifications-openapi-4r2.yaml</inputSpec>-->
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/4.0.0/events-openapi-4r2.yaml</inputSpec>-->
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/payment-initiation-openapi.yaml</inputSpec>-->
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/vrp-openapi-3.1.9r7.yaml</inputSpec>-->
@@ -161,7 +161,7 @@
                                     <output>${project.build.directory}/generated-sources/swagger</output>
                                     <generatorName>spring</generatorName>
                                     <!-- Change the package here as per the chosen spec above -->
-                                    <modelPackage>uk.org.openbanking.datamodel.v4.event</modelPackage>
+                                    <modelPackage>uk.org.openbanking.datamodel.v4.fund</modelPackage>
                                     <generateApis>false</generateApis>
                                     <!-- Override the default name for inline schemas
                                          This should be used when we want to give complex inner schema names a more

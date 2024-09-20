@@ -42,12 +42,12 @@ public class OBStatusReason {
     }
 
     /**
-     * Specifies the status reason in a code form.   For a full description see `OBExternalStatusReason1Code` [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+     * Specifies the status reason in a code form.   For a full list of values see `OBExternalStatusReason1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return statusReasonCode
      */
     @Size(min = 1, max = 4)
-    @Schema(name = "StatusReasonCode", example = "ERIN", description = "Specifies the status reason in a code form.   For a full description see `OBExternalStatusReason1Code` [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "StatusReasonCode", example = "ERIN", description = "Specifies the status reason in a code form.   For a full list of values see `OBExternalStatusReason1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusReasonCode")
     public String getStatusReasonCode() {
         return statusReasonCode;
@@ -84,12 +84,12 @@ public class OBStatusReason {
     }
 
     /**
-     * Recommended but optional reference to the JSON Path of the field with error, e.g., Data.Initiation.InstructedAmount.Currency
+     * Optional reference to the JSON Path of the field when status reason refers to an object/field, e.g., Data.DebtorAccount.SchemeName
      *
      * @return path
      */
     @Size(min = 1, max = 500)
-    @Schema(name = "Path", description = "Recommended but optional reference to the JSON Path of the field with error, e.g., Data.Initiation.InstructedAmount.Currency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Path", description = "Optional reference to the JSON Path of the field when status reason refers to an object/field, e.g., Data.DebtorAccount.SchemeName", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Path")
     public String getPath() {
         return path;
