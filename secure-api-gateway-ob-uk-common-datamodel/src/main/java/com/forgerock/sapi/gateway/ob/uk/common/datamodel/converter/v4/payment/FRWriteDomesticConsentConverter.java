@@ -24,6 +24,7 @@ import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiation;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsent4;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsent4Data;
 
+
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
 
 public class FRWriteDomesticConsentConverter {
