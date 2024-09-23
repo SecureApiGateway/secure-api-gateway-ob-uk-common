@@ -15,7 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.mapper.FRModelMapper;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.*;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.payment.FRWriteDomesticConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.payment.FRWriteDomesticConsentData;

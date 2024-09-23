@@ -15,7 +15,6 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.vrp;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.vrp.FRDomesticVrpConverters;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpRequest;
 import org.junit.jupiter.api.Test;
 import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPRequest;
