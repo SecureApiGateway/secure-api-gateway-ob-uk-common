@@ -30,6 +30,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
 
 /**
  * &#x60;Data.Refund&#x60; only included in the response if &#x60;Data.ReadRefundAccount&#x60; is set to &#x60;Yes&#x60; in the consent.

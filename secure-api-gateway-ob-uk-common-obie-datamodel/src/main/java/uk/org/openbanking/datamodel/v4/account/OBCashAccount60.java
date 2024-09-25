@@ -24,6 +24,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.OBProxy1;
 
 /**
  * Unambiguous identification of the account of the creditor, in the case of a debit transaction.

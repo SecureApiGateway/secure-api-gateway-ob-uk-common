@@ -27,6 +27,8 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
 
 /**
  * OBDomesticVRPInitiation

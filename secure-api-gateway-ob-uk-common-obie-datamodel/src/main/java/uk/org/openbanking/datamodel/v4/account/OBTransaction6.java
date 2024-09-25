@@ -31,6 +31,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
 
 /**
  * Provides further details on an entry in the report.

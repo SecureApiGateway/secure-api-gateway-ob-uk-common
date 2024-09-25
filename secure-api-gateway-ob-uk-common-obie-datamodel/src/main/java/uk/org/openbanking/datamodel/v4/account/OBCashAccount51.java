@@ -25,6 +25,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.OBProxy1;
 
 /**
  * Provides the details to identify the beneficiary account.

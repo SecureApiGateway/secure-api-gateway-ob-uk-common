@@ -25,6 +25,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.OBProxy1;
 
 /**
  * Unambiguous identification of the account of the debtor to which a debit entry will be made as a result of the transaction.
