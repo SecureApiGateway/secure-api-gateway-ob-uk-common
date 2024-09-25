@@ -151,13 +151,12 @@
                                 </goals>
                                 <configuration>
                                     <!-- Only one input file is supported. Uncomment the relevant spec as required -->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/4.0.0/account-info-openapi-4r2.yaml</inputSpec>-->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/4.0.0/confirmation-funds-openapi-4r2.yaml</inputSpec>-->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/4.0.0/event-notifications-openapi-4r2.yaml</inputSpec>-->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/4.0.0/events-openapi-4r2.yaml</inputSpec>-->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/4.0.0/payment-initiation-openapi-4r2.yaml</inputSpec>-->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/vrp-openapi-3.1.9r7.yaml</inputSpec>-->
-                                    <inputSpec>${project.basedir}/src/main/resources/specification/4.0.0/vrp-openapi-4r2.yaml</inputSpec>
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/account-info-openapi.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/confirmation-funds-openapi.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/event-notifications-openapi.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/events-openapi.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/payment-initiation-openapi.yaml</inputSpec>-->
+                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/vrp-openapi.yaml</inputSpec>-->
                                     <output>${project.build.directory}/generated-sources/swagger</output>
                                     <generatorName>spring</generatorName>
                                     <!-- Change the package here as per the chosen spec above -->
@@ -230,7 +229,14 @@
                                         ExternalPurpose1Code=ExternalPurpose1Code,
                                         ExternalCreditorReferenceType1Code=ExternalCreditorReferenceType1Code,
                                         ExternalDocumentType1Code=ExternalDocumentType1Code,
-                                        OBPostalAddress7=OBPostalAddress7
+                                        OBPostalAddress7=OBPostalAddress7,
+                                        OBInternalExtendedAccountType1Code=OBInternalExtendedAccountType1Code,
+                                        OBInternalChargeBearerType1Code=OBInternalChargeBearerType1Code,
+                                        OBBranchAndFinancialInstitutionIdentification60=OBBranchAndFinancialInstitutionIdentification60,
+                                        OBProxy1=OBProxy1,
+                                        OBStatusReason=OBStatusReason,
+                                        OBUltimateCreditor1=OBUltimateCreditor1,
+                                        OBUltimateDebtor1=OBUltimateDebtor1
                                     </schemaMappings>
                                     <!-- Map types which are not generating to their fully qualified class name to use
                                          in the import statements.
@@ -260,6 +266,14 @@
                                         OBReadRefundAccount=uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount,
                                         OBAddressTypeCode=uk.org.openbanking.datamodel.v4.common.OBAddressTypeCode,
                                         OBAddressType2Code=uk.org.openbanking.datamodel.v4.common.OBAddressType2Code,
+                                        OBInternalExtendedAccountType1Code=uk.org.openbanking.datamodel.v4.common.OBInternalExtendedAccountType1Code,
+                                        OBRisk1PaymentContextCode=uk.org.openbanking.datamodel.v4.common.OBRisk1PaymentContextCode,
+                                        OBBranchAndFinancialInstitutionIdentification60=uk.org.openbanking.datamodel.v4.common.OBBranchAndFinancialInstitutionIdentification60,
+                                        OBInternalChargeBearerType1Code=uk.org.openbanking.datamodel.v4.common.OBInternalChargeBearerType1Code,
+                                        OBProxy1=uk.org.openbanking.datamodel.v4.common.OBProxy1,
+                                        OBStatusReason=uk.org.openbanking.datamodel.v4.common.OBStatusReason,
+                                        OBUltimateCreditor1=uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1,
+                                        OBUltimateDebtor1=uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1,
                                         ExternalCategoryPurpose1Code=uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code,
                                         ExternalProxyAccountType1Code=uk.org.openbanking.datamodel.v4.common.ExternalProxyAccountType1Code,
                                         ExternalPurpose1Code=uk.org.openbanking.datamodel.v4.common.ExternalPurpose1Code,
