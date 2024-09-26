@@ -40,6 +40,8 @@ public class OBStatement2DetailStatementAmountInner {
 
     private OBActiveOrHistoricCurrencyAndAmount8 amount;
 
+    private OBStatement2StatementAmountInnerLocalAmount localAmount;
+
     public OBStatement2DetailStatementAmountInner() {
         super();
     }
@@ -118,6 +120,27 @@ public class OBStatement2DetailStatementAmountInner {
         this.amount = amount;
     }
 
+    public OBStatement2DetailStatementAmountInner localAmount(OBStatement2StatementAmountInnerLocalAmount localAmount) {
+        this.localAmount = localAmount;
+        return this;
+    }
+
+    /**
+     * Get localAmount
+     *
+     * @return localAmount
+     */
+    @Valid
+    @Schema(name = "LocalAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("LocalAmount")
+    public OBStatement2StatementAmountInnerLocalAmount getLocalAmount() {
+        return localAmount;
+    }
+
+    public void setLocalAmount(OBStatement2StatementAmountInnerLocalAmount localAmount) {
+        this.localAmount = localAmount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -129,12 +152,13 @@ public class OBStatement2DetailStatementAmountInner {
         OBStatement2DetailStatementAmountInner obStatement2DetailStatementAmountInner = (OBStatement2DetailStatementAmountInner) o;
         return Objects.equals(this.creditDebitIndicator, obStatement2DetailStatementAmountInner.creditDebitIndicator) &&
                 Objects.equals(this.type, obStatement2DetailStatementAmountInner.type) &&
-                Objects.equals(this.amount, obStatement2DetailStatementAmountInner.amount);
+                Objects.equals(this.amount, obStatement2DetailStatementAmountInner.amount) &&
+                Objects.equals(this.localAmount, obStatement2DetailStatementAmountInner.localAmount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(creditDebitIndicator, type, amount);
+        return Objects.hash(creditDebitIndicator, type, amount, localAmount);
     }
 
     @Override
@@ -144,6 +168,7 @@ public class OBStatement2DetailStatementAmountInner {
         sb.append("    creditDebitIndicator: ").append(toIndentedString(creditDebitIndicator)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+        sb.append("    localAmount: ").append(toIndentedString(localAmount)).append("\n");
         sb.append("}");
         return sb.toString();
     }

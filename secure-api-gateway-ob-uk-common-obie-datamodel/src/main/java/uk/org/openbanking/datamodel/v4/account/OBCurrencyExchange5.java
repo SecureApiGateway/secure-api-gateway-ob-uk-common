@@ -15,6 +15,8 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -178,12 +180,12 @@ public class OBCurrencyExchange5 {
     }
 
     /**
-     * Date and time at which an exchange rate is quoted.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which an exchange rate is quoted. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return quotationDate
      */
     @Valid
-    @Schema(name = "QuotationDate", description = "Date and time at which an exchange rate is quoted.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "QuotationDate", description = "Date and time at which an exchange rate is quoted. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("QuotationDate")
     public DateTime getQuotationDate() {
         return quotationDate;
@@ -226,7 +228,7 @@ public class OBCurrencyExchange5 {
         return Objects.equals(this.sourceCurrency, obCurrencyExchange5.sourceCurrency) &&
                 Objects.equals(this.targetCurrency, obCurrencyExchange5.targetCurrency) &&
                 Objects.equals(this.unitCurrency, obCurrencyExchange5.unitCurrency) &&
-                Objects.equals(this.exchangeRate, obCurrencyExchange5.exchangeRate) &&
+                isEqual(this.exchangeRate, obCurrencyExchange5.exchangeRate) &&
                 Objects.equals(this.contractIdentification, obCurrencyExchange5.contractIdentification) &&
                 Objects.equals(this.quotationDate, obCurrencyExchange5.quotationDate) &&
                 Objects.equals(this.instructedAmount, obCurrencyExchange5.instructedAmount);

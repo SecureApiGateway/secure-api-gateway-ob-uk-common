@@ -21,19 +21,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the status of consent resource in code form.
+ * Specifies the status of consent resource in code form. For a full list of values see `OBInternalConsentStatus1Code` in *ISO_External_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBPaymentConsentStatus {
 
-    AWAU("AWAU"),
-
-    RJCT("RJCT"),
-
     AUTH("AUTH"),
 
-    COND("COND");
+    AWAU("AWAU"),
+
+    COND("COND"),
+
+    RJCT("RJCT");
 
     private String value;
 

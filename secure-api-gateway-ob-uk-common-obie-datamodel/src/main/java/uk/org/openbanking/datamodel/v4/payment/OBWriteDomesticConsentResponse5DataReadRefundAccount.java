@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.v4.vrp;
+package uk.org.openbanking.datamodel.v4.payment;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -21,23 +21,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
+ * Specifies to share the refund account details with PISP. For a full list of values refer to `OBInternalReadRefundAccount1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBInternalChargeBearerType1Code {
+public enum OBWriteDomesticConsentResponse5DataReadRefundAccount {
 
-    BORNEBYCREDITOR("BorneByCreditor"),
+    NO("No"),
 
-    BORNEBYDEBTOR("BorneByDebtor"),
-
-    FOLLOWINGSERVICELEVEL("FollowingServiceLevel"),
-
-    SHARED("Shared");
+    YES("Yes");
 
     private String value;
 
-    OBInternalChargeBearerType1Code(String value) {
+    OBWriteDomesticConsentResponse5DataReadRefundAccount(String value) {
         this.value = value;
     }
 
@@ -52,8 +48,8 @@ public enum OBInternalChargeBearerType1Code {
     }
 
     @JsonCreator
-    public static OBInternalChargeBearerType1Code fromValue(String value) {
-        for (OBInternalChargeBearerType1Code b : OBInternalChargeBearerType1Code.values()) {
+    public static OBWriteDomesticConsentResponse5DataReadRefundAccount fromValue(String value) {
+        for (OBWriteDomesticConsentResponse5DataReadRefundAccount b : OBWriteDomesticConsentResponse5DataReadRefundAccount.values()) {
             if (b.value.equals(value)) {
                 return b;
             }

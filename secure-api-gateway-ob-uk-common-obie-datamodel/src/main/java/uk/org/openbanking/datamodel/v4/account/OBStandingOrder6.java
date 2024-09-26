@@ -64,6 +64,8 @@ public class OBStandingOrder6 {
 
     private OBMandateRelatedInformation1 mandateRelatedInformation;
 
+    private OBRemittanceInformation2 remittanceInformation;
+
     public OBStandingOrder6() {
         super();
     }
@@ -124,12 +126,12 @@ public class OBStandingOrder6 {
     }
 
     /**
-     * The date on which the next payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * The date on which the next payment for a Standing Order schedule will be made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return nextPaymentDateTime
      */
     @Valid
-    @Schema(name = "NextPaymentDateTime", example = "2017-07-12T00:00Z", description = "The date on which the next payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "NextPaymentDateTime", example = "2017-07-12T00:00Z", description = "The date on which the next payment for a Standing Order schedule will be made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("NextPaymentDateTime")
     public DateTime getNextPaymentDateTime() {
         return nextPaymentDateTime;
@@ -145,12 +147,12 @@ public class OBStandingOrder6 {
     }
 
     /**
-     * The date on which the last (most recent) payment for a Standing Order schedule was made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * The date on which the last (most recent) payment for a Standing Order schedule was made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return lastPaymentDateTime
      */
     @Valid
-    @Schema(name = "LastPaymentDateTime", example = "2017-07-12T00:00Z", description = "The date on which the last (most recent) payment for a Standing Order schedule was made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "LastPaymentDateTime", example = "2017-07-12T00:00Z", description = "The date on which the last (most recent) payment for a Standing Order schedule was made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LastPaymentDateTime")
     public DateTime getLastPaymentDateTime() {
         return lastPaymentDateTime;
@@ -349,6 +351,27 @@ public class OBStandingOrder6 {
         this.mandateRelatedInformation = mandateRelatedInformation;
     }
 
+    public OBStandingOrder6 remittanceInformation(OBRemittanceInformation2 remittanceInformation) {
+        this.remittanceInformation = remittanceInformation;
+        return this;
+    }
+
+    /**
+     * Get remittanceInformation
+     *
+     * @return remittanceInformation
+     */
+    @Valid
+    @Schema(name = "RemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("RemittanceInformation")
+    public OBRemittanceInformation2 getRemittanceInformation() {
+        return remittanceInformation;
+    }
+
+    public void setRemittanceInformation(OBRemittanceInformation2 remittanceInformation) {
+        this.remittanceInformation = remittanceInformation;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -370,12 +393,13 @@ public class OBStandingOrder6 {
                 Objects.equals(this.creditorAgent, obStandingOrder6.creditorAgent) &&
                 Objects.equals(this.creditorAccount, obStandingOrder6.creditorAccount) &&
                 Objects.equals(this.supplementaryData, obStandingOrder6.supplementaryData) &&
-                Objects.equals(this.mandateRelatedInformation, obStandingOrder6.mandateRelatedInformation);
+                Objects.equals(this.mandateRelatedInformation, obStandingOrder6.mandateRelatedInformation) &&
+                Objects.equals(this.remittanceInformation, obStandingOrder6.remittanceInformation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, standingOrderId, nextPaymentDateTime, lastPaymentDateTime, standingOrderStatusCode, firstPaymentAmount, nextPaymentAmount, lastPaymentAmount, finalPaymentAmount, creditorAgent, creditorAccount, supplementaryData, mandateRelatedInformation);
+        return Objects.hash(accountId, standingOrderId, nextPaymentDateTime, lastPaymentDateTime, standingOrderStatusCode, firstPaymentAmount, nextPaymentAmount, lastPaymentAmount, finalPaymentAmount, creditorAgent, creditorAccount, supplementaryData, mandateRelatedInformation, remittanceInformation);
     }
 
     @Override
@@ -395,6 +419,7 @@ public class OBStandingOrder6 {
         sb.append("    creditorAccount: ").append(toIndentedString(creditorAccount)).append("\n");
         sb.append("    supplementaryData: ").append(toIndentedString(supplementaryData)).append("\n");
         sb.append("    mandateRelatedInformation: ").append(toIndentedString(mandateRelatedInformation)).append("\n");
+        sb.append("    remittanceInformation: ").append(toIndentedString(remittanceInformation)).append("\n");
         sb.append("}");
         return sb.toString();
     }

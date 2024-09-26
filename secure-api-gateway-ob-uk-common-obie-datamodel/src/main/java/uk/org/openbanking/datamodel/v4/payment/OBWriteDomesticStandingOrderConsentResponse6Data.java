@@ -30,7 +30,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
 
 /**
  * OBWriteDomesticStandingOrderConsentResponse6Data
@@ -55,7 +55,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
 
     private OBWriteDomesticScheduledConsent4DataPermission permission;
 
-    private OBReadRefundAccount readRefundAccount;
+    private OBWriteDomesticStandingOrderConsentResponse6DataReadRefundAccount readRefundAccount;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime cutOffDateTime;
@@ -65,7 +65,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
 
     private OBWriteDomesticStandingOrderConsentResponse6DataInitiation initiation;
 
-    private OBWriteDomesticConsent4DataAuthorisation authorisation;
+    private OBWriteDomesticStandingOrderConsentResponse6DataAuthorisation authorisation;
 
     private OBSCASupportData1 scASupportData;
 
@@ -115,13 +115,13 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
     }
 
     /**
-     * Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return creationDateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
         return creationDateTime;
@@ -159,13 +159,13 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
     }
 
     /**
-     * Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return statusUpdateDateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
@@ -226,7 +226,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
         this.permission = permission;
     }
 
-    public OBWriteDomesticStandingOrderConsentResponse6Data readRefundAccount(OBReadRefundAccount readRefundAccount) {
+    public OBWriteDomesticStandingOrderConsentResponse6Data readRefundAccount(OBWriteDomesticStandingOrderConsentResponse6DataReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
@@ -239,11 +239,11 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
     @Valid
     @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReadRefundAccount")
-    public OBReadRefundAccount getReadRefundAccount() {
+    public OBWriteDomesticStandingOrderConsentResponse6DataReadRefundAccount getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(OBReadRefundAccount readRefundAccount) {
+    public void setReadRefundAccount(OBWriteDomesticStandingOrderConsentResponse6DataReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 
@@ -253,12 +253,12 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
     }
 
     /**
-     * Specified cut-off date and time for the payment consent.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Specified cut-off date and time for the payment consent. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return cutOffDateTime
      */
     @Valid
-    @Schema(name = "CutOffDateTime", description = "Specified cut-off date and time for the payment consent.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "CutOffDateTime", description = "Specified cut-off date and time for the payment consent. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CutOffDateTime")
     public DateTime getCutOffDateTime() {
         return cutOffDateTime;
@@ -319,7 +319,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
         this.initiation = initiation;
     }
 
-    public OBWriteDomesticStandingOrderConsentResponse6Data authorisation(OBWriteDomesticConsent4DataAuthorisation authorisation) {
+    public OBWriteDomesticStandingOrderConsentResponse6Data authorisation(OBWriteDomesticStandingOrderConsentResponse6DataAuthorisation authorisation) {
         this.authorisation = authorisation;
         return this;
     }
@@ -332,11 +332,11 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
     @Valid
     @Schema(name = "Authorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Authorisation")
-    public OBWriteDomesticConsent4DataAuthorisation getAuthorisation() {
+    public OBWriteDomesticStandingOrderConsentResponse6DataAuthorisation getAuthorisation() {
         return authorisation;
     }
 
-    public void setAuthorisation(OBWriteDomesticConsent4DataAuthorisation authorisation) {
+    public void setAuthorisation(OBWriteDomesticStandingOrderConsentResponse6DataAuthorisation authorisation) {
         this.authorisation = authorisation;
     }
 

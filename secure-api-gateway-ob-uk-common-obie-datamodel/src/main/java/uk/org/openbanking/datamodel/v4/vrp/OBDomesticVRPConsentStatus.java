@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the status of consent resource in code form. AWAU and RJCT only can returned on initial submission
+ * Specifies the status of consent resource in code form. AWAU and RJCT only can returned on initial submission. For a full list of values see `OBInternalConsentStatus1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
@@ -33,7 +33,9 @@ public enum OBDomesticVRPConsentStatus {
 
     AUTH("AUTH"),
 
-    COND("COND");
+    CANC("CANC"),
+
+    EXPD("EXPD");
 
     private String value;
 

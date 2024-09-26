@@ -31,6 +31,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
 
 /**
  * OBDomesticVRPConsentResponseData

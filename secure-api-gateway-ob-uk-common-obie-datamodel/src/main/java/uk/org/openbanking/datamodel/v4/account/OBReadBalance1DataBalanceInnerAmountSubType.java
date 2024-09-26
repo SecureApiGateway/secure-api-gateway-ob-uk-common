@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * The amount in the domestic or base accounting currency. Default is Base Currency (BCUR) if not specified
+ * Balance sub type, in a coded form. Default if not specified is BCUR of the account
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")

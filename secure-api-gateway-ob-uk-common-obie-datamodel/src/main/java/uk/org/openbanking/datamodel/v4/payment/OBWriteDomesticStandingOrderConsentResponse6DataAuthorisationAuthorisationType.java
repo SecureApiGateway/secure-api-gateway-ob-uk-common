@@ -21,23 +21,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies which party/parties will bear the charges associated with the processing of the payment transaction.
+ * Type of authorisation flow requested.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBInternalChargeBearerType1Code {
+public enum OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType {
 
-    BORNEBYCREDITOR("BorneByCreditor"),
+    ANY("Any"),
 
-    BORNEBYDEBTOR("BorneByDebtor"),
-
-    FOLLOWINGSERVICELEVEL("FollowingServiceLevel"),
-
-    SHARED("Shared");
+    SINGLE("Single");
 
     private String value;
 
-    OBInternalChargeBearerType1Code(String value) {
+    OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType(String value) {
         this.value = value;
     }
 
@@ -52,8 +48,8 @@ public enum OBInternalChargeBearerType1Code {
     }
 
     @JsonCreator
-    public static OBInternalChargeBearerType1Code fromValue(String value) {
-        for (OBInternalChargeBearerType1Code b : OBInternalChargeBearerType1Code.values()) {
+    public static OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType fromValue(String value) {
+        for (OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType b : OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType.values()) {
             if (b.value.equals(value)) {
                 return b;
             }

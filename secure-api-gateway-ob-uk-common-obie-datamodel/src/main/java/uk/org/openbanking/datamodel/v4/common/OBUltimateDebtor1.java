@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.v4.payment;
+package uk.org.openbanking.datamodel.v4.common;
 
 import java.util.Objects;
 
@@ -24,15 +24,14 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
 
 /**
- * Ultimate party to which an amount of money is due.
+ * Ultimate party that owes an amount of money to the (ultimate) creditor.
  */
 
-@Schema(name = "OBUltimateCreditor1", description = "Ultimate party to which an amount of money is due.")
+@Schema(name = "OBUltimateDebtor1", description = "Ultimate party that owes an amount of money to the (ultimate) creditor.")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBUltimateCreditor1 {
+public class OBUltimateDebtor1 {
 
     private String name;
 
@@ -44,7 +43,7 @@ public class OBUltimateCreditor1 {
 
     private OBPostalAddress7 postalAddress;
 
-    public OBUltimateCreditor1 name(String name) {
+    public OBUltimateDebtor1 name(String name) {
         this.name = name;
         return this;
     }
@@ -65,7 +64,7 @@ public class OBUltimateCreditor1 {
         this.name = name;
     }
 
-    public OBUltimateCreditor1 identification(String identification) {
+    public OBUltimateDebtor1 identification(String identification) {
         this.identification = identification;
         return this;
     }
@@ -86,7 +85,7 @@ public class OBUltimateCreditor1 {
         this.identification = identification;
     }
 
-    public OBUltimateCreditor1 LEI(String LEI) {
+    public OBUltimateDebtor1 LEI(String LEI) {
         this.LEI = LEI;
         return this;
     }
@@ -96,9 +95,9 @@ public class OBUltimateCreditor1 {
      *
      * @return LEI
      */
-    @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
+    @Pattern(regexp = "^[A-Z0-9]{18,18}[0-9]{2,2}$")
     @Size(min = 1, max = 20)
-    @Schema(name = "LEI", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "LEI", example = "IZ9Q00LZEVUKWCQY6X15", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LEI")
     public String getLEI() {
         return LEI;
@@ -108,18 +107,18 @@ public class OBUltimateCreditor1 {
         this.LEI = LEI;
     }
 
-    public OBUltimateCreditor1 schemeName(String schemeName) {
+    public OBUltimateDebtor1 schemeName(String schemeName) {
         this.schemeName = schemeName;
         return this;
     }
 
     /**
-     * Name of the identification scheme, in a coded form as published in an external list.
+     * Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return schemeName
      */
 
-    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SchemeName")
     public String getSchemeName() {
         return schemeName;
@@ -129,7 +128,7 @@ public class OBUltimateCreditor1 {
         this.schemeName = schemeName;
     }
 
-    public OBUltimateCreditor1 postalAddress(OBPostalAddress7 postalAddress) {
+    public OBUltimateDebtor1 postalAddress(OBPostalAddress7 postalAddress) {
         this.postalAddress = postalAddress;
         return this;
     }
@@ -158,12 +157,12 @@ public class OBUltimateCreditor1 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBUltimateCreditor1 obUltimateCreditor1 = (OBUltimateCreditor1) o;
-        return Objects.equals(this.name, obUltimateCreditor1.name) &&
-                Objects.equals(this.identification, obUltimateCreditor1.identification) &&
-                Objects.equals(this.LEI, obUltimateCreditor1.LEI) &&
-                Objects.equals(this.schemeName, obUltimateCreditor1.schemeName) &&
-                Objects.equals(this.postalAddress, obUltimateCreditor1.postalAddress);
+        OBUltimateDebtor1 obUltimateDebtor1 = (OBUltimateDebtor1) o;
+        return Objects.equals(this.name, obUltimateDebtor1.name) &&
+                Objects.equals(this.identification, obUltimateDebtor1.identification) &&
+                Objects.equals(this.LEI, obUltimateDebtor1.LEI) &&
+                Objects.equals(this.schemeName, obUltimateDebtor1.schemeName) &&
+                Objects.equals(this.postalAddress, obUltimateDebtor1.postalAddress);
     }
 
     @Override
@@ -174,7 +173,7 @@ public class OBUltimateCreditor1 {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OBUltimateCreditor1 {\n");
+        sb.append("class OBUltimateDebtor1 {\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
         sb.append("    LEI: ").append(toIndentedString(LEI)).append("\n");

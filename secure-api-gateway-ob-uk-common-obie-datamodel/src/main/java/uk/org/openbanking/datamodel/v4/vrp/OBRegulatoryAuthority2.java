@@ -34,7 +34,7 @@ public class OBRegulatoryAuthority2 {
 
     private String name;
 
-    private String country;
+    private String countryCode;
 
     public OBRegulatoryAuthority2 name(String name) {
         this.name = name;
@@ -57,25 +57,25 @@ public class OBRegulatoryAuthority2 {
         this.name = name;
     }
 
-    public OBRegulatoryAuthority2 country(String country) {
-        this.country = country;
+    public OBRegulatoryAuthority2 countryCode(String countryCode) {
+        this.countryCode = countryCode;
         return this;
     }
 
     /**
      * Nation with its own government.
      *
-     * @return country
+     * @return countryCode
      */
     @Pattern(regexp = "^[A-Z]{2,2}$")
-    @Schema(name = "Country", description = "Nation with its own government.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Country")
-    public String getCountry() {
-        return country;
+    @Schema(name = "CountryCode", description = "Nation with its own government.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("CountryCode")
+    public String getCountryCode() {
+        return countryCode;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
     }
 
     @Override
@@ -88,12 +88,12 @@ public class OBRegulatoryAuthority2 {
         }
         OBRegulatoryAuthority2 obRegulatoryAuthority2 = (OBRegulatoryAuthority2) o;
         return Objects.equals(this.name, obRegulatoryAuthority2.name) &&
-                Objects.equals(this.country, obRegulatoryAuthority2.country);
+                Objects.equals(this.countryCode, obRegulatoryAuthority2.countryCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, country);
+        return Objects.hash(name, countryCode);
     }
 
     @Override
@@ -101,7 +101,7 @@ public class OBRegulatoryAuthority2 {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBRegulatoryAuthority2 {\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    country: ").append(toIndentedString(country)).append("\n");
+        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }

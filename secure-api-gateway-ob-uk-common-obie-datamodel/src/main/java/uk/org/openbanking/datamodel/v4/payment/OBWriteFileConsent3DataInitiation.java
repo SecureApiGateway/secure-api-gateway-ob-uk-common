@@ -15,6 +15,8 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -31,6 +33,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds using a payment file.
@@ -190,12 +193,12 @@ public class OBWriteFileConsent3DataInitiation {
     }
 
     /**
-     * Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return requestedExecutionDateTime
      */
     @Valid
-    @Schema(name = "RequestedExecutionDateTime", description = "Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "RequestedExecutionDateTime", description = "Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RequestedExecutionDateTime")
     public DateTime getRequestedExecutionDateTime() {
         return requestedExecutionDateTime;
@@ -211,12 +214,12 @@ public class OBWriteFileConsent3DataInitiation {
     }
 
     /**
-     * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
+     * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return localInstrument
      */
 
-    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LocalInstrument")
     public String getLocalInstrument() {
         return localInstrument;
@@ -344,7 +347,7 @@ public class OBWriteFileConsent3DataInitiation {
                 Objects.equals(this.fileHash, obWriteFileConsent3DataInitiation.fileHash) &&
                 Objects.equals(this.fileReference, obWriteFileConsent3DataInitiation.fileReference) &&
                 Objects.equals(this.numberOfTransactions, obWriteFileConsent3DataInitiation.numberOfTransactions) &&
-                Objects.equals(this.controlSum, obWriteFileConsent3DataInitiation.controlSum) &&
+                isEqual(this.controlSum, obWriteFileConsent3DataInitiation.controlSum) &&
                 Objects.equals(this.requestedExecutionDateTime, obWriteFileConsent3DataInitiation.requestedExecutionDateTime) &&
                 Objects.equals(this.localInstrument, obWriteFileConsent3DataInitiation.localInstrument) &&
                 Objects.equals(this.creditorAgent, obWriteFileConsent3DataInitiation.creditorAgent) &&

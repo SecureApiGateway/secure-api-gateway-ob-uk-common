@@ -24,6 +24,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 /**
  * Set of elements used to provide details of a generic rate related to the statement resource.
@@ -62,6 +63,7 @@ public class OBStatement2StatementRateInner {
      */
     @NotNull
     @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
+    @Size(max = 40)
     @Schema(name = "Rate", example = "0.224", description = "Rate associated with the statement rate type.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Rate")
     public String getRate() {
@@ -78,12 +80,12 @@ public class OBStatement2StatementRateInner {
     }
 
     /**
-     * Statement rate type, in a coded form.
+     * Statement rate type, in a coded form. For a full list of values see `OBInternalStatementRateType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return type
      */
     @NotNull
-    @Schema(name = "Type", example = "UK.OBIE.AnnualCash", description = "Statement rate type, in a coded form.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "Type", example = "UK.OBIE.AnnualCash", description = "Statement rate type, in a coded form. For a full list of values see `OBInternalStatementRateType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
     public String getType() {
         return type;

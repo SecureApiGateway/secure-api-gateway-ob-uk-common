@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the status of consent resource in code form.
+ * Specifies the status of consent resource in code form. For a full list of values refer to `OBInternalConsentStatus1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
@@ -31,7 +31,11 @@ public enum OBFundsConfirmationConsentStatus {
 
     RJCT("RJCT"),
 
-    AUTH("AUTH");
+    AUTH("AUTH"),
+
+    CANC("CANC"),
+
+    EXPD("EXPD");
 
     private String value;
 

@@ -34,7 +34,7 @@ public class OBTransactionCashBalance {
 
     private OBCreditDebitCode2 creditDebitIndicator;
 
-    private OBInternalAccountIdentification4Code type;
+    private OBBalanceType1Code type;
 
     private OBTransactionCashBalanceAmount amount;
 
@@ -45,7 +45,7 @@ public class OBTransactionCashBalance {
     /**
      * Constructor with only required parameters
      */
-    public OBTransactionCashBalance(OBCreditDebitCode2 creditDebitIndicator, OBInternalAccountIdentification4Code type, OBTransactionCashBalanceAmount amount) {
+    public OBTransactionCashBalance(OBCreditDebitCode2 creditDebitIndicator, OBBalanceType1Code type, OBTransactionCashBalanceAmount amount) {
         this.creditDebitIndicator = creditDebitIndicator;
         this.type = type;
         this.amount = amount;
@@ -73,7 +73,7 @@ public class OBTransactionCashBalance {
         this.creditDebitIndicator = creditDebitIndicator;
     }
 
-    public OBTransactionCashBalance type(OBInternalAccountIdentification4Code type) {
+    public OBTransactionCashBalance type(OBBalanceType1Code type) {
         this.type = type;
         return this;
     }
@@ -87,11 +87,11 @@ public class OBTransactionCashBalance {
     @Valid
     @Schema(name = "Type", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
-    public OBInternalAccountIdentification4Code getType() {
+    public OBBalanceType1Code getType() {
         return type;
     }
 
-    public void setType(OBInternalAccountIdentification4Code type) {
+    public void setType(OBBalanceType1Code type) {
         this.type = type;
     }
 

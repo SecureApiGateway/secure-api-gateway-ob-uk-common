@@ -24,10 +24,10 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.v4.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.v4.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
 
 /**
  * OBDomesticVRPInstruction
@@ -52,7 +52,7 @@ public class OBDomesticVRPInstruction {
 
     private OBUltimateCreditor1 ultimateCreditor;
 
-    private OBSupplementaryData1 supplementaryData;
+    private Object supplementaryData;
 
     public OBDomesticVRPInstruction() {
         super();
@@ -139,12 +139,12 @@ public class OBDomesticVRPInstruction {
     }
 
     /**
-     * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
+     * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return localInstrument
      */
 
-    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LocalInstrument")
     public String getLocalInstrument() {
         return localInstrument;
@@ -240,7 +240,7 @@ public class OBDomesticVRPInstruction {
         this.ultimateCreditor = ultimateCreditor;
     }
 
-    public OBDomesticVRPInstruction supplementaryData(OBSupplementaryData1 supplementaryData) {
+    public OBDomesticVRPInstruction supplementaryData(Object supplementaryData) {
         this.supplementaryData = supplementaryData;
         return this;
     }
@@ -253,11 +253,11 @@ public class OBDomesticVRPInstruction {
 
     @Schema(name = "SupplementaryData", description = "Additional information that can not be captured in the structured fields and/or any other specific block. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")
-    public OBSupplementaryData1 getSupplementaryData() {
+    public Object getSupplementaryData() {
         return supplementaryData;
     }
 
-    public void setSupplementaryData(OBSupplementaryData1 supplementaryData) {
+    public void setSupplementaryData(Object supplementaryData) {
         this.supplementaryData = supplementaryData;
     }
 

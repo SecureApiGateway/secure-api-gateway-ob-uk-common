@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the document type as published in an external document type code list. For more information see `ExternalDocumentType1Code` [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+ * Specifies the document type as published in an external document type code list. For a full list of values refer to `ExternalDocumentType1Code` in *ISO_External_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
@@ -57,7 +57,21 @@ public enum ExternalDocumentType1Code {
 
     SPRR("SPRR"),
 
-    TISH("TISH");
+    TISH("TISH"),
+
+    USAR("USAR"),
+
+    AROI("AROI"),
+
+    BOLD("BOLD"),
+
+    CMCN("CMCN"),
+
+    SOAC("SOAC"),
+
+    TSUT("TSUT"),
+
+    VCHR("VCHR");
 
     private String value;
 

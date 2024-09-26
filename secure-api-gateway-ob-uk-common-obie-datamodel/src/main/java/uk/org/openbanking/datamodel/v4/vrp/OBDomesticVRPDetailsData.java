@@ -19,17 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import org.joda.time.DateTime;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 /**
  * OBDomesticVRPDetailsData
@@ -39,145 +34,36 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPDetailsData {
 
-    private String paymentTransactionId;
-
-    private OBDomesticVRPDetailsDataStatus status;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private DateTime statusUpdateDateTime;
-
-    private String localInstrument;
-
     @Valid
-    private List<@Valid OBDomesticVRPDetailsDataStausDetailInner> stausDetail;
+    private List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> paymentStatus;
 
-    public OBDomesticVRPDetailsData() {
-        super();
-    }
-
-    /**
-     * Constructor with only required parameters
-     */
-    public OBDomesticVRPDetailsData(String paymentTransactionId, OBDomesticVRPDetailsDataStatus status, DateTime statusUpdateDateTime) {
-        this.paymentTransactionId = paymentTransactionId;
-        this.status = status;
-        this.statusUpdateDateTime = statusUpdateDateTime;
-    }
-
-    public OBDomesticVRPDetailsData paymentTransactionId(String paymentTransactionId) {
-        this.paymentTransactionId = paymentTransactionId;
+    public OBDomesticVRPDetailsData paymentStatus(List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> paymentStatus) {
+        this.paymentStatus = paymentStatus;
         return this;
     }
 
-    /**
-     * Unique identifier for the transaction within an servicing       institution. This identifier is both unique and immutable.
-     *
-     * @return paymentTransactionId
-     */
-    @NotNull
-    @Size(min = 1, max = 210)
-    @Schema(name = "PaymentTransactionId", description = "Unique identifier for the transaction within an servicing       institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("PaymentTransactionId")
-    public String getPaymentTransactionId() {
-        return paymentTransactionId;
-    }
-
-    public void setPaymentTransactionId(String paymentTransactionId) {
-        this.paymentTransactionId = paymentTransactionId;
-    }
-
-    public OBDomesticVRPDetailsData status(OBDomesticVRPDetailsDataStatus status) {
-        this.status = status;
-        return this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return status
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Status")
-    public OBDomesticVRPDetailsDataStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(OBDomesticVRPDetailsDataStatus status) {
-        this.status = status;
-    }
-
-    public OBDomesticVRPDetailsData statusUpdateDateTime(DateTime statusUpdateDateTime) {
-        this.statusUpdateDateTime = statusUpdateDateTime;
-        return this;
-    }
-
-    /**
-     * Date and time at which the status was assigned to the       transfer.
-     *
-     * @return statusUpdateDateTime
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the status was assigned to the       transfer. ", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("StatusUpdateDateTime")
-    public DateTime getStatusUpdateDateTime() {
-        return statusUpdateDateTime;
-    }
-
-    public void setStatusUpdateDateTime(DateTime statusUpdateDateTime) {
-        this.statusUpdateDateTime = statusUpdateDateTime;
-    }
-
-    public OBDomesticVRPDetailsData localInstrument(String localInstrument) {
-        this.localInstrument = localInstrument;
-        return this;
-    }
-
-    /**
-     * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.
-     *
-     * @return localInstrument
-     */
-
-    @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("LocalInstrument")
-    public String getLocalInstrument() {
-        return localInstrument;
-    }
-
-    public void setLocalInstrument(String localInstrument) {
-        this.localInstrument = localInstrument;
-    }
-
-    public OBDomesticVRPDetailsData stausDetail(List<@Valid OBDomesticVRPDetailsDataStausDetailInner> stausDetail) {
-        this.stausDetail = stausDetail;
-        return this;
-    }
-
-    public OBDomesticVRPDetailsData addStausDetailItem(OBDomesticVRPDetailsDataStausDetailInner stausDetailItem) {
-        if (this.stausDetail == null) {
-            this.stausDetail = new ArrayList<>();
+    public OBDomesticVRPDetailsData addPaymentStatusItem(OBDomesticVRPDetailsDataPaymentStatusInner paymentStatusItem) {
+        if (this.paymentStatus == null) {
+            this.paymentStatus = new ArrayList<>();
         }
-        this.stausDetail.add(stausDetailItem);
+        this.paymentStatus.add(paymentStatusItem);
         return this;
     }
 
     /**
-     * Get stausDetail
+     * Get paymentStatus
      *
-     * @return stausDetail
+     * @return paymentStatus
      */
     @Valid
-    @Schema(name = "StausDetail", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("StausDetail")
-    public List<@Valid OBDomesticVRPDetailsDataStausDetailInner> getStausDetail() {
-        return stausDetail;
+    @Schema(name = "PaymentStatus", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("PaymentStatus")
+    public List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> getPaymentStatus() {
+        return paymentStatus;
     }
 
-    public void setStausDetail(List<@Valid OBDomesticVRPDetailsDataStausDetailInner> stausDetail) {
-        this.stausDetail = stausDetail;
+    public void setPaymentStatus(List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> paymentStatus) {
+        this.paymentStatus = paymentStatus;
     }
 
     @Override
@@ -189,27 +75,19 @@ public class OBDomesticVRPDetailsData {
             return false;
         }
         OBDomesticVRPDetailsData obDomesticVRPDetailsData = (OBDomesticVRPDetailsData) o;
-        return Objects.equals(this.paymentTransactionId, obDomesticVRPDetailsData.paymentTransactionId) &&
-                Objects.equals(this.status, obDomesticVRPDetailsData.status) &&
-                Objects.equals(this.statusUpdateDateTime, obDomesticVRPDetailsData.statusUpdateDateTime) &&
-                Objects.equals(this.localInstrument, obDomesticVRPDetailsData.localInstrument) &&
-                Objects.equals(this.stausDetail, obDomesticVRPDetailsData.stausDetail);
+        return Objects.equals(this.paymentStatus, obDomesticVRPDetailsData.paymentStatus);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(paymentTransactionId, status, statusUpdateDateTime, localInstrument, stausDetail);
+        return Objects.hash(paymentStatus);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBDomesticVRPDetailsData {\n");
-        sb.append("    paymentTransactionId: ").append(toIndentedString(paymentTransactionId)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    statusUpdateDateTime: ").append(toIndentedString(statusUpdateDateTime)).append("\n");
-        sb.append("    localInstrument: ").append(toIndentedString(localInstrument)).append("\n");
-        sb.append("    stausDetail: ").append(toIndentedString(stausDetail)).append("\n");
+        sb.append("    paymentStatus: ").append(toIndentedString(paymentStatus)).append("\n");
         sb.append("}");
         return sb.toString();
     }

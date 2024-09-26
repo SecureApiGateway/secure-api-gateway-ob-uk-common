@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the status of the payment order resource.
+ * Specifies the status of the payment order resource. For a full list of values see `ExternalPaymentTransactionStatus1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
@@ -29,9 +29,29 @@ public enum OBWriteDomesticScheduledResponse5DataStatus {
 
     RCVD("RCVD"),
 
-    RJCT("RJCT"),
+    CANC("CANC"),
 
-    ACSP("ACSP");
+    PDNG("PDNG"),
+
+    ACTC("ACTC"),
+
+    PATC("PATC"),
+
+    ACCP("ACCP"),
+
+    ACFC("ACFC"),
+
+    ACSP("ACSP"),
+
+    ACWC("ACWC"),
+
+    ACSC("ACSC"),
+
+    ACWP("ACWP"),
+
+    BLCK("BLCK"),
+
+    RJCT("RJCT");
 
     private String value;
 

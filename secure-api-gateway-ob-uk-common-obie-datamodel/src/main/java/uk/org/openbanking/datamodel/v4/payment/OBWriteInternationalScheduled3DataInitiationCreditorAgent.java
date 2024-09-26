@@ -13,100 +13,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.v4.vrp;
+package uk.org.openbanking.datamodel.v4.payment;
 
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
 
 /**
- * Ultimate party to which an amount of money is due.
+ * Financial institution servicing an account for the creditor.
  */
 
-@Schema(name = "OBUltimateCreditor1", description = "Ultimate party to which an amount of money is due.")
+@Schema(name = "OBWriteInternationalScheduled3_Data_Initiation_CreditorAgent", description = "Financial institution servicing an account for the creditor.")
+@JsonTypeName("OBWriteInternationalScheduled3_Data_Initiation_CreditorAgent")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBUltimateCreditor1 {
+public class OBWriteInternationalScheduled3DataInitiationCreditorAgent {
 
-    private String name;
+    private String schemeName;
 
     private String identification;
 
     private String LEI;
 
-    private String schemeName;
+    private String name;
 
     private OBPostalAddress7 postalAddress;
 
-    public OBUltimateCreditor1 name(String name) {
-        this.name = name;
-        return this;
-    }
-
-    /**
-     * Name by which a party is known and which is usually used to identify that party.
-     *
-     * @return name
-     */
-    @Size(min = 1, max = 140)
-    @Schema(name = "Name", description = "Name by which a party is known and which is usually used to identify that party.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Name")
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public OBUltimateCreditor1 identification(String identification) {
-        this.identification = identification;
-        return this;
-    }
-
-    /**
-     * Identification assigned by an institution.
-     *
-     * @return identification
-     */
-    @Size(min = 1, max = 256)
-    @Schema(name = "Identification", description = "Identification assigned by an institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Identification")
-    public String getIdentification() {
-        return identification;
-    }
-
-    public void setIdentification(String identification) {
-        this.identification = identification;
-    }
-
-    public OBUltimateCreditor1 LEI(String LEI) {
-        this.LEI = LEI;
-        return this;
-    }
-
-    /**
-     * Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".
-     *
-     * @return LEI
-     */
-    @Size(min = 1, max = 20)
-    @Schema(name = "LEI", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("LEI")
-    public String getLEI() {
-        return LEI;
-    }
-
-    public void setLEI(String LEI) {
-        this.LEI = LEI;
-    }
-
-    public OBUltimateCreditor1 schemeName(String schemeName) {
+    public OBWriteInternationalScheduled3DataInitiationCreditorAgent schemeName(String schemeName) {
         this.schemeName = schemeName;
         return this;
     }
@@ -127,7 +67,71 @@ public class OBUltimateCreditor1 {
         this.schemeName = schemeName;
     }
 
-    public OBUltimateCreditor1 postalAddress(OBPostalAddress7 postalAddress) {
+    public OBWriteInternationalScheduled3DataInitiationCreditorAgent identification(String identification) {
+        this.identification = identification;
+        return this;
+    }
+
+    /**
+     * Unique and unambiguous identification of a financial institution or a branch of a financial institution.
+     *
+     * @return identification
+     */
+    @Size(min = 1, max = 35)
+    @Schema(name = "Identification", description = "Unique and unambiguous identification of a financial institution or a branch of a financial institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Identification")
+    public String getIdentification() {
+        return identification;
+    }
+
+    public void setIdentification(String identification) {
+        this.identification = identification;
+    }
+
+    public OBWriteInternationalScheduled3DataInitiationCreditorAgent LEI(String LEI) {
+        this.LEI = LEI;
+        return this;
+    }
+
+    /**
+     * Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".
+     *
+     * @return LEI
+     */
+    @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
+    @Size(min = 1, max = 20)
+    @Schema(name = "LEI", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("LEI")
+    public String getLEI() {
+        return LEI;
+    }
+
+    public void setLEI(String LEI) {
+        this.LEI = LEI;
+    }
+
+    public OBWriteInternationalScheduled3DataInitiationCreditorAgent name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Name by which an agent is known and which is usually used to identify that agent.
+     *
+     * @return name
+     */
+    @Size(min = 1, max = 140)
+    @Schema(name = "Name", description = "Name by which an agent is known and which is usually used to identify that agent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public OBWriteInternationalScheduled3DataInitiationCreditorAgent postalAddress(OBPostalAddress7 postalAddress) {
         this.postalAddress = postalAddress;
         return this;
     }
@@ -156,27 +160,27 @@ public class OBUltimateCreditor1 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBUltimateCreditor1 obUltimateCreditor1 = (OBUltimateCreditor1) o;
-        return Objects.equals(this.name, obUltimateCreditor1.name) &&
-                Objects.equals(this.identification, obUltimateCreditor1.identification) &&
-                Objects.equals(this.LEI, obUltimateCreditor1.LEI) &&
-                Objects.equals(this.schemeName, obUltimateCreditor1.schemeName) &&
-                Objects.equals(this.postalAddress, obUltimateCreditor1.postalAddress);
+        OBWriteInternationalScheduled3DataInitiationCreditorAgent obWriteInternationalScheduled3DataInitiationCreditorAgent = (OBWriteInternationalScheduled3DataInitiationCreditorAgent) o;
+        return Objects.equals(this.schemeName, obWriteInternationalScheduled3DataInitiationCreditorAgent.schemeName) &&
+                Objects.equals(this.identification, obWriteInternationalScheduled3DataInitiationCreditorAgent.identification) &&
+                Objects.equals(this.LEI, obWriteInternationalScheduled3DataInitiationCreditorAgent.LEI) &&
+                Objects.equals(this.name, obWriteInternationalScheduled3DataInitiationCreditorAgent.name) &&
+                Objects.equals(this.postalAddress, obWriteInternationalScheduled3DataInitiationCreditorAgent.postalAddress);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, identification, LEI, schemeName, postalAddress);
+        return Objects.hash(schemeName, identification, LEI, name, postalAddress);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OBUltimateCreditor1 {\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("class OBWriteInternationalScheduled3DataInitiationCreditorAgent {\n");
+        sb.append("    schemeName: ").append(toIndentedString(schemeName)).append("\n");
         sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
         sb.append("    LEI: ").append(toIndentedString(LEI)).append("\n");
-        sb.append("    schemeName: ").append(toIndentedString(schemeName)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
         sb.append("}");
         return sb.toString();

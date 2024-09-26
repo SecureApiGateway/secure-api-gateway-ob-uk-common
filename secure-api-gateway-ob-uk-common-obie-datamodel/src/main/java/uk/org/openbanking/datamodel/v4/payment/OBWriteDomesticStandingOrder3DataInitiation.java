@@ -28,6 +28,8 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a domestic standing order.
@@ -68,9 +70,10 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticStandingOrder3DataInitiation(OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount firstPaymentAmount, OBWriteDomesticStandingOrder3DataInitiationCreditorAccount creditorAccount) {
+    public OBWriteDomesticStandingOrder3DataInitiation(OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount firstPaymentAmount, OBWriteDomesticStandingOrder3DataInitiationCreditorAccount creditorAccount, OBMandateRelatedInformation1 mandateRelatedInformation) {
         this.firstPaymentAmount = firstPaymentAmount;
         this.creditorAccount = creditorAccount;
+        this.mandateRelatedInformation = mandateRelatedInformation;
     }
 
     public OBWriteDomesticStandingOrder3DataInitiation remittanceInformation(OBRemittanceInformation2 remittanceInformation) {
@@ -283,8 +286,9 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
      *
      * @return mandateRelatedInformation
      */
+    @NotNull
     @Valid
-    @Schema(name = "MandateRelatedInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "MandateRelatedInformation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("MandateRelatedInformation")
     public OBMandateRelatedInformation1 getMandateRelatedInformation() {
         return mandateRelatedInformation;

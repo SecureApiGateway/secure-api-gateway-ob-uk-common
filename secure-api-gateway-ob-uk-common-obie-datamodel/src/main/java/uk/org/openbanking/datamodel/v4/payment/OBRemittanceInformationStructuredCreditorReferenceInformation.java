@@ -27,9 +27,10 @@ import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.ExternalCreditorReferenceType1Code;
 
 /**
- * OBRemittanceInformationStructuredCreditorReferenceInformation
+ * Reference information provided by the creditor to allow the identification of the underlying documents.
  */
 
+@Schema(name = "OBRemittanceInformationStructured_CreditorReferenceInformation", description = "Reference information provided by the creditor to allow the identification of the underlying documents.")
 @JsonTypeName("OBRemittanceInformationStructured_CreditorReferenceInformation")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBRemittanceInformationStructuredCreditorReferenceInformation {
@@ -67,12 +68,12 @@ public class OBRemittanceInformationStructuredCreditorReferenceInformation {
     }
 
     /**
-     * Get issuer
+     * Entity that assigns the identification.
      *
      * @return issuer
      */
     @Size(min = 1, max = 35)
-    @Schema(name = "Issuer", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Issuer", description = "Entity that assigns the identification.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Issuer")
     public String getIssuer() {
         return issuer;
@@ -88,12 +89,12 @@ public class OBRemittanceInformationStructuredCreditorReferenceInformation {
     }
 
     /**
-     * Get reference
+     * Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction.
      *
      * @return reference
      */
     @Size(min = 1, max = 35)
-    @Schema(name = "Reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Reference", description = "Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Reference")
     public String getReference() {
         return reference;

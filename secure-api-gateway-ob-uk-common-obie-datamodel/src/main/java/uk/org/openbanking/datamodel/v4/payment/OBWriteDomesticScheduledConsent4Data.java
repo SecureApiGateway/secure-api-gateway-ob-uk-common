@@ -24,7 +24,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
 
 /**
  * OBWriteDomesticScheduledConsent4Data
@@ -36,11 +35,11 @@ public class OBWriteDomesticScheduledConsent4Data {
 
     private OBWriteDomesticScheduledConsent4DataPermission permission;
 
-    private OBReadRefundAccount readRefundAccount;
+    private OBWriteDomesticScheduledConsent4DataReadRefundAccount readRefundAccount;
 
     private OBWriteDomesticScheduledConsent4DataInitiation initiation;
 
-    private OBWriteDomesticConsent4DataAuthorisation authorisation;
+    private OBWriteDomesticConsentResponse5DataAuthorisation authorisation;
 
     private OBSCASupportData1 scASupportData;
 
@@ -78,7 +77,7 @@ public class OBWriteDomesticScheduledConsent4Data {
         this.permission = permission;
     }
 
-    public OBWriteDomesticScheduledConsent4Data readRefundAccount(OBReadRefundAccount readRefundAccount) {
+    public OBWriteDomesticScheduledConsent4Data readRefundAccount(OBWriteDomesticScheduledConsent4DataReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
@@ -91,11 +90,11 @@ public class OBWriteDomesticScheduledConsent4Data {
     @Valid
     @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReadRefundAccount")
-    public OBReadRefundAccount getReadRefundAccount() {
+    public OBWriteDomesticScheduledConsent4DataReadRefundAccount getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(OBReadRefundAccount readRefundAccount) {
+    public void setReadRefundAccount(OBWriteDomesticScheduledConsent4DataReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 
@@ -121,7 +120,7 @@ public class OBWriteDomesticScheduledConsent4Data {
         this.initiation = initiation;
     }
 
-    public OBWriteDomesticScheduledConsent4Data authorisation(OBWriteDomesticConsent4DataAuthorisation authorisation) {
+    public OBWriteDomesticScheduledConsent4Data authorisation(OBWriteDomesticConsentResponse5DataAuthorisation authorisation) {
         this.authorisation = authorisation;
         return this;
     }
@@ -134,11 +133,11 @@ public class OBWriteDomesticScheduledConsent4Data {
     @Valid
     @Schema(name = "Authorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Authorisation")
-    public OBWriteDomesticConsent4DataAuthorisation getAuthorisation() {
+    public OBWriteDomesticConsentResponse5DataAuthorisation getAuthorisation() {
         return authorisation;
     }
 
-    public void setAuthorisation(OBWriteDomesticConsent4DataAuthorisation authorisation) {
+    public void setAuthorisation(OBWriteDomesticConsentResponse5DataAuthorisation authorisation) {
         this.authorisation = authorisation;
     }
 

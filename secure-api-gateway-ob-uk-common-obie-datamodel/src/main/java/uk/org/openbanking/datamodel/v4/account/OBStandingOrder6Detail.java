@@ -26,7 +26,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
 
@@ -41,21 +40,11 @@ public class OBStandingOrder6Detail {
 
     private String standingOrderId;
 
-    private String frequency;
-
-    private String reference;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private DateTime firstPaymentDateTime;
-
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime nextPaymentDateTime;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime lastPaymentDateTime;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private DateTime finalPaymentDateTime;
 
     private ExternalMandateStatus1Code standingOrderStatusCode;
 
@@ -73,6 +62,10 @@ public class OBStandingOrder6Detail {
 
     private OBSupplementaryData1 supplementaryData;
 
+    private OBMandateRelatedInformation1 mandateRelatedInformation;
+
+    private OBRemittanceInformation2 remittanceInformation;
+
     public OBStandingOrder6Detail() {
         super();
     }
@@ -80,9 +73,8 @@ public class OBStandingOrder6Detail {
     /**
      * Constructor with only required parameters
      */
-    public OBStandingOrder6Detail(String accountId, String frequency, OBCashAccount51 creditorAccount) {
+    public OBStandingOrder6Detail(String accountId, OBCashAccount51 creditorAccount) {
         this.accountId = accountId;
-        this.frequency = frequency;
         this.creditorAccount = creditorAccount;
     }
 
@@ -129,82 +121,18 @@ public class OBStandingOrder6Detail {
         this.standingOrderId = standingOrderId;
     }
 
-    public OBStandingOrder6Detail frequency(String frequency) {
-        this.frequency = frequency;
-        return this;
-    }
-
-    /**
-     * Individual Definitions: NotKnown - Not Known EvryDay - Every day EvryWorkgDay - Every working day IntrvlDay - An interval specified in number of calendar days (02 to 31) IntrvlWkDay - An interval specified in weeks (01 to 09), and the day within the week (01 to 07) WkInMnthDay - A monthly interval, specifying the week of the month (01 to 05) and day within the week (01 to 07) IntrvlMnthDay - An interval specified in months (between 01 to 06, 12, 24), specifying the day within the month (-05 to -01, 01 to 31) QtrDay - Quarterly (either ENGLISH, SCOTTISH, or RECEIVED) ENGLISH = Paid on the 25th March, 24th June, 29th September and 25th December. SCOTTISH = Paid on the 2nd February, 15th May, 1st August and 11th November. RECEIVED = Paid on the 20th March, 19th June, 24th September and 20th December. Individual Patterns: NotKnown (ScheduleCode) EvryDay (ScheduleCode) EvryWorkgDay (ScheduleCode) IntrvlDay:NoOfDay (ScheduleCode + NoOfDay) IntrvlWkDay:IntervalInWeeks:DayInWeek (ScheduleCode + IntervalInWeeks + DayInWeek) WkInMnthDay:WeekInMonth:DayInWeek (ScheduleCode + WeekInMonth + DayInWeek) IntrvlMnthDay:IntervalInMonths:DayInMonth (ScheduleCode + IntervalInMonths + DayInMonth) QtrDay: + either (ENGLISH, SCOTTISH or RECEIVED) ScheduleCode + QuarterDay The regular expression for this element combines five smaller versions for each permitted pattern. To aid legibility - the components are presented individually here: NotKnown EvryDay EvryWorkgDay IntrvlDay:((0[2-9])|([1-2][0-9])|3[0-1]) IntrvlWkDay:0[1-9]:0[1-7] WkInMnthDay:0[1-5]:0[1-7] IntrvlMnthDay:(0[1-6]|12|24):(-0[1-5]|0[1-9]|[12][0-9]|3[01]) QtrDay:(ENGLISH|SCOTTISH|RECEIVED) Full Regular Expression: ^(NotKnown)$|^(EvryDay)$|^(EvryWorkgDay)$|^(IntrvlDay:((0[2-9])|([1-2][0-9])|3[0-1]))$|^(IntrvlWkDay:0[1-9]:0[1-7])$|^(WkInMnthDay:0[1-5]:0[1-7])$|^(IntrvlMnthDay:(0[1-6]|12|24):(-0[1-5]|0[1-9]|[12][0-9]|3[01]))$|^(QtrDay:(ENGLISH|SCOTTISH|RECEIVED))$
-     *
-     * @return frequency
-     */
-    @NotNull
-    @Pattern(regexp = "^(NotKnown)$|^(EvryDay)$|^(EvryWorkgDay)$|^(IntrvlDay:((0[2-9])|([1-2][0-9])|3[0-1]))$|^(IntrvlWkDay:0[1-9]:0[1-7])$|^(WkInMnthDay:0[1-5]:0[1-7])$|^(IntrvlMnthDay:(0[1-6]|12|24):(-0[1-5]|0[1-9]|[12][0-9]|3[01]))$|^(QtrDay:(ENGLISH|SCOTTISH|RECEIVED))$")
-    @Schema(name = "Frequency", description = "Individual Definitions: NotKnown - Not Known EvryDay - Every day EvryWorkgDay - Every working day IntrvlDay - An interval specified in number of calendar days (02 to 31) IntrvlWkDay - An interval specified in weeks (01 to 09), and the day within the week (01 to 07) WkInMnthDay - A monthly interval, specifying the week of the month (01 to 05) and day within the week (01 to 07) IntrvlMnthDay - An interval specified in months (between 01 to 06, 12, 24), specifying the day within the month (-05 to -01, 01 to 31) QtrDay - Quarterly (either ENGLISH, SCOTTISH, or RECEIVED) ENGLISH = Paid on the 25th March, 24th June, 29th September and 25th December. SCOTTISH = Paid on the 2nd February, 15th May, 1st August and 11th November. RECEIVED = Paid on the 20th March, 19th June, 24th September and 20th December. Individual Patterns: NotKnown (ScheduleCode) EvryDay (ScheduleCode) EvryWorkgDay (ScheduleCode) IntrvlDay:NoOfDay (ScheduleCode + NoOfDay) IntrvlWkDay:IntervalInWeeks:DayInWeek (ScheduleCode + IntervalInWeeks + DayInWeek) WkInMnthDay:WeekInMonth:DayInWeek (ScheduleCode + WeekInMonth + DayInWeek) IntrvlMnthDay:IntervalInMonths:DayInMonth (ScheduleCode + IntervalInMonths + DayInMonth) QtrDay: + either (ENGLISH, SCOTTISH or RECEIVED) ScheduleCode + QuarterDay The regular expression for this element combines five smaller versions for each permitted pattern. To aid legibility - the components are presented individually here: NotKnown EvryDay EvryWorkgDay IntrvlDay:((0[2-9])|([1-2][0-9])|3[0-1]) IntrvlWkDay:0[1-9]:0[1-7] WkInMnthDay:0[1-5]:0[1-7] IntrvlMnthDay:(0[1-6]|12|24):(-0[1-5]|0[1-9]|[12][0-9]|3[01]) QtrDay:(ENGLISH|SCOTTISH|RECEIVED) Full Regular Expression: ^(NotKnown)$|^(EvryDay)$|^(EvryWorkgDay)$|^(IntrvlDay:((0[2-9])|([1-2][0-9])|3[0-1]))$|^(IntrvlWkDay:0[1-9]:0[1-7])$|^(WkInMnthDay:0[1-5]:0[1-7])$|^(IntrvlMnthDay:(0[1-6]|12|24):(-0[1-5]|0[1-9]|[12][0-9]|3[01]))$|^(QtrDay:(ENGLISH|SCOTTISH|RECEIVED))$", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Frequency")
-    public String getFrequency() {
-        return frequency;
-    }
-
-    public void setFrequency(String frequency) {
-        this.frequency = frequency;
-    }
-
-    public OBStandingOrder6Detail reference(String reference) {
-        this.reference = reference;
-        return this;
-    }
-
-    /**
-     * Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. Usage: If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money. If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.
-     *
-     * @return reference
-     */
-    @Size(min = 1, max = 35)
-    @Schema(name = "Reference", example = "Towbar Club", description = "Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. Usage: If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money. If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Reference")
-    public String getReference() {
-        return reference;
-    }
-
-    public void setReference(String reference) {
-        this.reference = reference;
-    }
-
-    public OBStandingOrder6Detail firstPaymentDateTime(DateTime firstPaymentDateTime) {
-        this.firstPaymentDateTime = firstPaymentDateTime;
-        return this;
-    }
-
-    /**
-     * The date on which the first payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
-     * @return firstPaymentDateTime
-     */
-    @Valid
-    @Schema(name = "FirstPaymentDateTime", description = "The date on which the first payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("FirstPaymentDateTime")
-    public DateTime getFirstPaymentDateTime() {
-        return firstPaymentDateTime;
-    }
-
-    public void setFirstPaymentDateTime(DateTime firstPaymentDateTime) {
-        this.firstPaymentDateTime = firstPaymentDateTime;
-    }
-
     public OBStandingOrder6Detail nextPaymentDateTime(DateTime nextPaymentDateTime) {
         this.nextPaymentDateTime = nextPaymentDateTime;
         return this;
     }
 
     /**
-     * The date on which the next payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * The date on which the next payment for a Standing Order schedule will be made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return nextPaymentDateTime
      */
     @Valid
-    @Schema(name = "NextPaymentDateTime", example = "2017-07-12T00:00Z", description = "The date on which the next payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "NextPaymentDateTime", example = "2017-07-12T00:00Z", description = "The date on which the next payment for a Standing Order schedule will be made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("NextPaymentDateTime")
     public DateTime getNextPaymentDateTime() {
         return nextPaymentDateTime;
@@ -220,12 +148,12 @@ public class OBStandingOrder6Detail {
     }
 
     /**
-     * The date on which the last (most recent) payment for a Standing Order schedule was made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * The date on which the last (most recent) payment for a Standing Order schedule was made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return lastPaymentDateTime
      */
     @Valid
-    @Schema(name = "LastPaymentDateTime", example = "2017-07-12T00:00Z", description = "The date on which the last (most recent) payment for a Standing Order schedule was made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "LastPaymentDateTime", example = "2017-07-12T00:00Z", description = "The date on which the last (most recent) payment for a Standing Order schedule was made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LastPaymentDateTime")
     public DateTime getLastPaymentDateTime() {
         return lastPaymentDateTime;
@@ -233,27 +161,6 @@ public class OBStandingOrder6Detail {
 
     public void setLastPaymentDateTime(DateTime lastPaymentDateTime) {
         this.lastPaymentDateTime = lastPaymentDateTime;
-    }
-
-    public OBStandingOrder6Detail finalPaymentDateTime(DateTime finalPaymentDateTime) {
-        this.finalPaymentDateTime = finalPaymentDateTime;
-        return this;
-    }
-
-    /**
-     * The date on which the final payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
-     * @return finalPaymentDateTime
-     */
-    @Valid
-    @Schema(name = "FinalPaymentDateTime", description = "The date on which the final payment for a Standing Order schedule will be made.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("FinalPaymentDateTime")
-    public DateTime getFinalPaymentDateTime() {
-        return finalPaymentDateTime;
-    }
-
-    public void setFinalPaymentDateTime(DateTime finalPaymentDateTime) {
-        this.finalPaymentDateTime = finalPaymentDateTime;
     }
 
     public OBStandingOrder6Detail standingOrderStatusCode(ExternalMandateStatus1Code standingOrderStatusCode) {
@@ -425,6 +332,48 @@ public class OBStandingOrder6Detail {
         this.supplementaryData = supplementaryData;
     }
 
+    public OBStandingOrder6Detail mandateRelatedInformation(OBMandateRelatedInformation1 mandateRelatedInformation) {
+        this.mandateRelatedInformation = mandateRelatedInformation;
+        return this;
+    }
+
+    /**
+     * Get mandateRelatedInformation
+     *
+     * @return mandateRelatedInformation
+     */
+    @Valid
+    @Schema(name = "MandateRelatedInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("MandateRelatedInformation")
+    public OBMandateRelatedInformation1 getMandateRelatedInformation() {
+        return mandateRelatedInformation;
+    }
+
+    public void setMandateRelatedInformation(OBMandateRelatedInformation1 mandateRelatedInformation) {
+        this.mandateRelatedInformation = mandateRelatedInformation;
+    }
+
+    public OBStandingOrder6Detail remittanceInformation(OBRemittanceInformation2 remittanceInformation) {
+        this.remittanceInformation = remittanceInformation;
+        return this;
+    }
+
+    /**
+     * Get remittanceInformation
+     *
+     * @return remittanceInformation
+     */
+    @Valid
+    @Schema(name = "RemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("RemittanceInformation")
+    public OBRemittanceInformation2 getRemittanceInformation() {
+        return remittanceInformation;
+    }
+
+    public void setRemittanceInformation(OBRemittanceInformation2 remittanceInformation) {
+        this.remittanceInformation = remittanceInformation;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -436,12 +385,8 @@ public class OBStandingOrder6Detail {
         OBStandingOrder6Detail obStandingOrder6Detail = (OBStandingOrder6Detail) o;
         return Objects.equals(this.accountId, obStandingOrder6Detail.accountId) &&
                 Objects.equals(this.standingOrderId, obStandingOrder6Detail.standingOrderId) &&
-                Objects.equals(this.frequency, obStandingOrder6Detail.frequency) &&
-                Objects.equals(this.reference, obStandingOrder6Detail.reference) &&
-                Objects.equals(this.firstPaymentDateTime, obStandingOrder6Detail.firstPaymentDateTime) &&
                 Objects.equals(this.nextPaymentDateTime, obStandingOrder6Detail.nextPaymentDateTime) &&
                 Objects.equals(this.lastPaymentDateTime, obStandingOrder6Detail.lastPaymentDateTime) &&
-                Objects.equals(this.finalPaymentDateTime, obStandingOrder6Detail.finalPaymentDateTime) &&
                 Objects.equals(this.standingOrderStatusCode, obStandingOrder6Detail.standingOrderStatusCode) &&
                 Objects.equals(this.firstPaymentAmount, obStandingOrder6Detail.firstPaymentAmount) &&
                 Objects.equals(this.nextPaymentAmount, obStandingOrder6Detail.nextPaymentAmount) &&
@@ -449,12 +394,14 @@ public class OBStandingOrder6Detail {
                 Objects.equals(this.finalPaymentAmount, obStandingOrder6Detail.finalPaymentAmount) &&
                 Objects.equals(this.creditorAgent, obStandingOrder6Detail.creditorAgent) &&
                 Objects.equals(this.creditorAccount, obStandingOrder6Detail.creditorAccount) &&
-                Objects.equals(this.supplementaryData, obStandingOrder6Detail.supplementaryData);
+                Objects.equals(this.supplementaryData, obStandingOrder6Detail.supplementaryData) &&
+                Objects.equals(this.mandateRelatedInformation, obStandingOrder6Detail.mandateRelatedInformation) &&
+                Objects.equals(this.remittanceInformation, obStandingOrder6Detail.remittanceInformation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, standingOrderId, frequency, reference, firstPaymentDateTime, nextPaymentDateTime, lastPaymentDateTime, finalPaymentDateTime, standingOrderStatusCode, firstPaymentAmount, nextPaymentAmount, lastPaymentAmount, finalPaymentAmount, creditorAgent, creditorAccount, supplementaryData);
+        return Objects.hash(accountId, standingOrderId, nextPaymentDateTime, lastPaymentDateTime, standingOrderStatusCode, firstPaymentAmount, nextPaymentAmount, lastPaymentAmount, finalPaymentAmount, creditorAgent, creditorAccount, supplementaryData, mandateRelatedInformation, remittanceInformation);
     }
 
     @Override
@@ -463,12 +410,8 @@ public class OBStandingOrder6Detail {
         sb.append("class OBStandingOrder6Detail {\n");
         sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
         sb.append("    standingOrderId: ").append(toIndentedString(standingOrderId)).append("\n");
-        sb.append("    frequency: ").append(toIndentedString(frequency)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    firstPaymentDateTime: ").append(toIndentedString(firstPaymentDateTime)).append("\n");
         sb.append("    nextPaymentDateTime: ").append(toIndentedString(nextPaymentDateTime)).append("\n");
         sb.append("    lastPaymentDateTime: ").append(toIndentedString(lastPaymentDateTime)).append("\n");
-        sb.append("    finalPaymentDateTime: ").append(toIndentedString(finalPaymentDateTime)).append("\n");
         sb.append("    standingOrderStatusCode: ").append(toIndentedString(standingOrderStatusCode)).append("\n");
         sb.append("    firstPaymentAmount: ").append(toIndentedString(firstPaymentAmount)).append("\n");
         sb.append("    nextPaymentAmount: ").append(toIndentedString(nextPaymentAmount)).append("\n");
@@ -477,6 +420,8 @@ public class OBStandingOrder6Detail {
         sb.append("    creditorAgent: ").append(toIndentedString(creditorAgent)).append("\n");
         sb.append("    creditorAccount: ").append(toIndentedString(creditorAccount)).append("\n");
         sb.append("    supplementaryData: ").append(toIndentedString(supplementaryData)).append("\n");
+        sb.append("    mandateRelatedInformation: ").append(toIndentedString(mandateRelatedInformation)).append("\n");
+        sb.append("    remittanceInformation: ").append(toIndentedString(remittanceInformation)).append("\n");
         sb.append("}");
         return sb.toString();
     }

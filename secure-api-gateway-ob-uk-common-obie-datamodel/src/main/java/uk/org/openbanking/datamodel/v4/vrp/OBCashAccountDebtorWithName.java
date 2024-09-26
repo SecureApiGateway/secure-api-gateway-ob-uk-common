@@ -21,8 +21,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.OBProxy1;
 
 /**
  * OBCashAccountDebtorWithName
@@ -39,7 +41,7 @@ public class OBCashAccountDebtorWithName {
 
     private String secondaryIdentification;
 
-    private String LEI;
+    private OBProxy1 proxy;
 
     public OBCashAccountDebtorWithName() {
         super();
@@ -60,12 +62,12 @@ public class OBCashAccountDebtorWithName {
     }
 
     /**
-     * Name of the identification scheme, in a coded form as published in an external list.
+     * Name of the identification scheme, in a coded form as published in an external list. For a full list of values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return schemeName
      */
     @NotNull
-    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. For a full list of values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("SchemeName")
     public String getSchemeName() {
         return schemeName;
@@ -108,7 +110,7 @@ public class OBCashAccountDebtorWithName {
      * @return name
      */
     @NotNull
-    @Size(min = 1, max = 350)
+    @Size(min = 1, max = 70)
     @Schema(name = "Name", description = "^ Name of the account, as assigned by the account servicing institution.  Usage The account name is the name or names of the account owner(s) represented at an account level. The account name is not the product name or the nickname of the account.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Name")
     public String getName() {
@@ -140,25 +142,25 @@ public class OBCashAccountDebtorWithName {
         this.secondaryIdentification = secondaryIdentification;
     }
 
-    public OBCashAccountDebtorWithName LEI(String LEI) {
-        this.LEI = LEI;
+    public OBCashAccountDebtorWithName proxy(OBProxy1 proxy) {
+        this.proxy = proxy;
         return this;
     }
 
     /**
-     * Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".
+     * Get proxy
      *
-     * @return LEI
+     * @return proxy
      */
-    @Size(min = 1, max = 20)
-    @Schema(name = "LEI", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("LEI")
-    public String getLEI() {
-        return LEI;
+    @Valid
+    @Schema(name = "Proxy", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("Proxy")
+    public OBProxy1 getProxy() {
+        return proxy;
     }
 
-    public void setLEI(String LEI) {
-        this.LEI = LEI;
+    public void setProxy(OBProxy1 proxy) {
+        this.proxy = proxy;
     }
 
     @Override
@@ -174,12 +176,12 @@ public class OBCashAccountDebtorWithName {
                 Objects.equals(this.identification, obCashAccountDebtorWithName.identification) &&
                 Objects.equals(this.name, obCashAccountDebtorWithName.name) &&
                 Objects.equals(this.secondaryIdentification, obCashAccountDebtorWithName.secondaryIdentification) &&
-                Objects.equals(this.LEI, obCashAccountDebtorWithName.LEI);
+                Objects.equals(this.proxy, obCashAccountDebtorWithName.proxy);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(schemeName, identification, name, secondaryIdentification, LEI);
+        return Objects.hash(schemeName, identification, name, secondaryIdentification, proxy);
     }
 
     @Override
@@ -190,7 +192,7 @@ public class OBCashAccountDebtorWithName {
         sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    secondaryIdentification: ").append(toIndentedString(secondaryIdentification)).append("\n");
-        sb.append("    LEI: ").append(toIndentedString(LEI)).append("\n");
+        sb.append("    proxy: ").append(toIndentedString(proxy)).append("\n");
         sb.append("}");
         return sb.toString();
     }

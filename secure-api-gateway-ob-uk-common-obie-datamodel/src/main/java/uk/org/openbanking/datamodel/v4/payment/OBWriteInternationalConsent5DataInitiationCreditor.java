@@ -13,37 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.v4.vrp;
+package uk.org.openbanking.datamodel.v4.payment;
 
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
 
 /**
- * Ultimate party that owes an amount of money to the (ultimate) creditor.
+ * Party to which an amount of money is due.
  */
 
-@Schema(name = "OBUltimateDebtor1", description = "Ultimate party that owes an amount of money to the (ultimate) creditor.")
+@Schema(name = "OBWriteInternationalConsent5_Data_Initiation_Creditor", description = "Party to which an amount of money is due.")
+@JsonTypeName("OBWriteInternationalConsent5_Data_Initiation_Creditor")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBUltimateDebtor1 {
+public class OBWriteInternationalConsent5DataInitiationCreditor {
 
     private String name;
 
-    private String identification;
-
     private String LEI;
-
-    private String schemeName;
 
     private OBPostalAddress7 postalAddress;
 
-    public OBUltimateDebtor1 name(String name) {
+    public OBWriteInternationalConsent5DataInitiationCreditor name(String name) {
         this.name = name;
         return this;
     }
@@ -53,7 +52,7 @@ public class OBUltimateDebtor1 {
      *
      * @return name
      */
-    @Size(min = 1, max = 140)
+    @Size(min = 1, max = 350)
     @Schema(name = "Name", description = "Name by which a party is known and which is usually used to identify that party.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
     public String getName() {
@@ -64,28 +63,7 @@ public class OBUltimateDebtor1 {
         this.name = name;
     }
 
-    public OBUltimateDebtor1 identification(String identification) {
-        this.identification = identification;
-        return this;
-    }
-
-    /**
-     * Identification assigned by an institution.
-     *
-     * @return identification
-     */
-    @Size(min = 1, max = 256)
-    @Schema(name = "Identification", description = "Identification assigned by an institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Identification")
-    public String getIdentification() {
-        return identification;
-    }
-
-    public void setIdentification(String identification) {
-        this.identification = identification;
-    }
-
-    public OBUltimateDebtor1 LEI(String LEI) {
+    public OBWriteInternationalConsent5DataInitiationCreditor LEI(String LEI) {
         this.LEI = LEI;
         return this;
     }
@@ -95,6 +73,7 @@ public class OBUltimateDebtor1 {
      *
      * @return LEI
      */
+    @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
     @Size(min = 1, max = 20)
     @Schema(name = "LEI", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LEI")
@@ -106,28 +85,7 @@ public class OBUltimateDebtor1 {
         this.LEI = LEI;
     }
 
-    public OBUltimateDebtor1 schemeName(String schemeName) {
-        this.schemeName = schemeName;
-        return this;
-    }
-
-    /**
-     * Name of the identification scheme, in a coded form as published in an external list.
-     *
-     * @return schemeName
-     */
-
-    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("SchemeName")
-    public String getSchemeName() {
-        return schemeName;
-    }
-
-    public void setSchemeName(String schemeName) {
-        this.schemeName = schemeName;
-    }
-
-    public OBUltimateDebtor1 postalAddress(OBPostalAddress7 postalAddress) {
+    public OBWriteInternationalConsent5DataInitiationCreditor postalAddress(OBPostalAddress7 postalAddress) {
         this.postalAddress = postalAddress;
         return this;
     }
@@ -156,27 +114,23 @@ public class OBUltimateDebtor1 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBUltimateDebtor1 obUltimateDebtor1 = (OBUltimateDebtor1) o;
-        return Objects.equals(this.name, obUltimateDebtor1.name) &&
-                Objects.equals(this.identification, obUltimateDebtor1.identification) &&
-                Objects.equals(this.LEI, obUltimateDebtor1.LEI) &&
-                Objects.equals(this.schemeName, obUltimateDebtor1.schemeName) &&
-                Objects.equals(this.postalAddress, obUltimateDebtor1.postalAddress);
+        OBWriteInternationalConsent5DataInitiationCreditor obWriteInternationalConsent5DataInitiationCreditor = (OBWriteInternationalConsent5DataInitiationCreditor) o;
+        return Objects.equals(this.name, obWriteInternationalConsent5DataInitiationCreditor.name) &&
+                Objects.equals(this.LEI, obWriteInternationalConsent5DataInitiationCreditor.LEI) &&
+                Objects.equals(this.postalAddress, obWriteInternationalConsent5DataInitiationCreditor.postalAddress);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, identification, LEI, schemeName, postalAddress);
+        return Objects.hash(name, LEI, postalAddress);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OBUltimateDebtor1 {\n");
+        sb.append("class OBWriteInternationalConsent5DataInitiationCreditor {\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
         sb.append("    LEI: ").append(toIndentedString(LEI)).append("\n");
-        sb.append("    schemeName: ").append(toIndentedString(schemeName)).append("\n");
         sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
         sb.append("}");
         return sb.toString();

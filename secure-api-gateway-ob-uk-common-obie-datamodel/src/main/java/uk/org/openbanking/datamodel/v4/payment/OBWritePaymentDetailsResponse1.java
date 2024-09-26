@@ -15,8 +15,6 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,8 +33,7 @@ import uk.org.openbanking.datamodel.v4.common.Meta;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWritePaymentDetailsResponse1 {
 
-    @Valid
-    private List<@Valid OBWritePaymentDetails1> data = new ArrayList<>();
+    private OBWritePaymentDetailsResponse1Data data;
 
     private Links links;
 
@@ -49,20 +46,12 @@ public class OBWritePaymentDetailsResponse1 {
     /**
      * Constructor with only required parameters
      */
-    public OBWritePaymentDetailsResponse1(List<@Valid OBWritePaymentDetails1> data) {
+    public OBWritePaymentDetailsResponse1(OBWritePaymentDetailsResponse1Data data) {
         this.data = data;
     }
 
-    public OBWritePaymentDetailsResponse1 data(List<@Valid OBWritePaymentDetails1> data) {
+    public OBWritePaymentDetailsResponse1 data(OBWritePaymentDetailsResponse1Data data) {
         this.data = data;
-        return this;
-    }
-
-    public OBWritePaymentDetailsResponse1 addDataItem(OBWritePaymentDetails1 dataItem) {
-        if (this.data == null) {
-            this.data = new ArrayList<>();
-        }
-        this.data.add(dataItem);
         return this;
     }
 
@@ -75,11 +64,11 @@ public class OBWritePaymentDetailsResponse1 {
     @Valid
     @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Data")
-    public List<@Valid OBWritePaymentDetails1> getData() {
+    public OBWritePaymentDetailsResponse1Data getData() {
         return data;
     }
 
-    public void setData(List<@Valid OBWritePaymentDetails1> data) {
+    public void setData(OBWritePaymentDetailsResponse1Data data) {
         this.data = data;
     }
 

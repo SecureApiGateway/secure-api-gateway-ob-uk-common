@@ -15,6 +15,8 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -157,12 +159,12 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
     }
 
     /**
-     * Specified date and time the exchange rate agreement will expire.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Specified date and time the exchange rate agreement will expire. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
      *
      * @return expirationDateTime
      */
     @Valid
-    @Schema(name = "ExpirationDateTime", description = "Specified date and time the exchange rate agreement will expire.All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "ExpirationDateTime", description = "Specified date and time the exchange rate agreement will expire. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExpirationDateTime")
     public DateTime getExpirationDateTime() {
         return expirationDateTime;
@@ -182,7 +184,7 @@ public class OBWriteInternationalConsentResponse6DataExchangeRateInformation {
         }
         OBWriteInternationalConsentResponse6DataExchangeRateInformation obWriteInternationalConsentResponse6DataExchangeRateInformation = (OBWriteInternationalConsentResponse6DataExchangeRateInformation) o;
         return Objects.equals(this.unitCurrency, obWriteInternationalConsentResponse6DataExchangeRateInformation.unitCurrency) &&
-                Objects.equals(this.exchangeRate, obWriteInternationalConsentResponse6DataExchangeRateInformation.exchangeRate) &&
+                isEqual(this.exchangeRate, obWriteInternationalConsentResponse6DataExchangeRateInformation.exchangeRate) &&
                 Objects.equals(this.rateType, obWriteInternationalConsentResponse6DataExchangeRateInformation.rateType) &&
                 Objects.equals(this.contractIdentification, obWriteInternationalConsentResponse6DataExchangeRateInformation.contractIdentification) &&
                 Objects.equals(this.expirationDateTime, obWriteInternationalConsentResponse6DataExchangeRateInformation.expirationDateTime);

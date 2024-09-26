@@ -76,12 +76,12 @@ public class OBReferredDocumentInformation {
     }
 
     /**
-     * Get issuer
+     * Identification of the issuer of the reference document type.
      *
      * @return issuer
      */
-    @Size(min = 1, max = 140)
-    @Schema(name = "Issuer", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Size(min = 1, max = 35)
+    @Schema(name = "Issuer", description = "Identification of the issuer of the reference document type.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Issuer")
     public String getIssuer() {
         return issuer;
@@ -97,12 +97,12 @@ public class OBReferredDocumentInformation {
     }
 
     /**
-     * Get number
+     * Identification of the type specified for the referred document line.
      *
      * @return number
      */
-    @Size(min = 1, max = 140)
-    @Schema(name = "Number", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Size(min = 1, max = 35)
+    @Schema(name = "Number", description = "Identification of the type specified for the referred document line.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Number")
     public String getNumber() {
         return number;
@@ -118,12 +118,12 @@ public class OBReferredDocumentInformation {
     }
 
     /**
-     * All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date associated with the referred document line.
      *
      * @return relatedDate
      */
     @Valid
-    @Schema(name = "RelatedDate", description = "All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "RelatedDate", description = "Date associated with the referred document line.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RelatedDate")
     public DateTime getRelatedDate() {
         return relatedDate;
@@ -147,12 +147,12 @@ public class OBReferredDocumentInformation {
     }
 
     /**
-     * Get lineDetails
+     * Set of elements used to provide the content of the referred document line.
      *
      * @return lineDetails
      */
 
-    @Schema(name = "LineDetails", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "LineDetails", description = "Set of elements used to provide the content of the referred document line.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LineDetails")
     public List<String> getLineDetails() {
         return lineDetails;

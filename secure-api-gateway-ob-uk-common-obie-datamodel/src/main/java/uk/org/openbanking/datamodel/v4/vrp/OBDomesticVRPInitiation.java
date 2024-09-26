@@ -27,6 +27,8 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
 
 /**
  * OBDomesticVRPInitiation
@@ -42,8 +44,6 @@ public class OBDomesticVRPInitiation {
     private OBPostalAddress7 creditorPostalAddress;
 
     private OBUltimateCreditor1 ultimateCreditor;
-
-    private OBBranchAndFinancialInstitutionIdentification60 creditorAgent;
 
     private OBUltimateDebtor1 ultimateDebtor;
 
@@ -136,27 +136,6 @@ public class OBDomesticVRPInitiation {
         this.ultimateCreditor = ultimateCreditor;
     }
 
-    public OBDomesticVRPInitiation creditorAgent(OBBranchAndFinancialInstitutionIdentification60 creditorAgent) {
-        this.creditorAgent = creditorAgent;
-        return this;
-    }
-
-    /**
-     * Get creditorAgent
-     *
-     * @return creditorAgent
-     */
-    @Valid
-    @Schema(name = "CreditorAgent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("CreditorAgent")
-    public OBBranchAndFinancialInstitutionIdentification60 getCreditorAgent() {
-        return creditorAgent;
-    }
-
-    public void setCreditorAgent(OBBranchAndFinancialInstitutionIdentification60 creditorAgent) {
-        this.creditorAgent = creditorAgent;
-    }
-
     public OBDomesticVRPInitiation ultimateDebtor(OBUltimateDebtor1 ultimateDebtor) {
         this.ultimateDebtor = ultimateDebtor;
         return this;
@@ -242,7 +221,6 @@ public class OBDomesticVRPInitiation {
                 Objects.equals(this.creditorAccount, obDomesticVRPInitiation.creditorAccount) &&
                 Objects.equals(this.creditorPostalAddress, obDomesticVRPInitiation.creditorPostalAddress) &&
                 Objects.equals(this.ultimateCreditor, obDomesticVRPInitiation.ultimateCreditor) &&
-                Objects.equals(this.creditorAgent, obDomesticVRPInitiation.creditorAgent) &&
                 Objects.equals(this.ultimateDebtor, obDomesticVRPInitiation.ultimateDebtor) &&
                 Objects.equals(this.remittanceInformation, obDomesticVRPInitiation.remittanceInformation) &&
                 Objects.equals(this.regulatoryReporting, obDomesticVRPInitiation.regulatoryReporting);
@@ -250,7 +228,7 @@ public class OBDomesticVRPInitiation {
 
     @Override
     public int hashCode() {
-        return Objects.hash(debtorAccount, creditorAccount, creditorPostalAddress, ultimateCreditor, creditorAgent, ultimateDebtor, remittanceInformation, regulatoryReporting);
+        return Objects.hash(debtorAccount, creditorAccount, creditorPostalAddress, ultimateCreditor, ultimateDebtor, remittanceInformation, regulatoryReporting);
     }
 
     @Override
@@ -261,7 +239,6 @@ public class OBDomesticVRPInitiation {
         sb.append("    creditorAccount: ").append(toIndentedString(creditorAccount)).append("\n");
         sb.append("    creditorPostalAddress: ").append(toIndentedString(creditorPostalAddress)).append("\n");
         sb.append("    ultimateCreditor: ").append(toIndentedString(ultimateCreditor)).append("\n");
-        sb.append("    creditorAgent: ").append(toIndentedString(creditorAgent)).append("\n");
         sb.append("    ultimateDebtor: ").append(toIndentedString(ultimateDebtor)).append("\n");
         sb.append("    remittanceInformation: ").append(toIndentedString(remittanceInformation)).append("\n");
         sb.append("    regulatoryReporting: ").append(toIndentedString(regulatoryReporting)).append("\n");

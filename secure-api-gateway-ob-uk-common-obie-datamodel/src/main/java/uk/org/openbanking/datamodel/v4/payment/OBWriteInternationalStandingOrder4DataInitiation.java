@@ -29,6 +29,9 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v4.common.OBInternalChargeBearerType1Code;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for an international standing order.
@@ -41,8 +44,6 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     private OBRemittanceInformation2 remittanceInformation;
 
-    private String purpose;
-
     private String extendedPurpose;
 
     private OBInternalChargeBearerType1Code chargeBearer;
@@ -53,11 +54,9 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     private OBWriteDomestic2DataInitiationInstructedAmount instructedAmount;
 
-    private OBMandateRelatedInformation1 mandateRelatedInformation;
-
     private OBWriteDomesticStandingOrder3DataInitiationDebtorAccount debtorAccount;
 
-    private OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor creditor;
+    private OBWriteInternationalConsent5DataInitiationCreditor creditor;
 
     private OBWriteInternationalStandingOrder4DataInitiationCreditorAgent creditorAgent;
 
@@ -70,6 +69,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
     @Valid
     private List<@Valid OBRegulatoryReporting1> regulatoryReporting;
 
+    private OBMandateRelatedInformation1 mandateRelatedInformation;
+
     private OBSupplementaryData1 supplementaryData;
 
     public OBWriteInternationalStandingOrder4DataInitiation() {
@@ -79,10 +80,11 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteInternationalStandingOrder4DataInitiation(String currencyOfTransfer, OBWriteDomestic2DataInitiationInstructedAmount instructedAmount, OBWriteInternationalStandingOrder4DataInitiationCreditorAccount creditorAccount) {
+    public OBWriteInternationalStandingOrder4DataInitiation(String currencyOfTransfer, OBWriteDomestic2DataInitiationInstructedAmount instructedAmount, OBWriteInternationalStandingOrder4DataInitiationCreditorAccount creditorAccount, OBMandateRelatedInformation1 mandateRelatedInformation) {
         this.currencyOfTransfer = currencyOfTransfer;
         this.instructedAmount = instructedAmount;
         this.creditorAccount = creditorAccount;
+        this.mandateRelatedInformation = mandateRelatedInformation;
     }
 
     public OBWriteInternationalStandingOrder4DataInitiation remittanceInformation(OBRemittanceInformation2 remittanceInformation) {
@@ -104,27 +106,6 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     public void setRemittanceInformation(OBRemittanceInformation2 remittanceInformation) {
         this.remittanceInformation = remittanceInformation;
-    }
-
-    public OBWriteInternationalStandingOrder4DataInitiation purpose(String purpose) {
-        this.purpose = purpose;
-        return this;
-    }
-
-    /**
-     * Specifies the external purpose code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.
-     *
-     * @return purpose
-     */
-    @Size(min = 1, max = 4)
-    @Schema(name = "Purpose", description = "Specifies the external purpose code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Purpose")
-    public String getPurpose() {
-        return purpose;
-    }
-
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
     }
 
     public OBWriteInternationalStandingOrder4DataInitiation extendedPurpose(String extendedPurpose) {
@@ -234,27 +215,6 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
         this.instructedAmount = instructedAmount;
     }
 
-    public OBWriteInternationalStandingOrder4DataInitiation mandateRelatedInformation(OBMandateRelatedInformation1 mandateRelatedInformation) {
-        this.mandateRelatedInformation = mandateRelatedInformation;
-        return this;
-    }
-
-    /**
-     * Get mandateRelatedInformation
-     *
-     * @return mandateRelatedInformation
-     */
-    @Valid
-    @Schema(name = "MandateRelatedInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("MandateRelatedInformation")
-    public OBMandateRelatedInformation1 getMandateRelatedInformation() {
-        return mandateRelatedInformation;
-    }
-
-    public void setMandateRelatedInformation(OBMandateRelatedInformation1 mandateRelatedInformation) {
-        this.mandateRelatedInformation = mandateRelatedInformation;
-    }
-
     public OBWriteInternationalStandingOrder4DataInitiation debtorAccount(OBWriteDomesticStandingOrder3DataInitiationDebtorAccount debtorAccount) {
         this.debtorAccount = debtorAccount;
         return this;
@@ -276,7 +236,7 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
         this.debtorAccount = debtorAccount;
     }
 
-    public OBWriteInternationalStandingOrder4DataInitiation creditor(OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor creditor) {
+    public OBWriteInternationalStandingOrder4DataInitiation creditor(OBWriteInternationalConsent5DataInitiationCreditor creditor) {
         this.creditor = creditor;
         return this;
     }
@@ -289,11 +249,11 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
     @Valid
     @Schema(name = "Creditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Creditor")
-    public OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor getCreditor() {
+    public OBWriteInternationalConsent5DataInitiationCreditor getCreditor() {
         return creditor;
     }
 
-    public void setCreditor(OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor creditor) {
+    public void setCreditor(OBWriteInternationalConsent5DataInitiationCreditor creditor) {
         this.creditor = creditor;
     }
 
@@ -412,6 +372,28 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
         this.regulatoryReporting = regulatoryReporting;
     }
 
+    public OBWriteInternationalStandingOrder4DataInitiation mandateRelatedInformation(OBMandateRelatedInformation1 mandateRelatedInformation) {
+        this.mandateRelatedInformation = mandateRelatedInformation;
+        return this;
+    }
+
+    /**
+     * Get mandateRelatedInformation
+     *
+     * @return mandateRelatedInformation
+     */
+    @NotNull
+    @Valid
+    @Schema(name = "MandateRelatedInformation", requiredMode = Schema.RequiredMode.REQUIRED)
+    @JsonProperty("MandateRelatedInformation")
+    public OBMandateRelatedInformation1 getMandateRelatedInformation() {
+        return mandateRelatedInformation;
+    }
+
+    public void setMandateRelatedInformation(OBMandateRelatedInformation1 mandateRelatedInformation) {
+        this.mandateRelatedInformation = mandateRelatedInformation;
+    }
+
     public OBWriteInternationalStandingOrder4DataInitiation supplementaryData(OBSupplementaryData1 supplementaryData) {
         this.supplementaryData = supplementaryData;
         return this;
@@ -443,13 +425,11 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
         }
         OBWriteInternationalStandingOrder4DataInitiation obWriteInternationalStandingOrder4DataInitiation = (OBWriteInternationalStandingOrder4DataInitiation) o;
         return Objects.equals(this.remittanceInformation, obWriteInternationalStandingOrder4DataInitiation.remittanceInformation) &&
-                Objects.equals(this.purpose, obWriteInternationalStandingOrder4DataInitiation.purpose) &&
                 Objects.equals(this.extendedPurpose, obWriteInternationalStandingOrder4DataInitiation.extendedPurpose) &&
                 Objects.equals(this.chargeBearer, obWriteInternationalStandingOrder4DataInitiation.chargeBearer) &&
                 Objects.equals(this.currencyOfTransfer, obWriteInternationalStandingOrder4DataInitiation.currencyOfTransfer) &&
                 Objects.equals(this.destinationCountryCode, obWriteInternationalStandingOrder4DataInitiation.destinationCountryCode) &&
                 Objects.equals(this.instructedAmount, obWriteInternationalStandingOrder4DataInitiation.instructedAmount) &&
-                Objects.equals(this.mandateRelatedInformation, obWriteInternationalStandingOrder4DataInitiation.mandateRelatedInformation) &&
                 Objects.equals(this.debtorAccount, obWriteInternationalStandingOrder4DataInitiation.debtorAccount) &&
                 Objects.equals(this.creditor, obWriteInternationalStandingOrder4DataInitiation.creditor) &&
                 Objects.equals(this.creditorAgent, obWriteInternationalStandingOrder4DataInitiation.creditorAgent) &&
@@ -457,12 +437,13 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
                 Objects.equals(this.ultimateCreditor, obWriteInternationalStandingOrder4DataInitiation.ultimateCreditor) &&
                 Objects.equals(this.ultimateDebtor, obWriteInternationalStandingOrder4DataInitiation.ultimateDebtor) &&
                 Objects.equals(this.regulatoryReporting, obWriteInternationalStandingOrder4DataInitiation.regulatoryReporting) &&
+                Objects.equals(this.mandateRelatedInformation, obWriteInternationalStandingOrder4DataInitiation.mandateRelatedInformation) &&
                 Objects.equals(this.supplementaryData, obWriteInternationalStandingOrder4DataInitiation.supplementaryData);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(remittanceInformation, purpose, extendedPurpose, chargeBearer, currencyOfTransfer, destinationCountryCode, instructedAmount, mandateRelatedInformation, debtorAccount, creditor, creditorAgent, creditorAccount, ultimateCreditor, ultimateDebtor, regulatoryReporting, supplementaryData);
+        return Objects.hash(remittanceInformation, extendedPurpose, chargeBearer, currencyOfTransfer, destinationCountryCode, instructedAmount, debtorAccount, creditor, creditorAgent, creditorAccount, ultimateCreditor, ultimateDebtor, regulatoryReporting, mandateRelatedInformation, supplementaryData);
     }
 
     @Override
@@ -470,13 +451,11 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteInternationalStandingOrder4DataInitiation {\n");
         sb.append("    remittanceInformation: ").append(toIndentedString(remittanceInformation)).append("\n");
-        sb.append("    purpose: ").append(toIndentedString(purpose)).append("\n");
         sb.append("    extendedPurpose: ").append(toIndentedString(extendedPurpose)).append("\n");
         sb.append("    chargeBearer: ").append(toIndentedString(chargeBearer)).append("\n");
         sb.append("    currencyOfTransfer: ").append(toIndentedString(currencyOfTransfer)).append("\n");
         sb.append("    destinationCountryCode: ").append(toIndentedString(destinationCountryCode)).append("\n");
         sb.append("    instructedAmount: ").append(toIndentedString(instructedAmount)).append("\n");
-        sb.append("    mandateRelatedInformation: ").append(toIndentedString(mandateRelatedInformation)).append("\n");
         sb.append("    debtorAccount: ").append(toIndentedString(debtorAccount)).append("\n");
         sb.append("    creditor: ").append(toIndentedString(creditor)).append("\n");
         sb.append("    creditorAgent: ").append(toIndentedString(creditorAgent)).append("\n");
@@ -484,6 +463,7 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
         sb.append("    ultimateCreditor: ").append(toIndentedString(ultimateCreditor)).append("\n");
         sb.append("    ultimateDebtor: ").append(toIndentedString(ultimateDebtor)).append("\n");
         sb.append("    regulatoryReporting: ").append(toIndentedString(regulatoryReporting)).append("\n");
+        sb.append("    mandateRelatedInformation: ").append(toIndentedString(mandateRelatedInformation)).append("\n");
         sb.append("    supplementaryData: ").append(toIndentedString(supplementaryData)).append("\n");
         sb.append("}");
         return sb.toString();

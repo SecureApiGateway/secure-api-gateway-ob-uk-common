@@ -25,6 +25,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.OBProxy1;
 
 /**
  * Provides the details to identify the beneficiary account.
@@ -35,7 +36,7 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBCashAccount51 {
 
-    private OBInternalAccountIdentification4Code schemeName;
+    private String schemeName;
 
     private String identification;
 
@@ -52,30 +53,29 @@ public class OBCashAccount51 {
     /**
      * Constructor with only required parameters
      */
-    public OBCashAccount51(OBInternalAccountIdentification4Code schemeName, String identification) {
+    public OBCashAccount51(String schemeName, String identification) {
         this.schemeName = schemeName;
         this.identification = identification;
     }
 
-    public OBCashAccount51 schemeName(OBInternalAccountIdentification4Code schemeName) {
+    public OBCashAccount51 schemeName(String schemeName) {
         this.schemeName = schemeName;
         return this;
     }
 
     /**
-     * Get schemeName
+     * Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return schemeName
      */
     @NotNull
-    @Valid
-    @Schema(name = "SchemeName", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("SchemeName")
-    public OBInternalAccountIdentification4Code getSchemeName() {
+    public String getSchemeName() {
         return schemeName;
     }
 
-    public void setSchemeName(OBInternalAccountIdentification4Code schemeName) {
+    public void setSchemeName(String schemeName) {
         this.schemeName = schemeName;
     }
 

@@ -21,15 +21,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the status of the standing order in code form.
+ * Specifies the status of the standing order in code form. For a full list of enumeration values refer to 'ExternalMandateStatus1Code' in *ISO_External_Codeset* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum ExternalMandateStatus1Code {
 
-    ACTIVE("Active"),
+    ACTV("ACTV"),
 
-    INACTIVE("Inactive");
+    CANC("CANC"),
+
+    EXPI("EXPI"),
+
+    SUSP("SUSP");
 
     private String value;
 

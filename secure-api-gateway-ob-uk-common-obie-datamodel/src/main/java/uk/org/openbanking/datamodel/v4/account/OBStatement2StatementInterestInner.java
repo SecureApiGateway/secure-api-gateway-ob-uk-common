@@ -112,12 +112,12 @@ public class OBStatement2StatementInterestInner {
     }
 
     /**
-     * Interest amount type, in a coded form.
+     * Interest amount type, in a coded form. For a full list of values see `OBInternalStatementInterestType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return type
      */
     @NotNull
-    @Schema(name = "Type", example = "UK.OBIE.Total", description = "Interest amount type, in a coded form.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "Type", example = "UK.OBIE.Total", description = "Interest amount type, in a coded form. For a full list of values see `OBInternalStatementInterestType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
     public String getType() {
         return type;
@@ -133,12 +133,12 @@ public class OBStatement2StatementInterestInner {
     }
 
     /**
-     * field representing a percentage (e.g. 0.05 represents 5% and 0.9525 represents 95.25%). Note the number of decimal places may vary.
+     * Rate for Statement Interest (where it is applicable in terms of a rate rather than an amount)
      *
      * @return rate
      */
     @Valid
-    @Schema(name = "Rate", example = "0.05", description = "field representing a percentage (e.g. 0.05 represents 5% and 0.9525 represents 95.25%). Note the number of decimal places may vary.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Rate", example = "0.05", description = "Rate for Statement Interest (where it is applicable in terms of a rate rather than an amount)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Rate")
     public BigDecimal getRate() {
         return rate;
@@ -154,12 +154,12 @@ public class OBStatement2StatementInterestInner {
     }
 
     /**
-     * Interest amount type, in a coded form.
+     * Interest amount type, in a coded form. For a full list of values see `OBInternalStatementInterestType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return rateType
      */
 
-    @Schema(name = "RateType", example = "UK.OBIE.Total", description = "Interest amount type, in a coded form.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "RateType", example = "UK.OBIE.Total", description = "Interest amount type, in a coded form. For a full list of values see `OBInternalStatementInterestType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RateType")
     public String getRateType() {
         return rateType;
@@ -175,12 +175,12 @@ public class OBStatement2StatementInterestInner {
     }
 
     /**
-     * Specifies the statement fee type requested
+     * Specifies the statement fee type requested. For a full list of values see `OBInternalStatementInterestFrequency1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return frequency
      */
 
-    @Schema(name = "Frequency", example = "UK.OBIE.Monthly", description = "Specifies the statement fee type requested", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Frequency", example = "UK.OBIE.Monthly", description = "Specifies the statement fee type requested. For a full list of values see `OBInternalStatementInterestFrequency1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Frequency")
     public String getFrequency() {
         return frequency;

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.v4.account;
+package uk.org.openbanking.datamodel.v4.common;
 
 import java.util.Objects;
 
@@ -25,7 +25,6 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
 
 /**
  * Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account. This is the servicer of the beneficiary account.
@@ -57,7 +56,7 @@ public class OBBranchAndFinancialInstitutionIdentification60 {
      * @return schemeName
      */
 
-    @Schema(name = "SchemeName", example = "UK.OBIE.SortCodeAccountNumber", description = "Name of the identification scheme, in a coded form as published in an external list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SchemeName")
     public String getSchemeName() {
         return schemeName;
@@ -73,12 +72,12 @@ public class OBBranchAndFinancialInstitutionIdentification60 {
     }
 
     /**
-     * Unique and unambiguous identification of the servicing institution.
+     * Unique and unambiguous identification of a financial institution or a branch of a financial institution.
      *
      * @return identification
      */
     @Size(min = 1, max = 35)
-    @Schema(name = "Identification", example = "80200112344562", description = "Unique and unambiguous identification of the servicing institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Identification", description = "Unique and unambiguous identification of a financial institution or a branch of a financial institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
         return identification;
@@ -99,7 +98,7 @@ public class OBBranchAndFinancialInstitutionIdentification60 {
      * @return name
      */
     @Size(min = 1, max = 140)
-    @Schema(name = "Name", example = "Agent Name", description = "Name by which an agent is known and which is usually used to identify that agent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Name", description = "Name by which an agent is known and which is usually used to identify that agent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
     public String getName() {
         return name;
@@ -142,7 +141,7 @@ public class OBBranchAndFinancialInstitutionIdentification60 {
      */
     @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
     @Size(min = 1, max = 20)
-    @Schema(name = "LEI", example = "IZ9Q00LZEVUKWCQY6X15", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "LEI", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LEI")
     public String getLEI() {
         return LEI;
