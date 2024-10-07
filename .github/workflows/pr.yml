@@ -11,3 +11,4 @@ jobs:
     secrets: inherit
     with:
       componentName: secure-api-gateway-ob-uk-common
+      dockerTag: pr-${{ github.event.number }}
