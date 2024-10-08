@@ -39,7 +39,7 @@
     </organization>
 
     <properties>
-        <!-- property to run individualy the module with no license issues -->
+        <!-- property to run individually the module with no license issues -->
         <legal.path.header>../legal/LICENSE-HEADER.txt</legal.path.header>
     </properties>
 
