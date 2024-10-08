@@ -21,7 +21,6 @@ import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
@@ -32,28 +31,27 @@ import jakarta.validation.constraints.NotNull;
  * The authorisation type request from the TPP.
  */
 
-@Schema(name = "OBWriteDomesticConsentResponse5_Data_Authorisation", description = "The authorisation type request from the TPP.")
-@JsonTypeName("OBWriteDomesticConsentResponse5_Data_Authorisation")
+@Schema(name = "OBWriteDomesticConsentDataAuthorisation", description = "The authorisation type request from the TPP.")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBWriteDomesticConsentResponse5DataAuthorisation {
+public class OBWriteDomesticConsentDataAuthorisation {
 
     private OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime completionDateTime;
 
-    public OBWriteDomesticConsentResponse5DataAuthorisation() {
+    public OBWriteDomesticConsentDataAuthorisation() {
         super();
     }
 
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticConsentResponse5DataAuthorisation(OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType) {
+    public OBWriteDomesticConsentDataAuthorisation(OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType) {
         this.authorisationType = authorisationType;
     }
 
-    public OBWriteDomesticConsentResponse5DataAuthorisation authorisationType(OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType) {
+    public OBWriteDomesticConsentDataAuthorisation authorisationType(OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType) {
         this.authorisationType = authorisationType;
         return this;
     }
@@ -75,7 +73,7 @@ public class OBWriteDomesticConsentResponse5DataAuthorisation {
         this.authorisationType = authorisationType;
     }
 
-    public OBWriteDomesticConsentResponse5DataAuthorisation completionDateTime(DateTime completionDateTime) {
+    public OBWriteDomesticConsentDataAuthorisation completionDateTime(DateTime completionDateTime) {
         this.completionDateTime = completionDateTime;
         return this;
     }
@@ -104,9 +102,9 @@ public class OBWriteDomesticConsentResponse5DataAuthorisation {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBWriteDomesticConsentResponse5DataAuthorisation obWriteDomesticConsentResponse5DataAuthorisation = (OBWriteDomesticConsentResponse5DataAuthorisation) o;
-        return Objects.equals(this.authorisationType, obWriteDomesticConsentResponse5DataAuthorisation.authorisationType) &&
-                Objects.equals(this.completionDateTime, obWriteDomesticConsentResponse5DataAuthorisation.completionDateTime);
+        OBWriteDomesticConsentDataAuthorisation obWriteDomesticConsentDataAuthorisation = (OBWriteDomesticConsentDataAuthorisation) o;
+        return Objects.equals(this.authorisationType, obWriteDomesticConsentDataAuthorisation.authorisationType) &&
+                Objects.equals(this.completionDateTime, obWriteDomesticConsentDataAuthorisation.completionDateTime);
     }
 
     @Override
@@ -117,7 +115,7 @@ public class OBWriteDomesticConsentResponse5DataAuthorisation {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OBWriteDomesticConsentResponse5DataAuthorisation {\n");
+        sb.append("class OBWriteDomesticConsentDataAuthorisation {\n");
         sb.append("    authorisationType: ").append(toIndentedString(authorisationType)).append("\n");
         sb.append("    completionDateTime: ").append(toIndentedString(completionDateTime)).append("\n");
         sb.append("}");
