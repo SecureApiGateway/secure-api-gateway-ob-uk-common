@@ -15,16 +15,15 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
+
+import java.util.Objects;
 
 /**
  * OBWriteDomesticConsent4Data
@@ -38,7 +37,7 @@ public class OBWriteDomesticConsent4Data {
 
     private OBWriteDomestic2DataInitiation initiation;
 
-    private OBWriteDomesticConsentDataAuthorisation authorisation;
+    private OBPaymentConsentAuthorisation authorisation;
 
     private OBSCASupportData1 scASupportData;
 
@@ -96,7 +95,7 @@ public class OBWriteDomesticConsent4Data {
         this.initiation = initiation;
     }
 
-    public OBWriteDomesticConsent4Data authorisation(OBWriteDomesticConsentDataAuthorisation authorisation) {
+    public OBWriteDomesticConsent4Data authorisation(OBPaymentConsentAuthorisation authorisation) {
         this.authorisation = authorisation;
         return this;
     }
@@ -109,11 +108,11 @@ public class OBWriteDomesticConsent4Data {
     @Valid
     @Schema(name = "Authorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Authorisation")
-    public OBWriteDomesticConsentDataAuthorisation getAuthorisation() {
+    public OBPaymentConsentAuthorisation getAuthorisation() {
         return authorisation;
     }
 
-    public void setAuthorisation(OBWriteDomesticConsentDataAuthorisation authorisation) {
+    public void setAuthorisation(OBPaymentConsentAuthorisation authorisation) {
         this.authorisation = authorisation;
     }
 
