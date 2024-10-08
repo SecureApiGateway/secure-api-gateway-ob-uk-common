@@ -46,6 +46,7 @@
     <parent>
         <groupId>com.forgerock.sapi.gateway</groupId>
         <artifactId>secure-api-gateway-ob-uk-common</artifactId>
+        <version>4.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
