@@ -176,7 +176,9 @@
                                         OBReadConsent1_Data_Permissions_inner=OBInternalPermissions1Code,
                                         OBReadConsentResponse1_Data_Status=OBReadConsentStatus,
                                         OBFundsConfirmationConsentResponse1_Data_Status=OBFundsConfirmationConsentStatus,
-                                        OBDomesticVRPConsentResponse_Data_Status=OBDomesticVRPConsentStatus
+                                        OBDomesticVRPConsentResponse_Data_Status=OBDomesticVRPConsentStatus,
+                                        OBWriteDomesticConsent4_Data_Authorisation=OBWriteDomesticConsentDataAuthorisation,
+                                        OBWriteDomesticConsentResponse5_Data_Authorisation=OBWriteDomesticConsentDataAuthorisation
                                     </inlineSchemaNameMappings>
                                     <!-- RESOLVE_INLINE_ENUMS needs to be enabled to move enums which are specified as
                                          inline types in the schema to top level generated types, this then allows us to

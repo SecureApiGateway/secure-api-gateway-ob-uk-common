@@ -39,7 +39,7 @@ public class OBWriteDomesticStandingOrderConsent5Data {
 
     private OBWriteDomesticStandingOrder3DataInitiation initiation;
 
-    private OBWriteDomesticConsentResponse5DataAuthorisation authorisation;
+    private OBWriteDomesticConsentDataAuthorisation authorisation;
 
     private OBSCASupportData1 scASupportData;
 
@@ -120,7 +120,7 @@ public class OBWriteDomesticStandingOrderConsent5Data {
         this.initiation = initiation;
     }
 
-    public OBWriteDomesticStandingOrderConsent5Data authorisation(OBWriteDomesticConsentResponse5DataAuthorisation authorisation) {
+    public OBWriteDomesticStandingOrderConsent5Data authorisation(OBWriteDomesticConsentDataAuthorisation authorisation) {
         this.authorisation = authorisation;
         return this;
     }
@@ -133,11 +133,11 @@ public class OBWriteDomesticStandingOrderConsent5Data {
     @Valid
     @Schema(name = "Authorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Authorisation")
-    public OBWriteDomesticConsentResponse5DataAuthorisation getAuthorisation() {
+    public OBWriteDomesticConsentDataAuthorisation getAuthorisation() {
         return authorisation;
     }
 
-    public void setAuthorisation(OBWriteDomesticConsentResponse5DataAuthorisation authorisation) {
+    public void setAuthorisation(OBWriteDomesticConsentDataAuthorisation authorisation) {
         this.authorisation = authorisation;
     }
 
