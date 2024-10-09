@@ -42,6 +42,7 @@
     <properties>
         <!-- property to run individualy the module with no license issues -->
         <legal.path.header>../legal/LICENSE-HEADER.txt</legal.path.header>
+        <revision>4.0.0-SNAPSHOT</revision>
     </properties>
 
     <parent>
