@@ -34,9 +34,9 @@
     </parent>
 
     <properties>
-        <!-- SAPIG Versions -->
+        <!-- Artifact versions -->
         <revision>3.2.1-SNAPSHOT</revision>
-        <!-- Third Party Versions -->
+        <!-- Third Party versions -->
         <java.version>17</java.version>
         <!-- Plugin versions -->
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
