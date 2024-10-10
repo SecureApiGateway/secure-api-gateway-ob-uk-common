@@ -180,7 +180,10 @@
                                         OBWriteDomesticConsentResponse5_Data_Authorisation=OBPaymentConsentAuthorisation,
                                         OBWriteDomesticConsentResponse5_Data_Authorisation_AuthorisationType=OBPaymentConsentAuthorisationType,
                                         OBWriteDomesticConsent4_Data_Authorisation=OBPaymentConsentAuthorisation,
-                                        OBWriteDomesticConsentResponse5_Data_ReadRefundAccount=OBReadRefundAccount
+                                        OBWriteDomesticConsentResponse5_Data_ReadRefundAccount=OBReadRefundAccount,
+                                        OBWritePaymentDetailsResponse1_Data=OBWriteDataPaymentOrderStatusResponse1,
+                                        OBWritePaymentDetailsResponse1_Data_PaymentStatus=OBWritePaymentDetails1
+
                                     </inlineSchemaNameMappings>
                                     <!-- RESOLVE_INLINE_ENUMS needs to be enabled to move enums which are specified as
                                          inline types in the schema to top level generated types, this then allows us to
