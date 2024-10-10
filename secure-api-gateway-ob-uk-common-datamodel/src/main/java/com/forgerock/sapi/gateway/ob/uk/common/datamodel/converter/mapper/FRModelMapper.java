@@ -19,13 +19,13 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.Conver
 
 import java.util.List;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter;
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPaymentRisk;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPostalAddress;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter;
 
 import uk.org.openbanking.datamodel.v3.common.OBPostalAddress6;
 import uk.org.openbanking.datamodel.v3.common.OBRisk1;

@@ -18,11 +18,9 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRiskConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDataDomesticStandingOrder;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrder;
+
 import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticStandingOrder3;
 import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticStandingOrder3Data;
-
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment.FRWriteDomesticStandingOrderConsentConverter.toFRWriteDomesticStandingOrderDataInitiation;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment.FRWriteDomesticStandingOrderConsentConverter.toOBWriteDomesticStandingOrder3DataInitiation;
 
 public class FRWriteDomesticStandingOrderConverter {
 
@@ -36,7 +34,7 @@ public class FRWriteDomesticStandingOrderConverter {
     public static FRWriteDataDomesticStandingOrder toFRWriteDataDomesticStandingOrder(OBWriteDomesticStandingOrder3Data data) {
         return data == null ? null : FRWriteDataDomesticStandingOrder.builder()
                 .consentId(data.getConsentId())
-                .initiation(toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
+                .initiation(FRWriteDomesticStandingOrderConsentConverter.toFRWriteDomesticStandingOrderDataInitiation(data.getInitiation()))
                 .build();
     }
 
@@ -50,6 +48,6 @@ public class FRWriteDomesticStandingOrderConverter {
     public static OBWriteDomesticStandingOrder3Data toOBWriteDataDomesticDomesticStandingOrder3(FRWriteDataDomesticStandingOrder data) {
         return data == null ? null : new OBWriteDomesticStandingOrder3Data()
                 .consentId(data.getConsentId())
-                .initiation(toOBWriteDomesticStandingOrder3DataInitiation(data.getInitiation()));
+                .initiation(FRWriteDomesticStandingOrderConsentConverter.toOBWriteDomesticStandingOrder3DataInitiation(data.getInitiation()));
     }
 }

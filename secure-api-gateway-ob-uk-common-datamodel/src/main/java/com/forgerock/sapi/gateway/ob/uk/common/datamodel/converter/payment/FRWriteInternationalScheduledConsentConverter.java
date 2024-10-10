@@ -20,17 +20,14 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.paymen
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment.FRExchangeRateConverter.toFRExchangeRateInformation;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment.FRExchangeRateConverter.toOBWriteInternational3DataInitiationExchangeRateInformation;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment.FRInstructionPriorityConverter.toFRInstructionPriority;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment.FRInstructionPriorityConverter.toOBPriority2Code;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment.FRPermissionConverter.toFRPermission;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRFinancialInstrumentConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRemittanceInformationConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRiskConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalScheduledConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalScheduledConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalScheduledDataInitiation;
@@ -52,7 +49,7 @@ public class FRWriteInternationalScheduledConsentConverter {
 
     public static FRWriteInternationalScheduledConsentData toFRWriteInternationalScheduledConsentData(OBWriteInternationalScheduledConsent5Data data) {
         return data == null ? null : FRWriteInternationalScheduledConsentData.builder()
-                .permission(toFRPermission(data.getPermission()))
+                .permission(FRPermissionConverter.toFRPermission(data.getPermission()))
                 .readRefundAccount(FRReadRefundAccountConverter.toFRReadRefundAccount(data.getReadRefundAccount()))
                 .initiation(toFRWriteInternationalScheduledDataInitiation(data.getInitiation()))
                 .authorisation(FRDataAuthorisationConverter.toFRDataAuthorisation(data.getAuthorisation()))
@@ -65,7 +62,7 @@ public class FRWriteInternationalScheduledConsentConverter {
                 .instructionIdentification(initiation.getInstructionIdentification())
                 .endToEndIdentification(initiation.getEndToEndIdentification())
                 .localInstrument(initiation.getLocalInstrument())
-                .instructionPriority(toFRInstructionPriority(initiation.getInstructionPriority()))
+                .instructionPriority(FRInstructionPriorityConverter.toFRInstructionPriority(initiation.getInstructionPriority()))
                 .purpose(initiation.getPurpose())
                 .extendedPurpose(initiation.getExtendedPurpose())
                 .chargeBearer(toFRChargeBearerType(initiation.getChargeBearer()))
@@ -88,7 +85,7 @@ public class FRWriteInternationalScheduledConsentConverter {
                 .instructionIdentification(initiation.getInstructionIdentification())
                 .endToEndIdentification(initiation.getEndToEndIdentification())
                 .localInstrument(initiation.getLocalInstrument())
-                .instructionPriority(toFRInstructionPriority(initiation.getInstructionPriority()))
+                .instructionPriority(FRInstructionPriorityConverter.toFRInstructionPriority(initiation.getInstructionPriority()))
                 .purpose(initiation.getPurpose())
                 .extendedPurpose(initiation.getExtendedPurpose())
                 .chargeBearer(toFRChargeBearerType(initiation.getChargeBearer()))
@@ -112,7 +109,7 @@ public class FRWriteInternationalScheduledConsentConverter {
                 .instructionIdentification(initiation.getInstructionIdentification())
                 .endToEndIdentification(initiation.getEndToEndIdentification())
                 .localInstrument(initiation.getLocalInstrument())
-                .instructionPriority(toOBPriority2Code(initiation.getInstructionPriority()))
+                .instructionPriority(FRInstructionPriorityConverter.toOBPriority2Code(initiation.getInstructionPriority()))
                 .purpose(initiation.getPurpose())
                 .extendedPurpose(initiation.getExtendedPurpose())
                 .chargeBearer(toOBChargeBearerType1Code(initiation.getChargeBearer()))
@@ -134,7 +131,7 @@ public class FRWriteInternationalScheduledConsentConverter {
                 .instructionIdentification(initiation.getInstructionIdentification())
                 .endToEndIdentification(initiation.getEndToEndIdentification())
                 .localInstrument(initiation.getLocalInstrument())
-                .instructionPriority(toOBPriority2Code(initiation.getInstructionPriority()))
+                .instructionPriority(FRInstructionPriorityConverter.toOBPriority2Code(initiation.getInstructionPriority()))
                 .purpose(initiation.getPurpose())
                 .extendedPurpose(initiation.getExtendedPurpose())
                 .chargeBearer(toOBChargeBearerType1Code(initiation.getChargeBearer()))

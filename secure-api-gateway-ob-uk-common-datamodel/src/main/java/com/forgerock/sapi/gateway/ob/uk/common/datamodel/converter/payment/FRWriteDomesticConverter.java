@@ -18,10 +18,9 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRiskConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDataDomestic;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomestic;
+
 import uk.org.openbanking.datamodel.v3.payment.OBWriteDomestic2;
 import uk.org.openbanking.datamodel.v3.payment.OBWriteDomestic2Data;
-
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment.FRWriteDomesticConsentConverter.*;
 
 public class FRWriteDomesticConverter {
 
@@ -36,7 +35,7 @@ public class FRWriteDomesticConverter {
     public static FRWriteDataDomestic toFRWriteDataDomestic(OBWriteDomestic2Data data) {
         return data == null ? null : FRWriteDataDomestic.builder()
                 .consentId(data.getConsentId())
-                .initiation(toFRWriteDomesticDataInitiation(data.getInitiation()))
+                .initiation(FRWriteDomesticConsentConverter.toFRWriteDomesticDataInitiation(data.getInitiation()))
                 .build();
     }
 
@@ -50,6 +49,6 @@ public class FRWriteDomesticConverter {
     public static OBWriteDomestic2Data toOBWriteDomestic2Data(FRWriteDataDomestic data) {
         return data == null ? null : new OBWriteDomestic2Data()
                 .consentId(data.getConsentId())
-                .initiation(toOBWriteDomestic2DataInitiation(data.getInitiation()));
+                .initiation(FRWriteDomesticConsentConverter.toOBWriteDomestic2DataInitiation(data.getInitiation()));
     }
 }

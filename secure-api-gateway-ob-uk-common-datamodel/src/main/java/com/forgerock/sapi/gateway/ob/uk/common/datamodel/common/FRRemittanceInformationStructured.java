@@ -34,4 +34,5 @@ public class FRRemittanceInformationStructured {
     private String invoicer;
     private String invoicee;
     private String taxRemittance;
+    private List<String> additionalRemittanceInformation;
 }

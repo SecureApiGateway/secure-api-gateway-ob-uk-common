@@ -17,7 +17,6 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account.FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter.toFRAmount;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter.toOBReadBalance1DataAmount;
 import static java.util.stream.Collectors.toList;
 
 import java.util.List;
@@ -41,7 +40,7 @@ public class FRCashBalanceConverter {
                 .creditDebitIndicator(FRCreditDebitIndicatorConverter.toOBCreditDebitCode2(balance.getCreditDebitIndicator()))
                 .type(toOBBalanceType1Code(balance.getType()))
                 .dateTime(balance.getDateTime())
-                .amount(toOBReadBalance1DataAmount(balance.getAmount()))
+                .amount(FRAmountConverter.toOBReadBalance1DataAmount(balance.getAmount()))
                 .creditLine(toOBReadBalance1DataCreditLineList(balance.getCreditLines()));
     }
 
@@ -75,7 +74,7 @@ public class FRCashBalanceConverter {
         return balance == null ? null : FRCashBalance.builder()
                 .creditDebitIndicator(toFRCreditDebitIndicator(balance.getCreditDebitIndicator()))
                 .accountId(balance.getAccountId())
-                .amount(toFRAmount(balance.getAmount()))
+                .amount(FRAmountConverter.toFRAmount(balance.getAmount()))
                 .dateTime(balance.getDateTime())
                 .creditLines(toFRCreditLines(balance.getCreditLine()))
                 .type(toFRBalanceType(balance.getType()))
@@ -93,7 +92,7 @@ public class FRCashBalanceConverter {
         return creditLine == null ? null : FRCreditLine.builder()
                 .included(creditLine.getIncluded())
                 .type(toFRLimitType(creditLine.getType()))
-                .amount(toFRAmount(creditLine.getAmount()))
+                .amount(FRAmountConverter.toFRAmount(creditLine.getAmount()))
                 .build();
     }
 

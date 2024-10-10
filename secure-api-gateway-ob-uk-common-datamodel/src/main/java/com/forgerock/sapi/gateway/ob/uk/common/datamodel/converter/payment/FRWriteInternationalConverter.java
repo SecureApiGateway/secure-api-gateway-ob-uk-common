@@ -18,10 +18,9 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRiskConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternational;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternationalData;
+
 import uk.org.openbanking.datamodel.v3.payment.OBWriteInternational3;
 import uk.org.openbanking.datamodel.v3.payment.OBWriteInternational3Data;
-
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment.FRWriteInternationalConsentConverter.*;
 
 public class FRWriteInternationalConverter {
 
@@ -36,7 +35,7 @@ public class FRWriteInternationalConverter {
     public static FRWriteInternationalData toFRWriteInternationalData(OBWriteInternational3Data data) {
         return data == null ? null : FRWriteInternationalData.builder()
                 .consentId(data.getConsentId())
-                .initiation(toFRWriteInternationalDataInitiation(data.getInitiation()))
+                .initiation(FRWriteInternationalConsentConverter.toFRWriteInternationalDataInitiation(data.getInitiation()))
                 .build();
     }
 
@@ -50,6 +49,6 @@ public class FRWriteInternationalConverter {
     public static OBWriteInternational3Data toOBWriteInternational3Data(FRWriteInternationalData data) {
         return data == null ? null : new OBWriteInternational3Data()
                 .consentId(data.getConsentId())
-                .initiation(toOBWriteInternational3DataInitiation(data.getInitiation()));
+                .initiation(FRWriteInternationalConsentConverter.toOBWriteInternational3DataInitiation(data.getInitiation()));
     }
 }

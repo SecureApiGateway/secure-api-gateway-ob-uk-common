@@ -155,7 +155,7 @@
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/confirmation-funds-openapi.yaml</inputSpec>-->
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/event-notifications-openapi.yaml</inputSpec>-->
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/events-openapi.yaml</inputSpec>-->
-                                    <!--<inputSpec>${project.basedir}/src/main/resources/specification/payment-initiation-openapi.yaml</inputSpec>-->
+                                    <inputSpec>${project.basedir}/src/main/resources/specification/4.0.0/payment-initiation-openapi-4r2.yaml</inputSpec>
                                     <!--<inputSpec>${project.basedir}/src/main/resources/specification/vrp-openapi.yaml</inputSpec>-->
                                     <output>${project.build.directory}/generated-sources/swagger</output>
                                     <generatorName>spring</generatorName>
@@ -177,8 +177,13 @@
                                         OBReadConsentResponse1_Data_Status=OBReadConsentStatus,
                                         OBFundsConfirmationConsentResponse1_Data_Status=OBFundsConfirmationConsentStatus,
                                         OBDomesticVRPConsentResponse_Data_Status=OBDomesticVRPConsentStatus,
-                                        OBWriteDomesticConsent4_Data_Authorisation=OBWriteDomesticConsentDataAuthorisation,
-                                        OBWriteDomesticConsentResponse5_Data_Authorisation=OBWriteDomesticConsentDataAuthorisation
+                                        OBWriteDomesticConsentResponse5_Data_Authorisation=OBPaymentConsentAuthorisation,
+                                        OBWriteDomesticConsentResponse5_Data_Authorisation_AuthorisationType=OBPaymentConsentAuthorisationType,
+                                        OBWriteDomesticConsent4_Data_Authorisation=OBPaymentConsentAuthorisation,
+                                        OBWriteDomesticConsentResponse5_Data_ReadRefundAccount=OBReadRefundAccount,
+                                        OBWritePaymentDetailsResponse1_Data=OBWriteDataPaymentOrderStatusResponse1,
+                                        OBWritePaymentDetailsResponse1_Data_PaymentStatus=OBWritePaymentDetails1
+
                                     </inlineSchemaNameMappings>
                                     <!-- RESOLVE_INLINE_ENUMS needs to be enabled to move enums which are specified as
                                          inline types in the schema to top level generated types, this then allows us to
@@ -226,6 +231,7 @@
                                         OBDomesticVRPConsentResponse_Data_DebtorAccount=OBCashAccountDebtorWithName,
                                         OBDomesticVRPConsentResponse_Data_ReadRefundAccount=OBReadRefundAccount,
                                         OBWriteDomesticConsent4_Data_ReadRefundAccount=OBReadRefundAccount,
+                                        OBWriteDomesticConsentResponse5_Data_ReadRefundAccount=OBReadRefundAccount,
                                         ExternalCategoryPurpose1Code=ExternalCategoryPurpose1Code,
                                         ExternalProxyAccountType1Code=ExternalProxyAccountType1Code,
                                         ExternalPurpose1Code=ExternalPurpose1Code,

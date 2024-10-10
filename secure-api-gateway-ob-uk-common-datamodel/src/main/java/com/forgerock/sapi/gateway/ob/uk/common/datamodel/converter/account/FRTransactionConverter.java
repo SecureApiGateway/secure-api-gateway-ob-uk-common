@@ -15,11 +15,6 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account.FRCashBalanceConverter.toFRBalanceType;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account.FRCashBalanceConverter.toOBBalanceType1Code;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account.FRCurrencyExchangeConverter.toFRCurrencyExchange;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account.FRCurrencyExchangeConverter.toOBCurrencyExchange5;
-
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRTransactionData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter;
@@ -54,7 +49,7 @@ public class FRTransactionConverter {
                 .addressLine(transaction.getAddressLine())
                 .amount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount9(transaction.getAmount()))
                 .chargeAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount10(transaction.getChargeAmount()))
-                .currencyExchange(toOBCurrencyExchange5(transaction.getCurrencyExchange()))
+                .currencyExchange(FRCurrencyExchangeConverter.toOBCurrencyExchange5(transaction.getCurrencyExchange()))
                 .bankTransactionCode(toOBBankTransactionCodeStructure1(transaction.getBankTransactionCode()))
                 .proprietaryBankTransactionCode(toProprietaryBankTransactionCodeStructure1(transaction.getProprietaryBankTransactionCode()))
                 .balance(toOBTransactionCashBalance(transaction.getBalance()))
@@ -99,7 +94,7 @@ public class FRTransactionConverter {
         return balance == null ? null : new OBTransactionCashBalance()
                 .amount(FRAmountConverter.toOBTransactionCashBalanceAmount(balance.getAmount()))
                 .creditDebitIndicator(FRCreditDebitIndicatorConverter.toOBCreditDebitCode2(balance.getCreditDebitIndicator()))
-                .type(toOBBalanceType1Code(balance.getType()));
+                .type(FRCashBalanceConverter.toOBBalanceType1Code(balance.getType()));
     }
 
     public static OBMerchantDetails1 toOBMerchantDetails1(FRTransactionData.FRMerchantDetails merchantDetails) {
@@ -132,7 +127,7 @@ public class FRTransactionConverter {
                 .addressLine(transaction.getAddressLine())
                 .amount(FRAmountConverter.toFRAmount(transaction.getAmount()))
                 .chargeAmount(FRAmountConverter.toFRAmount(transaction.getChargeAmount()))
-                .currencyExchange(toFRCurrencyExchange(transaction.getCurrencyExchange()))
+                .currencyExchange(FRCurrencyExchangeConverter.toFRCurrencyExchange(transaction.getCurrencyExchange()))
                 .bankTransactionCode(toFRBankTransactionCodeStructure(transaction.getBankTransactionCode()))
                 .proprietaryBankTransactionCode(toFRProprietaryBankTransactionCodeStructure(transaction.getProprietaryBankTransactionCode()))
                 .balance(toFRTransactionCashBalance(transaction.getBalance()))
@@ -172,7 +167,7 @@ public class FRTransactionConverter {
         return balance == null ? null : FRTransactionData.FRTransactionCashBalance.builder()
                 .amount(FRAmountConverter.toFRAmount(balance.getAmount()))
                 .creditDebitIndicator(FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator(balance.getCreditDebitIndicator()))
-                .type(toFRBalanceType(balance.getType()))
+                .type(FRCashBalanceConverter.toFRBalanceType(balance.getType()))
                 .build();
     }
 

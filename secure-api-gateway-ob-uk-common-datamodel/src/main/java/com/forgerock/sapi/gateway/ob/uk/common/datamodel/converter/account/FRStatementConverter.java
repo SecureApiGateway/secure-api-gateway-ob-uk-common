@@ -16,8 +16,6 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account.FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account.FRCreditDebitIndicatorConverter.toOBCreditDebitCode0;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.account.FRCreditDebitIndicatorConverter.toOBStatementFee2CreditDebitIndicatorEnum;
 
 import java.util.List;
 import java.util.function.Function;
@@ -124,7 +122,7 @@ public class FRStatementConverter {
     public static OBStatement2StatementFeeInner toOBStatementFee2(FRStatementData.FRStatementFee statementFee) {
         return statementFee == null ? null : new OBStatement2StatementFeeInner()
                 .description(statementFee.getDescription())
-                .creditDebitIndicator(toOBStatementFee2CreditDebitIndicatorEnum(statementFee.getCreditDebitIndicator()))
+                .creditDebitIndicator(FRCreditDebitIndicatorConverter.toOBStatementFee2CreditDebitIndicatorEnum(statementFee.getCreditDebitIndicator()))
                 .type(statementFee.getType())
                 .rate(statementFee.getRate())
                 .rateType(statementFee.getRateType())
@@ -135,7 +133,7 @@ public class FRStatementConverter {
     public static OBStatement2StatementInterestInner toOBStatementInterest2(FRStatementData.FRStatementInterest statementInterest) {
         return statementInterest == null ? null : new OBStatement2StatementInterestInner()
                 .description(statementInterest.getDescription())
-                .creditDebitIndicator(toOBCreditDebitCode0(statementInterest.getCreditDebitIndicator()))
+                .creditDebitIndicator(FRCreditDebitIndicatorConverter.toOBCreditDebitCode0(statementInterest.getCreditDebitIndicator()))
                 .type(statementInterest.getType())
                 .rate(statementInterest.getRate())
                 .rateType(statementInterest.getRateType())
@@ -146,7 +144,7 @@ public class FRStatementConverter {
     public static OBStatement2StatementInterestInner toOBStatement2StatementInterest(FRStatementData.FRStatementInterest statementInterest) {
         return statementInterest == null ? null : new OBStatement2StatementInterestInner()
                 .description(statementInterest.getDescription())
-                .creditDebitIndicator(toOBCreditDebitCode0(statementInterest.getCreditDebitIndicator()))
+                .creditDebitIndicator(FRCreditDebitIndicatorConverter.toOBCreditDebitCode0(statementInterest.getCreditDebitIndicator()))
                 .type(statementInterest.getType())
                 .rate(statementInterest.getRate())
                 .rateType(statementInterest.getRateType())
@@ -174,7 +172,7 @@ public class FRStatementConverter {
 
     public static OBStatement2StatementAmountInner toOBStatement2StatementAmount(FRStatementData.FRStatementAmount statementAmount) {
         return statementAmount == null ? null : new OBStatement2StatementAmountInner()
-                .creditDebitIndicator(toOBCreditDebitCode0(statementAmount.getCreditDebitIndicator()))
+                .creditDebitIndicator(FRCreditDebitIndicatorConverter.toOBCreditDebitCode0(statementAmount.getCreditDebitIndicator()))
                 .type(statementAmount.getType())
                 .amount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount8(statementAmount.getAmount()));
     }
@@ -250,7 +248,7 @@ public class FRStatementConverter {
     public static FRStatementData.FRStatementFee toFRStatementFee(OBStatement2StatementFeeInner statementFee) {
         return statementFee == null ? null : FRStatementData.FRStatementFee.builder()
                 .description(statementFee.getDescription())
-                .creditDebitIndicator(toFRCreditDebitIndicator(statementFee.getCreditDebitIndicator()))
+                .creditDebitIndicator(FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator(statementFee.getCreditDebitIndicator()))
                 .type(statementFee.getType())
                 .rate(statementFee.getRate())
                 .rateType(statementFee.getRateType())
@@ -262,7 +260,7 @@ public class FRStatementConverter {
     public static FRStatementData.FRStatementInterest toFRStatementInterest(OBStatement2StatementInterestInner statementInterest) {
         return statementInterest == null ? null : FRStatementData.FRStatementInterest.builder()
                 .description(statementInterest.getDescription())
-                .creditDebitIndicator(toFRCreditDebitIndicator(statementInterest.getCreditDebitIndicator()))
+                .creditDebitIndicator(FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator(statementInterest.getCreditDebitIndicator()))
                 .type(statementInterest.getType())
                 .rate(statementInterest.getRate())
                 .rateType(statementInterest.getRateType())
@@ -311,7 +309,7 @@ public class FRStatementConverter {
 
     public static FRStatementData.FRStatementAmount toFRStatementAmount(OBStatement2StatementAmountInner statementAmount) {
         return statementAmount == null ? null : FRStatementData.FRStatementAmount.builder()
-                .creditDebitIndicator(toFRCreditDebitIndicator(statementAmount.getCreditDebitIndicator()))
+                .creditDebitIndicator(FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator(statementAmount.getCreditDebitIndicator()))
                 .type(statementAmount.getType())
                 .amount(FRAmountConverter.toFRAmount(statementAmount.getAmount()))
                 .build();
