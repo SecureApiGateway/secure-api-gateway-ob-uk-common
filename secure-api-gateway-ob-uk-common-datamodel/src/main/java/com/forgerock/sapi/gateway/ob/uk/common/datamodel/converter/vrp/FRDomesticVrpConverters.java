@@ -15,8 +15,10 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.vrp;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRemittanceInformationConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRiskConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpInstruction;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpRequest;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpRequestData;
@@ -31,10 +33,6 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter.toFRAmount;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter.toFRPostalAddress;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter.toOBPostalAddress6;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRiskConverter.toOBRisk1;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter.toFRSupplementaryData;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter.toOBSupplementaryData1;
 
 @Slf4j
 public class FRDomesticVrpConverters {
@@ -65,13 +63,13 @@ public class FRDomesticVrpConverters {
     public static FRDomesticVrpInstruction toFRDomesticVRPInstruction(OBDomesticVRPInstruction instruction) {
         FRDomesticVrpInstruction frInstruction = FRDomesticVrpInstruction.builder()
                 .creditorAccount(toFRAccountIdentifier(instruction.getCreditorAccount()))
-                .creditorPostalAddress(toFRPostalAddress(instruction.getCreditorPostalAddress()))
+                .creditorPostalAddress(FRPostalAddressConverter.toFRPostalAddress(instruction.getCreditorPostalAddress()))
                 .instructionIdentification(instruction.getInstructionIdentification())
                 .endToEndIdentification(instruction.getEndToEndIdentification())
                 .instructedAmount(toFRAmount(instruction.getInstructedAmount()))
                 .localInstrument(instruction.getLocalInstrument())
                 .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(instruction.getRemittanceInformation()))
-                .supplementaryData(toFRSupplementaryData(instruction.getSupplementaryData()))
+                .supplementaryData(FRSupplementaryDataConverter.toFRSupplementaryData(instruction.getSupplementaryData()))
                 .build();
         return frInstruction;
     }
@@ -81,7 +79,7 @@ public class FRDomesticVrpConverters {
     public static FRWriteDomesticVrpDataInitiation toFRDomesticVRPInitiation(OBDomesticVRPInitiation initiation) {
         FRWriteDomesticVrpDataInitiation frInitiation = FRWriteDomesticVrpDataInitiation.builder()
                 .creditorAccount(toFRAccountIdentifier(initiation.getCreditorAccount()))
-                .creditorPostalAddress(toFRPostalAddress(initiation.getCreditorPostalAddress()))
+                .creditorPostalAddress(FRPostalAddressConverter.toFRPostalAddress(initiation.getCreditorPostalAddress()))
                 .debtorAccount(toFRAccountIdentifier(initiation.getDebtorAccount()))
                 .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
                 .build();
@@ -91,7 +89,7 @@ public class FRDomesticVrpConverters {
     public static OBDomesticVRPRequest toOBDomesticVRPRequest(FRDomesticVrpRequest frDomesticVRPRequest){
         return frDomesticVRPRequest == null ? null : new OBDomesticVRPRequest()
                 .data(toOBDomesticVRPRequestData(frDomesticVRPRequest.getData()))
-                .risk(toOBRisk1(frDomesticVRPRequest.getRisk()));
+                .risk(FRRiskConverter.toOBRisk1(frDomesticVRPRequest.getRisk()));
     }
 
     public static OBDomesticVRPRequestData toOBDomesticVRPRequestData(FRDomesticVrpRequestData data){
@@ -106,7 +104,7 @@ public class FRDomesticVrpConverters {
     public static OBDomesticVRPInitiation toOBDomesticVRPInitiation(FRWriteDomesticVrpDataInitiation initiation){
         return initiation == null ? null : new OBDomesticVRPInitiation()
                 .creditorAccount(toOBCashAccountCreditor3(initiation.getCreditorAccount()))
-                .creditorPostalAddress(toOBPostalAddress6(initiation.getCreditorPostalAddress()))
+                .creditorPostalAddress(FRPostalAddressConverter.toOBPostalAddress6(initiation.getCreditorPostalAddress()))
                 .debtorAccount(toOBCashAccountDebtorWithName(initiation.getDebtorAccount()))
                 .remittanceInformation(
                         FRRemittanceInformationConverter.toOBDomesticVRPInitiationRemittanceInformation(initiation.getRemittanceInformation()));
@@ -119,10 +117,10 @@ public class FRDomesticVrpConverters {
                 .instructionIdentification(instruction.getInstructionIdentification())
                 .localInstrument(instruction.getLocalInstrument())
                 .creditorAccount(toOBCashAccountCreditor3(instruction.getCreditorAccount()))
-                .creditorPostalAddress(toOBPostalAddress6(instruction.getCreditorPostalAddress()))
+                .creditorPostalAddress(FRPostalAddressConverter.toOBPostalAddress6(instruction.getCreditorPostalAddress()))
                 .instructedAmount(toOBActiveOrHistoricCurrencyAndAmount(instruction.getInstructedAmount()))
                 .remittanceInformation(FRRemittanceInformationConverter.toOBVRPRemittanceInformation(instruction.getRemittanceInformation()))
-                .supplementaryData(toOBSupplementaryData1(instruction.getSupplementaryData()));
+                .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(instruction.getSupplementaryData()));
     }
 
 }

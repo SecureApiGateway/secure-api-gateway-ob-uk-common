@@ -19,11 +19,11 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.accoun
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter.toFRAccountIdentifier;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRAccountIdentifierConverter.toOBCashAccount50;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRFinancialInstrumentConverter.toFRFinancialAgent;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter.toFRSupplementaryData;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter.toOBSupplementaryData1;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountBeneficiary;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRFinancialInstrumentConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter;
 import uk.org.openbanking.datamodel.v3.account.OBBeneficiary5;
 import uk.org.openbanking.datamodel.v3.account.OBBeneficiaryType1Code;
 
@@ -37,7 +37,7 @@ public class FRAccountBeneficiaryConverter {
                 .beneficiaryId(beneficiary.getBeneficiaryId())
                 .beneficiaryType(toOBBeneficiaryType1Code(beneficiary.getBeneficiaryType()))
                 .reference(beneficiary.getReference())
-                .supplementaryData(toOBSupplementaryData1(beneficiary.getSupplementaryData()))
+                .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(beneficiary.getSupplementaryData()))
                 .creditorAgent(toOBBranchAndFinancialInstitutionIdentification60(beneficiary.getCreditorAgent()))
                 .creditorAccount(toOBCashAccount50(beneficiary.getCreditorAccount()));
     }
@@ -54,8 +54,8 @@ public class FRAccountBeneficiaryConverter {
                 .beneficiaryId(beneficiary.getBeneficiaryId())
                 .beneficiaryType(toFRBeneficiaryType(beneficiary.getBeneficiaryType()))
                 .reference(beneficiary.getReference())
-                .supplementaryData(toFRSupplementaryData(beneficiary.getSupplementaryData()))
-                .creditorAgent(toFRFinancialAgent(beneficiary.getCreditorAgent()))
+                .supplementaryData(FRSupplementaryDataConverter.toFRSupplementaryData(beneficiary.getSupplementaryData()))
+                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(beneficiary.getCreditorAgent()))
                 .creditorAccount(toFRAccountIdentifier(beneficiary.getCreditorAccount()))
                 .build();
     }

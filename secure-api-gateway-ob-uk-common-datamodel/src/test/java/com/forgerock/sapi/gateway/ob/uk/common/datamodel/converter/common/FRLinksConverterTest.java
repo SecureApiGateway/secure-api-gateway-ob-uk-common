@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRLinks;
+
 import org.junit.jupiter.api.Test;
 import uk.org.openbanking.datamodel.v3.common.Links;
 

@@ -17,10 +17,9 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDataFile;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFile;
+
 import uk.org.openbanking.datamodel.v3.payment.OBWriteFile2;
 import uk.org.openbanking.datamodel.v3.payment.OBWriteFile2Data;
-
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment.FRWriteFileConsentConverter.*;
 
 public class FRWriteFileConverter {
 
@@ -34,7 +33,7 @@ public class FRWriteFileConverter {
     public static FRWriteDataFile toFRWriteDataFile(OBWriteFile2Data data) {
         return data == null ? null : FRWriteDataFile.builder()
                 .consentId(data.getConsentId())
-                .initiation(toFRWriteFileDataInitiation(data.getInitiation()))
+                .initiation(FRWriteFileConsentConverter.toFRWriteFileDataInitiation(data.getInitiation()))
                 .build();
     }
 
@@ -47,6 +46,6 @@ public class FRWriteFileConverter {
     public static OBWriteFile2Data toOBWriteFile2Data(FRWriteDataFile data) {
         return data == null ? null : new OBWriteFile2Data()
                 .consentId(data.getConsentId())
-                .initiation(toOBWriteFile2DataInitiation(data.getInitiation()));
+                .initiation(FRWriteFileConsentConverter.toOBWriteFile2DataInitiation(data.getInitiation()));
     }
 }

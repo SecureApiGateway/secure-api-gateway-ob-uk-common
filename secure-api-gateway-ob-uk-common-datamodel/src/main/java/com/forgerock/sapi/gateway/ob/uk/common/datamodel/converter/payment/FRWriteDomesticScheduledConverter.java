@@ -18,10 +18,9 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRRiskConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDataDomesticScheduled;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticScheduled;
+
 import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticScheduled2;
 import uk.org.openbanking.datamodel.v3.payment.OBWriteDomesticScheduled2Data;
-
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.payment.FRWriteDomesticScheduledConsentConverter.*;
 
 public class FRWriteDomesticScheduledConverter {
 
@@ -36,7 +35,7 @@ public class FRWriteDomesticScheduledConverter {
     public static FRWriteDataDomesticScheduled toFRWriteDataDomesticScheduled(OBWriteDomesticScheduled2Data data) {
         return data == null ? null : FRWriteDataDomesticScheduled.builder()
                 .consentId(data.getConsentId())
-                .initiation(toFRWriteDomesticScheduledDataInitiation(data.getInitiation()))
+                .initiation(FRWriteDomesticScheduledConsentConverter.toFRWriteDomesticScheduledDataInitiation(data.getInitiation()))
                 .build();
     }
 
@@ -50,6 +49,6 @@ public class FRWriteDomesticScheduledConverter {
     public static OBWriteDomesticScheduled2Data toOBWriteDomesticScheduled2Data(FRWriteDataDomesticScheduled data) {
         return data == null ? null : new OBWriteDomesticScheduled2Data()
                 .consentId(data.getConsentId())
-                .initiation(toOBWriteDomesticScheduled2DataInitiation(data.getInitiation()));
+                .initiation(FRWriteDomesticScheduledConsentConverter.toOBWriteDomesticScheduled2DataInitiation(data.getInitiation()));
     }
 }
