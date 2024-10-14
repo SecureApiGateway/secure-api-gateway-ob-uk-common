@@ -60,7 +60,7 @@ public class FRConsentStatusConverter {
     }
 
     public static OBPaymentConsentStatus toOBPaymentConsentStatusV4(String consentStatus) {
-        if (v3tov4ConsentStatus.containsKey(consentStatus)) {
+        if (v3tov4ConsentStatus.containsKey(v3tov4ConsentStatus.get(consentStatus))) {
             return OBPaymentConsentStatus.fromValue(consentStatus);
         }
         throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
