@@ -19,6 +19,7 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSubmissionStat
 
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticResponse5DataStatus;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticScheduledResponse5DataStatus;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrderResponse6DataStatus;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteFileResponse3DataStatus;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrderResponse7DataStatus;
 import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPResponseDataStatus;
@@ -53,11 +54,29 @@ public class FRSubmissionStatusConverter {
             return OBWriteDomesticScheduledResponse5DataStatus.PDNG;
         case INITIATIONCOMPLETED:
             return OBWriteDomesticScheduledResponse5DataStatus.ACCP;
+        //instead of OBWriteDomesticScheduledResponse5DataStatus.INCO
         case CANCELLED:
             return OBWriteDomesticScheduledResponse5DataStatus.CANC;
         default:
             return OBWriteDomesticScheduledResponse5DataStatus.RJCT;
         // might as well be blocked, in which case -> return OBWriteDomesticScheduledResponse5DataStatus.BLCK;
+        }
+    }
+
+    public static OBWriteDomesticStandingOrderResponse6DataStatus toOBWriteDomesticStandingOrderResponse6DataStatus(FRSubmissionStatus status) {
+        if (status == null) {
+            return null;
+        }
+        switch (status) {
+        case INITIATIONPENDING:
+            return OBWriteDomesticStandingOrderResponse6DataStatus.PDNG;
+        case INITIATIONCOMPLETED:
+            return OBWriteDomesticStandingOrderResponse6DataStatus.INCO;
+        case CANCELLED:
+            return OBWriteDomesticStandingOrderResponse6DataStatus.CANC;
+        default:
+            return OBWriteDomesticStandingOrderResponse6DataStatus.RJCT;
+        // might as well be blocked, in which case -> return OBWriteDomesticStandingOrderResponse6DataStatus.BLCK;
         }
     }
 
