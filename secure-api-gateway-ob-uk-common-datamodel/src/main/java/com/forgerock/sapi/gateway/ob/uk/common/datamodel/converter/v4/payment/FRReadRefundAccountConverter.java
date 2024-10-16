@@ -18,10 +18,15 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRReadRefundAccount;
 
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticScheduledConsent4DataReadRefundAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrderConsentResponse6DataReadRefundAccount;
 
 public class FRReadRefundAccountConverter {
 
     public static FRReadRefundAccount toFRReadRefundAccount(OBWriteDomesticScheduledConsent4DataReadRefundAccount readRefundAccount) {
+        return readRefundAccount == null ? null : FRReadRefundAccount.valueOf(readRefundAccount.name());
+    }
+
+    public static FRReadRefundAccount toFRReadRefundAccount(OBWriteDomesticStandingOrderConsentResponse6DataReadRefundAccount readRefundAccount) {
         return readRefundAccount == null ? null : FRReadRefundAccount.valueOf(readRefundAccount.name());
     }
 }

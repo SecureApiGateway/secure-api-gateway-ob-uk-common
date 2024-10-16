@@ -20,11 +20,7 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRS
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.mapper.FRModelMapper;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAmountConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRMandateRelatedInformationConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRRegulatoryReportingConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRRiskConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRUltimateCreditorConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRUltimateDebtorConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrderConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrderConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticStandingOrderDataInitiation;

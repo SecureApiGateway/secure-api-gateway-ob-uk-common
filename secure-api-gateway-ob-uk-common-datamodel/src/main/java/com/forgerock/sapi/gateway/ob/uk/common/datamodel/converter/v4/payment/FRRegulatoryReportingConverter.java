@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRRegulatoryAuthorityConverter.toFRRegulatoryAuthority;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRRegulatoryAuthorityConverter.toOBRegulatoryAuthority2;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRRegulatoryAuthorityConverter.toFRRegulatoryAuthority;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRRegulatoryAuthorityConverter.toOBRegulatoryAuthority2;
 import static java.util.stream.Collectors.toList;
 
 import java.util.List;

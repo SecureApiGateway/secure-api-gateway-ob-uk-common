@@ -19,6 +19,8 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRDataAuthorisat
 
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsentDataAuthorisation;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrderConsentResponse6DataAuthorisation;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType;
 
 public class FRDataAuthorisationConverter {
 
@@ -30,7 +32,18 @@ public class FRDataAuthorisationConverter {
                 .build();
     }
 
+    public static FRDataAuthorisation toFRDataAuthorisation(OBWriteDomesticStandingOrderConsentResponse6DataAuthorisation authorisation) {
+        return authorisation == null ? null : FRDataAuthorisation.builder()
+                .authorisationType(toFRAuthorisationType(authorisation.getAuthorisationType()))
+                .completionDateTime(authorisation.getCompletionDateTime())
+                .build();
+    }
+
     public static FRDataAuthorisation.AuthorisationType toFRAuthorisationType(OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType) {
+        return authorisationType == null ? null : FRDataAuthorisation.AuthorisationType.valueOf(authorisationType.name());
+    }
+
+    public static FRDataAuthorisation.AuthorisationType toFRAuthorisationType(OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType authorisationType) {
         return authorisationType == null ? null : FRDataAuthorisation.AuthorisationType.valueOf(authorisationType.name());
     }
 
@@ -41,7 +54,17 @@ public class FRDataAuthorisationConverter {
                 .completionDateTime(authorisation.getCompletionDateTime());
     }
 
+    public static OBWriteDomesticStandingOrderConsentResponse6DataAuthorisation toOBWriteDomesticStandingOrderConsentResponse6DataAuthorisation(FRDataAuthorisation authorisation) {
+        return authorisation == null ? null : new OBWriteDomesticStandingOrderConsentResponse6DataAuthorisation()
+                .authorisationType(toOBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType(authorisation.getAuthorisationType()))
+                .completionDateTime(authorisation.getCompletionDateTime());
+    }
+
     public static OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType toOBExternalAuthorisation1Code(FRDataAuthorisation.AuthorisationType authorisationType) {
         return authorisationType == null ? null : OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType.valueOf(authorisationType.name());
+    }
+
+    public static OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType toOBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType(FRDataAuthorisation.AuthorisationType authorisationType) {
+        return authorisationType == null ? null : OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType.valueOf(authorisationType.name());
     }
 }
