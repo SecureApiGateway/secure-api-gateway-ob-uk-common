@@ -24,6 +24,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
 
 /**
  * OBWriteDomesticStandingOrderConsent5Data
@@ -35,7 +36,7 @@ public class OBWriteDomesticStandingOrderConsent5Data {
 
     private OBWriteDomesticScheduledConsent4DataPermission permission;
 
-    private OBWriteDomesticScheduledConsent4DataReadRefundAccount readRefundAccount;
+    private OBReadRefundAccount readRefundAccount;
 
     private OBWriteDomesticStandingOrder3DataInitiation initiation;
 
@@ -77,7 +78,7 @@ public class OBWriteDomesticStandingOrderConsent5Data {
         this.permission = permission;
     }
 
-    public OBWriteDomesticStandingOrderConsent5Data readRefundAccount(OBWriteDomesticScheduledConsent4DataReadRefundAccount readRefundAccount) {
+    public OBWriteDomesticStandingOrderConsent5Data readRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
@@ -90,11 +91,11 @@ public class OBWriteDomesticStandingOrderConsent5Data {
     @Valid
     @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReadRefundAccount")
-    public OBWriteDomesticScheduledConsent4DataReadRefundAccount getReadRefundAccount() {
+    public OBReadRefundAccount getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(OBWriteDomesticScheduledConsent4DataReadRefundAccount readRefundAccount) {
+    public void setReadRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 

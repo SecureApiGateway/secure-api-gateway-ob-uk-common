@@ -30,6 +30,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
 import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
 
 /**
@@ -55,7 +56,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
 
     private OBWriteDomesticScheduledConsent4DataPermission permission;
 
-    private OBWriteDomesticStandingOrderConsentResponse6DataReadRefundAccount readRefundAccount;
+    private OBReadRefundAccount readRefundAccount;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime cutOffDateTime;
@@ -65,7 +66,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
 
     private OBWriteDomesticStandingOrderConsentResponse6DataInitiation initiation;
 
-    private OBWriteDomesticStandingOrderConsentResponse6DataAuthorisation authorisation;
+    private OBWriteDomesticConsentDataAuthorisation authorisation;
 
     private OBSCASupportData1 scASupportData;
 
@@ -226,7 +227,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
         this.permission = permission;
     }
 
-    public OBWriteDomesticStandingOrderConsentResponse6Data readRefundAccount(OBWriteDomesticStandingOrderConsentResponse6DataReadRefundAccount readRefundAccount) {
+    public OBWriteDomesticStandingOrderConsentResponse6Data readRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
@@ -239,11 +240,11 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
     @Valid
     @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReadRefundAccount")
-    public OBWriteDomesticStandingOrderConsentResponse6DataReadRefundAccount getReadRefundAccount() {
+    public OBReadRefundAccount getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(OBWriteDomesticStandingOrderConsentResponse6DataReadRefundAccount readRefundAccount) {
+    public void setReadRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 
@@ -319,7 +320,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
         this.initiation = initiation;
     }
 
-    public OBWriteDomesticStandingOrderConsentResponse6Data authorisation(OBWriteDomesticStandingOrderConsentResponse6DataAuthorisation authorisation) {
+    public OBWriteDomesticStandingOrderConsentResponse6Data authorisation(OBWriteDomesticConsentDataAuthorisation authorisation) {
         this.authorisation = authorisation;
         return this;
     }
@@ -332,11 +333,11 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
     @Valid
     @Schema(name = "Authorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Authorisation")
-    public OBWriteDomesticStandingOrderConsentResponse6DataAuthorisation getAuthorisation() {
+    public OBWriteDomesticConsentDataAuthorisation getAuthorisation() {
         return authorisation;
     }
 
-    public void setAuthorisation(OBWriteDomesticStandingOrderConsentResponse6DataAuthorisation authorisation) {
+    public void setAuthorisation(OBWriteDomesticConsentDataAuthorisation authorisation) {
         this.authorisation = authorisation;
     }
 
