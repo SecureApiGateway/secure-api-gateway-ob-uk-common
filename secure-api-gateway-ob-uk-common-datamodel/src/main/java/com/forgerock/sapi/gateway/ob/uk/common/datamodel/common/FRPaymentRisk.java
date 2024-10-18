@@ -22,6 +22,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRExternalCategoryPurposeCode;
+
 /**
  * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in
  * order to make it easier to introduce new versions of the Read/Write API.
@@ -45,16 +47,17 @@ public class FRPaymentRisk {
     private String paymentPurposeCode;
     private Boolean beneficiaryPrepopulatedIndicator;
     private Boolean contractPresentIndicator;
+    private FRExternalCategoryPurposeCode categoryPurposeCode;
 
     /**
- * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order
- * to make it easier to introduce new versions of the Read/Write API.
- *
- * <p>
- * Note that this object is used across multiple versions of the Read/Write API, meaning that some values won't be
- * populated. For this reason it is a mutable {@link Data} rather than an immutable {@link lombok.Value} one.
- * </p>
- */
+     * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order
+     * to make it easier to introduce new versions of the Read/Write API.
+     *
+     * <p>
+     * Note that this object is used across multiple versions of the Read/Write API, meaning that some values won't be
+     * populated. For this reason it is a mutable {@link Data} rather than an immutable {@link lombok.Value} one.
+     * </p>
+     */
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
@@ -68,5 +71,18 @@ public class FRPaymentRisk {
         private String townName;
         private String countrySubDivision;
         private String country;
+
+        // v4 fields
+        private String addressType;
+        private String department;
+        private String subDepartment;
+        private String buildingName;
+        private String floor;
+        private String unitNumber;
+        private String room;
+        private String postBox;
+        private String townLocationName;
+        private String districtName;
+        private String careOf;
     }
 }

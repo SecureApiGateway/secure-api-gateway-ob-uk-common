@@ -62,5 +62,5 @@ public class FRWriteDomesticStandingOrderDataInitiation implements FRDomesticDat
     private FRMandateRelatedInformation mandateRelatedInformation;
     private FRUltimateDebtor ultimateDebtor;
     private FRUltimateCreditor ultimateCreditor;
-    private List<FRStructuredRegulatoryReporting> regulatoryReporting;
+    private List<FRRegulatoryReporting> regulatoryReporting;
 }
