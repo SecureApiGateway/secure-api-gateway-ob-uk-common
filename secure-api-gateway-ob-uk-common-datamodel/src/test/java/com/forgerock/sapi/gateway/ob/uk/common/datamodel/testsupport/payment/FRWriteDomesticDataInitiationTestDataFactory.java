@@ -15,8 +15,8 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.payment;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticDataInitiation;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticDataInitiation.FRWriteDomesticDataInitiationBuilder;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v3.payment.FRWriteDomesticDataInitiation;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v3.payment.FRWriteDomesticDataInitiation.FRWriteDomesticDataInitiationBuilder;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAccountIdentifierTestDataFactory;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAmountTestDataFactory;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRPostalAddressTestDataFactory;

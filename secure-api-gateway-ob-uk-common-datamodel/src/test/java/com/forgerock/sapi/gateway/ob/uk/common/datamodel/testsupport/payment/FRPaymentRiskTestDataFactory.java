@@ -15,8 +15,8 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.payment;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRExternalPaymentContextCode;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPaymentRisk;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v3.common.FRExternalPaymentContextCode;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v3.common.FRPaymentRisk;
 
 import static java.util.Collections.singletonList;
 

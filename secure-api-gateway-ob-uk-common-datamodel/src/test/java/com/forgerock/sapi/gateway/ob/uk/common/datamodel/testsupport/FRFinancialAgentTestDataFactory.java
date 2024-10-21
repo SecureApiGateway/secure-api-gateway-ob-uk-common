@@ -15,7 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v3.common.FRFinancialAgent;
 
 /**
  * Test data factory for {@link FRFinancialAgent}.

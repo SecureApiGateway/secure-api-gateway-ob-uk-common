@@ -17,7 +17,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport;
 
 import java.util.List;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPostalAddress;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v3.common.FRPostalAddress;
 
 import uk.org.openbanking.datamodel.v4.common.OBAddressType2Code;
 import uk.org.openbanking.datamodel.v4.common.OBAddressTypeCode;

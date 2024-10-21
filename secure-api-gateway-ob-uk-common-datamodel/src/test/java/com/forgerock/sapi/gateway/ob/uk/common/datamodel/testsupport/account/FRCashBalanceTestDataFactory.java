@@ -15,9 +15,9 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRBalanceType;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCashBalance;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditDebitIndicator;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v3.account.FRBalanceType;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v3.account.FRCashBalance;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v3.account.FRCreditDebitIndicator;
 import org.joda.time.DateTime;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAmountTestDataFactory.aValidFRAmount;

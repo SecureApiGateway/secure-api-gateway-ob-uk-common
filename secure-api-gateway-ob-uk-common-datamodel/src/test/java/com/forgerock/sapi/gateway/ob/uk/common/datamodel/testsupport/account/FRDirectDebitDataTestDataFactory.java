@@ -15,7 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRDirectDebitData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v3.account.FRDirectDebitData;
 import org.joda.time.DateTime;
 
 import java.util.UUID;

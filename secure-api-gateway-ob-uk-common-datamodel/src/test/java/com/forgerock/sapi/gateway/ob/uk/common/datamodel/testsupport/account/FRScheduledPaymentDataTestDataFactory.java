@@ -15,7 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRScheduledPaymentData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v3.account.FRScheduledPaymentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAccountIdentifierTestDataFactory;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAmountTestDataFactory;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRFinancialAgentTestDataFactory;

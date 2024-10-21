@@ -17,7 +17,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.payment;
 
 import java.util.List;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v3.common.FRRemittanceInformation;
 
 /**
  * Test data factory for {@link FRRemittanceInformation}

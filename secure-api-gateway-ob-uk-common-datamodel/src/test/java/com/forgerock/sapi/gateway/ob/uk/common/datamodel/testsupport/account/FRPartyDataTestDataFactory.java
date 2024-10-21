@@ -15,7 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRPartyData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v3.account.FRPartyData;
 
 import java.util.List;
 import java.util.UUID;

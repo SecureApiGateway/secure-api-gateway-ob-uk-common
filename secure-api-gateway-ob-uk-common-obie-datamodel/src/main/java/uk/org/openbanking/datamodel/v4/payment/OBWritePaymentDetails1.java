@@ -15,18 +15,16 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.util.Objects;
-
-import org.joda.time.DateTime;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Objects;
 
 /**
  * OBWritePaymentDetails1

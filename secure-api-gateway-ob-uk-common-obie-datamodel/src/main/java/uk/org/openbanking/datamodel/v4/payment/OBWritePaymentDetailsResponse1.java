@@ -15,16 +15,15 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import uk.org.openbanking.datamodel.v4.common.Links;
 import uk.org.openbanking.datamodel.v4.common.Meta;
+
+import java.util.Objects;
 
 /**
  * OBWritePaymentDetailsResponse1
@@ -33,7 +32,7 @@ import uk.org.openbanking.datamodel.v4.common.Meta;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWritePaymentDetailsResponse1 {
 
-    private OBWritePaymentDetailsResponse1Data data;
+    private OBWriteDataPaymentOrderStatusResponse1 data;
 
     private Links links;
 
@@ -46,11 +45,11 @@ public class OBWritePaymentDetailsResponse1 {
     /**
      * Constructor with only required parameters
      */
-    public OBWritePaymentDetailsResponse1(OBWritePaymentDetailsResponse1Data data) {
+    public OBWritePaymentDetailsResponse1(OBWriteDataPaymentOrderStatusResponse1 data) {
         this.data = data;
     }
 
-    public OBWritePaymentDetailsResponse1 data(OBWritePaymentDetailsResponse1Data data) {
+    public OBWritePaymentDetailsResponse1 data(OBWriteDataPaymentOrderStatusResponse1 data) {
         this.data = data;
         return this;
     }
@@ -64,11 +63,11 @@ public class OBWritePaymentDetailsResponse1 {
     @Valid
     @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Data")
-    public OBWritePaymentDetailsResponse1Data getData() {
+    public OBWriteDataPaymentOrderStatusResponse1 getData() {
         return data;
     }
 
-    public void setData(OBWritePaymentDetailsResponse1Data data) {
+    public void setData(OBWriteDataPaymentOrderStatusResponse1 data) {
         this.data = data;
     }
 

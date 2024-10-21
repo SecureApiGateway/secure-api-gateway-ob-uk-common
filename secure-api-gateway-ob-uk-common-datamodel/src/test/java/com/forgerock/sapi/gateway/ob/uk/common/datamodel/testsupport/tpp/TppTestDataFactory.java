@@ -15,7 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.tpp;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.tpp.Tpp;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v3.tpp.Tpp;
 
 import static java.util.UUID.randomUUID;
 
