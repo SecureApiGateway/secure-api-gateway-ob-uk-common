@@ -20,6 +20,8 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditDebitIn
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCurrencyExchange;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRUltimateCreditor;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRUltimateDebtor;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRFinancialAgent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSupplementaryData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRExternalCategoryPurposeCode;
@@ -64,6 +66,7 @@ public class FRTransactionData {
     private FRCurrencyExchange currencyExchange;
     private FRBankTransactionCodeStructure bankTransactionCode;
     private FRProprietaryBankTransactionCodeStructure proprietaryBankTransactionCode;
+    private List<FRExtendedProprietaryBankTransactionCodeStructure> extendedProprietaryBankTransactionCode;
     private FRTransactionCashBalance balance;
     private FRMerchantDetails merchantDetails;
     private FRFinancialAgent creditorAgent;
@@ -74,6 +77,8 @@ public class FRTransactionData {
     private FRSupplementaryData supplementaryData;
     private FRExternalCategoryPurposeCode categoryPurposeCode;
     private FRExternalPaymentPurposeCode paymentPurposeCode;
+    private FRUltimateCreditor ultimateCreditor;
+    private FRUltimateDebtor ultimateDebtor;
 
     public enum FREntryStatus {
         BOOKED("Booked"),
@@ -143,6 +148,16 @@ public class FRTransactionData {
     public static class FRProprietaryBankTransactionCodeStructure {
         private String code;
         private String issuer;
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class FRExtendedProprietaryBankTransactionCodeStructure {
+        private String code;
+        private String issuer;
+        private String description;
     }
 
     @Data

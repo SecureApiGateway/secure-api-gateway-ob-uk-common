@@ -133,6 +133,10 @@ public class FRAmountConverter {
         return FRModelMapper.map(amount, FRLocalAmount.class);
     }
 
+    public static FRLocalAmount toFRLocalAmount(OBReadBalance1DataBalanceInnerLocalAmount amount) {
+        return FRModelMapper.map(amount, FRLocalAmount.class);
+    }
+
     // FR to OB
     public static OBActiveOrHistoricCurrencyAndAmount toOBActiveOrHistoricCurrencyAndAmount(FRAmount amount) {
         return FRModelMapper.map(amount, OBActiveOrHistoricCurrencyAndAmount.class);
@@ -224,6 +228,10 @@ public class FRAmountConverter {
 
     public static OBReadBalance1DataBalanceInnerAmount toOBReadBalance1DataAmount(FRAmount amount) {
         return FRModelMapper.map(amount, OBReadBalance1DataBalanceInnerAmount.class);
+    }
+
+    public static OBReadBalance1DataBalanceInnerLocalAmount toOBReadBalance1DataBalanceInnerLocalAmount(FRLocalAmount amount) {
+        return FRModelMapper.map(amount, OBReadBalance1DataBalanceInnerLocalAmount.class);
     }
 
     public static OBReadBalance1DataBalanceInnerCreditLineInnerAmount toOBReadBalance1DataAmount1(FRAmount amount) {

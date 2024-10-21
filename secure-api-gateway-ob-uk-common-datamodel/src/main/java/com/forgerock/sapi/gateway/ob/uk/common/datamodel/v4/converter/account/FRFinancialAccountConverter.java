@@ -15,7 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRFinancialAccount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRFinancialAccount;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAccountIdentifierConverter;
 import uk.org.openbanking.datamodel.v4.account.*;
@@ -23,6 +23,9 @@ import uk.org.openbanking.datamodel.v4.account.*;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter.toFRPostalAddress;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter.toOBPostalAddress7;
 
 public class FRFinancialAccountConverter {
 
@@ -40,6 +43,7 @@ public class FRFinancialAccountConverter {
                 .openingDate(account.getOpeningDate())
                 .maturityDate(account.getMaturityDate())
                 .account(toOBAccount6AccountList(account.getAccounts()))
+                .statementFrequencyAndFormat(toStatementFrequencyAndFormatInnerList(account.getStatementFrequencyAndFormat()))
                 .servicer(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification50(account.getServicer()));
     }
 
@@ -55,9 +59,35 @@ public class FRFinancialAccountConverter {
         return accountSubType == null ? null : OBExternalAccountSubType1Code.valueOf(accountSubType.name());
     }
 
+    public static OBFrequency2 toOBFrequency2(FRFinancialAccount.FRStatementFrequency statementFrequency) {
+        return statementFrequency == null ? null : OBFrequency2.valueOf(statementFrequency.name());
+    }
+
+    public static OBFileFormat toOBFileFormat(FRFinancialAccount.FRFormat statementFrequency) {
+        return statementFrequency == null ? null : OBFileFormat.valueOf(statementFrequency.name());
+    }
+
+    public static OBCommunicationMethod toOBCommunicationMethod(FRFinancialAccount.FRCommunicationMethod communicationMethod) {
+        return communicationMethod == null ? null : OBCommunicationMethod.valueOf(communicationMethod.name());
+    }
+
     private static List<OBAccount6AccountInner> toOBAccount6AccountList(List<FRAccountIdentifier> accounts) {
         return accounts == null ? null : accounts.stream()
                 .map(FRAccountIdentifierConverter::toOBAccount6Account)
+                .collect(Collectors.toList());
+    }
+
+    public static StatementFrequencyAndFormatInner toStatementFrequencyAndFormatInner(FRFinancialAccount.FRStatementFrequencyAndFormat statementFrequencyAndFormat) {
+        return statementFrequencyAndFormat == null ? null : new StatementFrequencyAndFormatInner()
+                .frequency(toOBFrequency2(statementFrequencyAndFormat.getStatementFrequency()))
+                .format(toOBFileFormat(statementFrequencyAndFormat.getFormat()))
+                .communicationMethod(toOBCommunicationMethod(statementFrequencyAndFormat.getCommunicationMethod()))
+                .deliveryAddress(toOBPostalAddress7(statementFrequencyAndFormat.getPostalAddress()));
+    }
+
+    private static List<StatementFrequencyAndFormatInner> toStatementFrequencyAndFormatInnerList(List<FRFinancialAccount.FRStatementFrequencyAndFormat> statementFrequencyAndFormatsList) {
+        return statementFrequencyAndFormatsList == null ? null : statementFrequencyAndFormatsList.stream()
+                .map(FRFinancialAccountConverter::toStatementFrequencyAndFormatInner)
                 .collect(Collectors.toList());
     }
 
@@ -77,6 +107,7 @@ public class FRFinancialAccountConverter {
                 .maturityDate(account.getMaturityDate())
                 .accounts(toFRAccountIdentifierList(account.getAccount(), FRAccountIdentifierConverter::toFRAccountIdentifier))
                 .servicer(FRAccountServicerConverter.toFRAccountServicer(account.getServicer()))
+                .statementFrequencyAndFormat(toFRStatementFrequencyAndFormatList(account.getStatementFrequencyAndFormat(), FRFinancialAccountConverter::toFRStatementFrequencyAndFormat))
                 .build();
     }
 
@@ -93,6 +124,33 @@ public class FRFinancialAccountConverter {
     }
 
     public static <T> List<FRAccountIdentifier> toFRAccountIdentifierList(List<T> accounts, Function<T, FRAccountIdentifier> converter) {
+        return accounts == null ? null : accounts.stream()
+                .map(converter)
+                .collect(Collectors.toList());
+    }
+
+    public static FRFinancialAccount.FRStatementFrequencyAndFormat toFRStatementFrequencyAndFormat(StatementFrequencyAndFormatInner statementFrequencyAndFormatInner) {
+        return statementFrequencyAndFormatInner == null ? null : FRFinancialAccount.FRStatementFrequencyAndFormat.builder()
+                .postalAddress(toFRPostalAddress(statementFrequencyAndFormatInner.getDeliveryAddress()))
+                .communicationMethod(toFRCommunicationMethod(statementFrequencyAndFormatInner.getCommunicationMethod()))
+                .statementFrequency(toFRStatementFrequency(statementFrequencyAndFormatInner.getFrequency()))
+                .format(toFRFormat(statementFrequencyAndFormatInner.getFormat()))
+                .build();
+    }
+
+    public static FRFinancialAccount.FRFormat toFRFormat(OBFileFormat fileFormat) {
+        return fileFormat == null ? null : FRFinancialAccount.FRFormat.valueOf(fileFormat.name());
+    }
+
+    public static FRFinancialAccount.FRCommunicationMethod toFRCommunicationMethod(OBCommunicationMethod communicationMethod) {
+        return communicationMethod == null ? null : FRFinancialAccount.FRCommunicationMethod.valueOf(communicationMethod.name());
+    }
+
+    public static FRFinancialAccount.FRStatementFrequency toFRStatementFrequency(OBFrequency2 obFrequency2) {
+        return obFrequency2 == null ? null : FRFinancialAccount.FRStatementFrequency.valueOf(obFrequency2.name());
+    }
+
+    public static <T> List<FRFinancialAccount.FRStatementFrequencyAndFormat> toFRStatementFrequencyAndFormatList(List<T> accounts, Function<T, FRFinancialAccount.FRStatementFrequencyAndFormat> converter) {
         return accounts == null ? null : accounts.stream()
                 .map(converter)
                 .collect(Collectors.toList());

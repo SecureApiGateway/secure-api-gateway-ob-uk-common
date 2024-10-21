@@ -16,12 +16,16 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRUltimateCreditor;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRUltimateDebtor;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRFinancialAgent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialCreditor;
 import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionIdentification51;
 import uk.org.openbanking.datamodel.v4.common.OBBranchAndFinancialInstitutionIdentification60;
 import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionIdentification61;
 import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionIdentification62;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternational3DataInitiationCreditor;
 //import uk.org.openbanking.datamodel.v4.payment.OBWriteInternational3DataInitiationCreditorAgent;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor;
@@ -81,14 +85,23 @@ public class FRFinancialInstrumentConverter {
                 .build();
     }
 
-//    public static FRFinancialAgentV4 toFRFinancialAgent(OBWriteInternational3DataInitiationCreditorAgent agent) {
-//        return agent == null ? null : FRFinancialAgentV4.builder()
-//                .schemeName(agent.getSchemeName())
-//                .identification(agent.getIdentification())
-//                .name(agent.getName())
-//                .postalAddress(FRPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
-//                .build();
-//    }
+    public static FRUltimateCreditor toFRFinancialAgent(OBUltimateCreditor1 agent) {
+        return agent == null ? null : FRUltimateCreditor.builder()
+                .schemeName(agent.getSchemeName())
+                .identification(agent.getIdentification())
+                .name(agent.getName())
+                .postalAddress(FRPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
+                .build();
+    }
+
+    public static FRUltimateDebtor toFRFinancialAgent(OBUltimateDebtor1 agent) {
+        return agent == null ? null : FRUltimateDebtor.builder()
+                .schemeName(agent.getSchemeName())
+                .identification(agent.getIdentification())
+                .name(agent.getName())
+                .postalAddress(FRPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
+                .build();
+    }
 
     public static FRFinancialAgent toFRFinancialAgent(OBWriteInternationalStandingOrder4DataInitiationCreditorAgent agent) {
         return agent == null ? null : FRFinancialAgent.builder()
