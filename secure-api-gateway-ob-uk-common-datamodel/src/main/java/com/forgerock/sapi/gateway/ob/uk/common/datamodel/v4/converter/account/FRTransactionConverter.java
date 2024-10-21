@@ -25,6 +25,12 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.payment.FRExternalPa
 import uk.org.openbanking.datamodel.v4.account.*;
 import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
 
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRAccountServicerConverter.toOBUltimateCreditor1;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRAccountServicerConverter.toOBUltimateDebtor1;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRCashBalanceConverter.toFRBalanceType;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRCashBalanceConverter.toOBBalanceType1Code;
 
@@ -57,6 +63,9 @@ public class FRTransactionConverter {
                 .debtorAgent(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification62(transaction.getDebtorAgent()))
                 .debtorAccount(FRAccountIdentifierConverter.toOBCashAccount61(transaction.getDebtorAccount()))
                 .cardInstrument(toOBTransactionCardInstrument1(transaction.getCardInstrument()))
+                .ultimateCreditor(toOBUltimateCreditor1(transaction.getUltimateCreditor()))
+                .ultimateDebtor(toOBUltimateDebtor1(transaction.getUltimateDebtor()))
+                .extendedProprietaryBankTransactionCodes(toOBExtendedProprietaryBankTransactionCodeList(transaction.getExtendedProprietaryBankTransactionCode()))
                 .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(transaction.getSupplementaryData()));
     }
 
@@ -86,6 +95,19 @@ public class FRTransactionConverter {
         return proprietaryTransactionCode == null ? null : new ProprietaryBankTransactionCodeStructure1()
                 .code(proprietaryTransactionCode.getCode())
                 .issuer(proprietaryTransactionCode.getIssuer());
+    }
+
+    public static OBExtendedProprietaryBankTransactionCode toOBExtendedProprietaryBankTransactionCode(FRTransactionData.FRExtendedProprietaryBankTransactionCodeStructure extendedProprietaryBankTransactionCode) {
+        return extendedProprietaryBankTransactionCode == null ? null : new OBExtendedProprietaryBankTransactionCode()
+                .code(extendedProprietaryBankTransactionCode.getCode())
+                .description(extendedProprietaryBankTransactionCode.getDescription())
+                .issuer(extendedProprietaryBankTransactionCode.getIssuer());
+    }
+
+    public static List<OBExtendedProprietaryBankTransactionCode> toOBExtendedProprietaryBankTransactionCodeList(List<FRTransactionData.FRExtendedProprietaryBankTransactionCodeStructure> extendedProprietaryBankTransaction) {
+        return extendedProprietaryBankTransaction == null ? null : extendedProprietaryBankTransaction.stream()
+                .map(FRTransactionConverter::toOBExtendedProprietaryBankTransactionCode)
+                .collect(Collectors.toList());
     }
 
     public static OBTransactionCardInstrument1 toOBTransactionCardInstrument1(FRTransactionData.FRTransactionCardInstrument cardInstrument) {
@@ -146,6 +168,9 @@ public class FRTransactionConverter {
                 .supplementaryData(FRSupplementaryDataConverter.toFRSupplementaryData(transaction.getSupplementaryData()))
                 .categoryPurposeCode(toFRExternalCategoryPurposeCode(transaction.getCategoryPurposeCode()))
                 .paymentPurposeCode(toFRExternalCategoryPurposeCode(transaction.getPaymentPurposeCode()))
+                .ultimateCreditor(FRFinancialInstrumentConverter.toFRFinancialAgent(transaction.getUltimateCreditor()))
+                .ultimateDebtor(FRFinancialInstrumentConverter.toFRFinancialAgent(transaction.getUltimateDebtor()))
+                .extendedProprietaryBankTransactionCode(toFRExtendedProprietaryBankTransactionCodeStructureList(transaction.getExtendedProprietaryBankTransactionCodes(), FRTransactionConverter::toFRExtendedProprietaryBankTransactionCodeStructure))
                 .build();
     }
 
@@ -179,6 +204,20 @@ public class FRTransactionConverter {
                 .build();
     }
 
+    public static FRTransactionData.FRExtendedProprietaryBankTransactionCodeStructure toFRExtendedProprietaryBankTransactionCodeStructure(OBExtendedProprietaryBankTransactionCode extendedProprietaryBankTransactionCode) {
+        return extendedProprietaryBankTransactionCode == null ? null : FRTransactionData.FRExtendedProprietaryBankTransactionCodeStructure.builder()
+                .code(extendedProprietaryBankTransactionCode.getCode())
+                .issuer(extendedProprietaryBankTransactionCode.getIssuer())
+                .description(extendedProprietaryBankTransactionCode.getDescription())
+                .build();
+    }
+
+    public static <T> List<FRTransactionData.FRExtendedProprietaryBankTransactionCodeStructure> toFRExtendedProprietaryBankTransactionCodeStructureList(List<T> extendedProprietaryBankTransactionCode, Function<T, FRTransactionData.FRExtendedProprietaryBankTransactionCodeStructure> converter) {
+        return extendedProprietaryBankTransactionCode == null ? null : extendedProprietaryBankTransactionCode.stream()
+                .map(converter)
+                .collect(Collectors.toList());
+    }
+
     public static FRTransactionData.FRTransactionCashBalance toFRTransactionCashBalance(OBTransactionCashBalance balance) {
         return balance == null ? null : FRTransactionData.FRTransactionCashBalance.builder()
                 .amount(FRAmountConverter.toFRAmount(balance.getAmount()))
@@ -193,7 +232,6 @@ public class FRTransactionConverter {
                 .merchantCategoryCode(merchantDetails.getMerchantCategoryCode())
                 .build();
     }
-
 
     public static FRTransactionData.FRTransactionCardInstrument toFRTransactionCardInstrument(OBTransactionCardInstrument1 cardInstrument) {
         return cardInstrument == null ? null : FRTransactionData.FRTransactionCardInstrument.builder()

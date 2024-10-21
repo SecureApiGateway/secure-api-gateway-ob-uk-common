@@ -16,7 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRBalanceType;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCashBalance;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRCashBalance;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditLine;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter;
 import uk.org.openbanking.datamodel.v4.account.OBBalanceType1Code;
@@ -27,8 +27,7 @@ import uk.org.openbanking.datamodel.v4.account.OBReadBalance1DataBalanceInnerCre
 import java.util.List;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter.toFRAmount;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter.toOBReadBalance1DataAmount;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter.*;
 import static java.util.stream.Collectors.toList;
 
 public class FRCashBalanceConverter {
@@ -41,6 +40,7 @@ public class FRCashBalanceConverter {
                 .type(toOBBalanceType1Code(balance.getType()))
                 .dateTime(balance.getDateTime())
                 .amount(toOBReadBalance1DataAmount(balance.getAmount()))
+                .localAmount(FRAmountConverter.toOBReadBalance1DataBalanceInnerLocalAmount(balance.getLocalAmount()))
                 .creditLine(toOBReadBalance1DataCreditLineList(balance.getCreditLines()));
     }
 
@@ -78,6 +78,7 @@ public class FRCashBalanceConverter {
                 .dateTime(balance.getDateTime())
                 .creditLines(toFRCreditLines(balance.getCreditLine()))
                 .type(toFRBalanceType(balance.getType()))
+                .localAmount(toFRLocalAmount(balance.getLocalAmount()))
                 .build();
     }
 

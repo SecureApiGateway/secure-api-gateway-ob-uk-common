@@ -173,7 +173,7 @@ public class FRStatementConverter {
     public static OBReadBalance1DataTotalValue toOBReadBalance1DataTotalValue(FRStatementData.FRTotalValue totalValue) {
         return totalValue == null ? null : new OBReadBalance1DataTotalValue()
                 .currency(totalValue.getCurrency())
-                .amount(String.valueOf(totalValue.getAmount()));
+                .amount(totalValue.getAmount());
     }
 
     // OB to FR
@@ -194,6 +194,7 @@ public class FRStatementConverter {
                 .statementRates(toStatementRatesList(obStatement.getStatementRate(), FRStatementConverter::toFRStatementRate))
                 .statementValues(toStatementValuesList(obStatement.getStatementValue(), FRStatementConverter::toFRStatementValue))
                 .statementAmounts(toStatementAmountsList(obStatement.getStatementAmount(), FRStatementConverter::toFRStatementAmount))
+                .totalValues(toFRStatementTotalValue(obStatement.getTotalValue()))
                 .build();
     }
 
@@ -312,6 +313,13 @@ public class FRStatementConverter {
                 .type(statementAmount.getType())
                 .amount(FRAmountConverter.toFRAmount(statementAmount.getAmount()))
                 .localAmount(FRAmountConverter.toFRAmount(statementAmount.getLocalAmount()))
+                .build();
+    }
+
+    public static FRStatementData.FRTotalValue toFRStatementTotalValue(OBReadBalance1DataTotalValue totalValue) {
+        return totalValue == null ? null : FRStatementData.FRTotalValue.builder()
+                .amount(totalValue.getAmount())
+                .currency(totalValue.getCurrency())
                 .build();
     }
 }

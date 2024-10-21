@@ -15,12 +15,16 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountServicer;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRAccountServicer;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRUltimateCreditor;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRUltimateDebtor;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRFinancialAgent;
 import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionIdentification50;
 import uk.org.openbanking.datamodel.v4.common.OBBranchAndFinancialInstitutionIdentification60;
 import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionIdentification61;
 import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionIdentification62;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter.toOBPostalAddress7;
 
@@ -31,6 +35,7 @@ public class FRAccountServicerConverter {
     public static OBBranchAndFinancialInstitutionIdentification50 toOBBranchAndFinancialInstitutionIdentification50(FRAccountServicer servicer) {
         return servicer == null ? null : new OBBranchAndFinancialInstitutionIdentification50()
                 .schemeName(servicer.getSchemeName())
+                .name(servicer.getName())
                 .identification(servicer.getIdentification());
     }
 
@@ -59,6 +64,24 @@ public class FRAccountServicerConverter {
                 .name(creditorAgent.getName())
                 .LEI(creditorAgent.getLEI())
                 .postalAddress(toOBPostalAddress7(creditorAgent.getPostalAddress()));
+    }
+
+    public static OBUltimateCreditor1 toOBUltimateCreditor1(FRUltimateCreditor ultimateCreditor) {
+        return ultimateCreditor == null ? null : new OBUltimateCreditor1()
+                .schemeName(ultimateCreditor.getSchemeName())
+                .identification(ultimateCreditor.getIdentification())
+                .name(ultimateCreditor.getName())
+                .LEI(ultimateCreditor.getLEI())
+                .postalAddress(toOBPostalAddress7(ultimateCreditor.getPostalAddress()));
+    }
+
+    public static OBUltimateDebtor1 toOBUltimateDebtor1(FRUltimateDebtor ultimateDebtor) {
+        return ultimateDebtor == null ? null : new OBUltimateDebtor1()
+                .schemeName(ultimateDebtor.getSchemeName())
+                .identification(ultimateDebtor.getIdentification())
+                .name(ultimateDebtor.getName())
+                .LEI(ultimateDebtor.getLEI())
+                .postalAddress(toOBPostalAddress7(ultimateDebtor.getPostalAddress()));
     }
 
     // OB to FR

@@ -179,7 +179,7 @@ public class FRStatementData {
     @AllArgsConstructor
     @Builder
     public static class FRTotalValue {
-        private FRAmount amount;
+        private String amount;
         private String currency;
     }
 }
