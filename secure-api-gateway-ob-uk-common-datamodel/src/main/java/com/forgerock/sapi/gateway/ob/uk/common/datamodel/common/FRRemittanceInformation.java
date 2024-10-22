@@ -38,7 +38,6 @@ import lombok.NoArgsConstructor;
 public class FRRemittanceInformation {
 
     private String reference;
-
     private List<FRRemittanceInformationStructured> structured;
     private List<String> unstructured;
 }
