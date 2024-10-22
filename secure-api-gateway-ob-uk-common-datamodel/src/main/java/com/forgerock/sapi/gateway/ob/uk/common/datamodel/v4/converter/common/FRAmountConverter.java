@@ -16,7 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.mapper.FRModelMapper;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.mapper.FRModelMapper;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRLocalAmount;
 import uk.org.openbanking.datamodel.v4.account.*;
 import uk.org.openbanking.datamodel.v4.common.OBActiveOrHistoricCurrencyAndAmount;

@@ -23,8 +23,8 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.acc
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAccountIdentifierConverter.toFRAccountIdentifier;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAccountIdentifierConverter.toOBCashAccount50;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRFinancialInstrumentConverter.toFRFinancialAgent;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter.toFRSupplementaryData;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter.toOBSupplementaryData1;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRSupplementaryDataConverter.toFRSupplementaryData;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRSupplementaryDataConverter.toOBSupplementaryData1;
 
 public class FRAccountBeneficiaryConverter {
 
