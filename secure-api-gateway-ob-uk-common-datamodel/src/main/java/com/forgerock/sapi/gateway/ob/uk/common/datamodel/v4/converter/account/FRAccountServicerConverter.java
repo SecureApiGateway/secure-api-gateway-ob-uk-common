@@ -26,7 +26,7 @@ import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionId
 import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter.toOBPostalAddress7;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRPostalAddressConverter.toOBPostalAddress7;
 
 
 public class FRAccountServicerConverter {

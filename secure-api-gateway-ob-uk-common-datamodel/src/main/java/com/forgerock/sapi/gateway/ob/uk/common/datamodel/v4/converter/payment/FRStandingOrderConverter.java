@@ -16,13 +16,12 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRExternalCategoryPurposeCode;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRExternalMandateClassificationCode;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRMandateRelatedInformation;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRMandateRelatedInformation;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRStandingOrderData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAccountIdentifierConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRFinancialInstrumentConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRSupplementaryDataConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRSupplementaryDataConverter;
 import uk.org.openbanking.datamodel.v4.account.*;
 import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
 
@@ -48,7 +47,7 @@ public class FRStandingOrderConverter {
 
     public static OBMandateRelatedInformation1 toOBMandateRelatedInformation1(FRMandateRelatedInformation mandateRelatedInformation) {
         return mandateRelatedInformation == null ? null : new OBMandateRelatedInformation1()
-                .categoryPurposeCode(toOBExternalCategoryPurpose1Code(mandateRelatedInformation.getCategoryPurposeCode()))
+                .categoryPurposeCode(mandateRelatedInformation.getCategoryPurposeCode())
                 .classification(toOBExternalMandateClassification1Code(mandateRelatedInformation.getClassification()))
                 .finalPaymentDateTime(mandateRelatedInformation.getFinalPaymentDateTime())
                 .firstPaymentDateTime(mandateRelatedInformation.getFirstPaymentDateTime())
@@ -61,10 +60,7 @@ public class FRStandingOrderConverter {
         return standingOrderStatusCode == null ? null : ExternalMandateStatus1Code.valueOf(standingOrderStatusCode.name());
     }
 
-    public static ExternalCategoryPurpose1Code toOBExternalCategoryPurpose1Code(FRExternalCategoryPurposeCode externalCategoryPurposeCode) {
-        return externalCategoryPurposeCode == null ? null : ExternalCategoryPurpose1Code.valueOf(externalCategoryPurposeCode.name());
-    }
-    public static OBExternalMandateClassification1Code toOBExternalMandateClassification1Code(FRExternalMandateClassificationCode externalMandateClassificationCode) {
+    public static OBExternalMandateClassification1Code toOBExternalMandateClassification1Code(FRMandateRelatedInformation.FRExternalMandateClassificationCode externalMandateClassificationCode) {
         return externalMandateClassificationCode == null ? null : OBExternalMandateClassification1Code.valueOf(externalMandateClassificationCode.name());
     }
 
@@ -90,7 +86,7 @@ public class FRStandingOrderConverter {
 
     public static FRMandateRelatedInformation toFRMandateRelatedInformation(OBMandateRelatedInformation1 obMandateRelatedInformation1) {
         return obMandateRelatedInformation1 == null ? null : FRMandateRelatedInformation.builder()
-                .categoryPurposeCode(toFRExternalCategoryPurposeCode(obMandateRelatedInformation1.getCategoryPurposeCode()))
+                .categoryPurposeCode(obMandateRelatedInformation1.getCategoryPurposeCode())
                 .classification(toFRExternalMandateClassificationCode(obMandateRelatedInformation1.getClassification()))
                 .finalPaymentDateTime(obMandateRelatedInformation1.getFinalPaymentDateTime())
                 .firstPaymentDateTime(obMandateRelatedInformation1.getFirstPaymentDateTime())
@@ -108,7 +104,7 @@ public class FRStandingOrderConverter {
         return externalCategoryPurpose1Code == null ? null : FRExternalCategoryPurposeCode.valueOf(externalCategoryPurpose1Code.name());
     }
 
-    public static FRExternalMandateClassificationCode toFRExternalMandateClassificationCode(OBExternalMandateClassification1Code externalMandateClassification1Code) {
-        return externalMandateClassification1Code == null ? null : FRExternalMandateClassificationCode.valueOf(externalMandateClassification1Code.name());
+    public static FRMandateRelatedInformation.FRExternalMandateClassificationCode toFRExternalMandateClassificationCode(OBExternalMandateClassification1Code externalMandateClassification1Code) {
+        return externalMandateClassification1Code == null ? null : FRMandateRelatedInformation.FRExternalMandateClassificationCode.valueOf(externalMandateClassification1Code.name());
     }
 }

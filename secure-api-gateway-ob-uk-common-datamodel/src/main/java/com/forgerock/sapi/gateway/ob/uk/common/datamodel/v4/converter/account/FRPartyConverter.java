@@ -16,7 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRPartyData;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRPostalAddressConverter;
 import uk.org.openbanking.datamodel.v4.account.OBInternalPartyType1Code;
 import uk.org.openbanking.datamodel.v4.account.OBParty2;
 import uk.org.openbanking.datamodel.v4.account.OBPartyRelationships1;
@@ -24,7 +24,7 @@ import uk.org.openbanking.datamodel.v4.account.OBPartyRelationships1Account;
 
 import java.net.URI;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.common.FRPostalAddressConverter.toOBPostalAddress7;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRPostalAddressConverter.toOBPostalAddress7;
 
 public class FRPartyConverter {
 

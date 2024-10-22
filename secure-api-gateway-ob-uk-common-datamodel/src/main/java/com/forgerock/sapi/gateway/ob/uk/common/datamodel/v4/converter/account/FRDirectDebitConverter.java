@@ -15,8 +15,11 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRExternalCategoryPurposeCode;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRStandingOrderFrequency;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRStandingOrderFrequencyCode;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRDirectDebitData;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.*;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.*;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter;
 import uk.org.openbanking.datamodel.v4.account.*;
 import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
@@ -42,14 +45,14 @@ public class FRDirectDebitConverter {
 
     public static OBMandateRelatedInformation1 toOBMandateRelatedInformation1(FRMandateRelatedInformation mandateRelatedInformation) {
         return mandateRelatedInformation == null ? null : new OBMandateRelatedInformation1()
-                .categoryPurposeCode(toOBExternalCategoryPurpose1Code(mandateRelatedInformation.getCategoryPurposeCode()))
+                .categoryPurposeCode(mandateRelatedInformation.getCategoryPurposeCode())
                 .classification(toOBExternalMandateClassification1Code(mandateRelatedInformation.getClassification()))
                 .finalPaymentDateTime(mandateRelatedInformation.getFinalPaymentDateTime())
                 .firstPaymentDateTime(mandateRelatedInformation.getFirstPaymentDateTime())
                 .mandateIdentification(mandateRelatedInformation.getMandateIdentification())
                 .reason(mandateRelatedInformation.getReason())
                 .recurringPaymentDateTime(mandateRelatedInformation.getRecurringPaymentDateTime())
-                .frequency(toOBFrequency6(mandateRelatedInformation.getFrequency()));
+                .frequency(mandateRelatedInformation.getFrequency());
     }
 
     public static OBFrequency6 toOBFrequency6(FRStandingOrderFrequency frStandingOrderFrequency) {
@@ -65,7 +68,7 @@ public class FRDirectDebitConverter {
     public static ExternalCategoryPurpose1Code toOBExternalCategoryPurpose1Code(FRExternalCategoryPurposeCode externalCategoryPurposeCode) {
         return externalCategoryPurposeCode == null ? null : ExternalCategoryPurpose1Code.valueOf(externalCategoryPurposeCode.name());
     }
-    public static OBExternalMandateClassification1Code toOBExternalMandateClassification1Code(FRExternalMandateClassificationCode externalMandateClassificationCode) {
+    public static OBExternalMandateClassification1Code toOBExternalMandateClassification1Code(FRMandateRelatedInformation.FRExternalMandateClassificationCode externalMandateClassificationCode) {
         return externalMandateClassificationCode == null ? null : OBExternalMandateClassification1Code.valueOf(externalMandateClassificationCode.name());
     }
     public static OBFrequency6Code toOBFrequency6Code(FRStandingOrderFrequencyCode frStandingOrderFrequencyCode) {
@@ -87,14 +90,14 @@ public class FRDirectDebitConverter {
 
     public static FRMandateRelatedInformation toFRMandateRelatedInformation(OBMandateRelatedInformation1 obMandateRelatedInformation1) {
         return obMandateRelatedInformation1 == null ? null : FRMandateRelatedInformation.builder()
-                .categoryPurposeCode(toFRExternalCategoryPurposeCode(obMandateRelatedInformation1.getCategoryPurposeCode()))
+                .categoryPurposeCode((obMandateRelatedInformation1.getCategoryPurposeCode()))
                 .classification(toFRExternalMandateClassificationCode(obMandateRelatedInformation1.getClassification()))
                 .finalPaymentDateTime(obMandateRelatedInformation1.getFinalPaymentDateTime())
                 .firstPaymentDateTime(obMandateRelatedInformation1.getFirstPaymentDateTime())
                 .mandateIdentification(obMandateRelatedInformation1.getMandateIdentification())
                 .reason(obMandateRelatedInformation1.getReason())
                 .recurringPaymentDateTime(obMandateRelatedInformation1.getRecurringPaymentDateTime())
-                .frequency(toFRStandingOrderFrequency(obMandateRelatedInformation1.getFrequency()))
+                .frequency(obMandateRelatedInformation1.getFrequency())
                 .build();
     }
 
@@ -114,8 +117,8 @@ public class FRDirectDebitConverter {
         return externalCategoryPurpose1Code == null ? null : FRExternalCategoryPurposeCode.valueOf(externalCategoryPurpose1Code.name());
     }
 
-    public static FRExternalMandateClassificationCode toFRExternalMandateClassificationCode(OBExternalMandateClassification1Code externalMandateClassification1Code) {
-        return externalMandateClassification1Code == null ? null : FRExternalMandateClassificationCode.valueOf(externalMandateClassification1Code.name());
+    public static FRMandateRelatedInformation.FRExternalMandateClassificationCode toFRExternalMandateClassificationCode(OBExternalMandateClassification1Code externalMandateClassification1Code) {
+        return externalMandateClassification1Code == null ? null : FRMandateRelatedInformation.FRExternalMandateClassificationCode.valueOf(externalMandateClassification1Code.name());
     }
 
     public static FRStandingOrderFrequencyCode toFRStandingOrderFrequencyCode(OBFrequency6Code obFrequency6Code) {
