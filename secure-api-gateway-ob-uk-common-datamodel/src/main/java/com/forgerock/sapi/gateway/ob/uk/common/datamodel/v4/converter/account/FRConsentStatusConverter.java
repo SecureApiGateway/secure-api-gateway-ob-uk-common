@@ -22,7 +22,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRAccountStatusCode.*;
 import static java.util.stream.Collectors.toMap;
 
 public class FRConsentStatusConverter {
