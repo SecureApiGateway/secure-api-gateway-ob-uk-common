@@ -24,7 +24,7 @@ public enum FRAccountStatusCode {
     EXPIRED("Expired"),
     CANCELLED("Cancelled");
 
-    private String value;
+    private final String value;
 
     FRAccountStatusCode(String value) {
         this.value = value;
