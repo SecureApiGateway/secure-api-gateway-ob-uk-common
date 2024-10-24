@@ -74,6 +74,7 @@ public class FRPartyConverter {
                 .phone(party.getPhone())
                 .mobile(party.getMobile())
                 .relationship(toFRRelationship(party.getRelationships()))
+                .LEI(party.getLEI())
                 .addresses(FRPostalAddressConverter.toFRPostalAddressListV4(party.getAddress()))
                 .build();
     }
