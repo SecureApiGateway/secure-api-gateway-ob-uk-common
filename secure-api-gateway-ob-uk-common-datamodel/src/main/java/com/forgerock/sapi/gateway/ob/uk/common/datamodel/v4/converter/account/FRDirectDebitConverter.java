@@ -24,6 +24,8 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRA
 import uk.org.openbanking.datamodel.v4.account.*;
 import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
 
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRExternalMandateStatusConverter.toExternalMandateStatus1CodeV4;
+
 
 /**
  * Converter for 'OBDirectDebit' model objects.
@@ -37,7 +39,7 @@ public class FRDirectDebitConverter {
                 .accountId(directDebitData.getAccountId())
                 .directDebitId(directDebitData.getDirectDebitId())
                 .mandateRelatedInformation(toOBMandateRelatedInformation1(directDebitData.getMandateRelatedInformation()))
-                .directDebitStatusCode(toOBExternalDirectDebitStatus1Code(directDebitData.getDirectDebitStatusCode()))
+                .directDebitStatusCode(toExternalMandateStatus1CodeV4(String.valueOf(directDebitData.getDirectDebitStatusCode())))
                 .name(directDebitData.getName())
                 .previousPaymentDateTime(directDebitData.getPreviousPaymentDateTime())
                 .previousPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount0(directDebitData.getPreviousPaymentAmount()));

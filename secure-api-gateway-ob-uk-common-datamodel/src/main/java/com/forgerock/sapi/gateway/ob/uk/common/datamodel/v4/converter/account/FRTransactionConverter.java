@@ -33,6 +33,7 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.acc
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRAccountServicerConverter.toOBUltimateDebtor1;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRCashBalanceConverter.toFRBalanceType;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRCashBalanceConverter.toOBBalanceType1Code;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FREntryStatusConverter.toExternalEntryStatus1CodeV4;
 
 public class FRTransactionConverter {
 
@@ -45,7 +46,7 @@ public class FRTransactionConverter {
                 .transactionReference(transaction.getTransactionReference())
                 .statementReference(transaction.getStatementReferences())
                 .creditDebitIndicator(FRCreditDebitIndicatorConverter.toOBCreditDebitCode1(transaction.getCreditDebitIndicator()))
-                .status(toOBEntryStatus1Code(transaction.getStatus()))
+                .status(toExternalEntryStatus1CodeV4(String.valueOf(transaction.getStatus())))
                 .transactionMutability(toOBTransactionMutability1Code(transaction.getTransactionMutability()))
                 .bookingDateTime(transaction.getBookingDateTime())
                 .valueDateTime(transaction.getValueDateTime())
