@@ -39,7 +39,7 @@ public class FRRemittanceInformationConverter {
 
     public static FRRemittanceInformation toFRRemittanceInformation(OBRemittanceInformation2 remittanceInformation) {
         return remittanceInformation == null ? null : FRRemittanceInformation.builder()
-                //.structured(List.of((FRRemittanceInformationStructured) remittanceInformation.getStructured()))
+                .structured(List.of((FRRemittanceInformationStructured) remittanceInformation.getStructured()))
                 .unstructured(remittanceInformation.getUnstructured())
                 .build();
     }
@@ -60,7 +60,7 @@ public class FRRemittanceInformationConverter {
 
     public static OBRemittanceInformation2 toOBRemittanceInformation2(FRRemittanceInformation remittanceInformation) {
         return remittanceInformation == null ? null : new OBRemittanceInformation2()
-                //.structured(List.of((OBRemittanceInformationStructured) remittanceInformation.getStructured()))
+                .structured(List.of((OBRemittanceInformationStructured) remittanceInformation.getStructured()))
                 .unstructured(remittanceInformation.getUnstructured());
     }
 
