@@ -31,6 +31,7 @@ import java.util.stream.Collectors;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRAccountServicerConverter.toOBUltimateCreditor1;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRAccountServicerConverter.toOBUltimateDebtor1;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRBalanceTypeConverter.toOBBalanceType1CodeV4;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRCashBalanceConverter.toFRBalanceType;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRCashBalanceConverter.toOBBalanceType1Code;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FREntryStatusConverter.toExternalEntryStatus1CodeV4;
@@ -123,7 +124,7 @@ public class FRTransactionConverter {
         return balance == null ? null : new OBTransactionCashBalance()
                 .amount(FRAmountConverter.toOBTransactionCashBalanceAmount(balance.getAmount()))
                 .creditDebitIndicator(FRCreditDebitIndicatorConverter.toOBCreditDebitCode2(balance.getCreditDebitIndicator()))
-                .type(toOBBalanceType1Code(balance.getType()));
+                .type(toOBBalanceType1CodeV4(String.valueOf(balance.getType())));
     }
 
     public static OBMerchantDetails1 toOBMerchantDetails1(FRTransactionData.FRMerchantDetails merchantDetails) {
