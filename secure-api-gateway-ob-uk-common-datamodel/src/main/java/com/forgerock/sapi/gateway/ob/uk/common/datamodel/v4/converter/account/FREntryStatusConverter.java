@@ -32,8 +32,8 @@ public class FREntryStatusConverter {
 
     static {
         final Map<String, String> entryStatusTransalations = new HashMap<>();
-       entryStatusTransalations.put("BOOKED", "BOOK");
-       entryStatusTransalations.put("PENDING", "PDNG");
+       entryStatusTransalations.put("Booked", "BOOK");
+       entryStatusTransalations.put("Pending", "PDNG");
 
         v3tov4EntryStatus = Collections.unmodifiableMap(entryStatusTransalations);
         // v4 is the inverse of the v3 mappings
