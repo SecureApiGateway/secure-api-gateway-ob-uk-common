@@ -121,55 +121,15 @@ public class FRFinancialAccount {
     }
 
     public enum FRAccountSubTypeCode {
-        CACC("CACC"),
 
-        CARD("CARD"),
-
-        CASH("CASH"),
-
-        CHAR("CHAR"),
-
-        CISH("CISH"),
-
-        COMM("COMM"),
-
-        CPAC("CPAC"),
-
-        LLSV("LLSV"),
-
-        LOAN("LOAN"),
-
-        MGLD("MGLD"),
-
-        MOMA("MOMA"),
-
-        NREX("NREX"),
-
-        ODFT("ODFT"),
-
-        ONDP("ONDP"),
-
-        OTHR("OTHR"),
-
-        SACC("SACC"),
-
-        SLRY("SLRY"),
-
-        SVGS("SVGS"),
-
-        TAXE("TAXE"),
-
-        TRAN("TRAN"),
-
-        TRAS("TRAS"),
-
-        VACC("VACC"),
-
-        NFCA("NFCA"),
-
-        MORT("MORT"),
-
-        WALT("WALT");
+        CHARGECARD("ChargeCard"),
+        CREDITCARD("CreditCard"),
+        CURRENTACCOUNT("CurrentAccount"),
+        EMONEY("EMoney"),
+        LOAN("Loan"),
+        MORTGAGE("Mortgage"),
+        PREPAIDCARD("PrePaidCard"),
+        SAVINGS("Savings");
 
         private String value;
 
