@@ -21,6 +21,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order
  * to make it easier to introduce new versions of the Read/Write API.
@@ -45,4 +47,10 @@ public class FRWriteDomesticDataInitiation implements FRDomesticDataInitiation {
     private FRPostalAddress creditorPostalAddress;
     private FRRemittanceInformation remittanceInformation;
     private FRSupplementaryData supplementaryData;
+
+    // V4 area
+    private FRFinancialAgent creditorAgent;
+    private FRFinancialAgent ultimateCreditor;
+    private FRFinancialAgent ultimateDebtor;
+    private List<FRRegulatoryReporting> regulatoryReporting;
 }

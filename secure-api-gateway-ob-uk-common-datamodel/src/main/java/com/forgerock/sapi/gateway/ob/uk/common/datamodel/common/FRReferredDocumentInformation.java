@@ -17,8 +17,16 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.common;
 
 import java.util.List;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.joda.time.DateTime;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class FRReferredDocumentInformation {
 
     private FRExternalDocumentTypeCode code;

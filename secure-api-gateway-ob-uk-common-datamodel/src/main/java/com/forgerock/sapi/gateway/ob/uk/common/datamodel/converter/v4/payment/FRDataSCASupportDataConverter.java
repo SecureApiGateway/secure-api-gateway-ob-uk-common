@@ -16,7 +16,6 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRDataSCASupportData;
-
 import uk.org.openbanking.datamodel.v4.payment.OBSCASupportData1;
 import uk.org.openbanking.datamodel.v4.payment.OBSCASupportData1AppliedAuthenticationApproach;
 import uk.org.openbanking.datamodel.v4.payment.OBSCASupportData1RequestedSCAExemptionType;
