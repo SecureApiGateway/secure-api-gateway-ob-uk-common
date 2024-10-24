@@ -25,6 +25,8 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRS
 import uk.org.openbanking.datamodel.v4.account.*;
 import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
 
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRExternalMandateStatusConverter.toExternalMandateStatus1CodeV4;
+
 public class FRStandingOrderConverter {
 
     // FR to OB
@@ -34,7 +36,7 @@ public class FRStandingOrderConverter {
                 .standingOrderId(standingOrder.getStandingOrderId())
                 .nextPaymentDateTime(standingOrder.getNextPaymentDateTime())
                 .lastPaymentDateTime(standingOrder.getLastPaymentDateTime())
-                .standingOrderStatusCode(toOBExternalStandingOrderStatus1Code(standingOrder.getStandingOrderStatusCode()))
+                .standingOrderStatusCode(toExternalMandateStatus1CodeV4(String.valueOf(standingOrder.getStandingOrderStatusCode())))
                 .firstPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount2(standingOrder.getFirstPaymentAmount()))
                 .nextPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount3(standingOrder.getNextPaymentAmount()))
                 .lastPaymentAmount(FRAmountConverter.toOBActiveOrHistoricCurrencyAndAmount11(standingOrder.getLastPaymentAmount()))

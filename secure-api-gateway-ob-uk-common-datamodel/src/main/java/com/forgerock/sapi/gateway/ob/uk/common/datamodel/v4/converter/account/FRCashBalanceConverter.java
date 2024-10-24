@@ -26,6 +26,7 @@ import uk.org.openbanking.datamodel.v4.account.OBReadBalance1DataBalanceInnerCre
 
 import java.util.List;
 
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRBalanceTypeConverter.toOBBalanceType1CodeV4;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter.*;
 import static java.util.stream.Collectors.toList;
@@ -37,7 +38,7 @@ public class FRCashBalanceConverter {
         return balance == null ? null : new OBReadBalance1DataBalanceInner()
                 .accountId(balance.getAccountId())
                 .creditDebitIndicator(FRCreditDebitIndicatorConverter.toOBCreditDebitCode2(balance.getCreditDebitIndicator()))
-                .type(toOBBalanceType1Code(balance.getType()))
+                .type(toOBBalanceType1CodeV4(String.valueOf(balance.getType())))
                 .dateTime(balance.getDateTime())
                 .amount(toOBReadBalance1DataAmount(balance.getAmount()))
                 .localAmount(FRAmountConverter.toOBReadBalance1DataBalanceInnerLocalAmount(balance.getLocalAmount()))
