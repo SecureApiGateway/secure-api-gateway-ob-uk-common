@@ -70,6 +70,12 @@ public class FRPostalAddressConverter {
                 .collect(Collectors.toList());
     }
 
+    public static List<FRPostalAddress> toFRPostalAddressListV4(List<OBPostalAddress7> addresses) {
+        return addresses == null ? null : addresses.stream()
+                .map(FRPostalAddressConverter::toFRPostalAddress)
+                .collect(Collectors.toList());
+    }
+
     public static FRPostalAddress toFRPostalAddress(OBParty2AddressInner address) {
         return address == null ? null : FRPostalAddress.builder()
                 .addressType(toAddressType(address.getAddressType()))
@@ -133,6 +139,12 @@ public class FRPostalAddressConverter {
     public static List<OBParty2AddressInner> toOBParty2AddressList(List<FRPostalAddress> addresses) {
         return addresses == null ? null : addresses.stream()
                 .map(FRPostalAddressConverter::toOBParty2Address)
+                .collect(Collectors.toList());
+    }
+
+    public static List<OBPostalAddress7> toOBPostalAddress7(List<FRPostalAddress> addresses) {
+        return addresses == null ? null : addresses.stream()
+                .map(FRPostalAddressConverter::toOBPostalAddress7)
                 .collect(Collectors.toList());
     }
 
