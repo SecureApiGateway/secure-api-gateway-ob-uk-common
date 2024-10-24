@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRPostalAddressConverter.toFRPostalAddress;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRPostalAddressConverter.toOBPostalAddress7;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRAccountSubTypeConverter.toOBExternalAccountSubType1CodeV4;
 
 public class FRFinancialAccountConverter {
 
@@ -37,7 +38,7 @@ public class FRFinancialAccountConverter {
                 .statusUpdateDateTime(account.getStatusUpdateDateTime())
                 .currency(account.getCurrency())
                 .accountCategory(toOBInternalAccountType1Code(account.getAccountType()))
-                .accountTypeCode(toOBExternalAccountSubType1Code(account.getAccountSubType()))
+                .accountTypeCode(toOBExternalAccountSubType1CodeV4(String.valueOf(account.getAccountSubType())))
                 .description(account.getDescription())
                 .nickname(account.getNickname())
                 .openingDate(account.getOpeningDate())
