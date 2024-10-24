@@ -20,10 +20,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPostalAddress;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRTransactionData;
 import lombok.*;
 import org.joda.time.DateTime;
-import uk.org.openbanking.datamodel.v4.account.OBCommunicationMethod;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -123,14 +121,55 @@ public class FRFinancialAccount {
     }
 
     public enum FRAccountSubTypeCode {
-        CHARGECARD("ChargeCard"),
-        CREDITCARD("CreditCard"),
-        CURRENTACCOUNT("CurrentAccount"),
-        EMONEY("EMoney"),
-        LOAN("Loan"),
-        MORTGAGE("Mortgage"),
-        PREPAIDCARD("PrePaidCard"),
-        SAVINGS("Savings");
+        CACC("CACC"),
+
+        CARD("CARD"),
+
+        CASH("CASH"),
+
+        CHAR("CHAR"),
+
+        CISH("CISH"),
+
+        COMM("COMM"),
+
+        CPAC("CPAC"),
+
+        LLSV("LLSV"),
+
+        LOAN("LOAN"),
+
+        MGLD("MGLD"),
+
+        MOMA("MOMA"),
+
+        NREX("NREX"),
+
+        ODFT("ODFT"),
+
+        ONDP("ONDP"),
+
+        OTHR("OTHR"),
+
+        SACC("SACC"),
+
+        SLRY("SLRY"),
+
+        SVGS("SVGS"),
+
+        TAXE("TAXE"),
+
+        TRAN("TRAN"),
+
+        TRAS("TRAS"),
+
+        VACC("VACC"),
+
+        NFCA("NFCA"),
+
+        MORT("MORT"),
+
+        WALT("WALT");
 
         private String value;
 
