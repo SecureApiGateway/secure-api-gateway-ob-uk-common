@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.mapper.FRModelMapper;
 
 import uk.org.openbanking.datamodel.v4.account.OBAccount6AccountInner;
@@ -24,13 +25,10 @@ import uk.org.openbanking.datamodel.v4.account.OBCashAccount51;
 import uk.org.openbanking.datamodel.v4.account.OBCashAccount60;
 import uk.org.openbanking.datamodel.v4.account.OBCashAccount61;
 import uk.org.openbanking.datamodel.v4.common.OBCashAccountCreditor3;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
 import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmationConsent1DataDebtorAccount;
-import uk.org.openbanking.datamodel.v4.payment.OBCashAccountDebtor4;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationCreditorAccount;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationDebtorAccount;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.v4.payment.*;
 import uk.org.openbanking.datamodel.v4.vrp.OBCashAccountDebtorWithName;
 
 public class FRAccountIdentifierConverter {
@@ -172,5 +170,31 @@ public class FRAccountIdentifierConverter {
                 .name(account.getName())
                 .secondaryIdentification(account.getSecondaryIdentification())
                 .build();
+    }
+
+    // V4 area
+
+    public static FRFinancialAgent toFRCreditorAgent(OBWriteDomestic2DataInitiationCreditorAgent creditorAgent) {
+        return FRModelMapper.map(creditorAgent, FRFinancialAgent.class);
+    }
+
+    public static FRFinancialAgent toFRCreditorAgent(OBUltimateCreditor1 creditorAgent) {
+        return FRModelMapper.map(creditorAgent, FRFinancialAgent.class);
+    }
+
+    public static FRFinancialAgent toFRCreditorAgent(OBUltimateDebtor1 creditorAgent) {
+        return FRModelMapper.map(creditorAgent, FRFinancialAgent.class);
+    }
+
+    public static OBWriteDomestic2DataInitiationCreditorAgent toOBWriteDomestic2DataInitiationCreditorAgent(FRFinancialAgent account) {
+        return FRModelMapper.map(account, OBWriteDomestic2DataInitiationCreditorAgent.class);
+    }
+
+    public static OBUltimateCreditor1 toOBWriteDomestic2DataInitiationUltimateCreditor(FRFinancialAgent account) {
+        return FRModelMapper.map(account, OBUltimateCreditor1.class);
+    }
+
+    public static OBUltimateDebtor1 toOBWriteDomestic2DataInitiationUltimateDebtor(FRFinancialAgent account) {
+        return FRModelMapper.map(account, OBUltimateDebtor1.class);
     }
 }

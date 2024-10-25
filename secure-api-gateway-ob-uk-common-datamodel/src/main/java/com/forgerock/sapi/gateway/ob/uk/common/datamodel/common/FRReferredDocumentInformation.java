@@ -19,6 +19,15 @@ import java.util.List;
 
 import org.joda.time.DateTime;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class FRReferredDocumentInformation {
 
     private FRExternalDocumentTypeCode code;
