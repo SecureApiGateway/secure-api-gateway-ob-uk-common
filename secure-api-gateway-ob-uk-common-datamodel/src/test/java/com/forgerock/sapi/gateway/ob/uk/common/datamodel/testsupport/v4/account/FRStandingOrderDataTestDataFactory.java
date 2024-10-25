@@ -20,7 +20,7 @@ import org.joda.time.DateTime;
 
 import java.util.UUID;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.payment.FRRemittanceInformationTestDataFactory.aValidFRRemittanceInformation;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.FRRemittanceInformationTestDataFactory.aValidFRRemittanceInformation;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.FRMandateRelatedInformationTestDataFactory.aValidFRMandateRelatedInformation;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAmountTestDataFactory.aValidFRAmount;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.FRFinancialAgentTestDataFactory.aValidFRFinancialAgent;
