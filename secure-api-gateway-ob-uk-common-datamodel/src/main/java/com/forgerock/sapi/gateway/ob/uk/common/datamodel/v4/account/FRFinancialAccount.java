@@ -18,7 +18,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRAccountIdentifier;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPostalAddress;
 import lombok.*;
 import org.joda.time.DateTime;
@@ -52,6 +52,7 @@ public class FRFinancialAccount {
     private DateTime maturityDate;
     private List<FRAccountIdentifier> accounts;
     private FRAccountServicer servicer;
+    private String switchStatus;
     private List<FRStatementFrequencyAndFormat> statementFrequencyAndFormat;
 
     @JsonIgnore
