@@ -16,7 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRFinancialAccount;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRAccountIdentifier;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAccountIdentifierConverter;
 import uk.org.openbanking.datamodel.v4.account.*;
 
@@ -44,6 +44,7 @@ public class FRFinancialAccountConverter {
                 .openingDate(account.getOpeningDate())
                 .maturityDate(account.getMaturityDate())
                 .account(toOBAccount6AccountList(account.getAccounts()))
+                .switchStatus(account.getSwitchStatus())
                 .statementFrequencyAndFormat(toStatementFrequencyAndFormatInnerList(account.getStatementFrequencyAndFormat()))
                 .servicer(FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification50(account.getServicer()));
     }
@@ -108,6 +109,7 @@ public class FRFinancialAccountConverter {
                 .maturityDate(account.getMaturityDate())
                 .accounts(toFRAccountIdentifierList(account.getAccount(), FRAccountIdentifierConverter::toFRAccountIdentifier))
                 .servicer(FRAccountServicerConverter.toFRAccountServicer(account.getServicer()))
+                .switchStatus(account.getSwitchStatus())
                 .statementFrequencyAndFormat(toFRStatementFrequencyAndFormatList(account.getStatementFrequencyAndFormat(), FRFinancialAccountConverter::toFRStatementFrequencyAndFormat))
                 .build();
     }
