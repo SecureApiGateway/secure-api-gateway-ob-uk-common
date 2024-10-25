@@ -69,7 +69,7 @@ public class OBWriteInternationalConsentResponse6Data {
 
     private OBWriteInternationalConsentResponse6DataExchangeRateInformation exchangeRateInformation;
 
-    private OBWriteInternationalConsent5DataInitiation initiation;
+    private OBWriteInternational3DataInitiation initiation;
 
     private OBWriteDomesticConsentDataAuthorisation authorisation;
 
@@ -84,7 +84,7 @@ public class OBWriteInternationalConsentResponse6Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteInternationalConsentResponse6Data(String consentId, DateTime creationDateTime, OBWriteInternationalConsentResponse6DataStatus status, DateTime statusUpdateDateTime, OBWriteInternationalConsent5DataInitiation initiation) {
+    public OBWriteInternationalConsentResponse6Data(String consentId, DateTime creationDateTime, OBWriteInternationalConsentResponse6DataStatus status, DateTime statusUpdateDateTime, OBWriteInternational3DataInitiation initiation) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -343,7 +343,7 @@ public class OBWriteInternationalConsentResponse6Data {
         this.exchangeRateInformation = exchangeRateInformation;
     }
 
-    public OBWriteInternationalConsentResponse6Data initiation(OBWriteInternationalConsent5DataInitiation initiation) {
+    public OBWriteInternationalConsentResponse6Data initiation(OBWriteInternational3DataInitiation initiation) {
         this.initiation = initiation;
         return this;
     }
@@ -357,11 +357,11 @@ public class OBWriteInternationalConsentResponse6Data {
     @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
-    public OBWriteInternationalConsent5DataInitiation getInitiation() {
+    public OBWriteInternational3DataInitiation getInitiation() {
         return initiation;
     }
 
-    public void setInitiation(OBWriteInternationalConsent5DataInitiation initiation) {
+    public void setInitiation(OBWriteInternational3DataInitiation initiation) {
         this.initiation = initiation;
     }
 

@@ -35,7 +35,7 @@ public class OBWriteInternationalConsent5Data {
 
     private OBWriteInternationalConsent5DataReadRefundAccount readRefundAccount;
 
-    private OBWriteInternationalConsent5DataInitiation initiation;
+    private OBWriteInternational3DataInitiation initiation;
 
     private OBWriteDomesticConsentDataAuthorisation authorisation;
 
@@ -48,7 +48,7 @@ public class OBWriteInternationalConsent5Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteInternationalConsent5Data(OBWriteInternationalConsent5DataInitiation initiation) {
+    public OBWriteInternationalConsent5Data(OBWriteInternational3DataInitiation initiation) {
         this.initiation = initiation;
     }
 
@@ -73,7 +73,7 @@ public class OBWriteInternationalConsent5Data {
         this.readRefundAccount = readRefundAccount;
     }
 
-    public OBWriteInternationalConsent5Data initiation(OBWriteInternationalConsent5DataInitiation initiation) {
+    public OBWriteInternationalConsent5Data initiation(OBWriteInternational3DataInitiation initiation) {
         this.initiation = initiation;
         return this;
     }
@@ -87,11 +87,11 @@ public class OBWriteInternationalConsent5Data {
     @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
-    public OBWriteInternationalConsent5DataInitiation getInitiation() {
+    public OBWriteInternational3DataInitiation getInitiation() {
         return initiation;
     }
 
-    public void setInitiation(OBWriteInternationalConsent5DataInitiation initiation) {
+    public void setInitiation(OBWriteInternational3DataInitiation initiation) {
         this.initiation = initiation;
     }
 

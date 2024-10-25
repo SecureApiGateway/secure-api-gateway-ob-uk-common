@@ -33,7 +33,7 @@ import uk.org.openbanking.datamodel.v4.payment.OBRemittanceInformationStructured
  */
 public class OBRemittanceInformationTestDataFactory {
 
-    public static OBRemittanceInformation2 aValidOBWriteDomestic2DataInitiationRemittanceInformation() {
+    public static OBRemittanceInformation2 aValidOBRemittanceInformation2() {
         return (new OBRemittanceInformation2())
                 .unstructured(Collections.singletonList("Internal ops code 5120103"))
                 .structured(Collections.singletonList(aValidOBRemittanceInformationStructured()));

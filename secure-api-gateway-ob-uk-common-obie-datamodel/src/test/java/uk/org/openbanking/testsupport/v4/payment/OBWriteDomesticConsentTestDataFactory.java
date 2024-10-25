@@ -74,7 +74,7 @@ public class OBWriteDomesticConsentTestDataFactory {
                 .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
                 .creditorAccount(aValidOBWriteDomestic2DataInitiationCreditorAccount())
                 .creditorPostalAddress(aValidOBPostalAddress7())
-                .remittanceInformation(OBRemittanceInformationTestDataFactory.aValidOBWriteDomestic2DataInitiationRemittanceInformation())
+                .remittanceInformation(OBRemittanceInformationTestDataFactory.aValidOBRemittanceInformation2())
                 .supplementaryData(new OBSupplementaryData1());
     }
 }

@@ -27,6 +27,7 @@ import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3Data
 
 public class FRWriteDomesticStandingOrderConverter {
 
+    // OB to FR
     public static FRWriteDomesticStandingOrder toFRWriteDomesticStandingOrder(OBWriteDomesticStandingOrder3 obWriteDomesticStandingOrder3) {
         return obWriteDomesticStandingOrder3 == null ? null : FRWriteDomesticStandingOrder.builder()
                 .data(toFRWriteDataDomesticStandingOrder(obWriteDomesticStandingOrder3.getData()))
@@ -41,7 +42,7 @@ public class FRWriteDomesticStandingOrderConverter {
                 .build();
     }
 
-    //FR to OB
+    // FR to OB
     public static OBWriteDomesticStandingOrder3 toOBWriteDomesticDomesticStandingOrder3(FRWriteDomesticStandingOrder domesticStandingOrderPayment) {
         return domesticStandingOrderPayment == null ? null : new OBWriteDomesticStandingOrder3()
                 .data(toOBWriteDataDomesticDomesticStandingOrder3(domesticStandingOrderPayment.getData()))

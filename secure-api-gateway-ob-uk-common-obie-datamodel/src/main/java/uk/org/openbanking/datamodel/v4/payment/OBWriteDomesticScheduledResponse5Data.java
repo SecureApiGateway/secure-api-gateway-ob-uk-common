@@ -66,7 +66,7 @@ public class OBWriteDomesticScheduledResponse5Data {
     @Valid
     private List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges;
 
-    private OBWriteDomesticScheduledConsent4DataInitiation initiation;
+    private OBWriteDomesticScheduled2DataInitiation initiation;
 
     private OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation;
 
@@ -79,7 +79,7 @@ public class OBWriteDomesticScheduledResponse5Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticScheduledResponse5Data(String domesticScheduledPaymentId, String consentId, DateTime creationDateTime, OBWriteDomesticScheduledResponse5DataStatus status, DateTime statusUpdateDateTime, OBWriteDomesticScheduledConsent4DataInitiation initiation) {
+    public OBWriteDomesticScheduledResponse5Data(String domesticScheduledPaymentId, String consentId, DateTime creationDateTime, OBWriteDomesticScheduledResponse5DataStatus status, DateTime statusUpdateDateTime, OBWriteDomesticScheduled2DataInitiation initiation) {
         this.domesticScheduledPaymentId = domesticScheduledPaymentId;
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
@@ -319,7 +319,7 @@ public class OBWriteDomesticScheduledResponse5Data {
         this.charges = charges;
     }
 
-    public OBWriteDomesticScheduledResponse5Data initiation(OBWriteDomesticScheduledConsent4DataInitiation initiation) {
+    public OBWriteDomesticScheduledResponse5Data initiation(OBWriteDomesticScheduled2DataInitiation initiation) {
         this.initiation = initiation;
         return this;
     }
@@ -333,11 +333,11 @@ public class OBWriteDomesticScheduledResponse5Data {
     @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
-    public OBWriteDomesticScheduledConsent4DataInitiation getInitiation() {
+    public OBWriteDomesticScheduled2DataInitiation getInitiation() {
         return initiation;
     }
 
-    public void setInitiation(OBWriteDomesticScheduledConsent4DataInitiation initiation) {
+    public void setInitiation(OBWriteDomesticScheduled2DataInitiation initiation) {
         this.initiation = initiation;
     }
 
