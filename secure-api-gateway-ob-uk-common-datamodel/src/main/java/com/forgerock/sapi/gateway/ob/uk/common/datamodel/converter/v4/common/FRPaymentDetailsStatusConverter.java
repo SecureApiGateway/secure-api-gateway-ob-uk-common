@@ -15,14 +15,14 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common;
 
-import uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status;
-import uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1StatusDetailStatus;
+import static java.util.stream.Collectors.toMap;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import static java.util.stream.Collectors.toMap;
+import uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status;
+import uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1StatusDetailStatus;
 
 public class FRPaymentDetailsStatusConverter {
 

@@ -15,12 +15,14 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticConsent;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
+
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticConsent;
+
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsent4;
 import uk.org.openbanking.testsupport.v4.payment.OBWriteDomesticConsentTestDataFactory;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FRWriteDomesticConsentConverterTest {
 

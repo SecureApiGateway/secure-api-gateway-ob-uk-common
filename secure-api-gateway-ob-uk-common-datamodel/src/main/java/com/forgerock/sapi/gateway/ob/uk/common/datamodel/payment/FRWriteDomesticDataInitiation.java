@@ -15,13 +15,19 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.*;
+import java.util.List;
+
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPostalAddress;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSupplementaryData;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 /**
  * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order

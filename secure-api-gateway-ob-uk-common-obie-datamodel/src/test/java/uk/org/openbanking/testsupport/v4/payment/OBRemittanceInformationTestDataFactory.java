@@ -15,17 +15,18 @@
  */
 package uk.org.openbanking.testsupport.v4.payment;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
 import org.joda.time.DateTime;
+
 import uk.org.openbanking.datamodel.v4.common.ExternalCreditorReferenceType1Code;
 import uk.org.openbanking.datamodel.v4.common.ExternalDocumentType1Code;
 import uk.org.openbanking.datamodel.v4.payment.OBReferredDocumentInformation;
 import uk.org.openbanking.datamodel.v4.payment.OBRemittanceInformation2;
 import uk.org.openbanking.datamodel.v4.payment.OBRemittanceInformationStructured;
 import uk.org.openbanking.datamodel.v4.payment.OBRemittanceInformationStructuredCreditorReferenceInformation;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * Test data factory for the various OB classes representing payment remittance information.

@@ -15,17 +15,21 @@
  */
 package uk.org.openbanking.testsupport.v4.payment;
 
-import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
-import uk.org.openbanking.datamodel.v4.payment.*;
-
-import java.util.UUID;
-
 import static uk.org.openbanking.testsupport.v4.payment.OBAccountTestDataFactory.aValidOBWriteDomestic2DataInitiationCreditorAccount;
 import static uk.org.openbanking.testsupport.v4.payment.OBAmountTestDataFactory.aValidOBWriteDomestic2DataInitiationInstructedAmount;
 import static uk.org.openbanking.testsupport.v4.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsentDataAuthorisation;
 import static uk.org.openbanking.testsupport.v4.payment.OBRisk1TestDataFactory.aValidOBPostalAddress7;
 import static uk.org.openbanking.testsupport.v4.payment.OBRisk1TestDataFactory.aValidOBRisk1;
+
+import java.util.UUID;
+
+import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2Data;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiation;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsent4;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsent4Data;
 
 /**
  * Test data factory for the various "OBWriteDomesticConsent" classes.

@@ -15,19 +15,22 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRPostalAddressConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRRemittanceInformationConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRSupplementaryDataConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.mapper.FRModelMapper;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.*;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAmountConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRRiskConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDomesticDataInitiation;
+
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiation;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsent4;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsent4Data;
-
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
 
 public class FRWriteDomesticConsentConverter {
 

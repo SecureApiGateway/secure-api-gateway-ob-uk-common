@@ -20,7 +20,12 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.Conver
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.*;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRExternalCreditorReferenceTypeCode;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRExternalDocumentTypeCode;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRReferredDocumentInformation;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformationStructured;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformationStructuredCreditorReferenceInformation;
 
 import uk.org.openbanking.datamodel.v3.payment.OBWriteDomestic2DataInitiationRemittanceInformation;
 import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPInitiationRemittanceInformation;
