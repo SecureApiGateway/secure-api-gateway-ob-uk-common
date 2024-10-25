@@ -15,13 +15,13 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRStandingOrderFrequency;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.joda.time.DateTime;
 import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
-import uk.org.openbanking.datamodel.v4.account.OBFrequency6;
 
 import java.util.stream.Stream;
 
@@ -37,7 +37,7 @@ public class FRMandateRelatedInformation {
     private DateTime firstPaymentDateTime;
     private DateTime recurringPaymentDateTime;
     private DateTime finalPaymentDateTime;
-    private OBFrequency6 frequency;
+    private FRStandingOrderFrequency frequency;
     private String reason;
 
     public enum FRExternalMandateClassificationCode {

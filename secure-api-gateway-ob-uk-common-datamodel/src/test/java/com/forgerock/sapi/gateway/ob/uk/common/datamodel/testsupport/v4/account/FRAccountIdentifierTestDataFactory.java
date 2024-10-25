@@ -13,9 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRAccountIdentifier;
+
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.FRProxyTestDataFactory.aValidFRProxy;
 
 /**
  * Test data factory for {@link FRAccountIdentifier}.
@@ -26,12 +28,13 @@ public class FRAccountIdentifierTestDataFactory {
         return aValidFRAccountIdentifierBuilder().build();
     }
 
-    public static FRAccountIdentifier aValidFRAccountIdentifier2() {
+    public static FRAccountIdentifier aValidFRAccountIdentifierWithProxy() {
         return FRAccountIdentifier.builder()
                 .schemeName("UK.OBIE.SortCodeAccountNumber")
                 .identification("40400422390112")
                 .name("Mrs B Smith")
                 .LEI("9193001QZMP2PQT4AK86")
+                .proxy(aValidFRProxy())
                 .build();
     }
 

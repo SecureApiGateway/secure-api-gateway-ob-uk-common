@@ -15,17 +15,11 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRBalanceType;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditDebitIndicator;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditLine;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRLocalAmount;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRTotalValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
 
 import java.util.List;
 
@@ -42,13 +36,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class FRCashBalance {
+public class FRCashBalanceData {
 
-    private String accountId;
-    private FRCreditDebitIndicator creditDebitIndicator;
-    private FRBalanceType type;
-    private DateTime dateTime;
-    private FRAmount amount;
-    private List<FRCreditLine> creditLine;
-    private FRLocalAmount localAmount;
+    private List<FRCashBalance> balance;
+    private FRTotalValue totalValue;
 }
