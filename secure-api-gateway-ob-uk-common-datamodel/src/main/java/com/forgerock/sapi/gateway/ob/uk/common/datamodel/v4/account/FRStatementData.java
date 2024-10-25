@@ -18,6 +18,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditDebitIndicator;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRLocalAmount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRTotalValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -174,12 +175,4 @@ public class FRStatementData {
         private FRLocalAmount localAmount;
     }
 
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Builder
-    public static class FRTotalValue {
-        private String amount;
-        private String currency;
-    }
 }

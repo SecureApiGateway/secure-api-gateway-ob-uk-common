@@ -54,7 +54,7 @@ public class FRDirectDebitConverter {
                 .mandateIdentification(mandateRelatedInformation.getMandateIdentification())
                 .reason(mandateRelatedInformation.getReason())
                 .recurringPaymentDateTime(mandateRelatedInformation.getRecurringPaymentDateTime())
-                .frequency(mandateRelatedInformation.getFrequency());
+                .frequency(toOBFrequency6(mandateRelatedInformation.getFrequency()));
     }
 
     public static OBFrequency6 toOBFrequency6(FRStandingOrderFrequency frStandingOrderFrequency) {
@@ -99,7 +99,7 @@ public class FRDirectDebitConverter {
                 .mandateIdentification(obMandateRelatedInformation1.getMandateIdentification())
                 .reason(obMandateRelatedInformation1.getReason())
                 .recurringPaymentDateTime(obMandateRelatedInformation1.getRecurringPaymentDateTime())
-                .frequency(obMandateRelatedInformation1.getFrequency())
+                .frequency(toFRStandingOrderFrequency(obMandateRelatedInformation1.getFrequency()))
                 .build();
     }
 

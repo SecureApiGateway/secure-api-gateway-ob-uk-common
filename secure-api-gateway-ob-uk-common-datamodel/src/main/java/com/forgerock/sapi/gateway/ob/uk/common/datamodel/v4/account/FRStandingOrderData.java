@@ -15,6 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRAccountIdentifier;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformationStructured;
@@ -62,7 +63,7 @@ public class FRStandingOrderData {
     private FRAccountIdentifier creditorAccount;
     private FRSupplementaryData supplementaryData;
     private FRMandateRelatedInformation mandateRelatedInformation;
-    private FRRemittanceInformationStructured remittanceInformationStructured;
+    private FRRemittanceInformation remittanceInformation;
 
     public enum FRStandingOrderStatus {
         ACTIVE("Active"),

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRAccountServicer;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRFinancialAccount;

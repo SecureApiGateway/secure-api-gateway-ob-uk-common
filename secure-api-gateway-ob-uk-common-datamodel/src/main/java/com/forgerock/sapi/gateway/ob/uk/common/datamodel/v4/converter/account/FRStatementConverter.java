@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRStatementData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRTotalValue;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter;
 import lombok.extern.slf4j.Slf4j;
 import uk.org.openbanking.datamodel.v4.account.*;
@@ -170,7 +171,7 @@ public class FRStatementConverter {
                 .amount(FRAmountConverter.toOBStatement2StatementAmountInnerAmount(statementAmount.getAmount()));
     }
 
-    public static OBReadBalance1DataTotalValue toOBReadBalance1DataTotalValue(FRStatementData.FRTotalValue totalValue) {
+    public static OBReadBalance1DataTotalValue toOBReadBalance1DataTotalValue(FRTotalValue totalValue) {
         return totalValue == null ? null : new OBReadBalance1DataTotalValue()
                 .currency(totalValue.getCurrency())
                 .amount(totalValue.getAmount());
@@ -316,8 +317,8 @@ public class FRStatementConverter {
                 .build();
     }
 
-    public static FRStatementData.FRTotalValue toFRStatementTotalValue(OBReadBalance1DataTotalValue totalValue) {
-        return totalValue == null ? null : FRStatementData.FRTotalValue.builder()
+    public static FRTotalValue toFRStatementTotalValue(OBReadBalance1DataTotalValue totalValue) {
+        return totalValue == null ? null : FRTotalValue.builder()
                 .amount(totalValue.getAmount())
                 .currency(totalValue.getCurrency())
                 .build();
