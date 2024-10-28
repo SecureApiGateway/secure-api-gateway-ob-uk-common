@@ -32,6 +32,6 @@ public class FRCreditLineTestDataFactory {
         return FRCreditLine.builder()
                 .included(true)
                 .amount(aValidFRAmount())
-                .type(FRCreditLine.FRLimitType.valueOf("Temporary"));
+                .type(FRCreditLine.FRLimitType.fromValue("Temporary"));
     }
 }
