@@ -15,7 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRStandingOrderData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRStandingOrderData;
 import org.joda.time.DateTime;
 
 import java.util.UUID;

@@ -15,7 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRLocalAmount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRLocalAmount;
 
 /**
  * Test data factory for {@link FRLocalAmount}.

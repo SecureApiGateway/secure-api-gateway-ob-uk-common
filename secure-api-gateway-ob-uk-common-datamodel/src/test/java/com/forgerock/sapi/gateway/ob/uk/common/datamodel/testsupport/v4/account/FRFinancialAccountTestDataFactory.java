@@ -15,8 +15,8 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRAccountServicer;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRFinancialAccount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountServicer;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRFinancialAccount;
 import org.joda.time.DateTime;
 
 import java.util.List;

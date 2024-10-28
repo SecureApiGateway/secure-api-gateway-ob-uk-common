@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRExternalCategoryPurposeCode;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRTransactionData;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAccountIdentifierConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRFinancialInstrumentConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRTransactionData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAmountConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRFinancialInstrumentConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRSupplementaryDataConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.payment.FRExternalPaymentPurposeCode;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRExternalPaymentPurposeCode;
 import uk.org.openbanking.datamodel.v4.account.*;
 import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
 
@@ -29,12 +29,11 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRAccountServicerConverter.toOBUltimateCreditor1;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRAccountServicerConverter.toOBUltimateDebtor1;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRBalanceTypeConverter.toOBBalanceType1CodeV4;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRCashBalanceConverter.toFRBalanceType;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRCashBalanceConverter.toOBBalanceType1Code;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FREntryStatusConverter.toExternalEntryStatus1CodeV4;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRAccountServicerConverter.toOBUltimateCreditor1;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRAccountServicerConverter.toOBUltimateDebtor1;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRBalanceTypeConverter.toOBBalanceType1CodeV4;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRCashBalanceConverter.toFRBalanceType;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FREntryStatusConverter.toExternalEntryStatus1CodeV4;
 
 public class FRTransactionConverter {
 

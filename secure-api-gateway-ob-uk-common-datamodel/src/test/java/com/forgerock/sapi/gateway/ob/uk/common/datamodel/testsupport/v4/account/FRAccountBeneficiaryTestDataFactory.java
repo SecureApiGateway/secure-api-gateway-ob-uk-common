@@ -15,7 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRAccountBeneficiary;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountBeneficiary;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.FRFinancialAgentTestDataFactory;
 
 import java.util.UUID;

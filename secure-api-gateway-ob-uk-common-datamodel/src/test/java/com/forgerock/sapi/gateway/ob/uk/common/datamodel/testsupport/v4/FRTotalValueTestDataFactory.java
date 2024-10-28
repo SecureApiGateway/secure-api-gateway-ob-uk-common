@@ -15,7 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRTotalValue;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRTotalValue;
 
 /**
  * Test data factory for {@link FRTotalValue}.

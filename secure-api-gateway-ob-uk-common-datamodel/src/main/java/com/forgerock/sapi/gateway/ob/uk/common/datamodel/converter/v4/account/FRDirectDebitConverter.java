@@ -13,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRExternalCategoryPurposeCode;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRStandingOrderFrequency;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRStandingOrderFrequencyCode;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRDirectDebitData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.*;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAmountConverter;
 import uk.org.openbanking.datamodel.v4.account.*;
 import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRExternalMandateStatusConverter.toExternalMandateStatus1CodeV4;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRExternalMandateStatusConverter.toExternalMandateStatus1CodeV4;
 
 
 /**

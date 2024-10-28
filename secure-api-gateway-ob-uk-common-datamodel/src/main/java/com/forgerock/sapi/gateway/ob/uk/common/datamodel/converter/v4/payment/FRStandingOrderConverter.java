@@ -13,19 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.payment;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRExternalCategoryPurposeCode;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRMandateRelatedInformation;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRStandingOrderData;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAccountIdentifierConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRFinancialInstrumentConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRStandingOrderData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAmountConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRFinancialInstrumentConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRSupplementaryDataConverter;
 import uk.org.openbanking.datamodel.v4.account.*;
 import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRExternalMandateStatusConverter.toExternalMandateStatus1CodeV4;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRExternalMandateStatusConverter.toExternalMandateStatus1CodeV4;
 
 public class FRStandingOrderConverter {
 

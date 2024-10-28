@@ -18,8 +18,8 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.account
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRBalanceType;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditDebitIndicator;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRExternalCategoryPurposeCode;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRTransactionData;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.payment.FRExternalPaymentPurposeCode;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRTransactionData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRExternalPaymentPurposeCode;
 import org.joda.time.DateTime;
 
 import java.util.UUID;

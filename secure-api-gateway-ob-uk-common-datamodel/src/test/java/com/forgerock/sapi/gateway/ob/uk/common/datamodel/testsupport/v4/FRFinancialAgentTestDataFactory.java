@@ -15,7 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRFinancialAgent;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRPostalAddressTestDataFactory;
 
 /**

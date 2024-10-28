@@ -15,7 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRScheduledPaymentData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRScheduledPaymentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRAmountTestDataFactory;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.FRFinancialAgentTestDataFactory;
 import org.joda.time.DateTime;

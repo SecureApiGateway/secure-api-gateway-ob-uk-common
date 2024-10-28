@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRAccountStatusCode;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountStatusCode;
 import uk.org.openbanking.datamodel.v4.account.OBReadConsentStatus;
 
 import java.util.Collections;

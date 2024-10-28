@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRStatementData;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRTotalValue;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRStatementData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRTotalValue;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAmountConverter;
 import lombok.extern.slf4j.Slf4j;
 import uk.org.openbanking.datamodel.v4.account.*;
 
@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRCreditDebitIndicatorConverter.*;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRCreditDebitIndicatorConverter.*;
 
 /**
  * Converter for 'FRStatement' documents.

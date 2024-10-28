@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -13,31 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.common;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRTotalValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 /**
- * Represents {@code OBCashBalance1} in the OB data model. It is stored within mongo (instead of the OB object),
- * in order to make it easier to introduce new versions of the Read/Write API.
+ * Represents an equivalent object in the OB data model. It is stored within mongo (instead of the OB object), in order to make it easier to introduce new
+ * versions of the Read/Write API.
  *
  * <p>
- * Note that this object is used across multiple versions of the Read/Write API, meaning that some values won't be
- * populated. For this reason it is a mutable {@link Data} rather than an immutable {@link lombok.Value} one.
+ * Note that this object is used across multiple versions of the Read/Write API, meaning that some values won't be populated. For this reason it is
+ * a mutable {@link Data} rather than an immutable {@link lombok.Value} one.
  * </p>
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class FRCashBalanceData {
+public class FRLocalAmount {
 
-    private List<FRCashBalance> balance;
-    private FRTotalValue totalValue;
+    private String amount;
+    private String currency;
+    private String subType;
 }

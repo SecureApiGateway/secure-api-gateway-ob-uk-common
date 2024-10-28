@@ -16,9 +16,9 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRBalanceType;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRCashBalance;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCashBalance;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditDebitIndicator;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRCashBalanceData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCashBalanceData;
 import org.joda.time.DateTime;
 
 import java.util.List;
@@ -74,7 +74,7 @@ public class FRCashBalanceTestDataFactory {
                 .type(FRBalanceType.INTERIMAVAILABLE)
                 .dateTime(DateTime.now())
                 .amount(aValidFRAmount())
-                .creditLine(List.of(FRCreditLineTestDataFactory.aValidFRCreditLine()))
+                .creditLines(List.of(FRCreditLineTestDataFactory.aValidFRCreditLine()))
                 .localAmount(aValidFRLocalAmount());
     }
 }

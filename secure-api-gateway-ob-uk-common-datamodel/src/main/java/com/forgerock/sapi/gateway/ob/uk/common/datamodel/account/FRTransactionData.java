@@ -19,6 +19,10 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentif
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSupplementaryData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRExternalCategoryPurposeCode;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRExternalPaymentPurposeCode;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRUltimateCreditor;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRUltimateDebtor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -59,6 +63,7 @@ public class FRTransactionData {
     private FRCurrencyExchange currencyExchange;
     private FRBankTransactionCodeStructure bankTransactionCode;
     private FRProprietaryBankTransactionCodeStructure proprietaryBankTransactionCode;
+    private List<FRExtendedProprietaryBankTransactionCodeStructure> extendedProprietaryBankTransactionCode;
     private FRTransactionCashBalance balance;
     private FRMerchantDetails merchantDetails;
     private FRFinancialAgent creditorAgent;
@@ -67,6 +72,10 @@ public class FRTransactionData {
     private FRAccountIdentifier debtorAccount;
     private FRTransactionCardInstrument cardInstrument;
     private FRSupplementaryData supplementaryData;
+    private FRExternalCategoryPurposeCode categoryPurposeCode;
+    private FRExternalPaymentPurposeCode paymentPurposeCode;
+    private FRUltimateCreditor ultimateCreditor;
+    private FRUltimateDebtor ultimateDebtor;
 
     public enum FREntryStatus {
         BOOKED("Booked"),
@@ -136,6 +145,16 @@ public class FRTransactionData {
     public static class FRProprietaryBankTransactionCodeStructure {
         private String code;
         private String issuer;
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class FRExtendedProprietaryBankTransactionCodeStructure {
+        private String code;
+        private String issuer;
+        private String description;
     }
 
     @Data

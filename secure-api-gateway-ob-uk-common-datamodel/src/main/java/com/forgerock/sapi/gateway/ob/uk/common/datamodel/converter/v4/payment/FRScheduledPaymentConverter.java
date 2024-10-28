@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.payment;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRScheduledPaymentData;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAccountIdentifierConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRFinancialInstrumentConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRScheduledPaymentData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAmountConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRFinancialInstrumentConverter;
 import uk.org.openbanking.datamodel.v4.account.OBInternalScheduleType1Code;
 import uk.org.openbanking.datamodel.v4.account.OBScheduledPayment3;
 

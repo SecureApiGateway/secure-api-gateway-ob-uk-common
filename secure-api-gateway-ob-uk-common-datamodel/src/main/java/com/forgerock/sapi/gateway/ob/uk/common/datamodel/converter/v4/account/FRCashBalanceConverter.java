@@ -13,21 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRBalanceType;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRCashBalance;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCashBalance;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCreditLine;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRCashBalanceData;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRTotalValue;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRCashBalanceData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRTotalValue;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAmountConverter;
 import uk.org.openbanking.datamodel.v4.account.*;
 
 import java.util.List;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRBalanceTypeConverter.toOBBalanceType1CodeV4;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAmountConverter.*;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRBalanceTypeConverter.toOBBalanceType1CodeV4;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAmountConverter.*;
 import static java.util.stream.Collectors.toList;
 
 public class FRCashBalanceConverter {
@@ -53,7 +53,7 @@ public class FRCashBalanceConverter {
                 .dateTime(balance.getDateTime())
                 .amount(toOBReadBalance1DataAmount(balance.getAmount()))
                 .localAmount(FRAmountConverter.toOBReadBalance1DataBalanceInnerLocalAmount(balance.getLocalAmount()))
-                .creditLine(toOBReadBalance1DataCreditLineList(balance.getCreditLine()));
+                .creditLine(toOBReadBalance1DataCreditLineList(balance.getCreditLines()));
     }
 
     public static OBBalanceType1Code toOBBalanceType1Code(FRBalanceType type) {
@@ -107,7 +107,7 @@ public class FRCashBalanceConverter {
                 .accountId(balance.getAccountId())
                 .amount(toFRAmount(balance.getAmount()))
                 .dateTime(balance.getDateTime())
-                .creditLine(toFRCreditLines(balance.getCreditLine()))
+                .creditLines(toFRCreditLines(balance.getCreditLine()))
                 .type(toFRBalanceType(balance.getType()))
                 .localAmount(toFRLocalAmount(balance.getLocalAmount()))
                 .build();

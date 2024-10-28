@@ -13,16 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRAccountBeneficiary;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRAccountBeneficiary;
 import uk.org.openbanking.datamodel.v4.account.OBBeneficiary5;
 import uk.org.openbanking.datamodel.v4.account.OBInternalBeneficiaryType1Code;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.account.FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification60;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAccountIdentifierConverter.toFRAccountIdentifier;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRAccountIdentifierConverter.toOBCashAccount50;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common.FRFinancialInstrumentConverter.toFRFinancialAgent;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRAccountServicerConverter.toOBBranchAndFinancialInstitutionIdentification60;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter.toFRAccountIdentifier;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter.toOBCashAccount50;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRFinancialInstrumentConverter.toFRFinancialAgent;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRSupplementaryDataConverter.toFRSupplementaryData;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRSupplementaryDataConverter.toOBSupplementaryData1;
 

@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.converter.common;
+package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRPostalAddressConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRUltimateCreditor;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRUltimateDebtor;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.common.FRFinancialAgent;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialCreditor;
 import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionIdentification51;
 import uk.org.openbanking.datamodel.v4.common.OBBranchAndFinancialInstitutionIdentification60;

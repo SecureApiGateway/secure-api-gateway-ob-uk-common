@@ -39,6 +39,7 @@ public class FRAccountIdentifier {
     private String schemeName;
     private String identification;
     private String name;
+    private String LEI;
     private String secondaryIdentification;
     private String accountId;
     private FRProxy proxy;

@@ -16,8 +16,8 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.v4.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.FRPostalAddressTestDataFactory;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRFinancialAccount;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.v4.account.FRFinancialAccount.FRStatementFrequencyAndFormat;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRFinancialAccount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.account.FRFinancialAccount.FRStatementFrequencyAndFormat;
 
 /**
  * Test data factory for {@link FRStatementFrequencyAndFormat}.
