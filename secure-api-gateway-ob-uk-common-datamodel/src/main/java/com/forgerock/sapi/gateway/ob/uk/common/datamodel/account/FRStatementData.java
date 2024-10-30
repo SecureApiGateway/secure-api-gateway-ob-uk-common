@@ -16,6 +16,8 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRLocalAmount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRTotalValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -57,6 +59,7 @@ public class FRStatementData {
     private List<FRStatementRate> statementRates;
     private List<FRStatementValue> statementValues;
     private List<FRStatementAmount> statementAmounts;
+    private FRTotalValue totalValues;
 
     public void addStatementAmount(FRStatementAmount statementAmount) {
         if (statementAmounts == null) {
@@ -168,5 +171,6 @@ public class FRStatementData {
         private FRCreditDebitIndicator creditDebitIndicator;
         private String type;
         private FRAmount amount;
+        private FRLocalAmount localAmount;
     }
 }

@@ -15,8 +15,6 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.common;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRProxy;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,12 +33,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class FRAccountIdentifier {
-    private String schemeName;
-    private String identification;
-    private String name;
-    private String LEI;
-    private String secondaryIdentification;
-    private String accountId;
-    private FRProxy proxy;
+public class FRTotalValue {
+
+    private String amount;
+    private String currency;
 }

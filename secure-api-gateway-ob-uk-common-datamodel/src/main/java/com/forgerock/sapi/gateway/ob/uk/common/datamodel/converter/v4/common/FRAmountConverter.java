@@ -16,26 +16,10 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRLocalAmount;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.mapper.FRModelMapper;
 
-import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount0;
-import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount1;
-import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount10;
-import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount11;
-import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount2;
-import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount3;
-import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount4;
-import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount5;
-import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount6;
-import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount7;
-import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount8;
-import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount9;
-import uk.org.openbanking.datamodel.v4.account.OBCurrencyExchange5InstructedAmount;
-import uk.org.openbanking.datamodel.v4.account.OBReadBalance1DataBalanceInnerAmount;
-import uk.org.openbanking.datamodel.v4.account.OBReadBalance1DataBalanceInnerCreditLineInnerAmount;
-import uk.org.openbanking.datamodel.v4.account.OBReadOffer1DataOfferInnerAmount;
-import uk.org.openbanking.datamodel.v4.account.OBReadOffer1DataOfferInnerFee;
-import uk.org.openbanking.datamodel.v4.account.OBTransactionCashBalanceAmount;
+import uk.org.openbanking.datamodel.v4.account.*;
 import uk.org.openbanking.datamodel.v4.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmation1DataInstructedAmount;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationInstructedAmount;
@@ -241,5 +225,29 @@ public class FRAmountConverter {
 
     public static OBFundsConfirmation1DataInstructedAmount toOBFundsConfirmation1DataInstructedAmount(FRAmount amount) {
         return FRModelMapper.map(amount, OBFundsConfirmation1DataInstructedAmount.class);
+    }
+
+    public static OBStatement2StatementAmountInnerLocalAmount toOBStatement2StatementAmountInnerLocalAmount(FRLocalAmount amount) {
+        return FRModelMapper.map(amount, OBStatement2StatementAmountInnerLocalAmount.class);
+    }
+
+    public static OBStatement2StatementAmountInnerAmount toOBStatement2StatementAmountInnerAmount(FRAmount amount) {
+        return FRModelMapper.map(amount, OBStatement2StatementAmountInnerAmount.class);
+    }
+
+    public static OBReadBalance1DataBalanceInnerLocalAmount toOBReadBalance1DataBalanceInnerLocalAmount(FRLocalAmount amount) {
+        return FRModelMapper.map(amount, OBReadBalance1DataBalanceInnerLocalAmount.class);
+    }
+
+    public static FRAmount toFRAmount(OBStatement2StatementAmountInnerAmount amount) {
+        return FRModelMapper.map(amount, FRAmount.class);
+    }
+
+    public static FRLocalAmount toFRAmount(OBStatement2StatementAmountInnerLocalAmount amount) {
+        return FRModelMapper.map(amount, FRLocalAmount.class);
+    }
+
+    public static FRLocalAmount toFRLocalAmount(OBReadBalance1DataBalanceInnerLocalAmount amount) {
+        return FRModelMapper.map(amount, FRLocalAmount.class);
     }
 }

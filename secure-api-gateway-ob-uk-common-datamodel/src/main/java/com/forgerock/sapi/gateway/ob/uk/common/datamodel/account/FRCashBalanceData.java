@@ -15,19 +15,17 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRTotalValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
- * Equivalent to {@code OBBranchAndFinancialInstitutionIdentification50}. It is stored within mongo
- * (instead of the OB object), in order to make it easier to introduce new versions of the Read/Write API.
- *
- * <p>
- * From the OB docs:  Party that manages the account on behalf of the account owner, that is manages the registration
- * and booking of entries on the account, calculates balances on the account and provides information about the account.
- * </p>
+ * Represents {@code OBCashBalance1} in the OB data model. It is stored within mongo (instead of the OB object),
+ * in order to make it easier to introduce new versions of the Read/Write API.
  *
  * <p>
  * Note that this object is used across multiple versions of the Read/Write API, meaning that some values won't be
@@ -38,9 +36,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class FRAccountServicer {
+public class FRCashBalanceData {
 
-    private String schemeName;
-    private String name;
-    private String identification;
+    private List<FRCashBalance> balance;
+    private FRTotalValue totalValue;
 }
