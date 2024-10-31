@@ -19,45 +19,46 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import uk.org.openbanking.datamodel.error.OBStandardErrorCodes1;
+
 public class FRErrorCodeConverter {
 
     private static final Map<String, String> v3tov4ErrorCodes;
 
     static {
         final Map<String, String> errorCodesTranslations = new HashMap<>();
-        errorCodesTranslations.put("UK.OBIE.Field.Expected", "U001");
-        errorCodesTranslations.put("UK.OBIE.Field.Invalid", "U002");
-        errorCodesTranslations.put("UK.OBIE.Field.InvalidDate", "U003");
-        errorCodesTranslations.put("UK.OBIE.Field.Missing", "U004");
-        errorCodesTranslations.put("UK.OBIE.Field.Unexpected", "U005");
-        errorCodesTranslations.put("UK.OBIE.Header.Invalid", "U006");
-        errorCodesTranslations.put("UK.OBIE.Header.Missing", "U007");
-        errorCodesTranslations.put("UK.OBIE.Resource.ConsentMismatch", "U008");
-        errorCodesTranslations.put("UK.OBIE.Resource.InvalidConsentStatus", "U009");
-        errorCodesTranslations.put("UK.OBIE.Resource.InvalidFormat", "U010");
-        errorCodesTranslations.put("UK.OBIE.Resource.NotFound", "U011");
-        errorCodesTranslations.put("UK.OBIE.Rules.AfterCutOffDateTime", "U012");
-        errorCodesTranslations.put("UK.OBIE.Rules.DuplicateReference", "U013");
-        errorCodesTranslations.put("UK.OBIE.Rules.FailsControlParameters", "U014");
-        errorCodesTranslations.put("UK.OBIE.Signature.Invalid", "U015");
-        errorCodesTranslations.put("UK.OBIE.Signature.InvalidClaim", "U016");
-        errorCodesTranslations.put("UK.OBIE.Signature.MissingClaim", "U017");
-        errorCodesTranslations.put("UK.OBIE.Signature.Malformed", "U018");
-        errorCodesTranslations.put("UK.OBIE.Signature.Missing", "U019");
-        errorCodesTranslations.put("UK.OBIE.Signature.Unexpected", "U020");
-        errorCodesTranslations.put("UK.OBIE.Unsupported.AccountIdentifier", "U021");
-        errorCodesTranslations.put("UK.OBIE.Unsupported.AccountSecondaryIdentifier", "U022");
-        errorCodesTranslations.put("UK.OBIE.Unsupported.Currency", "U023");
-        errorCodesTranslations.put("UK.OBIE.Unsupported.EventType", "U024");
-        errorCodesTranslations.put("UK.OBIE.Unsupported.Frequency", "U025");
-        errorCodesTranslations.put("UK.OBIE.Unsupported.LocalInstrument", "U026");
-        errorCodesTranslations.put("UK.OBIE.Unsupported.Scheme", "U027");
-        errorCodesTranslations.put("UK.OBIE.Reauthenticate", "U028");
-        errorCodesTranslations.put("UK.OBIE.Rules.ResourceAlreadyExists", "U029");
-        errorCodesTranslations.put("UK.OBIE.UnexpectedError", "U000");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_FIELD_EXPECTED.getValue(), "U001");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID.getValue(), "U002");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_FIELD_INVALID_DATE.getValue(), "U003");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_FIELD_MISSING.getValue(), "U004");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_FIELD_UNEXPECTED.getValue(), "U005");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_HEADER_INVALID.getValue(), "U006");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_HEADER_MISSING.getValue(), "U007");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_RESOURCE_CONSENT_MISMATCH.getValue(), "U008");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_RESOURCE_INVALID_CONSENT_STATUS.getValue(), "U009");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_RESOURCE_INVALID_FORMAT.getValue(), "U010");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_RESOURCE_NOT_FOUND.getValue(), "U011");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_RULES_AFTER_CUT_OFF_DATE_TIME.getValue(), "U012");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_RULES_DUPLICATE_REFERENCE.getValue(), "U013");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_RULES_FAILS_CONTROL_PARAMETERS.getValue(), "U014");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_SIGNATURE_INVALID.getValue(), "U015");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_SIGNATURE_INVALID_CLAIM.getValue(), "U016");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_SIGNATURE_MISSING_CLAIM.getValue(), "U017");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_SIGNATURE_MALFORMED.getValue(), "U018");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_SIGNATURE_MISSING.getValue(), "U019");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_SIGNATURE_UNEXPECTED.getValue(), "U020");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_UNSUPPORTED_ACCOUNT_IDENTIFIER.getValue(), "U021");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_UNSUPPORTED_ACCOUNT_SECONDARY_IDENTIFIER.getValue(), "U022");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_UNSUPPORTED_CURRENCY.getValue(), "U023");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_UNSUPPORTED_EVENT_TYPE.getValue(), "U024");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_UNSUPPORTED_FREQUENCY.getValue(), "U025");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_UNSUPPORTED_LOCAL_INSTRUMENT.getValue(), "U026");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_UNSUPPORTED_SCHEME.getValue(), "U027");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_REAUTHENTICATE.getValue(), "U028");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_RULES_RESOURCE_ALREADY_EXISTS.getValue(), "U029");
+        errorCodesTranslations.put(OBStandardErrorCodes1.UK_OBIE_UNEXPECTED_ERROR.getValue(), "U000");
 
         v3tov4ErrorCodes = Collections.unmodifiableMap(errorCodesTranslations);
-
     }
 
     public static String toObV4ErrorCode(String errorCode) {
