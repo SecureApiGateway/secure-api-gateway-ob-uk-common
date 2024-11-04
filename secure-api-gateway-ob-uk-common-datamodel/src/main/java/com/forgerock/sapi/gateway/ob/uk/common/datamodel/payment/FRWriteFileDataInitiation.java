@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSupplementaryData;
 import lombok.AllArgsConstructor;
@@ -51,4 +52,6 @@ public class FRWriteFileDataInitiation {
     private FRAccountIdentifier debtorAccount;
     private FRRemittanceInformation remittanceInformation;
     private FRSupplementaryData supplementaryData;
+    private FRUltimateDebtor ultimateDebtor;
+    private FRFinancialAgent creditorAgent;
 }
