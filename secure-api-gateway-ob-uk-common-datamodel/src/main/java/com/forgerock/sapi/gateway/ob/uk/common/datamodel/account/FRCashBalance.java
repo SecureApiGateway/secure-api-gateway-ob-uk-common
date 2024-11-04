@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRLocalAmount;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -45,4 +46,5 @@ public class FRCashBalance {
     private DateTime dateTime;
     private FRAmount amount;
     private List<FRCreditLine> creditLines;
+    private FRLocalAmount localAmount;
 }

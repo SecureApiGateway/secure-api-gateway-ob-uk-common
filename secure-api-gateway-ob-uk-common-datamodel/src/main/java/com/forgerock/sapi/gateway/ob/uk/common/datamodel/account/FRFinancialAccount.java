@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPostalAddress;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -54,6 +55,8 @@ public class FRFinancialAccount {
     private DateTime maturityDate;
     private List<FRAccountIdentifier> accounts;
     private FRAccountServicer servicer;
+    private String switchStatus;
+    private List<FRStatementFrequencyAndFormat> statementFrequencyAndFormat;
 
     @JsonIgnore
     public FRAccountIdentifier getFirstAccount() {
@@ -86,6 +89,107 @@ public class FRFinancialAccount {
 
         @JsonCreator
         public static FRAccountStatusCode fromValue(String value) {
+            return Stream.of(values())
+                    .filter(type -> type.getValue().equals(value))
+                    .findFirst()
+                    .orElse(null);
+        }
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class FRStatementFrequencyAndFormat {
+        private FRCommunicationMethod communicationMethod;
+        private FRStatementFrequency statementFrequency;
+        private FRFormat format;
+        private FRPostalAddress postalAddress;
+    }
+
+    public enum FRCommunicationMethod {
+        EMAL("EMAL"),
+        FAXI("FAXI"),
+        FILE("FILE"),
+        ONLI("ONLI"),
+        POST("POST");
+
+        private final String value;
+
+        FRCommunicationMethod(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public String toString() {
+            return value;
+        }
+
+        public static FRCommunicationMethod fromValue(String value) {
+            return Stream.of(values())
+                    .filter(type -> type.getValue().equals(value))
+                    .findFirst()
+                    .orElse(null);
+        }
+    }
+    public enum FRStatementFrequency {
+        YEAR("YEAR"),
+        DAIL("DAIL"),
+        INDA("INDA"),
+        MNTH("MNTH"),
+        QURT("QURT"),
+        MIAN("MIAN"),
+        TEND("TEND"),
+        MOVE("MOVE"),
+        WEEK("WEEK");
+
+        private final String value;
+
+        FRStatementFrequency(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public String toString() {
+            return value;
+        }
+
+        public static FRStatementFrequency fromValue(String value) {
+            return Stream.of(values())
+                    .filter(type -> type.getValue().equals(value))
+                    .findFirst()
+                    .orElse(null);
+        }
+    }
+
+    public enum FRFormat {
+        DPDF("DPDF"),
+        DXML("DXML"),
+        SDSH("SDSH"),
+        WORD("WORD"),
+        XSLT("XSLT");
+
+        private final String value;
+
+        FRFormat(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public String toString() {
+            return value;
+        }
+
+        public static FRFormat fromValue(String value) {
             return Stream.of(values())
                     .filter(type -> type.getValue().equals(value))
                     .findFirst()

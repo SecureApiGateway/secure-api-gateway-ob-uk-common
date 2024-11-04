@@ -52,6 +52,7 @@ public class FRPartyData {
     private String mobile;
     private FRRelationship relationship;
     private List<FRPostalAddress> addresses;
+    private String LEI;
 
     public enum FRPartyType {
         DELEGATE("Delegate"),

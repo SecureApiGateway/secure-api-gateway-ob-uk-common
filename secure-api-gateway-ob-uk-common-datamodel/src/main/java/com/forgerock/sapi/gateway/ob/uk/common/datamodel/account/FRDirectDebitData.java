@@ -16,6 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+import com.forgerock.sapi.gateway.uk.common.shared.api.meta.forgerock.FRFrequency;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -42,11 +43,13 @@ public class FRDirectDebitData {
     private String accountId;
     private String directDebitId;
     private String mandateIdentification;
+    private FRMandateRelatedInformation mandateRelatedInformation;
     private FRDirectDebitStatus directDebitStatusCode;
     private String name;
     private DateTime previousPaymentDateTime;
     private String frequency;
     private FRAmount previousPaymentAmount;
+    private FRFrequency frFrequency;
 
     public enum FRDirectDebitStatus {
         ACTIVE("Active"),
