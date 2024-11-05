@@ -182,7 +182,9 @@
                                         OBWriteDomesticStandingOrderConsentResponse6_Data_Authorisation=OBWriteDomesticConsentDataAuthorisation,
                                         OBWriteDomesticStandingOrderConsentResponse6_Data_ReadRefundAccount=OBReadRefundAccount,
                                         OBWriteDomesticScheduledConsent4_Data_ReadRefundAccount=OBReadRefundAccount,
-                                        OBWriteDomesticConsentResponse5_Data_ReadRefundAccount=OBReadRefundAccount
+                                        OBWriteDomesticConsentResponse5_Data_ReadRefundAccount=OBReadRefundAccount,
+                                        OBWriteDomesticScheduledConsent4_Data_Initiation=OBWriteDomesticScheduled2DataInitiation,
+                                        OBWriteInternationalConsent5_Data_Initiation=OBWriteInternational3DataInitiation
                                     </inlineSchemaNameMappings>
                                     <!-- RESOLVE_INLINE_ENUMS needs to be enabled to move enums which are specified as
                                          inline types in the schema to top level generated types, this then allows us to
@@ -229,6 +231,8 @@
                                         OBDomesticVRPRequest_Data_PSUInteractionType=OBVRPInteractionTypes,
                                         OBDomesticVRPConsentResponse_Data_DebtorAccount=OBCashAccountDebtorWithName,
                                         OBDomesticVRPConsentResponse_Data_ReadRefundAccount=OBReadRefundAccount,
+                                        OBWriteDomesticConsentResponse5_Data_Authorisation=OBWriteDomesticConsentDataAuthorisation,
+                                        OBWriteDomesticStandingOrderConsentResponse6_Data_Authorisation=OBWriteDomesticConsentDataAuthorisation,
                                         OBWriteDomesticConsent4_Data_ReadRefundAccount=OBReadRefundAccount,
                                         OBWriteDomesticStandingOrderConsentResponse6_Data_ReadRefundAccount=OBReadRefundAccount,
                                         OBWriteDomesticScheduledConsent4_Data_ReadRefundAccount=OBReadRefundAccount,
@@ -245,7 +249,9 @@
                                         OBProxy1=OBProxy1,
                                         OBStatusReason=OBStatusReason,
                                         OBUltimateCreditor1=OBUltimateCreditor1,
-                                        OBUltimateDebtor1=OBUltimateDebtor1
+                                        OBUltimateDebtor1=OBUltimateDebtor1,
+                                        OBWriteDomesticScheduledConsent4_Data_Initiation=OBWriteDomesticScheduled2DataInitiation,
+                                        OBWriteInternationalConsent5_Data_Initiation=OBWriteInternational3DataInitiation
                                     </schemaMappings>
                                     <!-- Map types which are not generating to their fully qualified class name to use
                                          in the import statements.

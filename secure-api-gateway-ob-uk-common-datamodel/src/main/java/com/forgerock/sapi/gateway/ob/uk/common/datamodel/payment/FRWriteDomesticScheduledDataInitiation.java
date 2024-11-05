@@ -15,11 +15,15 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment;
 
+import java.util.List;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import org.joda.time.DateTime;
 
 /**
@@ -47,4 +51,9 @@ public class FRWriteDomesticScheduledDataInitiation implements FRDomesticDataIni
     private FRPostalAddress creditorPostalAddress;
     private FRRemittanceInformation remittanceInformation;
     private FRSupplementaryData supplementaryData;
+
+    // v4 fields
+    private FRUltimateDebtor ultimateDebtor;
+    private FRUltimateCreditor ultimateCreditor;
+    private List<FRRegulatoryReporting> regulatoryReporting;
 }

@@ -23,7 +23,6 @@ import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
@@ -39,8 +38,7 @@ import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a single scheduled domestic payment.
  */
 
-@Schema(name = "OBWriteDomesticScheduled2_Data_Initiation", description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a single scheduled domestic payment.")
-@JsonTypeName("OBWriteDomesticScheduled2_Data_Initiation")
+@Schema(name = "OBWriteDomesticScheduled2DataInitiation", description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a single scheduled domestic payment.")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomesticScheduled2DataInitiation {
 
@@ -59,14 +57,14 @@ public class OBWriteDomesticScheduled2DataInitiation {
 
     private OBWriteDomestic2DataInitiationCreditorAccount creditorAccount;
 
-    @Valid
-    private List<@Valid OBRegulatoryReporting1> regulatoryReporting;
-
     private OBPostalAddress7 creditorPostalAddress;
 
     private OBUltimateCreditor1 ultimateCreditor;
 
     private OBUltimateDebtor1 ultimateDebtor;
+
+    @Valid
+    private List<@Valid OBRegulatoryReporting1> regulatoryReporting;
 
     private OBRemittanceInformation2 remittanceInformation;
 
@@ -237,36 +235,6 @@ public class OBWriteDomesticScheduled2DataInitiation {
         this.creditorAccount = creditorAccount;
     }
 
-    public OBWriteDomesticScheduled2DataInitiation regulatoryReporting(List<@Valid OBRegulatoryReporting1> regulatoryReporting) {
-        this.regulatoryReporting = regulatoryReporting;
-        return this;
-    }
-
-    public OBWriteDomesticScheduled2DataInitiation addRegulatoryReportingItem(OBRegulatoryReporting1 regulatoryReportingItem) {
-        if (this.regulatoryReporting == null) {
-            this.regulatoryReporting = new ArrayList<>();
-        }
-        this.regulatoryReporting.add(regulatoryReportingItem);
-        return this;
-    }
-
-    /**
-     * Get regulatoryReporting
-     *
-     * @return regulatoryReporting
-     */
-    @Valid
-    @Size(max = 10)
-    @Schema(name = "RegulatoryReporting", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("RegulatoryReporting")
-    public List<@Valid OBRegulatoryReporting1> getRegulatoryReporting() {
-        return regulatoryReporting;
-    }
-
-    public void setRegulatoryReporting(List<@Valid OBRegulatoryReporting1> regulatoryReporting) {
-        this.regulatoryReporting = regulatoryReporting;
-    }
-
     public OBWriteDomesticScheduled2DataInitiation creditorPostalAddress(OBPostalAddress7 creditorPostalAddress) {
         this.creditorPostalAddress = creditorPostalAddress;
         return this;
@@ -330,6 +298,36 @@ public class OBWriteDomesticScheduled2DataInitiation {
         this.ultimateDebtor = ultimateDebtor;
     }
 
+    public OBWriteDomesticScheduled2DataInitiation regulatoryReporting(List<@Valid OBRegulatoryReporting1> regulatoryReporting) {
+        this.regulatoryReporting = regulatoryReporting;
+        return this;
+    }
+
+    public OBWriteDomesticScheduled2DataInitiation addRegulatoryReportingItem(OBRegulatoryReporting1 regulatoryReportingItem) {
+        if (this.regulatoryReporting == null) {
+            this.regulatoryReporting = new ArrayList<>();
+        }
+        this.regulatoryReporting.add(regulatoryReportingItem);
+        return this;
+    }
+
+    /**
+     * Get regulatoryReporting
+     *
+     * @return regulatoryReporting
+     */
+    @Valid
+    @Size(max = 10)
+    @Schema(name = "RegulatoryReporting", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("RegulatoryReporting")
+    public List<@Valid OBRegulatoryReporting1> getRegulatoryReporting() {
+        return regulatoryReporting;
+    }
+
+    public void setRegulatoryReporting(List<@Valid OBRegulatoryReporting1> regulatoryReporting) {
+        this.regulatoryReporting = regulatoryReporting;
+    }
+
     public OBWriteDomesticScheduled2DataInitiation remittanceInformation(OBRemittanceInformation2 remittanceInformation) {
         this.remittanceInformation = remittanceInformation;
         return this;
@@ -388,17 +386,17 @@ public class OBWriteDomesticScheduled2DataInitiation {
                 Objects.equals(this.instructedAmount, obWriteDomesticScheduled2DataInitiation.instructedAmount) &&
                 Objects.equals(this.debtorAccount, obWriteDomesticScheduled2DataInitiation.debtorAccount) &&
                 Objects.equals(this.creditorAccount, obWriteDomesticScheduled2DataInitiation.creditorAccount) &&
-                Objects.equals(this.regulatoryReporting, obWriteDomesticScheduled2DataInitiation.regulatoryReporting) &&
                 Objects.equals(this.creditorPostalAddress, obWriteDomesticScheduled2DataInitiation.creditorPostalAddress) &&
                 Objects.equals(this.ultimateCreditor, obWriteDomesticScheduled2DataInitiation.ultimateCreditor) &&
                 Objects.equals(this.ultimateDebtor, obWriteDomesticScheduled2DataInitiation.ultimateDebtor) &&
+                Objects.equals(this.regulatoryReporting, obWriteDomesticScheduled2DataInitiation.regulatoryReporting) &&
                 Objects.equals(this.remittanceInformation, obWriteDomesticScheduled2DataInitiation.remittanceInformation) &&
                 Objects.equals(this.supplementaryData, obWriteDomesticScheduled2DataInitiation.supplementaryData);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(instructionIdentification, endToEndIdentification, localInstrument, requestedExecutionDateTime, instructedAmount, debtorAccount, creditorAccount, regulatoryReporting, creditorPostalAddress, ultimateCreditor, ultimateDebtor, remittanceInformation, supplementaryData);
+        return Objects.hash(instructionIdentification, endToEndIdentification, localInstrument, requestedExecutionDateTime, instructedAmount, debtorAccount, creditorAccount, creditorPostalAddress, ultimateCreditor, ultimateDebtor, regulatoryReporting, remittanceInformation, supplementaryData);
     }
 
     @Override
@@ -412,10 +410,10 @@ public class OBWriteDomesticScheduled2DataInitiation {
         sb.append("    instructedAmount: ").append(toIndentedString(instructedAmount)).append("\n");
         sb.append("    debtorAccount: ").append(toIndentedString(debtorAccount)).append("\n");
         sb.append("    creditorAccount: ").append(toIndentedString(creditorAccount)).append("\n");
-        sb.append("    regulatoryReporting: ").append(toIndentedString(regulatoryReporting)).append("\n");
         sb.append("    creditorPostalAddress: ").append(toIndentedString(creditorPostalAddress)).append("\n");
         sb.append("    ultimateCreditor: ").append(toIndentedString(ultimateCreditor)).append("\n");
         sb.append("    ultimateDebtor: ").append(toIndentedString(ultimateDebtor)).append("\n");
+        sb.append("    regulatoryReporting: ").append(toIndentedString(regulatoryReporting)).append("\n");
         sb.append("    remittanceInformation: ").append(toIndentedString(remittanceInformation)).append("\n");
         sb.append("    supplementaryData: ").append(toIndentedString(supplementaryData)).append("\n");
         sb.append("}");

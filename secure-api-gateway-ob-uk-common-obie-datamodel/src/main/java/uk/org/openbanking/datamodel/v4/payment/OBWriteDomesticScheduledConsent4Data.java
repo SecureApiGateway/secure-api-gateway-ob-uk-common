@@ -38,7 +38,7 @@ public class OBWriteDomesticScheduledConsent4Data {
 
     private OBReadRefundAccount readRefundAccount;
 
-    private OBWriteDomesticScheduledConsent4DataInitiation initiation;
+    private OBWriteDomesticScheduled2DataInitiation initiation;
 
     private OBWriteDomesticConsentDataAuthorisation authorisation;
 
@@ -51,7 +51,7 @@ public class OBWriteDomesticScheduledConsent4Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticScheduledConsent4Data(OBWriteDomesticScheduledConsent4DataPermission permission, OBWriteDomesticScheduledConsent4DataInitiation initiation) {
+    public OBWriteDomesticScheduledConsent4Data(OBWriteDomesticScheduledConsent4DataPermission permission, OBWriteDomesticScheduled2DataInitiation initiation) {
         this.permission = permission;
         this.initiation = initiation;
     }
@@ -99,7 +99,7 @@ public class OBWriteDomesticScheduledConsent4Data {
         this.readRefundAccount = readRefundAccount;
     }
 
-    public OBWriteDomesticScheduledConsent4Data initiation(OBWriteDomesticScheduledConsent4DataInitiation initiation) {
+    public OBWriteDomesticScheduledConsent4Data initiation(OBWriteDomesticScheduled2DataInitiation initiation) {
         this.initiation = initiation;
         return this;
     }
@@ -113,11 +113,11 @@ public class OBWriteDomesticScheduledConsent4Data {
     @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
-    public OBWriteDomesticScheduledConsent4DataInitiation getInitiation() {
+    public OBWriteDomesticScheduled2DataInitiation getInitiation() {
         return initiation;
     }
 
-    public void setInitiation(OBWriteDomesticScheduledConsent4DataInitiation initiation) {
+    public void setInitiation(OBWriteDomesticScheduled2DataInitiation initiation) {
         this.initiation = initiation;
     }
 
