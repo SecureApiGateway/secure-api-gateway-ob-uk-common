@@ -155,4 +155,80 @@ public class FRRemittanceInformationConverter {
                 .reference(creditorReferenceInformation.getReference());
     }
 
+    public static FRRemittanceInformation toFRRemittanceInformationVrp(uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformation2 remittanceInformation) {
+        return remittanceInformation == null ? null : FRRemittanceInformation.builder()
+                                                                             .structured(toFRRemittanceInformationStructuredVrp(remittanceInformation.getStructured()))
+                                                                             .unstructured(remittanceInformation.getUnstructured())
+                                                                             .build();
+    }
+
+    private static List<FRRemittanceInformationStructured> toFRRemittanceInformationStructuredVrp(List<uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformationStructured> remittanceInformationStructured) {
+        return remittanceInformationStructured == null ? null : remittanceInformationStructured.stream()
+          .map(structured -> FRRemittanceInformationStructured.builder()
+             .referredDocumentInformation(toFRReferredDocumentInformationVrp(structured.getReferredDocumentInformation()))
+             .creditorReferenceInformation(toFRRemittanceInformationStructuredCreditorReferenceInformationVrp(structured.getCreditorReferenceInformation()))
+             .referredDocumentAmount(structured.getReferredDocumentAmount())
+             .invoicee(structured.getInvoicee())
+             .invoicer(structured.getInvoicer())
+             .taxRemittance(structured.getTaxRemittance())
+             .additionalRemittanceInformation(structured.getAdditionalRemittanceInformation())
+             .build())
+             .collect(Collectors.toList());
+    }
+
+    private static List<FRReferredDocumentInformation> toFRReferredDocumentInformationVrp(List<uk.org.openbanking.datamodel.v4.vrp.OBReferredDocumentInformation> referredDocumentInformation) {
+        return referredDocumentInformation == null ? null : referredDocumentInformation.stream()
+            .map(documentInformation -> FRReferredDocumentInformation.builder()
+                .code(FRExternalDocumentTypeCode.fromValue(documentInformation.getCode().getValue()))
+                .issuer(documentInformation.getIssuer())
+                .number(documentInformation.getNumber())
+                .relatedDate(documentInformation.getRelatedDate())
+                .lineDetails(documentInformation.getLineDetails())
+                .build()).collect(Collectors.toList());
+    }
+
+    public static FRRemittanceInformationStructuredCreditorReferenceInformation toFRRemittanceInformationStructuredCreditorReferenceInformationVrp(uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation) {
+        return creditorReferenceInformation == null ? null : FRRemittanceInformationStructuredCreditorReferenceInformation.builder()
+              .code(FRExternalCreditorReferenceTypeCode.fromValue(creditorReferenceInformation.getCode().getValue()))
+              .issuer(creditorReferenceInformation.getIssuer())
+              .reference(creditorReferenceInformation.getReference())
+              .build();
+    }
+
+    public static uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformation2 toOBDomesticVRPInitiationRemittanceInformationVrp(
+            FRRemittanceInformation remittanceInformation
+    ) {
+        return remittanceInformation == null ? null : new uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformation2()
+                .structured(toOBRemittanceInformationStructuredVrp(remittanceInformation.getStructured()))
+                .unstructured(remittanceInformation.getUnstructured());
+    }
+
+    public static List<uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformationStructured> toOBRemittanceInformationStructuredVrp(List<FRRemittanceInformationStructured> remittanceInformationStructured) {
+        return remittanceInformationStructured == null ? null : remittanceInformationStructured.stream()
+                                                                                               .map(structured -> new uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformationStructured()
+                                                                                                       .referredDocumentInformation(toOBReferredDocumentInformationVrp(structured.getReferredDocumentInformation()))
+                                                                                                       .referredDocumentAmount(structured.getReferredDocumentAmount())
+                                                                                                       .creditorReferenceInformation(toOBRemittanceInformationStructuredCreditorReferenceInformationVrp(structured.getCreditorReferenceInformation()))
+                                                                                                       .invoicee(structured.getInvoicee())
+                                                                                                       .invoicer(structured.getInvoicer())
+                                                                                                       .taxRemittance(structured.getTaxRemittance())
+                                                                                                       .additionalRemittanceInformation(structured.getAdditionalRemittanceInformation())).collect(Collectors.toList());
+    }
+
+    public static List<uk.org.openbanking.datamodel.v4.vrp.OBReferredDocumentInformation> toOBReferredDocumentInformationVrp(List<FRReferredDocumentInformation> referredDocumentInformation) {
+        return referredDocumentInformation == null ? null : referredDocumentInformation.stream()
+                                                                                       .map(documentInformation -> new uk.org.openbanking.datamodel.v4.vrp.OBReferredDocumentInformation()
+                                                                                               .code(ExternalDocumentType1Code.fromValue(documentInformation.getCode().getValue()))
+                                                                                               .issuer(documentInformation.getIssuer())
+                                                                                               .number(documentInformation.getNumber())
+                                                                                               .relatedDate(documentInformation.getRelatedDate())
+                                                                                               .lineDetails(documentInformation.getLineDetails())).collect(Collectors.toList());
+    }
+
+    public static uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformationStructuredCreditorReferenceInformation toOBRemittanceInformationStructuredCreditorReferenceInformationVrp(FRRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation) {
+        return creditorReferenceInformation == null ? null : new uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformationStructuredCreditorReferenceInformation()
+                .code(ExternalCreditorReferenceType1Code.fromValue(creditorReferenceInformation.getCode().getValue()))
+                .issuer(creditorReferenceInformation.getIssuer())
+                .reference(creditorReferenceInformation.getReference());
+    }
 }

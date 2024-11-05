@@ -21,13 +21,19 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPConsentResponseDataStatus;
 import uk.org.openbanking.datamodel.v4.payment.OBPaymentConsentStatus;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPConsentStatus;
 
 public class FRConsentStatusConverter {
 
     private static final Map<String, String> v3tov4ConsentStatus;
 
     private static final Map<String, String> v4tov3ConsentStatus;
+
+    private static final Map<String, String> v3tov4VrpConsentStatus;
+
+    private static final Map<String, String> v4tov3VrpConsentStatus;
 
     static {
         final Map<String, String> consentStatusTransalations = new HashMap<>();
@@ -41,6 +47,17 @@ public class FRConsentStatusConverter {
         v4tov3ConsentStatus = consentStatusTransalations.entrySet().stream().collect(toMap(Map.Entry::getValue, Map.Entry::getKey));
     }
 
+    static {
+        final Map<String, String> consentStatusTransalations = new HashMap<>();
+        consentStatusTransalations.put(OBDomesticVRPConsentResponseDataStatus.AWAITINGAUTHORISATION.getValue(), "AWAU");
+        consentStatusTransalations.put(OBDomesticVRPConsentResponseDataStatus.AUTHORISED.getValue(), "AUTH");
+        consentStatusTransalations.put(OBDomesticVRPConsentResponseDataStatus.REJECTED.getValue(), "RJCT");
+
+        v3tov4VrpConsentStatus = Collections.unmodifiableMap(consentStatusTransalations);
+        // v4 is the inverse of the v3 mappings
+        v4tov3VrpConsentStatus = consentStatusTransalations.entrySet().stream().collect(toMap(Map.Entry::getValue, Map.Entry::getKey));
+    }
+
     public static OBPaymentConsentStatus toOBPaymentConsentStatusV4(String consentStatus) {
         if (v3tov4ConsentStatus.containsKey(consentStatus)) {
             return OBPaymentConsentStatus.fromValue(v3tov4ConsentStatus.get(consentStatus));
@@ -48,5 +65,10 @@ public class FRConsentStatusConverter {
         throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
     }
 
-    //TODO - add for other payment types
+    public static OBDomesticVRPConsentStatus toVrpOBPaymentConsentStatusV4(String consentStatus) {
+        if (v3tov4VrpConsentStatus.containsKey(consentStatus)) {
+            return OBDomesticVRPConsentStatus.fromValue(v3tov4VrpConsentStatus.get(consentStatus));
+        }
+        throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
+    }
 }

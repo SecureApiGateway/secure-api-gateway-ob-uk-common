@@ -31,9 +31,18 @@ public class FRRegulatoryReportingConverter {
         return (FRRegulatoryReporting) FRModelMapper.map(regulatoryReporting, FRRegulatoryReporting.class);
     }
 
+    public static FRRegulatoryReporting toFRRegulatoryReportingVrp(uk.org.openbanking.datamodel.v4.vrp.OBRegulatoryReporting1 regulatoryReporting) {
+        return (FRRegulatoryReporting) FRModelMapper.map(regulatoryReporting, FRRegulatoryReporting.class);
+    }
+
     @Size(max = 10)
     public static List<FRRegulatoryReporting> toFRRegulatoryReporting(List<OBRegulatoryReporting1> regulatoryReportings) {
         return regulatoryReportings == null ? null : (List) regulatoryReportings.stream().map(FRRegulatoryReportingConverter::toFRRegulatoryReporting).collect(Collectors.toList());
+    }
+
+    @Size(max = 10)
+    public static List<FRRegulatoryReporting> toFRRegulatoryReportingVrp(List<uk.org.openbanking.datamodel.v4.vrp.OBRegulatoryReporting1> regulatoryReportings) {
+        return regulatoryReportings == null ? null : (List) regulatoryReportings.stream().map(FRRegulatoryReportingConverter::toFRRegulatoryReportingVrp).collect(Collectors.toList());
     }
 
     // FR to OB
@@ -41,8 +50,18 @@ public class FRRegulatoryReportingConverter {
         return (OBRegulatoryReporting1) FRModelMapper.map(regulatoryReporting, OBRegulatoryReporting1.class);
     }
 
+    public static uk.org.openbanking.datamodel.v4.vrp.OBRegulatoryReporting1 toOBRegulatoryReporting1Vrp(FRRegulatoryReporting regulatoryReporting) {
+        return (uk.org.openbanking.datamodel.v4.vrp.OBRegulatoryReporting1) FRModelMapper.map(regulatoryReporting, uk.org.openbanking.datamodel.v4.vrp.OBRegulatoryReporting1.class);
+    }
+
     @Size(max = 10)
     public static List<OBRegulatoryReporting1> toOBRegulatoryReporting1(List<FRRegulatoryReporting> regulatoryReportings) {
         return regulatoryReportings == null ? null : (List) regulatoryReportings.stream().map(FRRegulatoryReportingConverter::toOBRegulatoryReporting1).collect(Collectors.toList());
     }
+
+    @Size(max = 10)
+    public static List<uk.org.openbanking.datamodel.v4.vrp.OBRegulatoryReporting1> toOBRegulatoryReporting1Vrp(List<FRRegulatoryReporting> regulatoryReportings) {
+        return regulatoryReportings == null ? null : (List) regulatoryReportings.stream().map(FRRegulatoryReportingConverter::toOBRegulatoryReporting1Vrp).collect(Collectors.toList());
+    }
+
 }

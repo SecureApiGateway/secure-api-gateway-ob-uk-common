@@ -34,4 +34,10 @@ public class FRSupplementaryDataConverter {
         obSupplementaryData1.setData(frSupplementaryData.getData());
         return obSupplementaryData1;
     }
+
+    public static FRSupplementaryData toFRSupplementaryData(Object obSupplementaryData) {
+        return obSupplementaryData == null ? null : FRSupplementaryData.builder()
+                                                                       .data(obSupplementaryData.toString())
+                                                                       .build();
+    }
 }
