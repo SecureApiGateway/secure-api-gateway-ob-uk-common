@@ -27,9 +27,10 @@ import uk.org.openbanking.datamodel.v4.payment.OBWriteFileConsent3;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteFileConsent3Data;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteFileConsent3DataInitiation;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter.toFRCreditorAgent;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationCreditorAgent;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter.*;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRUltimateDebtorConverter.toFRUltimateDebtor;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRUltimateDebtorConverter.toOBUltimateDebtor1;
 
 public class FRWriteFileConsentConverter {
 
@@ -61,12 +62,12 @@ public class FRWriteFileConsentConverter {
                 .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
                 .supplementaryData(FRSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
                 .creditorAgent(toFRCreditorAgent((initiation.getCreditorAgent())))
-                //.ultimateDebtor(initiation.getUltimateDebtor())
+                .ultimateDebtor(toFRUltimateDebtor(initiation.getUltimateDebtor()))
                 .build();
     }
 
     // FR to OB
-    public static OBWriteFileConsent3DataInitiation toOBWriteFile3DataInitiation(FRWriteFileDataInitiation initiation) {
+    public static OBWriteFileConsent3DataInitiation toOBWriteFileConsent3DataInitiation(FRWriteFileDataInitiation initiation) {
         return initiation == null ? null : new OBWriteFileConsent3DataInitiation()
                 .fileType(initiation.getFileType())
                 .fileHash(initiation.getFileHash())
@@ -77,7 +78,9 @@ public class FRWriteFileConsentConverter {
                 .localInstrument(initiation.getLocalInstrument())
                 .debtorAccount(FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationDebtorAccount(initiation.getDebtorAccount()))
                 .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation2(initiation.getRemittanceInformation()))
-                .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
+                .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()))
+                .creditorAgent(toOBWriteDomestic2DataInitiationCreditorAgent(initiation.getCreditorAgent()))
+                .ultimateDebtor(toOBUltimateDebtor1(initiation.getUltimateDebtor()));
     }
 
     public static OBWriteFileConsent3 toOBWriteFileConsent3(FRWriteFileConsent consent) {
