@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020-2024 ForgeRock AS (obst@forgerock.com)
+ * Copyright © 2024 ForgeRock AS (obst@forgerock.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,8 @@ import uk.org.openbanking.datamodel.v4.event.OBEventPolling1;
 import uk.org.openbanking.datamodel.v4.event.OBEventPolling1SetErrsValue;
 
 import java.util.Map;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toMap;
 
 public class FREventPollingConverter {
 
@@ -36,7 +37,7 @@ public class FREventPollingConverter {
 
     public static Map<String, FREventPollingError> toFREventPollingErrors(Map<String, OBEventPolling1SetErrsValue> setErrs) {
         return setErrs == null ? null : setErrs.entrySet().stream()
-                .collect(Collectors.toMap(Map.Entry::getKey, e -> toFREventPollingError(e.getValue())));
+                .collect(toMap(Map.Entry::getKey, e -> toFREventPollingError(e.getValue())));
 
     }
 
