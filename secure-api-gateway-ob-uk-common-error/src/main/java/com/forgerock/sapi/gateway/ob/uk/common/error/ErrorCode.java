@@ -127,6 +127,7 @@ public enum ErrorCode implements StandardErrorCode {
     PSD_CERT_MISSING_JWKURI_MSG("OBRI.PSD2.Certificate.Jwkuri.Missing"),
     OBRI_REQUEST_VRP_LIMIT_BREACH_SIMULATION_NO_MATCHING_LIMIT_IN_CONSENT("OBRI.Request.Data.vrp.limit.breach.simulation.no.matching.limit.in.consent"),
     OBRI_REQUEST_VRP_LIMIT_BREACH_SIMULATION_INVALID_HEADER_VALUE("OBRI.Request.Data.vrp.limit.breach.simulation.invalid.header.value"),
+    OBRI_REQUEST_VRP_REMITTANCE_INFORMATION_INVALID_VALUE("OBRI.Request.Data.vrp.remittance.information.invalid.value"),
 
     OBRI_CONSENT_NOT_FOUND("OBRI.Consent.Not.Found");
 

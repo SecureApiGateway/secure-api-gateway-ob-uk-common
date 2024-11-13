@@ -130,6 +130,7 @@ public class FRDomesticVrpConverters {
                 .instructionIdentification(instruction.getInstructionIdentification())
                 .localInstrument(instruction.getLocalInstrument())
                 .creditorAccount(toOBCashAccountCreditor3(instruction.getCreditorAccount()))
+                .ultimateCreditor(FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationUltimateCreditor(instruction.getUltimateCreditor()))
                 .creditorPostalAddress(toOBPostalAddress7(instruction.getCreditorPostalAddress()))
                 .instructedAmount(toOBActiveOrHistoricCurrencyAndAmount(instruction.getInstructedAmount()))
                 .remittanceInformation(FRRemittanceInformationConverter.toOBDomesticVRPInitiationRemittanceInformationVrp(instruction.getRemittanceInformation()))

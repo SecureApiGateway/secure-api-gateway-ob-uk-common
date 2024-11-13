@@ -43,4 +43,6 @@ public class FRDomesticVrpInstruction {
     private FRAccountIdentifier creditorAccount;
     @JsonProperty("SupplementaryData")
     private FRSupplementaryData supplementaryData;
+    @JsonProperty("UltimateCreditor")
+    private FRFinancialAgent ultimateCreditor;
 }
