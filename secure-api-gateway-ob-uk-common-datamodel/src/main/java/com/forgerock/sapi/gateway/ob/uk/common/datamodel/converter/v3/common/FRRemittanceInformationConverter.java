@@ -110,7 +110,7 @@ public class FRRemittanceInformationConverter {
     public static List<FRReferredDocumentInformation> toFRReferredDocumentInformation(List<OBReferredDocumentInformation> referredDocumentInformation) {
         return referredDocumentInformation == null ? null : referredDocumentInformation.stream()
                 .map(documentInformation -> FRReferredDocumentInformation.builder()
-                        .code(FRExternalDocumentTypeCode.fromValue(documentInformation.getCode().getValue()))
+                        .code(documentInformation.getCode() != null ? FRExternalDocumentTypeCode.fromValue(documentInformation.getCode().getValue()) : null)
                         .issuer(documentInformation.getIssuer())
                         .number(documentInformation.getNumber())
                         .relatedDate(documentInformation.getRelatedDate())
@@ -133,7 +133,7 @@ public class FRRemittanceInformationConverter {
     public static List<OBReferredDocumentInformation> toOBReferredDocumentInformation(List<FRReferredDocumentInformation> referredDocumentInformation) {
         return referredDocumentInformation == null ? null : referredDocumentInformation.stream()
                 .map(documentInformation -> new OBReferredDocumentInformation()
-                        .code(ExternalDocumentType1Code.fromValue(documentInformation.getCode().getValue()))
+                        .code(documentInformation.getCode() != null ? ExternalDocumentType1Code.fromValue(documentInformation.getCode().getValue()) : null)
                         .issuer(documentInformation.getIssuer())
                         .number(documentInformation.getNumber())
                         .relatedDate(documentInformation.getRelatedDate())
@@ -142,7 +142,7 @@ public class FRRemittanceInformationConverter {
 
     public static FRRemittanceInformationStructuredCreditorReferenceInformation toFRRemittanceInformationStructuredCreditorReferenceInformation(OBRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation) {
         return creditorReferenceInformation == null ? null : FRRemittanceInformationStructuredCreditorReferenceInformation.builder()
-                .code(FRExternalCreditorReferenceTypeCode.fromValue(creditorReferenceInformation.getCode().getValue()))
+                .code(creditorReferenceInformation.getCode() != null ? FRExternalCreditorReferenceTypeCode.fromValue(creditorReferenceInformation.getCode().getValue()) : null)
                 .issuer(creditorReferenceInformation.getIssuer())
                 .reference(creditorReferenceInformation.getReference())
                 .build();
@@ -150,7 +150,7 @@ public class FRRemittanceInformationConverter {
 
     public static OBRemittanceInformationStructuredCreditorReferenceInformation toOBRemittanceInformationStructuredCreditorReferenceInformation(FRRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation) {
         return creditorReferenceInformation == null ? null : new OBRemittanceInformationStructuredCreditorReferenceInformation()
-                .code(ExternalCreditorReferenceType1Code.fromValue(creditorReferenceInformation.getCode().getValue()))
+                .code(creditorReferenceInformation.getCode() != null ? ExternalCreditorReferenceType1Code.fromValue(creditorReferenceInformation.getCode().getValue()) : null)
                 .issuer(creditorReferenceInformation.getIssuer())
                 .reference(creditorReferenceInformation.getReference());
     }
@@ -179,7 +179,7 @@ public class FRRemittanceInformationConverter {
     private static List<FRReferredDocumentInformation> toFRReferredDocumentInformationVrp(List<uk.org.openbanking.datamodel.v4.vrp.OBReferredDocumentInformation> referredDocumentInformation) {
         return referredDocumentInformation == null ? null : referredDocumentInformation.stream()
             .map(documentInformation -> FRReferredDocumentInformation.builder()
-                .code(FRExternalDocumentTypeCode.fromValue(documentInformation.getCode().getValue()))
+                .code(documentInformation.getCode() != null ? FRExternalDocumentTypeCode.fromValue(documentInformation.getCode().getValue()) : null)
                 .issuer(documentInformation.getIssuer())
                 .number(documentInformation.getNumber())
                 .relatedDate(documentInformation.getRelatedDate())
@@ -189,7 +189,7 @@ public class FRRemittanceInformationConverter {
 
     public static FRRemittanceInformationStructuredCreditorReferenceInformation toFRRemittanceInformationStructuredCreditorReferenceInformationVrp(uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation) {
         return creditorReferenceInformation == null ? null : FRRemittanceInformationStructuredCreditorReferenceInformation.builder()
-              .code(FRExternalCreditorReferenceTypeCode.fromValue(creditorReferenceInformation.getCode().getValue()))
+              .code(creditorReferenceInformation.getCode() != null ? FRExternalCreditorReferenceTypeCode.fromValue(creditorReferenceInformation.getCode().getValue()) : null)
               .issuer(creditorReferenceInformation.getIssuer())
               .reference(creditorReferenceInformation.getReference())
               .build();
@@ -218,7 +218,7 @@ public class FRRemittanceInformationConverter {
     public static List<uk.org.openbanking.datamodel.v4.vrp.OBReferredDocumentInformation> toOBReferredDocumentInformationVrp(List<FRReferredDocumentInformation> referredDocumentInformation) {
         return referredDocumentInformation == null ? null : referredDocumentInformation.stream()
                                                                                        .map(documentInformation -> new uk.org.openbanking.datamodel.v4.vrp.OBReferredDocumentInformation()
-                                                                                               .code(ExternalDocumentType1Code.fromValue(documentInformation.getCode().getValue()))
+                                                                                               .code(documentInformation.getCode() != null ? ExternalDocumentType1Code.fromValue(documentInformation.getCode().getValue()) : null)
                                                                                                .issuer(documentInformation.getIssuer())
                                                                                                .number(documentInformation.getNumber())
                                                                                                .relatedDate(documentInformation.getRelatedDate())
@@ -227,7 +227,7 @@ public class FRRemittanceInformationConverter {
 
     public static uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformationStructuredCreditorReferenceInformation toOBRemittanceInformationStructuredCreditorReferenceInformationVrp(FRRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation) {
         return creditorReferenceInformation == null ? null : new uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformationStructuredCreditorReferenceInformation()
-                .code(ExternalCreditorReferenceType1Code.fromValue(creditorReferenceInformation.getCode().getValue()))
+                .code(creditorReferenceInformation.getCode() != null ? ExternalCreditorReferenceType1Code.fromValue(creditorReferenceInformation.getCode().getValue()) : null)
                 .issuer(creditorReferenceInformation.getIssuer())
                 .reference(creditorReferenceInformation.getReference());
     }
