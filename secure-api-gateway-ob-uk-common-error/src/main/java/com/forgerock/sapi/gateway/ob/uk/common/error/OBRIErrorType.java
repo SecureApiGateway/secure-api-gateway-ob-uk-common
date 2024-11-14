@@ -753,7 +753,11 @@ public enum OBRIErrorType {
     REQUEST_VRP_LIMIT_BREACH_SIMULATION_NO_MATCHING_LIMIT_IN_CONSENT(
             HttpStatus.BAD_REQUEST,
             ErrorCode.OBRI_REQUEST_VRP_LIMIT_BREACH_SIMULATION_NO_MATCHING_LIMIT_IN_CONSENT,
-            "No Periodic Limit found in the consent for Header value '%s', unable to simulate the payment limitation breach");
+            "No Periodic Limit found in the consent for Header value '%s', unable to simulate the payment limitation breach"),
+    REQUEST_VRP_REMITTANCE_INFORMATION_NOT_MATCHING(
+            HttpStatus.BAD_REQUEST,
+            ErrorCode.OBRI_REQUEST_VRP_REMITTANCE_INFORMATION_INVALID_VALUE,
+            "Remittance information from payment instruction must match the remittance information from the initiation");
 
     private HttpStatus httpStatus;
     private StandardErrorCode code;

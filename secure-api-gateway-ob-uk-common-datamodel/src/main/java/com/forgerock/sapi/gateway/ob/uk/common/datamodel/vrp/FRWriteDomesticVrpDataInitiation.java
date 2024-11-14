@@ -15,9 +15,14 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp;
 
+import java.util.List;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPostalAddress;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRRegulatoryReporting;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -40,5 +45,8 @@ public class FRWriteDomesticVrpDataInitiation implements FRDomesticVrpDataInitia
     private FRAccountIdentifier debtorAccount;
     private FRAccountIdentifier creditorAccount;
     private FRPostalAddress creditorPostalAddress;
+    private List<FRRegulatoryReporting> regulatoryReporting;
     private FRRemittanceInformation remittanceInformation;
+    private FRFinancialAgent ultimateCreditor;
+    private FRFinancialAgent ultimateDebtor;
 }

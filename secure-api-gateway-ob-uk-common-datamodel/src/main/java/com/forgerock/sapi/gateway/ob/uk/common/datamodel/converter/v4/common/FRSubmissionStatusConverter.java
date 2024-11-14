@@ -123,6 +123,6 @@ public class FRSubmissionStatusConverter {
         if (status == null) {
             return null;
         }
-        return OBDomesticVRPResponseDataStatus.fromValue(status.getValue());
+        return OBDomesticVRPResponseDataStatus.fromValue(FRPaymentDetailsStatusConverter.toOBDomesticVRPDetailsDataPaymentStatusInnerStatus(status.getValue()).getValue());
     }
 }

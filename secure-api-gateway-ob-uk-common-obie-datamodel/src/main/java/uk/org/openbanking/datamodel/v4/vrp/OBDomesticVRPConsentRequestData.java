@@ -24,6 +24,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
 
 /**
  * OBDomesticVRPConsentRequestData
@@ -33,7 +34,7 @@ import jakarta.validation.constraints.NotNull;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPConsentRequestData {
 
-    private OBDomesticVRPConsentRequestDataReadRefundAccount readRefundAccount;
+    private OBReadRefundAccount readRefundAccount;
 
     private OBDomesticVRPControlParameters controlParameters;
 
@@ -46,12 +47,13 @@ public class OBDomesticVRPConsentRequestData {
     /**
      * Constructor with only required parameters
      */
-    public OBDomesticVRPConsentRequestData(OBDomesticVRPControlParameters controlParameters, OBDomesticVRPInitiation initiation) {
+    public OBDomesticVRPConsentRequestData(OBDomesticVRPControlParameters controlParameters,
+                                           OBDomesticVRPInitiation initiation) {
         this.controlParameters = controlParameters;
         this.initiation = initiation;
     }
 
-    public OBDomesticVRPConsentRequestData readRefundAccount(OBDomesticVRPConsentRequestDataReadRefundAccount readRefundAccount) {
+    public OBDomesticVRPConsentRequestData readRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
@@ -64,11 +66,11 @@ public class OBDomesticVRPConsentRequestData {
     @Valid
     @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReadRefundAccount")
-    public OBDomesticVRPConsentRequestDataReadRefundAccount getReadRefundAccount() {
+    public OBReadRefundAccount getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(OBDomesticVRPConsentRequestDataReadRefundAccount readRefundAccount) {
+    public void setReadRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 
@@ -147,8 +149,7 @@ public class OBDomesticVRPConsentRequestData {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

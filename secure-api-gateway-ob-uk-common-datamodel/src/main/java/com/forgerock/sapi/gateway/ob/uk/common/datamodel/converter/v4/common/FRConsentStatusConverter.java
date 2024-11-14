@@ -16,12 +16,14 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common;
 
 import static java.util.stream.Collectors.toMap;
+import static uk.org.openbanking.datamodel.v3.vrp.OBDomesticVRPConsentResponseDataStatus.*;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import uk.org.openbanking.datamodel.v4.payment.OBPaymentConsentStatus;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPConsentStatus;
 
 public class FRConsentStatusConverter {
 
@@ -29,16 +31,29 @@ public class FRConsentStatusConverter {
 
     private static final Map<String, String> v4tov3ConsentStatus;
 
+    private static final Map<String, String> v3tov4VrpConsentStatus;
+
+    private static final Map<String, String> v4tov3VrpConsentStatus;
+
     static {
         final Map<String, String> consentStatusTransalations = new HashMap<>();
-        consentStatusTransalations.put("AwaitingAuthorisation", "AWAU");
-        consentStatusTransalations.put("Authorised", "AUTH");
-        consentStatusTransalations.put("Consumed", "COND");
-        consentStatusTransalations.put("Rejected", "RJCT");
+        consentStatusTransalations.put(uk.org.openbanking.datamodel.v3.payment.OBPaymentConsentStatus.AWAITINGAUTHORISATION.getValue(), OBPaymentConsentStatus.AWAU.getValue());
+        consentStatusTransalations.put(uk.org.openbanking.datamodel.v3.payment.OBPaymentConsentStatus.AUTHORISED.getValue(), OBPaymentConsentStatus.AUTH.getValue());
+        consentStatusTransalations.put(uk.org.openbanking.datamodel.v3.payment.OBPaymentConsentStatus.CONSUMED.getValue(), OBPaymentConsentStatus.COND.getValue());
+        consentStatusTransalations.put(uk.org.openbanking.datamodel.v3.payment.OBPaymentConsentStatus.REJECTED.getValue(), OBPaymentConsentStatus.RJCT.getValue());
 
         v3tov4ConsentStatus = Collections.unmodifiableMap(consentStatusTransalations);
-        // v4 is the inverse of the v3 mappings
         v4tov3ConsentStatus = consentStatusTransalations.entrySet().stream().collect(toMap(Map.Entry::getValue, Map.Entry::getKey));
+    }
+
+    static {
+        final Map<String, String> consentStatusTransalations = new HashMap<>();
+        consentStatusTransalations.put(AWAITINGAUTHORISATION.getValue(), OBDomesticVRPConsentStatus.AWAU.getValue());
+        consentStatusTransalations.put(AUTHORISED.getValue(), OBDomesticVRPConsentStatus.AUTH.getValue());
+        consentStatusTransalations.put(REJECTED.getValue(), OBDomesticVRPConsentStatus.RJCT.getValue());
+
+        v3tov4VrpConsentStatus = Collections.unmodifiableMap(consentStatusTransalations);
+        v4tov3VrpConsentStatus = consentStatusTransalations.entrySet().stream().collect(toMap(Map.Entry::getValue, Map.Entry::getKey));
     }
 
     public static OBPaymentConsentStatus toOBPaymentConsentStatusV4(String consentStatus) {
@@ -48,5 +63,10 @@ public class FRConsentStatusConverter {
         throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
     }
 
-    //TODO - add for other payment types
+    public static OBDomesticVRPConsentStatus toVrpOBPaymentConsentStatusV4(String consentStatus) {
+        if (v3tov4VrpConsentStatus.containsKey(consentStatus)) {
+            return OBDomesticVRPConsentStatus.fromValue(v3tov4VrpConsentStatus.get(consentStatus));
+        }
+        throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
+    }
 }
