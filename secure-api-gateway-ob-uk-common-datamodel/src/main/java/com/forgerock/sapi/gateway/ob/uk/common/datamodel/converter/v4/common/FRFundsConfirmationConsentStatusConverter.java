@@ -15,6 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common;
 
+import uk.org.openbanking.datamodel.v3.fund.OBFundsConfirmationConsentResponse1Data;
 import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmationConsentStatus;
 
 import java.util.Collections;
@@ -31,10 +32,10 @@ public class FRFundsConfirmationConsentStatusConverter {
 
     static {
         final Map<String, String> consentStatusTransalations = new HashMap<>();
-        consentStatusTransalations.put("AwaitingAuthorisation", "AWAU");
-        consentStatusTransalations.put("Authorised", "AUTH");
-        consentStatusTransalations.put("Consumed", "COND");
-        consentStatusTransalations.put("Rejected", "RJCT");
+        consentStatusTransalations.put(OBFundsConfirmationConsentResponse1Data.StatusEnum.AWAITINGAUTHORISATION.getValue(), OBFundsConfirmationConsentStatus.AWAU.getValue());
+        consentStatusTransalations.put(OBFundsConfirmationConsentResponse1Data.StatusEnum.AUTHORISED.getValue(), OBFundsConfirmationConsentStatus.AUTH.getValue());
+        consentStatusTransalations.put(OBFundsConfirmationConsentResponse1Data.StatusEnum.REJECTED.getValue(), OBFundsConfirmationConsentStatus.RJCT.getValue());
+        consentStatusTransalations.put(OBFundsConfirmationConsentResponse1Data.StatusEnum.REVOKED.getValue(), OBFundsConfirmationConsentStatus.CANC.getValue());
 
         v3tov4ConsentStatus = Collections.unmodifiableMap(consentStatusTransalations);
         // v4 is the inverse of the v3 mappings
