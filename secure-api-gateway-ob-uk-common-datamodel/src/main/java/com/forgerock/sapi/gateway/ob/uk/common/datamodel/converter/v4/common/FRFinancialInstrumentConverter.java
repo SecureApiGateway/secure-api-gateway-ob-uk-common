@@ -20,12 +20,14 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialCredi
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRPostalAddressConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRUltimateCreditor;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRUltimateDebtor;
+
 import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionIdentification51;
 import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionIdentification61;
 import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionIdentification62;
 import uk.org.openbanking.datamodel.v4.common.OBBranchAndFinancialInstitutionIdentification60;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationCreditorAgent;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternational3DataInitiationCreditor;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAgent;
@@ -36,6 +38,7 @@ public class FRFinancialInstrumentConverter {
     public static FRFinancialCreditor toFRFinancialCreditor(OBWriteInternational3DataInitiationCreditor creditor) {
         return creditor == null ? null : FRFinancialCreditor.builder()
                 .name(creditor.getName())
+                .LEI(creditor.getLEI())
                 .postalAddress(FRPostalAddressConverter.toFRPostalAddress(creditor.getPostalAddress()))
                 .build();
     }
@@ -116,10 +119,21 @@ public class FRFinancialInstrumentConverter {
                 .build();
     }
 
+    public static FRFinancialAgent toFRFinancialAgent(OBWriteDomestic2DataInitiationCreditorAgent agent) {
+        return agent == null ? null : FRFinancialAgent.builder()
+                .schemeName(agent.getSchemeName())
+                .identification(agent.getIdentification())
+                .name(agent.getName())
+                .LEI(agent.getLEI())
+                .postalAddress(FRPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
+                .build();
+    }
+
     // FR to OB
     public static OBWriteInternational3DataInitiationCreditor toOBWriteInternational3DataInitiationCreditor(FRFinancialCreditor creditor) {
         return creditor == null ? null : new OBWriteInternational3DataInitiationCreditor()
                 .name(creditor.getName())
+                .LEI(creditor.getLEI())
                 .postalAddress(FRPostalAddressConverter.toOBPostalAddress7(creditor.getPostalAddress()));
     }
 
@@ -154,4 +168,12 @@ public class FRFinancialInstrumentConverter {
                 .identification(agent.getIdentification());
     }
 
+    public static OBWriteDomestic2DataInitiationCreditorAgent toOBWriteDomestic2DataInitiationCreditorAgent(FRFinancialAgent agent) {
+        return agent == null ? null : new OBWriteDomestic2DataInitiationCreditorAgent()
+                .schemeName(agent.getSchemeName())
+                .identification(agent.getIdentification())
+                .name(agent.getName())
+                .LEI(agent.getLEI())
+                .postalAddress(FRPostalAddressConverter.toOBPostalAddress7(agent.getPostalAddress()));
+    }
 }
