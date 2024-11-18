@@ -24,6 +24,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
 
 /**
  * OBWriteInternationalConsent5Data
@@ -33,7 +34,7 @@ import jakarta.validation.constraints.NotNull;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalConsent5Data {
 
-    private OBWriteInternationalConsent5DataReadRefundAccount readRefundAccount;
+    private OBReadRefundAccount readRefundAccount;
 
     private OBWriteInternational3DataInitiation initiation;
 
@@ -52,7 +53,7 @@ public class OBWriteInternationalConsent5Data {
         this.initiation = initiation;
     }
 
-    public OBWriteInternationalConsent5Data readRefundAccount(OBWriteInternationalConsent5DataReadRefundAccount readRefundAccount) {
+    public OBWriteInternationalConsent5Data readRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
@@ -65,11 +66,11 @@ public class OBWriteInternationalConsent5Data {
     @Valid
     @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReadRefundAccount")
-    public OBWriteInternationalConsent5DataReadRefundAccount getReadRefundAccount() {
+    public OBReadRefundAccount getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(OBWriteInternationalConsent5DataReadRefundAccount readRefundAccount) {
+    public void setReadRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 

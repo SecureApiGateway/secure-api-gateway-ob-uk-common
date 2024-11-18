@@ -15,7 +15,10 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment;
 
+import java.util.List;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -53,4 +56,9 @@ public class FRWriteInternationalDataInitiation implements FRInternationalDataIn
     private FRAccountIdentifier creditorAccount;
     private FRRemittanceInformation remittanceInformation;
     private FRSupplementaryData supplementaryData;
+
+    // v4 fields
+    private FRUltimateDebtor ultimateDebtor;
+    private FRUltimateCreditor ultimateCreditor;
+    private List<FRRegulatoryReporting> regulatoryReporting;
 }
