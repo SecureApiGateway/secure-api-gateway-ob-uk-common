@@ -37,4 +37,5 @@ public class FRFinancialCreditor {
 
     private String name;
     private FRPostalAddress postalAddress;
+    private String LEI;
 }

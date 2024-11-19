@@ -29,6 +29,8 @@ public enum OBWriteInternationalScheduledResponse6DataStatus {
 
     PDNG("PDNG"),
 
+    CANC("CANC"),
+
     ACTC("ACTC"),
 
     PATC("PATC"),

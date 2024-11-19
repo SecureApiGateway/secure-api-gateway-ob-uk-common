@@ -24,6 +24,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
 
 /**
  * OBWriteInternationalScheduledConsent5Data
@@ -35,7 +36,7 @@ public class OBWriteInternationalScheduledConsent5Data {
 
     private OBWriteInternationalScheduledConsent5DataPermission permission;
 
-    private OBWriteInternationalConsent5DataReadRefundAccount readRefundAccount;
+    private OBReadRefundAccount readRefundAccount;
 
     private OBWriteInternationalScheduled3DataInitiation initiation;
 
@@ -50,7 +51,8 @@ public class OBWriteInternationalScheduledConsent5Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteInternationalScheduledConsent5Data(OBWriteInternationalScheduledConsent5DataPermission permission, OBWriteInternationalScheduled3DataInitiation initiation) {
+    public OBWriteInternationalScheduledConsent5Data(OBWriteInternationalScheduledConsent5DataPermission permission,
+                                                     OBWriteInternationalScheduled3DataInitiation initiation) {
         this.permission = permission;
         this.initiation = initiation;
     }
@@ -77,7 +79,7 @@ public class OBWriteInternationalScheduledConsent5Data {
         this.permission = permission;
     }
 
-    public OBWriteInternationalScheduledConsent5Data readRefundAccount(OBWriteInternationalConsent5DataReadRefundAccount readRefundAccount) {
+    public OBWriteInternationalScheduledConsent5Data readRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
         return this;
     }
@@ -90,11 +92,11 @@ public class OBWriteInternationalScheduledConsent5Data {
     @Valid
     @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReadRefundAccount")
-    public OBWriteInternationalConsent5DataReadRefundAccount getReadRefundAccount() {
+    public OBReadRefundAccount getReadRefundAccount() {
         return readRefundAccount;
     }
 
-    public void setReadRefundAccount(OBWriteInternationalConsent5DataReadRefundAccount readRefundAccount) {
+    public void setReadRefundAccount(OBReadRefundAccount readRefundAccount) {
         this.readRefundAccount = readRefundAccount;
     }
 
@@ -170,7 +172,8 @@ public class OBWriteInternationalScheduledConsent5Data {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBWriteInternationalScheduledConsent5Data obWriteInternationalScheduledConsent5Data = (OBWriteInternationalScheduledConsent5Data) o;
+        OBWriteInternationalScheduledConsent5Data obWriteInternationalScheduledConsent5Data =
+                (OBWriteInternationalScheduledConsent5Data) o;
         return Objects.equals(this.permission, obWriteInternationalScheduledConsent5Data.permission) &&
                 Objects.equals(this.readRefundAccount, obWriteInternationalScheduledConsent5Data.readRefundAccount) &&
                 Objects.equals(this.initiation, obWriteInternationalScheduledConsent5Data.initiation) &&
@@ -197,8 +200,7 @@ public class OBWriteInternationalScheduledConsent5Data {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
