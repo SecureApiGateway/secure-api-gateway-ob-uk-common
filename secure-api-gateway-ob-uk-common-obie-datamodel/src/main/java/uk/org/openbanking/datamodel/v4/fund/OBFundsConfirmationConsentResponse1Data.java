@@ -15,22 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.fund;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
-import org.joda.time.DateTime;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
 import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * OBFundsConfirmationConsentResponse1Data
@@ -56,7 +54,7 @@ public class OBFundsConfirmationConsentResponse1Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime expirationDateTime;
 
-    private OBFundsConfirmationConsentResponse1DataDebtorAccount debtorAccount;
+    private OBFundsConfirmationConsent1DataDebtorAccount debtorAccount;
 
     public OBFundsConfirmationConsentResponse1Data() {
         super();
@@ -65,7 +63,7 @@ public class OBFundsConfirmationConsentResponse1Data {
     /**
      * Constructor with only required parameters
      */
-    public OBFundsConfirmationConsentResponse1Data(String consentId, DateTime creationDateTime, OBFundsConfirmationConsentStatus status, DateTime statusUpdateDateTime, OBFundsConfirmationConsentResponse1DataDebtorAccount debtorAccount) {
+    public OBFundsConfirmationConsentResponse1Data(String consentId, DateTime creationDateTime, OBFundsConfirmationConsentStatus status, DateTime statusUpdateDateTime, OBFundsConfirmationConsent1DataDebtorAccount debtorAccount) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -211,7 +209,7 @@ public class OBFundsConfirmationConsentResponse1Data {
         this.expirationDateTime = expirationDateTime;
     }
 
-    public OBFundsConfirmationConsentResponse1Data debtorAccount(OBFundsConfirmationConsentResponse1DataDebtorAccount debtorAccount) {
+    public OBFundsConfirmationConsentResponse1Data debtorAccount(OBFundsConfirmationConsent1DataDebtorAccount debtorAccount) {
         this.debtorAccount = debtorAccount;
         return this;
     }
@@ -225,11 +223,11 @@ public class OBFundsConfirmationConsentResponse1Data {
     @Valid
     @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("DebtorAccount")
-    public OBFundsConfirmationConsentResponse1DataDebtorAccount getDebtorAccount() {
+    public OBFundsConfirmationConsent1DataDebtorAccount getDebtorAccount() {
         return debtorAccount;
     }
 
-    public void setDebtorAccount(OBFundsConfirmationConsentResponse1DataDebtorAccount debtorAccount) {
+    public void setDebtorAccount(OBFundsConfirmationConsent1DataDebtorAccount debtorAccount) {
         this.debtorAccount = debtorAccount;
     }
 

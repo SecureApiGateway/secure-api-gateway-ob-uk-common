@@ -18,8 +18,8 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.mapper.FRModelMapper;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRProxy;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRProxy;
 import uk.org.openbanking.datamodel.v4.account.OBAccount6AccountInner;
 import uk.org.openbanking.datamodel.v4.account.OBCashAccount50;
 import uk.org.openbanking.datamodel.v4.account.OBCashAccount51;
@@ -91,6 +91,7 @@ public class FRAccountIdentifierConverter {
                 .identification(account.getIdentification())
                 .name(account.getName())
                 .secondaryIdentification(account.getSecondaryIdentification())
+                .proxy(toFRProxy(account.getProxy()))
                 .build();
     }
 
@@ -112,8 +113,7 @@ public class FRAccountIdentifierConverter {
                 .identification(accountIdentifier.getIdentification())
                 .name(accountIdentifier.getName())
                 .schemeName(accountIdentifier.getSchemeName())
-                .secondaryIdentification(accountIdentifier.getSecondaryIdentification())
-                .proxy(toOBProxy1(accountIdentifier.getProxy()));
+                .secondaryIdentification(accountIdentifier.getSecondaryIdentification());
     }
 
     public static OBCashAccount50 toOBCashAccount50(FRAccountIdentifier account) {
@@ -201,10 +201,7 @@ public class FRAccountIdentifierConverter {
         return FRModelMapper.map(account, OBUltimateDebtor1.class);
     }
 
-    public static OBProxy1 toOBProxy1(FRProxy frProxy) {
-        return frProxy == null ? null : new OBProxy1()
-                .identification(frProxy.getIdentification())
-                .code(frProxy.getCode())
-                .type(frProxy.getType());
+    public static FRProxy toFRProxy(OBProxy1 obProxy1) {
+        return FRModelMapper.map(obProxy1, FRProxy.class);
     }
 }

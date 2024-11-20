@@ -15,11 +15,7 @@
  */
 package uk.org.openbanking.datamodel.v4.fund;
 
-import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
@@ -27,12 +23,13 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBProxy1;
 
+import java.util.Objects;
+
 /**
  * Unambiguous identification of the account of the debtor to which a confirmation of funds consent will be applied.
  */
 
-@Schema(name = "OBFundsConfirmationConsent1_Data_DebtorAccount", description = "Unambiguous identification of the account of the debtor to which a confirmation of funds consent will be applied.")
-@JsonTypeName("OBFundsConfirmationConsent1_Data_DebtorAccount")
+@Schema(name = "OBFundsConfirmationConsent1DataDebtorAccount", description = "Unambiguous identification of the account of the debtor to which a confirmation of funds consent will be applied.")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBFundsConfirmationConsent1DataDebtorAccount {
 
@@ -64,12 +61,12 @@ public class OBFundsConfirmationConsent1DataDebtorAccount {
     }
 
     /**
-     * Name of the identification scheme, in a coded form as published in an external list. For a full list of values see `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+     * Name of the identification scheme, in a coded form as published in an external list. For a full list of values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return schemeName
      */
     @NotNull
-    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. For a full list of values see `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. For a full list of values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("SchemeName")
     public String getSchemeName() {
         return schemeName;
