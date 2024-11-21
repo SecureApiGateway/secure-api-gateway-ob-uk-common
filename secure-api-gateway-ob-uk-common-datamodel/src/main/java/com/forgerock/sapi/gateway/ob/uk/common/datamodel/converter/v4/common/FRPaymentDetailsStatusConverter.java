@@ -15,6 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common;
 
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSubmissionStatus.INITIATIONPENDING;
 import static java.util.stream.Collectors.toMap;
 import static uk.org.openbanking.datamodel.v3.payment.OBWritePaymentDetailsResponse1DataPaymentStatusInnerStatus.*;
 import static uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status.*;
@@ -23,14 +24,14 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSubmissionStatus;
+
 import uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status;
 import uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1StatusDetailStatus;
 
 public class FRPaymentDetailsStatusConverter {
 
     private static final Map<String, String> v3tov4PaymentDetailsStatus;
-
-    private static final Map<String, String> v4tov3PaymentDetailsStatus;
 
     private static final Map<String, String> v3tov4VrpPaymentDetailsStatus;
     private static final Map<String, String> paymentDetailsStatusTranslations = new HashMap<>();
@@ -49,13 +50,10 @@ public class FRPaymentDetailsStatusConverter {
         paymentDetailsStatusTransalations.put(REJECTED.getValue(), RJCT.getValue());
         paymentDetailsStatusTransalations.put("AcceptedSettlementCompletedCreditorAccount", ACCC.getValue());
         paymentDetailsStatusTransalations.put("Blocked", BLCK.getValue());
+        paymentDetailsStatusTransalations.put(INITIATIONPENDING.getValue(), PDNG.getValue());
 
         v3tov4PaymentDetailsStatus = Collections.unmodifiableMap(paymentDetailsStatusTransalations);
-        // v4 is the inverse of the v3 mappings
-        v4tov3PaymentDetailsStatus = paymentDetailsStatusTransalations.entrySet()
-                                                                      .stream()
-                                                                      .collect(toMap(Map.Entry::getValue,
-                                                                                     Map.Entry::getKey));
+
     }
 
     static {
@@ -127,5 +125,4 @@ public class FRPaymentDetailsStatusConverter {
         throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
     }
 
-    //TODO - add for other payment details types
 }

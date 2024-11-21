@@ -18,6 +18,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPermission;
 
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticScheduledConsent4DataPermission;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduledConsent5DataPermission;
 
 public class FRPermissionConverter {
 
@@ -30,4 +31,10 @@ public class FRPermissionConverter {
     public static OBWriteDomesticScheduledConsent4DataPermission toOBExternalPermissions2Code(FRPermission permission) {
         return permission == null ? null : OBWriteDomesticScheduledConsent4DataPermission.valueOf(permission.name());
     }
+
+    // V4 - international scheduled payments
+    public static FRPermission toFRPermission(OBWriteInternationalScheduledConsent5DataPermission permission) {
+        return permission == null ? null : FRPermission.valueOf(permission.name());
+    }
+
 }
