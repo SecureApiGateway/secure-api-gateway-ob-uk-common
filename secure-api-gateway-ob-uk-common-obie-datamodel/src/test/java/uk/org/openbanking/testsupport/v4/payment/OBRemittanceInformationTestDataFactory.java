@@ -55,7 +55,7 @@ public class OBRemittanceInformationTestDataFactory {
                 .code(ExternalDocumentType1Code.CINV)
                 .issuer("Issuer01")
                 .number("Number_01")
-                .relatedDate(new DateTime(DateTime.now()))
+                .relatedDate(DateTime.now())
                 .lineDetails(new ArrayList<>((Arrays.asList("Line1", "Line2"))));
     }
 
