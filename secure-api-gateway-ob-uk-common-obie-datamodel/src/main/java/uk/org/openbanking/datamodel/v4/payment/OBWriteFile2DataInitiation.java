@@ -34,6 +34,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
+import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds using a payment file.
@@ -59,9 +60,11 @@ public class OBWriteFile2DataInitiation {
 
     private String localInstrument;
 
+    private OBWriteDomestic2DataInitiationCreditorAgent creditorAgent;
+
     private OBWriteDomestic2DataInitiationDebtorAccount debtorAccount;
 
-    private OBUltimateCreditor1 ultimateDebtor;
+    private OBUltimateDebtor1 ultimateDebtor;
 
     private OBRemittanceInformation2 remittanceInformation;
 
@@ -227,6 +230,27 @@ public class OBWriteFile2DataInitiation {
         this.localInstrument = localInstrument;
     }
 
+    public OBWriteFile2DataInitiation creditorAgent(OBWriteDomestic2DataInitiationCreditorAgent creditorAgent) {
+        this.creditorAgent = creditorAgent;
+        return this;
+    }
+
+    /**
+     * Get creditorAgent
+     *
+     * @return creditorAgent
+     */
+    @Valid
+    @Schema(name = "CreditorAgent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("CreditorAgent")
+    public OBWriteDomestic2DataInitiationCreditorAgent getCreditorAgent() {
+        return creditorAgent;
+    }
+
+    public void setCreditorAgent(OBWriteDomestic2DataInitiationCreditorAgent creditorAgent) {
+        this.creditorAgent = creditorAgent;
+    }
+
     public OBWriteFile2DataInitiation debtorAccount(OBWriteDomestic2DataInitiationDebtorAccount debtorAccount) {
         this.debtorAccount = debtorAccount;
         return this;
@@ -248,7 +272,7 @@ public class OBWriteFile2DataInitiation {
         this.debtorAccount = debtorAccount;
     }
 
-    public OBWriteFile2DataInitiation ultimateDebtor(OBUltimateCreditor1 ultimateDebtor) {
+    public OBWriteFile2DataInitiation ultimateDebtor(OBUltimateDebtor1 ultimateDebtor) {
         this.ultimateDebtor = ultimateDebtor;
         return this;
     }
@@ -261,11 +285,11 @@ public class OBWriteFile2DataInitiation {
     @Valid
     @Schema(name = "UltimateDebtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateDebtor")
-    public OBUltimateCreditor1 getUltimateDebtor() {
+    public OBUltimateDebtor1 getUltimateDebtor() {
         return ultimateDebtor;
     }
 
-    public void setUltimateDebtor(OBUltimateCreditor1 ultimateDebtor) {
+    public void setUltimateDebtor(OBUltimateDebtor1 ultimateDebtor) {
         this.ultimateDebtor = ultimateDebtor;
     }
 
@@ -327,6 +351,7 @@ public class OBWriteFile2DataInitiation {
                 isEqual(this.controlSum, obWriteFile2DataInitiation.controlSum) &&
                 Objects.equals(this.requestedExecutionDateTime, obWriteFile2DataInitiation.requestedExecutionDateTime) &&
                 Objects.equals(this.localInstrument, obWriteFile2DataInitiation.localInstrument) &&
+                Objects.equals(this.creditorAgent, obWriteFile2DataInitiation.creditorAgent) &&
                 Objects.equals(this.debtorAccount, obWriteFile2DataInitiation.debtorAccount) &&
                 Objects.equals(this.ultimateDebtor, obWriteFile2DataInitiation.ultimateDebtor) &&
                 Objects.equals(this.remittanceInformation, obWriteFile2DataInitiation.remittanceInformation) &&
@@ -335,7 +360,7 @@ public class OBWriteFile2DataInitiation {
 
     @Override
     public int hashCode() {
-        return Objects.hash(fileType, fileHash, fileReference, numberOfTransactions, controlSum, requestedExecutionDateTime, localInstrument, debtorAccount, ultimateDebtor, remittanceInformation, supplementaryData);
+        return Objects.hash(fileType, fileHash, fileReference, numberOfTransactions, controlSum, requestedExecutionDateTime, localInstrument, creditorAgent, debtorAccount, ultimateDebtor, remittanceInformation, supplementaryData);
     }
 
     @Override
@@ -349,6 +374,7 @@ public class OBWriteFile2DataInitiation {
         sb.append("    controlSum: ").append(toIndentedString(controlSum)).append("\n");
         sb.append("    requestedExecutionDateTime: ").append(toIndentedString(requestedExecutionDateTime)).append("\n");
         sb.append("    localInstrument: ").append(toIndentedString(localInstrument)).append("\n");
+        sb.append("    creditorAgent: ").append(toIndentedString(creditorAgent)).append("\n");
         sb.append("    debtorAccount: ").append(toIndentedString(debtorAccount)).append("\n");
         sb.append("    ultimateDebtor: ").append(toIndentedString(ultimateDebtor)).append("\n");
         sb.append("    remittanceInformation: ").append(toIndentedString(remittanceInformation)).append("\n");

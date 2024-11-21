@@ -15,7 +15,6 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRRemittanceInformationConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRSupplementaryDataConverter;
@@ -23,12 +22,14 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.mapper.FRM
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFileConsent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFileConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFileDataInitiation;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteFile2DataInitiation;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteFileConsent3;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteFileConsent3Data;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteFileConsent3DataInitiation;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter.*;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRDataAuthorisationConverter.toOBWriteDomesticConsentDataAuthorisation;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRDataSCASupportDataConverter.toOBSCASupportData1;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRUltimateDebtorConverter.toFRUltimateDebtor;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRUltimateDebtorConverter.toOBUltimateDebtor1;
 
@@ -49,7 +50,7 @@ public class FRWriteFileConsentConverter {
                 .build();
     }
 
-    public static FRWriteFileDataInitiation toFRWriteFileDataInitiation(OBWriteFileConsent3DataInitiation initiation) {
+    public static FRWriteFileDataInitiation toFRWriteFileDataInitiation(OBWriteFile2DataInitiation initiation) {
         return initiation == null ? null : FRWriteFileDataInitiation.builder()
                 .fileType(initiation.getFileType())
                 .fileHash(initiation.getFileHash())
@@ -67,8 +68,8 @@ public class FRWriteFileConsentConverter {
     }
 
     // FR to OB
-    public static OBWriteFileConsent3DataInitiation toOBWriteFileConsent3DataInitiation(FRWriteFileDataInitiation initiation) {
-        return initiation == null ? null : new OBWriteFileConsent3DataInitiation()
+    public static OBWriteFile2DataInitiation toOBWriteFile2DataInitiation(FRWriteFileDataInitiation initiation) {
+        return initiation == null ? null : new OBWriteFile2DataInitiation()
                 .fileType(initiation.getFileType())
                 .fileHash(initiation.getFileHash())
                 .fileReference(initiation.getFileReference())
@@ -81,6 +82,14 @@ public class FRWriteFileConsentConverter {
                 .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()))
                 .creditorAgent(toOBWriteDomestic2DataInitiationCreditorAgent(initiation.getCreditorAgent()))
                 .ultimateDebtor(toOBUltimateDebtor1(initiation.getUltimateDebtor()));
+    }
+
+    public static OBWriteFileConsent3Data toOBWriteFileConsent3Data(FRWriteFileConsentData initiation) {
+        return initiation == null ? null : new OBWriteFileConsent3Data()
+                .scASupportData(toOBSCASupportData1(initiation.getScASupportData()))
+                .authorisation(toOBWriteDomesticConsentDataAuthorisation(initiation.getAuthorisation()))
+                .initiation(toOBWriteFile2DataInitiation(initiation.getInitiation()));
+
     }
 
     public static OBWriteFileConsent3 toOBWriteFileConsent3(FRWriteFileConsent consent) {

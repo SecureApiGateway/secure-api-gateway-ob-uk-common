@@ -17,11 +17,10 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteDataFile;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFile;
-import uk.org.openbanking.datamodel.v3.payment.OBWriteFile2;
-import uk.org.openbanking.datamodel.v3.payment.OBWriteFile2Data;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteFile2;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteFile2Data;
 
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.payment.FRWriteFileConsentConverter.toFRWriteFileDataInitiation;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.payment.FRWriteFileConsentConverter.toOBWriteFile2DataInitiation;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRWriteFileConsentConverter.*;
 
 public class FRWriteFileConverter {
 

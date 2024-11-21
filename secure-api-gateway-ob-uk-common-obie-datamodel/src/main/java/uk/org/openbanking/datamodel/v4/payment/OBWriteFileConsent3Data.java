@@ -33,7 +33,7 @@ import jakarta.validation.constraints.NotNull;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteFileConsent3Data {
 
-    private OBWriteFileConsent3DataInitiation initiation;
+    private OBWriteFile2DataInitiation initiation;
 
     private OBWriteDomesticConsentDataAuthorisation authorisation;
 
@@ -46,11 +46,11 @@ public class OBWriteFileConsent3Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteFileConsent3Data(OBWriteFileConsent3DataInitiation initiation) {
+    public OBWriteFileConsent3Data(OBWriteFile2DataInitiation initiation) {
         this.initiation = initiation;
     }
 
-    public OBWriteFileConsent3Data initiation(OBWriteFileConsent3DataInitiation initiation) {
+    public OBWriteFileConsent3Data initiation(OBWriteFile2DataInitiation initiation) {
         this.initiation = initiation;
         return this;
     }
@@ -64,11 +64,11 @@ public class OBWriteFileConsent3Data {
     @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
-    public OBWriteFileConsent3DataInitiation getInitiation() {
+    public OBWriteFile2DataInitiation getInitiation() {
         return initiation;
     }
 
-    public void setInitiation(OBWriteFileConsent3DataInitiation initiation) {
+    public void setInitiation(OBWriteFile2DataInitiation initiation) {
         this.initiation = initiation;
     }
 

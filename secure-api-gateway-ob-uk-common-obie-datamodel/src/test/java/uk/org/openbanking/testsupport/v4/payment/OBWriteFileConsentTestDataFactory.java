@@ -51,7 +51,7 @@ public class OBWriteFileConsentTestDataFactory {
 
     public static OBWriteFileConsent3Data aValidOBWriteFileConsent3Data(String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
         return new OBWriteFileConsent3Data()
-                .initiation(aValidOBWriteFileConsent3DataInitiation(
+                .initiation(aValidOBWriteFile2DataInitiation(
                                 fileType,
                                 fileHash,
                                 numberOfTransactions,
@@ -65,17 +65,17 @@ public class OBWriteFileConsentTestDataFactory {
 
     public static OBWriteFileConsent3Data aValidOBWriteFileConsent3DataMandatoryFields(String fileType, String fileHash) {
         return new OBWriteFileConsent3Data()
-                .initiation(aValidOBWriteFileConsent3DataInitiationMandatoryFields(fileType, fileHash));
+                .initiation(aValidOBWriteFile2DataInitiationMandatoryFields(fileType, fileHash));
     }
 
-    public static OBWriteFileConsent3DataInitiation aValidOBWriteFileConsent3DataInitiation(
+    public static OBWriteFile2DataInitiation aValidOBWriteFile2DataInitiation(
             String fileType,
             String fileHash,
             String numberOfTransactions,
             BigDecimal controlSum,
             DateTime requestedExecutionDateTime
     ) {
-        return new OBWriteFileConsent3DataInitiation()
+        return new OBWriteFile2DataInitiation()
                 .fileType(fileType)
                 .fileHash(fileHash)
                 .fileReference("GB2OK238")
@@ -85,12 +85,12 @@ public class OBWriteFileConsentTestDataFactory {
                 .localInstrument("UK.OBIE.CHAPS")
                 .ultimateDebtor(aValidOBUltimateDebtor1())
                 .creditorAgent(aValidOBWriteDomestic2DataInitiationCreditorAgent())
-                .remittanceInformation(OBRemittanceInformationTestDataFactory.aValidOBWriteDomestic2DataInitiationRemittanceInformation())
+                .remittanceInformation(OBRemittanceInformationTestDataFactory.aValidOBRemittanceInformation2())
                 .supplementaryData(new OBSupplementaryData1());
     }
 
-    public static OBWriteFileConsent3DataInitiation aValidOBWriteFileConsent3DataInitiationMandatoryFields(String fileType, String fileHash) {
-        return new OBWriteFileConsent3DataInitiation()
+    public static OBWriteFile2DataInitiation aValidOBWriteFile2DataInitiationMandatoryFields(String fileType, String fileHash) {
+        return new OBWriteFile2DataInitiation()
                 .fileType(fileType)
                 .fileHash(fileHash);
     }
@@ -119,6 +119,7 @@ public class OBWriteFileConsentTestDataFactory {
                                 .identification("90611424625566")
                                 .name("Mr Johnny Marr")
                                 .secondaryIdentification("55")
+                                .LEI("8200007YHFDMEODY1965")
                         )
                 );
     }
@@ -160,6 +161,7 @@ public class OBWriteFileConsentTestDataFactory {
                                 .identification("90611424625566")
                                 .name("Mr Johnny Marr")
                                 .secondaryIdentification("55")
+                                .LEI("8200007YHFDMEODY1965")
                         )
                 );
     }
@@ -204,6 +206,7 @@ public class OBWriteFileConsentTestDataFactory {
                                 .identification("90611424625566")
                                 .name("Mr Johnny Marr")
                                 .secondaryIdentification("55")
+                                .LEI("8200007YHFDMEODY1965")
                         )
                 );
     }
@@ -251,7 +254,7 @@ public class OBWriteFileConsentTestDataFactory {
         return new OBWriteDomestic2DataInitiationCreditorAgent()
                 .name("abcd")
                 .identification("08080021325698")
-                .LEI("blah")
+                .LEI("123400ABCDEF12345612")
                 .schemeName("UK.OBIE.SortCodeAccountNumber")
                 .postalAddress(new OBPostalAddress7()
                         .addressType(OBAddressType2Code.ADDR)
