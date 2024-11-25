@@ -51,7 +51,8 @@ public class OBWriteInternationalScheduledConsent5Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteInternationalScheduledConsent5Data(OBWriteInternationalScheduledConsent5DataPermission permission, OBWriteInternationalScheduled3DataInitiation initiation) {
+    public OBWriteInternationalScheduledConsent5Data(OBWriteInternationalScheduledConsent5DataPermission permission,
+                                                     OBWriteInternationalScheduled3DataInitiation initiation) {
         this.permission = permission;
         this.initiation = initiation;
     }
@@ -171,7 +172,8 @@ public class OBWriteInternationalScheduledConsent5Data {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBWriteInternationalScheduledConsent5Data obWriteInternationalScheduledConsent5Data = (OBWriteInternationalScheduledConsent5Data) o;
+        OBWriteInternationalScheduledConsent5Data obWriteInternationalScheduledConsent5Data =
+                (OBWriteInternationalScheduledConsent5Data) o;
         return Objects.equals(this.permission, obWriteInternationalScheduledConsent5Data.permission) &&
                 Objects.equals(this.readRefundAccount, obWriteInternationalScheduledConsent5Data.readRefundAccount) &&
                 Objects.equals(this.initiation, obWriteInternationalScheduledConsent5Data.initiation) &&
@@ -198,8 +200,7 @@ public class OBWriteInternationalScheduledConsent5Data {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

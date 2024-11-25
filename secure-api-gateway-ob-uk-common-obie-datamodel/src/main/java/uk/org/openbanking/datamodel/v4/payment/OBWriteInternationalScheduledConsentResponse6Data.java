@@ -87,7 +87,12 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteInternationalScheduledConsentResponse6Data(String consentId, DateTime creationDateTime, OBWriteInternationalConsentResponse6DataStatus status, DateTime statusUpdateDateTime, OBWriteInternationalScheduledConsent5DataPermission permission, OBWriteInternationalScheduled3DataInitiation initiation) {
+    public OBWriteInternationalScheduledConsentResponse6Data(String consentId,
+                                                             DateTime creationDateTime,
+                                                             OBWriteInternationalConsentResponse6DataStatus status,
+                                                             DateTime statusUpdateDateTime,
+                                                             OBWriteInternationalScheduledConsent5DataPermission permission,
+                                                             OBWriteInternationalScheduled3DataInitiation initiation) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -108,7 +113,8 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
      */
     @NotNull
     @Size(min = 1, max = 128)
-    @Schema(name = "ConsentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "ConsentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely "
+            + "identify the consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ConsentId")
     public String getConsentId() {
         return consentId;
@@ -124,13 +130,18 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
     }
 
     /**
-     * Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601
+     * date-time format.  All date-time fields in responses must include the timezone. An example is below:
+     * 2017-04-05T10:43:07+00:00
      *
      * @return creationDateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created. All dates in "
+            + "the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses "
+            + "must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode =
+            Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
         return creationDateTime;
@@ -197,13 +208,18 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
     }
 
     /**
-     * Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO
+     * 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below:
+     * 2017-04-05T10:43:07+00:00
      *
      * @return statusUpdateDateTime
      */
     @NotNull
     @Valid
-    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. All"
+            + " dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in "
+            + "responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode =
+            Schema.RequiredMode.REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
         return statusUpdateDateTime;
@@ -213,7 +229,8 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
         this.statusUpdateDateTime = statusUpdateDateTime;
     }
 
-    public OBWriteInternationalScheduledConsentResponse6Data permission(OBWriteInternationalScheduledConsent5DataPermission permission) {
+    public OBWriteInternationalScheduledConsentResponse6Data permission(
+            OBWriteInternationalScheduledConsent5DataPermission permission) {
         this.permission = permission;
         return this;
     }
@@ -262,12 +279,17 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
     }
 
     /**
-     * Specified cut-off date and time for the payment consent. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Specified cut-off date and time for the payment consent. All dates in the JSON payloads are represented in ISO
+     * 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below:
+     * 2017-04-05T10:43:07+00:00
      *
      * @return cutOffDateTime
      */
     @Valid
-    @Schema(name = "CutOffDateTime", description = "Specified cut-off date and time for the payment consent. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "CutOffDateTime", description = "Specified cut-off date and time for the payment consent. All "
+            + "dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in "
+            + "responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode =
+            Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CutOffDateTime")
     public DateTime getCutOffDateTime() {
         return cutOffDateTime;
@@ -283,12 +305,17 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
     }
 
     /**
-     * Expected execution date and time for the payment resource. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Expected execution date and time for the payment resource. All dates in the JSON payloads are represented in ISO
+     * 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below:
+     * 2017-04-05T10:43:07+00:00
      *
      * @return expectedExecutionDateTime
      */
     @Valid
-    @Schema(name = "ExpectedExecutionDateTime", description = "Expected execution date and time for the payment resource. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "ExpectedExecutionDateTime", description = "Expected execution date and time for the payment "
+            + "resource. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time "
+            + "fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExpectedExecutionDateTime")
     public DateTime getExpectedExecutionDateTime() {
         return expectedExecutionDateTime;
@@ -304,12 +331,17 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
     }
 
     /**
-     * Expected settlement date and time for the payment resource. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     * Expected settlement date and time for the payment resource. All dates in the JSON payloads are represented in ISO
+     * 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below:
+     * 2017-04-05T10:43:07+00:00
      *
      * @return expectedSettlementDateTime
      */
     @Valid
-    @Schema(name = "ExpectedSettlementDateTime", description = "Expected settlement date and time for the payment resource. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "ExpectedSettlementDateTime", description = "Expected settlement date and time for the payment "
+            + "resource. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time "
+            + "fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00",
+            requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExpectedSettlementDateTime")
     public DateTime getExpectedSettlementDateTime() {
         return expectedSettlementDateTime;
@@ -324,7 +356,8 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
         return this;
     }
 
-    public OBWriteInternationalScheduledConsentResponse6Data addChargesItem(OBWriteDomesticConsentResponse5DataChargesInner chargesItem) {
+    public OBWriteInternationalScheduledConsentResponse6Data addChargesItem(
+            OBWriteDomesticConsentResponse5DataChargesInner chargesItem) {
         if (this.charges == null) {
             this.charges = new ArrayList<>();
         }
@@ -348,7 +381,8 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
         this.charges = charges;
     }
 
-    public OBWriteInternationalScheduledConsentResponse6Data exchangeRateInformation(OBWriteInternationalConsentResponse6DataExchangeRateInformation exchangeRateInformation) {
+    public OBWriteInternationalScheduledConsentResponse6Data exchangeRateInformation(
+            OBWriteInternationalConsentResponse6DataExchangeRateInformation exchangeRateInformation) {
         this.exchangeRateInformation = exchangeRateInformation;
         return this;
     }
@@ -462,19 +496,26 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBWriteInternationalScheduledConsentResponse6Data obWriteInternationalScheduledConsentResponse6Data = (OBWriteInternationalScheduledConsentResponse6Data) o;
+        OBWriteInternationalScheduledConsentResponse6Data obWriteInternationalScheduledConsentResponse6Data =
+                (OBWriteInternationalScheduledConsentResponse6Data) o;
         return Objects.equals(this.consentId, obWriteInternationalScheduledConsentResponse6Data.consentId) &&
-                Objects.equals(this.creationDateTime, obWriteInternationalScheduledConsentResponse6Data.creationDateTime) &&
+                Objects.equals(this.creationDateTime,
+                               obWriteInternationalScheduledConsentResponse6Data.creationDateTime) &&
                 Objects.equals(this.status, obWriteInternationalScheduledConsentResponse6Data.status) &&
                 Objects.equals(this.statusReason, obWriteInternationalScheduledConsentResponse6Data.statusReason) &&
-                Objects.equals(this.statusUpdateDateTime, obWriteInternationalScheduledConsentResponse6Data.statusUpdateDateTime) &&
+                Objects.equals(this.statusUpdateDateTime,
+                               obWriteInternationalScheduledConsentResponse6Data.statusUpdateDateTime) &&
                 Objects.equals(this.permission, obWriteInternationalScheduledConsentResponse6Data.permission) &&
-                Objects.equals(this.readRefundAccount, obWriteInternationalScheduledConsentResponse6Data.readRefundAccount) &&
+                Objects.equals(this.readRefundAccount,
+                               obWriteInternationalScheduledConsentResponse6Data.readRefundAccount) &&
                 Objects.equals(this.cutOffDateTime, obWriteInternationalScheduledConsentResponse6Data.cutOffDateTime) &&
-                Objects.equals(this.expectedExecutionDateTime, obWriteInternationalScheduledConsentResponse6Data.expectedExecutionDateTime) &&
-                Objects.equals(this.expectedSettlementDateTime, obWriteInternationalScheduledConsentResponse6Data.expectedSettlementDateTime) &&
+                Objects.equals(this.expectedExecutionDateTime,
+                               obWriteInternationalScheduledConsentResponse6Data.expectedExecutionDateTime) &&
+                Objects.equals(this.expectedSettlementDateTime,
+                               obWriteInternationalScheduledConsentResponse6Data.expectedSettlementDateTime) &&
                 Objects.equals(this.charges, obWriteInternationalScheduledConsentResponse6Data.charges) &&
-                Objects.equals(this.exchangeRateInformation, obWriteInternationalScheduledConsentResponse6Data.exchangeRateInformation) &&
+                Objects.equals(this.exchangeRateInformation,
+                               obWriteInternationalScheduledConsentResponse6Data.exchangeRateInformation) &&
                 Objects.equals(this.initiation, obWriteInternationalScheduledConsentResponse6Data.initiation) &&
                 Objects.equals(this.authorisation, obWriteInternationalScheduledConsentResponse6Data.authorisation) &&
                 Objects.equals(this.scASupportData, obWriteInternationalScheduledConsentResponse6Data.scASupportData) &&
@@ -483,7 +524,22 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
 
     @Override
     public int hashCode() {
-        return Objects.hash(consentId, creationDateTime, status, statusReason, statusUpdateDateTime, permission, readRefundAccount, cutOffDateTime, expectedExecutionDateTime, expectedSettlementDateTime, charges, exchangeRateInformation, initiation, authorisation, scASupportData, debtor);
+        return Objects.hash(consentId,
+                            creationDateTime,
+                            status,
+                            statusReason,
+                            statusUpdateDateTime,
+                            permission,
+                            readRefundAccount,
+                            cutOffDateTime,
+                            expectedExecutionDateTime,
+                            expectedSettlementDateTime,
+                            charges,
+                            exchangeRateInformation,
+                            initiation,
+                            authorisation,
+                            scASupportData,
+                            debtor);
     }
 
     @Override
@@ -511,8 +567,7 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

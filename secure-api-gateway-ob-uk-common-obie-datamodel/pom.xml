@@ -185,6 +185,8 @@
                                         OBWriteDomesticConsentResponse5_Data_ReadRefundAccount=OBReadRefundAccount,
                                         OBWriteDomesticScheduledConsent4_Data_Initiation=OBWriteDomesticScheduled2DataInitiation,
                                         OBWriteInternationalConsent5_Data_Initiation=OBWriteInternational3DataInitiation,
+                                        OBFundsConfirmationConsent1_Data_DebtorAccount=OBFundsConfirmationConsent1DataDebtorAccount,
+                                        OBFundsConfirmationConsentResponse1_Data_DebtorAccount=OBFundsConfirmationConsent1DataDebtorAccount,
                                         OBDomesticVRPConsentRequest_Data_ReadRefundAccount=OBReadRefundAccount,
                                         OBWriteInternationalConsent5_Data_ReadRefundAccount=OBReadRefundAccount
                                     </inlineSchemaNameMappings>
