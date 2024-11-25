@@ -69,14 +69,6 @@ public class FRResponseDataRefundConverter {
                 .agent(toOBWriteInternationalResponse5DataRefundAgent(refund.getAgent()));
     }
 
-    // International scheduled payments
-    public static OBWriteInternationalScheduledResponse6DataRefund toOBWriteInternationalScheduledResponse6DataRefund(FRInternationalResponseDataRefund refund) {
-        return refund == null ? null : new OBWriteInternationalScheduledResponse6DataRefund()
-                .account(toOBWriteInternationalResponse5DataRefundAccount(refund.getAccount()))
-                .creditor(toOBWriteInternationalResponse5DataRefundCreditor(refund.getCreditor()))
-                .agent(toOBWriteInternationalResponse5DataRefundAgent(refund.getAgent()));
-    }
-
     private static OBWriteInternationalResponse5DataRefundAccount toOBWriteInternationalResponse5DataRefundAccount(FRAccountIdentifier account) {
         return account == null ? null : new OBWriteInternationalResponse5DataRefundAccount()
                 .schemeName(account.getSchemeName())
@@ -91,13 +83,6 @@ public class FRResponseDataRefundConverter {
                 .name(creditor.getName())
                 .LEI(creditor.getLEI())
                 .postalAddress(FRPostalAddressConverter.toOBPostalAddress7(creditor.getPostalAddress()));
-
-    private static OBWriteDomesticResponse5DataRefundAccount toOBWriteInternationalResponse5DataRefundAccount(FRAccountIdentifier account) {
-        return account == null ? null : new OBWriteDomesticResponse5DataRefundAccount()
-                .schemeName(account.getSchemeName())
-                .identification(account.getIdentification())
-                .name(account.getName())
-                .secondaryIdentification(account.getSecondaryIdentification());
     }
 
     private static OBWriteInternationalResponse5DataRefundAgent toOBWriteInternationalResponse5DataRefundAgent(FRFinancialAgent agent) {
@@ -108,11 +93,11 @@ public class FRResponseDataRefundConverter {
                 .postalAddress(FRPostalAddressConverter.toOBPostalAddress7(agent.getPostalAddress()));
     }
 
-    private static OBWriteInternationalResponse5DataRefundCreditor toOBWriteInternationalResponse5DataRefundCreditor(
-            FRFinancialCreditor creditor) {
-        return creditor == null ? null : new OBWriteInternationalResponse5DataRefundCreditor()
-                .name(creditor.getName())
-                .LEI(creditor.getLEI())
-                .postalAddress(FRPostalAddressConverter.toOBPostalAddress7(creditor.getPostalAddress()));
+    // International scheduled payments
+    public static OBWriteInternationalScheduledResponse6DataRefund toOBWriteInternationalScheduledResponse6DataRefund(FRInternationalResponseDataRefund refund) {
+        return refund == null ? null : new OBWriteInternationalScheduledResponse6DataRefund()
+                .account(toOBWriteDomesticResponse5DataRefundAccount(refund.getAccount()))
+                .creditor(toOBWriteInternationalResponse5DataRefundCreditor(refund.getCreditor()))
+                .agent(toOBWriteInternationalResponse5DataRefundAgent(refund.getAgent()));
     }
 }

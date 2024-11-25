@@ -17,7 +17,6 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRChargeBearerType;
 
-import uk.org.openbanking.datamodel.v3.common.OBChargeBearerType1Code;
 import uk.org.openbanking.datamodel.v4.common.OBInternalChargeBearerType1Code;
 
 public class FRChargeBearerConverter {

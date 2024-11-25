@@ -16,7 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRChargeBearerConverter.toFRChargeBearerType;
-import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRChargeBearerConverter.toOBChargeBearerType1Code;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRChargeBearerConverter.toOBInternalChargeBearerType1Code;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRDataSCASupportDataConverter.toFRDataSCASupportData;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRExchangeRateConverter.toFRExchangeRateInformation;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRExchangeRateConverter.toOBWriteInternational3DataInitiationExchangeRateInformation;
@@ -119,7 +119,7 @@ public class FRWriteInternationalScheduledConsentConverter {
                 .localInstrument(initiation.getLocalInstrument())
                 .instructionPriority(toOBPriority2Code(initiation.getInstructionPriority()))
                 .extendedPurpose(initiation.getExtendedPurpose())
-                .chargeBearer(toOBChargeBearerType1Code(initiation.getChargeBearer()))
+                .chargeBearer(toOBInternalChargeBearerType1Code(initiation.getChargeBearer()))
                 .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
                 .currencyOfTransfer(initiation.getCurrencyOfTransfer())
                 .destinationCountryCode(initiation.getDestinationCountryCode())
@@ -144,7 +144,7 @@ public class FRWriteInternationalScheduledConsentConverter {
                 .instructionPriority(toOBPriority2Code(initiation.getInstructionPriority()))
                 .purpose(initiation.getPurpose())
                 .extendedPurpose(initiation.getExtendedPurpose())
-                .chargeBearer(toOBChargeBearerType1Code(initiation.getChargeBearer()))
+                .chargeBearer(toOBInternalChargeBearerType1Code(initiation.getChargeBearer()))
                 .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
                 .currencyOfTransfer(initiation.getCurrencyOfTransfer())
                 .destinationCountryCode(initiation.getDestinationCountryCode())
