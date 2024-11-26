@@ -29,6 +29,8 @@ import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalResponse5Data
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalResponse5DataRefundAgent;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalResponse5DataRefundCreditor;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduledResponse6DataRefund;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrderResponse7DataRefund;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrderResponse7DataRefundCreditor;
 import uk.org.openbanking.datamodel.v4.vrp.OBCashAccountDebtorWithName;
 
 /**
@@ -99,5 +101,18 @@ public class FRResponseDataRefundConverter {
                 .account(toOBWriteDomesticResponse5DataRefundAccount(refund.getAccount()))
                 .creditor(toOBWriteInternationalResponse5DataRefundCreditor(refund.getCreditor()))
                 .agent(toOBWriteInternationalResponse5DataRefundAgent(refund.getAgent()));
+    }
+
+    public static OBWriteInternationalStandingOrderResponse7DataRefund toOBWriteInternationalStandingOrderResponse7DataRefund(FRInternationalResponseDataRefund refund) {
+        return refund == null ? null : new OBWriteInternationalStandingOrderResponse7DataRefund()
+                .account(toOBWriteDomesticResponse5DataRefundAccount(refund.getAccount()))
+                .creditor(toOBWriteInternationalStandingOrderResponse7DataRefundCreditor(refund.getCreditor()))
+                .agent(toOBWriteInternationalResponse5DataRefundAgent(refund.getAgent()));
+    }
+
+    private static OBWriteInternationalStandingOrderResponse7DataRefundCreditor toOBWriteInternationalStandingOrderResponse7DataRefundCreditor(FRFinancialCreditor creditor) {
+        return creditor == null ? null : new OBWriteInternationalStandingOrderResponse7DataRefundCreditor()
+                .name(creditor.getName())
+                .postalAddress(FRPostalAddressConverter.toOBPostalAddress7(creditor.getPostalAddress()));
     }
 }

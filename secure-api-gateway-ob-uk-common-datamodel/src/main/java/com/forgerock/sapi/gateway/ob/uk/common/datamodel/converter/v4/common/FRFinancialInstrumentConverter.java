@@ -119,6 +119,7 @@ public class FRFinancialInstrumentConverter {
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
+                .LEI(agent.getLEI())
                 .postalAddress(FRPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
                 .build();
     }
@@ -152,6 +153,7 @@ public class FRFinancialInstrumentConverter {
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
                 .name(agent.getName())
+                .LEI(agent.getLEI())
                 .postalAddress(FRPostalAddressConverter.toOBPostalAddress7(agent.getPostalAddress()));
     }
 

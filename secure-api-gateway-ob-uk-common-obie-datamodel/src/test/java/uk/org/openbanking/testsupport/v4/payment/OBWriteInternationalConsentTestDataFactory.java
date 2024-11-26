@@ -84,11 +84,11 @@ public class OBWriteInternationalConsentTestDataFactory {
                 .creditor(aValidOBWriteInternational3DataInitiationCreditor())
                 .creditorAgent(aValidOBWriteDomestic2DataInitiationCreditorAgent())
                 .creditorAccount(aValidOBWriteDomestic2DataInitiationCreditorAccount())
+                .supplementaryData(new OBSupplementaryData1())
                 .remittanceInformation(OBRemittanceInformationTestDataFactory.aValidOBRemittanceInformation2())
                 .regulatoryReporting(Collections.singletonList(OBRegulatoryReporting1TestDataFactory.aValidOBRegulatoryReporting1()))
                 .ultimateCreditor(OBUltimateCreditor1TestDataFactory.aValidOBUltimateCreditor1())
-                .ultimateDebtor(OBUltimateDebtor1TestDataFactory.aValidOBUltimateDebtor1())
-                .supplementaryData(new OBSupplementaryData1());
+                .ultimateDebtor(OBUltimateDebtor1TestDataFactory.aValidOBUltimateDebtor1());
     }
 
     public static OBWriteInternational3DataInitiation aValidOBWriteInternational3DataInitiationMandatoryFields() {

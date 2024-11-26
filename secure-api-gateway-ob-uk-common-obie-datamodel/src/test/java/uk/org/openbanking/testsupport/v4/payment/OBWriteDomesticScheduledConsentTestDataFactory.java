@@ -65,8 +65,8 @@ public class OBWriteDomesticScheduledConsentTestDataFactory {
                 .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
                 .creditorAccount(aValidOBWriteDomestic2DataInitiationCreditorAccount())
                 .creditorPostalAddress(aValidOBPostalAddress7())
-                .remittanceInformation(OBRemittanceInformationTestDataFactory.aValidOBRemittanceInformation2())
                 .supplementaryData(new OBSupplementaryData1())
+                .remittanceInformation(OBRemittanceInformationTestDataFactory.aValidOBRemittanceInformation2())
                 .regulatoryReporting(Collections.singletonList(OBRegulatoryReporting1TestDataFactory.aValidOBRegulatoryReporting1()))
                 .ultimateCreditor(OBUltimateCreditor1TestDataFactory.aValidOBUltimateCreditor1())
                 .ultimateDebtor(OBUltimateDebtor1TestDataFactory.aValidOBUltimateDebtor1());
@@ -81,8 +81,8 @@ public class OBWriteDomesticScheduledConsentTestDataFactory {
                 .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
                 .creditorAccount(aValidOBWriteDomestic2DataInitiationCreditorAccount())
                 .creditorPostalAddress(aValidOBPostalAddress7())
-                .remittanceInformation(OBRemittanceInformationTestDataFactory.aValidOBRemittanceInformation2())
                 .supplementaryData(new OBSupplementaryData1())
+                .remittanceInformation(OBRemittanceInformationTestDataFactory.aValidOBRemittanceInformation2())
                 .regulatoryReporting(Collections.singletonList(OBRegulatoryReporting1TestDataFactory.aValidOBRegulatoryReporting1()))
                 .ultimateCreditor(OBUltimateCreditor1TestDataFactory.aValidOBUltimateCreditor1())
                 .ultimateDebtor(OBUltimateDebtor1TestDataFactory.aValidOBUltimateDebtor1());
