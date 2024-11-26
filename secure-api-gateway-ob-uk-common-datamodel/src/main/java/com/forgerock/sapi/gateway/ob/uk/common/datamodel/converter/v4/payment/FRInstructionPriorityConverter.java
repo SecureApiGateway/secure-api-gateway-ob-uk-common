@@ -26,10 +26,8 @@ public class FRInstructionPriorityConverter {
         return instructionPriority == null ? null : FRInstructionPriority.valueOf(instructionPriority.name());
     }
 
-
     // FR to OB
     public static OBWriteInternational3DataInitiationInstructionPriority toOBPriority2Code(FRInstructionPriority instructionPriority) {
         return instructionPriority == null ? null : OBWriteInternational3DataInitiationInstructionPriority.valueOf(instructionPriority.name());
     }
-
 }

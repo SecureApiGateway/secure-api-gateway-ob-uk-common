@@ -42,6 +42,7 @@ public class FRFinancialInstrumentConverter {
     public static FRFinancialCreditor toFRFinancialCreditor(OBWriteInternational3DataInitiationCreditor creditor) {
         return creditor == null ? null : FRFinancialCreditor.builder()
                 .name(creditor.getName())
+                .LEI(creditor.getLEI())
                 .postalAddress(FRPostalAddressConverter.toFRPostalAddress(creditor.getPostalAddress()))
                 .build();
     }
@@ -122,10 +123,21 @@ public class FRFinancialInstrumentConverter {
                 .build();
     }
 
+    public static FRFinancialAgent toFRFinancialAgent(OBWriteDomestic2DataInitiationCreditorAgent agent) {
+        return agent == null ? null : FRFinancialAgent.builder()
+                .schemeName(agent.getSchemeName())
+                .identification(agent.getIdentification())
+                .name(agent.getName())
+                .LEI(agent.getLEI())
+                .postalAddress(FRPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
+                .build();
+    }
+
     // FR to OB
     public static OBWriteInternational3DataInitiationCreditor toOBWriteInternational3DataInitiationCreditor(FRFinancialCreditor creditor) {
         return creditor == null ? null : new OBWriteInternational3DataInitiationCreditor()
                 .name(creditor.getName())
+                .LEI(creditor.getLEI())
                 .postalAddress(FRPostalAddressConverter.toOBPostalAddress7(creditor.getPostalAddress()));
     }
 
@@ -164,16 +176,6 @@ public class FRFinancialInstrumentConverter {
                                                       .build();
     }
 
-    public static FRFinancialAgent toFRFinancialAgent(OBWriteDomestic2DataInitiationCreditorAgent agent) {
-        return agent == null ? null : FRFinancialAgent.builder()
-                                                      .schemeName(agent.getSchemeName())
-                                                      .identification(agent.getIdentification())
-                                                      .LEI(agent.getLEI())
-                                                      .name(agent.getName())
-                                                      .postalAddress(FRPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
-                                                      .build();
-    }
-
     public static FRFinancialCreditor toFRFinancialCreditor(OBWriteInternationalConsent5DataInitiationCreditor creditor) {
         return creditor == null ? null : FRFinancialCreditor.builder()
                                                             .postalAddress(FRPostalAddressConverter.toFRPostalAddress(creditor.getPostalAddress()))
@@ -201,9 +203,8 @@ public class FRFinancialInstrumentConverter {
         return agent == null ? null : new OBWriteDomestic2DataInitiationCreditorAgent()
                 .schemeName(agent.getSchemeName())
                 .identification(agent.getIdentification())
-                .LEI(agent.getLEI())
                 .name(agent.getName())
+                .LEI(agent.getLEI())
                 .postalAddress(FRPostalAddressConverter.toOBPostalAddress7(agent.getPostalAddress()));
     }
-
 }

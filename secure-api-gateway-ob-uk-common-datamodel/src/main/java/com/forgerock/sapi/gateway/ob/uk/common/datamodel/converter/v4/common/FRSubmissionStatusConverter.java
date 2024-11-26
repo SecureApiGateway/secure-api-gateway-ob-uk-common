@@ -21,6 +21,7 @@ import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticResponse5DataStatu
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticScheduledResponse5DataStatus;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrderResponse6DataStatus;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteFileResponse3DataStatus;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalResponse5DataStatus;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduledResponse6DataStatus;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrderResponse7DataStatus;
 import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPResponseDataStatus;
@@ -93,6 +94,23 @@ public class FRSubmissionStatusConverter {
             return OBWriteFileResponse3DataStatus.INCO;
         default:
             return OBWriteFileResponse3DataStatus.INFA;
+        }
+    }
+
+    public static OBWriteInternationalResponse5DataStatus toOBWriteInternationalResponse5DataStatus(FRSubmissionStatus status) {
+        if (status == null) {
+            return null;
+        }
+        switch (status) {
+        case INITIATIONPENDING:
+            return OBWriteInternationalResponse5DataStatus.PDNG;
+        case INITIATIONCOMPLETED:
+            return OBWriteInternationalResponse5DataStatus.INCO;
+        case CANCELLED:
+            return OBWriteInternationalResponse5DataStatus.CANC;
+        default:
+            return OBWriteInternationalResponse5DataStatus.RJCT;
+        // might as well be blocked, in which case -> return OBWriteDomesticStandingOrderResponse6DataStatus.BLCK;
         }
     }
 

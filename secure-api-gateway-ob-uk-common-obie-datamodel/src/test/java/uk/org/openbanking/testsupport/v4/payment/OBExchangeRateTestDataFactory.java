@@ -45,5 +45,4 @@ public class OBExchangeRateTestDataFactory {
                 .contractIdentification(CONTRACT_IDENTIFICATION)
                 .expirationDateTime(DateTime.now().plusDays(1));
     }
-
 }

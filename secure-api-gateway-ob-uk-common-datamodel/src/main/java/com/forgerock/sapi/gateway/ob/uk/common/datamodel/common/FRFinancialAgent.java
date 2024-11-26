@@ -40,4 +40,5 @@ public class FRFinancialAgent {
     private String name;
     private String LEI;
     private FRPostalAddress postalAddress;
+
 }

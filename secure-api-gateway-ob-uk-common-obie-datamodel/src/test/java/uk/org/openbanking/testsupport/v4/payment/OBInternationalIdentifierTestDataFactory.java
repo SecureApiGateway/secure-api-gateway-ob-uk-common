@@ -19,6 +19,8 @@ import static uk.org.openbanking.testsupport.v3.payment.OBPostalAddress6TestData
 import static uk.org.openbanking.testsupport.v4.payment.OBRisk1TestDataFactory.aValidOBPostalAddress7;
 
 import uk.org.openbanking.datamodel.v3.common.OBBranchAndFinancialInstitutionIdentification6;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationCreditorAgent;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternational3DataInitiationCreditor;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalConsent5DataInitiationCreditor;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduled3DataInitiationCreditorAgent;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor;
@@ -31,6 +33,15 @@ public class OBInternationalIdentifierTestDataFactory {
     private static final String CREDITOR_AGENT_NAME = "Creditor Agent Name";
     private static final String CREDITOR_NAME = "Creditor Name";
     private static final String LEI = "123400ABCDEF12345678";
+
+    public static OBWriteDomestic2DataInitiationCreditorAgent aValidOBWriteDomestic2DataInitiationCreditorAgent() {
+        return (new OBWriteDomestic2DataInitiationCreditorAgent())
+                .schemeName(SCHEME_NAME)
+                .identification(IDENTIFICATION)
+                .name(CREDITOR_AGENT_NAME)
+                .LEI("blah")
+                .postalAddress(aValidOBPostalAddress7());
+    }
 
     public static OBBranchAndFinancialInstitutionIdentification6 aValidOBBranchAndFinancialInstitutionIdentification6() {
         return (new OBBranchAndFinancialInstitutionIdentification6())
@@ -62,6 +73,13 @@ public class OBInternationalIdentifierTestDataFactory {
         return (new OBWriteInternationalConsent5DataInitiationCreditor())
                 .name(CREDITOR_NAME)
                 .LEI(LEI)
+                .postalAddress(aValidOBPostalAddress7());
+    }
+
+    public static OBWriteInternational3DataInitiationCreditor aValidOBWriteInternational3DataInitiationCreditor() {
+        return (new OBWriteInternational3DataInitiationCreditor())
+                .name(CREDITOR_NAME)
+                .LEI("blah")
                 .postalAddress(aValidOBPostalAddress7());
     }
 
