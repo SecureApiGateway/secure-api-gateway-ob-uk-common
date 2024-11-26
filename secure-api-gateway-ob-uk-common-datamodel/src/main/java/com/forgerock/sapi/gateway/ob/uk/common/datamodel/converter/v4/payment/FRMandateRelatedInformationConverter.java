@@ -15,6 +15,9 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment;
 
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRFrequency6Converter.toFRFrequency;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRFrequency6Converter.toOBFrequency6;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRMandateRelatedInformation;
 
 import uk.org.openbanking.datamodel.v4.payment.OBExternalMandateClassification1Code;
@@ -31,7 +34,7 @@ public class FRMandateRelatedInformationConverter {
                 .firstPaymentDateTime(mandateRelatedInformation.getFirstPaymentDateTime())
                 .recurringPaymentDateTime(mandateRelatedInformation.getRecurringPaymentDateTime())
                 .finalPaymentDateTime(mandateRelatedInformation.getFinalPaymentDateTime())
-                .frequency(mandateRelatedInformation.getFrequency())
+                .frequency(toFRFrequency(mandateRelatedInformation.getFrequency()))
                 .reason(mandateRelatedInformation.getReason())
                 .build();
     }
@@ -49,7 +52,7 @@ public class FRMandateRelatedInformationConverter {
                 .firstPaymentDateTime(mandateRelatedInformation.getFirstPaymentDateTime())
                 .recurringPaymentDateTime(mandateRelatedInformation.getRecurringPaymentDateTime())
                 .finalPaymentDateTime(mandateRelatedInformation.getFinalPaymentDateTime())
-                .frequency(mandateRelatedInformation.getFrequency())
+                .frequency(toOBFrequency6(mandateRelatedInformation.getFrequency()))
                 .reason(mandateRelatedInformation.getReason());
     }
 

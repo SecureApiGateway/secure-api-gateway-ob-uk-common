@@ -54,7 +54,17 @@ public enum FRFrequencyType {
     WEEKINMONTHDAY("WkInMnthDay", "0?([1-5]):0?([1-7])$", "Every month, on the %s week of the month, and on the %s day of the week."),
     INTERVALMONTHDAY("IntrvlMnthDay", "(0?[1-6]|12|24):(-0?[1-5]|0?[1-9]|[12][0-9]|3[01])$", "Every %s month, on the %s day of the month."),
     QUARTERDAY("QtrDay", "(ENGLISH|SCOTTISH|RECEIVED)$", "Paid on the %s, %s, %s and %s."),
-    INTERVALDAY("IntrvlDay", "(0?[2-9]|[1-2][0-9]|3[0-1])$", "Every %s Calendar day.");
+    INTERVALDAY("IntrvlDay", "(0?[2-9]|[1-2][0-9]|3[0-1])$", "Every %s Calendar day."),
+    //V4
+    ADHO("ADHO", null, "Adhoc"),
+    YEAR("YEAR", null, "Yearly"),
+    DAIL("DAIL", null, "Daily"),
+    FRTN("FRTN", null, "Every two weeks"),
+    INDA("INDA", null, "Several times a day"),
+    MNTH("MNTH", null, "Monthly"),
+    QURT("QURT", null, "Every three months"),
+    MIAN("MIAN", null, "Every six months"),
+    WEEK("WEEK", null, "Weekly");
 
     private final String frequencyStr;
     private final Pattern pattern;
