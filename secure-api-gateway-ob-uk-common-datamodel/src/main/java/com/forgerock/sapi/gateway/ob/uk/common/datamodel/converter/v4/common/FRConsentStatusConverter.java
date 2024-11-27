@@ -26,6 +26,7 @@ import java.util.Map;
 
 import uk.org.openbanking.datamodel.v4.payment.OBPaymentConsentStatus;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalConsentResponse6DataStatus;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteFileConsentResponse4DataStatus;
 import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPConsentStatus;
 
 public class FRConsentStatusConverter {
@@ -53,6 +54,10 @@ public class FRConsentStatusConverter {
         v4tov3ConsentStatus = consentStatusTranslations.entrySet().stream().collect(toMap(Map.Entry::getValue, Map.Entry::getKey));
     }
 
+    private static final Map<String, String> v3tov4FileConsentStatus;
+
+    private static final Map<String, String> v4tov3FileConsentStatus;
+
     static {
         final Map<String, String> consentStatusTranslations = new HashMap<>();
         consentStatusTranslations.put(AWAITINGAUTHORISATION.getValue(), OBDomesticVRPConsentStatus.AWAU.getValue());
@@ -73,6 +78,18 @@ public class FRConsentStatusConverter {
         v4tov3InternationalConsentStatus = consentStatusTranslations.entrySet().stream().collect(toMap(Map.Entry::getValue, Map.Entry::getKey));
     }
 
+    static {
+        final Map<String, String> consentStatusTransalations = new HashMap<>();
+        consentStatusTransalations.put(uk.org.openbanking.datamodel.v3.payment.OBWriteFileConsentResponse4DataStatus.AWAITINGAUTHORISATION.getValue(), OBWriteFileConsentResponse4DataStatus.AWAU.getValue());
+        consentStatusTransalations.put(uk.org.openbanking.datamodel.v3.payment.OBWriteFileConsentResponse4DataStatus.AUTHORISED.getValue(), OBWriteFileConsentResponse4DataStatus.AUTH.getValue());
+        consentStatusTransalations.put(uk.org.openbanking.datamodel.v3.payment.OBWriteFileConsentResponse4DataStatus.CONSUMED.getValue(), OBWriteFileConsentResponse4DataStatus.COND.getValue());
+        consentStatusTransalations.put(uk.org.openbanking.datamodel.v3.payment.OBWriteFileConsentResponse4DataStatus.REJECTED.getValue(), OBWriteFileConsentResponse4DataStatus.RJCT.getValue());
+        consentStatusTransalations.put(uk.org.openbanking.datamodel.v3.payment.OBWriteFileConsentResponse4DataStatus.AWAITINGUPLOAD.getValue(), OBWriteFileConsentResponse4DataStatus.AWUP.getValue());
+
+        v3tov4FileConsentStatus = Collections.unmodifiableMap(consentStatusTransalations);
+        v4tov3FileConsentStatus = consentStatusTransalations.entrySet().stream().collect(toMap(Map.Entry::getValue, Map.Entry::getKey));
+    }
+
     public static OBPaymentConsentStatus toOBPaymentConsentStatusV4(String consentStatus) {
         if (v3tov4ConsentStatus.containsKey(consentStatus)) {
             return OBPaymentConsentStatus.fromValue(v3tov4ConsentStatus.get(consentStatus));
@@ -90,6 +107,13 @@ public class FRConsentStatusConverter {
     public static OBWriteInternationalConsentResponse6DataStatus toOBWriteInternationalConsentResponse6DataStatus(String consentStatus) {
         if (v3tov4InternationalConsentStatus.containsKey(consentStatus)) {
             return OBWriteInternationalConsentResponse6DataStatus.fromValue(v3tov4InternationalConsentStatus.get(consentStatus));
+        }
+        throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
+    }
+
+    public static OBWriteFileConsentResponse4DataStatus toOBFilePaymentConsentStatusV4(String consentStatus) {
+        if (v3tov4FileConsentStatus.containsKey(consentStatus)) {
+            return OBWriteFileConsentResponse4DataStatus.fromValue(v3tov4FileConsentStatus.get(consentStatus));
         }
         throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
     }

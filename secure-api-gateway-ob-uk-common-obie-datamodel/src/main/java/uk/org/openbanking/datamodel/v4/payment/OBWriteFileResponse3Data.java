@@ -58,7 +58,7 @@ public class OBWriteFileResponse3Data {
     @Valid
     private List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges;
 
-    private OBWriteFileResponse3DataInitiation initiation;
+    private OBWriteFile2DataInitiation initiation;
 
     private OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation;
 
@@ -71,7 +71,7 @@ public class OBWriteFileResponse3Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteFileResponse3Data(String filePaymentId, String consentId, DateTime creationDateTime, OBWriteFileResponse3DataStatus status, DateTime statusUpdateDateTime, OBWriteFileResponse3DataInitiation initiation) {
+    public OBWriteFileResponse3Data(String filePaymentId, String consentId, DateTime creationDateTime, OBWriteFileResponse3DataStatus status, DateTime statusUpdateDateTime, OBWriteFile2DataInitiation initiation) {
         this.filePaymentId = filePaymentId;
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
@@ -248,7 +248,7 @@ public class OBWriteFileResponse3Data {
         this.charges = charges;
     }
 
-    public OBWriteFileResponse3Data initiation(OBWriteFileResponse3DataInitiation initiation) {
+    public OBWriteFileResponse3Data initiation(OBWriteFile2DataInitiation initiation) {
         this.initiation = initiation;
         return this;
     }
@@ -262,11 +262,11 @@ public class OBWriteFileResponse3Data {
     @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
-    public OBWriteFileResponse3DataInitiation getInitiation() {
+    public OBWriteFile2DataInitiation getInitiation() {
         return initiation;
     }
 
-    public void setInitiation(OBWriteFileResponse3DataInitiation initiation) {
+    public void setInitiation(OBWriteFile2DataInitiation initiation) {
         this.initiation = initiation;
     }
 
