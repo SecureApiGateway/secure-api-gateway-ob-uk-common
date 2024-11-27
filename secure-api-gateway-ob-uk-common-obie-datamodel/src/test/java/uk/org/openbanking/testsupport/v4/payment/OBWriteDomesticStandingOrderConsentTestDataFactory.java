@@ -67,11 +67,12 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
                 .recurringPaymentAmount(OBAmountTestDataFactory.aValidOBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount())
                 .finalPaymentAmount(OBAmountTestDataFactory.aValidOBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount())
                 .creditorAccount(OBAccountTestDataFactory.aValidOBWriteDomesticStandingOrder3DataInitiationCreditorAccount())
+                .supplementaryData(new OBSupplementaryData1())
                 .mandateRelatedInformation(OBMandateRelatedInformationTestDataFactory.aValidOBMandateRelatedInformation1())
                 .regulatoryReporting(Collections.singletonList(OBRegulatoryReporting1TestDataFactory.aValidOBRegulatoryReporting1()))
+                .remittanceInformation(OBRemittanceInformationTestDataFactory.aValidOBRemittanceInformation2())
                 .ultimateCreditor(OBUltimateCreditor1TestDataFactory.aValidOBUltimateCreditor1())
-                .ultimateDebtor(OBUltimateDebtor1TestDataFactory.aValidOBUltimateDebtor1())
-                .supplementaryData(new OBSupplementaryData1());
+                .ultimateDebtor(OBUltimateDebtor1TestDataFactory.aValidOBUltimateDebtor1());
     }
 
     public static OBWriteDomesticStandingOrder3DataInitiation aValidOBWriteDomesticStandingOrder3DataInitiation(DateTime dateTime) {
@@ -80,8 +81,12 @@ public class OBWriteDomesticStandingOrderConsentTestDataFactory {
                 .recurringPaymentAmount(OBAmountTestDataFactory.aValidOBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount())
                 .finalPaymentAmount(OBAmountTestDataFactory.aValidOBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount())
                 .creditorAccount(OBAccountTestDataFactory.aValidOBWriteDomesticStandingOrder3DataInitiationCreditorAccount())
+                .supplementaryData(new OBSupplementaryData1())
                 .mandateRelatedInformation(OBMandateRelatedInformationTestDataFactory.aValidOBMandateRelatedInformation1())
-                .supplementaryData(new OBSupplementaryData1());
+                .regulatoryReporting(Collections.singletonList(OBRegulatoryReporting1TestDataFactory.aValidOBRegulatoryReporting1()))
+                .remittanceInformation(OBRemittanceInformationTestDataFactory.aValidOBRemittanceInformation2())
+                .ultimateCreditor(OBUltimateCreditor1TestDataFactory.aValidOBUltimateCreditor1())
+                .ultimateDebtor(OBUltimateDebtor1TestDataFactory.aValidOBUltimateDebtor1());
     }
 
     public static OBWriteDomesticStandingOrder3DataInitiation aValidOBWriteDomesticStandingOrder3DataInitiationMandatoryFields() {
