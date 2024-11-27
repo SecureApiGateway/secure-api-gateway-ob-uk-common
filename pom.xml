@@ -36,7 +36,6 @@
     <properties>
         <!-- Artifact versions -->
         <revision>4.0.0-SNAPSHOT</revision>
-        <!-- <revision>4.0.0-SNAPSHOT</revision> -->
         <!-- Third Party versions -->
         <java.version>17</java.version>
         <!-- Plugin versions -->
