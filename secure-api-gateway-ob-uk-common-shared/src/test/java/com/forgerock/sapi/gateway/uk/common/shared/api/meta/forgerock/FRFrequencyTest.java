@@ -59,7 +59,8 @@ public class FRFrequencyTest {
                 Arguments.of(
                         FRFrequencyType.INTERVALDAY.getFrequencyStr() + ":05",
                         String.format(FRFrequencyType.INTERVALDAY.getSentence(), "5th")
-                )
+                ),
+                Arguments.of(FRFrequencyType.WEEK.getFrequencyStr(), FRFrequencyType.WEEK.getSentence())
         );
     }
 

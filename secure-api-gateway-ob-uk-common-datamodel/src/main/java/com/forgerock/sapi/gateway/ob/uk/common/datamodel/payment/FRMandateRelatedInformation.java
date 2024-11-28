@@ -20,6 +20,7 @@ import java.util.stream.Stream;
 import org.joda.time.DateTime;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.forgerock.sapi.gateway.uk.common.shared.api.meta.forgerock.FRFrequency;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.Valid;
@@ -42,7 +43,7 @@ public class FRMandateRelatedInformation {
     private DateTime firstPaymentDateTime;
     private DateTime recurringPaymentDateTime;
     private DateTime finalPaymentDateTime;
-    private OBFrequency6 frequency;
+    private FRFrequency frequency;
     private String reason;
 
     public enum FRExternalMandateClassificationCode {
