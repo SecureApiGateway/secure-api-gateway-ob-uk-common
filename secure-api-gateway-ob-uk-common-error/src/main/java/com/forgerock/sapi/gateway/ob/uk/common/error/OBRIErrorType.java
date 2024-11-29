@@ -19,9 +19,9 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.forgerock.sapi.gateway.uk.common.shared.api.meta.obie.OBHeaders;
 import org.springframework.http.HttpStatus;
-import uk.org.openbanking.datamodel.error.OBError1;
 import uk.org.openbanking.datamodel.error.OBStandardErrorCodes1;
 import uk.org.openbanking.datamodel.error.StandardErrorCode;
+import uk.org.openbanking.datamodel.v3.error.OBError1;
 
 @JsonDeserialize(using = OBRIErrorTypeDeserializer.class)
 @JsonSerialize(using = OBRIErrorTypeSerializer.class)
@@ -753,7 +753,11 @@ public enum OBRIErrorType {
     REQUEST_VRP_LIMIT_BREACH_SIMULATION_NO_MATCHING_LIMIT_IN_CONSENT(
             HttpStatus.BAD_REQUEST,
             ErrorCode.OBRI_REQUEST_VRP_LIMIT_BREACH_SIMULATION_NO_MATCHING_LIMIT_IN_CONSENT,
-            "No Periodic Limit found in the consent for Header value '%s', unable to simulate the payment limitation breach");
+            "No Periodic Limit found in the consent for Header value '%s', unable to simulate the payment limitation breach"),
+    REQUEST_VRP_REMITTANCE_INFORMATION_NOT_MATCHING(
+            HttpStatus.BAD_REQUEST,
+            ErrorCode.OBRI_REQUEST_VRP_REMITTANCE_INFORMATION_INVALID_VALUE,
+            "Remittance information from payment instruction must match the remittance information from the initiation");
 
     private HttpStatus httpStatus;
     private StandardErrorCode code;

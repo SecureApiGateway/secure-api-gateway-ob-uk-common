@@ -38,5 +38,7 @@ public class FRFinancialAgent {
     private String schemeName;
     private String identification;
     private String name;
+    private String LEI;
     private FRPostalAddress postalAddress;
+
 }

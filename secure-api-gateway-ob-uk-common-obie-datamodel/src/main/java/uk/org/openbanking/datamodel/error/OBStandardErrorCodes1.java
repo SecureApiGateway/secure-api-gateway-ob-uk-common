@@ -42,6 +42,7 @@ public enum OBStandardErrorCodes1 implements StandardErrorCode {
     UK_OBIE_RULES_AFTER_CUT_OFF_DATE_TIME("UK.OBIE.rules.AfterCutOffDateTime"),
     UK_OBIE_RULES_DUPLICATE_REFERENCE("UK.OBIE.Rules.DuplicateReference"),
     UK_OBIE_RULES_FAILS_CONTROL_PARAMETERS("UK.OBIE.Rules.FailsControlParameters"),
+    UK_OBIE_RULES_RESOURCE_ALREADY_EXISTS("UK.OBIE.Rules.ResourceAlreadyExists"),
 
     UK_OBIE_SIGNATURE_INVALID("UK.OBIE.Signature.Invalid"),
     UK_OBIE_SIGNATURE_INVALID_CLAIM("UK.OBIE.Signature.InvalidClaim"),
@@ -57,8 +58,10 @@ public enum OBStandardErrorCodes1 implements StandardErrorCode {
     UK_OBIE_UNSUPPORTED_LOCAL_INSTRUMENT("UK.OBIE.Unsupported.LocalInstrument"),
     UK_OBIE_UNSUPPORTED_SCHEME("UK.OBIE.Unsupported.Scheme"),
     UK_OBIE_UNSUPPORTED_UNEXPECTED_ERROR("UK.OBIE.Unsupported.UnexpectedError"),
+    UK_OBIE_UNSUPPORTED_EVENT_TYPE("UK.OBIE.Unsupported.EventType"),
 
-    UK_OBIE_INVALID_CONSENT_STATUS("UK.OBIE.Resource.InvalidConsentStatus");
+    UK_OBIE_INVALID_CONSENT_STATUS("UK.OBIE.Resource.InvalidConsentStatus"),
+    UK_OBIE_UNEXPECTED_ERROR("UK.OBIE.UnexpectedError");
 
     private String value;
 

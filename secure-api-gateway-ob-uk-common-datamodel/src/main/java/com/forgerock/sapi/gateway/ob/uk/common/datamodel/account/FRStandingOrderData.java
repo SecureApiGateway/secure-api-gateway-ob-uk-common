@@ -15,10 +15,7 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.account;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSupplementaryData;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -59,6 +56,8 @@ public class FRStandingOrderData {
     private FRFinancialAgent creditorAgent;
     private FRAccountIdentifier creditorAccount;
     private FRSupplementaryData supplementaryData;
+    private FRMandateRelatedInformation mandateRelatedInformation;
+    private FRRemittanceInformation remittanceInformation;
 
     public enum FRStandingOrderStatus {
         ACTIVE("Active"),

@@ -15,6 +15,8 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.common;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,6 +37,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class FRRemittanceInformation {
 
-    private String unstructured;
     private String reference;
+    private List<FRRemittanceInformationStructured> structured;
+    private List<String> unstructured;
 }

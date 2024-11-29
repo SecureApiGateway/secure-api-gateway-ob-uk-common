@@ -15,7 +15,15 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment;
 
-import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.*;
+import java.util.List;
+
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAmount;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPostalAddress;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSupplementaryData;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -45,4 +53,10 @@ public class FRWriteDomesticDataInitiation implements FRDomesticDataInitiation {
     private FRPostalAddress creditorPostalAddress;
     private FRRemittanceInformation remittanceInformation;
     private FRSupplementaryData supplementaryData;
+
+    // V4 area
+    private FRFinancialAgent creditorAgent;
+    private FRFinancialAgent ultimateCreditor;
+    private FRFinancialAgent ultimateDebtor;
+    private List<FRRegulatoryReporting> regulatoryReporting;
 }

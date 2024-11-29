@@ -15,10 +15,10 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.payment;
 
+import static java.util.Collections.singletonList;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRExternalPaymentContextCode;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRPaymentRisk;
-
-import static java.util.Collections.singletonList;
 
 /**
  * Test data factory for {@link FRPaymentRisk}.
@@ -28,12 +28,14 @@ public class FRPaymentRiskTestDataFactory {
     public static FRPaymentRisk aValidFRPaymentRisk() {
         return FRPaymentRisk.builder()
                 .paymentContextCode(FRExternalPaymentContextCode.BILLPAYMENT)
-                .merchantCategoryCode("ABCD")
+                .merchantCategoryCode("abcd")
                 .deliveryAddress(FRPaymentRisk.FRRiskDeliveryAddress.builder()
                         .addressLine(singletonList("60 Queens Square"))
                         .townName("Bristol")
                         .postCode("BS1 4JZ")
                         .country("UK")
+                        .addressType("BIZZ")
+                        .buildingName("wxyz")
                         .build())
                 .build();
     }

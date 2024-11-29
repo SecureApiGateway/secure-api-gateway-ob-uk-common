@@ -21,16 +21,27 @@ import java.util.Arrays;
 
 import org.joda.time.DateTime;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Represents the frequency of the payments for a Standing Order Payment
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class FRFrequency {
     private FRFrequencyType frequencyType;
     private String recurrence;
     private String day;
+
+    private FRFrequencyCode6 type;
+    private Integer countPerPeriod;
+    private String pointInTime;
 
     /**
      * Initialize an @{link FRFrequency} object
@@ -69,6 +80,15 @@ public class FRFrequency {
      */
     public String getFormattedSentence() {
         switch (frequencyType) {
+        case ADHO:
+        case YEAR:
+        case DAIL:
+        case FRTN:
+        case INDA:
+        case MNTH:
+        case QURT:
+        case MIAN:
+        case WEEK:
         case EVERYDAY:
         case EVERYWORKINGDAY: {
             return frequencyType.getSentence();
@@ -88,6 +108,21 @@ public class FRFrequency {
         default:
             throw new IllegalStateException("Frequency type not identified");
         }
+    }
+
+    /**
+     * Provides the corresponding sentence for each {@link FRFrequencyType}.
+     * Replaces the placeholders from the template sentences with the recurrence and the day in which the standing order payments are made.
+     *
+     * @return the corresponding sentence for each {@link FRFrequencyType}
+     */
+    public String getFormattedSentenceV4() {
+        for (FRFrequencyCode6 code : FRFrequencyCode6.values()) {
+            if (code.getValue().equals(type)) {
+                return frequencyType.getSentence();
+            }
+        }
+        throw new IllegalStateException("Frequency type not identified");
     }
 
     /**

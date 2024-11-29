@@ -41,5 +41,6 @@ import lombok.NoArgsConstructor;
 public class FRAccountServicer {
 
     private String schemeName;
+    private String name;
     private String identification;
 }

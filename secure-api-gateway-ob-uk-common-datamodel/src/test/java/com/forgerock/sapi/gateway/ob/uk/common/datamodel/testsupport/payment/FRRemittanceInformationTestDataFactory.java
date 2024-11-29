@@ -15,7 +15,14 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.testsupport.payment;
 
+import java.util.Collections;
+import java.util.List;
+
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRExternalCreditorReferenceTypeCode;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRReferredDocumentInformation;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformation;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformationStructured;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRRemittanceInformationStructuredCreditorReferenceInformation;
 
 /**
  * Test data factory for {@link FRRemittanceInformation}
@@ -25,7 +32,24 @@ public class FRRemittanceInformationTestDataFactory {
     public static FRRemittanceInformation aValidFRRemittanceInformation() {
         return FRRemittanceInformation.builder()
                 .reference("123456")
-                .unstructured("INV.001")
+                .structured(Collections.singletonList(FRRemittanceInformationStructured.builder()
+                        .referredDocumentInformation((List<FRReferredDocumentInformation>) FRRemittanceInformationStructuredCreditorReferenceInformation.builder()
+                                .code(FRExternalCreditorReferenceTypeCode.DISP)
+                                .issuer("ab")
+                                .reference("ref")
+                                .build())
+                        .referredDocumentAmount(2)
+                        .creditorReferenceInformation(FRRemittanceInformationStructuredCreditorReferenceInformation.builder()
+                                .code(FRExternalCreditorReferenceTypeCode.DISP)
+                                .issuer("ab")
+                                .reference("ref")
+                                .build())
+                        .invoicer("abcd")
+                        .invoicee("wxyz")
+                        .taxRemittance("blah")
+                        .additionalRemittanceInformation(Collections.singletonList("etc"))
+                        .build()))
+                .unstructured(List.of("INV.001"))
                 .build();
     }
 }
