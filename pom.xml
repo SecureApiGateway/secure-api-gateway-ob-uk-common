@@ -22,7 +22,7 @@
     <groupId>com.forgerock.sapi.gateway</groupId>
     <artifactId>secure-api-gateway-ob-uk-common</artifactId>
     <packaging>pom</packaging>
-    <version>4.0.1-SNAPSHOT</version>
+    <version>${revision}</version>
     <name>Secure API Gateway common and shared libraries for Open Banking UK specs</name>
     <url>https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common</url>
 
@@ -34,7 +34,7 @@
 
     <properties>
         <!-- Artifact versions -->
-        <revision>4.0.0-SNAPSHOT</revision>
+        <revision>4.0.1-SNAPSHOT</revision>
         <!-- Third Party versions -->
         <java.version>17</java.version>
         <!-- Plugin versions -->
