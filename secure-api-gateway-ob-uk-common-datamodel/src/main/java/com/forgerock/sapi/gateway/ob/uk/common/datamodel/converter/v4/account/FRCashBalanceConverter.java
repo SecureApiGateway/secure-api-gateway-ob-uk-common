@@ -25,6 +25,7 @@ import uk.org.openbanking.datamodel.v4.account.*;
 
 import java.util.List;
 
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRBalanceTypeConverter.toFRBalanceTypeV3;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRBalanceTypeConverter.toOBBalanceType1CodeV4;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRCreditDebitIndicatorConverter.toFRCreditDebitIndicator;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAmountConverter.*;
@@ -85,7 +86,7 @@ public class FRCashBalanceConverter {
 
     // OB to FR
     public static FRBalanceType toFRBalanceType(OBBalanceType1Code type) {
-        return type == null ? null : FRBalanceType.valueOf(type.name());
+        return type == null ? null : FRBalanceType.fromValue(String.valueOf(toFRBalanceTypeV3(type.name())));
     }
 
     public static FRCashBalanceData toFRCashBalanceData(OBReadBalance1Data balanceData) {

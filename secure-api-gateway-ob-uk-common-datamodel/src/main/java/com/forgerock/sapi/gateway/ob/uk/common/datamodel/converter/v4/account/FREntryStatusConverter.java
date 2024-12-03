@@ -58,5 +58,12 @@ public class FREntryStatusConverter {
         throw new IllegalArgumentException("Unknown entry Status: " + entryStatus);
     }
 
+    public static FREntryStatus toFREntryStatusV3(String entryStatus) {
+        if (v4tov3EntryStatus.containsKey(entryStatus)) {
+            return FREntryStatus.fromValue(v4tov3EntryStatus.get(entryStatus));
+        }
+        throw new IllegalArgumentException("Unknown entry Status: " + entryStatus);
+    }
+
     //TODO - add for other entry Status
 }

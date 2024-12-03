@@ -29,6 +29,7 @@ import uk.org.openbanking.datamodel.v4.account.OBStandingOrder6;
 import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRExternalMandateStatusConverter.toExternalMandateStatus1CodeV4;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRExternalMandateStatusConverter.toFRStandingOrderStatusV3;
 
 public class FRStandingOrderConverter {
 
@@ -62,11 +63,11 @@ public class FRStandingOrderConverter {
     }
 
     public static ExternalMandateStatus1Code toOBExternalStandingOrderStatus1Code(FRStandingOrderData.FRStandingOrderStatus standingOrderStatusCode) {
-        return standingOrderStatusCode == null ? null : ExternalMandateStatus1Code.valueOf(standingOrderStatusCode.name());
+        return standingOrderStatusCode == null ? null : ExternalMandateStatus1Code.fromValue(standingOrderStatusCode.name());
     }
 
     public static OBExternalMandateClassification1Code toOBExternalMandateClassification1Code(FRMandateRelatedInformation.FRExternalMandateClassificationCode externalMandateClassificationCode) {
-        return externalMandateClassificationCode == null ? null : OBExternalMandateClassification1Code.valueOf(externalMandateClassificationCode.name());
+        return externalMandateClassificationCode == null ? null : OBExternalMandateClassification1Code.fromValue(externalMandateClassificationCode.name());
     }
 
 
@@ -102,14 +103,14 @@ public class FRStandingOrderConverter {
     }
 
     public static FRStandingOrderData.FRStandingOrderStatus toFRStandingOrderStatus(ExternalMandateStatus1Code standingOrderStatusCode) {
-        return standingOrderStatusCode == null ? null : FRStandingOrderData.FRStandingOrderStatus.valueOf(standingOrderStatusCode.name());
+        return standingOrderStatusCode == null ? null : FRStandingOrderData.FRStandingOrderStatus.fromValue(String.valueOf(toFRStandingOrderStatusV3(standingOrderStatusCode.name())));
     }
 
     public static FRExternalCategoryPurposeCode toFRExternalCategoryPurposeCode(ExternalCategoryPurpose1Code externalCategoryPurpose1Code) {
-        return externalCategoryPurpose1Code == null ? null : FRExternalCategoryPurposeCode.valueOf(externalCategoryPurpose1Code.name());
+        return externalCategoryPurpose1Code == null ? null : FRExternalCategoryPurposeCode.fromValue(externalCategoryPurpose1Code.name());
     }
 
     public static FRMandateRelatedInformation.FRExternalMandateClassificationCode toFRExternalMandateClassificationCode(OBExternalMandateClassification1Code externalMandateClassification1Code) {
-        return externalMandateClassification1Code == null ? null : FRMandateRelatedInformation.FRExternalMandateClassificationCode.valueOf(externalMandateClassification1Code.name());
+        return externalMandateClassification1Code == null ? null : FRMandateRelatedInformation.FRExternalMandateClassificationCode.fromValue(externalMandateClassification1Code.name());
     }
 }

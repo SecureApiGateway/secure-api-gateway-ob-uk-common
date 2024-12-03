@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRPostalAddressConverter.toFRPostalAddress;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRPostalAddressConverter.toOBPostalAddress7;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRAccountSubTypeConverter.toFRAccountSubTypeCodeV3;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRAccountSubTypeConverter.toOBExternalAccountSubType1CodeV4;
 
 public class FRFinancialAccountConverter {
@@ -123,7 +124,7 @@ public class FRFinancialAccountConverter {
     }
 
     public static FRFinancialAccount.FRAccountSubTypeCode toFRAccountSubTypeCode(OBExternalAccountSubType1Code accountSubType) {
-        return accountSubType == null ? null : FRFinancialAccount.FRAccountSubTypeCode.fromValue(accountSubType.name());
+        return accountSubType == null ? null : FRFinancialAccount.FRAccountSubTypeCode.fromValue(String.valueOf(toFRAccountSubTypeCodeV3(accountSubType.name())));
     }
 
     public static <T> List<FRAccountIdentifier> toFRAccountIdentifierList(List<T> accounts, Function<T, FRAccountIdentifier> converter) {
