@@ -119,7 +119,7 @@ public class OBWriteFileConsentTestDataFactory {
                                 .identification("90611424625566")
                                 .name("Mr Johnny Marr")
                                 .secondaryIdentification("55")
-                                .LEI("8200007YHFDMEODY1965")
+                                .LEI("123400ABCDEF12345678")
                         )
                 );
     }
