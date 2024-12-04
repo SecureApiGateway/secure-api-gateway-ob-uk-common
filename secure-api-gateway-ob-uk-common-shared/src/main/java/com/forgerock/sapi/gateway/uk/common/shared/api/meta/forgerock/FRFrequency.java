@@ -118,7 +118,7 @@ public class FRFrequency {
      */
     public String getFormattedSentenceV4() {
         for (FRFrequencyCode6 code : FRFrequencyCode6.values()) {
-            if (code.getValue().equals(type)) {
+            if (code.equals(type)) {
                 return frequencyType.getSentence();
             }
         }
