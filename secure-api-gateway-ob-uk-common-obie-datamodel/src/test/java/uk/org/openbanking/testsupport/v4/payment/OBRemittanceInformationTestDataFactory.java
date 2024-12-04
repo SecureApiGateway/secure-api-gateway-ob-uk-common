@@ -18,6 +18,7 @@ package uk.org.openbanking.testsupport.v4.payment;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 import org.joda.time.DateTime;
 
@@ -35,7 +36,7 @@ public class OBRemittanceInformationTestDataFactory {
 
     public static OBRemittanceInformation2 aValidOBRemittanceInformation2() {
         return (new OBRemittanceInformation2())
-                .unstructured(Collections.singletonList("Internal ops code 5120103"))
+                .unstructured(List.of("INV.001"))
                 .structured(Collections.singletonList(aValidOBRemittanceInformationStructured()));
     }
 
