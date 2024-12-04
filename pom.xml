@@ -16,31 +16,20 @@
     limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.forgerock.sapi.gateway</groupId>
-    <artifactId>secure-api-gateway-ob-uk-common</artifactId>
-    <packaging>pom</packaging>
-    <version>${revision}</version>
-    <name>Secure API Gateway common and shared libraries for Open Banking UK specs</name>
-    <url>https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common</url>
-
     <parent>
         <groupId>com.forgerock.sapi.gateway</groupId>
         <artifactId>secure-api-gateway-parent</artifactId>
         <version>4.0.1-SNAPSHOT</version>
     </parent>
-
-    <properties>
-        <!-- Artifact versions -->
-        <revision>4.0.1-SNAPSHOT</revision>
-        <!-- Third Party versions -->
-        <java.version>17</java.version>
-        <!-- Plugin versions -->
-        <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
-    </properties>
-
+    <groupId>com.forgerock.sapi.gateway</groupId>
+    <artifactId>secure-api-gateway-ob-uk-common</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+    <name>Secure API Gateway common and shared libraries for Open Banking UK specs</name>
+    <url>https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common</url>
     <modules>
         <module>secure-api-gateway-ob-uk-common-bom</module>
         <module>secure-api-gateway-ob-uk-common-shared</module>
@@ -48,7 +37,20 @@
         <module>secure-api-gateway-ob-uk-common-datamodel</module>
         <module>secure-api-gateway-ob-uk-common-error</module>
     </modules>
-
+    <scm>
+        <connection>scm:git:${project.scm.url}</connection>
+        <developerConnection>scm:git:${project.scm.url}</developerConnection>
+        <url>https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common.git</url>
+        <tag>HEAD</tag>
+    </scm>
+    <properties>
+        <!-- Third Party versions -->
+        <java.version>17</java.version>
+        <!-- Plugin versions -->
+        <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
+        <!-- Artifact versions -->
+        <revision>4.0.1-SNAPSHOT</revision>
+    </properties>
     <repositories>
         <repository>
             <id>maven.forgerock.org-community</id>
@@ -70,24 +72,12 @@
             </snapshots>
         </repository>
     </repositories>
-
-    <scm>
-        <connection>scm:git:${project.scm.url}</connection>
-        <developerConnection>scm:git:${project.scm.url}</developerConnection>
-        <url>https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common.git</url>
-        <tag>HEAD</tag>
-    </scm>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
                 <version>${flatten-maven-plugin.version}</version>
-                <configuration>
-                    <updatePomFile>true</updatePomFile>
-                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
-                </configuration>
                 <executions>
                     <execution>
                         <id>flatten</id>
@@ -96,16 +86,12 @@
                             <goal>flatten</goal>
                         </goals>
                     </execution>
-                    <execution>
-                        <id>flatten.clean</id>
-                        <phase>clean</phase>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                    </execution>
                 </executions>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
