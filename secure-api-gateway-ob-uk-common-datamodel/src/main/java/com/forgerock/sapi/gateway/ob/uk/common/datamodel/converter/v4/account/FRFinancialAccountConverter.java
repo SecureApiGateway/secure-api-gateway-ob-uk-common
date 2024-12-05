@@ -51,7 +51,7 @@ public class FRFinancialAccountConverter {
     }
 
     public static OBInternalAccountStatus1Code toOBAccountStatus1Code(FRFinancialAccount.FRAccountStatusCode status) {
-        return status == null ? null : OBInternalAccountStatus1Code.fromValue(status.name());
+        return status == null ? null : OBInternalAccountStatus1Code.valueOf(status.name());
     }
 
     public static OBInternalAccountType1Code toOBInternalAccountType1Code(FRFinancialAccount.FRAccountTypeCode accountType) {
