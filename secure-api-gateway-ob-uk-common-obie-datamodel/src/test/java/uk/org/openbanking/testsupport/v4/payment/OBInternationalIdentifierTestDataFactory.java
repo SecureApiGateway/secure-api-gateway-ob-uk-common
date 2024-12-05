@@ -39,7 +39,7 @@ public class OBInternationalIdentifierTestDataFactory {
                 .schemeName(SCHEME_NAME)
                 .identification(IDENTIFICATION)
                 .name(CREDITOR_AGENT_NAME)
-                .LEI("blah")
+                .LEI("123400ABCDEF12345678")
                 .postalAddress(aValidOBPostalAddress7());
     }
 
@@ -79,7 +79,7 @@ public class OBInternationalIdentifierTestDataFactory {
     public static OBWriteInternational3DataInitiationCreditor aValidOBWriteInternational3DataInitiationCreditor() {
         return (new OBWriteInternational3DataInitiationCreditor())
                 .name(CREDITOR_NAME)
-                .LEI("blah")
+                .LEI("123400ABCDEF12345678")
                 .postalAddress(aValidOBPostalAddress7());
     }
 
