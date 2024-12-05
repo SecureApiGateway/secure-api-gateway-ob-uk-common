@@ -55,23 +55,23 @@ public class FRFinancialAccountConverter {
     }
 
     public static OBInternalAccountType1Code toOBInternalAccountType1Code(FRFinancialAccount.FRAccountTypeCode accountType) {
-        return accountType == null ? null : OBInternalAccountType1Code.fromValue(accountType.name());
+        return accountType == null ? null : OBInternalAccountType1Code.valueOf(accountType.name());
     }
 
     public static OBExternalAccountSubType1Code toOBExternalAccountSubType1Code(FRFinancialAccount.FRAccountSubTypeCode accountSubType) {
-        return accountSubType == null ? null : OBExternalAccountSubType1Code.fromValue(accountSubType.name());
+        return accountSubType == null ? null : OBExternalAccountSubType1Code.valueOf(accountSubType.name());
     }
 
     public static OBFrequency2 toOBFrequency2(FRFinancialAccount.FRStatementFrequency statementFrequency) {
-        return statementFrequency == null ? null : OBFrequency2.fromValue(statementFrequency.name());
+        return statementFrequency == null ? null : OBFrequency2.valueOf(statementFrequency.name());
     }
 
     public static OBFileFormat toOBFileFormat(FRFinancialAccount.FRFormat statementFrequency) {
-        return statementFrequency == null ? null : OBFileFormat.fromValue(statementFrequency.name());
+        return statementFrequency == null ? null : OBFileFormat.valueOf(statementFrequency.name());
     }
 
     public static OBCommunicationMethod toOBCommunicationMethod(FRFinancialAccount.FRCommunicationMethod communicationMethod) {
-        return communicationMethod == null ? null : OBCommunicationMethod.fromValue(communicationMethod.name());
+        return communicationMethod == null ? null : OBCommunicationMethod.valueOf(communicationMethod.name());
     }
 
     private static List<OBAccount6AccountInner> toOBAccount6AccountList(List<FRAccountIdentifier> accounts) {
@@ -116,15 +116,15 @@ public class FRFinancialAccountConverter {
     }
 
     public static FRFinancialAccount.FRAccountStatusCode toFRAccountStatusCode(OBInternalAccountStatus1Code status) {
-        return status == null ? null : FRFinancialAccount.FRAccountStatusCode.fromValue(status.name());
+        return status == null ? null : FRFinancialAccount.FRAccountStatusCode.valueOf(status.name());
     }
 
     public static FRFinancialAccount.FRAccountTypeCode toFRAccountTypeCode(OBInternalAccountType1Code accountType) {
-        return accountType == null ? null : FRFinancialAccount.FRAccountTypeCode.fromValue(accountType.name());
+        return accountType == null ? null : FRFinancialAccount.FRAccountTypeCode.valueOf(accountType.name());
     }
 
     public static FRFinancialAccount.FRAccountSubTypeCode toFRAccountSubTypeCode(OBExternalAccountSubType1Code accountSubType) {
-        return accountSubType == null ? null : FRFinancialAccount.FRAccountSubTypeCode.fromValue(String.valueOf(toFRAccountSubTypeCodeV3(accountSubType.name())));
+        return accountSubType == null ? null : FRFinancialAccount.FRAccountSubTypeCode.valueOf(String.valueOf(toFRAccountSubTypeCodeV3(accountSubType.name())));
     }
 
     public static <T> List<FRAccountIdentifier> toFRAccountIdentifierList(List<T> accounts, Function<T, FRAccountIdentifier> converter) {
@@ -143,15 +143,15 @@ public class FRFinancialAccountConverter {
     }
 
     public static FRFinancialAccount.FRFormat toFRFormat(OBFileFormat fileFormat) {
-        return fileFormat == null ? null : FRFinancialAccount.FRFormat.fromValue(fileFormat.name());
+        return fileFormat == null ? null : FRFinancialAccount.FRFormat.valueOf(fileFormat.name());
     }
 
     public static FRFinancialAccount.FRCommunicationMethod toFRCommunicationMethod(OBCommunicationMethod communicationMethod) {
-        return communicationMethod == null ? null : FRFinancialAccount.FRCommunicationMethod.fromValue(communicationMethod.name());
+        return communicationMethod == null ? null : FRFinancialAccount.FRCommunicationMethod.valueOf(communicationMethod.name());
     }
 
     public static FRFinancialAccount.FRStatementFrequency toFRStatementFrequency(OBFrequency2 obFrequency2) {
-        return obFrequency2 == null ? null : FRFinancialAccount.FRStatementFrequency.fromValue(obFrequency2.name());
+        return obFrequency2 == null ? null : FRFinancialAccount.FRStatementFrequency.valueOf(obFrequency2.name());
     }
 
     public static <T> List<FRFinancialAccount.FRStatementFrequencyAndFormat> toFRStatementFrequencyAndFormatList(List<T> accounts, Function<T, FRFinancialAccount.FRStatementFrequencyAndFormat> converter) {
