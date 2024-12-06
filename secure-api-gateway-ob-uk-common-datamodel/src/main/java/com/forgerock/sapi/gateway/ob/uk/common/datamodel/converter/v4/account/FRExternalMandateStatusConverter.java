@@ -59,6 +59,13 @@ public class FRExternalMandateStatusConverter {
         throw new IllegalArgumentException("Unknown external Mandate Status: " + externalMandateStatus);
     }
 
+    public static FRStandingOrderData.FRStandingOrderStatus toFRStandingOrderStatusV3(String externalMandateStatus) {
+        if (v4tov3ExternalMandateStatus.containsKey(externalMandateStatus)) {
+            return FRStandingOrderData.FRStandingOrderStatus.fromValue(v4tov3ExternalMandateStatus.get(externalMandateStatus));
+        }
+        throw new IllegalArgumentException("Unknown external Mandate Status: " + externalMandateStatus);
+    }
+
     //TODO - add for other external Mandate Status
 
     // FR to OB

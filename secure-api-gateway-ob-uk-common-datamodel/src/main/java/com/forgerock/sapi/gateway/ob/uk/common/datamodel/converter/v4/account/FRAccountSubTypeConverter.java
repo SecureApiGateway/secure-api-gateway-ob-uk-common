@@ -55,14 +55,21 @@ public class FRAccountSubTypeConverter {
             case LOAN -> OBExternalAccountSubType1Code.LOAN;
             case MORTGAGE -> OBExternalAccountSubType1Code.MORT;
             case SAVINGS -> OBExternalAccountSubType1Code.SVGS;
-            //case CURRENTACCOUNT -> OBExternalAccountSubType1Code.CACC;
-            default -> OBExternalAccountSubType1Code.CACC;
+            case CURRENTACCOUNT -> OBExternalAccountSubType1Code.CACC;
+            default -> OBExternalAccountSubType1Code.CASH;
         };
     }
 
     public static OBExternalAccountSubType1Code toOBExternalAccountSubType1CodeV4(String accountSubType) {
         if (v3tov4AccountSubType.containsKey(accountSubType)) {
             return OBExternalAccountSubType1Code.fromValue(v3tov4AccountSubType.get(accountSubType));
+        }
+        throw new IllegalArgumentException("Unknown consent status: " + accountSubType);
+    }
+
+    public static FRAccountSubTypeCode toFRAccountSubTypeCodeV3(String accountSubType) {
+        if (v4tov3AccountSubType.containsKey(accountSubType)) {
+            return FRAccountSubTypeCode.fromValue(v4tov3AccountSubType.get(accountSubType));
         }
         throw new IllegalArgumentException("Unknown consent status: " + accountSubType);
     }

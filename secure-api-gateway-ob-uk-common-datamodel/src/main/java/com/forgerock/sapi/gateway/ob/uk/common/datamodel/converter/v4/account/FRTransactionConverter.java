@@ -34,6 +34,7 @@ import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.acc
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRBalanceTypeConverter.toOBBalanceType1CodeV4;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FRCashBalanceConverter.toFRBalanceType;
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FREntryStatusConverter.toExternalEntryStatus1CodeV4;
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.account.FREntryStatusConverter.toFREntryStatusV3;
 
 public class FRTransactionConverter {
 
@@ -71,19 +72,19 @@ public class FRTransactionConverter {
     }
 
     public static ExternalEntryStatus1Code toOBEntryStatus1Code(FRTransactionData.FREntryStatus status) {
-        return status == null ? null : ExternalEntryStatus1Code.valueOf(status.name());
+        return status == null ? null : ExternalEntryStatus1Code.fromValue(status.name());
     }
 
     public static ExternalCategoryPurpose1Code toOBExternalCategoryPurpose1Code(FRExternalCategoryPurposeCode categoryPurposeCode) {
-        return categoryPurposeCode == null ? null : ExternalCategoryPurpose1Code.valueOf(categoryPurposeCode.name());
+        return categoryPurposeCode == null ? null : ExternalCategoryPurpose1Code.fromValue(categoryPurposeCode.name());
     }
 
     public static OBExternalPurpose1Code toExternalPurpose1Code(FRExternalPaymentPurposeCode externalPaymentPurposeCode) {
-        return externalPaymentPurposeCode == null ? null : OBExternalPurpose1Code.valueOf(externalPaymentPurposeCode.name());
+        return externalPaymentPurposeCode == null ? null : OBExternalPurpose1Code.fromValue(externalPaymentPurposeCode.name());
     }
 
     public static OBInternalTransactionMutability1Code toOBTransactionMutability1Code(FRTransactionData.FRTransactionMutability transactionMutability) {
-        return transactionMutability == null ? null : OBInternalTransactionMutability1Code.valueOf(transactionMutability.name());
+        return transactionMutability == null ? null : OBInternalTransactionMutability1Code.fromValue(transactionMutability.name());
     }
 
     public static OBBankTransactionCodeStructure1 toOBBankTransactionCodeStructure1(FRTransactionData.FRBankTransactionCodeStructure transactionCode) {
@@ -133,11 +134,11 @@ public class FRTransactionConverter {
     }
 
     public static OBTransactionCardInstrument1CardSchemeName toOBTransactionCardInstrument1CardSchemeName(FRTransactionData.FRCardScheme cardSchemeName) {
-        return cardSchemeName == null ? null : OBTransactionCardInstrument1CardSchemeName.valueOf(cardSchemeName.name());
+        return cardSchemeName == null ? null : OBTransactionCardInstrument1CardSchemeName.fromValue(cardSchemeName.name());
     }
 
     public static OBTransactionCardInstrument1AuthorisationType toOBTransactionCardInstrument1AuthorisationType(FRTransactionData.FRCardAuthorisationType authorisationType) {
-        return authorisationType == null ? null : OBTransactionCardInstrument1AuthorisationType.valueOf(authorisationType.name());
+        return authorisationType == null ? null : OBTransactionCardInstrument1AuthorisationType.fromValue(authorisationType.name());
     }
 
     // OB to FR
@@ -176,19 +177,19 @@ public class FRTransactionConverter {
     }
 
     public static FRTransactionData.FREntryStatus toFREntryStatus(ExternalEntryStatus1Code status) {
-        return status == null ? null : FRTransactionData.FREntryStatus.valueOf(status.name());
+        return status == null ? null : FRTransactionData.FREntryStatus.fromValue(String.valueOf(toFREntryStatusV3(status.name())));
     }
 
     public static FRTransactionData.FRTransactionMutability toFRTransactionMutability(OBInternalTransactionMutability1Code transactionMutability) {
-        return transactionMutability == null ? null : FRTransactionData.FRTransactionMutability.valueOf(transactionMutability.name());
+        return transactionMutability == null ? null : FRTransactionData.FRTransactionMutability.fromValue(transactionMutability.name());
     }
 
     public static FRExternalCategoryPurposeCode toFRExternalCategoryPurposeCode(ExternalCategoryPurpose1Code externalCategoryPurpose1Code) {
-        return externalCategoryPurpose1Code == null ? null : FRExternalCategoryPurposeCode.valueOf(externalCategoryPurpose1Code.name());
+        return externalCategoryPurpose1Code == null ? null : FRExternalCategoryPurposeCode.fromValue(externalCategoryPurpose1Code.name());
     }
 
     public static FRExternalPaymentPurposeCode toFRExternalCategoryPurposeCode(OBExternalPurpose1Code obExternalPurpose1Code) {
-        return obExternalPurpose1Code == null ? null : FRExternalPaymentPurposeCode.valueOf(obExternalPurpose1Code.name());
+        return obExternalPurpose1Code == null ? null : FRExternalPaymentPurposeCode.fromValue(obExternalPurpose1Code.name());
     }
 
     public static FRTransactionData.FRBankTransactionCodeStructure toFRBankTransactionCodeStructure(OBBankTransactionCodeStructure1 transactionCode) {
@@ -244,10 +245,10 @@ public class FRTransactionConverter {
     }
 
     public static FRTransactionData.FRCardScheme toFRCardScheme(OBTransactionCardInstrument1CardSchemeName cardSchemeName) {
-        return cardSchemeName == null ? null : FRTransactionData.FRCardScheme.valueOf(cardSchemeName.name());
+        return cardSchemeName == null ? null : FRTransactionData.FRCardScheme.fromValue(cardSchemeName.name());
     }
 
     public static FRTransactionData.FRCardAuthorisationType toFRCardAuthorisationType(OBTransactionCardInstrument1AuthorisationType authorisationType) {
-        return authorisationType == null ? null : FRTransactionData.FRCardAuthorisationType.valueOf(authorisationType.name());
+        return authorisationType == null ? null : FRTransactionData.FRCardAuthorisationType.fromValue(authorisationType.name());
     }
 }

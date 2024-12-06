@@ -74,5 +74,12 @@ public class FRBalanceTypeConverter {
         throw new IllegalArgumentException("Unknown balanceType: " + balanceType);
     }
 
+    public static FRBalanceType toFRBalanceTypeV3(String balanceType) {
+        if (v4tov3BalanceType.containsKey(balanceType)) {
+            return FRBalanceType.fromValue(v4tov3BalanceType.get(balanceType));
+        }
+        throw new IllegalArgumentException("Unknown balanceType: " + balanceType);
+    }
+
     //TODO - add for other balance Types
 }
