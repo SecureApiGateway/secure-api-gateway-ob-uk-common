@@ -31,6 +31,7 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common.FRR
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRAccountIdentifierConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRRiskConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRRegulatoryReportingConverter;
+import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.payment.FRUltimateCreditorConverter;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpInstruction;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpRequest;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.vrp.FRDomesticVrpRequestData;
@@ -78,6 +79,7 @@ public class FRDomesticVrpConverters {
                 .localInstrument(instruction.getLocalInstrument())
                 .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformationVrp(instruction.getRemittanceInformation()))
                 .supplementaryData(toFRSupplementaryData(instruction.getSupplementaryData()))
+                .ultimateCreditor(FRAccountIdentifierConverter.toFRCreditorAgent(instruction.getUltimateCreditor()))
                 .build();
         return frInstruction;
     }
