@@ -25,8 +25,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import uk.org.openbanking.datamodel.v4.payment.OBPaymentConsentStatus;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalConsentResponse6DataStatus;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteFileConsentResponse4DataStatus;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalConsentResponse6DataStatus;
 import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPConsentStatus;
 
 public class FRConsentStatusConverter {
@@ -70,9 +70,10 @@ public class FRConsentStatusConverter {
 
     static {
         final Map<String, String> consentStatusTranslations = new HashMap<>();
-        consentStatusTranslations.put(AWAITINGAUTHORISATION.getValue(), OBWriteInternationalConsentResponse6DataStatus.AWAU.getValue());
-        consentStatusTranslations.put(AUTHORISED.getValue(), OBWriteInternationalConsentResponse6DataStatus.AUTH.getValue());
-        consentStatusTranslations.put(REJECTED.getValue(), OBWriteInternationalConsentResponse6DataStatus.RJCT.getValue());
+        consentStatusTranslations.put(uk.org.openbanking.datamodel.v3.payment.OBPaymentConsentStatus.AWAITINGAUTHORISATION.getValue(), OBWriteInternationalConsentResponse6DataStatus.AWAU.getValue());
+        consentStatusTranslations.put(uk.org.openbanking.datamodel.v3.payment.OBPaymentConsentStatus.AUTHORISED.getValue(), OBWriteInternationalConsentResponse6DataStatus.AUTH.getValue());
+        consentStatusTranslations.put(uk.org.openbanking.datamodel.v3.payment.OBPaymentConsentStatus.CONSUMED.getValue(), OBWriteInternationalConsentResponse6DataStatus.COND.getValue());
+        consentStatusTranslations.put(uk.org.openbanking.datamodel.v3.payment.OBPaymentConsentStatus.REJECTED.getValue(), OBWriteInternationalConsentResponse6DataStatus.RJCT.getValue());
 
         v3tov4InternationalConsentStatus = Collections.unmodifiableMap(consentStatusTranslations);
         v4tov3InternationalConsentStatus = consentStatusTranslations.entrySet().stream().collect(toMap(Map.Entry::getValue, Map.Entry::getKey));
@@ -104,7 +105,7 @@ public class FRConsentStatusConverter {
         throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
     }
 
-    public static OBWriteInternationalConsentResponse6DataStatus toOBWriteInternationalConsentResponse6DataStatus(String consentStatus) {
+    public static OBWriteInternationalConsentResponse6DataStatus toOBWriteInternationalConsentResponse6DataStatusV4(String consentStatus) {
         if (v3tov4InternationalConsentStatus.containsKey(consentStatus)) {
             return OBWriteInternationalConsentResponse6DataStatus.fromValue(v3tov4InternationalConsentStatus.get(consentStatus));
         }
