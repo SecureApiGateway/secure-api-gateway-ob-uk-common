@@ -15,11 +15,13 @@
  */
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common;
 
+import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common.FRProxyConverter.toOBProxy1;
+
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRAccountIdentifier;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRFinancialAgent;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.mapper.FRModelMapper;
-
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRProxy;
+
 import uk.org.openbanking.datamodel.v4.account.OBAccount6AccountInner;
 import uk.org.openbanking.datamodel.v4.account.OBCashAccount50;
 import uk.org.openbanking.datamodel.v4.account.OBCashAccount51;
@@ -30,7 +32,13 @@ import uk.org.openbanking.datamodel.v4.common.OBProxy1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
 import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmationConsent1DataDebtorAccount;
-import uk.org.openbanking.datamodel.v4.payment.*;
+import uk.org.openbanking.datamodel.v4.payment.OBCashAccountDebtor4;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationCreditorAgent;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationDebtorAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAccount;
 import uk.org.openbanking.datamodel.v4.vrp.OBCashAccountDebtorWithName;
 
 public class FRAccountIdentifierConverter {
@@ -49,7 +57,13 @@ public class FRAccountIdentifierConverter {
     }
 
     public static FRAccountIdentifier toFRAccountIdentifier(OBCashAccountDebtor4 account) {
-        return FRModelMapper.map(account, FRAccountIdentifier.class);
+        return account == null ? null : FRAccountIdentifier.builder()
+                .schemeName(account.getSchemeName())
+                .identification(account.getIdentification())
+                .name(account.getName())
+                .secondaryIdentification(account.getSecondaryIdentification())
+                .LEI(account.getLEI())
+                .build();
     }
 
     public static FRAccountIdentifier toFRAccountIdentifier(OBCashAccountCreditor3 account) {
@@ -82,6 +96,7 @@ public class FRAccountIdentifierConverter {
                 .identification(account.getIdentification())
                 .name(account.getName())
                 .secondaryIdentification(account.getSecondaryIdentification())
+                .proxy(toFRProxy(account.getProxy()))
                 .build();
     }
 
@@ -104,8 +119,13 @@ public class FRAccountIdentifierConverter {
         return FRModelMapper.map(account, OBCashAccountCreditor3.class);
     }
 
-    public static OBCashAccountDebtor4 toOBCashAccountDebtor4(FRAccountIdentifier account) {
-        return FRModelMapper.map(account, OBCashAccountDebtor4.class);
+    public static OBCashAccountDebtor4 toOBCashAccountDebtor4(FRAccountIdentifier accountIdentifier) {
+        return accountIdentifier == null ? null : new OBCashAccountDebtor4()
+                .identification(accountIdentifier.getIdentification())
+                .name(accountIdentifier.getName())
+                .schemeName(accountIdentifier.getSchemeName())
+                .secondaryIdentification(accountIdentifier.getSecondaryIdentification())
+                .LEI(accountIdentifier.getLEI());
     }
 
     public static OBCashAccountDebtorWithName toOBCashAccountDebtorWithName(FRAccountIdentifier accountIdentifier) {
@@ -113,7 +133,8 @@ public class FRAccountIdentifierConverter {
                 .identification(accountIdentifier.getIdentification())
                 .name(accountIdentifier.getName())
                 .schemeName(accountIdentifier.getSchemeName())
-                .secondaryIdentification(accountIdentifier.getSecondaryIdentification());
+                .secondaryIdentification(accountIdentifier.getSecondaryIdentification())
+                .proxy(toOBProxy1(accountIdentifier.getProxy()));
     }
 
     public static OBCashAccount50 toOBCashAccount50(FRAccountIdentifier account) {
