@@ -25,7 +25,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import uk.org.openbanking.datamodel.v4.payment.OBPaymentConsentStatus;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalConsentResponse6DataStatus;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteFileConsentResponse4DataStatus;
 import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPConsentStatus;
 
@@ -38,10 +37,6 @@ public class FRConsentStatusConverter {
     private static final Map<String, String> v3tov4VrpConsentStatus;
 
     private static final Map<String, String> v4tov3VrpConsentStatus;
-
-    private static final Map<String, String> v3tov4InternationalConsentStatus;
-
-    private static final Map<String, String> v4tov3InternationalConsentStatus;
 
     static {
         final Map<String, String> consentStatusTranslations = new HashMap<>();
@@ -69,16 +64,6 @@ public class FRConsentStatusConverter {
     }
 
     static {
-        final Map<String, String> consentStatusTranslations = new HashMap<>();
-        consentStatusTranslations.put(AWAITINGAUTHORISATION.getValue(), OBWriteInternationalConsentResponse6DataStatus.AWAU.getValue());
-        consentStatusTranslations.put(AUTHORISED.getValue(), OBWriteInternationalConsentResponse6DataStatus.AUTH.getValue());
-        consentStatusTranslations.put(REJECTED.getValue(), OBWriteInternationalConsentResponse6DataStatus.RJCT.getValue());
-
-        v3tov4InternationalConsentStatus = Collections.unmodifiableMap(consentStatusTranslations);
-        v4tov3InternationalConsentStatus = consentStatusTranslations.entrySet().stream().collect(toMap(Map.Entry::getValue, Map.Entry::getKey));
-    }
-
-    static {
         final Map<String, String> consentStatusTransalations = new HashMap<>();
         consentStatusTransalations.put(uk.org.openbanking.datamodel.v3.payment.OBWriteFileConsentResponse4DataStatus.AWAITINGAUTHORISATION.getValue(), OBWriteFileConsentResponse4DataStatus.AWAU.getValue());
         consentStatusTransalations.put(uk.org.openbanking.datamodel.v3.payment.OBWriteFileConsentResponse4DataStatus.AUTHORISED.getValue(), OBWriteFileConsentResponse4DataStatus.AUTH.getValue());
@@ -100,13 +85,6 @@ public class FRConsentStatusConverter {
     public static OBDomesticVRPConsentStatus toVrpOBPaymentConsentStatusV4(String consentStatus) {
         if (v3tov4VrpConsentStatus.containsKey(consentStatus)) {
             return OBDomesticVRPConsentStatus.fromValue(v3tov4VrpConsentStatus.get(consentStatus));
-        }
-        throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
-    }
-
-    public static OBWriteInternationalConsentResponse6DataStatus toOBWriteInternationalConsentResponse6DataStatus(String consentStatus) {
-        if (v3tov4InternationalConsentStatus.containsKey(consentStatus)) {
-            return OBWriteInternationalConsentResponse6DataStatus.fromValue(v3tov4InternationalConsentStatus.get(consentStatus));
         }
         throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
     }
