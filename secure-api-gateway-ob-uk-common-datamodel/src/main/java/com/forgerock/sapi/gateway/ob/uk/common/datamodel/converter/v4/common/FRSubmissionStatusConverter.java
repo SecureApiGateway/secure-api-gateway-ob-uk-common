@@ -102,15 +102,13 @@ public class FRSubmissionStatusConverter {
             return null;
         }
         switch (status) {
-        case INITIATIONPENDING:
+        case PENDING:
             return OBWriteInternationalResponse5DataStatus.PDNG;
-        case INITIATIONCOMPLETED:
-            return OBWriteInternationalResponse5DataStatus.INCO;
         case CANCELLED:
             return OBWriteInternationalResponse5DataStatus.CANC;
         default:
             return OBWriteInternationalResponse5DataStatus.RJCT;
-        // might as well be blocked, in which case -> return OBWriteDomesticStandingOrderResponse6DataStatus.BLCK;
+        // might as well be blocked, in which case -> return OBWriteInternationalResponse5DataStatus.BLCK;
         }
     }
 
@@ -156,7 +154,6 @@ public class FRSubmissionStatusConverter {
             return OBWriteInternationalScheduledResponse6DataStatus.CANC;
         default:
             return OBWriteInternationalScheduledResponse6DataStatus.BLCK;
-        // might as well be blocked, in which case -> return OBWriteDomesticStandingOrderResponse6DataStatus.BLCK;
         }
     }
 

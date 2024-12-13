@@ -24,21 +24,21 @@ import java.util.Map;
 import uk.org.openbanking.datamodel.v3.payment.OBPaymentConsentStatus;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalConsentResponse6DataStatus;
 
-public class FRInternationalScheduledPaymentsConsentStatusConverter {
+public class FRInternationalConsentStatusConverter {
 
     private static final Map<String, String> v3tov4ConsentStatus;
 
     private static final Map<String, String> v4tov3ConsentStatus;
 
     static {
-        final Map<String, String> consentStatusTransalations = new HashMap<>();
-        consentStatusTransalations.put(OBPaymentConsentStatus.AWAITINGAUTHORISATION.getValue(), OBWriteInternationalConsentResponse6DataStatus.AWAU.getValue());
-        consentStatusTransalations.put(OBPaymentConsentStatus.AUTHORISED.getValue(), OBWriteInternationalConsentResponse6DataStatus.AUTH.getValue());
-        consentStatusTransalations.put(OBPaymentConsentStatus.CONSUMED.getValue(), OBWriteInternationalConsentResponse6DataStatus.COND.getValue());
-        consentStatusTransalations.put(OBPaymentConsentStatus.REJECTED.getValue(), OBWriteInternationalConsentResponse6DataStatus.RJCT.getValue());
+        final Map<String, String> consentStatusTranslations = new HashMap<>();
+        consentStatusTranslations.put(OBPaymentConsentStatus.AWAITINGAUTHORISATION.getValue(), OBWriteInternationalConsentResponse6DataStatus.AWAU.getValue());
+        consentStatusTranslations.put(OBPaymentConsentStatus.AUTHORISED.getValue(), OBWriteInternationalConsentResponse6DataStatus.AUTH.getValue());
+        consentStatusTranslations.put(OBPaymentConsentStatus.CONSUMED.getValue(), OBWriteInternationalConsentResponse6DataStatus.COND.getValue());
+        consentStatusTranslations.put(OBPaymentConsentStatus.REJECTED.getValue(), OBWriteInternationalConsentResponse6DataStatus.RJCT.getValue());
 
-        v3tov4ConsentStatus = Collections.unmodifiableMap(consentStatusTransalations);
-        v4tov3ConsentStatus = consentStatusTransalations.entrySet().stream().collect(toMap(Map.Entry::getValue, Map.Entry::getKey));
+        v3tov4ConsentStatus = Collections.unmodifiableMap(consentStatusTranslations);
+        v4tov3ConsentStatus = consentStatusTranslations.entrySet().stream().collect(toMap(Map.Entry::getValue, Map.Entry::getKey));
     }
 
     public static OBWriteInternationalConsentResponse6DataStatus toOBPaymentConsentStatusV4(String consentStatus) {
