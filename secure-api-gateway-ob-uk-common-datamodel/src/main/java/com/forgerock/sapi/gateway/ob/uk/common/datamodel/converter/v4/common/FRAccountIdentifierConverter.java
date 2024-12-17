@@ -56,8 +56,18 @@ public class FRAccountIdentifierConverter {
         return FRModelMapper.map(account, FRAccountIdentifier.class);
     }
 
-    public static FRAccountIdentifier toFRAccountIdentifier(OBCashAccountDebtor4 account) {
+/*    public static FRAccountIdentifier toFRAccountIdentifier(OBCashAccountDebtor4 account) {
         return FRModelMapper.map(account, FRAccountIdentifier.class);
+    }*/
+
+    public static FRAccountIdentifier toFRAccountIdentifier(OBCashAccountDebtor4 account) {
+        return account == null ? null : FRAccountIdentifier.builder()
+                .schemeName(account.getSchemeName())
+                .identification(account.getIdentification())
+                .name(account.getName())
+                .secondaryIdentification(account.getSecondaryIdentification())
+                .LEI(account.getLEI())
+                .build();
     }
 
     public static FRAccountIdentifier toFRAccountIdentifier(OBCashAccountCreditor3 account) {
@@ -113,8 +123,17 @@ public class FRAccountIdentifierConverter {
         return FRModelMapper.map(account, OBCashAccountCreditor3.class);
     }
 
-    public static OBCashAccountDebtor4 toOBCashAccountDebtor4(FRAccountIdentifier account) {
+/*    public static OBCashAccountDebtor4 toOBCashAccountDebtor4(FRAccountIdentifier account) {
         return FRModelMapper.map(account, OBCashAccountDebtor4.class);
+    }*/
+
+    public static OBCashAccountDebtor4 toOBCashAccountDebtor4(FRAccountIdentifier account) {
+        return account == null ? null : new OBCashAccountDebtor4()
+                .identification(account.getIdentification())
+                .name(account.getName())
+                .schemeName(account.getSchemeName())
+                .secondaryIdentification(account.getSecondaryIdentification())
+                .LEI(account.getLEI());
     }
 
     public static OBCashAccountDebtorWithName toOBCashAccountDebtorWithName(FRAccountIdentifier accountIdentifier) {
