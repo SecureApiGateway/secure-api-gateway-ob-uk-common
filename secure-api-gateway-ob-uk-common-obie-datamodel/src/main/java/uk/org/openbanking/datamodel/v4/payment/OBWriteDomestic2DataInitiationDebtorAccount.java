@@ -24,7 +24,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBProxy1;
 
@@ -179,6 +178,11 @@ public class OBWriteDomestic2DataInitiationDebtorAccount {
                 Objects.equals(this.name, obWriteDomestic2DataInitiationDebtorAccount.name) &&
                 Objects.equals(this.secondaryIdentification, obWriteDomestic2DataInitiationDebtorAccount.secondaryIdentification) &&
                 Objects.equals(this.proxy, obWriteDomestic2DataInitiationDebtorAccount.proxy);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(schemeName, identification, name, secondaryIdentification, proxy);
     }
 
     @Override
