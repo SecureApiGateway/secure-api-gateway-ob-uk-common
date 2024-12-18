@@ -47,8 +47,6 @@ public class OBWriteDomestic2DataInitiationDebtorAccount {
 
     private OBProxy1 proxy;
 
-    private String LEI;
-
     public OBWriteDomestic2DataInitiationDebtorAccount() {
         super();
     }
@@ -167,28 +165,6 @@ public class OBWriteDomestic2DataInitiationDebtorAccount {
         this.proxy = proxy;
     }
 
-    public OBWriteDomestic2DataInitiationDebtorAccount LEI(String LEI) {
-        this.LEI = LEI;
-        return this;
-    }
-
-    /**
-     * Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".
-     *
-     * @return LEI
-     */
-    @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
-    @Size(min = 1, max = 20)
-    @Schema(name = "LEI", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("LEI")
-    public String getLEI() {
-        return LEI;
-    }
-
-    public void setLEI(String LEI) {
-        this.LEI = LEI;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -202,13 +178,7 @@ public class OBWriteDomestic2DataInitiationDebtorAccount {
                 Objects.equals(this.identification, obWriteDomestic2DataInitiationDebtorAccount.identification) &&
                 Objects.equals(this.name, obWriteDomestic2DataInitiationDebtorAccount.name) &&
                 Objects.equals(this.secondaryIdentification, obWriteDomestic2DataInitiationDebtorAccount.secondaryIdentification) &&
-                Objects.equals(this.proxy, obWriteDomestic2DataInitiationDebtorAccount.proxy) &&
-                Objects.equals(this.LEI, obWriteDomestic2DataInitiationDebtorAccount.LEI);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(schemeName, identification, name, secondaryIdentification, proxy, LEI);
+                Objects.equals(this.proxy, obWriteDomestic2DataInitiationDebtorAccount.proxy);
     }
 
     @Override
@@ -220,7 +190,6 @@ public class OBWriteDomestic2DataInitiationDebtorAccount {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    secondaryIdentification: ").append(toIndentedString(secondaryIdentification)).append("\n");
         sb.append("    proxy: ").append(toIndentedString(proxy)).append("\n");
-        sb.append("    LEI: ").append(toIndentedString(LEI)).append("\n");
         sb.append("}");
         return sb.toString();
     }
