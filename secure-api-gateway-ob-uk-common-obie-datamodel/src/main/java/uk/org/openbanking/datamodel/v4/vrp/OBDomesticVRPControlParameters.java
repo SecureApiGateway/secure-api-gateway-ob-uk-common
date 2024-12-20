@@ -29,6 +29,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.v4.common.OBActiveOrHistoricCurrencyAndAmount;
 
 /**
@@ -58,7 +59,7 @@ public class OBDomesticVRPControlParameters {
     @Valid
     private List<@Valid OBVRPInteractionTypes> psUInteractionTypes;
 
-    private Object supplementaryData;
+    private OBSupplementaryData1 supplementaryData;
 
     public OBDomesticVRPControlParameters() {
         super();
@@ -258,7 +259,7 @@ public class OBDomesticVRPControlParameters {
         this.psUInteractionTypes = psUInteractionTypes;
     }
 
-    public OBDomesticVRPControlParameters supplementaryData(Object supplementaryData) {
+    public OBDomesticVRPControlParameters supplementaryData(OBSupplementaryData1 supplementaryData) {
         this.supplementaryData = supplementaryData;
         return this;
     }
@@ -271,11 +272,11 @@ public class OBDomesticVRPControlParameters {
 
     @Schema(name = "SupplementaryData", description = "^ Additional information that can not be captured in the structured fields and/or any other specific block", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")
-    public Object getSupplementaryData() {
+    public OBSupplementaryData1 getSupplementaryData() {
         return supplementaryData;
     }
 
-    public void setSupplementaryData(Object supplementaryData) {
+    public void setSupplementaryData(OBSupplementaryData1 supplementaryData) {
         this.supplementaryData = supplementaryData;
     }
 
