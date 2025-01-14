@@ -49,11 +49,7 @@ public enum OBWriteInternationalResponse5DataStatus {
 
     BLCK("BLCK"),
 
-    RJCT("RJCT"),
-
-    INCO("INCO"),
-
-    CANC("CANC");
+    RJCT("RJCT");
 
     private String value;
 

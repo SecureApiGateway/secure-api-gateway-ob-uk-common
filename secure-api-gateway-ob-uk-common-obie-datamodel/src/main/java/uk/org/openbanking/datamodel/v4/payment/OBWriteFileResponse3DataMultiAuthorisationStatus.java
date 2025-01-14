@@ -21,39 +21,21 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Specifies the status of the payment order resource.
+ * Specifies the status of the authorisation flow in code form.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBWriteInternationalScheduledResponse6DataStatus {
+public enum OBWriteFileResponse3DataMultiAuthorisationStatus {
 
-    PDNG("PDNG"),
+    AUTH("AUTH"),
 
-    ACTC("ACTC"),
-
-    PATC("PATC"),
-
-    ACCP("ACCP"),
-
-    ACFC("ACFC"),
-
-    ACSP("ACSP"),
-
-    ACWC("ACWC"),
-
-    ACSC("ACSC"),
-
-    ACWP("ACWP"),
-
-    ACCC("ACCC"),
-
-    BLCK("BLCK"),
+    AWAF("AWAF"),
 
     RJCT("RJCT");
 
     private String value;
 
-    OBWriteInternationalScheduledResponse6DataStatus(String value) {
+    OBWriteFileResponse3DataMultiAuthorisationStatus(String value) {
         this.value = value;
     }
 
@@ -68,8 +50,8 @@ public enum OBWriteInternationalScheduledResponse6DataStatus {
     }
 
     @JsonCreator
-    public static OBWriteInternationalScheduledResponse6DataStatus fromValue(String value) {
-        for (OBWriteInternationalScheduledResponse6DataStatus b : OBWriteInternationalScheduledResponse6DataStatus.values()) {
+    public static OBWriteFileResponse3DataMultiAuthorisationStatus fromValue(String value) {
+        for (OBWriteFileResponse3DataMultiAuthorisationStatus b : OBWriteFileResponse3DataMultiAuthorisationStatus.values()) {
             if (b.value.equals(value)) {
                 return b;
             }

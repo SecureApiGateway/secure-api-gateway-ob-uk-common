@@ -15,15 +15,16 @@
  */
 package uk.org.openbanking.datamodel.v4.fund;
 
+import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBProxy1;
-
-import java.util.Objects;
 
 /**
  * Unambiguous identification of the account of the debtor to which a confirmation of funds consent will be applied.

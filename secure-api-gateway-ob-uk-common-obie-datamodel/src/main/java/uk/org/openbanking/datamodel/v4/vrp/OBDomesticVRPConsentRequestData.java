@@ -47,8 +47,7 @@ public class OBDomesticVRPConsentRequestData {
     /**
      * Constructor with only required parameters
      */
-    public OBDomesticVRPConsentRequestData(OBDomesticVRPControlParameters controlParameters,
-                                           OBDomesticVRPInitiation initiation) {
+    public OBDomesticVRPConsentRequestData(OBDomesticVRPControlParameters controlParameters, OBDomesticVRPInitiation initiation) {
         this.controlParameters = controlParameters;
         this.initiation = initiation;
     }
@@ -149,7 +148,8 @@ public class OBDomesticVRPConsentRequestData {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {
