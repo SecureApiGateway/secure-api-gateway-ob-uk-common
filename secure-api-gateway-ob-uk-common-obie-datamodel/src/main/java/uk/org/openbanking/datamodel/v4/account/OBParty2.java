@@ -299,7 +299,7 @@ public class OBParty2 {
      * @return phone
      */
     @Pattern(regexp = "\\+[0-9]{1,3}-[0-9()+\\-]{1,30}")
-    @Schema(name = "Phone", example = "+442079460000", description = "Collection of information that identifies a phone number, as defined by telecom services.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Phone", example = "+44-2079460000", description = "Collection of information that identifies a phone number, as defined by telecom services.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Phone")
     public String getPhone() {
         return phone;
@@ -320,7 +320,7 @@ public class OBParty2 {
      * @return mobile
      */
     @Pattern(regexp = "\\+[0-9]{1,3}-[0-9()+\\-]{1,30}")
-    @Schema(name = "Mobile", example = "+447700900000", description = "Collection of information that identifies a mobile phone number, as defined by telecom services.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Mobile", example = "+44-7700900000", description = "Collection of information that identifies a mobile phone number, as defined by telecom services.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Mobile")
     public String getMobile() {
         return mobile;

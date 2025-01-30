@@ -15,6 +15,8 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -224,7 +226,7 @@ public class OBStatement2StatementFeeInner {
         return Objects.equals(this.description, obStatement2StatementFeeInner.description) &&
                 Objects.equals(this.creditDebitIndicator, obStatement2StatementFeeInner.creditDebitIndicator) &&
                 Objects.equals(this.type, obStatement2StatementFeeInner.type) &&
-                Objects.equals(this.rate, obStatement2StatementFeeInner.rate) &&
+                isEqual(this.rate, obStatement2StatementFeeInner.rate) &&
                 Objects.equals(this.rateType, obStatement2StatementFeeInner.rateType) &&
                 Objects.equals(this.frequency, obStatement2StatementFeeInner.frequency) &&
                 Objects.equals(this.amount, obStatement2StatementFeeInner.amount);

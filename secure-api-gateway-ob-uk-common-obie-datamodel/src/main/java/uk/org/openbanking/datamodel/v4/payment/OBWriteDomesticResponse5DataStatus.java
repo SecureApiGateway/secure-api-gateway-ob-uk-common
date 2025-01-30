@@ -27,6 +27,8 @@ import jakarta.annotation.Generated;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBWriteDomesticResponse5DataStatus {
 
+    RCVD("RCVD"),
+
     PDNG("PDNG"),
 
     ACTC("ACTC"),
