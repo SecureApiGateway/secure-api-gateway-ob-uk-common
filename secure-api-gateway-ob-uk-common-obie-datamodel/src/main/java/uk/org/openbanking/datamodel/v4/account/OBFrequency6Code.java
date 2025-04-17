@@ -43,7 +43,21 @@ public enum OBFrequency6Code {
 
     MIAN("MIAN"),
 
-    WEEK("WEEK");
+    WEEK("WEEK"),
+
+    WODL("WODL"),
+
+    FOWK("FOWK"),
+
+    TWMH("TWMH"),
+
+    FOMH("FOMH"),
+
+    FIMH("FIMH"),
+
+    ALMH("ALMH"),
+
+    NONE("NONE");
 
     private String value;
 

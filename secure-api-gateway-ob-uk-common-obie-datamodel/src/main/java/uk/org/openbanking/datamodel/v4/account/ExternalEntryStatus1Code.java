@@ -33,7 +33,9 @@ public enum ExternalEntryStatus1Code {
 
     INFO("INFO"),
 
-    PDNG("PDNG");
+    PDNG("PDNG"),
+
+    RJCT("RJCT");
 
     private String value;
 

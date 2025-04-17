@@ -42,6 +42,8 @@ public class OBWriteDomesticStandingOrderConsentResponse6DataInitiation {
 
     private OBRemittanceInformation2 remittanceInformation;
 
+    private String numberOfPayments;
+
     private OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount firstPaymentAmount;
 
     private OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount recurringPaymentAmount;
@@ -95,6 +97,27 @@ public class OBWriteDomesticStandingOrderConsentResponse6DataInitiation {
 
     public void setRemittanceInformation(OBRemittanceInformation2 remittanceInformation) {
         this.remittanceInformation = remittanceInformation;
+    }
+
+    public OBWriteDomesticStandingOrderConsentResponse6DataInitiation numberOfPayments(String numberOfPayments) {
+        this.numberOfPayments = numberOfPayments;
+        return this;
+    }
+
+    /**
+     * Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.
+     *
+     * @return numberOfPayments
+     */
+    @Size(min = 1, max = 35)
+    @Schema(name = "NumberOfPayments", description = "Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("NumberOfPayments")
+    public String getNumberOfPayments() {
+        return numberOfPayments;
+    }
+
+    public void setNumberOfPayments(String numberOfPayments) {
+        this.numberOfPayments = numberOfPayments;
     }
 
     public OBWriteDomesticStandingOrderConsentResponse6DataInitiation firstPaymentAmount(OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount firstPaymentAmount) {
@@ -329,6 +352,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6DataInitiation {
         }
         OBWriteDomesticStandingOrderConsentResponse6DataInitiation obWriteDomesticStandingOrderConsentResponse6DataInitiation = (OBWriteDomesticStandingOrderConsentResponse6DataInitiation) o;
         return Objects.equals(this.remittanceInformation, obWriteDomesticStandingOrderConsentResponse6DataInitiation.remittanceInformation) &&
+                Objects.equals(this.numberOfPayments, obWriteDomesticStandingOrderConsentResponse6DataInitiation.numberOfPayments) &&
                 Objects.equals(this.firstPaymentAmount, obWriteDomesticStandingOrderConsentResponse6DataInitiation.firstPaymentAmount) &&
                 Objects.equals(this.recurringPaymentAmount, obWriteDomesticStandingOrderConsentResponse6DataInitiation.recurringPaymentAmount) &&
                 Objects.equals(this.finalPaymentAmount, obWriteDomesticStandingOrderConsentResponse6DataInitiation.finalPaymentAmount) &&
@@ -343,7 +367,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6DataInitiation {
 
     @Override
     public int hashCode() {
-        return Objects.hash(remittanceInformation, firstPaymentAmount, recurringPaymentAmount, finalPaymentAmount, debtorAccount, creditorAccount, ultimateCreditor, ultimateDebtor, regulatoryReporting, mandateRelatedInformation, supplementaryData);
+        return Objects.hash(remittanceInformation, numberOfPayments, firstPaymentAmount, recurringPaymentAmount, finalPaymentAmount, debtorAccount, creditorAccount, ultimateCreditor, ultimateDebtor, regulatoryReporting, mandateRelatedInformation, supplementaryData);
     }
 
     @Override
@@ -351,6 +375,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6DataInitiation {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteDomesticStandingOrderConsentResponse6DataInitiation {\n");
         sb.append("    remittanceInformation: ").append(toIndentedString(remittanceInformation)).append("\n");
+        sb.append("    numberOfPayments: ").append(toIndentedString(numberOfPayments)).append("\n");
         sb.append("    firstPaymentAmount: ").append(toIndentedString(firstPaymentAmount)).append("\n");
         sb.append("    recurringPaymentAmount: ").append(toIndentedString(recurringPaymentAmount)).append("\n");
         sb.append("    finalPaymentAmount: ").append(toIndentedString(finalPaymentAmount)).append("\n");

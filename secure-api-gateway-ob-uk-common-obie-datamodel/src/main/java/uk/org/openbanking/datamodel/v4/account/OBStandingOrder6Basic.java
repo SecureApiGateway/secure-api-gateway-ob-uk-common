@@ -46,6 +46,8 @@ public class OBStandingOrder6Basic {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime lastPaymentDateTime;
 
+    private String numberOfPayments;
+
     private ExternalMandateStatus1Code standingOrderStatusCode;
 
     private OBActiveOrHistoricCurrencyAndAmount2 firstPaymentAmount;
@@ -156,6 +158,27 @@ public class OBStandingOrder6Basic {
 
     public void setLastPaymentDateTime(DateTime lastPaymentDateTime) {
         this.lastPaymentDateTime = lastPaymentDateTime;
+    }
+
+    public OBStandingOrder6Basic numberOfPayments(String numberOfPayments) {
+        this.numberOfPayments = numberOfPayments;
+        return this;
+    }
+
+    /**
+     * Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.
+     *
+     * @return numberOfPayments
+     */
+    @Size(min = 1, max = 35)
+    @Schema(name = "NumberOfPayments", description = "Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("NumberOfPayments")
+    public String getNumberOfPayments() {
+        return numberOfPayments;
+    }
+
+    public void setNumberOfPayments(String numberOfPayments) {
+        this.numberOfPayments = numberOfPayments;
     }
 
     public OBStandingOrder6Basic standingOrderStatusCode(ExternalMandateStatus1Code standingOrderStatusCode) {
@@ -339,6 +362,7 @@ public class OBStandingOrder6Basic {
                 Objects.equals(this.standingOrderId, obStandingOrder6Basic.standingOrderId) &&
                 Objects.equals(this.nextPaymentDateTime, obStandingOrder6Basic.nextPaymentDateTime) &&
                 Objects.equals(this.lastPaymentDateTime, obStandingOrder6Basic.lastPaymentDateTime) &&
+                Objects.equals(this.numberOfPayments, obStandingOrder6Basic.numberOfPayments) &&
                 Objects.equals(this.standingOrderStatusCode, obStandingOrder6Basic.standingOrderStatusCode) &&
                 Objects.equals(this.firstPaymentAmount, obStandingOrder6Basic.firstPaymentAmount) &&
                 Objects.equals(this.nextPaymentAmount, obStandingOrder6Basic.nextPaymentAmount) &&
@@ -351,7 +375,7 @@ public class OBStandingOrder6Basic {
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, standingOrderId, nextPaymentDateTime, lastPaymentDateTime, standingOrderStatusCode, firstPaymentAmount, nextPaymentAmount, lastPaymentAmount, finalPaymentAmount, supplementaryData, mandateRelatedInformation, remittanceInformation);
+        return Objects.hash(accountId, standingOrderId, nextPaymentDateTime, lastPaymentDateTime, numberOfPayments, standingOrderStatusCode, firstPaymentAmount, nextPaymentAmount, lastPaymentAmount, finalPaymentAmount, supplementaryData, mandateRelatedInformation, remittanceInformation);
     }
 
     @Override
@@ -362,6 +386,7 @@ public class OBStandingOrder6Basic {
         sb.append("    standingOrderId: ").append(toIndentedString(standingOrderId)).append("\n");
         sb.append("    nextPaymentDateTime: ").append(toIndentedString(nextPaymentDateTime)).append("\n");
         sb.append("    lastPaymentDateTime: ").append(toIndentedString(lastPaymentDateTime)).append("\n");
+        sb.append("    numberOfPayments: ").append(toIndentedString(numberOfPayments)).append("\n");
         sb.append("    standingOrderStatusCode: ").append(toIndentedString(standingOrderStatusCode)).append("\n");
         sb.append("    firstPaymentAmount: ").append(toIndentedString(firstPaymentAmount)).append("\n");
         sb.append("    nextPaymentAmount: ").append(toIndentedString(nextPaymentAmount)).append("\n");
