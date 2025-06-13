@@ -44,6 +44,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     private OBRemittanceInformation2 remittanceInformation;
 
+    private String numberOfPayments;
+
     private String extendedPurpose;
 
     private OBInternalChargeBearerType1Code chargeBearer;
@@ -106,6 +108,27 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     public void setRemittanceInformation(OBRemittanceInformation2 remittanceInformation) {
         this.remittanceInformation = remittanceInformation;
+    }
+
+    public OBWriteInternationalStandingOrder4DataInitiation numberOfPayments(String numberOfPayments) {
+        this.numberOfPayments = numberOfPayments;
+        return this;
+    }
+
+    /**
+     * Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.
+     *
+     * @return numberOfPayments
+     */
+    @Size(min = 1, max = 35)
+    @Schema(name = "NumberOfPayments", description = "Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("NumberOfPayments")
+    public String getNumberOfPayments() {
+        return numberOfPayments;
+    }
+
+    public void setNumberOfPayments(String numberOfPayments) {
+        this.numberOfPayments = numberOfPayments;
     }
 
     public OBWriteInternationalStandingOrder4DataInitiation extendedPurpose(String extendedPurpose) {
@@ -425,6 +448,7 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
         }
         OBWriteInternationalStandingOrder4DataInitiation obWriteInternationalStandingOrder4DataInitiation = (OBWriteInternationalStandingOrder4DataInitiation) o;
         return Objects.equals(this.remittanceInformation, obWriteInternationalStandingOrder4DataInitiation.remittanceInformation) &&
+                Objects.equals(this.numberOfPayments, obWriteInternationalStandingOrder4DataInitiation.numberOfPayments) &&
                 Objects.equals(this.extendedPurpose, obWriteInternationalStandingOrder4DataInitiation.extendedPurpose) &&
                 Objects.equals(this.chargeBearer, obWriteInternationalStandingOrder4DataInitiation.chargeBearer) &&
                 Objects.equals(this.currencyOfTransfer, obWriteInternationalStandingOrder4DataInitiation.currencyOfTransfer) &&
@@ -443,7 +467,7 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     @Override
     public int hashCode() {
-        return Objects.hash(remittanceInformation, extendedPurpose, chargeBearer, currencyOfTransfer, destinationCountryCode, instructedAmount, debtorAccount, creditor, creditorAgent, creditorAccount, ultimateCreditor, ultimateDebtor, regulatoryReporting, mandateRelatedInformation, supplementaryData);
+        return Objects.hash(remittanceInformation, numberOfPayments, extendedPurpose, chargeBearer, currencyOfTransfer, destinationCountryCode, instructedAmount, debtorAccount, creditor, creditorAgent, creditorAccount, ultimateCreditor, ultimateDebtor, regulatoryReporting, mandateRelatedInformation, supplementaryData);
     }
 
     @Override
@@ -451,6 +475,7 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteInternationalStandingOrder4DataInitiation {\n");
         sb.append("    remittanceInformation: ").append(toIndentedString(remittanceInformation)).append("\n");
+        sb.append("    numberOfPayments: ").append(toIndentedString(numberOfPayments)).append("\n");
         sb.append("    extendedPurpose: ").append(toIndentedString(extendedPurpose)).append("\n");
         sb.append("    chargeBearer: ").append(toIndentedString(chargeBearer)).append("\n");
         sb.append("    currencyOfTransfer: ").append(toIndentedString(currencyOfTransfer)).append("\n");

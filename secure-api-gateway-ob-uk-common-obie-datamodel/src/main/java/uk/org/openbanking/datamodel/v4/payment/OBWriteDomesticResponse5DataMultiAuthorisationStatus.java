@@ -29,7 +29,7 @@ public enum OBWriteDomesticResponse5DataMultiAuthorisationStatus {
 
     AUTH("AUTH"),
 
-    AWAU("AWAU"),
+    AWAF("AWAF"),
 
     RJCT("RJCT");
 

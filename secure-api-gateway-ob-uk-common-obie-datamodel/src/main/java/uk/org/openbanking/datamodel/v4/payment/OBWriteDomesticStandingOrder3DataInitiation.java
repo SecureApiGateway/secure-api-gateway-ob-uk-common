@@ -42,6 +42,8 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     private OBRemittanceInformation2 remittanceInformation;
 
+    private String numberOfPayments;
+
     private OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount firstPaymentAmount;
 
     private OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount recurringPaymentAmount;
@@ -95,6 +97,27 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     public void setRemittanceInformation(OBRemittanceInformation2 remittanceInformation) {
         this.remittanceInformation = remittanceInformation;
+    }
+
+    public OBWriteDomesticStandingOrder3DataInitiation numberOfPayments(String numberOfPayments) {
+        this.numberOfPayments = numberOfPayments;
+        return this;
+    }
+
+    /**
+     * Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.
+     *
+     * @return numberOfPayments
+     */
+    @Size(min = 1, max = 35)
+    @Schema(name = "NumberOfPayments", description = "Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("NumberOfPayments")
+    public String getNumberOfPayments() {
+        return numberOfPayments;
+    }
+
+    public void setNumberOfPayments(String numberOfPayments) {
+        this.numberOfPayments = numberOfPayments;
     }
 
     public OBWriteDomesticStandingOrder3DataInitiation firstPaymentAmount(OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount firstPaymentAmount) {
@@ -329,6 +352,7 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
         }
         OBWriteDomesticStandingOrder3DataInitiation obWriteDomesticStandingOrder3DataInitiation = (OBWriteDomesticStandingOrder3DataInitiation) o;
         return Objects.equals(this.remittanceInformation, obWriteDomesticStandingOrder3DataInitiation.remittanceInformation) &&
+                Objects.equals(this.numberOfPayments, obWriteDomesticStandingOrder3DataInitiation.numberOfPayments) &&
                 Objects.equals(this.firstPaymentAmount, obWriteDomesticStandingOrder3DataInitiation.firstPaymentAmount) &&
                 Objects.equals(this.recurringPaymentAmount, obWriteDomesticStandingOrder3DataInitiation.recurringPaymentAmount) &&
                 Objects.equals(this.finalPaymentAmount, obWriteDomesticStandingOrder3DataInitiation.finalPaymentAmount) &&
@@ -343,7 +367,7 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     @Override
     public int hashCode() {
-        return Objects.hash(remittanceInformation, firstPaymentAmount, recurringPaymentAmount, finalPaymentAmount, debtorAccount, creditorAccount, ultimateCreditor, ultimateDebtor, regulatoryReporting, mandateRelatedInformation, supplementaryData);
+        return Objects.hash(remittanceInformation, numberOfPayments, firstPaymentAmount, recurringPaymentAmount, finalPaymentAmount, debtorAccount, creditorAccount, ultimateCreditor, ultimateDebtor, regulatoryReporting, mandateRelatedInformation, supplementaryData);
     }
 
     @Override
@@ -351,6 +375,7 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
         StringBuilder sb = new StringBuilder();
         sb.append("class OBWriteDomesticStandingOrder3DataInitiation {\n");
         sb.append("    remittanceInformation: ").append(toIndentedString(remittanceInformation)).append("\n");
+        sb.append("    numberOfPayments: ").append(toIndentedString(numberOfPayments)).append("\n");
         sb.append("    firstPaymentAmount: ").append(toIndentedString(firstPaymentAmount)).append("\n");
         sb.append("    recurringPaymentAmount: ").append(toIndentedString(recurringPaymentAmount)).append("\n");
         sb.append("    finalPaymentAmount: ").append(toIndentedString(finalPaymentAmount)).append("\n");

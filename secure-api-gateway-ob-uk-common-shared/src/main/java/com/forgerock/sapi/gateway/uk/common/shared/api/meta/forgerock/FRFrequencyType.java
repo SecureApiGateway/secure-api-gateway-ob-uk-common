@@ -64,7 +64,14 @@ public enum FRFrequencyType {
     MNTH("MNTH", null, "Monthly"),
     QURT("QURT", null, "Every three months"),
     MIAN("MIAN", null, "Every six months"),
-    WEEK("WEEK", null, "Weekly");
+    WEEK("WEEK", null, "Weekly"),
+    WODL("WODL", null, "Every working day"),
+    FOWK("FOWK", null, "Every four weeks"),
+    TWMH("TWMH", null, "After every two months"),
+    FOMH("FOMH", null, "Every four months"),
+    FIMH("FIMH", null, "Every five months"),
+    ALMH("ALMH", null, "Every alternate month"),
+    NONE("NONE", null, "When frequency is not available");
 
     private final String frequencyStr;
     private final Pattern pattern;
