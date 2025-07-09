@@ -61,7 +61,7 @@ public enum OBExternalPaymentContext1Code {
 
     @JsonCreator
     public static OBExternalPaymentContext1Code fromValue(String text) {
-        if (text == null) {
+        if (text == null || text.trim().isEmpty()) {
             return null;
         }
         for (OBExternalPaymentContext1Code b : OBExternalPaymentContext1Code.values()) {
