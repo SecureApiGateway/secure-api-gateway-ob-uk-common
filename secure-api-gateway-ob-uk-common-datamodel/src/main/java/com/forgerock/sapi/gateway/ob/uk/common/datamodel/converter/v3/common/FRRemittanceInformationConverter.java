@@ -17,6 +17,7 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.common;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.ConversionUtils.convertListToSingleString;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,7 +42,7 @@ public class FRRemittanceInformationConverter {
 
     public static FRRemittanceInformation toFRRemittanceInformation(OBWriteDomestic2DataInitiationRemittanceInformation remittanceInformation) {
         return remittanceInformation == null ? null : FRRemittanceInformation.builder()
-                .unstructured(List.of(remittanceInformation.getUnstructured()))
+                .unstructured(Collections.singletonList(remittanceInformation.getUnstructured()))
                 .reference(remittanceInformation.getReference())
                 .build();
     }
@@ -55,14 +56,14 @@ public class FRRemittanceInformationConverter {
 
     public static FRRemittanceInformation toFRRemittanceInformation(OBDomesticVRPInitiationRemittanceInformation remittanceInformation) {
         return remittanceInformation == null ? null : FRRemittanceInformation.builder()
-                .unstructured(List.of(remittanceInformation.getUnstructured()))
+                .unstructured(Collections.singletonList(remittanceInformation.getUnstructured()))
                 .reference(remittanceInformation.getReference())
                 .build();
     }
 
     public static FRRemittanceInformation toFRRemittanceInformation(OBVRPRemittanceInformation remittanceInformation) {
         return remittanceInformation == null ? null : FRRemittanceInformation.builder()
-                .unstructured(List.of(remittanceInformation.getUnstructured()))
+                .unstructured(Collections.singletonList(remittanceInformation.getUnstructured()))
                 .reference(remittanceInformation.getReference())
                 .build();
     }
