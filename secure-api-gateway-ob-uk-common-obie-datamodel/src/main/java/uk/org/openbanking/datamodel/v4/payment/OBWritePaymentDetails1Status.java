@@ -27,6 +27,8 @@ import jakarta.annotation.Generated;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBWritePaymentDetails1Status {
 
+    RCVD("RCVD"),
+
     PDNG("PDNG"),
 
     ACTC("ACTC"),

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.v4.account;
+package uk.org.openbanking.datamodel.v4.vrp;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -21,27 +21,27 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * For a full list of enumeration values refer to `ExternalDocumentFormat1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_internal_CodeSets)
+ * The operation to perform
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBFileFormat {
+public enum DomesticVrpConsentsPatchRequestInnerOp {
 
-    DPDF("DPDF"),
+    ADD("add"),
 
-    DXML("DXML"),
+    REMOVE("remove"),
 
-    SDSH("SDSH"),
+    REPLACE("replace"),
 
-    WORD("WORD"),
+    MOVE("move"),
 
-    XSLT("XSLT"),
+    COPY("copy"),
 
-    DCSV("DCSV");
+    TEST("test");
 
     private String value;
 
-    OBFileFormat(String value) {
+    DomesticVrpConsentsPatchRequestInnerOp(String value) {
         this.value = value;
     }
 
@@ -56,8 +56,8 @@ public enum OBFileFormat {
     }
 
     @JsonCreator
-    public static OBFileFormat fromValue(String value) {
-        for (OBFileFormat b : OBFileFormat.values()) {
+    public static DomesticVrpConsentsPatchRequestInnerOp fromValue(String value) {
+        for (DomesticVrpConsentsPatchRequestInnerOp b : DomesticVrpConsentsPatchRequestInnerOp.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
