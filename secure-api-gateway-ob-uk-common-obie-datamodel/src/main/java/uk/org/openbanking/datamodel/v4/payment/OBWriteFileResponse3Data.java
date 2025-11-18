@@ -60,7 +60,7 @@ public class OBWriteFileResponse3Data {
 
     private OBWriteFile2DataInitiation initiation;
 
-    private OBWriteFileResponse3DataMultiAuthorisation multiAuthorisation;
+    private OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation;
 
     private OBCashAccountDebtor4 debtor;
 
@@ -270,7 +270,7 @@ public class OBWriteFileResponse3Data {
         this.initiation = initiation;
     }
 
-    public OBWriteFileResponse3Data multiAuthorisation(OBWriteFileResponse3DataMultiAuthorisation multiAuthorisation) {
+    public OBWriteFileResponse3Data multiAuthorisation(OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation) {
         this.multiAuthorisation = multiAuthorisation;
         return this;
     }
@@ -283,11 +283,11 @@ public class OBWriteFileResponse3Data {
     @Valid
     @Schema(name = "MultiAuthorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MultiAuthorisation")
-    public OBWriteFileResponse3DataMultiAuthorisation getMultiAuthorisation() {
+    public OBWriteDomesticScheduledResponse5DataMultiAuthorisation getMultiAuthorisation() {
         return multiAuthorisation;
     }
 
-    public void setMultiAuthorisation(OBWriteFileResponse3DataMultiAuthorisation multiAuthorisation) {
+    public void setMultiAuthorisation(OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation) {
         this.multiAuthorisation = multiAuthorisation;
     }
 
