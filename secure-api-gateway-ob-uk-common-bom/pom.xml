@@ -22,7 +22,7 @@
     <groupId>com.forgerock.sapi.gateway</groupId>
     <artifactId>secure-api-gateway-ob-uk-common-bom</artifactId>
     <packaging>pom</packaging>
-    <version>${revision}</version>
+    <version>5.0.4-SNAPSHOT</version>
     <name>secure-api-gateway-ob-uk-common-bom</name>
 
     <description>
@@ -47,7 +47,7 @@
     <parent>
         <groupId>com.forgerock.sapi.gateway</groupId>
         <artifactId>secure-api-gateway-ob-uk-common</artifactId>
-        <version>${revision}</version>
+        <version>5.0.4-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
