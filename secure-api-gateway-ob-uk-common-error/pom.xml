@@ -18,7 +18,12 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    <parent>
+        <groupId>com.forgerock.sapi.gateway</groupId>
+        <artifactId>secure-api-gateway-ob-uk-common</artifactId>
+        <version>5.0.6-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
     <artifactId>secure-api-gateway-ob-uk-common-error</artifactId>
     <packaging>jar</packaging>
     <name>secure-api-gateway-ob-uk-common-error</name>
@@ -26,14 +31,6 @@
     <url>
         https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common/secure-api-gateway-ob-uk-common-error
     </url>
-
-    <parent>
-        <groupId>com.forgerock.sapi.gateway</groupId>
-        <artifactId>secure-api-gateway-ob-uk-common</artifactId>
-        <version>${revision}</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
-
     <properties>
         <!-- property to run individually the module with no license issues -->
         <legal.path.header>../legal/LICENSE-HEADER.txt</legal.path.header>
@@ -44,12 +41,12 @@
         <dependency>
             <groupId>com.forgerock.sapi.gateway</groupId>
             <artifactId>secure-api-gateway-ob-uk-common-shared</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.forgerock.sapi.gateway</groupId>
             <artifactId>secure-api-gateway-ob-uk-common-obie-datamodel</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <!-- Spring -->
         <dependency>
