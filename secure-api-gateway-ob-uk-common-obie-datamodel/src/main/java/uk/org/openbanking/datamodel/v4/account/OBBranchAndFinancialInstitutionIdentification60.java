@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.v4.payment;
+package uk.org.openbanking.datamodel.v4.account;
 
 import java.util.Objects;
 
@@ -28,13 +28,13 @@ import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
 
 /**
- * Financial institution servicing an account for the creditor.
+ * Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account. This is the servicer of the beneficiary account.
  */
 
-@Schema(name = "OBWriteDomestic2_Data_Initiation_CreditorAgent", description = "Financial institution servicing an account for the creditor.")
-@JsonTypeName("OBWriteDomestic2_Data_Initiation_CreditorAgent")
+@Schema(name = "OBBranchAndFinancialInstitutionIdentification6_0", description = "Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account. This is the servicer of the beneficiary account.")
+@JsonTypeName("OBBranchAndFinancialInstitutionIdentification6_0")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBWriteDomestic2DataInitiationCreditorAgent {
+public class OBBranchAndFinancialInstitutionIdentification60 {
 
     private String schemeName;
 
@@ -42,22 +42,22 @@ public class OBWriteDomestic2DataInitiationCreditorAgent {
 
     private String name;
 
-    private String LEI;
-
     private OBPostalAddress7 postalAddress;
 
-    public OBWriteDomestic2DataInitiationCreditorAgent schemeName(String schemeName) {
+    private String LEI;
+
+    public OBBranchAndFinancialInstitutionIdentification60 schemeName(String schemeName) {
         this.schemeName = schemeName;
         return this;
     }
 
     /**
-     * Name of the identification scheme, in a coded form as published in an external list.
+     * Name of the identification scheme, in a coded form as published in an external list.<br/> For a full list of enumeration values refer to `OBInternalFinancialInstitutionIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
      *
      * @return schemeName
      */
 
-    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "SchemeName", example = "UK.OBIE.BICFI", description = "Name of the identification scheme, in a coded form as published in an external list.<br/> For a full list of enumeration values refer to `OBInternalFinancialInstitutionIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SchemeName")
     public String getSchemeName() {
         return schemeName;
@@ -67,18 +67,18 @@ public class OBWriteDomestic2DataInitiationCreditorAgent {
         this.schemeName = schemeName;
     }
 
-    public OBWriteDomestic2DataInitiationCreditorAgent identification(String identification) {
+    public OBBranchAndFinancialInstitutionIdentification60 identification(String identification) {
         this.identification = identification;
         return this;
     }
 
     /**
-     * Unique and unambiguous identification of a financial institution or a branch of a financial institution.
+     * Unique and unambiguous identification of the servicing institution.
      *
      * @return identification
      */
     @Size(min = 1, max = 35)
-    @Schema(name = "Identification", description = "Unique and unambiguous identification of a financial institution or a branch of a financial institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Identification", example = "80200112344562", description = "Unique and unambiguous identification of the servicing institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
         return identification;
@@ -88,7 +88,7 @@ public class OBWriteDomestic2DataInitiationCreditorAgent {
         this.identification = identification;
     }
 
-    public OBWriteDomestic2DataInitiationCreditorAgent name(String name) {
+    public OBBranchAndFinancialInstitutionIdentification60 name(String name) {
         this.name = name;
         return this;
     }
@@ -99,7 +99,7 @@ public class OBWriteDomestic2DataInitiationCreditorAgent {
      * @return name
      */
     @Size(min = 1, max = 140)
-    @Schema(name = "Name", description = "Name by which an agent is known and which is usually used to identify that agent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Name", example = "Agent Name", description = "Name by which an agent is known and which is usually used to identify that agent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
     public String getName() {
         return name;
@@ -109,7 +109,28 @@ public class OBWriteDomestic2DataInitiationCreditorAgent {
         this.name = name;
     }
 
-    public OBWriteDomestic2DataInitiationCreditorAgent LEI(String LEI) {
+    public OBBranchAndFinancialInstitutionIdentification60 postalAddress(OBPostalAddress7 postalAddress) {
+        this.postalAddress = postalAddress;
+        return this;
+    }
+
+    /**
+     * Get postalAddress
+     *
+     * @return postalAddress
+     */
+    @Valid
+    @Schema(name = "PostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("PostalAddress")
+    public OBPostalAddress7 getPostalAddress() {
+        return postalAddress;
+    }
+
+    public void setPostalAddress(OBPostalAddress7 postalAddress) {
+        this.postalAddress = postalAddress;
+    }
+
+    public OBBranchAndFinancialInstitutionIdentification60 LEI(String LEI) {
         this.LEI = LEI;
         return this;
     }
@@ -131,27 +152,6 @@ public class OBWriteDomestic2DataInitiationCreditorAgent {
         this.LEI = LEI;
     }
 
-    public OBWriteDomestic2DataInitiationCreditorAgent postalAddress(OBPostalAddress7 postalAddress) {
-        this.postalAddress = postalAddress;
-        return this;
-    }
-
-    /**
-     * Get postalAddress
-     *
-     * @return postalAddress
-     */
-    @Valid
-    @Schema(name = "PostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("PostalAddress")
-    public OBPostalAddress7 getPostalAddress() {
-        return postalAddress;
-    }
-
-    public void setPostalAddress(OBPostalAddress7 postalAddress) {
-        this.postalAddress = postalAddress;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -160,28 +160,28 @@ public class OBWriteDomestic2DataInitiationCreditorAgent {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBWriteDomestic2DataInitiationCreditorAgent obWriteDomestic2DataInitiationCreditorAgent = (OBWriteDomestic2DataInitiationCreditorAgent) o;
-        return Objects.equals(this.schemeName, obWriteDomestic2DataInitiationCreditorAgent.schemeName) &&
-                Objects.equals(this.identification, obWriteDomestic2DataInitiationCreditorAgent.identification) &&
-                Objects.equals(this.name, obWriteDomestic2DataInitiationCreditorAgent.name) &&
-                Objects.equals(this.LEI, obWriteDomestic2DataInitiationCreditorAgent.LEI) &&
-                Objects.equals(this.postalAddress, obWriteDomestic2DataInitiationCreditorAgent.postalAddress);
+        OBBranchAndFinancialInstitutionIdentification60 obBranchAndFinancialInstitutionIdentification60 = (OBBranchAndFinancialInstitutionIdentification60) o;
+        return Objects.equals(this.schemeName, obBranchAndFinancialInstitutionIdentification60.schemeName) &&
+                Objects.equals(this.identification, obBranchAndFinancialInstitutionIdentification60.identification) &&
+                Objects.equals(this.name, obBranchAndFinancialInstitutionIdentification60.name) &&
+                Objects.equals(this.postalAddress, obBranchAndFinancialInstitutionIdentification60.postalAddress) &&
+                Objects.equals(this.LEI, obBranchAndFinancialInstitutionIdentification60.LEI);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(schemeName, identification, name, LEI, postalAddress);
+        return Objects.hash(schemeName, identification, name, postalAddress, LEI);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OBWriteDomestic2DataInitiationCreditorAgent {\n");
+        sb.append("class OBBranchAndFinancialInstitutionIdentification60 {\n");
         sb.append("    schemeName: ").append(toIndentedString(schemeName)).append("\n");
         sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    LEI: ").append(toIndentedString(LEI)).append("\n");
         sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
+        sb.append("    LEI: ").append(toIndentedString(LEI)).append("\n");
         sb.append("}");
         return sb.toString();
     }
