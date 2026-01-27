@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
 
-    Copyright © 2020-2025 ForgeRock AS (obst@forgerock.com)
+    Copyright © 2020-2026 ForgeRock AS (obst@forgerock.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -21,10 +21,10 @@
     <parent>
         <groupId>com.forgerock.sapi.gateway</groupId>
         <artifactId>secure-api-gateway-parent</artifactId>
-        <version>5.0.6</version>
+        <version>5.1.1</version>
     </parent>
     <artifactId>secure-api-gateway-ob-uk-common</artifactId>
-    <version>5.0.6</version>
+    <version>5.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Secure API Gateway common and shared libraries for Open Banking UK specs</name>
     <url>https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common</url>
@@ -39,7 +39,7 @@
         <connection>scm:git:${project.scm.url}</connection>
         <developerConnection>scm:git:${project.scm.url}</developerConnection>
         <url>https://github.com/SecureApiGateway/secure-api-gateway-ob-uk-common.git</url>
-        <tag>v5.0.6</tag>
+        <tag>HEAD</tag>
     </scm>
     <properties>
         <!-- Third Party versions -->
