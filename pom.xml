@@ -42,8 +42,6 @@
         <tag>HEAD</tag>
     </scm>
     <properties>
-        <!-- Third Party versions -->
-        <java.version>17</java.version>
         <!-- Plugin versions -->
         <flatten-maven-plugin.version>1.7.3</flatten-maven-plugin.version>
     </properties>
