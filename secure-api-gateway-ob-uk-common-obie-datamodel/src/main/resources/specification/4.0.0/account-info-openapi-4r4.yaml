@@ -5207,12 +5207,15 @@ components:
       enum:
         - CLAV
         - CLBD
+        - CLCL
         - FWAV
         - INFO
         - ITAV
         - ITBD
+        - ITCL
         - OPAV
         - OPBD
+        - OPCL
         - PRCD
         - XPCD
     OBBankTransactionCodeStructure1:

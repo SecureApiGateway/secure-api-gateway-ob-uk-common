@@ -31,6 +31,8 @@ public enum OBBalanceType1Code {
 
     CLBD("CLBD"),
 
+    CLCL("CLCL"),
+
     FWAV("FWAV"),
 
     INFO("INFO"),
@@ -39,9 +41,13 @@ public enum OBBalanceType1Code {
 
     ITBD("ITBD"),
 
+    ITCL("ITCL"),
+
     OPAV("OPAV"),
 
     OPBD("OPBD"),
+
+    OPCL("OPCL"),
 
     PRCD("PRCD"),
 
