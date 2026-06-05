@@ -57,10 +57,6 @@ public class FRCashBalanceConverter {
                 .creditLine(toOBReadBalance1DataCreditLineList(balance.getCreditLines()));
     }
 
-    public static OBBalanceType1Code toOBBalanceType1Code(FRBalanceType type) {
-        return type == null ? null : OBBalanceType1Code.valueOf(type.name());
-    }
-
     public static List<OBReadBalance1DataBalanceInnerCreditLineInner> toOBReadBalance1DataCreditLineList(List<FRCreditLine> creditLines) {
         return creditLines == null ? null : creditLines.stream()
                 .map(FRCashBalanceConverter::toOBReadBalance1DataCreditLine)
