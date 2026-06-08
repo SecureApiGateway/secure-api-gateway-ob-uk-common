@@ -34,13 +34,16 @@ public class FRBalanceTypeConverter {
         final Map<String, String> consentBalanceTypeTransalations = new HashMap<>();
         consentBalanceTypeTransalations.put("ClosingAvailable", "CLAV");
         consentBalanceTypeTransalations.put("ClosingBooked", "CLBD");
+        consentBalanceTypeTransalations.put("ClosingCleared", "CLCL");
         consentBalanceTypeTransalations.put("Expected", "XPCD");
         consentBalanceTypeTransalations.put("ForwardAvailable", "FWAV");
         consentBalanceTypeTransalations.put("Information", "INFO");
         consentBalanceTypeTransalations.put("InterimAvailable", "ITAV");
         consentBalanceTypeTransalations.put("InterimBooked", "ITBD");
+        consentBalanceTypeTransalations.put("InterimCleared", "ITCL");
         consentBalanceTypeTransalations.put("OpeningAvailable", "OPAV");
         consentBalanceTypeTransalations.put("OpeningBooked", "OPBD");
+        consentBalanceTypeTransalations.put("OpeningCleared", "OPCL");
         consentBalanceTypeTransalations.put("PreviouslyClosedBooked", "PRCD");
 
         v3tov4BalanceType = Collections.unmodifiableMap(consentBalanceTypeTransalations);
@@ -56,14 +59,17 @@ public class FRBalanceTypeConverter {
         return switch (balanceType) {
             case CLOSINGAVAILABLE -> OBBalanceType1Code.CLAV;
             case CLOSINGBOOKED -> OBBalanceType1Code.CLBD;
+            case CLOSINGCLEARED -> OBBalanceType1Code.CLCL;
             case EXPECTED -> OBBalanceType1Code.XPCD;
             case FORWARDAVAILABLE -> OBBalanceType1Code.FWAV;
             case INFORMATION -> OBBalanceType1Code.INFO;
+            case INTERIMAVAILABLE -> OBBalanceType1Code.ITAV;
             case INTERIMBOOKED -> OBBalanceType1Code.ITBD;
+            case INTERIMCLEARED -> OBBalanceType1Code.ITCL;
             case OPENINGAVAILABLE -> OBBalanceType1Code.OPAV;
             case OPENINGBOOKED -> OBBalanceType1Code.OPBD;
+            case OPENINGCLEARED -> OBBalanceType1Code.OPCL;
             case PREVIOUSLYCLOSEDBOOKED -> OBBalanceType1Code.PRCD;
-            default -> OBBalanceType1Code.ITAV;
         };
     }
 
@@ -80,6 +86,4 @@ public class FRBalanceTypeConverter {
         }
         throw new IllegalArgumentException("Unknown balanceType: " + balanceType);
     }
-
-    //TODO - add for other balance Types
 }
