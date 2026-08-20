@@ -67,7 +67,7 @@ public class OBOtherFeeChargeDetailType {
      *
      * @return code
      */
-    @Pattern(regexp = "^\\\\w{0,4}$")
+    @Pattern(regexp = "^\\w{0,4}$")
     @Schema(name = "Code", description = "The four letter Mnemonic used within an XML file to identify a code", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Code")
     public String getCode() {

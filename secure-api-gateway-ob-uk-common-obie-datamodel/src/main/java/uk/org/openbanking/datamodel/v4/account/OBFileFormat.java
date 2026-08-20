@@ -35,7 +35,9 @@ public enum OBFileFormat {
 
     WORD("WORD"),
 
-    XSLT("XSLT");
+    XSLT("XSLT"),
+
+    DCSV("DCSV");
 
     private String value;
 

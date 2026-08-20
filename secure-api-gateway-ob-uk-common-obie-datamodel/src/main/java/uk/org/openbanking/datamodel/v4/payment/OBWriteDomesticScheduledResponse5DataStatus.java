@@ -49,6 +49,8 @@ public enum OBWriteDomesticScheduledResponse5DataStatus {
 
     ACWP("ACWP"),
 
+    ACCC("ACCC"),
+
     BLCK("BLCK"),
 
     RJCT("RJCT");

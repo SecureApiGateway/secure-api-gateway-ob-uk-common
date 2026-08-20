@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020-2026 Ping Identity Corporation (obst@forgerock.com)
+ * Copyright © 2020-2025 ForgeRock AS (obst@forgerock.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,10 +31,10 @@ import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
  * Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account. This is the servicer of the beneficiary account.
  */
 
-@Schema(name = "OBWriteInternationalStandingOrder4_Data_Initiation_CreditorAgent", description = "Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account. This is the servicer of the beneficiary account.")
-@JsonTypeName("OBWriteInternationalStandingOrder4_Data_Initiation_CreditorAgent")
+@Schema(name = "OBBranchAndFinancialInstitutionIdentification6_0", description = "Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account. This is the servicer of the beneficiary account.")
+@JsonTypeName("OBBranchAndFinancialInstitutionIdentification6_0")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
+public class OBBranchAndFinancialInstitutionIdentification60 {
 
     private String schemeName;
 
@@ -42,11 +42,11 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
 
     private String name;
 
-    private String LEI;
-
     private OBPostalAddress7 postalAddress;
 
-    public OBWriteInternationalStandingOrder4DataInitiationCreditorAgent schemeName(String schemeName) {
+    private String LEI;
+
+    public OBBranchAndFinancialInstitutionIdentification60 schemeName(String schemeName) {
         this.schemeName = schemeName;
         return this;
     }
@@ -67,18 +67,18 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
         this.schemeName = schemeName;
     }
 
-    public OBWriteInternationalStandingOrder4DataInitiationCreditorAgent identification(String identification) {
+    public OBBranchAndFinancialInstitutionIdentification60 identification(String identification) {
         this.identification = identification;
         return this;
     }
 
     /**
-     * Unique and unambiguous identification of the servicing institution.
+     * Unique and unambiguous identification of a financial institution or a branch of a financial institution.
      *
      * @return identification
      */
     @Size(min = 1, max = 35)
-    @Schema(name = "Identification", description = "Unique and unambiguous identification of the servicing institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Identification", description = "Unique and unambiguous identification of a financial institution or a branch of a financial institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
         return identification;
@@ -88,7 +88,7 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
         this.identification = identification;
     }
 
-    public OBWriteInternationalStandingOrder4DataInitiationCreditorAgent name(String name) {
+    public OBBranchAndFinancialInstitutionIdentification60 name(String name) {
         this.name = name;
         return this;
     }
@@ -109,7 +109,28 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
         this.name = name;
     }
 
-    public OBWriteInternationalStandingOrder4DataInitiationCreditorAgent LEI(String LEI) {
+    public OBBranchAndFinancialInstitutionIdentification60 postalAddress(OBPostalAddress7 postalAddress) {
+        this.postalAddress = postalAddress;
+        return this;
+    }
+
+    /**
+     * Get postalAddress
+     *
+     * @return postalAddress
+     */
+    @Valid
+    @Schema(name = "PostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("PostalAddress")
+    public OBPostalAddress7 getPostalAddress() {
+        return postalAddress;
+    }
+
+    public void setPostalAddress(OBPostalAddress7 postalAddress) {
+        this.postalAddress = postalAddress;
+    }
+
+    public OBBranchAndFinancialInstitutionIdentification60 LEI(String LEI) {
         this.LEI = LEI;
         return this;
     }
@@ -131,27 +152,6 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
         this.LEI = LEI;
     }
 
-    public OBWriteInternationalStandingOrder4DataInitiationCreditorAgent postalAddress(OBPostalAddress7 postalAddress) {
-        this.postalAddress = postalAddress;
-        return this;
-    }
-
-    /**
-     * Get postalAddress
-     *
-     * @return postalAddress
-     */
-    @Valid
-    @Schema(name = "PostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("PostalAddress")
-    public OBPostalAddress7 getPostalAddress() {
-        return postalAddress;
-    }
-
-    public void setPostalAddress(OBPostalAddress7 postalAddress) {
-        this.postalAddress = postalAddress;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -160,28 +160,28 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OBWriteInternationalStandingOrder4DataInitiationCreditorAgent obWriteInternationalStandingOrder4DataInitiationCreditorAgent = (OBWriteInternationalStandingOrder4DataInitiationCreditorAgent) o;
-        return Objects.equals(this.schemeName, obWriteInternationalStandingOrder4DataInitiationCreditorAgent.schemeName) &&
-                Objects.equals(this.identification, obWriteInternationalStandingOrder4DataInitiationCreditorAgent.identification) &&
-                Objects.equals(this.name, obWriteInternationalStandingOrder4DataInitiationCreditorAgent.name) &&
-                Objects.equals(this.LEI, obWriteInternationalStandingOrder4DataInitiationCreditorAgent.LEI) &&
-                Objects.equals(this.postalAddress, obWriteInternationalStandingOrder4DataInitiationCreditorAgent.postalAddress);
+        OBBranchAndFinancialInstitutionIdentification60 obBranchAndFinancialInstitutionIdentification60 = (OBBranchAndFinancialInstitutionIdentification60) o;
+        return Objects.equals(this.schemeName, obBranchAndFinancialInstitutionIdentification60.schemeName) &&
+                Objects.equals(this.identification, obBranchAndFinancialInstitutionIdentification60.identification) &&
+                Objects.equals(this.name, obBranchAndFinancialInstitutionIdentification60.name) &&
+                Objects.equals(this.postalAddress, obBranchAndFinancialInstitutionIdentification60.postalAddress) &&
+                Objects.equals(this.LEI, obBranchAndFinancialInstitutionIdentification60.LEI);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(schemeName, identification, name, LEI, postalAddress);
+        return Objects.hash(schemeName, identification, name, postalAddress, LEI);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {\n");
+        sb.append("class OBBranchAndFinancialInstitutionIdentification60 {\n");
         sb.append("    schemeName: ").append(toIndentedString(schemeName)).append("\n");
         sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    LEI: ").append(toIndentedString(LEI)).append("\n");
         sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
+        sb.append("    LEI: ").append(toIndentedString(LEI)).append("\n");
         sb.append("}");
         return sb.toString();
     }

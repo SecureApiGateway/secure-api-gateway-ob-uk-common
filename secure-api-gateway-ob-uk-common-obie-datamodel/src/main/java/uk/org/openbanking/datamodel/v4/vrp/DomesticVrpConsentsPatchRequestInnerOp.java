@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020-2026 Ping Identity Corporation (obst@forgerock.com)
+ * Copyright © 2020-2025 ForgeRock AS (obst@forgerock.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package uk.org.openbanking.datamodel.v4.payment;
+package uk.org.openbanking.datamodel.v4.vrp;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -21,21 +21,27 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Type of authorisation flow requested. For a full set of values refer to `OBInternalAuthorisation1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+ * The operation to perform
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBWriteDomesticConsent4DataAuthorisationAuthorisationType {
+public enum DomesticVrpConsentsPatchRequestInnerOp {
 
-    ANY("Any"),
+    ADD("add"),
 
-    SINGLE("Single"),
+    REMOVE("remove"),
 
-    MULTIPLE("Multiple");
+    REPLACE("replace"),
+
+    MOVE("move"),
+
+    COPY("copy"),
+
+    TEST("test");
 
     private String value;
 
-    OBWriteDomesticConsent4DataAuthorisationAuthorisationType(String value) {
+    DomesticVrpConsentsPatchRequestInnerOp(String value) {
         this.value = value;
     }
 
@@ -50,8 +56,8 @@ public enum OBWriteDomesticConsent4DataAuthorisationAuthorisationType {
     }
 
     @JsonCreator
-    public static OBWriteDomesticConsent4DataAuthorisationAuthorisationType fromValue(String value) {
-        for (OBWriteDomesticConsent4DataAuthorisationAuthorisationType b : OBWriteDomesticConsent4DataAuthorisationAuthorisationType.values()) {
+    public static DomesticVrpConsentsPatchRequestInnerOp fromValue(String value) {
+        for (DomesticVrpConsentsPatchRequestInnerOp b : DomesticVrpConsentsPatchRequestInnerOp.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
