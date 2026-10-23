@@ -43,7 +43,7 @@ public class OBRemittanceInformationStructured {
   @Valid
   private List<@Valid OBReferredDocumentInformation> referredDocumentInformation;
 
-  private Integer referredDocumentAmount; /* OPENIG-9982: held at v4.0.0 Integer type; 4.0.1 OBActiveCurrencyAndAmount_SimpleType (String) applied in a dedicated commit */
+  private String referredDocumentAmount;
 
   private OBRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation;
 
@@ -84,7 +84,7 @@ public class OBRemittanceInformationStructured {
     this.referredDocumentInformation = referredDocumentInformation;
   }
 
-  public OBRemittanceInformationStructured referredDocumentAmount(Integer referredDocumentAmount) {
+  public OBRemittanceInformationStructured referredDocumentAmount(String referredDocumentAmount) {
     this.referredDocumentAmount = referredDocumentAmount;
     return this;
   }
@@ -96,11 +96,11 @@ public class OBRemittanceInformationStructured {
   @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$") 
   @Schema(name = "ReferredDocumentAmount", example = "1209.06", description = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("ReferredDocumentAmount")
-  public Integer getReferredDocumentAmount() {
+  public String getReferredDocumentAmount() {
     return referredDocumentAmount;
   }
 
-  public void setReferredDocumentAmount(Integer referredDocumentAmount) {
+  public void setReferredDocumentAmount(String referredDocumentAmount) {
     this.referredDocumentAmount = referredDocumentAmount;
   }
 
