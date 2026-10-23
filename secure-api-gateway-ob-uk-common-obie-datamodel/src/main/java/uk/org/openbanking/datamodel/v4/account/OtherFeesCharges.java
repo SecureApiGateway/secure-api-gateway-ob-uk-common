@@ -15,17 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.FeeChargeCapInner1;
+import uk.org.openbanking.datamodel.v4.account.FeeChargeDetailInner1;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Contains details of fees and charges which are not associated with either borrowing or features/benefits
@@ -35,120 +41,116 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OtherFeesCharges {
 
-    @Valid
-    private List<@Valid FeeChargeDetailInner1> feeChargeDetail = new ArrayList<>();
+  @Valid
+  private List<@Valid FeeChargeDetailInner1> feeChargeDetail = new ArrayList<>();
 
-    @Valid
-    private List<@Valid FeeChargeCapInner1> feeChargeCap;
+  @Valid
+  private List<@Valid FeeChargeCapInner1> feeChargeCap;
 
-    public OtherFeesCharges() {
-        super();
+  public OtherFeesCharges() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OtherFeesCharges(List<@Valid FeeChargeDetailInner1> feeChargeDetail) {
+    this.feeChargeDetail = feeChargeDetail;
+  }
+
+  public OtherFeesCharges feeChargeDetail(List<@Valid FeeChargeDetailInner1> feeChargeDetail) {
+    this.feeChargeDetail = feeChargeDetail;
+    return this;
+  }
+
+  public OtherFeesCharges addFeeChargeDetailItem(FeeChargeDetailInner1 feeChargeDetailItem) {
+    if (this.feeChargeDetail == null) {
+      this.feeChargeDetail = new ArrayList<>();
     }
+    this.feeChargeDetail.add(feeChargeDetailItem);
+    return this;
+  }
 
-    /**
-     * Constructor with only required parameters
-     */
-    public OtherFeesCharges(List<@Valid FeeChargeDetailInner1> feeChargeDetail) {
-        this.feeChargeDetail = feeChargeDetail;
-    }
+  /**
+   * Other fees/charges details
+   * @return feeChargeDetail
+  */
+  @NotNull @Valid @Size(min = 1) 
+  @Schema(name = "FeeChargeDetail", description = "Other fees/charges details", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("FeeChargeDetail")
+  public List<@Valid FeeChargeDetailInner1> getFeeChargeDetail() {
+    return feeChargeDetail;
+  }
 
-    public OtherFeesCharges feeChargeDetail(List<@Valid FeeChargeDetailInner1> feeChargeDetail) {
-        this.feeChargeDetail = feeChargeDetail;
-        return this;
-    }
+  public void setFeeChargeDetail(List<@Valid FeeChargeDetailInner1> feeChargeDetail) {
+    this.feeChargeDetail = feeChargeDetail;
+  }
 
-    public OtherFeesCharges addFeeChargeDetailItem(FeeChargeDetailInner1 feeChargeDetailItem) {
-        if (this.feeChargeDetail == null) {
-            this.feeChargeDetail = new ArrayList<>();
-        }
-        this.feeChargeDetail.add(feeChargeDetailItem);
-        return this;
-    }
+  public OtherFeesCharges feeChargeCap(List<@Valid FeeChargeCapInner1> feeChargeCap) {
+    this.feeChargeCap = feeChargeCap;
+    return this;
+  }
 
-    /**
-     * Other fees/charges details
-     *
-     * @return feeChargeDetail
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
-    @Schema(name = "FeeChargeDetail", description = "Other fees/charges details", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("FeeChargeDetail")
-    public List<@Valid FeeChargeDetailInner1> getFeeChargeDetail() {
-        return feeChargeDetail;
+  public OtherFeesCharges addFeeChargeCapItem(FeeChargeCapInner1 feeChargeCapItem) {
+    if (this.feeChargeCap == null) {
+      this.feeChargeCap = new ArrayList<>();
     }
+    this.feeChargeCap.add(feeChargeCapItem);
+    return this;
+  }
 
-    public void setFeeChargeDetail(List<@Valid FeeChargeDetailInner1> feeChargeDetail) {
-        this.feeChargeDetail = feeChargeDetail;
-    }
+  /**
+   * Details about any caps (maximum charges) that apply to a particular fee/charge
+   * @return feeChargeCap
+  */
+  @Valid 
+  @Schema(name = "FeeChargeCap", description = "Details about any caps (maximum charges) that apply to a particular fee/charge", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("FeeChargeCap")
+  public List<@Valid FeeChargeCapInner1> getFeeChargeCap() {
+    return feeChargeCap;
+  }
 
-    public OtherFeesCharges feeChargeCap(List<@Valid FeeChargeCapInner1> feeChargeCap) {
-        this.feeChargeCap = feeChargeCap;
-        return this;
-    }
+  public void setFeeChargeCap(List<@Valid FeeChargeCapInner1> feeChargeCap) {
+    this.feeChargeCap = feeChargeCap;
+  }
 
-    public OtherFeesCharges addFeeChargeCapItem(FeeChargeCapInner1 feeChargeCapItem) {
-        if (this.feeChargeCap == null) {
-            this.feeChargeCap = new ArrayList<>();
-        }
-        this.feeChargeCap.add(feeChargeCapItem);
-        return this;
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    OtherFeesCharges otherFeesCharges = (OtherFeesCharges) o;
+    return Objects.equals(this.feeChargeDetail, otherFeesCharges.feeChargeDetail) &&
+        Objects.equals(this.feeChargeCap, otherFeesCharges.feeChargeCap);
+  }
 
-    /**
-     * Details about any caps (maximum charges) that apply to a particular fee/charge
-     *
-     * @return feeChargeCap
-     */
-    @Valid
-    @Schema(name = "FeeChargeCap", description = "Details about any caps (maximum charges) that apply to a particular fee/charge", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("FeeChargeCap")
-    public List<@Valid FeeChargeCapInner1> getFeeChargeCap() {
-        return feeChargeCap;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(feeChargeDetail, feeChargeCap);
+  }
 
-    public void setFeeChargeCap(List<@Valid FeeChargeCapInner1> feeChargeCap) {
-        this.feeChargeCap = feeChargeCap;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OtherFeesCharges {\n");
+    sb.append("    feeChargeDetail: ").append(toIndentedString(feeChargeDetail)).append("\n");
+    sb.append("    feeChargeCap: ").append(toIndentedString(feeChargeCap)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OtherFeesCharges otherFeesCharges = (OtherFeesCharges) o;
-        return Objects.equals(this.feeChargeDetail, otherFeesCharges.feeChargeDetail) &&
-                Objects.equals(this.feeChargeCap, otherFeesCharges.feeChargeCap);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(feeChargeDetail, feeChargeCap);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OtherFeesCharges {\n");
-        sb.append("    feeChargeDetail: ").append(toIndentedString(feeChargeDetail)).append("\n");
-        sb.append("    feeChargeCap: ").append(toIndentedString(feeChargeCap)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

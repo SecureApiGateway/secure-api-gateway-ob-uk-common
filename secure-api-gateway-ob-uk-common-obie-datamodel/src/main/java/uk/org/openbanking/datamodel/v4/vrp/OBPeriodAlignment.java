@@ -15,46 +15,56 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import jakarta.annotation.Generated;
-
 /**
- * Specifies whether the period starts on the date of consent creation or lines up with a calendar. As the ISO calendar does not support or provide any guidance on when a fortnight should start, a `PeriodType` of `Fortnight` the `PeriodAlignment` must be `Consent`.
+ * Specifies whether the period starts on the date of consent creation or lines up with a calendar. As the ISO calendar does not support or provide any guidance on when a fortnight should start, when specifying a `PeriodType` of `Fortnight` the `PeriodAlignment` must be `Consent`.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBPeriodAlignment {
+  
+  CONSENT("Consent"),
+  
+  CALENDAR("Calendar");
 
-    CONSENT("Consent"),
+  private String value;
 
-    CALENDAR("Calendar");
+  OBPeriodAlignment(String value) {
+    this.value = value;
+  }
 
-    private String value;
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    OBPeriodAlignment(String value) {
-        this.value = value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  @JsonCreator
+  public static OBPeriodAlignment fromValue(String value) {
+    for (OBPeriodAlignment b : OBPeriodAlignment.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBPeriodAlignment fromValue(String value) {
-        for (OBPeriodAlignment b : OBPeriodAlignment.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

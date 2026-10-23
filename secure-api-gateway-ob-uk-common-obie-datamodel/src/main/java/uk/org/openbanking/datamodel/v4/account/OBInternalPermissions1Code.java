@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Specifies the Open Banking account access data types. <br /> This is a list of the data clusters being consented by the PSU, and requested for authorisation with the ASPSP. <br /> For a full list of enumeration values refer to `OBInternalPermissions1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_internal_CodeSets)
@@ -26,73 +36,73 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBInternalPermissions1Code {
+  
+  READACCOUNTSBASIC("ReadAccountsBasic"),
+  
+  READACCOUNTSDETAIL("ReadAccountsDetail"),
+  
+  READBALANCES("ReadBalances"),
+  
+  READBENEFICIARIESBASIC("ReadBeneficiariesBasic"),
+  
+  READBENEFICIARIESDETAIL("ReadBeneficiariesDetail"),
+  
+  READDIRECTDEBITS("ReadDirectDebits"),
+  
+  READOFFERS("ReadOffers"),
+  
+  READPAN("ReadPAN"),
+  
+  READPARTY("ReadParty"),
+  
+  READPARTYPSU("ReadPartyPSU"),
+  
+  READPRODUCTS("ReadProducts"),
+  
+  READSCHEDULEDPAYMENTSBASIC("ReadScheduledPaymentsBasic"),
+  
+  READSCHEDULEDPAYMENTSDETAIL("ReadScheduledPaymentsDetail"),
+  
+  READSTANDINGORDERSBASIC("ReadStandingOrdersBasic"),
+  
+  READSTANDINGORDERSDETAIL("ReadStandingOrdersDetail"),
+  
+  READSTATEMENTSBASIC("ReadStatementsBasic"),
+  
+  READSTATEMENTSDETAIL("ReadStatementsDetail"),
+  
+  READTRANSACTIONSBASIC("ReadTransactionsBasic"),
+  
+  READTRANSACTIONSCREDITS("ReadTransactionsCredits"),
+  
+  READTRANSACTIONSDEBITS("ReadTransactionsDebits"),
+  
+  READTRANSACTIONSDETAIL("ReadTransactionsDetail");
 
-    READACCOUNTSBASIC("ReadAccountsBasic"),
+  private String value;
 
-    READACCOUNTSDETAIL("ReadAccountsDetail"),
+  OBInternalPermissions1Code(String value) {
+    this.value = value;
+  }
 
-    READBALANCES("ReadBalances"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    READBENEFICIARIESBASIC("ReadBeneficiariesBasic"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    READBENEFICIARIESDETAIL("ReadBeneficiariesDetail"),
-
-    READDIRECTDEBITS("ReadDirectDebits"),
-
-    READOFFERS("ReadOffers"),
-
-    READPAN("ReadPAN"),
-
-    READPARTY("ReadParty"),
-
-    READPARTYPSU("ReadPartyPSU"),
-
-    READPRODUCTS("ReadProducts"),
-
-    READSCHEDULEDPAYMENTSBASIC("ReadScheduledPaymentsBasic"),
-
-    READSCHEDULEDPAYMENTSDETAIL("ReadScheduledPaymentsDetail"),
-
-    READSTANDINGORDERSBASIC("ReadStandingOrdersBasic"),
-
-    READSTANDINGORDERSDETAIL("ReadStandingOrdersDetail"),
-
-    READSTATEMENTSBASIC("ReadStatementsBasic"),
-
-    READSTATEMENTSDETAIL("ReadStatementsDetail"),
-
-    READTRANSACTIONSBASIC("ReadTransactionsBasic"),
-
-    READTRANSACTIONSCREDITS("ReadTransactionsCredits"),
-
-    READTRANSACTIONSDEBITS("ReadTransactionsDebits"),
-
-    READTRANSACTIONSDETAIL("ReadTransactionsDetail");
-
-    private String value;
-
-    OBInternalPermissions1Code(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBInternalPermissions1Code fromValue(String value) {
+    for (OBInternalPermissions1Code b : OBInternalPermissions1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBInternalPermissions1Code fromValue(String value) {
-        for (OBInternalPermissions1Code b : OBInternalPermissions1Code.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

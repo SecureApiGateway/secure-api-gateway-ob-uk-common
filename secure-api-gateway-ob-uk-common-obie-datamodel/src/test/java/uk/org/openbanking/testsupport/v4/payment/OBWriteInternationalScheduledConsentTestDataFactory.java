@@ -19,7 +19,7 @@ import static uk.org.openbanking.testsupport.v4.payment.OBAccountTestDataFactory
 import static uk.org.openbanking.testsupport.v4.payment.OBAmountTestDataFactory.aValidOBWriteDomestic2DataInitiationInstructedAmount;
 import static uk.org.openbanking.testsupport.v4.payment.OBConsentAuthorisationTestDataFactory.aValidOBWriteDomesticConsentDataAuthorisation;
 import static uk.org.openbanking.testsupport.v4.payment.OBInternationalIdentifierTestDataFactory.aValidOBWriteInternational3DataInitiationCreditorAgent;
-import static uk.org.openbanking.testsupport.v4.payment.OBInternationalIdentifierTestDataFactory.aValidOBWriteInternationalConsent5DataInitiationCreditor;
+import static uk.org.openbanking.testsupport.v4.payment.OBInternationalIdentifierTestDataFactory.aValidOBWriteInternational3DataInitiationCreditor;
 import static uk.org.openbanking.testsupport.v4.payment.OBRisk1TestDataFactory.aValidOBRisk1;
 import static uk.org.openbanking.testsupport.v4.payment.OBRisk1TestDataFactory.aValidOBRisk1MandatoryFields;
 
@@ -91,7 +91,7 @@ public class OBWriteInternationalScheduledConsentTestDataFactory {
                 .destinationCountryCode("GB")
                 .instructedAmount(aValidOBWriteDomestic2DataInitiationInstructedAmount())
                 .exchangeRateInformation(OBExchangeRateTestDataFactory.aValidOBWriteInternational3DataInitiationExchangeRateInformation())
-                .creditor(aValidOBWriteInternationalConsent5DataInitiationCreditor())
+                .creditor(aValidOBWriteInternational3DataInitiationCreditor())
                 .creditorAgent(aValidOBWriteInternational3DataInitiationCreditorAgent())
                 .creditorAccount(aValidOBWriteDomestic2DataInitiationCreditorAccount())
                 .regulatoryReporting(Collections.singletonList(OBRegulatoryReporting1TestDataFactory.aValidOBRegulatoryReporting1()))

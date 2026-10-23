@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Interest rate types, other than AER, which financial institutions may use to describe the annual interest rate payable to the PCA.
@@ -26,39 +36,39 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum BankInterestRateType1 {
+  
+  LINKEDBASERATE("LinkedBaseRate"),
+  
+  GROSS("Gross"),
+  
+  NET("Net"),
+  
+  OTHER("Other");
 
-    LINKEDBASERATE("LinkedBaseRate"),
+  private String value;
 
-    GROSS("Gross"),
+  BankInterestRateType1(String value) {
+    this.value = value;
+  }
 
-    NET("Net"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    OTHER("Other");
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    private String value;
-
-    BankInterestRateType1(String value) {
-        this.value = value;
+  @JsonCreator
+  public static BankInterestRateType1 fromValue(String value) {
+    for (BankInterestRateType1 b : BankInterestRateType1.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static BankInterestRateType1 fromValue(String value) {
-        for (BankInterestRateType1 b : BankInterestRateType1.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

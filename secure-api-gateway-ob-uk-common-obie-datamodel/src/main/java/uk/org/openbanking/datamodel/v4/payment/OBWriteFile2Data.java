@@ -15,16 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteFile2DataInitiation;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBWriteFile2Data
@@ -34,103 +38,99 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteFile2Data {
 
-    private String consentId;
+  private String consentId;
 
-    private OBWriteFile2DataInitiation initiation;
+  private OBWriteFile2DataInitiation initiation;
 
-    public OBWriteFile2Data() {
-        super();
+  public OBWriteFile2Data() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBWriteFile2Data(String consentId, OBWriteFile2DataInitiation initiation) {
+    this.consentId = consentId;
+    this.initiation = initiation;
+  }
+
+  public OBWriteFile2Data consentId(String consentId) {
+    this.consentId = consentId;
+    return this;
+  }
+
+  /**
+   * OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.
+   * @return consentId
+  */
+  @NotNull @Size(min = 1, max = 128) 
+  @Schema(name = "ConsentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("ConsentId")
+  public String getConsentId() {
+    return consentId;
+  }
+
+  public void setConsentId(String consentId) {
+    this.consentId = consentId;
+  }
+
+  public OBWriteFile2Data initiation(OBWriteFile2DataInitiation initiation) {
+    this.initiation = initiation;
+    return this;
+  }
+
+  /**
+   * Get initiation
+   * @return initiation
+  */
+  @NotNull @Valid 
+  @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Initiation")
+  public OBWriteFile2DataInitiation getInitiation() {
+    return initiation;
+  }
+
+  public void setInitiation(OBWriteFile2DataInitiation initiation) {
+    this.initiation = initiation;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Constructor with only required parameters
-     */
-    public OBWriteFile2Data(String consentId, OBWriteFile2DataInitiation initiation) {
-        this.consentId = consentId;
-        this.initiation = initiation;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBWriteFile2Data obWriteFile2Data = (OBWriteFile2Data) o;
+    return Objects.equals(this.consentId, obWriteFile2Data.consentId) &&
+        Objects.equals(this.initiation, obWriteFile2Data.initiation);
+  }
 
-    public OBWriteFile2Data consentId(String consentId) {
-        this.consentId = consentId;
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(consentId, initiation);
+  }
 
-    /**
-     * OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.
-     *
-     * @return consentId
-     */
-    @NotNull
-    @Size(min = 1, max = 128)
-    @Schema(name = "ConsentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("ConsentId")
-    public String getConsentId() {
-        return consentId;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBWriteFile2Data {\n");
+    sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
+    sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setConsentId(String consentId) {
-        this.consentId = consentId;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public OBWriteFile2Data initiation(OBWriteFile2DataInitiation initiation) {
-        this.initiation = initiation;
-        return this;
-    }
-
-    /**
-     * Get initiation
-     *
-     * @return initiation
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Initiation")
-    public OBWriteFile2DataInitiation getInitiation() {
-        return initiation;
-    }
-
-    public void setInitiation(OBWriteFile2DataInitiation initiation) {
-        this.initiation = initiation;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBWriteFile2Data obWriteFile2Data = (OBWriteFile2Data) o;
-        return Objects.equals(this.consentId, obWriteFile2Data.consentId) &&
-                Objects.equals(this.initiation, obWriteFile2Data.initiation);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(consentId, initiation);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBWriteFile2Data {\n");
-        sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
-        sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

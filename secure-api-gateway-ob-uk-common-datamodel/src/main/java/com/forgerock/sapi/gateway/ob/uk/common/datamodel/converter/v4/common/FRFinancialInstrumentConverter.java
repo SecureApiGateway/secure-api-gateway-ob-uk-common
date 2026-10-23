@@ -29,10 +29,8 @@ import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationCreditorAgent;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternational3DataInitiationCreditor;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalConsent5DataInitiationCreditor;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduled3DataInitiation;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduled3DataInitiationCreditorAgent;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAgent;
 
 
@@ -43,13 +41,6 @@ public class FRFinancialInstrumentConverter {
         return creditor == null ? null : FRFinancialCreditor.builder()
                 .name(creditor.getName())
                 .LEI(creditor.getLEI())
-                .postalAddress(FRPostalAddressConverter.toFRPostalAddress(creditor.getPostalAddress()))
-                .build();
-    }
-
-    public static FRFinancialCreditor toFRFinancialCreditor(OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor creditor) {
-        return creditor == null ? null : FRFinancialCreditor.builder()
-                .name(creditor.getName())
                 .postalAddress(FRPostalAddressConverter.toFRPostalAddress(creditor.getPostalAddress()))
                 .build();
     }
@@ -142,12 +133,6 @@ public class FRFinancialInstrumentConverter {
                 .postalAddress(FRPostalAddressConverter.toOBPostalAddress7(creditor.getPostalAddress()));
     }
 
-    public static OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor toOBWriteInternationalScheduledConsentResponse6DataInitiationCreditor(FRFinancialCreditor creditor) {
-        return creditor == null ? null : new OBWriteInternationalScheduledConsentResponse6DataInitiationCreditor()
-                .name(creditor.getName())
-                .postalAddress(FRPostalAddressConverter.toOBPostalAddress7(creditor.getPostalAddress()));
-    }
-
     public static OBWriteInternationalStandingOrder4DataInitiationCreditorAgent toOBWriteInternationalStandingOrder4DataInitiationCreditorAgent(FRFinancialAgent agent) {
         return agent == null ? null : new OBWriteInternationalStandingOrder4DataInitiationCreditorAgent()
                 .schemeName(agent.getSchemeName())
@@ -176,20 +161,6 @@ public class FRFinancialInstrumentConverter {
                                                       .name(agent.getName())
                                                       .postalAddress(FRPostalAddressConverter.toFRPostalAddress(agent.getPostalAddress()))
                                                       .build();
-    }
-
-    public static FRFinancialCreditor toFRFinancialCreditor(OBWriteInternationalConsent5DataInitiationCreditor creditor) {
-        return creditor == null ? null : FRFinancialCreditor.builder()
-                                                            .postalAddress(FRPostalAddressConverter.toFRPostalAddress(creditor.getPostalAddress()))
-                                                            .name(creditor.getName())
-                                                            .LEI(creditor.getLEI()).build();
-    }
-
-    public static OBWriteInternationalConsent5DataInitiationCreditor toOBWriteInternationalConsent5DataInitiationCreditor(FRFinancialCreditor creditor) {
-        return creditor == null ? null : new OBWriteInternationalConsent5DataInitiationCreditor()
-                .name(creditor.getName())
-                .postalAddress(FRPostalAddressConverter.toOBPostalAddress7(creditor.getPostalAddress()))
-                .LEI(creditor.getLEI());
     }
 
     public static OBWriteInternationalScheduled3DataInitiationCreditorAgent toOBWriteInternationalScheduled3DataInitiationCreditorAgent(FRFinancialAgent agent) {

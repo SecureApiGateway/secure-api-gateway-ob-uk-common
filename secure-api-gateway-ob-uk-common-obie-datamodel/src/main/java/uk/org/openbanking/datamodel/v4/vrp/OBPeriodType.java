@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * ^ Period type for this period limit
@@ -26,43 +36,43 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBPeriodType {
+  
+  DAY("Day"),
+  
+  WEEK("Week"),
+  
+  FORTNIGHT("Fortnight"),
+  
+  MONTH("Month"),
+  
+  HALF_YEAR("Half-year"),
+  
+  YEAR("Year");
 
-    DAY("Day"),
+  private String value;
 
-    WEEK("Week"),
+  OBPeriodType(String value) {
+    this.value = value;
+  }
 
-    FORTNIGHT("Fortnight"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    MONTH("Month"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    HALF_YEAR("Half-year"),
-
-    YEAR("Year");
-
-    private String value;
-
-    OBPeriodType(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBPeriodType fromValue(String value) {
+    for (OBPeriodType b : OBPeriodType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBPeriodType fromValue(String value) {
-        for (OBPeriodType b : OBPeriodType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

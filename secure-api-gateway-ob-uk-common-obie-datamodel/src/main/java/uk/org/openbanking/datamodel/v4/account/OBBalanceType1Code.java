@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Balance type, in a coded form. <br /> For a full list of enumeration values refer to `ExternalBalanceType1Code` in *ISO_External_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets).
@@ -26,57 +36,57 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBBalanceType1Code {
-
-    CLAV("CLAV"),
-
-    CLBD("CLBD"),
+  
+  CLAV("CLAV"),
 
     CLCL("CLCL"),
-
-    FWAV("FWAV"),
-
-    INFO("INFO"),
-
-    ITAV("ITAV"),
-
-    ITBD("ITBD"),
+  
+  CLBD("CLBD"),
+  
+  FWAV("FWAV"),
+  
+  INFO("INFO"),
+  
+  ITAV("ITAV"),
 
     ITCL("ITCL"),
-
-    OPAV("OPAV"),
-
-    OPBD("OPBD"),
+  
+  ITBD("ITBD"),
+  
+  OPAV("OPAV"),
 
     OPCL("OPCL"),
+  
+  OPBD("OPBD"),
+  
+  PRCD("PRCD"),
+  
+  XPCD("XPCD");
 
-    PRCD("PRCD"),
+  private String value;
 
-    XPCD("XPCD");
+  OBBalanceType1Code(String value) {
+    this.value = value;
+  }
 
-    private String value;
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    OBBalanceType1Code(String value) {
-        this.value = value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  @JsonCreator
+  public static OBBalanceType1Code fromValue(String value) {
+    for (OBBalanceType1Code b : OBBalanceType1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBBalanceType1Code fromValue(String value) {
-        for (OBBalanceType1Code b : OBBalanceType1Code.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

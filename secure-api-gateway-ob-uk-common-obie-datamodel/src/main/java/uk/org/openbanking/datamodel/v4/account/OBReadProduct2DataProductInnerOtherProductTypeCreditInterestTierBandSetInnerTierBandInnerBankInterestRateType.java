@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Interest rate types, other than AER, which financial institutions may use to describe the annual interest rate payable to the account holder's account.
@@ -26,43 +36,43 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerBankInterestRateType {
+  
+  INBB("INBB"),
+  
+  INFR("INFR"),
+  
+  INGR("INGR"),
+  
+  INLR("INLR"),
+  
+  INNE("INNE"),
+  
+  INOT("INOT");
 
-    INBB("INBB"),
+  private String value;
 
-    INFR("INFR"),
+  OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerBankInterestRateType(String value) {
+    this.value = value;
+  }
 
-    INGR("INGR"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    INLR("INLR"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    INNE("INNE"),
-
-    INOT("INOT");
-
-    private String value;
-
-    OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerBankInterestRateType(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerBankInterestRateType fromValue(String value) {
+    for (OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerBankInterestRateType b : OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerBankInterestRateType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerBankInterestRateType fromValue(String value) {
-        for (OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerBankInterestRateType b : OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerBankInterestRateType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

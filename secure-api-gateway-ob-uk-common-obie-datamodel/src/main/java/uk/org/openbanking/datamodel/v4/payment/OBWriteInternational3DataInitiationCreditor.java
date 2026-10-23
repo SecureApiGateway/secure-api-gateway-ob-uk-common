@@ -15,17 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Party to which an amount of money is due.
@@ -36,115 +39,111 @@ import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternational3DataInitiationCreditor {
 
-    private String name;
+  private String name;
 
-    private String LEI;
+  private String LEI;
 
-    private OBPostalAddress7 postalAddress;
+  private OBPostalAddress7 postalAddress;
 
-    public OBWriteInternational3DataInitiationCreditor name(String name) {
-        this.name = name;
-        return this;
+  public OBWriteInternational3DataInitiationCreditor name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name by which a party is known and which is usually used to identify that party.
+   * @return name
+  */
+  @Size(min = 1, max = 350) 
+  @Schema(name = "Name", description = "Name by which a party is known and which is usually used to identify that party.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("Name")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public OBWriteInternational3DataInitiationCreditor LEI(String LEI) {
+    this.LEI = LEI;
+    return this;
+  }
+
+  /**
+   * Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".
+   * @return LEI
+  */
+  @Pattern(regexp = "^[A-Z0-9]{18,18}[0-9]{2,2}$") @Size(min = 1, max = 20) 
+  @Schema(name = "LEI", example = "IZ9Q00LZEVUKWCQY6X15", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("LEI")
+  public String getLEI() {
+    return LEI;
+  }
+
+  public void setLEI(String LEI) {
+    this.LEI = LEI;
+  }
+
+  public OBWriteInternational3DataInitiationCreditor postalAddress(OBPostalAddress7 postalAddress) {
+    this.postalAddress = postalAddress;
+    return this;
+  }
+
+  /**
+   * Get postalAddress
+   * @return postalAddress
+  */
+  @Valid 
+  @Schema(name = "PostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("PostalAddress")
+  public OBPostalAddress7 getPostalAddress() {
+    return postalAddress;
+  }
+
+  public void setPostalAddress(OBPostalAddress7 postalAddress) {
+    this.postalAddress = postalAddress;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Name by which a party is known and which is usually used to identify that party.
-     *
-     * @return name
-     */
-    @Size(min = 1, max = 140)
-    @Schema(name = "Name", description = "Name by which a party is known and which is usually used to identify that party.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Name")
-    public String getName() {
-        return name;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBWriteInternational3DataInitiationCreditor obWriteInternational3DataInitiationCreditor = (OBWriteInternational3DataInitiationCreditor) o;
+    return Objects.equals(this.name, obWriteInternational3DataInitiationCreditor.name) &&
+        Objects.equals(this.LEI, obWriteInternational3DataInitiationCreditor.LEI) &&
+        Objects.equals(this.postalAddress, obWriteInternational3DataInitiationCreditor.postalAddress);
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, LEI, postalAddress);
+  }
 
-    public OBWriteInternational3DataInitiationCreditor LEI(String LEI) {
-        this.LEI = LEI;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBWriteInternational3DataInitiationCreditor {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    LEI: ").append(toIndentedString(LEI)).append("\n");
+    sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".
-     *
-     * @return LEI
-     */
-    @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
-    @Size(min = 1, max = 20)
-    @Schema(name = "LEI", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("LEI")
-    public String getLEI() {
-        return LEI;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setLEI(String LEI) {
-        this.LEI = LEI;
-    }
-
-    public OBWriteInternational3DataInitiationCreditor postalAddress(OBPostalAddress7 postalAddress) {
-        this.postalAddress = postalAddress;
-        return this;
-    }
-
-    /**
-     * Get postalAddress
-     *
-     * @return postalAddress
-     */
-    @Valid
-    @Schema(name = "PostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("PostalAddress")
-    public OBPostalAddress7 getPostalAddress() {
-        return postalAddress;
-    }
-
-    public void setPostalAddress(OBPostalAddress7 postalAddress) {
-        this.postalAddress = postalAddress;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBWriteInternational3DataInitiationCreditor obWriteInternational3DataInitiationCreditor = (OBWriteInternational3DataInitiationCreditor) o;
-        return Objects.equals(this.name, obWriteInternational3DataInitiationCreditor.name) &&
-                Objects.equals(this.LEI, obWriteInternational3DataInitiationCreditor.LEI) &&
-                Objects.equals(this.postalAddress, obWriteInternational3DataInitiationCreditor.postalAddress);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, LEI, postalAddress);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBWriteInternational3DataInitiationCreditor {\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    LEI: ").append(toIndentedString(LEI)).append("\n");
-        sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

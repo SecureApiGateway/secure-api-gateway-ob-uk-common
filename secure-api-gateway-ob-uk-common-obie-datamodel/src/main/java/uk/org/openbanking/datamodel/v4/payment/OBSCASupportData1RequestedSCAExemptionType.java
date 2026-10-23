@@ -15,56 +15,66 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import jakarta.annotation.Generated;
-
 /**
- * This field allows a PISP to request specific SCA Exemption for a Payment Initiation. For a full list of values reefer to `OBInternalSCAExemptionType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+ * This field allows a PISP to request specific SCA Exemption for a Payment Initiation. For a full list of values refer to `OBInternalSCAExemptionType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBSCASupportData1RequestedSCAExemptionType {
+  
+  BILLPAYMENT("BillPayment"),
+  
+  CONTACTLESSTRAVEL("ContactlessTravel"),
+  
+  ECOMMERCEGOODS("EcommerceGoods"),
+  
+  ECOMMERCESERVICES("EcommerceServices"),
+  
+  KIOSK("Kiosk"),
+  
+  PARKING("Parking"),
+  
+  PARTYTOPARTY("PartyToParty");
 
-    BILLPAYMENT("BillPayment"),
+  private String value;
 
-    CONTACTLESSTRAVEL("ContactlessTravel"),
+  OBSCASupportData1RequestedSCAExemptionType(String value) {
+    this.value = value;
+  }
 
-    ECOMMERCEGOODS("EcommerceGoods"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    ECOMMERCESERVICES("EcommerceServices"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    KIOSK("Kiosk"),
-
-    PARKING("Parking"),
-
-    PARTYTOPARTY("PartyToParty");
-
-    private String value;
-
-    OBSCASupportData1RequestedSCAExemptionType(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBSCASupportData1RequestedSCAExemptionType fromValue(String value) {
+    for (OBSCASupportData1RequestedSCAExemptionType b : OBSCASupportData1RequestedSCAExemptionType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBSCASupportData1RequestedSCAExemptionType fromValue(String value) {
-        for (OBSCASupportData1RequestedSCAExemptionType b : OBSCASupportData1RequestedSCAExemptionType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

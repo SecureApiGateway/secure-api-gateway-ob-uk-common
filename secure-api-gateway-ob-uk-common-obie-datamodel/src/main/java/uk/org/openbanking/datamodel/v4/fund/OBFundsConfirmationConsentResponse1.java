@@ -15,16 +15,21 @@
  */
 package uk.org.openbanking.datamodel.v4.fund;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import uk.org.openbanking.datamodel.v4.common.Links;
 import uk.org.openbanking.datamodel.v4.common.Meta;
+import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmationConsentDataResponse1;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBFundsConfirmationConsentResponse1
@@ -33,126 +38,122 @@ import uk.org.openbanking.datamodel.v4.common.Meta;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBFundsConfirmationConsentResponse1 {
 
-    private OBFundsConfirmationConsentResponse1Data data;
+  private OBFundsConfirmationConsentDataResponse1 data;
 
-    private Links links;
+  private Links links;
 
-    private Meta meta;
+  private Meta meta;
 
-    public OBFundsConfirmationConsentResponse1() {
-        super();
+  public OBFundsConfirmationConsentResponse1() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBFundsConfirmationConsentResponse1(OBFundsConfirmationConsentDataResponse1 data) {
+    this.data = data;
+  }
+
+  public OBFundsConfirmationConsentResponse1 data(OBFundsConfirmationConsentDataResponse1 data) {
+    this.data = data;
+    return this;
+  }
+
+  /**
+   * Get data
+   * @return data
+  */
+  @NotNull @Valid 
+  @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Data")
+  public OBFundsConfirmationConsentDataResponse1 getData() {
+    return data;
+  }
+
+  public void setData(OBFundsConfirmationConsentDataResponse1 data) {
+    this.data = data;
+  }
+
+  public OBFundsConfirmationConsentResponse1 links(Links links) {
+    this.links = links;
+    return this;
+  }
+
+  /**
+   * Get links
+   * @return links
+  */
+  @Valid 
+  @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("Links")
+  public Links getLinks() {
+    return links;
+  }
+
+  public void setLinks(Links links) {
+    this.links = links;
+  }
+
+  public OBFundsConfirmationConsentResponse1 meta(Meta meta) {
+    this.meta = meta;
+    return this;
+  }
+
+  /**
+   * Get meta
+   * @return meta
+  */
+  @Valid 
+  @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("Meta")
+  public Meta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(Meta meta) {
+    this.meta = meta;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Constructor with only required parameters
-     */
-    public OBFundsConfirmationConsentResponse1(OBFundsConfirmationConsentResponse1Data data) {
-        this.data = data;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBFundsConfirmationConsentResponse1 obFundsConfirmationConsentResponse1 = (OBFundsConfirmationConsentResponse1) o;
+    return Objects.equals(this.data, obFundsConfirmationConsentResponse1.data) &&
+        Objects.equals(this.links, obFundsConfirmationConsentResponse1.links) &&
+        Objects.equals(this.meta, obFundsConfirmationConsentResponse1.meta);
+  }
 
-    public OBFundsConfirmationConsentResponse1 data(OBFundsConfirmationConsentResponse1Data data) {
-        this.data = data;
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(data, links, meta);
+  }
 
-    /**
-     * Get data
-     *
-     * @return data
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Data")
-    public OBFundsConfirmationConsentResponse1Data getData() {
-        return data;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBFundsConfirmationConsentResponse1 {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setData(OBFundsConfirmationConsentResponse1Data data) {
-        this.data = data;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public OBFundsConfirmationConsentResponse1 links(Links links) {
-        this.links = links;
-        return this;
-    }
-
-    /**
-     * Get links
-     *
-     * @return links
-     */
-    @Valid
-    @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Links")
-    public Links getLinks() {
-        return links;
-    }
-
-    public void setLinks(Links links) {
-        this.links = links;
-    }
-
-    public OBFundsConfirmationConsentResponse1 meta(Meta meta) {
-        this.meta = meta;
-        return this;
-    }
-
-    /**
-     * Get meta
-     *
-     * @return meta
-     */
-    @Valid
-    @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Meta")
-    public Meta getMeta() {
-        return meta;
-    }
-
-    public void setMeta(Meta meta) {
-        this.meta = meta;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBFundsConfirmationConsentResponse1 obFundsConfirmationConsentResponse1 = (OBFundsConfirmationConsentResponse1) o;
-        return Objects.equals(this.data, obFundsConfirmationConsentResponse1.data) &&
-                Objects.equals(this.links, obFundsConfirmationConsentResponse1.links) &&
-                Objects.equals(this.meta, obFundsConfirmationConsentResponse1.meta);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(data, links, meta);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBFundsConfirmationConsentResponse1 {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("    links: ").append(toIndentedString(links)).append("\n");
-        sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

@@ -21,8 +21,8 @@ import org.junit.jupiter.api.Test;
 import uk.org.openbanking.datamodel.v4.common.ExternalProxyAccountType1Code;
 import uk.org.openbanking.datamodel.v4.common.OBProxy1;
 import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmationConsent1;
-import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmationConsent1Data;
-import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmationConsent1DataDebtorAccount;
+import uk.org.openbanking.datamodel.v4.fund.OBCashAccountDebtorWithName;
+import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmationConsentData1;
 
 import static com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.funds.FRFundsConfirmationConsentConverter.toFRFundsConfirmationConsent;
 
@@ -34,8 +34,8 @@ public class FRFundsConfirmationConsentConverterTest {
     @Test
     void testConvert() {
         OBFundsConfirmationConsent1 fundsConfirmationConsent1 = new OBFundsConfirmationConsent1()
-                .data(new OBFundsConfirmationConsent1Data()
-                        .debtorAccount(new OBFundsConfirmationConsent1DataDebtorAccount()
+                .data(new OBFundsConfirmationConsentData1()
+                        .debtorAccount(new OBCashAccountDebtorWithName()
                                 .schemeName("UK.OBIE.SortCodeAccountNumber")
                                 .identification("40400422390112")
                                 .name("Mrs B Smith")

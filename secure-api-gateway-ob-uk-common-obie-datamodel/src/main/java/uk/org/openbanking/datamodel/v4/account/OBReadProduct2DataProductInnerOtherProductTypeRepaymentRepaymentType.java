@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Repayment type
@@ -26,57 +36,57 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentType {
+  
+  USBA("USBA"),
+  
+  USBU("USBU"),
+  
+  USCI("USCI"),
+  
+  USCS("USCS"),
+  
+  USER("USER"),
+  
+  USFA("USFA"),
+  
+  USFB("USFB"),
+  
+  USFI("USFI"),
+  
+  USIO("USIO"),
+  
+  USOT("USOT"),
+  
+  USPF("USPF"),
+  
+  USRW("USRW"),
+  
+  USSL("USSL");
 
-    USBA("USBA"),
+  private String value;
 
-    USBU("USBU"),
+  OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentType(String value) {
+    this.value = value;
+  }
 
-    USCI("USCI"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    USCS("USCS"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    USER("USER"),
-
-    USFA("USFA"),
-
-    USFB("USFB"),
-
-    USFI("USFI"),
-
-    USIO("USIO"),
-
-    USOT("USOT"),
-
-    USPF("USPF"),
-
-    USRW("USRW"),
-
-    USSL("USSL");
-
-    private String value;
-
-    OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentType(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentType fromValue(String value) {
+    for (OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentType b : OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentType fromValue(String value) {
-        for (OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentType b : OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

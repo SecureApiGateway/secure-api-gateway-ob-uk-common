@@ -15,17 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import uk.org.openbanking.datamodel.v4.common.Links;
 import uk.org.openbanking.datamodel.v4.common.Meta;
 import uk.org.openbanking.datamodel.v4.common.OBRisk1;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPConsentResponseData;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBDomesticVRPConsentResponse
@@ -34,157 +39,147 @@ import uk.org.openbanking.datamodel.v4.common.OBRisk1;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPConsentResponse {
 
-    private OBDomesticVRPConsentResponseData data;
+  private OBDomesticVRPConsentResponseData data;
 
-    private OBRisk1 risk;
+  private OBRisk1 risk;
 
-    private Links links;
+  private Links links;
 
-    private Meta meta;
+  private Meta meta;
 
-    public OBDomesticVRPConsentResponse() {
-        super();
+  public OBDomesticVRPConsentResponse() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBDomesticVRPConsentResponse(OBDomesticVRPConsentResponseData data, OBRisk1 risk) {
+    this.data = data;
+    this.risk = risk;
+  }
+
+  public OBDomesticVRPConsentResponse data(OBDomesticVRPConsentResponseData data) {
+    this.data = data;
+    return this;
+  }
+
+  /**
+   * Get data
+   * @return data
+  */
+  @NotNull @Valid 
+  @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Data")
+  public OBDomesticVRPConsentResponseData getData() {
+    return data;
+  }
+
+  public void setData(OBDomesticVRPConsentResponseData data) {
+    this.data = data;
+  }
+
+  public OBDomesticVRPConsentResponse risk(OBRisk1 risk) {
+    this.risk = risk;
+    return this;
+  }
+
+  /**
+   * Get risk
+   * @return risk
+  */
+  @NotNull @Valid 
+  @Schema(name = "Risk", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Risk")
+  public OBRisk1 getRisk() {
+    return risk;
+  }
+
+  public void setRisk(OBRisk1 risk) {
+    this.risk = risk;
+  }
+
+  public OBDomesticVRPConsentResponse links(Links links) {
+    this.links = links;
+    return this;
+  }
+
+  /**
+   * Get links
+   * @return links
+  */
+  @Valid 
+  @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("Links")
+  public Links getLinks() {
+    return links;
+  }
+
+  public void setLinks(Links links) {
+    this.links = links;
+  }
+
+  public OBDomesticVRPConsentResponse meta(Meta meta) {
+    this.meta = meta;
+    return this;
+  }
+
+  /**
+   * Get meta
+   * @return meta
+  */
+  @Valid 
+  @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("Meta")
+  public Meta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(Meta meta) {
+    this.meta = meta;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Constructor with only required parameters
-     */
-    public OBDomesticVRPConsentResponse(OBDomesticVRPConsentResponseData data, OBRisk1 risk, Links links, Meta meta) {
-        this.data = data;
-        this.risk = risk;
-        this.links = links;
-        this.meta = meta;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBDomesticVRPConsentResponse obDomesticVRPConsentResponse = (OBDomesticVRPConsentResponse) o;
+    return Objects.equals(this.data, obDomesticVRPConsentResponse.data) &&
+        Objects.equals(this.risk, obDomesticVRPConsentResponse.risk) &&
+        Objects.equals(this.links, obDomesticVRPConsentResponse.links) &&
+        Objects.equals(this.meta, obDomesticVRPConsentResponse.meta);
+  }
 
-    public OBDomesticVRPConsentResponse data(OBDomesticVRPConsentResponseData data) {
-        this.data = data;
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(data, risk, links, meta);
+  }
 
-    /**
-     * Get data
-     *
-     * @return data
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Data")
-    public OBDomesticVRPConsentResponseData getData() {
-        return data;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBDomesticVRPConsentResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setData(OBDomesticVRPConsentResponseData data) {
-        this.data = data;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public OBDomesticVRPConsentResponse risk(OBRisk1 risk) {
-        this.risk = risk;
-        return this;
-    }
-
-    /**
-     * Get risk
-     *
-     * @return risk
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Risk", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Risk")
-    public OBRisk1 getRisk() {
-        return risk;
-    }
-
-    public void setRisk(OBRisk1 risk) {
-        this.risk = risk;
-    }
-
-    public OBDomesticVRPConsentResponse links(Links links) {
-        this.links = links;
-        return this;
-    }
-
-    /**
-     * Get links
-     *
-     * @return links
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Links", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Links")
-    public Links getLinks() {
-        return links;
-    }
-
-    public void setLinks(Links links) {
-        this.links = links;
-    }
-
-    public OBDomesticVRPConsentResponse meta(Meta meta) {
-        this.meta = meta;
-        return this;
-    }
-
-    /**
-     * Get meta
-     *
-     * @return meta
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Meta", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Meta")
-    public Meta getMeta() {
-        return meta;
-    }
-
-    public void setMeta(Meta meta) {
-        this.meta = meta;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBDomesticVRPConsentResponse obDomesticVRPConsentResponse = (OBDomesticVRPConsentResponse) o;
-        return Objects.equals(this.data, obDomesticVRPConsentResponse.data) &&
-                Objects.equals(this.risk, obDomesticVRPConsentResponse.risk) &&
-                Objects.equals(this.links, obDomesticVRPConsentResponse.links) &&
-                Objects.equals(this.meta, obDomesticVRPConsentResponse.meta);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(data, risk, links, meta);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBDomesticVRPConsentResponse {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("    risk: ").append(toIndentedString(risk)).append("\n");
-        sb.append("    links: ").append(toIndentedString(links)).append("\n");
-        sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

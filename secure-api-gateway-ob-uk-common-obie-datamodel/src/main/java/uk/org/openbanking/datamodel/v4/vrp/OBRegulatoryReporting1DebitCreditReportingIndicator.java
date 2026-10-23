@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Identifies whether the regulatory reporting information applies to the debit side, to the credit side or to both debit and credit sides of the transaction. For a full list of values refer to `OBExternalRegulatoryReportingType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
@@ -26,37 +36,37 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBRegulatoryReporting1DebitCreditReportingIndicator {
+  
+  CRED("CRED"),
+  
+  DEBT("DEBT"),
+  
+  BOTH("BOTH");
 
-    CRED("CRED"),
+  private String value;
 
-    DEBT("DEBT"),
+  OBRegulatoryReporting1DebitCreditReportingIndicator(String value) {
+    this.value = value;
+  }
 
-    BOTH("BOTH");
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    private String value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    OBRegulatoryReporting1DebitCreditReportingIndicator(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBRegulatoryReporting1DebitCreditReportingIndicator fromValue(String value) {
+    for (OBRegulatoryReporting1DebitCreditReportingIndicator b : OBRegulatoryReporting1DebitCreditReportingIndicator.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBRegulatoryReporting1DebitCreditReportingIndicator fromValue(String value) {
-        for (OBRegulatoryReporting1DebitCreditReportingIndicator b : OBRegulatoryReporting1DebitCreditReportingIndicator.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

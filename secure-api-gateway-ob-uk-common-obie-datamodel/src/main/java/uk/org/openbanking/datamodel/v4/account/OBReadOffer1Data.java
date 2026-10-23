@@ -15,16 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OBReadOffer1DataOfferInner;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBReadOffer1Data
@@ -34,73 +41,72 @@ import jakarta.validation.Valid;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBReadOffer1Data {
 
-    @Valid
-    private List<@Valid OBReadOffer1DataOfferInner> offer;
+  @Valid
+  private List<@Valid OBReadOffer1DataOfferInner> offer;
 
-    public OBReadOffer1Data offer(List<@Valid OBReadOffer1DataOfferInner> offer) {
-        this.offer = offer;
-        return this;
-    }
+  public OBReadOffer1Data offer(List<@Valid OBReadOffer1DataOfferInner> offer) {
+    this.offer = offer;
+    return this;
+  }
 
-    public OBReadOffer1Data addOfferItem(OBReadOffer1DataOfferInner offerItem) {
-        if (this.offer == null) {
-            this.offer = new ArrayList<>();
-        }
-        this.offer.add(offerItem);
-        return this;
+  public OBReadOffer1Data addOfferItem(OBReadOffer1DataOfferInner offerItem) {
+    if (this.offer == null) {
+      this.offer = new ArrayList<>();
     }
+    this.offer.add(offerItem);
+    return this;
+  }
 
-    /**
-     * Get offer
-     *
-     * @return offer
-     */
-    @Valid
-    @Schema(name = "Offer", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Offer")
-    public List<@Valid OBReadOffer1DataOfferInner> getOffer() {
-        return offer;
-    }
+  /**
+   * Get offer
+   * @return offer
+  */
+  @Valid 
+  @Schema(name = "Offer", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("Offer")
+  public List<@Valid OBReadOffer1DataOfferInner> getOffer() {
+    return offer;
+  }
 
-    public void setOffer(List<@Valid OBReadOffer1DataOfferInner> offer) {
-        this.offer = offer;
-    }
+  public void setOffer(List<@Valid OBReadOffer1DataOfferInner> offer) {
+    this.offer = offer;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBReadOffer1Data obReadOffer1Data = (OBReadOffer1Data) o;
-        return Objects.equals(this.offer, obReadOffer1Data.offer);
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    OBReadOffer1Data obReadOffer1Data = (OBReadOffer1Data) o;
+    return Objects.equals(this.offer, obReadOffer1Data.offer);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(offer);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(offer);
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBReadOffer1Data {\n");
-        sb.append("    offer: ").append(toIndentedString(offer)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBReadOffer1Data {\n");
+    sb.append("    offer: ").append(toIndentedString(offer)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

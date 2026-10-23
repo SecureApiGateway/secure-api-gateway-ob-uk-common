@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Type of authorisation flow requested.
@@ -26,35 +36,35 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType {
+  
+  ANY("Any"),
+  
+  SINGLE("Single");
 
-    ANY("Any"),
+  private String value;
 
-    SINGLE("Single");
+  OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType(String value) {
+    this.value = value;
+  }
 
-    private String value;
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType(String value) {
-        this.value = value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  @JsonCreator
+  public static OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType fromValue(String value) {
+    for (OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType b : OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType fromValue(String value) {
-        for (OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType b : OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Repayment frequency
@@ -26,49 +36,49 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFrequency {
+  
+  SMDA("SMDA"),
+  
+  SMFL("SMFL"),
+  
+  SMFO("SMFO"),
+  
+  SMHY("SMHY"),
+  
+  SMMO("SMMO"),
+  
+  SMOT("SMOT"),
+  
+  SMQU("SMQU"),
+  
+  SMWE("SMWE"),
+  
+  SMYE("SMYE");
 
-    SMDA("SMDA"),
+  private String value;
 
-    SMFL("SMFL"),
+  OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFrequency(String value) {
+    this.value = value;
+  }
 
-    SMFO("SMFO"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    SMHY("SMHY"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    SMMO("SMMO"),
-
-    SMOT("SMOT"),
-
-    SMQU("SMQU"),
-
-    SMWE("SMWE"),
-
-    SMYE("SMYE");
-
-    private String value;
-
-    OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFrequency(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFrequency fromValue(String value) {
+    for (OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFrequency b : OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFrequency.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFrequency fromValue(String value) {
-        for (OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFrequency b : OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFrequency.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

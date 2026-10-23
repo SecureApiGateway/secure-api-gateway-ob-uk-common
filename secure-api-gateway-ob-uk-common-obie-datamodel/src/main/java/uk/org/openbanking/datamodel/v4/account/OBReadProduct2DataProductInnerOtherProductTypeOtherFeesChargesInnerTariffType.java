@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * TariffType which defines the fee and charges.
@@ -26,37 +36,37 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerTariffType {
+  
+  TTEL("TTEL"),
+  
+  TTMX("TTMX"),
+  
+  TTOT("TTOT");
 
-    TTEL("TTEL"),
+  private String value;
 
-    TTMX("TTMX"),
+  OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerTariffType(String value) {
+    this.value = value;
+  }
 
-    TTOT("TTOT");
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    private String value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerTariffType(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerTariffType fromValue(String value) {
+    for (OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerTariffType b : OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerTariffType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerTariffType fromValue(String value) {
-        for (OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerTariffType b : OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerTariffType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

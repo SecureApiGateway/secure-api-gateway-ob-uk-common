@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Specifies the status of the authorisation flow in code form.
@@ -26,37 +36,37 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBWriteDomesticScheduledResponse5DataMultiAuthorisationStatus {
+  
+  AUTH("AUTH"),
+  
+  AWAF("AWAF"),
+  
+  RJCT("RJCT");
 
-    AUTH("AUTH"),
+  private String value;
 
-    AWAF("AWAF"),
+  OBWriteDomesticScheduledResponse5DataMultiAuthorisationStatus(String value) {
+    this.value = value;
+  }
 
-    RJCT("RJCT");
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    private String value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    OBWriteDomesticScheduledResponse5DataMultiAuthorisationStatus(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBWriteDomesticScheduledResponse5DataMultiAuthorisationStatus fromValue(String value) {
+    for (OBWriteDomesticScheduledResponse5DataMultiAuthorisationStatus b : OBWriteDomesticScheduledResponse5DataMultiAuthorisationStatus.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBWriteDomesticScheduledResponse5DataMultiAuthorisationStatus fromValue(String value) {
-        for (OBWriteDomesticScheduledResponse5DataMultiAuthorisationStatus b : OBWriteDomesticScheduledResponse5DataMultiAuthorisationStatus.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

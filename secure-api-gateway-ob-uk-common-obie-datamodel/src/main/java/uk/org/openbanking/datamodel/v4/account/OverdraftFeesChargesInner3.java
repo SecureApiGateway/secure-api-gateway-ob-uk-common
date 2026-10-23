@@ -15,18 +15,24 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OverdraftFeeChargeCapInner1;
+import uk.org.openbanking.datamodel.v4.account.OverdraftFeeChargeDetailInner1;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Overdraft fees and charges details
@@ -37,120 +43,116 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OverdraftFeesChargesInner3 {
 
-    @Valid
-    private List<@Valid OverdraftFeeChargeCapInner1> overdraftFeeChargeCap;
+  @Valid
+  private List<@Valid OverdraftFeeChargeCapInner1> overdraftFeeChargeCap;
 
-    @Valid
-    private List<@Valid OverdraftFeeChargeDetailInner1> overdraftFeeChargeDetail = new ArrayList<>();
+  @Valid
+  private List<@Valid OverdraftFeeChargeDetailInner1> overdraftFeeChargeDetail = new ArrayList<>();
 
-    public OverdraftFeesChargesInner3() {
-        super();
+  public OverdraftFeesChargesInner3() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OverdraftFeesChargesInner3(List<@Valid OverdraftFeeChargeDetailInner1> overdraftFeeChargeDetail) {
+    this.overdraftFeeChargeDetail = overdraftFeeChargeDetail;
+  }
+
+  public OverdraftFeesChargesInner3 overdraftFeeChargeCap(List<@Valid OverdraftFeeChargeCapInner1> overdraftFeeChargeCap) {
+    this.overdraftFeeChargeCap = overdraftFeeChargeCap;
+    return this;
+  }
+
+  public OverdraftFeesChargesInner3 addOverdraftFeeChargeCapItem(OverdraftFeeChargeCapInner1 overdraftFeeChargeCapItem) {
+    if (this.overdraftFeeChargeCap == null) {
+      this.overdraftFeeChargeCap = new ArrayList<>();
     }
+    this.overdraftFeeChargeCap.add(overdraftFeeChargeCapItem);
+    return this;
+  }
 
-    /**
-     * Constructor with only required parameters
-     */
-    public OverdraftFeesChargesInner3(List<@Valid OverdraftFeeChargeDetailInner1> overdraftFeeChargeDetail) {
-        this.overdraftFeeChargeDetail = overdraftFeeChargeDetail;
-    }
+  /**
+   * Details about any caps (maximum charges) that apply to a particular fee/charge
+   * @return overdraftFeeChargeCap
+  */
+  @Valid 
+  @Schema(name = "OverdraftFeeChargeCap", description = "Details about any caps (maximum charges) that apply to a particular fee/charge", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("OverdraftFeeChargeCap")
+  public List<@Valid OverdraftFeeChargeCapInner1> getOverdraftFeeChargeCap() {
+    return overdraftFeeChargeCap;
+  }
 
-    public OverdraftFeesChargesInner3 overdraftFeeChargeCap(List<@Valid OverdraftFeeChargeCapInner1> overdraftFeeChargeCap) {
-        this.overdraftFeeChargeCap = overdraftFeeChargeCap;
-        return this;
-    }
+  public void setOverdraftFeeChargeCap(List<@Valid OverdraftFeeChargeCapInner1> overdraftFeeChargeCap) {
+    this.overdraftFeeChargeCap = overdraftFeeChargeCap;
+  }
 
-    public OverdraftFeesChargesInner3 addOverdraftFeeChargeCapItem(OverdraftFeeChargeCapInner1 overdraftFeeChargeCapItem) {
-        if (this.overdraftFeeChargeCap == null) {
-            this.overdraftFeeChargeCap = new ArrayList<>();
-        }
-        this.overdraftFeeChargeCap.add(overdraftFeeChargeCapItem);
-        return this;
-    }
+  public OverdraftFeesChargesInner3 overdraftFeeChargeDetail(List<@Valid OverdraftFeeChargeDetailInner1> overdraftFeeChargeDetail) {
+    this.overdraftFeeChargeDetail = overdraftFeeChargeDetail;
+    return this;
+  }
 
-    /**
-     * Details about any caps (maximum charges) that apply to a particular fee/charge
-     *
-     * @return overdraftFeeChargeCap
-     */
-    @Valid
-    @Schema(name = "OverdraftFeeChargeCap", description = "Details about any caps (maximum charges) that apply to a particular fee/charge", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("OverdraftFeeChargeCap")
-    public List<@Valid OverdraftFeeChargeCapInner1> getOverdraftFeeChargeCap() {
-        return overdraftFeeChargeCap;
+  public OverdraftFeesChargesInner3 addOverdraftFeeChargeDetailItem(OverdraftFeeChargeDetailInner1 overdraftFeeChargeDetailItem) {
+    if (this.overdraftFeeChargeDetail == null) {
+      this.overdraftFeeChargeDetail = new ArrayList<>();
     }
+    this.overdraftFeeChargeDetail.add(overdraftFeeChargeDetailItem);
+    return this;
+  }
 
-    public void setOverdraftFeeChargeCap(List<@Valid OverdraftFeeChargeCapInner1> overdraftFeeChargeCap) {
-        this.overdraftFeeChargeCap = overdraftFeeChargeCap;
-    }
+  /**
+   * Details about the fees/charges
+   * @return overdraftFeeChargeDetail
+  */
+  @NotNull @Valid @Size(min = 1) 
+  @Schema(name = "OverdraftFeeChargeDetail", description = "Details about the fees/charges", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("OverdraftFeeChargeDetail")
+  public List<@Valid OverdraftFeeChargeDetailInner1> getOverdraftFeeChargeDetail() {
+    return overdraftFeeChargeDetail;
+  }
 
-    public OverdraftFeesChargesInner3 overdraftFeeChargeDetail(List<@Valid OverdraftFeeChargeDetailInner1> overdraftFeeChargeDetail) {
-        this.overdraftFeeChargeDetail = overdraftFeeChargeDetail;
-        return this;
-    }
+  public void setOverdraftFeeChargeDetail(List<@Valid OverdraftFeeChargeDetailInner1> overdraftFeeChargeDetail) {
+    this.overdraftFeeChargeDetail = overdraftFeeChargeDetail;
+  }
 
-    public OverdraftFeesChargesInner3 addOverdraftFeeChargeDetailItem(OverdraftFeeChargeDetailInner1 overdraftFeeChargeDetailItem) {
-        if (this.overdraftFeeChargeDetail == null) {
-            this.overdraftFeeChargeDetail = new ArrayList<>();
-        }
-        this.overdraftFeeChargeDetail.add(overdraftFeeChargeDetailItem);
-        return this;
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    OverdraftFeesChargesInner3 overdraftFeesChargesInner3 = (OverdraftFeesChargesInner3) o;
+    return Objects.equals(this.overdraftFeeChargeCap, overdraftFeesChargesInner3.overdraftFeeChargeCap) &&
+        Objects.equals(this.overdraftFeeChargeDetail, overdraftFeesChargesInner3.overdraftFeeChargeDetail);
+  }
 
-    /**
-     * Details about the fees/charges
-     *
-     * @return overdraftFeeChargeDetail
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
-    @Schema(name = "OverdraftFeeChargeDetail", description = "Details about the fees/charges", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("OverdraftFeeChargeDetail")
-    public List<@Valid OverdraftFeeChargeDetailInner1> getOverdraftFeeChargeDetail() {
-        return overdraftFeeChargeDetail;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(overdraftFeeChargeCap, overdraftFeeChargeDetail);
+  }
 
-    public void setOverdraftFeeChargeDetail(List<@Valid OverdraftFeeChargeDetailInner1> overdraftFeeChargeDetail) {
-        this.overdraftFeeChargeDetail = overdraftFeeChargeDetail;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OverdraftFeesChargesInner3 {\n");
+    sb.append("    overdraftFeeChargeCap: ").append(toIndentedString(overdraftFeeChargeCap)).append("\n");
+    sb.append("    overdraftFeeChargeDetail: ").append(toIndentedString(overdraftFeeChargeDetail)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OverdraftFeesChargesInner3 overdraftFeesChargesInner3 = (OverdraftFeesChargesInner3) o;
-        return Objects.equals(this.overdraftFeeChargeCap, overdraftFeesChargesInner3.overdraftFeeChargeCap) &&
-                Objects.equals(this.overdraftFeeChargeDetail, overdraftFeesChargesInner3.overdraftFeeChargeDetail);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(overdraftFeeChargeCap, overdraftFeeChargeDetail);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OverdraftFeesChargesInner3 {\n");
-        sb.append("    overdraftFeeChargeCap: ").append(toIndentedString(overdraftFeeChargeCap)).append("\n");
-        sb.append("    overdraftFeeChargeDetail: ").append(toIndentedString(overdraftFeeChargeDetail)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

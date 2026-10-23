@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Limit type, in a coded form. <br /> For a full list of enumeration values refer to `OBInternalLimitType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
@@ -26,41 +36,41 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBReadBalance1DataBalanceInnerCreditLineInnerType {
+  
+  AVAILABLE("Available"),
+  
+  CREDIT("Credit"),
+  
+  EMERGENCY("Emergency"),
+  
+  PRE_AGREED("Pre-Agreed"),
+  
+  TEMPORARY("Temporary");
 
-    AVAILABLE("Available"),
+  private String value;
 
-    CREDIT("Credit"),
+  OBReadBalance1DataBalanceInnerCreditLineInnerType(String value) {
+    this.value = value;
+  }
 
-    EMERGENCY("Emergency"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    PRE_AGREED("Pre-Agreed"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    TEMPORARY("Temporary");
-
-    private String value;
-
-    OBReadBalance1DataBalanceInnerCreditLineInnerType(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBReadBalance1DataBalanceInnerCreditLineInnerType fromValue(String value) {
+    for (OBReadBalance1DataBalanceInnerCreditLineInnerType b : OBReadBalance1DataBalanceInnerCreditLineInnerType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBReadBalance1DataBalanceInnerCreditLineInnerType fromValue(String value) {
-        for (OBReadBalance1DataBalanceInnerCreditLineInnerType b : OBReadBalance1DataBalanceInnerCreditLineInnerType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

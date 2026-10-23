@@ -15,58 +15,68 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import jakarta.annotation.Generated;
-
 /**
- * Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another. Read more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd  With respect to BCA products, they are segmented in relation to different markets that they wish to focus on.
+ * Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another. Read more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd  With respect to BCA products, they are segmented in relation to different markets that they wish to focus on. 
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum SegmentInner {
+  
+  CLIENTACCOUNT("ClientAccount"),
+  
+  STANDARD("Standard"),
+  
+  NONCOMMERCIALCHAITIESCLBSOC("NonCommercialChaitiesClbSoc"),
+  
+  NONCOMMERCIALPUBLICAUTHGOVT("NonCommercialPublicAuthGovt"),
+  
+  RELIGIOUS("Religious"),
+  
+  SECTORSPECIFIC("SectorSpecific"),
+  
+  STARTUP("Startup"),
+  
+  SWITCHER("Switcher");
 
-    CLIENTACCOUNT("ClientAccount"),
+  private String value;
 
-    STANDARD("Standard"),
+  SegmentInner(String value) {
+    this.value = value;
+  }
 
-    NONCOMMERCIALCHAITIESCLBSOC("NonCommercialChaitiesClbSoc"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    NONCOMMERCIALPUBLICAUTHGOVT("NonCommercialPublicAuthGovt"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    RELIGIOUS("Religious"),
-
-    SECTORSPECIFIC("SectorSpecific"),
-
-    STARTUP("Startup"),
-
-    SWITCHER("Switcher");
-
-    private String value;
-
-    SegmentInner(String value) {
-        this.value = value;
+  @JsonCreator
+  public static SegmentInner fromValue(String value) {
+    for (SegmentInner b : SegmentInner.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static SegmentInner fromValue(String value) {
-        for (SegmentInner b : SegmentInner.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

@@ -15,58 +15,68 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import jakarta.annotation.Generated;
-
 /**
- * Individual Definitions:  ADHO - Adhoc   YEAR - Annual DAIL - Daily INDA - Intra Day MNTH - Monthly QURT - Quarterly WEEK - Weekly
+ * Individual Definitions:  ADHO - Adhoc   YEAR - Annual DAIL - Daily INDA - Intra Day MNTH - Monthly QURT - Quarterly WEEK - Weekly 
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBFrequencyPeriodType {
+  
+  ADHO("ADHO"),
+  
+  YEAR("YEAR"),
+  
+  DAIL("DAIL"),
+  
+  INDA("INDA"),
+  
+  MNTH("MNTH"),
+  
+  QURT("QURT"),
+  
+  MIAN("MIAN"),
+  
+  WEEK("WEEK");
 
-    ADHO("ADHO"),
+  private String value;
 
-    YEAR("YEAR"),
+  OBFrequencyPeriodType(String value) {
+    this.value = value;
+  }
 
-    DAIL("DAIL"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    INDA("INDA"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    MNTH("MNTH"),
-
-    QURT("QURT"),
-
-    MIAN("MIAN"),
-
-    WEEK("WEEK");
-
-    private String value;
-
-    OBFrequencyPeriodType(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBFrequencyPeriodType fromValue(String value) {
+    for (OBFrequencyPeriodType b : OBFrequencyPeriodType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBFrequencyPeriodType fromValue(String value) {
-        for (OBFrequencyPeriodType b : OBFrequencyPeriodType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

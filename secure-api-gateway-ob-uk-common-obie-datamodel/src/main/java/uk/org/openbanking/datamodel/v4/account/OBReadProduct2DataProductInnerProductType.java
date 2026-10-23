@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Descriptive code for the product category.  For a full list refer to `OBInternalProductType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)<br /><br /> If ProductType - \"Other\" is chosen, the object OtherProductType must be populated with name, and description.
@@ -26,41 +36,41 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBReadProduct2DataProductInnerProductType {
+  
+  BUSINESSCURRENTACCOUNT("BusinessCurrentAccount"),
+  
+  COMMERCIALCREDITCARD("CommercialCreditCard"),
+  
+  OTHER("Other"),
+  
+  PERSONALCURRENTACCOUNT("PersonalCurrentAccount"),
+  
+  SMELOAN("SMELoan");
 
-    BUSINESSCURRENTACCOUNT("BusinessCurrentAccount"),
+  private String value;
 
-    COMMERCIALCREDITCARD("CommercialCreditCard"),
+  OBReadProduct2DataProductInnerProductType(String value) {
+    this.value = value;
+  }
 
-    OTHER("Other"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    PERSONALCURRENTACCOUNT("PersonalCurrentAccount"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    SMELOAN("SMELoan");
-
-    private String value;
-
-    OBReadProduct2DataProductInnerProductType(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBReadProduct2DataProductInnerProductType fromValue(String value) {
+    for (OBReadProduct2DataProductInnerProductType b : OBReadProduct2DataProductInnerProductType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBReadProduct2DataProductInnerProductType fromValue(String value) {
-        for (OBReadProduct2DataProductInnerProductType b : OBReadProduct2DataProductInnerProductType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

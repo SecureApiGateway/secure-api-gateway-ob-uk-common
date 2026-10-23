@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Frequency at which the overdraft charge is applied to the account
@@ -26,71 +36,71 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum ApplicationFrequency1 {
+  
+  ONCLOSING("OnClosing"),
+  
+  ONOPENING("OnOpening"),
+  
+  CHARGINGPERIOD("ChargingPeriod"),
+  
+  DAILY("Daily"),
+  
+  PERITEM("PerItem"),
+  
+  MONTHLY("Monthly"),
+  
+  ONANNIVERSARY("OnAnniversary"),
+  
+  OTHER("Other"),
+  
+  PERHUNDREDPOUNDS("PerHundredPounds"),
+  
+  PERHOUR("PerHour"),
+  
+  PEROCCURRENCE("PerOccurrence"),
+  
+  PERSHEET("PerSheet"),
+  
+  PERTRANSACTION("PerTransaction"),
+  
+  PERTRANSACTIONAMOUNT("PerTransactionAmount"),
+  
+  PERTRANSACTIONPERCENTAGE("PerTransactionPercentage"),
+  
+  QUARTERLY("Quarterly"),
+  
+  SIXMONTHLY("SixMonthly"),
+  
+  STATEMENTMONTHLY("StatementMonthly"),
+  
+  WEEKLY("Weekly"),
+  
+  YEARLY("Yearly");
 
-    ONCLOSING("OnClosing"),
+  private String value;
 
-    ONOPENING("OnOpening"),
+  ApplicationFrequency1(String value) {
+    this.value = value;
+  }
 
-    CHARGINGPERIOD("ChargingPeriod"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    DAILY("Daily"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    PERITEM("PerItem"),
-
-    MONTHLY("Monthly"),
-
-    ONANNIVERSARY("OnAnniversary"),
-
-    OTHER("Other"),
-
-    PERHUNDREDPOUNDS("PerHundredPounds"),
-
-    PERHOUR("PerHour"),
-
-    PEROCCURRENCE("PerOccurrence"),
-
-    PERSHEET("PerSheet"),
-
-    PERTRANSACTION("PerTransaction"),
-
-    PERTRANSACTIONAMOUNT("PerTransactionAmount"),
-
-    PERTRANSACTIONPERCENTAGE("PerTransactionPercentage"),
-
-    QUARTERLY("Quarterly"),
-
-    SIXMONTHLY("SixMonthly"),
-
-    STATEMENTMONTHLY("StatementMonthly"),
-
-    WEEKLY("Weekly"),
-
-    YEARLY("Yearly");
-
-    private String value;
-
-    ApplicationFrequency1(String value) {
-        this.value = value;
+  @JsonCreator
+  public static ApplicationFrequency1 fromValue(String value) {
+    for (ApplicationFrequency1 b : ApplicationFrequency1.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static ApplicationFrequency1 fromValue(String value) {
-        for (ApplicationFrequency1 b : ApplicationFrequency1.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * The methodology of how overdraft is charged. It can be: 'Whole'  Where the same charge/rate is applied to the entirety of the overdraft balance (where charges are applicable).  'Tiered' Where different charges/rates are applied dependent on overdraft maximum and minimum balance amount tiers defined by the lending financial organisation 'Banded' Where different charges/rates are applied dependent on overdraft maximum and minimum balance amount bands defined by a government organisation.
@@ -26,37 +36,37 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerTierBandMethod {
+  
+  INBA("INBA"),
+  
+  INTI("INTI"),
+  
+  INWH("INWH");
 
-    INBA("INBA"),
+  private String value;
 
-    INTI("INTI"),
+  OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerTierBandMethod(String value) {
+    this.value = value;
+  }
 
-    INWH("INWH");
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    private String value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerTierBandMethod(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerTierBandMethod fromValue(String value) {
+    for (OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerTierBandMethod b : OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerTierBandMethod.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerTierBandMethod fromValue(String value) {
-        for (OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerTierBandMethod b : OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerTierBandMethod.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

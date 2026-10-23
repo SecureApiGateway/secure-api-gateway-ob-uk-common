@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * The unit of period (days, weeks, months etc.) of the promotional length
@@ -26,43 +36,43 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum FeeFreeLengthPeriod {
+  
+  DAY("Day"),
+  
+  HALF_YEAR("Half Year"),
+  
+  MONTH("Month"),
+  
+  QUARTER("Quarter"),
+  
+  WEEK("Week"),
+  
+  YEAR("Year");
 
-    DAY("Day"),
+  private String value;
 
-    HALF_YEAR("Half Year"),
+  FeeFreeLengthPeriod(String value) {
+    this.value = value;
+  }
 
-    MONTH("Month"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    QUARTER("Quarter"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    WEEK("Week"),
-
-    YEAR("Year");
-
-    private String value;
-
-    FeeFreeLengthPeriod(String value) {
-        this.value = value;
+  @JsonCreator
+  public static FeeFreeLengthPeriod fromValue(String value) {
+    for (FeeFreeLengthPeriod b : FeeFreeLengthPeriod.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static FeeFreeLengthPeriod fromValue(String value) {
-        for (FeeFreeLengthPeriod b : FeeFreeLengthPeriod.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

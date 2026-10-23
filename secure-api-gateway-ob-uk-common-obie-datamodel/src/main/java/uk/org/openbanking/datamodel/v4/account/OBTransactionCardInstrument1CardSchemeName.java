@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Name of the card scheme. <br /> For a full list of enumeration values refer to `OBInternalCardSchemeType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
@@ -26,41 +36,41 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBTransactionCardInstrument1CardSchemeName {
+  
+  AMERICANEXPRESS("AmericanExpress"),
+  
+  DINERS("Diners"),
+  
+  DISCOVER("Discover"),
+  
+  MASTERCARD("MasterCard"),
+  
+  VISA("VISA");
 
-    AMERICANEXPRESS("AmericanExpress"),
+  private String value;
 
-    DINERS("Diners"),
+  OBTransactionCardInstrument1CardSchemeName(String value) {
+    this.value = value;
+  }
 
-    DISCOVER("Discover"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    MASTERCARD("MasterCard"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    VISA("VISA");
-
-    private String value;
-
-    OBTransactionCardInstrument1CardSchemeName(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBTransactionCardInstrument1CardSchemeName fromValue(String value) {
+    for (OBTransactionCardInstrument1CardSchemeName b : OBTransactionCardInstrument1CardSchemeName.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBTransactionCardInstrument1CardSchemeName fromValue(String value) {
-        for (OBTransactionCardInstrument1CardSchemeName b : OBTransactionCardInstrument1CardSchemeName.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

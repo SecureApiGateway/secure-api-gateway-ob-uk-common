@@ -21,7 +21,6 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v3.mapper.FRM
 
 import uk.org.openbanking.datamodel.v4.account.*;
 import uk.org.openbanking.datamodel.v4.common.OBActiveOrHistoricCurrencyAndAmount;
-import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmation1DataInstructedAmount;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationInstructedAmount;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount;
@@ -122,10 +121,6 @@ public class FRAmountConverter {
         return FRModelMapper.map(amount, FRAmount.class);
     }
 
-    public static FRAmount toFRAmount(OBFundsConfirmation1DataInstructedAmount amount) {
-        return FRModelMapper.map(amount, FRAmount.class);
-    }
-
     // FR to OB
     public static OBActiveOrHistoricCurrencyAndAmount toOBActiveOrHistoricCurrencyAndAmount(FRAmount amount) {
         return FRModelMapper.map(amount, OBActiveOrHistoricCurrencyAndAmount.class);
@@ -221,10 +216,6 @@ public class FRAmountConverter {
 
     public static OBReadBalance1DataBalanceInnerCreditLineInnerAmount toOBReadBalance1DataAmount1(FRAmount amount) {
         return FRModelMapper.map(amount, OBReadBalance1DataBalanceInnerCreditLineInnerAmount.class);
-    }
-
-    public static OBFundsConfirmation1DataInstructedAmount toOBFundsConfirmation1DataInstructedAmount(FRAmount amount) {
-        return FRModelMapper.map(amount, OBFundsConfirmation1DataInstructedAmount.class);
     }
 
     public static OBStatement2StatementAmountInnerLocalAmount toOBStatement2StatementAmountInnerLocalAmount(FRLocalAmount amount) {

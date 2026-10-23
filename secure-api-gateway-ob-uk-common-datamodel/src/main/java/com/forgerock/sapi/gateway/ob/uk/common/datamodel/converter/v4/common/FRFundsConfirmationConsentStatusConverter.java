@@ -16,7 +16,7 @@
 package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common;
 
 import uk.org.openbanking.datamodel.v3.fund.OBFundsConfirmationConsentResponse1Data;
-import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmationConsentStatus;
+import uk.org.openbanking.datamodel.v4.fund.OBInternalConsentStatus1Code;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -32,19 +32,19 @@ public class FRFundsConfirmationConsentStatusConverter {
 
     static {
         final Map<String, String> consentStatusTransalations = new HashMap<>();
-        consentStatusTransalations.put(OBFundsConfirmationConsentResponse1Data.StatusEnum.AWAITINGAUTHORISATION.getValue(), OBFundsConfirmationConsentStatus.AWAU.getValue());
-        consentStatusTransalations.put(OBFundsConfirmationConsentResponse1Data.StatusEnum.AUTHORISED.getValue(), OBFundsConfirmationConsentStatus.AUTH.getValue());
-        consentStatusTransalations.put(OBFundsConfirmationConsentResponse1Data.StatusEnum.REJECTED.getValue(), OBFundsConfirmationConsentStatus.RJCT.getValue());
-        consentStatusTransalations.put(OBFundsConfirmationConsentResponse1Data.StatusEnum.REVOKED.getValue(), OBFundsConfirmationConsentStatus.CANC.getValue());
+        consentStatusTransalations.put(OBFundsConfirmationConsentResponse1Data.StatusEnum.AWAITINGAUTHORISATION.getValue(), OBInternalConsentStatus1Code.AWAU.getValue());
+        consentStatusTransalations.put(OBFundsConfirmationConsentResponse1Data.StatusEnum.AUTHORISED.getValue(), OBInternalConsentStatus1Code.AUTH.getValue());
+        consentStatusTransalations.put(OBFundsConfirmationConsentResponse1Data.StatusEnum.REJECTED.getValue(), OBInternalConsentStatus1Code.RJCT.getValue());
+        consentStatusTransalations.put(OBFundsConfirmationConsentResponse1Data.StatusEnum.REVOKED.getValue(), OBInternalConsentStatus1Code.CANC.getValue());
 
         v3tov4ConsentStatus = Collections.unmodifiableMap(consentStatusTransalations);
         // v4 is the inverse of the v3 mappings
         v4tov3ConsentStatus = consentStatusTransalations.entrySet().stream().collect(toMap(Map.Entry::getValue, Map.Entry::getKey));
     }
 
-    public static OBFundsConfirmationConsentStatus toOBFundsConfirmationConsentStatusV4(String consentStatus) {
+    public static OBInternalConsentStatus1Code toOBFundsConfirmationConsentStatusV4(String consentStatus) {
         if (v3tov4ConsentStatus.containsKey(consentStatus)) {
-            return OBFundsConfirmationConsentStatus.fromValue(v3tov4ConsentStatus.get(consentStatus));
+            return OBInternalConsentStatus1Code.fromValue(v3tov4ConsentStatus.get(consentStatus));
         }
         throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
     }

@@ -35,25 +35,23 @@ import static uk.org.openbanking.datamodel.v3.payment.OBWritePaymentDetailsRespo
 import static uk.org.openbanking.datamodel.v3.payment.OBWritePaymentDetailsResponse1DataPaymentStatusInnerStatus.RECEIVED;
 import static uk.org.openbanking.datamodel.v3.payment.OBWritePaymentDetailsResponse1DataPaymentStatusInnerStatus.REJECTED;
 import static uk.org.openbanking.datamodel.v3.payment.OBWritePaymentDetailsResponse1DataPaymentStatusInnerStatus.REJECTEDCANCELLATIONREQUEST;
-import static uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status.ACCC;
-import static uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status.ACCP;
-import static uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status.ACFC;
-import static uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status.ACSC;
-import static uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status.ACSP;
-import static uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status.ACTC;
-import static uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status.ACWC;
-import static uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status.ACWP;
-import static uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status.BLCK;
-import static uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status.PATC;
-import static uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status.PDNG;
-import static uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status.RJCT;
+import static uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code.ACCC;
+import static uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code.ACCP;
+import static uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code.ACFC;
+import static uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code.ACSC;
+import static uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code.ACSP;
+import static uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code.ACTC;
+import static uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code.ACWC;
+import static uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code.ACWP;
+import static uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code.BLCK;
+import static uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code.PATC;
+import static uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code.PDNG;
+import static uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code.RJCT;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1Status;
-import uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1StatusDetailStatus;
 
 public class FRPaymentDetailsStatusConverter {
 
@@ -87,65 +85,65 @@ public class FRPaymentDetailsStatusConverter {
         final Map<String, String> vrpPaymentDetailsStatusTranslations = new HashMap<>();
 
         vrpPaymentDetailsStatusTranslations.put(ACCEPTEDCANCELLATIONREQUEST.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.ACCC.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.ACCC.getValue());
         vrpPaymentDetailsStatusTranslations.put(ACCEPTEDCREDITSETTLEMENTCOMPLETED.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.ACSC.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.ACSC.getValue());
         vrpPaymentDetailsStatusTranslations.put(ACCEPTEDCUSTOMERPROFILE.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.ACCP.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.ACCP.getValue());
         vrpPaymentDetailsStatusTranslations.put(ACCEPTEDFUNDSCHECKED.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.ACFC.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.ACFC.getValue());
         vrpPaymentDetailsStatusTranslations.put(ACCEPTEDSETTLEMENTCOMPLETED.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.ACSC.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.ACSC.getValue());
         vrpPaymentDetailsStatusTranslations.put(ACCEPTEDSETTLEMENTINPROCESS.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.ACSP.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.ACSP.getValue());
         vrpPaymentDetailsStatusTranslations.put(ACCEPTEDTECHNICALVALIDATION.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.ACTC.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.ACTC.getValue());
         vrpPaymentDetailsStatusTranslations.put(ACCEPTEDWITHCHANGE.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.ACWC.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.ACWC.getValue());
         vrpPaymentDetailsStatusTranslations.put(ACCEPTEDWITHOUTPOSTING.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.ACWP.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.ACWP.getValue());
         vrpPaymentDetailsStatusTranslations.put(CANCELLED.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.CANC.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.CANC.getValue());
         vrpPaymentDetailsStatusTranslations.put(NOCANCELLATIONPROCESS.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.BLCK.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.BLCK.getValue());
         vrpPaymentDetailsStatusTranslations.put(PARTIALLYACCEPTEDCANCELLATIONREQUEST.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.ACCC.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.ACCC.getValue());
         vrpPaymentDetailsStatusTranslations.put(PARTIALLYACCEPTEDTECHNICALCORRECT.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.ACCC.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.ACCC.getValue());
         vrpPaymentDetailsStatusTranslations.put(PAYMENTCANCELLED.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.CANC.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.CANC.getValue());
         vrpPaymentDetailsStatusTranslations.put(PENDING.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.PDNG.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.PDNG.getValue());
         vrpPaymentDetailsStatusTranslations.put(PENDINGCANCELLATIONREQUEST.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.PDNG.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.PDNG.getValue());
         vrpPaymentDetailsStatusTranslations.put(RECEIVED.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.RCVD.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.RCVD.getValue());
         vrpPaymentDetailsStatusTranslations.put(REJECTED.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.RJCT.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.RJCT.getValue());
         vrpPaymentDetailsStatusTranslations.put(REJECTEDCANCELLATIONREQUEST.getValue(),
-                uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.RJCT.getValue());
+                uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.RJCT.getValue());
 
         v3tov4VrpPaymentDetailsStatus = Collections.unmodifiableMap(vrpPaymentDetailsStatusTranslations);
     }
 
-    public static OBWritePaymentDetails1Status toOBPaymentDetailsStatus(String consentStatus) {
+    public static uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code toOBPaymentDetailsStatus(String consentStatus) {
         if (v3tov4PaymentDetailsStatus.containsKey(consentStatus)) {
-            return OBWritePaymentDetails1Status.fromValue(v3tov4PaymentDetailsStatus.get(consentStatus));
+            return uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code.fromValue(v3tov4PaymentDetailsStatus.get(consentStatus));
         }
         throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
     }
 
-    public static OBWritePaymentDetails1StatusDetailStatus toOBWritePaymentDetails1StatusDetailStatus(String consentStatus) {
+    public static uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code toOBWritePaymentDetails1StatusDetailStatus(String consentStatus) {
         if (v3tov4PaymentDetailsStatus.containsKey(consentStatus)) {
-            return OBWritePaymentDetails1StatusDetailStatus.fromValue(v3tov4PaymentDetailsStatus.get(consentStatus));
+            return uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.fromValue(v3tov4PaymentDetailsStatus.get(consentStatus));
         }
         throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
     }
 
-    public static uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus toOBDomesticVRPDetailsDataPaymentStatusInnerStatus(
+    public static uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code toOBDomesticVRPDetailsDataPaymentStatusInnerStatus(
             String consentStatus) {
         if (v3tov4PaymentDetailsStatus.containsKey(consentStatus)) {
-            return uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatus.fromValue(
+            return uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code.fromValue(
                     v3tov4VrpPaymentDetailsStatus.get(consentStatus));
         }
         throw new IllegalArgumentException("Unknown consent status: " + consentStatus);
