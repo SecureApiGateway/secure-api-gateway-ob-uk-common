@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * How often is credit interest calculated for the account.
@@ -26,47 +36,47 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum CalculationFrequency {
+  
+  DAILY("Daily"),
+  
+  HALFYEARLY("HalfYearly"),
+  
+  MONTHLY("Monthly"),
+  
+  OTHER("Other"),
+  
+  QUARTERLY("Quarterly"),
+  
+  PERSTATEMENTDATE("PerStatementDate"),
+  
+  WEEKLY("Weekly"),
+  
+  YEARLY("Yearly");
 
-    DAILY("Daily"),
+  private String value;
 
-    HALFYEARLY("HalfYearly"),
+  CalculationFrequency(String value) {
+    this.value = value;
+  }
 
-    MONTHLY("Monthly"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    OTHER("Other"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    QUARTERLY("Quarterly"),
-
-    PERSTATEMENTDATE("PerStatementDate"),
-
-    WEEKLY("Weekly"),
-
-    YEARLY("Yearly");
-
-    private String value;
-
-    CalculationFrequency(String value) {
-        this.value = value;
+  @JsonCreator
+  public static CalculationFrequency fromValue(String value) {
+    for (CalculationFrequency b : CalculationFrequency.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static CalculationFrequency fromValue(String value) {
-        for (CalculationFrequency b : CalculationFrequency.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

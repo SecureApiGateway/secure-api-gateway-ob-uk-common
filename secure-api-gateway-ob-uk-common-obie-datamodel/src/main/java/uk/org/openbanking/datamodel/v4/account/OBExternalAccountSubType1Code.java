@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Specifies the sub type of account (product family group) <br /> For a full list of enumeration values refer to `OBExternalCashAccountType1Code` *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
@@ -26,81 +36,81 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBExternalAccountSubType1Code {
+  
+  CACC("CACC"),
+  
+  CARD("CARD"),
+  
+  CASH("CASH"),
+  
+  CHAR("CHAR"),
+  
+  CISH("CISH"),
+  
+  COMM("COMM"),
+  
+  CPAC("CPAC"),
+  
+  LLSV("LLSV"),
+  
+  LOAN("LOAN"),
+  
+  MGLD("MGLD"),
+  
+  MOMA("MOMA"),
+  
+  NREX("NREX"),
+  
+  ODFT("ODFT"),
+  
+  ONDP("ONDP"),
+  
+  OTHR("OTHR"),
+  
+  SACC("SACC"),
+  
+  SLRY("SLRY"),
+  
+  SVGS("SVGS"),
+  
+  TAXE("TAXE"),
+  
+  TRAN("TRAN"),
+  
+  TRAS("TRAS"),
+  
+  VACC("VACC"),
+  
+  NFCA("NFCA"),
+  
+  MORT("MORT"),
+  
+  WALT("WALT");
 
-    CACC("CACC"),
+  private String value;
 
-    CARD("CARD"),
+  OBExternalAccountSubType1Code(String value) {
+    this.value = value;
+  }
 
-    CASH("CASH"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    CHAR("CHAR"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    CISH("CISH"),
-
-    COMM("COMM"),
-
-    CPAC("CPAC"),
-
-    LLSV("LLSV"),
-
-    LOAN("LOAN"),
-
-    MGLD("MGLD"),
-
-    MOMA("MOMA"),
-
-    NREX("NREX"),
-
-    ODFT("ODFT"),
-
-    ONDP("ONDP"),
-
-    OTHR("OTHR"),
-
-    SACC("SACC"),
-
-    SLRY("SLRY"),
-
-    SVGS("SVGS"),
-
-    TAXE("TAXE"),
-
-    TRAN("TRAN"),
-
-    TRAS("TRAS"),
-
-    VACC("VACC"),
-
-    NFCA("NFCA"),
-
-    MORT("MORT"),
-
-    WALT("WALT");
-
-    private String value;
-
-    OBExternalAccountSubType1Code(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBExternalAccountSubType1Code fromValue(String value) {
+    for (OBExternalAccountSubType1Code b : OBExternalAccountSubType1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBExternalAccountSubType1Code fromValue(String value) {
-        for (OBExternalAccountSubType1Code b : OBExternalAccountSubType1Code.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

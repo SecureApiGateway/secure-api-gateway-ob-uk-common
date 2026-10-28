@@ -15,70 +15,80 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import jakarta.annotation.Generated;
-
 /**
- * Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another. Read more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd  With respect to PCA products, they are segmented in relation to different markets that they wish to focus on.
+ * Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another. Read more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd  With respect to PCA products, they are segmented in relation to different markets that they wish to focus on. 
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum SegmentInner1 {
+  
+  BASIC("Basic"),
+  
+  BENEFITANDREWARD("BenefitAndReward"),
+  
+  CREDITINTEREST("CreditInterest"),
+  
+  CASHBACK("Cashback"),
+  
+  GENERAL("General"),
+  
+  GRADUATE("Graduate"),
+  
+  OTHER("Other"),
+  
+  OVERDRAFT("Overdraft"),
+  
+  PACKAGED("Packaged"),
+  
+  PREMIUM("Premium"),
+  
+  REWARD("Reward"),
+  
+  STUDENT("Student"),
+  
+  YOUNGADULT("YoungAdult"),
+  
+  YOUTH("Youth");
 
-    BASIC("Basic"),
+  private String value;
 
-    BENEFITANDREWARD("BenefitAndReward"),
+  SegmentInner1(String value) {
+    this.value = value;
+  }
 
-    CREDITINTEREST("CreditInterest"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    CASHBACK("Cashback"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    GENERAL("General"),
-
-    GRADUATE("Graduate"),
-
-    OTHER("Other"),
-
-    OVERDRAFT("Overdraft"),
-
-    PACKAGED("Packaged"),
-
-    PREMIUM("Premium"),
-
-    REWARD("Reward"),
-
-    STUDENT("Student"),
-
-    YOUNGADULT("YoungAdult"),
-
-    YOUTH("Youth");
-
-    private String value;
-
-    SegmentInner1(String value) {
-        this.value = value;
+  @JsonCreator
+  public static SegmentInner1 fromValue(String value) {
+    for (SegmentInner1 b : SegmentInner1.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static SegmentInner1 fromValue(String value) {
-        for (SegmentInner1 b : SegmentInner1.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

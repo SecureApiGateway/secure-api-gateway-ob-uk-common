@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Overdraft fee type
@@ -26,55 +36,55 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum FeeType {
+  
+  ARRANGEDOVERDRAFT("ArrangedOverdraft"),
+  
+  ANNUALREVIEW("AnnualReview"),
+  
+  EMERGENCYBORROWING("EmergencyBorrowing"),
+  
+  BORROWINGITEM("BorrowingItem"),
+  
+  OVERDRAFTRENEWAL("OverdraftRenewal"),
+  
+  OVERDRAFTSETUP("OverdraftSetup"),
+  
+  SURCHARGE("Surcharge"),
+  
+  TEMPOVERDRAFT("TempOverdraft"),
+  
+  UNAUTHORISEDBORROWING("UnauthorisedBorrowing"),
+  
+  UNAUTHORISEDPAIDTRANS("UnauthorisedPaidTrans"),
+  
+  OTHER("Other"),
+  
+  UNAUTHORISEDUNPAIDTRANS("UnauthorisedUnpaidTrans");
 
-    ARRANGEDOVERDRAFT("ArrangedOverdraft"),
+  private String value;
 
-    ANNUALREVIEW("AnnualReview"),
+  FeeType(String value) {
+    this.value = value;
+  }
 
-    EMERGENCYBORROWING("EmergencyBorrowing"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    BORROWINGITEM("BorrowingItem"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    OVERDRAFTRENEWAL("OverdraftRenewal"),
-
-    OVERDRAFTSETUP("OverdraftSetup"),
-
-    SURCHARGE("Surcharge"),
-
-    TEMPOVERDRAFT("TempOverdraft"),
-
-    UNAUTHORISEDBORROWING("UnauthorisedBorrowing"),
-
-    UNAUTHORISEDPAIDTRANS("UnauthorisedPaidTrans"),
-
-    OTHER("Other"),
-
-    UNAUTHORISEDUNPAIDTRANS("UnauthorisedUnpaidTrans");
-
-    private String value;
-
-    FeeType(String value) {
-        this.value = value;
+  @JsonCreator
+  public static FeeType fromValue(String value) {
+    for (FeeType b : FeeType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static FeeType fromValue(String value) {
-        for (FeeType b : FeeType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

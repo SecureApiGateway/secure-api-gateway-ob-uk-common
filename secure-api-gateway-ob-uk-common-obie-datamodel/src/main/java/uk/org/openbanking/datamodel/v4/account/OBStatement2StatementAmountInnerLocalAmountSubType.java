@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * The amount in the local market currency for which the asset is held. Default is Local Currency (LCUR) if not specified
@@ -26,35 +36,35 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBStatement2StatementAmountInnerLocalAmountSubType {
+  
+  BCUR("BCUR"),
+  
+  LCUR("LCUR");
 
-    BCUR("BCUR"),
+  private String value;
 
-    LCUR("LCUR");
+  OBStatement2StatementAmountInnerLocalAmountSubType(String value) {
+    this.value = value;
+  }
 
-    private String value;
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    OBStatement2StatementAmountInnerLocalAmountSubType(String value) {
-        this.value = value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  @JsonCreator
+  public static OBStatement2StatementAmountInnerLocalAmountSubType fromValue(String value) {
+    for (OBStatement2StatementAmountInnerLocalAmountSubType b : OBStatement2StatementAmountInnerLocalAmountSubType.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBStatement2StatementAmountInnerLocalAmountSubType fromValue(String value) {
-        for (OBStatement2StatementAmountInnerLocalAmountSubType b : OBStatement2StatementAmountInnerLocalAmountSubType.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

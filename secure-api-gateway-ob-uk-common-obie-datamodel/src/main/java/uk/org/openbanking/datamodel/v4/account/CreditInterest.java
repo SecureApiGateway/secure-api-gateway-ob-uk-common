@@ -15,17 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.TierBandSetInner;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Details about the interest that may be payable to the BCA account holders
@@ -35,86 +40,83 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class CreditInterest {
 
-    @Valid
-    private List<@Valid TierBandSetInner> tierBandSet = new ArrayList<>();
+  @Valid
+  private List<@Valid TierBandSetInner> tierBandSet = new ArrayList<>();
 
-    public CreditInterest() {
-        super();
-    }
+  public CreditInterest() {
+    super();
+  }
 
-    /**
-     * Constructor with only required parameters
-     */
-    public CreditInterest(List<@Valid TierBandSetInner> tierBandSet) {
-        this.tierBandSet = tierBandSet;
-    }
+  /**
+   * Constructor with only required parameters
+   */
+  public CreditInterest(List<@Valid TierBandSetInner> tierBandSet) {
+    this.tierBandSet = tierBandSet;
+  }
 
-    public CreditInterest tierBandSet(List<@Valid TierBandSetInner> tierBandSet) {
-        this.tierBandSet = tierBandSet;
-        return this;
-    }
+  public CreditInterest tierBandSet(List<@Valid TierBandSetInner> tierBandSet) {
+    this.tierBandSet = tierBandSet;
+    return this;
+  }
 
-    public CreditInterest addTierBandSetItem(TierBandSetInner tierBandSetItem) {
-        if (this.tierBandSet == null) {
-            this.tierBandSet = new ArrayList<>();
-        }
-        this.tierBandSet.add(tierBandSetItem);
-        return this;
+  public CreditInterest addTierBandSetItem(TierBandSetInner tierBandSetItem) {
+    if (this.tierBandSet == null) {
+      this.tierBandSet = new ArrayList<>();
     }
+    this.tierBandSet.add(tierBandSetItem);
+    return this;
+  }
 
-    /**
-     * The group of tiers or bands for which credit interest can be applied.
-     *
-     * @return tierBandSet
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
-    @Schema(name = "TierBandSet", description = "The group of tiers or bands for which credit interest can be applied.", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("TierBandSet")
-    public List<@Valid TierBandSetInner> getTierBandSet() {
-        return tierBandSet;
-    }
+  /**
+   * The group of tiers or bands for which credit interest can be applied.
+   * @return tierBandSet
+  */
+  @NotNull @Valid @Size(min = 1) 
+  @Schema(name = "TierBandSet", description = "The group of tiers or bands for which credit interest can be applied.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("TierBandSet")
+  public List<@Valid TierBandSetInner> getTierBandSet() {
+    return tierBandSet;
+  }
 
-    public void setTierBandSet(List<@Valid TierBandSetInner> tierBandSet) {
-        this.tierBandSet = tierBandSet;
-    }
+  public void setTierBandSet(List<@Valid TierBandSetInner> tierBandSet) {
+    this.tierBandSet = tierBandSet;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        CreditInterest creditInterest = (CreditInterest) o;
-        return Objects.equals(this.tierBandSet, creditInterest.tierBandSet);
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    CreditInterest creditInterest = (CreditInterest) o;
+    return Objects.equals(this.tierBandSet, creditInterest.tierBandSet);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(tierBandSet);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(tierBandSet);
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CreditInterest {\n");
-        sb.append("    tierBandSet: ").append(toIndentedString(tierBandSet)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CreditInterest {\n");
+    sb.append("    tierBandSet: ").append(toIndentedString(tierBandSet)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

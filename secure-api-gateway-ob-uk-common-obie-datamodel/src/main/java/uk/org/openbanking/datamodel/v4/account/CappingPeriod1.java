@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Period e.g. day, week, month etc. for which the fee/charge is capped
@@ -26,45 +36,45 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum CappingPeriod1 {
+  
+  ACADEMICTERM("AcademicTerm"),
+  
+  DAY("Day"),
+  
+  HALF_YEAR("Half Year"),
+  
+  MONTH("Month"),
+  
+  QUARTER("Quarter"),
+  
+  WEEK("Week"),
+  
+  YEAR("Year");
 
-    ACADEMICTERM("AcademicTerm"),
+  private String value;
 
-    DAY("Day"),
+  CappingPeriod1(String value) {
+    this.value = value;
+  }
 
-    HALF_YEAR("Half Year"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    MONTH("Month"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    QUARTER("Quarter"),
-
-    WEEK("Week"),
-
-    YEAR("Year");
-
-    private String value;
-
-    CappingPeriod1(String value) {
-        this.value = value;
+  @JsonCreator
+  public static CappingPeriod1 fromValue(String value) {
+    for (CappingPeriod1 b : CappingPeriod1.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static CappingPeriod1 fromValue(String value) {
-        for (CappingPeriod1 b : CappingPeriod1.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

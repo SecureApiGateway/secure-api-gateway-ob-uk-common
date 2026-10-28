@@ -38,7 +38,6 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternat
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduled3DataInitiation;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduledConsent5;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduledConsent5Data;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduledConsentResponse6DataInitiation;
 
 public class FRWriteInternationalScheduledConsentConverter {
 
@@ -85,32 +84,6 @@ public class FRWriteInternationalScheduledConsentConverter {
                 .build();
     }
 
-    public static FRWriteInternationalScheduledDataInitiation toFRWriteInternationalScheduledDataInitiation(OBWriteInternationalScheduledConsentResponse6DataInitiation initiation) {
-        return initiation == null ? null : FRWriteInternationalScheduledDataInitiation.builder()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .instructionPriority(toFRInstructionPriority(initiation.getInstructionPriority()))
-                .purpose(initiation.getPurpose())
-                .extendedPurpose(initiation.getExtendedPurpose())
-                .chargeBearer(toFRChargeBearerType(initiation.getChargeBearer()))
-                .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
-                .currencyOfTransfer(initiation.getCurrencyOfTransfer())
-                .destinationCountryCode(initiation.getDestinationCountryCode())
-                .instructedAmount(FRAmountConverter.toFRAmount(initiation.getInstructedAmount()))
-                .exchangeRateInformation(toFRExchangeRateInformation(initiation.getExchangeRateInformation()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toFRFinancialCreditor(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getCreditorAccount()))
-                .ultimateCreditor(FRUltimateCreditorConverter.toFRUltimateCreditor(initiation.getUltimateCreditor()))
-                .ultimateDebtor(FRUltimateDebtorConverter.toFRUltimateDebtor(initiation.getUltimateDebtor()))
-                .regulatoryReporting(FRRegulatoryReportingConverter.toFRRegulatoryReporting(initiation.getRegulatoryReporting()))
-                .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
-                .supplementaryData(FRSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
-                .build();
-    }
-
     // FR to OB
     public static OBWriteInternationalScheduled3DataInitiation toOBWriteInternationalScheduled3DataInitiation(FRWriteInternationalScheduledDataInitiation initiation) {
         return initiation == null ? null : new OBWriteInternationalScheduled3DataInitiation()
@@ -126,33 +99,8 @@ public class FRWriteInternationalScheduledConsentConverter {
                 .instructedAmount(FRAmountConverter.toOBWriteDomestic2DataInitiationInstructedAmount(initiation.getInstructedAmount()))
                 .exchangeRateInformation(toOBWriteInternational3DataInitiationExchangeRateInformation(initiation.getExchangeRateInformation()))
                 .debtorAccount(FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationDebtorAccount(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toOBWriteInternationalConsent5DataInitiationCreditor(initiation.getCreditor()))
+                .creditor(FRFinancialInstrumentConverter.toOBWriteInternational3DataInitiationCreditor(initiation.getCreditor()))
                 .creditorAgent(FRFinancialInstrumentConverter.toOBWriteInternationalScheduled3DataInitiationCreditorAgent(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationCreditorAccount(initiation.getCreditorAccount()))
-                .ultimateCreditor(FRUltimateCreditorConverter.toOBUltimateCreditor1(initiation.getUltimateCreditor()))
-                .ultimateDebtor(FRUltimateDebtorConverter.toOBUltimateDebtor1(initiation.getUltimateDebtor()))
-                .regulatoryReporting(FRRegulatoryReportingConverter.toOBRegulatoryReporting1(initiation.getRegulatoryReporting()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation2(initiation.getRemittanceInformation()))
-                .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()));
-    }
-
-    public static OBWriteInternationalScheduledConsentResponse6DataInitiation toOBWriteInternationalScheduledConsentResponse6DataInitiation(FRWriteInternationalScheduledDataInitiation initiation) {
-        return initiation == null ? null : new OBWriteInternationalScheduledConsentResponse6DataInitiation()
-                .instructionIdentification(initiation.getInstructionIdentification())
-                .endToEndIdentification(initiation.getEndToEndIdentification())
-                .localInstrument(initiation.getLocalInstrument())
-                .instructionPriority(toOBPriority2Code(initiation.getInstructionPriority()))
-                .purpose(initiation.getPurpose())
-                .extendedPurpose(initiation.getExtendedPurpose())
-                .chargeBearer(toOBInternalChargeBearerType1Code(initiation.getChargeBearer()))
-                .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
-                .currencyOfTransfer(initiation.getCurrencyOfTransfer())
-                .destinationCountryCode(initiation.getDestinationCountryCode())
-                .instructedAmount(FRAmountConverter.toOBWriteDomestic2DataInitiationInstructedAmount(initiation.getInstructedAmount()))
-                .exchangeRateInformation(toOBWriteInternational3DataInitiationExchangeRateInformation(initiation.getExchangeRateInformation()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationDebtorAccount(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toOBWriteInternationalScheduledConsentResponse6DataInitiationCreditor(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBWriteDomestic2DataInitiationCreditorAgent(initiation.getCreditorAgent()))
                 .creditorAccount(FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationCreditorAccount(initiation.getCreditorAccount()))
                 .ultimateCreditor(FRUltimateCreditorConverter.toOBUltimateCreditor1(initiation.getUltimateCreditor()))
                 .ultimateDebtor(FRUltimateDebtorConverter.toOBUltimateDebtor1(initiation.getUltimateDebtor()))

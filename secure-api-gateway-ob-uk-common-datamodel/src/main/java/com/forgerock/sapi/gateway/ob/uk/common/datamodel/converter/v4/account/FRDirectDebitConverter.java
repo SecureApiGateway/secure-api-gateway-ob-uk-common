@@ -128,4 +128,10 @@ public class FRDirectDebitConverter {
         return obFrequency6Code == null ? null : FRStandingOrderFrequencyCode.fromValue(obFrequency6Code.name());
     }
 
+    public static FRStandingOrderFrequencyCode toFRStandingOrderFrequencyCode(OBFrequency6Type obFrequency6Type) {
+        return obFrequency6Type instanceof OBFrequency6Code obFrequency6Code
+                ? toFRStandingOrderFrequencyCode(obFrequency6Code)
+                : null;
+    }
+
 }

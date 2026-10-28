@@ -15,17 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonValue;
 import uk.org.openbanking.datamodel.v4.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.v4.common.OBInternalChargeBearerType1Code;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Set of elements used to provide details of a charge for the payment initiation.
@@ -36,129 +41,124 @@ import uk.org.openbanking.datamodel.v4.common.OBInternalChargeBearerType1Code;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomesticConsentResponse5DataChargesInner {
 
-    private OBInternalChargeBearerType1Code chargeBearer;
+  private OBInternalChargeBearerType1Code chargeBearer;
 
-    private String type;
+  private String type;
 
-    private OBActiveOrHistoricCurrencyAndAmount amount;
+  private OBActiveOrHistoricCurrencyAndAmount amount;
 
-    public OBWriteDomesticConsentResponse5DataChargesInner() {
-        super();
+  public OBWriteDomesticConsentResponse5DataChargesInner() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBWriteDomesticConsentResponse5DataChargesInner(OBInternalChargeBearerType1Code chargeBearer, String type, OBActiveOrHistoricCurrencyAndAmount amount) {
+    this.chargeBearer = chargeBearer;
+    this.type = type;
+    this.amount = amount;
+  }
+
+  public OBWriteDomesticConsentResponse5DataChargesInner chargeBearer(OBInternalChargeBearerType1Code chargeBearer) {
+    this.chargeBearer = chargeBearer;
+    return this;
+  }
+
+  /**
+   * Get chargeBearer
+   * @return chargeBearer
+  */
+  @NotNull @Valid 
+  @Schema(name = "ChargeBearer", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("ChargeBearer")
+  public OBInternalChargeBearerType1Code getChargeBearer() {
+    return chargeBearer;
+  }
+
+  public void setChargeBearer(OBInternalChargeBearerType1Code chargeBearer) {
+    this.chargeBearer = chargeBearer;
+  }
+
+  public OBWriteDomesticConsentResponse5DataChargesInner type(String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Charge type, in a coded form. For a full list of values refer to `OBInternalPaymentChargeType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+   * @return type
+  */
+  @NotNull 
+  @Schema(name = "Type", description = "Charge type, in a coded form. For a full list of values refer to `OBInternalPaymentChargeType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Type")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public OBWriteDomesticConsentResponse5DataChargesInner amount(OBActiveOrHistoricCurrencyAndAmount amount) {
+    this.amount = amount;
+    return this;
+  }
+
+  /**
+   * Get amount
+   * @return amount
+  */
+  @NotNull @Valid 
+  @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Amount")
+  public OBActiveOrHistoricCurrencyAndAmount getAmount() {
+    return amount;
+  }
+
+  public void setAmount(OBActiveOrHistoricCurrencyAndAmount amount) {
+    this.amount = amount;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Constructor with only required parameters
-     */
-    public OBWriteDomesticConsentResponse5DataChargesInner(OBInternalChargeBearerType1Code chargeBearer, String type, OBActiveOrHistoricCurrencyAndAmount amount) {
-        this.chargeBearer = chargeBearer;
-        this.type = type;
-        this.amount = amount;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBWriteDomesticConsentResponse5DataChargesInner obWriteDomesticConsentResponse5DataChargesInner = (OBWriteDomesticConsentResponse5DataChargesInner) o;
+    return Objects.equals(this.chargeBearer, obWriteDomesticConsentResponse5DataChargesInner.chargeBearer) &&
+        Objects.equals(this.type, obWriteDomesticConsentResponse5DataChargesInner.type) &&
+        Objects.equals(this.amount, obWriteDomesticConsentResponse5DataChargesInner.amount);
+  }
 
-    public OBWriteDomesticConsentResponse5DataChargesInner chargeBearer(OBInternalChargeBearerType1Code chargeBearer) {
-        this.chargeBearer = chargeBearer;
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(chargeBearer, type, amount);
+  }
 
-    /**
-     * Get chargeBearer
-     *
-     * @return chargeBearer
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "ChargeBearer", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("ChargeBearer")
-    public OBInternalChargeBearerType1Code getChargeBearer() {
-        return chargeBearer;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBWriteDomesticConsentResponse5DataChargesInner {\n");
+    sb.append("    chargeBearer: ").append(toIndentedString(chargeBearer)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setChargeBearer(OBInternalChargeBearerType1Code chargeBearer) {
-        this.chargeBearer = chargeBearer;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public OBWriteDomesticConsentResponse5DataChargesInner type(String type) {
-        this.type = type;
-        return this;
-    }
-
-    /**
-     * Charge type, in a coded form. For a full list of values refer to `OBInternalPaymentChargeType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
-     * @return type
-     */
-    @NotNull
-    @Schema(name = "Type", description = "Charge type, in a coded form. For a full list of values refer to `OBInternalPaymentChargeType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Type")
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public OBWriteDomesticConsentResponse5DataChargesInner amount(OBActiveOrHistoricCurrencyAndAmount amount) {
-        this.amount = amount;
-        return this;
-    }
-
-    /**
-     * Get amount
-     *
-     * @return amount
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Amount")
-    public OBActiveOrHistoricCurrencyAndAmount getAmount() {
-        return amount;
-    }
-
-    public void setAmount(OBActiveOrHistoricCurrencyAndAmount amount) {
-        this.amount = amount;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBWriteDomesticConsentResponse5DataChargesInner obWriteDomesticConsentResponse5DataChargesInner = (OBWriteDomesticConsentResponse5DataChargesInner) o;
-        return Objects.equals(this.chargeBearer, obWriteDomesticConsentResponse5DataChargesInner.chargeBearer) &&
-                Objects.equals(this.type, obWriteDomesticConsentResponse5DataChargesInner.type) &&
-                Objects.equals(this.amount, obWriteDomesticConsentResponse5DataChargesInner.amount);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(chargeBearer, type, amount);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBWriteDomesticConsentResponse5DataChargesInner {\n");
-        sb.append("    chargeBearer: ").append(toIndentedString(chargeBearer)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

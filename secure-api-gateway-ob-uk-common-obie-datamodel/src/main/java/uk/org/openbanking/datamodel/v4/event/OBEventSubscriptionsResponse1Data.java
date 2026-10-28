@@ -15,16 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.event;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.event.OBEventSubscriptionsResponse1DataEventSubscriptionInner;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBEventSubscriptionsResponse1Data
@@ -34,73 +41,72 @@ import jakarta.validation.Valid;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBEventSubscriptionsResponse1Data {
 
-    @Valid
-    private List<@Valid OBEventSubscriptionsResponse1DataEventSubscriptionInner> eventSubscription;
+  @Valid
+  private List<@Valid OBEventSubscriptionsResponse1DataEventSubscriptionInner> eventSubscription;
 
-    public OBEventSubscriptionsResponse1Data eventSubscription(List<@Valid OBEventSubscriptionsResponse1DataEventSubscriptionInner> eventSubscription) {
-        this.eventSubscription = eventSubscription;
-        return this;
-    }
+  public OBEventSubscriptionsResponse1Data eventSubscription(List<@Valid OBEventSubscriptionsResponse1DataEventSubscriptionInner> eventSubscription) {
+    this.eventSubscription = eventSubscription;
+    return this;
+  }
 
-    public OBEventSubscriptionsResponse1Data addEventSubscriptionItem(OBEventSubscriptionsResponse1DataEventSubscriptionInner eventSubscriptionItem) {
-        if (this.eventSubscription == null) {
-            this.eventSubscription = new ArrayList<>();
-        }
-        this.eventSubscription.add(eventSubscriptionItem);
-        return this;
+  public OBEventSubscriptionsResponse1Data addEventSubscriptionItem(OBEventSubscriptionsResponse1DataEventSubscriptionInner eventSubscriptionItem) {
+    if (this.eventSubscription == null) {
+      this.eventSubscription = new ArrayList<>();
     }
+    this.eventSubscription.add(eventSubscriptionItem);
+    return this;
+  }
 
-    /**
-     * Get eventSubscription
-     *
-     * @return eventSubscription
-     */
-    @Valid
-    @Schema(name = "EventSubscription", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("EventSubscription")
-    public List<@Valid OBEventSubscriptionsResponse1DataEventSubscriptionInner> getEventSubscription() {
-        return eventSubscription;
-    }
+  /**
+   * Get eventSubscription
+   * @return eventSubscription
+  */
+  @Valid 
+  @Schema(name = "EventSubscription", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("EventSubscription")
+  public List<@Valid OBEventSubscriptionsResponse1DataEventSubscriptionInner> getEventSubscription() {
+    return eventSubscription;
+  }
 
-    public void setEventSubscription(List<@Valid OBEventSubscriptionsResponse1DataEventSubscriptionInner> eventSubscription) {
-        this.eventSubscription = eventSubscription;
-    }
+  public void setEventSubscription(List<@Valid OBEventSubscriptionsResponse1DataEventSubscriptionInner> eventSubscription) {
+    this.eventSubscription = eventSubscription;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBEventSubscriptionsResponse1Data obEventSubscriptionsResponse1Data = (OBEventSubscriptionsResponse1Data) o;
-        return Objects.equals(this.eventSubscription, obEventSubscriptionsResponse1Data.eventSubscription);
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    OBEventSubscriptionsResponse1Data obEventSubscriptionsResponse1Data = (OBEventSubscriptionsResponse1Data) o;
+    return Objects.equals(this.eventSubscription, obEventSubscriptionsResponse1Data.eventSubscription);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(eventSubscription);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(eventSubscription);
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBEventSubscriptionsResponse1Data {\n");
-        sb.append("    eventSubscription: ").append(toIndentedString(eventSubscription)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBEventSubscriptionsResponse1Data {\n");
+    sb.append("    eventSubscription: ").append(toIndentedString(eventSubscription)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

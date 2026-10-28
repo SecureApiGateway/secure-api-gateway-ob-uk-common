@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Fee/Charge Type
@@ -26,49 +36,49 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBFeeType1Code {
+  
+  FEPF("FEPF"),
+  
+  FTOT("FTOT"),
+  
+  FYAF("FYAF"),
+  
+  FYAM("FYAM"),
+  
+  FYAQ("FYAQ"),
+  
+  FYCP("FYCP"),
+  
+  FYDB("FYDB"),
+  
+  FYMI("FYMI"),
+  
+  FYXX("FYXX");
 
-    FEPF("FEPF"),
+  private String value;
 
-    FTOT("FTOT"),
+  OBFeeType1Code(String value) {
+    this.value = value;
+  }
 
-    FYAF("FYAF"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    FYAM("FYAM"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    FYAQ("FYAQ"),
-
-    FYCP("FYCP"),
-
-    FYDB("FYDB"),
-
-    FYMI("FYMI"),
-
-    FYXX("FYXX");
-
-    private String value;
-
-    OBFeeType1Code(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBFeeType1Code fromValue(String value) {
+    for (OBFeeType1Code b : OBFeeType1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBFeeType1Code fromValue(String value) {
-        for (OBFeeType1Code b : OBFeeType1Code.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

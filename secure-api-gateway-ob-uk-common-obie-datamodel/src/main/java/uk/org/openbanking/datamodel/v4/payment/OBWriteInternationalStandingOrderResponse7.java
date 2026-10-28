@@ -15,16 +15,21 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import uk.org.openbanking.datamodel.v4.common.Links;
 import uk.org.openbanking.datamodel.v4.common.Meta;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrderResponse7Data;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBWriteInternationalStandingOrderResponse7
@@ -33,126 +38,122 @@ import uk.org.openbanking.datamodel.v4.common.Meta;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternationalStandingOrderResponse7 {
 
-    private OBWriteInternationalStandingOrderResponse7Data data;
+  private OBWriteInternationalStandingOrderResponse7Data data;
 
-    private Links links;
+  private Links links;
 
-    private Meta meta;
+  private Meta meta;
 
-    public OBWriteInternationalStandingOrderResponse7() {
-        super();
+  public OBWriteInternationalStandingOrderResponse7() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBWriteInternationalStandingOrderResponse7(OBWriteInternationalStandingOrderResponse7Data data) {
+    this.data = data;
+  }
+
+  public OBWriteInternationalStandingOrderResponse7 data(OBWriteInternationalStandingOrderResponse7Data data) {
+    this.data = data;
+    return this;
+  }
+
+  /**
+   * Get data
+   * @return data
+  */
+  @NotNull @Valid 
+  @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Data")
+  public OBWriteInternationalStandingOrderResponse7Data getData() {
+    return data;
+  }
+
+  public void setData(OBWriteInternationalStandingOrderResponse7Data data) {
+    this.data = data;
+  }
+
+  public OBWriteInternationalStandingOrderResponse7 links(Links links) {
+    this.links = links;
+    return this;
+  }
+
+  /**
+   * Get links
+   * @return links
+  */
+  @Valid 
+  @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("Links")
+  public Links getLinks() {
+    return links;
+  }
+
+  public void setLinks(Links links) {
+    this.links = links;
+  }
+
+  public OBWriteInternationalStandingOrderResponse7 meta(Meta meta) {
+    this.meta = meta;
+    return this;
+  }
+
+  /**
+   * Get meta
+   * @return meta
+  */
+  @Valid 
+  @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("Meta")
+  public Meta getMeta() {
+    return meta;
+  }
+
+  public void setMeta(Meta meta) {
+    this.meta = meta;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Constructor with only required parameters
-     */
-    public OBWriteInternationalStandingOrderResponse7(OBWriteInternationalStandingOrderResponse7Data data) {
-        this.data = data;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBWriteInternationalStandingOrderResponse7 obWriteInternationalStandingOrderResponse7 = (OBWriteInternationalStandingOrderResponse7) o;
+    return Objects.equals(this.data, obWriteInternationalStandingOrderResponse7.data) &&
+        Objects.equals(this.links, obWriteInternationalStandingOrderResponse7.links) &&
+        Objects.equals(this.meta, obWriteInternationalStandingOrderResponse7.meta);
+  }
 
-    public OBWriteInternationalStandingOrderResponse7 data(OBWriteInternationalStandingOrderResponse7Data data) {
-        this.data = data;
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(data, links, meta);
+  }
 
-    /**
-     * Get data
-     *
-     * @return data
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Data")
-    public OBWriteInternationalStandingOrderResponse7Data getData() {
-        return data;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBWriteInternationalStandingOrderResponse7 {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setData(OBWriteInternationalStandingOrderResponse7Data data) {
-        this.data = data;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public OBWriteInternationalStandingOrderResponse7 links(Links links) {
-        this.links = links;
-        return this;
-    }
-
-    /**
-     * Get links
-     *
-     * @return links
-     */
-    @Valid
-    @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Links")
-    public Links getLinks() {
-        return links;
-    }
-
-    public void setLinks(Links links) {
-        this.links = links;
-    }
-
-    public OBWriteInternationalStandingOrderResponse7 meta(Meta meta) {
-        this.meta = meta;
-        return this;
-    }
-
-    /**
-     * Get meta
-     *
-     * @return meta
-     */
-    @Valid
-    @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Meta")
-    public Meta getMeta() {
-        return meta;
-    }
-
-    public void setMeta(Meta meta) {
-        this.meta = meta;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBWriteInternationalStandingOrderResponse7 obWriteInternationalStandingOrderResponse7 = (OBWriteInternationalStandingOrderResponse7) o;
-        return Objects.equals(this.data, obWriteInternationalStandingOrderResponse7.data) &&
-                Objects.equals(this.links, obWriteInternationalStandingOrderResponse7.links) &&
-                Objects.equals(this.meta, obWriteInternationalStandingOrderResponse7.meta);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(data, links, meta);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBWriteInternationalStandingOrderResponse7 {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("    links: ").append(toIndentedString(links)).append("\n");
-        sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

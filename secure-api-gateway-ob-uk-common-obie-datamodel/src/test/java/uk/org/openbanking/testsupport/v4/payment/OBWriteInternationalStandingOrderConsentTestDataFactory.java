@@ -81,7 +81,7 @@ public class OBWriteInternationalStandingOrderConsentTestDataFactory {
                 .currencyOfTransfer(CURRENCY)
                 .destinationCountryCode("GB")
                 .instructedAmount(OBAmountTestDataFactory.aValidOBWriteDomestic2DataInitiationInstructedAmount())
-                .creditor(OBInternationalIdentifierTestDataFactory.aValidOBWriteInternationalConsent5DataInitiationCreditor())
+                .creditor(OBInternationalIdentifierTestDataFactory.aValidOBWriteInternational3DataInitiationCreditor())
                 .creditorAgent(OBInternationalIdentifierTestDataFactory.aValidOBWriteInternationalStandingOrder4DataInitiationCreditorAgent())
                 .creditorAccount(aValidOBWriteInternationalStandingOrder4DataInitiationCreditorAccount())
                 .supplementaryData(new OBSupplementaryData1())

@@ -15,18 +15,24 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeCapInner;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Contains details of fees and charges which are not associated with either LoanRepayment or features/benefits
@@ -37,120 +43,116 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner {
 
-    @Valid
-    private List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner> loanInterestFeeChargeDetail = new ArrayList<>();
+  @Valid
+  private List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner> loanInterestFeeChargeDetail = new ArrayList<>();
 
-    @Valid
-    private List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeCapInner> loanInterestFeeChargeCap;
+  @Valid
+  private List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeCapInner> loanInterestFeeChargeCap;
 
-    public OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner() {
-        super();
+  public OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner> loanInterestFeeChargeDetail) {
+    this.loanInterestFeeChargeDetail = loanInterestFeeChargeDetail;
+  }
+
+  public OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner loanInterestFeeChargeDetail(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner> loanInterestFeeChargeDetail) {
+    this.loanInterestFeeChargeDetail = loanInterestFeeChargeDetail;
+    return this;
+  }
+
+  public OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner addLoanInterestFeeChargeDetailItem(OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner loanInterestFeeChargeDetailItem) {
+    if (this.loanInterestFeeChargeDetail == null) {
+      this.loanInterestFeeChargeDetail = new ArrayList<>();
     }
+    this.loanInterestFeeChargeDetail.add(loanInterestFeeChargeDetailItem);
+    return this;
+  }
 
-    /**
-     * Constructor with only required parameters
-     */
-    public OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner> loanInterestFeeChargeDetail) {
-        this.loanInterestFeeChargeDetail = loanInterestFeeChargeDetail;
-    }
+  /**
+   * Get loanInterestFeeChargeDetail
+   * @return loanInterestFeeChargeDetail
+  */
+  @NotNull @Valid @Size(min = 1) 
+  @Schema(name = "LoanInterestFeeChargeDetail", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("LoanInterestFeeChargeDetail")
+  public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner> getLoanInterestFeeChargeDetail() {
+    return loanInterestFeeChargeDetail;
+  }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner loanInterestFeeChargeDetail(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner> loanInterestFeeChargeDetail) {
-        this.loanInterestFeeChargeDetail = loanInterestFeeChargeDetail;
-        return this;
-    }
+  public void setLoanInterestFeeChargeDetail(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner> loanInterestFeeChargeDetail) {
+    this.loanInterestFeeChargeDetail = loanInterestFeeChargeDetail;
+  }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner addLoanInterestFeeChargeDetailItem(OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner loanInterestFeeChargeDetailItem) {
-        if (this.loanInterestFeeChargeDetail == null) {
-            this.loanInterestFeeChargeDetail = new ArrayList<>();
-        }
-        this.loanInterestFeeChargeDetail.add(loanInterestFeeChargeDetailItem);
-        return this;
-    }
+  public OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner loanInterestFeeChargeCap(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeCapInner> loanInterestFeeChargeCap) {
+    this.loanInterestFeeChargeCap = loanInterestFeeChargeCap;
+    return this;
+  }
 
-    /**
-     * Get loanInterestFeeChargeDetail
-     *
-     * @return loanInterestFeeChargeDetail
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
-    @Schema(name = "LoanInterestFeeChargeDetail", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("LoanInterestFeeChargeDetail")
-    public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner> getLoanInterestFeeChargeDetail() {
-        return loanInterestFeeChargeDetail;
+  public OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner addLoanInterestFeeChargeCapItem(OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeCapInner loanInterestFeeChargeCapItem) {
+    if (this.loanInterestFeeChargeCap == null) {
+      this.loanInterestFeeChargeCap = new ArrayList<>();
     }
+    this.loanInterestFeeChargeCap.add(loanInterestFeeChargeCapItem);
+    return this;
+  }
 
-    public void setLoanInterestFeeChargeDetail(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner> loanInterestFeeChargeDetail) {
-        this.loanInterestFeeChargeDetail = loanInterestFeeChargeDetail;
-    }
+  /**
+   * Get loanInterestFeeChargeCap
+   * @return loanInterestFeeChargeCap
+  */
+  @Valid 
+  @Schema(name = "LoanInterestFeeChargeCap", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("LoanInterestFeeChargeCap")
+  public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeCapInner> getLoanInterestFeeChargeCap() {
+    return loanInterestFeeChargeCap;
+  }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner loanInterestFeeChargeCap(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeCapInner> loanInterestFeeChargeCap) {
-        this.loanInterestFeeChargeCap = loanInterestFeeChargeCap;
-        return this;
-    }
+  public void setLoanInterestFeeChargeCap(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeCapInner> loanInterestFeeChargeCap) {
+    this.loanInterestFeeChargeCap = loanInterestFeeChargeCap;
+  }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner addLoanInterestFeeChargeCapItem(OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeCapInner loanInterestFeeChargeCapItem) {
-        if (this.loanInterestFeeChargeCap == null) {
-            this.loanInterestFeeChargeCap = new ArrayList<>();
-        }
-        this.loanInterestFeeChargeCap.add(loanInterestFeeChargeCapItem);
-        return this;
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner obReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner = (OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner) o;
+    return Objects.equals(this.loanInterestFeeChargeDetail, obReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner.loanInterestFeeChargeDetail) &&
+        Objects.equals(this.loanInterestFeeChargeCap, obReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner.loanInterestFeeChargeCap);
+  }
 
-    /**
-     * Get loanInterestFeeChargeCap
-     *
-     * @return loanInterestFeeChargeCap
-     */
-    @Valid
-    @Schema(name = "LoanInterestFeeChargeCap", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("LoanInterestFeeChargeCap")
-    public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeCapInner> getLoanInterestFeeChargeCap() {
-        return loanInterestFeeChargeCap;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(loanInterestFeeChargeDetail, loanInterestFeeChargeCap);
+  }
 
-    public void setLoanInterestFeeChargeCap(List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeCapInner> loanInterestFeeChargeCap) {
-        this.loanInterestFeeChargeCap = loanInterestFeeChargeCap;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner {\n");
+    sb.append("    loanInterestFeeChargeDetail: ").append(toIndentedString(loanInterestFeeChargeDetail)).append("\n");
+    sb.append("    loanInterestFeeChargeCap: ").append(toIndentedString(loanInterestFeeChargeCap)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner obReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner = (OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner) o;
-        return Objects.equals(this.loanInterestFeeChargeDetail, obReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner.loanInterestFeeChargeDetail) &&
-                Objects.equals(this.loanInterestFeeChargeCap, obReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner.loanInterestFeeChargeCap);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(loanInterestFeeChargeDetail, loanInterestFeeChargeCap);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner {\n");
-        sb.append("    loanInterestFeeChargeDetail: ").append(toIndentedString(loanInterestFeeChargeDetail)).append("\n");
-        sb.append("    loanInterestFeeChargeCap: ").append(toIndentedString(loanInterestFeeChargeCap)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

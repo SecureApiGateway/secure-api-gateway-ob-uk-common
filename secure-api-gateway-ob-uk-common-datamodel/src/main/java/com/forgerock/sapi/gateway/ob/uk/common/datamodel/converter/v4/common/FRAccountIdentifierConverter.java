@@ -31,7 +31,6 @@ import uk.org.openbanking.datamodel.v4.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.v4.common.OBProxy1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
-import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmationConsent1DataDebtorAccount;
 import uk.org.openbanking.datamodel.v4.payment.OBCashAccountDebtor4;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationCreditorAccount;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationCreditorAgent;
@@ -94,21 +93,7 @@ public class FRAccountIdentifierConverter {
                 .build();
     }
 
-    public static FRAccountIdentifier toFRAccountIdentifier(OBFundsConfirmationConsent1DataDebtorAccount account) {
-        return account == null ? null : FRAccountIdentifier.builder()
-                .schemeName(account.getSchemeName() == null ? null : account.getSchemeName())
-                .identification(account.getIdentification())
-                .name(account.getName())
-                .secondaryIdentification(account.getSecondaryIdentification())
-                .proxy(toFRProxy(account.getProxy()))
-                .build();
-    }
-
     // FR to OB
-    public static OBFundsConfirmationConsent1DataDebtorAccount toOBFundsConfirmationConsent1DataDebtorAccount(FRAccountIdentifier account) {
-        return FRModelMapper.map(account, OBFundsConfirmationConsent1DataDebtorAccount.class);
-    }
-
     public static OBCashAccountCreditor3 toOBCashAccountCreditor3(FRAccountIdentifier account) {
         return FRModelMapper.map(account, OBCashAccountCreditor3.class);
     }

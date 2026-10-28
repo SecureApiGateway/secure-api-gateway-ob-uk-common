@@ -15,96 +15,106 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import jakarta.annotation.Generated;
-
 /**
- * Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another. Read more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd
+ * Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another. Read more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd 
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBReadProduct2DataProductInnerOtherProductTypeProductDetailsSegmentInner {
+  
+  GEAS("GEAS"),
+  
+  GEBA("GEBA"),
+  
+  GEBR("GEBR"),
+  
+  GEBU("GEBU"),
+  
+  GECI("GECI"),
+  
+  GECS("GECS"),
+  
+  GEFB("GEFB"),
+  
+  GEFG("GEFG"),
+  
+  GEG("GEG"),
+  
+  GEGR("GEGR"),
+  
+  GEGS("GEGS"),
+  
+  GEOT("GEOT"),
+  
+  GEOV("GEOV"),
+  
+  GEPA("GEPA"),
+  
+  GEPR("GEPR"),
+  
+  GERE("GERE"),
+  
+  GEST("GEST"),
+  
+  GEYA("GEYA"),
+  
+  GEYO("GEYO"),
+  
+  PSCA("PSCA"),
+  
+  PSES("PSES"),
+  
+  PSNC("PSNC"),
+  
+  PSNP("PSNP"),
+  
+  PSRG("PSRG"),
+  
+  PSSS("PSSS"),
+  
+  PSST("PSST"),
+  
+  PSSW("PSSW");
 
-    GEAS("GEAS"),
+  private String value;
 
-    GEBA("GEBA"),
+  OBReadProduct2DataProductInnerOtherProductTypeProductDetailsSegmentInner(String value) {
+    this.value = value;
+  }
 
-    GEBR("GEBR"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    GEBU("GEBU"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    GECI("GECI"),
-
-    GECS("GECS"),
-
-    GEFB("GEFB"),
-
-    GEFG("GEFG"),
-
-    GEG("GEG"),
-
-    GEGR("GEGR"),
-
-    GEGS("GEGS"),
-
-    GEOT("GEOT"),
-
-    GEOV("GEOV"),
-
-    GEPA("GEPA"),
-
-    GEPR("GEPR"),
-
-    GERE("GERE"),
-
-    GEST("GEST"),
-
-    GEYA("GEYA"),
-
-    GEYO("GEYO"),
-
-    PSCA("PSCA"),
-
-    PSES("PSES"),
-
-    PSNC("PSNC"),
-
-    PSNP("PSNP"),
-
-    PSRG("PSRG"),
-
-    PSSS("PSSS"),
-
-    PSST("PSST"),
-
-    PSSW("PSSW");
-
-    private String value;
-
-    OBReadProduct2DataProductInnerOtherProductTypeProductDetailsSegmentInner(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBReadProduct2DataProductInnerOtherProductTypeProductDetailsSegmentInner fromValue(String value) {
+    for (OBReadProduct2DataProductInnerOtherProductTypeProductDetailsSegmentInner b : OBReadProduct2DataProductInnerOtherProductTypeProductDetailsSegmentInner.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBReadProduct2DataProductInnerOtherProductTypeProductDetailsSegmentInner fromValue(String value) {
-        for (OBReadProduct2DataProductInnerOtherProductTypeProductDetailsSegmentInner b : OBReadProduct2DataProductInnerOtherProductTypeProductDetailsSegmentInner.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

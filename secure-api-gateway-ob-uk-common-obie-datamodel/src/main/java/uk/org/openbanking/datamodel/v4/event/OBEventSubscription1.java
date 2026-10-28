@@ -15,14 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.event;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import uk.org.openbanking.datamodel.v4.event.OBEventSubscription1Data;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBEventSubscription1
@@ -31,76 +36,74 @@ import jakarta.validation.constraints.NotNull;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBEventSubscription1 {
 
-    private OBEventSubscription1Data data;
+  private OBEventSubscription1Data data;
 
-    public OBEventSubscription1() {
-        super();
-    }
+  public OBEventSubscription1() {
+    super();
+  }
 
-    /**
-     * Constructor with only required parameters
-     */
-    public OBEventSubscription1(OBEventSubscription1Data data) {
-        this.data = data;
-    }
+  /**
+   * Constructor with only required parameters
+   */
+  public OBEventSubscription1(OBEventSubscription1Data data) {
+    this.data = data;
+  }
 
-    public OBEventSubscription1 data(OBEventSubscription1Data data) {
-        this.data = data;
-        return this;
-    }
+  public OBEventSubscription1 data(OBEventSubscription1Data data) {
+    this.data = data;
+    return this;
+  }
 
-    /**
-     * Get data
-     *
-     * @return data
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Data")
-    public OBEventSubscription1Data getData() {
-        return data;
-    }
+  /**
+   * Get data
+   * @return data
+  */
+  @NotNull @Valid 
+  @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Data")
+  public OBEventSubscription1Data getData() {
+    return data;
+  }
 
-    public void setData(OBEventSubscription1Data data) {
-        this.data = data;
-    }
+  public void setData(OBEventSubscription1Data data) {
+    this.data = data;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBEventSubscription1 obEventSubscription1 = (OBEventSubscription1) o;
-        return Objects.equals(this.data, obEventSubscription1.data);
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    OBEventSubscription1 obEventSubscription1 = (OBEventSubscription1) o;
+    return Objects.equals(this.data, obEventSubscription1.data);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(data);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(data);
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBEventSubscription1 {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBEventSubscription1 {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

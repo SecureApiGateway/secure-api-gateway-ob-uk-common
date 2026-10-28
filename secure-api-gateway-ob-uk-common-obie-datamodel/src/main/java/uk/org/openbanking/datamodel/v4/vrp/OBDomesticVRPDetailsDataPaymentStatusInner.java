@@ -15,19 +15,24 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBDomesticVRPDetailsDataPaymentStatusInner
@@ -37,156 +42,149 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPDetailsDataPaymentStatusInner {
 
-    private String paymentTransactionId;
+  private String paymentTransactionId;
 
-    private OBDomesticVRPDetailsDataPaymentStatusInnerStatus status;
+  private ExternalPaymentTransactionStatus1Code status;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private DateTime statusUpdateDateTime;
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private DateTime statusUpdateDateTime;
 
-    private OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail statusDetail;
+  private OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail statusDetail;
 
-    public OBDomesticVRPDetailsDataPaymentStatusInner() {
-        super();
+  public OBDomesticVRPDetailsDataPaymentStatusInner() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBDomesticVRPDetailsDataPaymentStatusInner(String paymentTransactionId, ExternalPaymentTransactionStatus1Code status, DateTime statusUpdateDateTime) {
+    this.paymentTransactionId = paymentTransactionId;
+    this.status = status;
+    this.statusUpdateDateTime = statusUpdateDateTime;
+  }
+
+  public OBDomesticVRPDetailsDataPaymentStatusInner paymentTransactionId(String paymentTransactionId) {
+    this.paymentTransactionId = paymentTransactionId;
+    return this;
+  }
+
+  /**
+   * Unique identifier for the transaction within a servicing institution. This identifier is both unique and immutable.
+   * @return paymentTransactionId
+  */
+  @NotNull @Size(min = 1, max = 210) 
+  @Schema(name = "PaymentTransactionId", description = "Unique identifier for the transaction within a servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("PaymentTransactionId")
+  public String getPaymentTransactionId() {
+    return paymentTransactionId;
+  }
+
+  public void setPaymentTransactionId(String paymentTransactionId) {
+    this.paymentTransactionId = paymentTransactionId;
+  }
+
+  public OBDomesticVRPDetailsDataPaymentStatusInner status(ExternalPaymentTransactionStatus1Code status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Get status
+   * @return status
+  */
+  @NotNull @Valid 
+  @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Status")
+  public ExternalPaymentTransactionStatus1Code getStatus() {
+    return status;
+  }
+
+  public void setStatus(ExternalPaymentTransactionStatus1Code status) {
+    this.status = status;
+  }
+
+  public OBDomesticVRPDetailsDataPaymentStatusInner statusUpdateDateTime(DateTime statusUpdateDateTime) {
+    this.statusUpdateDateTime = statusUpdateDateTime;
+    return this;
+  }
+
+  /**
+   * Date and time at which the status was assigned to the transfer. 
+   * @return statusUpdateDateTime
+  */
+  @NotNull @Valid 
+  @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the status was assigned to the transfer. ", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("StatusUpdateDateTime")
+  public DateTime getStatusUpdateDateTime() {
+    return statusUpdateDateTime;
+  }
+
+  public void setStatusUpdateDateTime(DateTime statusUpdateDateTime) {
+    this.statusUpdateDateTime = statusUpdateDateTime;
+  }
+
+  public OBDomesticVRPDetailsDataPaymentStatusInner statusDetail(OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail statusDetail) {
+    this.statusDetail = statusDetail;
+    return this;
+  }
+
+  /**
+   * Get statusDetail
+   * @return statusDetail
+  */
+  @Valid 
+  @Schema(name = "StatusDetail", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("StatusDetail")
+  public OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail getStatusDetail() {
+    return statusDetail;
+  }
+
+  public void setStatusDetail(OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail statusDetail) {
+    this.statusDetail = statusDetail;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Constructor with only required parameters
-     */
-    public OBDomesticVRPDetailsDataPaymentStatusInner(String paymentTransactionId, OBDomesticVRPDetailsDataPaymentStatusInnerStatus status, DateTime statusUpdateDateTime) {
-        this.paymentTransactionId = paymentTransactionId;
-        this.status = status;
-        this.statusUpdateDateTime = statusUpdateDateTime;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBDomesticVRPDetailsDataPaymentStatusInner obDomesticVRPDetailsDataPaymentStatusInner = (OBDomesticVRPDetailsDataPaymentStatusInner) o;
+    return Objects.equals(this.paymentTransactionId, obDomesticVRPDetailsDataPaymentStatusInner.paymentTransactionId) &&
+        Objects.equals(this.status, obDomesticVRPDetailsDataPaymentStatusInner.status) &&
+        Objects.equals(this.statusUpdateDateTime, obDomesticVRPDetailsDataPaymentStatusInner.statusUpdateDateTime) &&
+        Objects.equals(this.statusDetail, obDomesticVRPDetailsDataPaymentStatusInner.statusDetail);
+  }
 
-    public OBDomesticVRPDetailsDataPaymentStatusInner paymentTransactionId(String paymentTransactionId) {
-        this.paymentTransactionId = paymentTransactionId;
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(paymentTransactionId, status, statusUpdateDateTime, statusDetail);
+  }
 
-    /**
-     * Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.
-     *
-     * @return paymentTransactionId
-     */
-    @NotNull
-    @Size(min = 1, max = 210)
-    @Schema(name = "PaymentTransactionId", description = "Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("PaymentTransactionId")
-    public String getPaymentTransactionId() {
-        return paymentTransactionId;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBDomesticVRPDetailsDataPaymentStatusInner {\n");
+    sb.append("    paymentTransactionId: ").append(toIndentedString(paymentTransactionId)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusUpdateDateTime: ").append(toIndentedString(statusUpdateDateTime)).append("\n");
+    sb.append("    statusDetail: ").append(toIndentedString(statusDetail)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setPaymentTransactionId(String paymentTransactionId) {
-        this.paymentTransactionId = paymentTransactionId;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public OBDomesticVRPDetailsDataPaymentStatusInner status(OBDomesticVRPDetailsDataPaymentStatusInnerStatus status) {
-        this.status = status;
-        return this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return status
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Status")
-    public OBDomesticVRPDetailsDataPaymentStatusInnerStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(OBDomesticVRPDetailsDataPaymentStatusInnerStatus status) {
-        this.status = status;
-    }
-
-    public OBDomesticVRPDetailsDataPaymentStatusInner statusUpdateDateTime(DateTime statusUpdateDateTime) {
-        this.statusUpdateDateTime = statusUpdateDateTime;
-        return this;
-    }
-
-    /**
-     * Date and time at which the status was assigned to the transfer.
-     *
-     * @return statusUpdateDateTime
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the status was assigned to the transfer. ", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("StatusUpdateDateTime")
-    public DateTime getStatusUpdateDateTime() {
-        return statusUpdateDateTime;
-    }
-
-    public void setStatusUpdateDateTime(DateTime statusUpdateDateTime) {
-        this.statusUpdateDateTime = statusUpdateDateTime;
-    }
-
-    public OBDomesticVRPDetailsDataPaymentStatusInner statusDetail(OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail statusDetail) {
-        this.statusDetail = statusDetail;
-        return this;
-    }
-
-    /**
-     * Get statusDetail
-     *
-     * @return statusDetail
-     */
-    @Valid
-    @Schema(name = "StatusDetail", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("StatusDetail")
-    public OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail getStatusDetail() {
-        return statusDetail;
-    }
-
-    public void setStatusDetail(OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail statusDetail) {
-        this.statusDetail = statusDetail;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBDomesticVRPDetailsDataPaymentStatusInner obDomesticVRPDetailsDataPaymentStatusInner = (OBDomesticVRPDetailsDataPaymentStatusInner) o;
-        return Objects.equals(this.paymentTransactionId, obDomesticVRPDetailsDataPaymentStatusInner.paymentTransactionId) &&
-                Objects.equals(this.status, obDomesticVRPDetailsDataPaymentStatusInner.status) &&
-                Objects.equals(this.statusUpdateDateTime, obDomesticVRPDetailsDataPaymentStatusInner.statusUpdateDateTime) &&
-                Objects.equals(this.statusDetail, obDomesticVRPDetailsDataPaymentStatusInner.statusDetail);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(paymentTransactionId, status, statusUpdateDateTime, statusDetail);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBDomesticVRPDetailsDataPaymentStatusInner {\n");
-        sb.append("    paymentTransactionId: ").append(toIndentedString(paymentTransactionId)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    statusUpdateDateTime: ").append(toIndentedString(statusUpdateDateTime)).append("\n");
-        sb.append("    statusDetail: ").append(toIndentedString(statusDetail)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

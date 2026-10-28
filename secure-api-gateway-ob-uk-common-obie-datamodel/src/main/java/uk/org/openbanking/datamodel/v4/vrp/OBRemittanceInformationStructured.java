@@ -15,16 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.vrp.OBReferredDocumentInformation;
+import uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformationStructuredCreditorReferenceInformation;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBRemittanceInformationStructured
@@ -33,232 +40,225 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBRemittanceInformationStructured {
 
-    @Valid
-    private List<@Valid OBReferredDocumentInformation> referredDocumentInformation;
+  @Valid
+  private List<@Valid OBReferredDocumentInformation> referredDocumentInformation;
 
-    private Integer referredDocumentAmount;
+  private String referredDocumentAmount;
 
-    private OBRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation;
+  private OBRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation;
 
-    private String invoicer;
+  private String invoicer;
 
-    private String invoicee;
+  private String invoicee;
 
-    private String taxRemittance;
+  private String taxRemittance;
 
-    @Valid
-    private List<@Size(min = 1, max = 140) String> additionalRemittanceInformation;
+  @Valid
+  private List<@Size(min = 1, max = 140)String> additionalRemittanceInformation;
 
-    public OBRemittanceInformationStructured referredDocumentInformation(List<@Valid OBReferredDocumentInformation> referredDocumentInformation) {
-        this.referredDocumentInformation = referredDocumentInformation;
-        return this;
+  public OBRemittanceInformationStructured referredDocumentInformation(List<@Valid OBReferredDocumentInformation> referredDocumentInformation) {
+    this.referredDocumentInformation = referredDocumentInformation;
+    return this;
+  }
+
+  public OBRemittanceInformationStructured addReferredDocumentInformationItem(OBReferredDocumentInformation referredDocumentInformationItem) {
+    if (this.referredDocumentInformation == null) {
+      this.referredDocumentInformation = new ArrayList<>();
     }
+    this.referredDocumentInformation.add(referredDocumentInformationItem);
+    return this;
+  }
 
-    public OBRemittanceInformationStructured addReferredDocumentInformationItem(OBReferredDocumentInformation referredDocumentInformationItem) {
-        if (this.referredDocumentInformation == null) {
-            this.referredDocumentInformation = new ArrayList<>();
-        }
-        this.referredDocumentInformation.add(referredDocumentInformationItem);
-        return this;
+  /**
+   * Provides the identification and the content of the referred document.
+   * @return referredDocumentInformation
+  */
+  @Valid 
+  @Schema(name = "ReferredDocumentInformation", description = "Provides the identification and the content of the referred document.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("ReferredDocumentInformation")
+  public List<@Valid OBReferredDocumentInformation> getReferredDocumentInformation() {
+    return referredDocumentInformation;
+  }
+
+  public void setReferredDocumentInformation(List<@Valid OBReferredDocumentInformation> referredDocumentInformation) {
+    this.referredDocumentInformation = referredDocumentInformation;
+  }
+
+  public OBRemittanceInformationStructured referredDocumentAmount(String referredDocumentAmount) {
+    this.referredDocumentAmount = referredDocumentAmount;
+    return this;
+  }
+
+  /**
+   * A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.
+   * @return referredDocumentAmount
+  */
+  @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$") 
+  @Schema(name = "ReferredDocumentAmount", description = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("ReferredDocumentAmount")
+  public String getReferredDocumentAmount() {
+    return referredDocumentAmount;
+  }
+
+  public void setReferredDocumentAmount(String referredDocumentAmount) {
+    this.referredDocumentAmount = referredDocumentAmount;
+  }
+
+  public OBRemittanceInformationStructured creditorReferenceInformation(OBRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation) {
+    this.creditorReferenceInformation = creditorReferenceInformation;
+    return this;
+  }
+
+  /**
+   * Get creditorReferenceInformation
+   * @return creditorReferenceInformation
+  */
+  @Valid 
+  @Schema(name = "CreditorReferenceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("CreditorReferenceInformation")
+  public OBRemittanceInformationStructuredCreditorReferenceInformation getCreditorReferenceInformation() {
+    return creditorReferenceInformation;
+  }
+
+  public void setCreditorReferenceInformation(OBRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation) {
+    this.creditorReferenceInformation = creditorReferenceInformation;
+  }
+
+  public OBRemittanceInformationStructured invoicer(String invoicer) {
+    this.invoicer = invoicer;
+    return this;
+  }
+
+  /**
+   * Identification of the organisation issuing the invoice, when it is different from the creditor or ultimate creditor
+   * @return invoicer
+  */
+  @Size(max = 256) 
+  @Schema(name = "Invoicer", description = "Identification of the organisation issuing the invoice, when it is different from the creditor or ultimate creditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("Invoicer")
+  public String getInvoicer() {
+    return invoicer;
+  }
+
+  public void setInvoicer(String invoicer) {
+    this.invoicer = invoicer;
+  }
+
+  public OBRemittanceInformationStructured invoicee(String invoicee) {
+    this.invoicee = invoicee;
+    return this;
+  }
+
+  /**
+   * Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.
+   * @return invoicee
+  */
+  @Size(max = 256) 
+  @Schema(name = "Invoicee", description = "Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("Invoicee")
+  public String getInvoicee() {
+    return invoicee;
+  }
+
+  public void setInvoicee(String invoicee) {
+    this.invoicee = invoicee;
+  }
+
+  public OBRemittanceInformationStructured taxRemittance(String taxRemittance) {
+    this.taxRemittance = taxRemittance;
+    return this;
+  }
+
+  /**
+   * Get taxRemittance
+   * @return taxRemittance
+  */
+  @Size(min = 1, max = 140) 
+  @Schema(name = "TaxRemittance", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("TaxRemittance")
+  public String getTaxRemittance() {
+    return taxRemittance;
+  }
+
+  public void setTaxRemittance(String taxRemittance) {
+    this.taxRemittance = taxRemittance;
+  }
+
+  public OBRemittanceInformationStructured additionalRemittanceInformation(List<@Size(min = 1, max = 140)String> additionalRemittanceInformation) {
+    this.additionalRemittanceInformation = additionalRemittanceInformation;
+    return this;
+  }
+
+  public OBRemittanceInformationStructured addAdditionalRemittanceInformationItem(String additionalRemittanceInformationItem) {
+    if (this.additionalRemittanceInformation == null) {
+      this.additionalRemittanceInformation = new ArrayList<>();
     }
+    this.additionalRemittanceInformation.add(additionalRemittanceInformationItem);
+    return this;
+  }
 
-    /**
-     * Provides the identification and the content of the referred document.
-     *
-     * @return referredDocumentInformation
-     */
-    @Valid
-    @Schema(name = "ReferredDocumentInformation", description = "Provides the identification and the content of the referred document.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("ReferredDocumentInformation")
-    public List<@Valid OBReferredDocumentInformation> getReferredDocumentInformation() {
-        return referredDocumentInformation;
+  /**
+   * Get additionalRemittanceInformation
+   * @return additionalRemittanceInformation
+  */
+  @Size(max = 3) 
+  @Schema(name = "AdditionalRemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("AdditionalRemittanceInformation")
+  public List<@Size(min = 1, max = 140)String> getAdditionalRemittanceInformation() {
+    return additionalRemittanceInformation;
+  }
+
+  public void setAdditionalRemittanceInformation(List<@Size(min = 1, max = 140)String> additionalRemittanceInformation) {
+    this.additionalRemittanceInformation = additionalRemittanceInformation;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public void setReferredDocumentInformation(List<@Valid OBReferredDocumentInformation> referredDocumentInformation) {
-        this.referredDocumentInformation = referredDocumentInformation;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBRemittanceInformationStructured obRemittanceInformationStructured = (OBRemittanceInformationStructured) o;
+    return Objects.equals(this.referredDocumentInformation, obRemittanceInformationStructured.referredDocumentInformation) &&
+        Objects.equals(this.referredDocumentAmount, obRemittanceInformationStructured.referredDocumentAmount) &&
+        Objects.equals(this.creditorReferenceInformation, obRemittanceInformationStructured.creditorReferenceInformation) &&
+        Objects.equals(this.invoicer, obRemittanceInformationStructured.invoicer) &&
+        Objects.equals(this.invoicee, obRemittanceInformationStructured.invoicee) &&
+        Objects.equals(this.taxRemittance, obRemittanceInformationStructured.taxRemittance) &&
+        Objects.equals(this.additionalRemittanceInformation, obRemittanceInformationStructured.additionalRemittanceInformation);
+  }
 
-    public OBRemittanceInformationStructured referredDocumentAmount(Integer referredDocumentAmount) {
-        this.referredDocumentAmount = referredDocumentAmount;
-        return this;
+  @Override
+  public int hashCode() {
+    return Objects.hash(referredDocumentInformation, referredDocumentAmount, creditorReferenceInformation, invoicer, invoicee, taxRemittance, additionalRemittanceInformation);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBRemittanceInformationStructured {\n");
+    sb.append("    referredDocumentInformation: ").append(toIndentedString(referredDocumentInformation)).append("\n");
+    sb.append("    referredDocumentAmount: ").append(toIndentedString(referredDocumentAmount)).append("\n");
+    sb.append("    creditorReferenceInformation: ").append(toIndentedString(creditorReferenceInformation)).append("\n");
+    sb.append("    invoicer: ").append(toIndentedString(invoicer)).append("\n");
+    sb.append("    invoicee: ").append(toIndentedString(invoicee)).append("\n");
+    sb.append("    taxRemittance: ").append(toIndentedString(taxRemittance)).append("\n");
+    sb.append("    additionalRemittanceInformation: ").append(toIndentedString(additionalRemittanceInformation)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Get referredDocumentAmount
-     *
-     * @return referredDocumentAmount
-     */
-
-    @Schema(name = "ReferredDocumentAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("ReferredDocumentAmount")
-    public Integer getReferredDocumentAmount() {
-        return referredDocumentAmount;
-    }
-
-    public void setReferredDocumentAmount(Integer referredDocumentAmount) {
-        this.referredDocumentAmount = referredDocumentAmount;
-    }
-
-    public OBRemittanceInformationStructured creditorReferenceInformation(OBRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation) {
-        this.creditorReferenceInformation = creditorReferenceInformation;
-        return this;
-    }
-
-    /**
-     * Get creditorReferenceInformation
-     *
-     * @return creditorReferenceInformation
-     */
-    @Valid
-    @Schema(name = "CreditorReferenceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("CreditorReferenceInformation")
-    public OBRemittanceInformationStructuredCreditorReferenceInformation getCreditorReferenceInformation() {
-        return creditorReferenceInformation;
-    }
-
-    public void setCreditorReferenceInformation(OBRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation) {
-        this.creditorReferenceInformation = creditorReferenceInformation;
-    }
-
-    public OBRemittanceInformationStructured invoicer(String invoicer) {
-        this.invoicer = invoicer;
-        return this;
-    }
-
-    /**
-     * Identification of the organisation issuing the invoice, when it is different from the creditor or ultimate creditor
-     *
-     * @return invoicer
-     */
-    @Size(max = 256)
-    @Schema(name = "Invoicer", description = "Identification of the organisation issuing the invoice, when it is different from the creditor or ultimate creditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Invoicer")
-    public String getInvoicer() {
-        return invoicer;
-    }
-
-    public void setInvoicer(String invoicer) {
-        this.invoicer = invoicer;
-    }
-
-    public OBRemittanceInformationStructured invoicee(String invoicee) {
-        this.invoicee = invoicee;
-        return this;
-    }
-
-    /**
-     * Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.
-     *
-     * @return invoicee
-     */
-    @Size(max = 256)
-    @Schema(name = "Invoicee", description = "Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Invoicee")
-    public String getInvoicee() {
-        return invoicee;
-    }
-
-    public void setInvoicee(String invoicee) {
-        this.invoicee = invoicee;
-    }
-
-    public OBRemittanceInformationStructured taxRemittance(String taxRemittance) {
-        this.taxRemittance = taxRemittance;
-        return this;
-    }
-
-    /**
-     * Get taxRemittance
-     *
-     * @return taxRemittance
-     */
-    @Size(min = 1, max = 140)
-    @Schema(name = "TaxRemittance", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("TaxRemittance")
-    public String getTaxRemittance() {
-        return taxRemittance;
-    }
-
-    public void setTaxRemittance(String taxRemittance) {
-        this.taxRemittance = taxRemittance;
-    }
-
-    public OBRemittanceInformationStructured additionalRemittanceInformation(List<@Size(min = 1, max = 140) String> additionalRemittanceInformation) {
-        this.additionalRemittanceInformation = additionalRemittanceInformation;
-        return this;
-    }
-
-    public OBRemittanceInformationStructured addAdditionalRemittanceInformationItem(String additionalRemittanceInformationItem) {
-        if (this.additionalRemittanceInformation == null) {
-            this.additionalRemittanceInformation = new ArrayList<>();
-        }
-        this.additionalRemittanceInformation.add(additionalRemittanceInformationItem);
-        return this;
-    }
-
-    /**
-     * Get additionalRemittanceInformation
-     *
-     * @return additionalRemittanceInformation
-     */
-    @Size(max = 3)
-    @Schema(name = "AdditionalRemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("AdditionalRemittanceInformation")
-    public List<@Size(min = 1, max = 140) String> getAdditionalRemittanceInformation() {
-        return additionalRemittanceInformation;
-    }
-
-    public void setAdditionalRemittanceInformation(List<@Size(min = 1, max = 140) String> additionalRemittanceInformation) {
-        this.additionalRemittanceInformation = additionalRemittanceInformation;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBRemittanceInformationStructured obRemittanceInformationStructured = (OBRemittanceInformationStructured) o;
-        return Objects.equals(this.referredDocumentInformation, obRemittanceInformationStructured.referredDocumentInformation) &&
-                Objects.equals(this.referredDocumentAmount, obRemittanceInformationStructured.referredDocumentAmount) &&
-                Objects.equals(this.creditorReferenceInformation, obRemittanceInformationStructured.creditorReferenceInformation) &&
-                Objects.equals(this.invoicer, obRemittanceInformationStructured.invoicer) &&
-                Objects.equals(this.invoicee, obRemittanceInformationStructured.invoicee) &&
-                Objects.equals(this.taxRemittance, obRemittanceInformationStructured.taxRemittance) &&
-                Objects.equals(this.additionalRemittanceInformation, obRemittanceInformationStructured.additionalRemittanceInformation);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(referredDocumentInformation, referredDocumentAmount, creditorReferenceInformation, invoicer, invoicee, taxRemittance, additionalRemittanceInformation);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBRemittanceInformationStructured {\n");
-        sb.append("    referredDocumentInformation: ").append(toIndentedString(referredDocumentInformation)).append("\n");
-        sb.append("    referredDocumentAmount: ").append(toIndentedString(referredDocumentAmount)).append("\n");
-        sb.append("    creditorReferenceInformation: ").append(toIndentedString(creditorReferenceInformation)).append("\n");
-        sb.append("    invoicer: ").append(toIndentedString(invoicer)).append("\n");
-        sb.append("    invoicee: ").append(toIndentedString(invoicee)).append("\n");
-        sb.append("    taxRemittance: ").append(toIndentedString(taxRemittance)).append("\n");
-        sb.append("    additionalRemittanceInformation: ").append(toIndentedString(additionalRemittanceInformation)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

@@ -17,139 +17,143 @@ package com.forgerock.sapi.gateway.ob.uk.common.datamodel.converter.v4.common;
 
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.common.FRSubmissionStatus;
 
-import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticResponse5DataStatus;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticScheduledResponse5DataStatus;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrderResponse6DataStatus;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteFileResponse3DataStatus;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalResponse5DataStatus;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalScheduledResponse6DataStatus;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrderResponse7DataStatus;
-import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPResponseDataStatus;
+import uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code;
+import uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus2Code;
+import uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus3Code;
+import uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus4Code;
+import uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus5Code;
 
 public class FRSubmissionStatusConverter {
 
     // FR to OB
-    public static OBWriteDomesticResponse5DataStatus toOBWriteDomesticResponse5DataStatus(FRSubmissionStatus status) {
+
+    // Domestic Payments - ExternalPaymentTransactionStatus3Code
+    public static ExternalPaymentTransactionStatus3Code toOBWriteDomesticResponse5DataStatus(FRSubmissionStatus status) {
         if (status == null) {
             return null;
         }
         switch (status) {
         case PENDING:
-            return OBWriteDomesticResponse5DataStatus.PDNG;
+            return ExternalPaymentTransactionStatus3Code.PDNG;
         case ACCEPTEDSETTLEMENTINPROCESS:
-            return OBWriteDomesticResponse5DataStatus.ACSP;
+            return ExternalPaymentTransactionStatus3Code.ACSP;
         case ACCEPTEDSETTLEMENTCOMPLETED:
         case ACCEPTEDCREDITSETTLEMENTCOMPLETED:
         case ACCEPTEDWITHOUTPOSTING:
-            return OBWriteDomesticResponse5DataStatus.ACSC;
+            return ExternalPaymentTransactionStatus3Code.ACSC;
         default:
-            return OBWriteDomesticResponse5DataStatus.RJCT;
+            return ExternalPaymentTransactionStatus3Code.RJCT;
         }
     }
 
-    public static OBWriteDomesticScheduledResponse5DataStatus toOBWriteDomesticScheduledResponse5DataStatus(FRSubmissionStatus status) {
+    // Domestic Scheduled Payments - ExternalPaymentTransactionStatus2Code
+    public static ExternalPaymentTransactionStatus2Code toOBWriteDomesticScheduledResponse5DataStatus(FRSubmissionStatus status) {
         if (status == null) {
             return null;
         }
         switch (status) {
         case INITIATIONPENDING:
-            return OBWriteDomesticScheduledResponse5DataStatus.PDNG;
+            return ExternalPaymentTransactionStatus2Code.PDNG;
         case INITIATIONCOMPLETED:
-            return OBWriteDomesticScheduledResponse5DataStatus.ACCP;
-        //instead of OBWriteDomesticScheduledResponse5DataStatus.INCO
+            return ExternalPaymentTransactionStatus2Code.ACCP;
+        //instead of ExternalPaymentTransactionStatus2Code.INCO
         case CANCELLED:
-            return OBWriteDomesticScheduledResponse5DataStatus.CANC;
+            return ExternalPaymentTransactionStatus2Code.CANC;
         default:
-            return OBWriteDomesticScheduledResponse5DataStatus.RJCT;
-        // might as well be blocked, in which case -> return OBWriteDomesticScheduledResponse5DataStatus.BLCK;
+            return ExternalPaymentTransactionStatus2Code.RJCT;
+        // might as well be blocked, in which case -> return ExternalPaymentTransactionStatus2Code.BLCK;
         }
     }
 
-    public static OBWriteDomesticStandingOrderResponse6DataStatus toOBWriteDomesticStandingOrderResponse6DataStatus(FRSubmissionStatus status) {
+    // Domestic Standing Orders - ExternalPaymentTransactionStatus1Code
+    public static ExternalPaymentTransactionStatus1Code toOBWriteDomesticStandingOrderResponse6DataStatus(FRSubmissionStatus status) {
         if (status == null) {
             return null;
         }
         switch (status) {
         case INITIATIONPENDING:
-            return OBWriteDomesticStandingOrderResponse6DataStatus.PDNG;
+            return ExternalPaymentTransactionStatus1Code.PDNG;
         case INITIATIONCOMPLETED:
-            return OBWriteDomesticStandingOrderResponse6DataStatus.INCO;
+            return ExternalPaymentTransactionStatus1Code.INCO;
         case CANCELLED:
-            return OBWriteDomesticStandingOrderResponse6DataStatus.CANC;
+            return ExternalPaymentTransactionStatus1Code.CANC;
         default:
-            return OBWriteDomesticStandingOrderResponse6DataStatus.RJCT;
-        // might as well be blocked, in which case -> return OBWriteDomesticStandingOrderResponse6DataStatus.BLCK;
+            return ExternalPaymentTransactionStatus1Code.RJCT;
+        // might as well be blocked, in which case -> return ExternalPaymentTransactionStatus1Code.BLCK;
         }
     }
 
-    // v3.1.5 - File Payments
-    public static OBWriteFileResponse3DataStatus toOBWriteFileResponse3DataStatus(FRSubmissionStatus status) {
+    // v3.1.5 - File Payments - ExternalPaymentTransactionStatus4Code
+    public static ExternalPaymentTransactionStatus4Code toOBWriteFileResponse3DataStatus(FRSubmissionStatus status) {
         if (status == null) {
             return null;
         }
         switch (status) {
         case INITIATIONPENDING:
-            return OBWriteFileResponse3DataStatus.PDNG;
+            return ExternalPaymentTransactionStatus4Code.PDNG;
         case INITIATIONCOMPLETED:
-            return OBWriteFileResponse3DataStatus.INCO;
+            return ExternalPaymentTransactionStatus4Code.INCO;
         default:
-            return OBWriteFileResponse3DataStatus.INFA;
+            return ExternalPaymentTransactionStatus4Code.INFA;
         }
     }
 
-    public static OBWriteInternationalResponse5DataStatus toOBWriteInternationalResponse5DataStatus(FRSubmissionStatus status) {
+    // International Payments - ExternalPaymentTransactionStatus3Code
+    public static ExternalPaymentTransactionStatus3Code toOBWriteInternationalResponse5DataStatus(FRSubmissionStatus status) {
         if (status == null) {
             return null;
         }
         switch (status) {
         case PENDING:
-            return OBWriteInternationalResponse5DataStatus.PDNG;
+            return ExternalPaymentTransactionStatus3Code.PDNG;
         default:
-            return OBWriteInternationalResponse5DataStatus.RJCT;
-        // might as well be blocked, in which case -> return OBWriteInternationalResponse5DataStatus.BLCK;
+            return ExternalPaymentTransactionStatus3Code.RJCT;
+        // might as well be blocked, in which case -> return ExternalPaymentTransactionStatus3Code.BLCK;
         }
     }
 
-    public static OBWriteInternationalStandingOrderResponse7DataStatus toOBWriteInternationalStandingOrderResponse7DataStatus(FRSubmissionStatus status) {
+    // International Standing Orders - ExternalPaymentTransactionStatus1Code
+    public static ExternalPaymentTransactionStatus1Code toOBWriteInternationalStandingOrderResponse7DataStatus(FRSubmissionStatus status) {
         if (status == null) {
             return null;
         }
         switch (status) {
         case INITIATIONPENDING:
-            return OBWriteInternationalStandingOrderResponse7DataStatus.PDNG;
+            return ExternalPaymentTransactionStatus1Code.PDNG;
         case INITIATIONCOMPLETED:
-            return OBWriteInternationalStandingOrderResponse7DataStatus.INCO;
+            return ExternalPaymentTransactionStatus1Code.INCO;
         case CANCELLED:
-            return OBWriteInternationalStandingOrderResponse7DataStatus.CANC;
+            return ExternalPaymentTransactionStatus1Code.CANC;
         default:
-            return OBWriteInternationalStandingOrderResponse7DataStatus.INFA;
+            return ExternalPaymentTransactionStatus1Code.INFA;
         }
     }
 
     // vrp 3.1.x
-    public static FRSubmissionStatus toFRSubmissionStatus(OBDomesticVRPResponseDataStatus status) {
+    public static FRSubmissionStatus toFRSubmissionStatus(ExternalPaymentTransactionStatus5Code status) {
         if (status == null) {
             return null;
         }
         return FRSubmissionStatus.fromValue(status.getValue());
     }
 
-    public static OBDomesticVRPResponseDataStatus toOBDomesticVRPResponseDataStatusEnum(FRSubmissionStatus status) {
+    public static ExternalPaymentTransactionStatus5Code toOBDomesticVRPResponseDataStatusEnum(FRSubmissionStatus status) {
         if (status == null) {
             return null;
         }
-        return OBDomesticVRPResponseDataStatus.fromValue(FRPaymentDetailsStatusConverter.toOBDomesticVRPDetailsDataPaymentStatusInnerStatus(status.getValue()).getValue());
+        return ExternalPaymentTransactionStatus5Code.fromValue(FRPaymentDetailsStatusConverter.toOBDomesticVRPDetailsDataPaymentStatusInnerStatus(status.getValue()).getValue());
     }
 
-    public static OBWriteInternationalScheduledResponse6DataStatus toOBWriteInternationalScheduledResponse6DataStatus(FRSubmissionStatus status) {
+    // International Scheduled Payments - ExternalPaymentTransactionStatus2Code
+    public static ExternalPaymentTransactionStatus2Code toOBWriteInternationalScheduledResponse6DataStatus(FRSubmissionStatus status) {
         if (status == null) {
             return null;
         }
         switch (status) {
         case INITIATIONPENDING:
-            return OBWriteInternationalScheduledResponse6DataStatus.PDNG;
+            return ExternalPaymentTransactionStatus2Code.PDNG;
         default:
-            return OBWriteInternationalScheduledResponse6DataStatus.BLCK;
+            return ExternalPaymentTransactionStatus2Code.BLCK;
         }
     }
 

@@ -15,25 +15,35 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
+import uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus5Code;
+import uk.org.openbanking.datamodel.v4.vrp.OBCashAccountDebtorWithName;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticRefundAccount1;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPInitiation;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPInstruction;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPResponseDataChargesInner;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
- * &#x60;Data.Refund&#x60; only included in the response if &#x60;Data.ReadRefundAccount&#x60; is set to &#x60;Yes&#x60; in the consent.
+ * &#x60;Data.Refund&#x60; only included in the response if &#x60;Data.ReadRefundAccount&#x60; is set to &#x60;Yes&#x60; in the consent. 
  */
 
 @Schema(name = "OBDomesticVRPResponse_Data", description = "`Data.Refund` only included in the response if `Data.ReadRefundAccount` is set to `Yes` in the consent. ")
@@ -41,410 +51,390 @@ import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPResponseData {
 
-    private String domesticVRPId;
+  private String domesticVRPId;
 
-    private String consentId;
+  private String consentId;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private DateTime creationDateTime;
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private DateTime creationDateTime;
 
-    private OBDomesticVRPResponseDataStatus status;
+  private ExternalPaymentTransactionStatus5Code status;
 
-    @Valid
-    private List<@Valid OBStatusReason> statusReason;
+  @Valid
+  private List<@Valid OBStatusReason> statusReason;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private DateTime statusUpdateDateTime;
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private DateTime statusUpdateDateTime;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private DateTime expectedExecutionDateTime;
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private DateTime expectedExecutionDateTime;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private DateTime expectedSettlementDateTime;
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private DateTime expectedSettlementDateTime;
 
-    private OBCashAccountDebtorWithName refund;
+  private OBDomesticRefundAccount1 refund;
 
-    @Valid
-    private List<@Valid OBDomesticVRPResponseDataChargesInner> charges;
+  @Valid
+  private List<@Valid OBDomesticVRPResponseDataChargesInner> charges;
 
-    private OBDomesticVRPInitiation initiation;
+  private OBDomesticVRPInitiation initiation;
 
-    private OBDomesticVRPInstruction instruction;
+  private OBDomesticVRPInstruction instruction;
 
-    private OBCashAccountDebtorWithName debtorAccount;
+  private OBCashAccountDebtorWithName debtorAccount;
 
-    public OBDomesticVRPResponseData() {
-        super();
+  public OBDomesticVRPResponseData() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBDomesticVRPResponseData(String domesticVRPId, String consentId, DateTime creationDateTime, ExternalPaymentTransactionStatus5Code status, DateTime statusUpdateDateTime, OBDomesticVRPInitiation initiation, OBDomesticVRPInstruction instruction) {
+    this.domesticVRPId = domesticVRPId;
+    this.consentId = consentId;
+    this.creationDateTime = creationDateTime;
+    this.status = status;
+    this.statusUpdateDateTime = statusUpdateDateTime;
+    this.initiation = initiation;
+    this.instruction = instruction;
+  }
+
+  public OBDomesticVRPResponseData domesticVRPId(String domesticVRPId) {
+    this.domesticVRPId = domesticVRPId;
+    return this;
+  }
+
+  /**
+   * Unique identification as assigned by the ASPSP to uniquely identify the domestic payment resource. 
+   * @return domesticVRPId
+  */
+  @NotNull @Size(min = 1, max = 40) 
+  @Schema(name = "DomesticVRPId", description = "Unique identification as assigned by the ASPSP to uniquely identify the domestic payment resource. ", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("DomesticVRPId")
+  public String getDomesticVRPId() {
+    return domesticVRPId;
+  }
+
+  public void setDomesticVRPId(String domesticVRPId) {
+    this.domesticVRPId = domesticVRPId;
+  }
+
+  public OBDomesticVRPResponseData consentId(String consentId) {
+    this.consentId = consentId;
+    return this;
+  }
+
+  /**
+   * Identifier for the Domestic VRP Consent that this payment is made under. 
+   * @return consentId
+  */
+  @NotNull @Size(min = 1, max = 128) 
+  @Schema(name = "ConsentId", description = "Identifier for the Domestic VRP Consent that this payment is made under. ", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("ConsentId")
+  public String getConsentId() {
+    return consentId;
+  }
+
+  public void setConsentId(String consentId) {
+    this.consentId = consentId;
+  }
+
+  public OBDomesticVRPResponseData creationDateTime(DateTime creationDateTime) {
+    this.creationDateTime = creationDateTime;
+    return this;
+  }
+
+  /**
+   * Date and time at which the resource was created. 
+   * @return creationDateTime
+  */
+  @NotNull @Valid 
+  @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created. ", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("CreationDateTime")
+  public DateTime getCreationDateTime() {
+    return creationDateTime;
+  }
+
+  public void setCreationDateTime(DateTime creationDateTime) {
+    this.creationDateTime = creationDateTime;
+  }
+
+  public OBDomesticVRPResponseData status(ExternalPaymentTransactionStatus5Code status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Get status
+   * @return status
+  */
+  @NotNull @Valid 
+  @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Status")
+  public ExternalPaymentTransactionStatus5Code getStatus() {
+    return status;
+  }
+
+  public void setStatus(ExternalPaymentTransactionStatus5Code status) {
+    this.status = status;
+  }
+
+  public OBDomesticVRPResponseData statusReason(List<@Valid OBStatusReason> statusReason) {
+    this.statusReason = statusReason;
+    return this;
+  }
+
+  public OBDomesticVRPResponseData addStatusReasonItem(OBStatusReason statusReasonItem) {
+    if (this.statusReason == null) {
+      this.statusReason = new ArrayList<>();
     }
+    this.statusReason.add(statusReasonItem);
+    return this;
+  }
 
-    /**
-     * Constructor with only required parameters
-     */
-    public OBDomesticVRPResponseData(String domesticVRPId, String consentId, DateTime creationDateTime, OBDomesticVRPResponseDataStatus status, DateTime statusUpdateDateTime, OBDomesticVRPInitiation initiation, OBDomesticVRPInstruction instruction) {
-        this.domesticVRPId = domesticVRPId;
-        this.consentId = consentId;
-        this.creationDateTime = creationDateTime;
-        this.status = status;
-        this.statusUpdateDateTime = statusUpdateDateTime;
-        this.initiation = initiation;
-        this.instruction = instruction;
-    }
+  /**
+   * Get statusReason
+   * @return statusReason
+  */
+  @Valid 
+  @Schema(name = "StatusReason", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("StatusReason")
+  public List<@Valid OBStatusReason> getStatusReason() {
+    return statusReason;
+  }
 
-    public OBDomesticVRPResponseData domesticVRPId(String domesticVRPId) {
-        this.domesticVRPId = domesticVRPId;
-        return this;
-    }
+  public void setStatusReason(List<@Valid OBStatusReason> statusReason) {
+    this.statusReason = statusReason;
+  }
 
-    /**
-     * Unique identification as assigned by the ASPSP to uniquely identify the domestic payment resource.
-     *
-     * @return domesticVRPId
-     */
-    @NotNull
-    @Size(min = 1, max = 40)
-    @Schema(name = "DomesticVRPId", description = "Unique identification as assigned by the ASPSP to uniquely identify the domestic payment resource. ", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("DomesticVRPId")
-    public String getDomesticVRPId() {
-        return domesticVRPId;
-    }
+  public OBDomesticVRPResponseData statusUpdateDateTime(DateTime statusUpdateDateTime) {
+    this.statusUpdateDateTime = statusUpdateDateTime;
+    return this;
+  }
 
-    public void setDomesticVRPId(String domesticVRPId) {
-        this.domesticVRPId = domesticVRPId;
-    }
+  /**
+   * Date and time at which the resource status was updated. 
+   * @return statusUpdateDateTime
+  */
+  @NotNull @Valid 
+  @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. ", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("StatusUpdateDateTime")
+  public DateTime getStatusUpdateDateTime() {
+    return statusUpdateDateTime;
+  }
 
-    public OBDomesticVRPResponseData consentId(String consentId) {
-        this.consentId = consentId;
-        return this;
-    }
+  public void setStatusUpdateDateTime(DateTime statusUpdateDateTime) {
+    this.statusUpdateDateTime = statusUpdateDateTime;
+  }
 
-    /**
-     * Identifier for the Domestic VRP Consent that this payment is made under.
-     *
-     * @return consentId
-     */
-    @NotNull
-    @Size(min = 1, max = 128)
-    @Schema(name = "ConsentId", description = "Identifier for the Domestic VRP Consent that this payment is made under. ", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("ConsentId")
-    public String getConsentId() {
-        return consentId;
-    }
+  public OBDomesticVRPResponseData expectedExecutionDateTime(DateTime expectedExecutionDateTime) {
+    this.expectedExecutionDateTime = expectedExecutionDateTime;
+    return this;
+  }
 
-    public void setConsentId(String consentId) {
-        this.consentId = consentId;
-    }
+  /**
+   * Expected execution date and time for the payment resource. 
+   * @return expectedExecutionDateTime
+  */
+  @Valid 
+  @Schema(name = "ExpectedExecutionDateTime", description = "Expected execution date and time for the payment resource. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("ExpectedExecutionDateTime")
+  public DateTime getExpectedExecutionDateTime() {
+    return expectedExecutionDateTime;
+  }
 
-    public OBDomesticVRPResponseData creationDateTime(DateTime creationDateTime) {
-        this.creationDateTime = creationDateTime;
-        return this;
-    }
+  public void setExpectedExecutionDateTime(DateTime expectedExecutionDateTime) {
+    this.expectedExecutionDateTime = expectedExecutionDateTime;
+  }
 
-    /**
-     * Date and time at which the resource was created.
-     *
-     * @return creationDateTime
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created. ", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("CreationDateTime")
-    public DateTime getCreationDateTime() {
-        return creationDateTime;
-    }
+  public OBDomesticVRPResponseData expectedSettlementDateTime(DateTime expectedSettlementDateTime) {
+    this.expectedSettlementDateTime = expectedSettlementDateTime;
+    return this;
+  }
 
-    public void setCreationDateTime(DateTime creationDateTime) {
-        this.creationDateTime = creationDateTime;
-    }
+  /**
+   * Expected settlement date and time for the payment resource. 
+   * @return expectedSettlementDateTime
+  */
+  @Valid 
+  @Schema(name = "ExpectedSettlementDateTime", description = "Expected settlement date and time for the payment resource. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("ExpectedSettlementDateTime")
+  public DateTime getExpectedSettlementDateTime() {
+    return expectedSettlementDateTime;
+  }
 
-    public OBDomesticVRPResponseData status(OBDomesticVRPResponseDataStatus status) {
-        this.status = status;
-        return this;
-    }
+  public void setExpectedSettlementDateTime(DateTime expectedSettlementDateTime) {
+    this.expectedSettlementDateTime = expectedSettlementDateTime;
+  }
 
-    /**
-     * Get status
-     *
-     * @return status
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Status")
-    public OBDomesticVRPResponseDataStatus getStatus() {
-        return status;
-    }
+  public OBDomesticVRPResponseData refund(OBDomesticRefundAccount1 refund) {
+    this.refund = refund;
+    return this;
+  }
 
-    public void setStatus(OBDomesticVRPResponseDataStatus status) {
-        this.status = status;
-    }
+  /**
+   * Get refund
+   * @return refund
+  */
+  @Valid 
+  @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("Refund")
+  public OBDomesticRefundAccount1 getRefund() {
+    return refund;
+  }
 
-    public OBDomesticVRPResponseData statusReason(List<@Valid OBStatusReason> statusReason) {
-        this.statusReason = statusReason;
-        return this;
-    }
+  public void setRefund(OBDomesticRefundAccount1 refund) {
+    this.refund = refund;
+  }
 
-    public OBDomesticVRPResponseData addStatusReasonItem(OBStatusReason statusReasonItem) {
-        if (this.statusReason == null) {
-            this.statusReason = new ArrayList<>();
-        }
-        this.statusReason.add(statusReasonItem);
-        return this;
-    }
+  public OBDomesticVRPResponseData charges(List<@Valid OBDomesticVRPResponseDataChargesInner> charges) {
+    this.charges = charges;
+    return this;
+  }
 
-    /**
-     * Get statusReason
-     *
-     * @return statusReason
-     */
-    @Valid
-    @Schema(name = "StatusReason", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("StatusReason")
-    public List<@Valid OBStatusReason> getStatusReason() {
-        return statusReason;
+  public OBDomesticVRPResponseData addChargesItem(OBDomesticVRPResponseDataChargesInner chargesItem) {
+    if (this.charges == null) {
+      this.charges = new ArrayList<>();
     }
+    this.charges.add(chargesItem);
+    return this;
+  }
 
-    public void setStatusReason(List<@Valid OBStatusReason> statusReason) {
-        this.statusReason = statusReason;
-    }
+  /**
+   * Get charges
+   * @return charges
+  */
+  @Valid 
+  @Schema(name = "Charges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("Charges")
+  public List<@Valid OBDomesticVRPResponseDataChargesInner> getCharges() {
+    return charges;
+  }
 
-    public OBDomesticVRPResponseData statusUpdateDateTime(DateTime statusUpdateDateTime) {
-        this.statusUpdateDateTime = statusUpdateDateTime;
-        return this;
-    }
+  public void setCharges(List<@Valid OBDomesticVRPResponseDataChargesInner> charges) {
+    this.charges = charges;
+  }
 
-    /**
-     * Date and time at which the resource status was updated.
-     *
-     * @return statusUpdateDateTime
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. ", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("StatusUpdateDateTime")
-    public DateTime getStatusUpdateDateTime() {
-        return statusUpdateDateTime;
-    }
+  public OBDomesticVRPResponseData initiation(OBDomesticVRPInitiation initiation) {
+    this.initiation = initiation;
+    return this;
+  }
 
-    public void setStatusUpdateDateTime(DateTime statusUpdateDateTime) {
-        this.statusUpdateDateTime = statusUpdateDateTime;
-    }
+  /**
+   * Get initiation
+   * @return initiation
+  */
+  @NotNull @Valid 
+  @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Initiation")
+  public OBDomesticVRPInitiation getInitiation() {
+    return initiation;
+  }
 
-    public OBDomesticVRPResponseData expectedExecutionDateTime(DateTime expectedExecutionDateTime) {
-        this.expectedExecutionDateTime = expectedExecutionDateTime;
-        return this;
-    }
+  public void setInitiation(OBDomesticVRPInitiation initiation) {
+    this.initiation = initiation;
+  }
 
-    /**
-     * Expected execution date and time for the payment resource.
-     *
-     * @return expectedExecutionDateTime
-     */
-    @Valid
-    @Schema(name = "ExpectedExecutionDateTime", description = "Expected execution date and time for the payment resource. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("ExpectedExecutionDateTime")
-    public DateTime getExpectedExecutionDateTime() {
-        return expectedExecutionDateTime;
-    }
+  public OBDomesticVRPResponseData instruction(OBDomesticVRPInstruction instruction) {
+    this.instruction = instruction;
+    return this;
+  }
 
-    public void setExpectedExecutionDateTime(DateTime expectedExecutionDateTime) {
-        this.expectedExecutionDateTime = expectedExecutionDateTime;
-    }
+  /**
+   * Get instruction
+   * @return instruction
+  */
+  @NotNull @Valid 
+  @Schema(name = "Instruction", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Instruction")
+  public OBDomesticVRPInstruction getInstruction() {
+    return instruction;
+  }
 
-    public OBDomesticVRPResponseData expectedSettlementDateTime(DateTime expectedSettlementDateTime) {
-        this.expectedSettlementDateTime = expectedSettlementDateTime;
-        return this;
-    }
+  public void setInstruction(OBDomesticVRPInstruction instruction) {
+    this.instruction = instruction;
+  }
 
-    /**
-     * Expected settlement date and time for the payment resource.
-     *
-     * @return expectedSettlementDateTime
-     */
-    @Valid
-    @Schema(name = "ExpectedSettlementDateTime", description = "Expected settlement date and time for the payment resource. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("ExpectedSettlementDateTime")
-    public DateTime getExpectedSettlementDateTime() {
-        return expectedSettlementDateTime;
-    }
+  public OBDomesticVRPResponseData debtorAccount(OBCashAccountDebtorWithName debtorAccount) {
+    this.debtorAccount = debtorAccount;
+    return this;
+  }
 
-    public void setExpectedSettlementDateTime(DateTime expectedSettlementDateTime) {
-        this.expectedSettlementDateTime = expectedSettlementDateTime;
-    }
+  /**
+   * Get debtorAccount
+   * @return debtorAccount
+  */
+  @Valid 
+  @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("DebtorAccount")
+  public OBCashAccountDebtorWithName getDebtorAccount() {
+    return debtorAccount;
+  }
 
-    public OBDomesticVRPResponseData refund(OBCashAccountDebtorWithName refund) {
-        this.refund = refund;
-        return this;
-    }
+  public void setDebtorAccount(OBCashAccountDebtorWithName debtorAccount) {
+    this.debtorAccount = debtorAccount;
+  }
 
-    /**
-     * Get refund
-     *
-     * @return refund
-     */
-    @Valid
-    @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Refund")
-    public OBCashAccountDebtorWithName getRefund() {
-        return refund;
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    OBDomesticVRPResponseData obDomesticVRPResponseData = (OBDomesticVRPResponseData) o;
+    return Objects.equals(this.domesticVRPId, obDomesticVRPResponseData.domesticVRPId) &&
+        Objects.equals(this.consentId, obDomesticVRPResponseData.consentId) &&
+        Objects.equals(this.creationDateTime, obDomesticVRPResponseData.creationDateTime) &&
+        Objects.equals(this.status, obDomesticVRPResponseData.status) &&
+        Objects.equals(this.statusReason, obDomesticVRPResponseData.statusReason) &&
+        Objects.equals(this.statusUpdateDateTime, obDomesticVRPResponseData.statusUpdateDateTime) &&
+        Objects.equals(this.expectedExecutionDateTime, obDomesticVRPResponseData.expectedExecutionDateTime) &&
+        Objects.equals(this.expectedSettlementDateTime, obDomesticVRPResponseData.expectedSettlementDateTime) &&
+        Objects.equals(this.refund, obDomesticVRPResponseData.refund) &&
+        Objects.equals(this.charges, obDomesticVRPResponseData.charges) &&
+        Objects.equals(this.initiation, obDomesticVRPResponseData.initiation) &&
+        Objects.equals(this.instruction, obDomesticVRPResponseData.instruction) &&
+        Objects.equals(this.debtorAccount, obDomesticVRPResponseData.debtorAccount);
+  }
 
-    public void setRefund(OBCashAccountDebtorWithName refund) {
-        this.refund = refund;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(domesticVRPId, consentId, creationDateTime, status, statusReason, statusUpdateDateTime, expectedExecutionDateTime, expectedSettlementDateTime, refund, charges, initiation, instruction, debtorAccount);
+  }
 
-    public OBDomesticVRPResponseData charges(List<@Valid OBDomesticVRPResponseDataChargesInner> charges) {
-        this.charges = charges;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBDomesticVRPResponseData {\n");
+    sb.append("    domesticVRPId: ").append(toIndentedString(domesticVRPId)).append("\n");
+    sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
+    sb.append("    creationDateTime: ").append(toIndentedString(creationDateTime)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
+    sb.append("    statusUpdateDateTime: ").append(toIndentedString(statusUpdateDateTime)).append("\n");
+    sb.append("    expectedExecutionDateTime: ").append(toIndentedString(expectedExecutionDateTime)).append("\n");
+    sb.append("    expectedSettlementDateTime: ").append(toIndentedString(expectedSettlementDateTime)).append("\n");
+    sb.append("    refund: ").append(toIndentedString(refund)).append("\n");
+    sb.append("    charges: ").append(toIndentedString(charges)).append("\n");
+    sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
+    sb.append("    instruction: ").append(toIndentedString(instruction)).append("\n");
+    sb.append("    debtorAccount: ").append(toIndentedString(debtorAccount)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public OBDomesticVRPResponseData addChargesItem(OBDomesticVRPResponseDataChargesInner chargesItem) {
-        if (this.charges == null) {
-            this.charges = new ArrayList<>();
-        }
-        this.charges.add(chargesItem);
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Get charges
-     *
-     * @return charges
-     */
-    @Valid
-    @Schema(name = "Charges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("Charges")
-    public List<@Valid OBDomesticVRPResponseDataChargesInner> getCharges() {
-        return charges;
-    }
-
-    public void setCharges(List<@Valid OBDomesticVRPResponseDataChargesInner> charges) {
-        this.charges = charges;
-    }
-
-    public OBDomesticVRPResponseData initiation(OBDomesticVRPInitiation initiation) {
-        this.initiation = initiation;
-        return this;
-    }
-
-    /**
-     * Get initiation
-     *
-     * @return initiation
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Initiation")
-    public OBDomesticVRPInitiation getInitiation() {
-        return initiation;
-    }
-
-    public void setInitiation(OBDomesticVRPInitiation initiation) {
-        this.initiation = initiation;
-    }
-
-    public OBDomesticVRPResponseData instruction(OBDomesticVRPInstruction instruction) {
-        this.instruction = instruction;
-        return this;
-    }
-
-    /**
-     * Get instruction
-     *
-     * @return instruction
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Instruction", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Instruction")
-    public OBDomesticVRPInstruction getInstruction() {
-        return instruction;
-    }
-
-    public void setInstruction(OBDomesticVRPInstruction instruction) {
-        this.instruction = instruction;
-    }
-
-    public OBDomesticVRPResponseData debtorAccount(OBCashAccountDebtorWithName debtorAccount) {
-        this.debtorAccount = debtorAccount;
-        return this;
-    }
-
-    /**
-     * Get debtorAccount
-     *
-     * @return debtorAccount
-     */
-    @Valid
-    @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("DebtorAccount")
-    public OBCashAccountDebtorWithName getDebtorAccount() {
-        return debtorAccount;
-    }
-
-    public void setDebtorAccount(OBCashAccountDebtorWithName debtorAccount) {
-        this.debtorAccount = debtorAccount;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBDomesticVRPResponseData obDomesticVRPResponseData = (OBDomesticVRPResponseData) o;
-        return Objects.equals(this.domesticVRPId, obDomesticVRPResponseData.domesticVRPId) &&
-                Objects.equals(this.consentId, obDomesticVRPResponseData.consentId) &&
-                Objects.equals(this.creationDateTime, obDomesticVRPResponseData.creationDateTime) &&
-                Objects.equals(this.status, obDomesticVRPResponseData.status) &&
-                Objects.equals(this.statusReason, obDomesticVRPResponseData.statusReason) &&
-                Objects.equals(this.statusUpdateDateTime, obDomesticVRPResponseData.statusUpdateDateTime) &&
-                Objects.equals(this.expectedExecutionDateTime, obDomesticVRPResponseData.expectedExecutionDateTime) &&
-                Objects.equals(this.expectedSettlementDateTime, obDomesticVRPResponseData.expectedSettlementDateTime) &&
-                Objects.equals(this.refund, obDomesticVRPResponseData.refund) &&
-                Objects.equals(this.charges, obDomesticVRPResponseData.charges) &&
-                Objects.equals(this.initiation, obDomesticVRPResponseData.initiation) &&
-                Objects.equals(this.instruction, obDomesticVRPResponseData.instruction) &&
-                Objects.equals(this.debtorAccount, obDomesticVRPResponseData.debtorAccount);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(domesticVRPId, consentId, creationDateTime, status, statusReason, statusUpdateDateTime, expectedExecutionDateTime, expectedSettlementDateTime, refund, charges, initiation, instruction, debtorAccount);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBDomesticVRPResponseData {\n");
-        sb.append("    domesticVRPId: ").append(toIndentedString(domesticVRPId)).append("\n");
-        sb.append("    consentId: ").append(toIndentedString(consentId)).append("\n");
-        sb.append("    creationDateTime: ").append(toIndentedString(creationDateTime)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
-        sb.append("    statusUpdateDateTime: ").append(toIndentedString(statusUpdateDateTime)).append("\n");
-        sb.append("    expectedExecutionDateTime: ").append(toIndentedString(expectedExecutionDateTime)).append("\n");
-        sb.append("    expectedSettlementDateTime: ").append(toIndentedString(expectedSettlementDateTime)).append("\n");
-        sb.append("    refund: ").append(toIndentedString(refund)).append("\n");
-        sb.append("    charges: ").append(toIndentedString(charges)).append("\n");
-        sb.append("    initiation: ").append(toIndentedString(initiation)).append("\n");
-        sb.append("    instruction: ").append(toIndentedString(instruction)).append("\n");
-        sb.append("    debtorAccount: ").append(toIndentedString(debtorAccount)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Indicator of the urgency or order of importance that the instructing party would like the instructed party to apply to the processing of the instruction.
@@ -26,35 +36,35 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBWriteInternational3DataInitiationInstructionPriority {
+  
+  NORMAL("Normal"),
+  
+  URGENT("Urgent");
 
-    NORMAL("Normal"),
+  private String value;
 
-    URGENT("Urgent");
+  OBWriteInternational3DataInitiationInstructionPriority(String value) {
+    this.value = value;
+  }
 
-    private String value;
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    OBWriteInternational3DataInitiationInstructionPriority(String value) {
-        this.value = value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  @JsonCreator
+  public static OBWriteInternational3DataInitiationInstructionPriority fromValue(String value) {
+    for (OBWriteInternational3DataInitiationInstructionPriority b : OBWriteInternational3DataInitiationInstructionPriority.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBWriteInternational3DataInitiationInstructionPriority fromValue(String value) {
-        for (OBWriteInternational3DataInitiationInstructionPriority b : OBWriteInternational3DataInitiationInstructionPriority.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

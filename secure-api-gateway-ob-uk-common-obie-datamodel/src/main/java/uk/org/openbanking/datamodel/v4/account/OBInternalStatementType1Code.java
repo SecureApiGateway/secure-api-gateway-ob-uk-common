@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Statement type, in a coded form. For a full list of values see `OBInternalStatementType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
@@ -26,41 +36,41 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBInternalStatementType1Code {
+  
+  ACCOUNTCLOSURE("AccountClosure"),
+  
+  ACCOUNTOPENING("AccountOpening"),
+  
+  ANNUAL("Annual"),
+  
+  INTERIM("Interim"),
+  
+  REGULARPERIODIC("RegularPeriodic");
 
-    ACCOUNTCLOSURE("AccountClosure"),
+  private String value;
 
-    ACCOUNTOPENING("AccountOpening"),
+  OBInternalStatementType1Code(String value) {
+    this.value = value;
+  }
 
-    ANNUAL("Annual"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    INTERIM("Interim"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    REGULARPERIODIC("RegularPeriodic");
-
-    private String value;
-
-    OBInternalStatementType1Code(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBInternalStatementType1Code fromValue(String value) {
+    for (OBInternalStatementType1Code b : OBInternalStatementType1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBInternalStatementType1Code fromValue(String value) {
-        for (OBInternalStatementType1Code b : OBInternalStatementType1Code.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

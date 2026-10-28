@@ -150,7 +150,7 @@ public class OBWriteFileConsentTestDataFactory {
                         .consentId(consentId)
                         .creationDateTime(DateTime.now())
                         .cutOffDateTime(DateTime.now())
-                        .status(OBWriteFileConsentResponse4DataStatus.AWUP)
+                        .status(OBInternalConsentStatus3Code.AWUP)
                         .statusUpdateDateTime(DateTime.now())
                         .authorisation(consent3.getData().getAuthorisation())
                         .initiation(consent3.getData().getInitiation())
@@ -177,13 +177,13 @@ public class OBWriteFileConsentTestDataFactory {
                 .data(new OBWriteFileConsentResponse4Data()
                         .consentId(consentId)
                         .creationDateTime(DateTime.now())
-                        .status(OBWriteFileConsentResponse4DataStatus.AWUP)
+                        .status(OBInternalConsentStatus3Code.AWUP)
                         .statusUpdateDateTime(DateTime.now())
                         .initiation(consent3.getData().getInitiation())
                 );
     }
 
-    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String consentId, OBWriteFileConsentResponse4DataStatus status, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4(String consentId, OBInternalConsentStatus3Code status, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
         OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(
                 fileType,
                 fileHash,
@@ -211,7 +211,7 @@ public class OBWriteFileConsentTestDataFactory {
                 );
     }
 
-    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields(String consentId, OBWriteFileConsentResponse4DataStatus status, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
+    public static OBWriteFileConsentResponse4 aValidOBWriteFileConsentResponse4MandatoryFields(String consentId, OBInternalConsentStatus3Code status, String fileType, String fileHash, String numberOfTransactions, BigDecimal controlSum) {
         OBWriteFileConsent3 consent3 = aValidOBWriteFileConsent3(
                 fileType,
                 fileHash,

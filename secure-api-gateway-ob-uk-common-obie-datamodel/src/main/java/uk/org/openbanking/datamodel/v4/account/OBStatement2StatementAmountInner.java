@@ -15,15 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import uk.org.openbanking.datamodel.v4.account.OBCreditDebitCode0;
+import uk.org.openbanking.datamodel.v4.account.OBStatement2StatementAmountInnerAmount;
+import uk.org.openbanking.datamodel.v4.account.OBStatement2StatementAmountInnerLocalAmount;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Set of elements used to provide details of a generic amount for the statement resource.
@@ -34,154 +42,148 @@ import jakarta.validation.constraints.NotNull;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBStatement2StatementAmountInner {
 
-    private OBCreditDebitCode0 creditDebitIndicator;
+  private OBCreditDebitCode0 creditDebitIndicator;
 
-    private String type;
+  private String type;
 
-    private OBStatement2StatementAmountInnerAmount amount;
+  private OBStatement2StatementAmountInnerAmount amount;
 
-    private OBStatement2StatementAmountInnerLocalAmount localAmount;
+  private OBStatement2StatementAmountInnerLocalAmount localAmount;
 
-    public OBStatement2StatementAmountInner() {
-        super();
+  public OBStatement2StatementAmountInner() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBStatement2StatementAmountInner(OBCreditDebitCode0 creditDebitIndicator, String type, OBStatement2StatementAmountInnerAmount amount) {
+    this.creditDebitIndicator = creditDebitIndicator;
+    this.type = type;
+    this.amount = amount;
+  }
+
+  public OBStatement2StatementAmountInner creditDebitIndicator(OBCreditDebitCode0 creditDebitIndicator) {
+    this.creditDebitIndicator = creditDebitIndicator;
+    return this;
+  }
+
+  /**
+   * Get creditDebitIndicator
+   * @return creditDebitIndicator
+  */
+  @NotNull @Valid 
+  @Schema(name = "CreditDebitIndicator", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("CreditDebitIndicator")
+  public OBCreditDebitCode0 getCreditDebitIndicator() {
+    return creditDebitIndicator;
+  }
+
+  public void setCreditDebitIndicator(OBCreditDebitCode0 creditDebitIndicator) {
+    this.creditDebitIndicator = creditDebitIndicator;
+  }
+
+  public OBStatement2StatementAmountInner type(String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Amount type, in a coded form.
+   * @return type
+  */
+  @NotNull 
+  @Schema(name = "Type", example = "UK.OBIE.CreditLimit", description = "Amount type, in a coded form.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Type")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public OBStatement2StatementAmountInner amount(OBStatement2StatementAmountInnerAmount amount) {
+    this.amount = amount;
+    return this;
+  }
+
+  /**
+   * Get amount
+   * @return amount
+  */
+  @NotNull @Valid 
+  @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("Amount")
+  public OBStatement2StatementAmountInnerAmount getAmount() {
+    return amount;
+  }
+
+  public void setAmount(OBStatement2StatementAmountInnerAmount amount) {
+    this.amount = amount;
+  }
+
+  public OBStatement2StatementAmountInner localAmount(OBStatement2StatementAmountInnerLocalAmount localAmount) {
+    this.localAmount = localAmount;
+    return this;
+  }
+
+  /**
+   * Get localAmount
+   * @return localAmount
+  */
+  @Valid 
+  @Schema(name = "LocalAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("LocalAmount")
+  public OBStatement2StatementAmountInnerLocalAmount getLocalAmount() {
+    return localAmount;
+  }
+
+  public void setLocalAmount(OBStatement2StatementAmountInnerLocalAmount localAmount) {
+    this.localAmount = localAmount;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Constructor with only required parameters
-     */
-    public OBStatement2StatementAmountInner(OBCreditDebitCode0 creditDebitIndicator, String type, OBStatement2StatementAmountInnerAmount amount) {
-        this.creditDebitIndicator = creditDebitIndicator;
-        this.type = type;
-        this.amount = amount;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBStatement2StatementAmountInner obStatement2StatementAmountInner = (OBStatement2StatementAmountInner) o;
+    return Objects.equals(this.creditDebitIndicator, obStatement2StatementAmountInner.creditDebitIndicator) &&
+        Objects.equals(this.type, obStatement2StatementAmountInner.type) &&
+        Objects.equals(this.amount, obStatement2StatementAmountInner.amount) &&
+        Objects.equals(this.localAmount, obStatement2StatementAmountInner.localAmount);
+  }
 
-    public OBStatement2StatementAmountInner creditDebitIndicator(OBCreditDebitCode0 creditDebitIndicator) {
-        this.creditDebitIndicator = creditDebitIndicator;
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(creditDebitIndicator, type, amount, localAmount);
+  }
 
-    /**
-     * Get creditDebitIndicator
-     *
-     * @return creditDebitIndicator
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "CreditDebitIndicator", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("CreditDebitIndicator")
-    public OBCreditDebitCode0 getCreditDebitIndicator() {
-        return creditDebitIndicator;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBStatement2StatementAmountInner {\n");
+    sb.append("    creditDebitIndicator: ").append(toIndentedString(creditDebitIndicator)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    localAmount: ").append(toIndentedString(localAmount)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setCreditDebitIndicator(OBCreditDebitCode0 creditDebitIndicator) {
-        this.creditDebitIndicator = creditDebitIndicator;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public OBStatement2StatementAmountInner type(String type) {
-        this.type = type;
-        return this;
-    }
-
-    /**
-     * Amount type, in a coded form.
-     *
-     * @return type
-     */
-    @NotNull
-    @Schema(name = "Type", example = "UK.OBIE.CreditLimit", description = "Amount type, in a coded form.", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Type")
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public OBStatement2StatementAmountInner amount(OBStatement2StatementAmountInnerAmount amount) {
-        this.amount = amount;
-        return this;
-    }
-
-    /**
-     * Get amount
-     *
-     * @return amount
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("Amount")
-    public OBStatement2StatementAmountInnerAmount getAmount() {
-        return amount;
-    }
-
-    public void setAmount(OBStatement2StatementAmountInnerAmount amount) {
-        this.amount = amount;
-    }
-
-    public OBStatement2StatementAmountInner localAmount(OBStatement2StatementAmountInnerLocalAmount localAmount) {
-        this.localAmount = localAmount;
-        return this;
-    }
-
-    /**
-     * Get localAmount
-     *
-     * @return localAmount
-     */
-    @Valid
-    @Schema(name = "LocalAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("LocalAmount")
-    public OBStatement2StatementAmountInnerLocalAmount getLocalAmount() {
-        return localAmount;
-    }
-
-    public void setLocalAmount(OBStatement2StatementAmountInnerLocalAmount localAmount) {
-        this.localAmount = localAmount;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBStatement2StatementAmountInner obStatement2StatementAmountInner = (OBStatement2StatementAmountInner) o;
-        return Objects.equals(this.creditDebitIndicator, obStatement2StatementAmountInner.creditDebitIndicator) &&
-                Objects.equals(this.type, obStatement2StatementAmountInner.type) &&
-                Objects.equals(this.amount, obStatement2StatementAmountInner.amount) &&
-                Objects.equals(this.localAmount, obStatement2StatementAmountInner.localAmount);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(creditDebitIndicator, type, amount, localAmount);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBStatement2StatementAmountInner {\n");
-        sb.append("    creditDebitIndicator: ").append(toIndentedString(creditDebitIndicator)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    localAmount: ").append(toIndentedString(localAmount)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

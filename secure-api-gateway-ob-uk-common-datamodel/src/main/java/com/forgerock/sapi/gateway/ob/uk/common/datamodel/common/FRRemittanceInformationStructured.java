@@ -29,7 +29,11 @@ import lombok.NoArgsConstructor;
 @Builder
 public class FRRemittanceInformationStructured {
     private List<@Valid FRReferredDocumentInformation> referredDocumentInformation;
-    private Integer referredDocumentAmount;
+    /*
+     * OB 4.0.1 models ReferredDocumentAmount as OBActiveCurrencyAndAmount_SimpleType: a decimal string
+     * matching ^\d{1,13}$|^\d{1,13}\.\d{1,5}$ (v4.0.0 used an Int32 integer).
+     */
+    private String referredDocumentAmount;
     private FRRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation;
     private String invoicer;
     private String invoicee;

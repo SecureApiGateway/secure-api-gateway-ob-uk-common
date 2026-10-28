@@ -74,7 +74,7 @@ public class OBDomesticVrpCommonTestDataFactory {
     public static OBRemittanceInformationStructured aValidOBRemittanceInformationStructured() {
         return (new OBRemittanceInformationStructured())
                 .referredDocumentInformation(Collections.singletonList(aValidOBReferredDocumentInformation()))
-                .referredDocumentAmount(1)
+                .referredDocumentAmount("1")
                 .creditorReferenceInformation(aValidOBRemittanceInformationStructuredCreditorReferenceInformation())
                 .invoicee("INVE5161856")
                 .invoicer("INVR51856")

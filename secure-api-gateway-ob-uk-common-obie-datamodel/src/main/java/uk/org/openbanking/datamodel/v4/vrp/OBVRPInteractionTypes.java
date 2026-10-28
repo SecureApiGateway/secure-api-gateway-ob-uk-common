@@ -15,46 +15,56 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import jakarta.annotation.Generated;
-
 /**
- * Indicates interaction type, currently if customer is present or not present. If not provided the default is `OffSession` (customer is not present) when the individual VRP payment is made.
+ * Indicates interaction type, currently if customer is present or not present. If not provided the default is `OffSession` (customer is not present) when the individual VRP payment is made. 
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBVRPInteractionTypes {
+  
+  INSESSION("InSession"),
+  
+  OFFSESSION("OffSession");
 
-    INSESSION("InSession"),
+  private String value;
 
-    OFFSESSION("OffSession");
+  OBVRPInteractionTypes(String value) {
+    this.value = value;
+  }
 
-    private String value;
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    OBVRPInteractionTypes(String value) {
-        this.value = value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  @JsonCreator
+  public static OBVRPInteractionTypes fromValue(String value) {
+    for (OBVRPInteractionTypes b : OBVRPInteractionTypes.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBVRPInteractionTypes fromValue(String value) {
-        for (OBVRPInteractionTypes b : OBVRPInteractionTypes.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

@@ -36,7 +36,6 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteInternat
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrder4DataInitiation;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrderConsent6;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrderConsent6Data;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrderConsentResponse7DataInitiation;
 
 public class FRWriteInternationalStandingOrderConsentConverter {
 
@@ -78,26 +77,6 @@ public class FRWriteInternationalStandingOrderConsentConverter {
                 .build();
     }
 
-    public static FRWriteInternationalStandingOrderDataInitiation toFRWriteInternationalStandingOrderDataInitiation(OBWriteInternationalStandingOrderConsentResponse7DataInitiation initiation) {
-        return initiation == null ? null : FRWriteInternationalStandingOrderDataInitiation.builder()
-                .extendedPurpose(initiation.getExtendedPurpose())
-                .chargeBearer(toFRChargeBearerType(initiation.getChargeBearer()))
-                .currencyOfTransfer(initiation.getCurrencyOfTransfer())
-                .destinationCountryCode(initiation.getDestinationCountryCode())
-                .instructedAmount(FRAmountConverter.toFRAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toFRFinancialCreditor(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toFRFinancialAgent(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toFRAccountIdentifier(initiation.getCreditorAccount()))
-                .supplementaryData(FRSupplementaryDataConverter.toFRSupplementaryData(initiation.getSupplementaryData()))
-                .mandateRelatedInformation(FRMandateRelatedInformationConverter.toFRMandateRelatedInformation(initiation.getMandateRelatedInformation()))
-                .regulatoryReporting(FRRegulatoryReportingConverter.toFRRegulatoryReporting(initiation.getRegulatoryReporting()))
-                .remittanceInformation(FRRemittanceInformationConverter.toFRRemittanceInformation(initiation.getRemittanceInformation()))
-                .ultimateCreditor(FRUltimateCreditorConverter.toFRUltimateCreditor(initiation.getUltimateCreditor()))
-                .ultimateDebtor(FRUltimateDebtorConverter.toFRUltimateDebtor(initiation.getUltimateDebtor()))
-                .build();
-    }
-
     // FR to OB
     public static OBWriteInternationalStandingOrder4DataInitiation toOBWriteInternationalStandingOrder4DataInitiation(FRWriteInternationalStandingOrderDataInitiation initiation) {
         return initiation == null ? null : new OBWriteInternationalStandingOrder4DataInitiation()
@@ -107,26 +86,7 @@ public class FRWriteInternationalStandingOrderConsentConverter {
                 .destinationCountryCode(initiation.getDestinationCountryCode())
                 .instructedAmount(FRAmountConverter.toOBWriteDomestic2DataInitiationInstructedAmount(initiation.getInstructedAmount()))
                 .debtorAccount(FRAccountIdentifierConverter.toOBWriteDomesticStandingOrder3DataInitiationDebtorAccount(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toOBWriteInternationalConsent5DataInitiationCreditor(initiation.getCreditor()))
-                .creditorAgent(FRFinancialInstrumentConverter.toOBWriteInternationalStandingOrder4DataInitiationCreditorAgent(initiation.getCreditorAgent()))
-                .creditorAccount(FRAccountIdentifierConverter.toOBWriteInternationalStandingOrder4DataInitiationCreditorAccount(initiation.getCreditorAccount()))
-                .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()))
-                .mandateRelatedInformation(FRMandateRelatedInformationConverter.toOBMandateRelatedInformation1(initiation.getMandateRelatedInformation()))
-                .regulatoryReporting(FRRegulatoryReportingConverter.toOBRegulatoryReporting1(initiation.getRegulatoryReporting()))
-                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation2(initiation.getRemittanceInformation()))
-                .ultimateCreditor(FRUltimateCreditorConverter.toOBUltimateCreditor1(initiation.getUltimateCreditor()))
-                .ultimateDebtor(FRUltimateDebtorConverter.toOBUltimateDebtor1(initiation.getUltimateDebtor()));
-    }
-
-    public static OBWriteInternationalStandingOrderConsentResponse7DataInitiation toOBWriteInternationalStandingOrderConsentResponse7DataInitiation(FRWriteInternationalStandingOrderDataInitiation initiation) {
-        return initiation == null ? null : new OBWriteInternationalStandingOrderConsentResponse7DataInitiation()
-                .extendedPurpose(initiation.getExtendedPurpose())
-                .chargeBearer(toOBInternalChargeBearerType1Code(initiation.getChargeBearer()))
-                .currencyOfTransfer(initiation.getCurrencyOfTransfer())
-                .destinationCountryCode(initiation.getDestinationCountryCode())
-                .instructedAmount(FRAmountConverter.toOBWriteDomestic2DataInitiationInstructedAmount(initiation.getInstructedAmount()))
-                .debtorAccount(FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationDebtorAccount(initiation.getDebtorAccount()))
-                .creditor(FRFinancialInstrumentConverter.toOBWriteInternationalScheduledConsentResponse6DataInitiationCreditor(initiation.getCreditor()))
+                .creditor(FRFinancialInstrumentConverter.toOBWriteInternational3DataInitiationCreditor(initiation.getCreditor()))
                 .creditorAgent(FRFinancialInstrumentConverter.toOBWriteInternationalStandingOrder4DataInitiationCreditorAgent(initiation.getCreditorAgent()))
                 .creditorAccount(FRAccountIdentifierConverter.toOBWriteInternationalStandingOrder4DataInitiationCreditorAccount(initiation.getCreditorAccount()))
                 .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()))

@@ -15,16 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInner;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBDomesticVRPDetailsData
@@ -34,73 +41,72 @@ import jakarta.validation.Valid;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBDomesticVRPDetailsData {
 
-    @Valid
-    private List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> paymentStatus;
+  @Valid
+  private List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> paymentStatus;
 
-    public OBDomesticVRPDetailsData paymentStatus(List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> paymentStatus) {
-        this.paymentStatus = paymentStatus;
-        return this;
-    }
+  public OBDomesticVRPDetailsData paymentStatus(List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> paymentStatus) {
+    this.paymentStatus = paymentStatus;
+    return this;
+  }
 
-    public OBDomesticVRPDetailsData addPaymentStatusItem(OBDomesticVRPDetailsDataPaymentStatusInner paymentStatusItem) {
-        if (this.paymentStatus == null) {
-            this.paymentStatus = new ArrayList<>();
-        }
-        this.paymentStatus.add(paymentStatusItem);
-        return this;
+  public OBDomesticVRPDetailsData addPaymentStatusItem(OBDomesticVRPDetailsDataPaymentStatusInner paymentStatusItem) {
+    if (this.paymentStatus == null) {
+      this.paymentStatus = new ArrayList<>();
     }
+    this.paymentStatus.add(paymentStatusItem);
+    return this;
+  }
 
-    /**
-     * Get paymentStatus
-     *
-     * @return paymentStatus
-     */
-    @Valid
-    @Schema(name = "PaymentStatus", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("PaymentStatus")
-    public List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> getPaymentStatus() {
-        return paymentStatus;
-    }
+  /**
+   * Get paymentStatus
+   * @return paymentStatus
+  */
+  @Valid 
+  @Schema(name = "PaymentStatus", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("PaymentStatus")
+  public List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> getPaymentStatus() {
+    return paymentStatus;
+  }
 
-    public void setPaymentStatus(List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> paymentStatus) {
-        this.paymentStatus = paymentStatus;
-    }
+  public void setPaymentStatus(List<@Valid OBDomesticVRPDetailsDataPaymentStatusInner> paymentStatus) {
+    this.paymentStatus = paymentStatus;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBDomesticVRPDetailsData obDomesticVRPDetailsData = (OBDomesticVRPDetailsData) o;
-        return Objects.equals(this.paymentStatus, obDomesticVRPDetailsData.paymentStatus);
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    OBDomesticVRPDetailsData obDomesticVRPDetailsData = (OBDomesticVRPDetailsData) o;
+    return Objects.equals(this.paymentStatus, obDomesticVRPDetailsData.paymentStatus);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(paymentStatus);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(paymentStatus);
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBDomesticVRPDetailsData {\n");
-        sb.append("    paymentStatus: ").append(toIndentedString(paymentStatus)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBDomesticVRPDetailsData {\n");
+    sb.append("    paymentStatus: ").append(toIndentedString(paymentStatus)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 

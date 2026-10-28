@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Fee/Charge Type
@@ -26,47 +36,47 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum FeeType1 {
+  
+  OTHER("Other"),
+  
+  SERVICECACCOUNTFEE("ServiceCAccountFee"),
+  
+  SERVICECACCOUNTFEEMONTHLY("ServiceCAccountFeeMonthly"),
+  
+  SERVICECACCOUNTFEEQUARTERLY("ServiceCAccountFeeQuarterly"),
+  
+  SERVICECFIXEDTARIFF("ServiceCFixedTariff"),
+  
+  SERVICECBUSIDEPACCBREAKAGE("ServiceCBusiDepAccBreakage"),
+  
+  SERVICECMINIMUMMONTHLYFEE("ServiceCMinimumMonthlyFee"),
+  
+  SERVICECOTHER("ServiceCOther");
 
-    OTHER("Other"),
+  private String value;
 
-    SERVICECACCOUNTFEE("ServiceCAccountFee"),
+  FeeType1(String value) {
+    this.value = value;
+  }
 
-    SERVICECACCOUNTFEEMONTHLY("ServiceCAccountFeeMonthly"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    SERVICECACCOUNTFEEQUARTERLY("ServiceCAccountFeeQuarterly"),
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    SERVICECFIXEDTARIFF("ServiceCFixedTariff"),
-
-    SERVICECBUSIDEPACCBREAKAGE("ServiceCBusiDepAccBreakage"),
-
-    SERVICECMINIMUMMONTHLYFEE("ServiceCMinimumMonthlyFee"),
-
-    SERVICECOTHER("ServiceCOther");
-
-    private String value;
-
-    FeeType1(String value) {
-        this.value = value;
+  @JsonCreator
+  public static FeeType1 fromValue(String value) {
+    for (FeeType1 b : FeeType1.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static FeeType1 fromValue(String value) {
-        for (FeeType1 b : FeeType1.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

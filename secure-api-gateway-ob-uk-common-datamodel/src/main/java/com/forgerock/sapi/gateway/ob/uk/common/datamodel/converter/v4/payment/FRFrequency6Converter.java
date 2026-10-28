@@ -25,8 +25,8 @@ import uk.org.openbanking.datamodel.v4.payment.OBFrequency6Code;
 public class FRFrequency6Converter {
     public static FRFrequency toFRFrequency(OBFrequency6 frequency) {
         return frequency == null ? null : FRFrequency.builder()
-                .frequencyType(FRFrequencyType.fromFrequencyString(frequency.getType().getValue()))
-                .type(FRFrequencyCode6.fromValue(frequency.getType().getValue()))
+                .frequencyType(FRFrequencyType.fromFrequencyString(frequency.getType().toString()))
+                .type(FRFrequencyCode6.fromValue(frequency.getType().toString()))
                 .countPerPeriod(frequency.getCountPerPeriod())
                 .pointInTime(frequency.getPointInTime())
                 .build();

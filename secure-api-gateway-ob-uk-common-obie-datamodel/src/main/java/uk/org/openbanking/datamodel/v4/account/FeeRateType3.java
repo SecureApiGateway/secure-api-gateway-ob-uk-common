@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Rate type for Fee/Charge (where it is charged in terms of a rate rather than an amount)
@@ -26,39 +36,39 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum FeeRateType3 {
+  
+  LINKEDBASERATE("LinkedBaseRate"),
+  
+  GROSS("Gross"),
+  
+  NET("Net"),
+  
+  OTHER("Other");
 
-    LINKEDBASERATE("LinkedBaseRate"),
+  private String value;
 
-    GROSS("Gross"),
+  FeeRateType3(String value) {
+    this.value = value;
+  }
 
-    NET("Net"),
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    OTHER("Other");
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    private String value;
-
-    FeeRateType3(String value) {
-        this.value = value;
+  @JsonCreator
+  public static FeeRateType3 fromValue(String value) {
+    for (FeeRateType3 b : FeeRateType3.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static FeeRateType3 fromValue(String value) {
-        for (FeeRateType3 b : FeeRateType3.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

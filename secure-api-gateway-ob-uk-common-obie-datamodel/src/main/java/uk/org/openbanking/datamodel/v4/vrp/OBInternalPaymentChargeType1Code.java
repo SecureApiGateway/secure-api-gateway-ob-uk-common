@@ -15,10 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import jakarta.annotation.Generated;
 
 /**
  * Gets or Sets OBInternalPaymentChargeType1Code
@@ -26,37 +36,37 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public enum OBInternalPaymentChargeType1Code {
+  
+  CHAPSOUT("UK.OBIE.CHAPSOut"),
+  
+  BALANCETRANSFEROUT("UK.OBIE.BalanceTransferOut"),
+  
+  MONEYTRANSFEROUT("UK.OBIE.MoneyTransferOut");
 
-    CHAPSOUT("UK.OBIE.CHAPSOut"),
+  private String value;
 
-    BALANCETRANSFEROUT("UK.OBIE.BalanceTransferOut"),
+  OBInternalPaymentChargeType1Code(String value) {
+    this.value = value;
+  }
 
-    MONEYTRANSFEROUT("UK.OBIE.MoneyTransferOut");
+  @JsonValue
+  public String getValue() {
+    return value;
+  }
 
-    private String value;
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
 
-    OBInternalPaymentChargeType1Code(String value) {
-        this.value = value;
+  @JsonCreator
+  public static OBInternalPaymentChargeType1Code fromValue(String value) {
+    for (OBInternalPaymentChargeType1Code b : OBInternalPaymentChargeType1Code.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-
-    @JsonValue
-    public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static OBInternalPaymentChargeType1Code fromValue(String value) {
-        for (OBInternalPaymentChargeType1Code b : OBInternalPaymentChargeType1Code.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
-        }
-        throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+  }
 }
 

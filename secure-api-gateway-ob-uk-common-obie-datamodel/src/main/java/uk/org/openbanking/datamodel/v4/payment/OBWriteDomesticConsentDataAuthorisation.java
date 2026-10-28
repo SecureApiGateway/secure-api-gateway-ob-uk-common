@@ -15,17 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The authorisation type request from the TPP.
@@ -35,102 +40,99 @@ import jakarta.validation.constraints.NotNull;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomesticConsentDataAuthorisation {
 
-    private OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType;
+  private OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private DateTime completionDateTime;
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private DateTime completionDateTime;
 
-    public OBWriteDomesticConsentDataAuthorisation() {
-        super();
+  public OBWriteDomesticConsentDataAuthorisation() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public OBWriteDomesticConsentDataAuthorisation(OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType) {
+    this.authorisationType = authorisationType;
+  }
+
+  public OBWriteDomesticConsentDataAuthorisation authorisationType(OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType) {
+    this.authorisationType = authorisationType;
+    return this;
+  }
+
+  /**
+   * Get authorisationType
+   * @return authorisationType
+  */
+  @NotNull @Valid 
+  @Schema(name = "AuthorisationType", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("AuthorisationType")
+  public OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType getAuthorisationType() {
+    return authorisationType;
+  }
+
+  public void setAuthorisationType(OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType) {
+    this.authorisationType = authorisationType;
+  }
+
+  public OBWriteDomesticConsentDataAuthorisation completionDateTime(DateTime completionDateTime) {
+    this.completionDateTime = completionDateTime;
+    return this;
+  }
+
+  /**
+   * Date and time at which the requested authorisation flow must be completed. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+   * @return completionDateTime
+  */
+  @Valid 
+  @Schema(name = "CompletionDateTime", description = "Date and time at which the requested authorisation flow must be completed. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("CompletionDateTime")
+  public DateTime getCompletionDateTime() {
+    return completionDateTime;
+  }
+
+  public void setCompletionDateTime(DateTime completionDateTime) {
+    this.completionDateTime = completionDateTime;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Constructor with only required parameters
-     */
-    public OBWriteDomesticConsentDataAuthorisation(OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType) {
-        this.authorisationType = authorisationType;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OBWriteDomesticConsentDataAuthorisation obWriteDomesticConsentDataAuthorisation = (OBWriteDomesticConsentDataAuthorisation) o;
+    return Objects.equals(this.authorisationType, obWriteDomesticConsentDataAuthorisation.authorisationType) &&
+        Objects.equals(this.completionDateTime, obWriteDomesticConsentDataAuthorisation.completionDateTime);
+  }
 
-    public OBWriteDomesticConsentDataAuthorisation authorisationType(OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType) {
-        this.authorisationType = authorisationType;
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(authorisationType, completionDateTime);
+  }
 
-    /**
-     * Get authorisationType
-     *
-     * @return authorisationType
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "AuthorisationType", requiredMode = Schema.RequiredMode.REQUIRED)
-    @JsonProperty("AuthorisationType")
-    public OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType getAuthorisationType() {
-        return authorisationType;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OBWriteDomesticConsentDataAuthorisation {\n");
+    sb.append("    authorisationType: ").append(toIndentedString(authorisationType)).append("\n");
+    sb.append("    completionDateTime: ").append(toIndentedString(completionDateTime)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setAuthorisationType(OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType) {
-        this.authorisationType = authorisationType;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public OBWriteDomesticConsentDataAuthorisation completionDateTime(DateTime completionDateTime) {
-        this.completionDateTime = completionDateTime;
-        return this;
-    }
-
-    /**
-     * Date and time at which the requested authorisation flow must be completed. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
-     * @return completionDateTime
-     */
-    @Valid
-    @Schema(name = "CompletionDateTime", description = "Date and time at which the requested authorisation flow must be completed. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-    @JsonProperty("CompletionDateTime")
-    public DateTime getCompletionDateTime() {
-        return completionDateTime;
-    }
-
-    public void setCompletionDateTime(DateTime completionDateTime) {
-        this.completionDateTime = completionDateTime;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OBWriteDomesticConsentDataAuthorisation obWriteDomesticConsentDataAuthorisation = (OBWriteDomesticConsentDataAuthorisation) o;
-        return Objects.equals(this.authorisationType, obWriteDomesticConsentDataAuthorisation.authorisationType) &&
-                Objects.equals(this.completionDateTime, obWriteDomesticConsentDataAuthorisation.completionDateTime);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(authorisationType, completionDateTime);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OBWriteDomesticConsentDataAuthorisation {\n");
-        sb.append("    authorisationType: ").append(toIndentedString(authorisationType)).append("\n");
-        sb.append("    completionDateTime: ").append(toIndentedString(completionDateTime)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
 
