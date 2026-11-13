@@ -15,17 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import uk.org.openbanking.datamodel.v4.vrp.OBPeriodAlignment;
+import uk.org.openbanking.datamodel.v4.vrp.OBPeriodType;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBDomesticVRPControlParametersPeriodicLimitsInner
@@ -64,9 +69,8 @@ public class OBDomesticVRPControlParametersPeriodicLimitsInner {
 
     /**
      * Get periodType
-     *
      * @return periodType
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "PeriodType", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -86,9 +90,8 @@ public class OBDomesticVRPControlParametersPeriodicLimitsInner {
 
     /**
      * Get periodAlignment
-     *
      * @return periodAlignment
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "PeriodAlignment", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -108,9 +111,8 @@ public class OBDomesticVRPControlParametersPeriodicLimitsInner {
 
     /**
      * A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.
-     *
      * @return amount
-     */
+   */
     @NotNull
     @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$")
     @Schema(name = "Amount", description = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -130,12 +132,9 @@ public class OBDomesticVRPControlParametersPeriodicLimitsInner {
 
     /**
      * A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".
-     *
      * @return currency
-     */
-    @NotNull
-    @Pattern(regexp = "^[A-Z]{3,3}$")
-    @Size(min = 3, max = 3)
+   */
+    @NotNull @Pattern(regexp = "^[A-Z]{3,3}$") @Size(min = 3, max = 3)
     @Schema(name = "Currency", description = "A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Currency")
     public String getCurrency() {

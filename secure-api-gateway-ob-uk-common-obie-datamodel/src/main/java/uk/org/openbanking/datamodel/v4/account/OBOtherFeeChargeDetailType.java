@@ -15,17 +15,21 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import uk.org.openbanking.datamodel.v4.account.OBFeeCategory1Code;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Other Fee/charge type which is not available in the standard code set
@@ -64,9 +68,8 @@ public class OBOtherFeeChargeDetailType {
 
     /**
      * The four letter Mnemonic used within an XML file to identify a code
-     *
      * @return code
-     */
+   */
     @Pattern(regexp = "^\\\\w{0,4}$")
     @Schema(name = "Code", description = "The four letter Mnemonic used within an XML file to identify a code", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Code")
@@ -85,9 +88,8 @@ public class OBOtherFeeChargeDetailType {
 
     /**
      * Get feeCategory
-     *
      * @return feeCategory
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "FeeCategory", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -107,9 +109,8 @@ public class OBOtherFeeChargeDetailType {
 
     /**
      * Long name associated with the code
-     *
      * @return name
-     */
+   */
     @NotNull
     @Size(min = 1, max = 70)
     @Schema(name = "Name", description = "Long name associated with the code", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -129,9 +130,8 @@ public class OBOtherFeeChargeDetailType {
 
     /**
      * Description to describe the purpose of the code
-     *
      * @return description
-     */
+   */
     @NotNull
     @Size(min = 1, max = 350)
     @Schema(name = "Description", description = "Description to describe the purpose of the code", requiredMode = Schema.RequiredMode.REQUIRED)

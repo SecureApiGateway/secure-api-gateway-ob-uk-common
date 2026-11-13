@@ -15,15 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 /**
  * Set of elements used to provide details of a generic number value related to the statement resource.
@@ -57,9 +61,8 @@ public class OBStatement2StatementValueInner {
 
     /**
      * Value associated with the statement value type.
-     *
      * @return value
-     */
+   */
     @NotNull
     @Size(min = 1, max = 40)
     @Schema(name = "Value", description = "Value associated with the statement value type.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -79,9 +82,8 @@ public class OBStatement2StatementValueInner {
 
     /**
      * Statement value type, in a coded form. For a full list of values see `OBInternalStatementValueType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return type
-     */
+   */
     @NotNull
     @Schema(name = "Type", example = "UK.OBIE.Credit", description = "Statement value type, in a coded form. For a full list of values see `OBInternalStatementValueType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")

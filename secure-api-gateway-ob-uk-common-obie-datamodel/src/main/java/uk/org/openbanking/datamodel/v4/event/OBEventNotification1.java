@@ -17,15 +17,18 @@ package uk.org.openbanking.datamodel.v4.event;
 
 import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.net.URI;
+import uk.org.openbanking.datamodel.v4.event.OBEvent1;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The resource-update event.
@@ -76,9 +79,8 @@ public class OBEventNotification1 {
 
     /**
      * Issuer.
-     *
      * @return iss
-     */
+   */
     @NotNull
     @Schema(name = "iss", description = "Issuer.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("iss")
@@ -98,9 +100,8 @@ public class OBEventNotification1 {
     /**
      * Issued At.
      * minimum: 0
-     *
      * @return iat
-     */
+   */
     @NotNull
     @Min(0)
     @Schema(name = "iat", description = "Issued At. ", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -120,9 +121,8 @@ public class OBEventNotification1 {
 
     /**
      * JWT ID.
-     *
      * @return jti
-     */
+   */
     @NotNull
     @Size(min = 1, max = 128)
     @Schema(name = "jti", description = "JWT ID.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -142,9 +142,8 @@ public class OBEventNotification1 {
 
     /**
      * Audience.
-     *
      * @return aud
-     */
+   */
     @NotNull
     @Size(min = 1, max = 128)
     @Schema(name = "aud", description = "Audience.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -164,9 +163,8 @@ public class OBEventNotification1 {
 
     /**
      * Subject
-     *
      * @return sub
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "sub", description = "Subject", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -186,9 +184,8 @@ public class OBEventNotification1 {
 
     /**
      * Transaction Identifier.
-     *
      * @return txn
-     */
+   */
     @NotNull
     @Size(min = 1, max = 128)
     @Schema(name = "txn", description = "Transaction Identifier.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -209,9 +206,8 @@ public class OBEventNotification1 {
     /**
      * Time of Event.
      * minimum: 0
-     *
      * @return toe
-     */
+   */
     @NotNull
     @Min(0)
     @Schema(name = "toe", description = "Time of Event.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -231,9 +227,8 @@ public class OBEventNotification1 {
 
     /**
      * Get events
-     *
      * @return events
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "events", requiredMode = Schema.RequiredMode.REQUIRED)

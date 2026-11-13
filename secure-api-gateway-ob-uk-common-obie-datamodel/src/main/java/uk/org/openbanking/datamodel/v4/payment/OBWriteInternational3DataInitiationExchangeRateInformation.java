@@ -15,20 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
-
-import java.math.BigDecimal;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
+import uk.org.openbanking.datamodel.v4.payment.OBExchangeRateType;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Provides details on the currency exchange rate and contract.
@@ -66,9 +68,8 @@ public class OBWriteInternational3DataInitiationExchangeRateInformation {
 
     /**
      * Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.
-     *
      * @return unitCurrency
-     */
+   */
     @NotNull
     @Pattern(regexp = "^[A-Z]{3,3}$")
     @Schema(name = "UnitCurrency", description = "Currency in which the rate of exchange is expressed in a currency exchange. In the example 1GBP = xxxCUR, the unit currency is GBP.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -88,9 +89,8 @@ public class OBWriteInternational3DataInitiationExchangeRateInformation {
 
     /**
      * The factor used for conversion of an amount from one currency to another. This reflects the price at which one currency was bought with another currency.
-     *
      * @return exchangeRate
-     */
+   */
     @Valid
     @Schema(name = "ExchangeRate", description = "The factor used for conversion of an amount from one currency to another. This reflects the price at which one currency was bought with another currency.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExchangeRate")
@@ -109,9 +109,8 @@ public class OBWriteInternational3DataInitiationExchangeRateInformation {
 
     /**
      * Get rateType
-     *
      * @return rateType
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "RateType", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -131,9 +130,8 @@ public class OBWriteInternational3DataInitiationExchangeRateInformation {
 
     /**
      * Unique and unambiguous reference to the foreign exchange contract agreed between the initiating party/creditor and the debtor agent.
-     *
      * @return contractIdentification
-     */
+   */
     @Size(min = 1, max = 256)
     @Schema(name = "ContractIdentification", description = "Unique and unambiguous reference to the foreign exchange contract agreed between the initiating party/creditor and the debtor agent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ContractIdentification")
@@ -155,7 +153,7 @@ public class OBWriteInternational3DataInitiationExchangeRateInformation {
         }
         OBWriteInternational3DataInitiationExchangeRateInformation obWriteInternational3DataInitiationExchangeRateInformation = (OBWriteInternational3DataInitiationExchangeRateInformation) o;
         return Objects.equals(this.unitCurrency, obWriteInternational3DataInitiationExchangeRateInformation.unitCurrency) &&
-                isEqual(this.exchangeRate, obWriteInternational3DataInitiationExchangeRateInformation.exchangeRate) &&
+                Objects.equals(this.exchangeRate, obWriteInternational3DataInitiationExchangeRateInformation.exchangeRate) &&
                 Objects.equals(this.rateType, obWriteInternational3DataInitiationExchangeRateInformation.rateType) &&
                 Objects.equals(this.contractIdentification, obWriteInternational3DataInitiationExchangeRateInformation.contractIdentification);
     }

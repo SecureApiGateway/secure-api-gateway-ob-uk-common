@@ -15,14 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsData;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBDomesticVRPDetails
@@ -51,9 +56,8 @@ public class OBDomesticVRPDetails {
 
     /**
      * Get data
-     *
      * @return data
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)

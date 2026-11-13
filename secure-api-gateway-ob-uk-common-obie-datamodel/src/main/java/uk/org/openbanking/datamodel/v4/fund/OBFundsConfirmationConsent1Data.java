@@ -15,18 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.fund;
 
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmationConsent1DataDebtorAccount;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBFundsConfirmationConsent1Data
@@ -59,9 +63,8 @@ public class OBFundsConfirmationConsent1Data {
 
     /**
      * Specified date and time the funds confirmation authorisation will expire.  If this is not populated, the authorisation will be open ended. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return expirationDateTime
-     */
+   */
     @Valid
     @Schema(name = "ExpirationDateTime", description = "Specified date and time the funds confirmation authorisation will expire.  If this is not populated, the authorisation will be open ended. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExpirationDateTime")
@@ -80,9 +83,8 @@ public class OBFundsConfirmationConsent1Data {
 
     /**
      * Get debtorAccount
-     *
      * @return debtorAccount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.REQUIRED)

@@ -15,21 +15,30 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.account.OBBalanceType1Code;
+import uk.org.openbanking.datamodel.v4.account.OBCreditDebitCode2;
+import uk.org.openbanking.datamodel.v4.account.OBReadBalance1DataBalanceInnerAmount;
+import uk.org.openbanking.datamodel.v4.account.OBReadBalance1DataBalanceInnerCreditLineInner;
+import uk.org.openbanking.datamodel.v4.account.OBReadBalance1DataBalanceInnerLocalAmount;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Set of elements used to define the balance details.
@@ -78,9 +87,8 @@ public class OBReadBalance1DataBalanceInner {
 
     /**
      * A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.
-     *
      * @return accountId
-     */
+   */
     @NotNull
     @Size(min = 1, max = 40)
     @Schema(name = "AccountId", example = "22289", description = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -100,9 +108,8 @@ public class OBReadBalance1DataBalanceInner {
 
     /**
      * Get creditDebitIndicator
-     *
      * @return creditDebitIndicator
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "CreditDebitIndicator", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -122,9 +129,8 @@ public class OBReadBalance1DataBalanceInner {
 
     /**
      * Get type
-     *
      * @return type
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Type", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -144,9 +150,8 @@ public class OBReadBalance1DataBalanceInner {
 
     /**
      * Indicates the date (and time) of the balance. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return dateTime
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "DateTime", description = "Indicates the date (and time) of the balance. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -166,9 +171,8 @@ public class OBReadBalance1DataBalanceInner {
 
     /**
      * Get amount
-     *
      * @return amount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -196,9 +200,8 @@ public class OBReadBalance1DataBalanceInner {
 
     /**
      * Get creditLine
-     *
      * @return creditLine
-     */
+   */
     @Valid
     @Schema(name = "CreditLine", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditLine")
@@ -217,9 +220,8 @@ public class OBReadBalance1DataBalanceInner {
 
     /**
      * Get localAmount
-     *
      * @return localAmount
-     */
+   */
     @Valid
     @Schema(name = "LocalAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LocalAmount")

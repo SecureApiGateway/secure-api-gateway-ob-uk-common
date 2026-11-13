@@ -15,18 +15,24 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OverdraftFeeChargeCapInner;
+import uk.org.openbanking.datamodel.v4.account.OverdraftFeeChargeDetailInner;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Overdraft fees and charges
@@ -69,9 +75,8 @@ public class OverdraftFeesChargesInner {
 
     /**
      * Details about any caps (maximum charges) that apply to a particular fee/charge. Capping can either be based on an amount (in gbp), an amount (in items) or a rate.
-     *
      * @return overdraftFeeChargeCap
-     */
+   */
     @Valid
     @Schema(name = "OverdraftFeeChargeCap", description = "Details about any caps (maximum charges) that apply to a particular fee/charge. Capping can either be based on an amount (in gbp), an amount (in items) or a rate.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OverdraftFeeChargeCap")
@@ -98,12 +103,9 @@ public class OverdraftFeesChargesInner {
 
     /**
      * Details about the fees/charges
-     *
      * @return overdraftFeeChargeDetail
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
+   */
+    @NotNull @Valid @Size(min = 1)
     @Schema(name = "OverdraftFeeChargeDetail", description = "Details about the fees/charges", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("OverdraftFeeChargeDetail")
     public List<@Valid OverdraftFeeChargeDetailInner> getOverdraftFeeChargeDetail() {

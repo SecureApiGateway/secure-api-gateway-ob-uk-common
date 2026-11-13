@@ -15,19 +15,31 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v4.account.ExternalMandateStatus1Code;
+import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount11;
+import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount2;
+import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount3;
+import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount4;
+import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionIdentification51;
+import uk.org.openbanking.datamodel.v4.account.OBCashAccount51;
+import uk.org.openbanking.datamodel.v4.account.OBMandateRelatedInformation1;
+import uk.org.openbanking.datamodel.v4.account.OBRemittanceInformation2;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBStandingOrder6Detail
@@ -87,9 +99,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.
-     *
      * @return accountId
-     */
+   */
     @NotNull
     @Size(min = 1, max = 40)
     @Schema(name = "AccountId", example = "22289", description = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -109,9 +120,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * A unique and immutable identifier used to identify the standing order resource. This identifier has no meaning to the account owner.
-     *
      * @return standingOrderId
-     */
+   */
     @Size(min = 1, max = 40)
     @Schema(name = "StandingOrderId", example = "Ben5", description = "A unique and immutable identifier used to identify the standing order resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StandingOrderId")
@@ -130,9 +140,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * The date on which the next payment for a Standing Order schedule will be made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return nextPaymentDateTime
-     */
+   */
     @Valid
     @Schema(name = "NextPaymentDateTime", example = "2017-07-12T00:00Z", description = "The date on which the next payment for a Standing Order schedule will be made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("NextPaymentDateTime")
@@ -151,9 +160,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * The date on which the last (most recent) payment for a Standing Order schedule was made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return lastPaymentDateTime
-     */
+   */
     @Valid
     @Schema(name = "LastPaymentDateTime", example = "2017-07-12T00:00Z", description = "The date on which the last (most recent) payment for a Standing Order schedule was made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LastPaymentDateTime")
@@ -172,9 +180,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.
-     *
      * @return numberOfPayments
-     */
+   */
     @Size(min = 1, max = 35)
     @Schema(name = "NumberOfPayments", description = "Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("NumberOfPayments")
@@ -193,9 +200,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * Get standingOrderStatusCode
-     *
      * @return standingOrderStatusCode
-     */
+   */
     @Valid
     @Schema(name = "StandingOrderStatusCode", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StandingOrderStatusCode")
@@ -214,9 +220,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * Get firstPaymentAmount
-     *
      * @return firstPaymentAmount
-     */
+   */
     @Valid
     @Schema(name = "FirstPaymentAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FirstPaymentAmount")
@@ -235,9 +240,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * Get nextPaymentAmount
-     *
      * @return nextPaymentAmount
-     */
+   */
     @Valid
     @Schema(name = "NextPaymentAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("NextPaymentAmount")
@@ -256,9 +260,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * Get lastPaymentAmount
-     *
      * @return lastPaymentAmount
-     */
+   */
     @Valid
     @Schema(name = "LastPaymentAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LastPaymentAmount")
@@ -277,9 +280,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * Get finalPaymentAmount
-     *
      * @return finalPaymentAmount
-     */
+   */
     @Valid
     @Schema(name = "FinalPaymentAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FinalPaymentAmount")
@@ -298,9 +300,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * Get creditorAgent
-     *
      * @return creditorAgent
-     */
+   */
     @Valid
     @Schema(name = "CreditorAgent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorAgent")
@@ -319,9 +320,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * Get creditorAccount
-     *
      * @return creditorAccount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "CreditorAccount", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -341,9 +341,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * Get supplementaryData
-     *
      * @return supplementaryData
-     */
+   */
     @Valid
     @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")
@@ -362,9 +361,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * Get mandateRelatedInformation
-     *
      * @return mandateRelatedInformation
-     */
+   */
     @Valid
     @Schema(name = "MandateRelatedInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MandateRelatedInformation")
@@ -383,9 +381,8 @@ public class OBStandingOrder6Detail {
 
     /**
      * Get remittanceInformation
-     *
      * @return remittanceInformation
-     */
+   */
     @Valid
     @Schema(name = "RemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RemittanceInformation")

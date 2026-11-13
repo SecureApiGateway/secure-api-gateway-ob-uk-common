@@ -15,15 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount8;
+import uk.org.openbanking.datamodel.v4.account.OBCreditDebitCode0;
+import uk.org.openbanking.datamodel.v4.account.OBStatement2StatementAmountInnerLocalAmount;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Set of elements used to provide details of a generic amount for the statement resource.
@@ -62,9 +70,8 @@ public class OBStatement2DetailStatementAmountInner {
 
     /**
      * Get creditDebitIndicator
-     *
      * @return creditDebitIndicator
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "CreditDebitIndicator", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -84,9 +91,8 @@ public class OBStatement2DetailStatementAmountInner {
 
     /**
      * Amount type, in a coded form.
-     *
      * @return type
-     */
+   */
     @NotNull
     @Schema(name = "Type", example = "UK.OBIE.CreditLimit", description = "Amount type, in a coded form.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
@@ -105,9 +111,8 @@ public class OBStatement2DetailStatementAmountInner {
 
     /**
      * Get amount
-     *
      * @return amount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -127,9 +132,8 @@ public class OBStatement2DetailStatementAmountInner {
 
     /**
      * Get localAmount
-     *
      * @return localAmount
-     */
+   */
     @Valid
     @Schema(name = "LocalAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LocalAmount")

@@ -15,16 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Set of elements used to uniquely and unambiguously identify a financial institution or a branch of a financial institution.
@@ -50,9 +54,8 @@ public class OBWriteInternationalResponse5DataRefundAgent {
 
     /**
      * Name of the identification scheme, in a coded form as published in an external list.
-     *
      * @return schemeName
-     */
+   */
 
     @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SchemeName")
@@ -71,9 +74,8 @@ public class OBWriteInternationalResponse5DataRefundAgent {
 
     /**
      * Unique and unambiguous identification of a financial institution or a branch of a financial institution.
-     *
      * @return identification
-     */
+   */
     @Size(min = 1, max = 35)
     @Schema(name = "Identification", description = "Unique and unambiguous identification of a financial institution or a branch of a financial institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
@@ -92,9 +94,8 @@ public class OBWriteInternationalResponse5DataRefundAgent {
 
     /**
      * Name by which an agent is known and which is usually used to identify that agent.
-     *
      * @return name
-     */
+   */
     @Size(min = 1, max = 140)
     @Schema(name = "Name", description = "Name by which an agent is known and which is usually used to identify that agent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
@@ -113,9 +114,8 @@ public class OBWriteInternationalResponse5DataRefundAgent {
 
     /**
      * Get postalAddress
-     *
      * @return postalAddress
-     */
+   */
     @Valid
     @Schema(name = "PostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PostalAddress")

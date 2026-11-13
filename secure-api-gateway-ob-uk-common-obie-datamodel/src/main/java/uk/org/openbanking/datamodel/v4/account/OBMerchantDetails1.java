@@ -15,13 +15,18 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.Size;
 
 /**
  * Details of the merchant involved in the transaction.
@@ -42,9 +47,8 @@ public class OBMerchantDetails1 {
 
     /**
      * Name by which the merchant is known.
-     *
      * @return merchantName
-     */
+   */
     @Size(min = 1, max = 350)
     @Schema(name = "MerchantName", description = "Name by which the merchant is known.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MerchantName")
@@ -63,9 +67,8 @@ public class OBMerchantDetails1 {
 
     /**
      * Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.
-     *
      * @return merchantCategoryCode
-     */
+   */
     @Size(min = 3, max = 4)
     @Schema(name = "MerchantCategoryCode", description = "Category code conform to ISO 18245, related to the type of services or goods the merchant provides for the transaction.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MerchantCategoryCode")

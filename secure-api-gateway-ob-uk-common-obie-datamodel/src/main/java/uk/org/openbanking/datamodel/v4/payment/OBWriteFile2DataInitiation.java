@@ -15,25 +15,27 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
-
-import java.math.BigDecimal;
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.math.BigDecimal;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
+import uk.org.openbanking.datamodel.v4.payment.OBRemittanceInformation2;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationCreditorAgent;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationDebtorAccount;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds using a payment file.
@@ -88,9 +90,8 @@ public class OBWriteFile2DataInitiation {
 
     /**
      * Specifies the payment file type.
-     *
      * @return fileType
-     */
+   */
     @NotNull
     @Schema(name = "FileType", description = "Specifies the payment file type.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FileType")
@@ -109,9 +110,8 @@ public class OBWriteFile2DataInitiation {
 
     /**
      * A base64 encoding of a SHA256 hash of the file to be uploaded.
-     *
      * @return fileHash
-     */
+   */
     @NotNull
     @Size(min = 1, max = 44)
     @Schema(name = "FileHash", description = "A base64 encoding of a SHA256 hash of the file to be uploaded.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -131,9 +131,8 @@ public class OBWriteFile2DataInitiation {
 
     /**
      * Reference for the file.
-     *
      * @return fileReference
-     */
+   */
     @Size(min = 1, max = 40)
     @Schema(name = "FileReference", description = "Reference for the file.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FileReference")
@@ -152,9 +151,8 @@ public class OBWriteFile2DataInitiation {
 
     /**
      * Number of individual transactions contained in the payment information group.
-     *
      * @return numberOfTransactions
-     */
+   */
     @Pattern(regexp = "[0-9]{1,15}")
     @Schema(name = "NumberOfTransactions", description = "Number of individual transactions contained in the payment information group.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("NumberOfTransactions")
@@ -173,9 +171,8 @@ public class OBWriteFile2DataInitiation {
 
     /**
      * Total of all individual amounts included in the group, irrespective of currencies.
-     *
      * @return controlSum
-     */
+   */
     @Valid
     @Schema(name = "ControlSum", description = "Total of all individual amounts included in the group, irrespective of currencies.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ControlSum")
@@ -194,9 +191,8 @@ public class OBWriteFile2DataInitiation {
 
     /**
      * Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return requestedExecutionDateTime
-     */
+   */
     @Valid
     @Schema(name = "RequestedExecutionDateTime", description = "Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RequestedExecutionDateTime")
@@ -215,9 +211,8 @@ public class OBWriteFile2DataInitiation {
 
     /**
      * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return localInstrument
-     */
+   */
 
     @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LocalInstrument")
@@ -236,9 +231,8 @@ public class OBWriteFile2DataInitiation {
 
     /**
      * Get creditorAgent
-     *
      * @return creditorAgent
-     */
+   */
     @Valid
     @Schema(name = "CreditorAgent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorAgent")
@@ -257,9 +251,8 @@ public class OBWriteFile2DataInitiation {
 
     /**
      * Get debtorAccount
-     *
      * @return debtorAccount
-     */
+   */
     @Valid
     @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DebtorAccount")
@@ -278,9 +271,8 @@ public class OBWriteFile2DataInitiation {
 
     /**
      * Get ultimateDebtor
-     *
      * @return ultimateDebtor
-     */
+   */
     @Valid
     @Schema(name = "UltimateDebtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateDebtor")
@@ -299,9 +291,8 @@ public class OBWriteFile2DataInitiation {
 
     /**
      * Get remittanceInformation
-     *
      * @return remittanceInformation
-     */
+   */
     @Valid
     @Schema(name = "RemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RemittanceInformation")
@@ -320,9 +311,8 @@ public class OBWriteFile2DataInitiation {
 
     /**
      * Get supplementaryData
-     *
      * @return supplementaryData
-     */
+   */
     @Valid
     @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")
@@ -347,7 +337,7 @@ public class OBWriteFile2DataInitiation {
                 Objects.equals(this.fileHash, obWriteFile2DataInitiation.fileHash) &&
                 Objects.equals(this.fileReference, obWriteFile2DataInitiation.fileReference) &&
                 Objects.equals(this.numberOfTransactions, obWriteFile2DataInitiation.numberOfTransactions) &&
-                isEqual(this.controlSum, obWriteFile2DataInitiation.controlSum) &&
+                Objects.equals(this.controlSum, obWriteFile2DataInitiation.controlSum) &&
                 Objects.equals(this.requestedExecutionDateTime, obWriteFile2DataInitiation.requestedExecutionDateTime) &&
                 Objects.equals(this.localInstrument, obWriteFile2DataInitiation.localInstrument) &&
                 Objects.equals(this.creditorAgent, obWriteFile2DataInitiation.creditorAgent) &&

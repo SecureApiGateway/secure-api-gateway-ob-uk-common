@@ -15,17 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Set of elements used to identify a person or an organisation.
@@ -49,9 +52,8 @@ public class OBWriteInternationalResponse5DataRefundCreditor {
 
     /**
      * Name by which a party is known and which is usually used to identify that party.
-     *
      * @return name
-     */
+   */
     @Size(min = 1, max = 140)
     @Schema(name = "Name", description = "Name by which a party is known and which is usually used to identify that party.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
@@ -70,9 +72,8 @@ public class OBWriteInternationalResponse5DataRefundCreditor {
 
     /**
      * Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".
-     *
      * @return LEI
-     */
+   */
     @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
     @Size(min = 1, max = 20)
     @Schema(name = "LEI", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
@@ -92,9 +93,8 @@ public class OBWriteInternationalResponse5DataRefundCreditor {
 
     /**
      * Get postalAddress
-     *
      * @return postalAddress
-     */
+   */
     @Valid
     @Schema(name = "PostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PostalAddress")

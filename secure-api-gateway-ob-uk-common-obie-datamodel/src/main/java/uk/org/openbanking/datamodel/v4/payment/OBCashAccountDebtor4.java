@@ -15,14 +15,18 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 
 /**
  * ^ Only included in the response if &#x60;Data. ReadRefundAccount&#x60; is set to &#x60;Yes&#x60; in the consent.
@@ -49,9 +53,8 @@ public class OBCashAccountDebtor4 {
 
     /**
      * ^ Name of the identification scheme, in a coded form as published in an external list. | Namespaced Enumeration OBInternalAccountIdentification4Code
-     *
      * @return schemeName
-     */
+   */
 
     @Schema(name = "SchemeName", description = "^ Name of the identification scheme, in a coded form as published in an external list. | Namespaced Enumeration OBInternalAccountIdentification4Code", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SchemeName")
@@ -70,9 +73,8 @@ public class OBCashAccountDebtor4 {
 
     /**
      * ^ Identification assigned by an institution to identify an account. This identification is known by the account owner. | Max256Text
-     *
      * @return identification
-     */
+   */
 
     @Schema(name = "Identification", description = "^ Identification assigned by an institution to identify an account. This identification is known by the account owner. | Max256Text", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
@@ -91,9 +93,8 @@ public class OBCashAccountDebtor4 {
 
     /**
      * ^ Name of the account, as assigned by the account servicing institution.  Usage The account name is the name or names of the account owner(s) represented at an account level. The account name is not the product name or the nickname of the account.
-     *
      * @return name
-     */
+   */
 
     @Schema(name = "Name", description = "^ Name of the account, as assigned by the account servicing institution.  Usage The account name is the name or names of the account owner(s) represented at an account level. The account name is not the product name or the nickname of the account.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
@@ -112,9 +113,8 @@ public class OBCashAccountDebtor4 {
 
     /**
      * ^ This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination) | Max34Text
-     *
      * @return secondaryIdentification
-     */
+   */
 
     @Schema(name = "SecondaryIdentification", description = "^ This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination) | Max34Text", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SecondaryIdentification")
@@ -133,9 +133,8 @@ public class OBCashAccountDebtor4 {
 
     /**
      * Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".
-     *
      * @return LEI
-     */
+   */
     @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
     @Size(min = 1, max = 20)
     @Schema(name = "LEI", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)

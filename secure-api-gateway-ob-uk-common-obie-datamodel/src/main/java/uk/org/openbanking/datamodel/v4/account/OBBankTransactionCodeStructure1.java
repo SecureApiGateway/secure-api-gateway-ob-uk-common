@@ -15,13 +15,18 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.NotNull;
 
 /**
  * Set of elements used to fully identify the type of underlying transaction resulting in an entry.
@@ -54,9 +59,8 @@ public class OBBankTransactionCodeStructure1 {
 
     /**
      * Specifies the family within a domain.
-     *
      * @return code
-     */
+   */
     @NotNull
     @Schema(name = "Code", description = "Specifies the family within a domain.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Code")
@@ -75,9 +79,8 @@ public class OBBankTransactionCodeStructure1 {
 
     /**
      * Specifies the sub-product family within a specific family.
-     *
      * @return subCode
-     */
+   */
     @NotNull
     @Schema(name = "SubCode", description = "Specifies the sub-product family within a specific family.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("SubCode")

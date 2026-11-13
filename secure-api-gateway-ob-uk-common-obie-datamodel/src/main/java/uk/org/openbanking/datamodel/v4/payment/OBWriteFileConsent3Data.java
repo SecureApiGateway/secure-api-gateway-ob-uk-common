@@ -15,15 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.payment.OBSCASupportData1;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsentDataAuthorisation;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteFile2DataInitiation;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBWriteFileConsent3Data
@@ -57,9 +64,8 @@ public class OBWriteFileConsent3Data {
 
     /**
      * Get initiation
-     *
      * @return initiation
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -79,9 +85,8 @@ public class OBWriteFileConsent3Data {
 
     /**
      * Get authorisation
-     *
      * @return authorisation
-     */
+   */
     @Valid
     @Schema(name = "Authorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Authorisation")
@@ -100,9 +105,8 @@ public class OBWriteFileConsent3Data {
 
     /**
      * Get scASupportData
-     *
      * @return scASupportData
-     */
+   */
     @Valid
     @Schema(name = "SCASupportData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SCASupportData")

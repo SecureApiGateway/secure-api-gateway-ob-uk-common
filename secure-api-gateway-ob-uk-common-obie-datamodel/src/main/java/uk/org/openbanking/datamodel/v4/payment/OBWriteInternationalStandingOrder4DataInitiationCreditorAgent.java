@@ -15,17 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account. This is the servicer of the beneficiary account.
@@ -53,9 +56,8 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
 
     /**
      * Name of the identification scheme, in a coded form as published in an external list.
-     *
      * @return schemeName
-     */
+   */
 
     @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SchemeName")
@@ -74,9 +76,8 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
 
     /**
      * Unique and unambiguous identification of the servicing institution.
-     *
      * @return identification
-     */
+   */
     @Size(min = 1, max = 35)
     @Schema(name = "Identification", description = "Unique and unambiguous identification of the servicing institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
@@ -95,9 +96,8 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
 
     /**
      * Name by which an agent is known and which is usually used to identify that agent.
-     *
      * @return name
-     */
+   */
     @Size(min = 1, max = 140)
     @Schema(name = "Name", description = "Name by which an agent is known and which is usually used to identify that agent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
@@ -116,9 +116,8 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
 
     /**
      * Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".
-     *
      * @return LEI
-     */
+   */
     @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
     @Size(min = 1, max = 20)
     @Schema(name = "LEI", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
@@ -138,9 +137,8 @@ public class OBWriteInternationalStandingOrder4DataInitiationCreditorAgent {
 
     /**
      * Get postalAddress
-     *
      * @return postalAddress
-     */
+   */
     @Valid
     @Schema(name = "PostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PostalAddress")

@@ -15,15 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 /**
  * Provides the details to identify an account.
@@ -62,9 +66,8 @@ public class OBWriteDomesticResponse5DataRefundAccount {
 
     /**
      * Name of the identification scheme, in a coded form as published in an external list. For a full list of values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return schemeName
-     */
+   */
     @NotNull
     @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. For a full list of values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("SchemeName")
@@ -83,9 +86,8 @@ public class OBWriteDomesticResponse5DataRefundAccount {
 
     /**
      * Identification assigned by an institution to identify an account. This identification is known by the account owner.
-     *
      * @return identification
-     */
+   */
     @NotNull
     @Size(min = 1, max = 256)
     @Schema(name = "Identification", description = "Identification assigned by an institution to identify an account. This identification is known by the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -105,9 +107,8 @@ public class OBWriteDomesticResponse5DataRefundAccount {
 
     /**
      * Name of the account, as assigned by the account servicing institution. Usage: The account name is the name or names of the account owner(s) represented at an account level. The account name is not the product name or the nickname of the account. OB: ASPSPs may carry out name validation for Confirmation of Payee, but it is not mandatory.
-     *
      * @return name
-     */
+   */
     @NotNull
     @Size(min = 1, max = 350)
     @Schema(name = "Name", description = "Name of the account, as assigned by the account servicing institution. Usage: The account name is the name or names of the account owner(s) represented at an account level. The account name is not the product name or the nickname of the account. OB: ASPSPs may carry out name validation for Confirmation of Payee, but it is not mandatory.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -127,9 +128,8 @@ public class OBWriteDomesticResponse5DataRefundAccount {
 
     /**
      * This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).
-     *
      * @return secondaryIdentification
-     */
+   */
     @Size(min = 1, max = 34)
     @Schema(name = "SecondaryIdentification", description = "This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SecondaryIdentification")

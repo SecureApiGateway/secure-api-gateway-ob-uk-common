@@ -15,21 +15,24 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBActiveOrHistoricCurrencyAndAmount;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Set of elements used to provide details on the regulatory reporting information.
@@ -49,7 +52,7 @@ public class OBStructuredRegulatoryReporting3 {
     private OBActiveOrHistoricCurrencyAndAmount amount;
 
     @Valid
-    private List<@Size(min = 1, max = 35) String> information;
+    private List<@Size(min = 1, max = 35)String> information;
 
     public OBStructuredRegulatoryReporting3 type(String type) {
         this.type = type;
@@ -58,9 +61,8 @@ public class OBStructuredRegulatoryReporting3 {
 
     /**
      * Specifies the type of the information supplied in the regulatory reporting details
-     *
      * @return type
-     */
+   */
     @Size(min = 1, max = 35)
     @Schema(name = "Type", description = "Specifies the type of the information supplied in the regulatory reporting details", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Type")
@@ -79,9 +81,8 @@ public class OBStructuredRegulatoryReporting3 {
 
     /**
      * All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return date
-     */
+   */
     @Valid
     @Schema(name = "Date", description = "All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Date")
@@ -100,9 +101,8 @@ public class OBStructuredRegulatoryReporting3 {
 
     /**
      * Nation with its own government.
-     *
      * @return country
-     */
+   */
     @Pattern(regexp = "^[A-Z]{2,2}$")
     @Schema(name = "Country", description = "Nation with its own government.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Country")
@@ -121,9 +121,8 @@ public class OBStructuredRegulatoryReporting3 {
 
     /**
      * Get amount
-     *
      * @return amount
-     */
+   */
     @Valid
     @Schema(name = "Amount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Amount")
@@ -135,7 +134,7 @@ public class OBStructuredRegulatoryReporting3 {
         this.amount = amount;
     }
 
-    public OBStructuredRegulatoryReporting3 information(List<@Size(min = 1, max = 35) String> information) {
+    public OBStructuredRegulatoryReporting3 information(List<@Size(min = 1, max = 35)String> information) {
         this.information = information;
         return this;
     }
@@ -150,17 +149,16 @@ public class OBStructuredRegulatoryReporting3 {
 
     /**
      * Additional details that cater for specific domestic regulatory requirements.
-     *
      * @return information
-     */
+   */
 
     @Schema(name = "Information", description = "Additional details that cater for specific domestic regulatory requirements. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Information")
-    public List<@Size(min = 1, max = 35) String> getInformation() {
+    public List<@Size(min = 1, max = 35)String> getInformation() {
         return information;
     }
 
-    public void setInformation(List<@Size(min = 1, max = 35) String> information) {
+    public void setInformation(List<@Size(min = 1, max = 35)String> information) {
         this.information = information;
     }
 

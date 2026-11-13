@@ -15,15 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount5;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Set of elements used to provide details of a benefit or reward amount for the statement resource.
@@ -57,9 +62,8 @@ public class OBStatement2StatementBenefitInner {
 
     /**
      * Benefit type, in a coded form. For a full list of values see `OBInternalStatementBenefitType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return type
-     */
+   */
     @NotNull
     @Schema(name = "Type", example = "UK.OBIE.Cashback", description = "Benefit type, in a coded form. For a full list of values see `OBInternalStatementBenefitType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
@@ -78,9 +82,8 @@ public class OBStatement2StatementBenefitInner {
 
     /**
      * Get amount
-     *
      * @return amount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)

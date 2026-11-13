@@ -15,22 +15,35 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.v4.common.OBInternalChargeBearerType1Code;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
+import uk.org.openbanking.datamodel.v4.payment.OBRegulatoryReporting1;
+import uk.org.openbanking.datamodel.v4.payment.OBRemittanceInformation2;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationCreditorAgent;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationDebtorAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationInstructedAmount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternational3DataInitiationExchangeRateInformation;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternational3DataInitiationInstructionPriority;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalConsent5DataInitiationCreditor;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a single international payment.
@@ -62,7 +75,7 @@ public class OBWriteInternational3DataInitiation {
 
     private OBWriteDomestic2DataInitiationDebtorAccount debtorAccount;
 
-    private OBWriteInternational3DataInitiationCreditor creditor;
+    private OBWriteInternationalConsent5DataInitiationCreditor creditor;
 
     private OBWriteDomestic2DataInitiationCreditorAgent creditorAgent;
 
@@ -101,9 +114,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction. Usage: the  instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
-     *
      * @return instructionIdentification
-     */
+   */
     @NotNull
     @Size(min = 1, max = 35)
     @Schema(name = "InstructionIdentification", description = "Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction. Usage: the  instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -123,9 +135,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain. Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction. OB: The Faster Payments Scheme can only access 31 characters for the EndToEndIdentification field.
-     *
      * @return endToEndIdentification
-     */
+   */
     @NotNull
     @Size(min = 1, max = 35)
     @Schema(name = "EndToEndIdentification", description = "Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain. Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction. OB: The Faster Payments Scheme can only access 31 characters for the EndToEndIdentification field.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -145,9 +156,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return localInstrument
-     */
+   */
 
     @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LocalInstrument")
@@ -166,9 +176,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Get instructionPriority
-     *
      * @return instructionPriority
-     */
+   */
     @Valid
     @Schema(name = "InstructionPriority", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("InstructionPriority")
@@ -187,9 +196,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Specifies the purpose of an international payment, when there is no corresponding 4 character code available in the ISO20022 list of Purpose Codes.
-     *
      * @return extendedPurpose
-     */
+   */
     @Size(min = 1, max = 140)
     @Schema(name = "ExtendedPurpose", description = "Specifies the purpose of an international payment, when there is no corresponding 4 character code available in the ISO20022 list of Purpose Codes.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExtendedPurpose")
@@ -208,9 +216,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Get chargeBearer
-     *
      * @return chargeBearer
-     */
+   */
     @Valid
     @Schema(name = "ChargeBearer", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ChargeBearer")
@@ -229,9 +236,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Specifies the currency of the to be transferred amount, which is different from the currency of the debtor's account.
-     *
      * @return currencyOfTransfer
-     */
+   */
     @NotNull
     @Pattern(regexp = "^[A-Z]{3,3}$")
     @Schema(name = "CurrencyOfTransfer", description = "Specifies the currency of the to be transferred amount, which is different from the currency of the debtor's account.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -251,9 +257,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Country in which Credit Account is domiciled. Code to identify a country, a dependency, or another area of particular geopolitical interest, on the basis of country names obtained from the United Nations (ISO 3166, Alpha-2 code).
-     *
      * @return destinationCountryCode
-     */
+   */
     @Pattern(regexp = "[A-Z]{2,2}")
     @Schema(name = "DestinationCountryCode", description = "Country in which Credit Account is domiciled. Code to identify a country, a dependency, or another area of particular geopolitical interest, on the basis of country names obtained from the United Nations (ISO 3166, Alpha-2 code).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DestinationCountryCode")
@@ -272,9 +277,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Get instructedAmount
-     *
      * @return instructedAmount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "InstructedAmount", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -294,9 +298,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Get exchangeRateInformation
-     *
      * @return exchangeRateInformation
-     */
+   */
     @Valid
     @Schema(name = "ExchangeRateInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExchangeRateInformation")
@@ -315,9 +318,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Get debtorAccount
-     *
      * @return debtorAccount
-     */
+   */
     @Valid
     @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DebtorAccount")
@@ -329,24 +331,23 @@ public class OBWriteInternational3DataInitiation {
         this.debtorAccount = debtorAccount;
     }
 
-    public OBWriteInternational3DataInitiation creditor(OBWriteInternational3DataInitiationCreditor creditor) {
+    public OBWriteInternational3DataInitiation creditor(OBWriteInternationalConsent5DataInitiationCreditor creditor) {
         this.creditor = creditor;
         return this;
     }
 
     /**
      * Get creditor
-     *
      * @return creditor
-     */
+   */
     @Valid
     @Schema(name = "Creditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Creditor")
-    public OBWriteInternational3DataInitiationCreditor getCreditor() {
+    public OBWriteInternationalConsent5DataInitiationCreditor getCreditor() {
         return creditor;
     }
 
-    public void setCreditor(OBWriteInternational3DataInitiationCreditor creditor) {
+    public void setCreditor(OBWriteInternationalConsent5DataInitiationCreditor creditor) {
         this.creditor = creditor;
     }
 
@@ -357,9 +358,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Get creditorAgent
-     *
      * @return creditorAgent
-     */
+   */
     @Valid
     @Schema(name = "CreditorAgent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorAgent")
@@ -378,9 +378,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Get creditorAccount
-     *
      * @return creditorAccount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "CreditorAccount", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -400,9 +399,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Get ultimateCreditor
-     *
      * @return ultimateCreditor
-     */
+   */
     @Valid
     @Schema(name = "UltimateCreditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateCreditor")
@@ -421,9 +419,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Get ultimateDebtor
-     *
      * @return ultimateDebtor
-     */
+   */
     @Valid
     @Schema(name = "UltimateDebtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateDebtor")
@@ -450,9 +447,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Get regulatoryReporting
-     *
      * @return regulatoryReporting
-     */
+   */
     @Valid
     @Size(max = 10)
     @Schema(name = "RegulatoryReporting", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
@@ -472,9 +468,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Get remittanceInformation
-     *
      * @return remittanceInformation
-     */
+   */
     @Valid
     @Schema(name = "RemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RemittanceInformation")
@@ -493,9 +488,8 @@ public class OBWriteInternational3DataInitiation {
 
     /**
      * Get supplementaryData
-     *
      * @return supplementaryData
-     */
+   */
     @Valid
     @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")

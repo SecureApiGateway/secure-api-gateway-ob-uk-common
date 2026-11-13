@@ -15,19 +15,25 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OBInternalPartyType1Code;
+import uk.org.openbanking.datamodel.v4.account.OBPartyRelationships1;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBParty2
@@ -83,9 +89,8 @@ public class OBParty2 {
 
     /**
      * A unique and immutable identifier used to identify the customer resource. This identifier has no meaning to the account owner.
-     *
      * @return partyId
-     */
+   */
     @NotNull
     @Size(min = 1, max = 40)
     @Schema(name = "PartyId", example = "PXSIF023", description = "A unique and immutable identifier used to identify the customer resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -105,9 +110,8 @@ public class OBParty2 {
 
     /**
      * Number assigned by an agent to identify its customer.
-     *
      * @return partyNumber
-     */
+   */
     @Size(min = 1, max = 35)
     @Schema(name = "PartyNumber", example = "20202002", description = "Number assigned by an agent to identify its customer.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PartyNumber")
@@ -126,9 +130,8 @@ public class OBParty2 {
 
     /**
      * Get partyType
-     *
      * @return partyType
-     */
+   */
     @Valid
     @Schema(name = "PartyType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PartyType")
@@ -147,9 +150,8 @@ public class OBParty2 {
 
     /**
      * Name by which a party is known and which is usually used to identify that party.
-     *
      * @return name
-     */
+   */
     @Size(min = 1, max = 350)
     @Schema(name = "Name", example = "Mx Jane Smith", description = "Name by which a party is known and which is usually used to identify that party.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
@@ -168,9 +170,8 @@ public class OBParty2 {
 
     /**
      * The full legal name of the party.
-     *
      * @return fullLegalName
-     */
+   */
     @Size(min = 1, max = 350)
     @Schema(name = "FullLegalName", example = "Jane Smith", description = "The full legal name of the party.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FullLegalName")
@@ -189,9 +190,8 @@ public class OBParty2 {
 
     /**
      * Legal standing of the party. For a full list refer to `OBInternalLegalStructureType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return legalStructure
-     */
+   */
 
     @Schema(name = "LegalStructure", example = "UK.OBIE.Individual", description = "Legal standing of the party. For a full list refer to `OBInternalLegalStructureType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LegalStructure")
@@ -210,9 +210,8 @@ public class OBParty2 {
 
     /**
      * Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".
-     *
      * @return LEI
-     */
+   */
     @Pattern(regexp = "^[A-Z0-9]{18,18}[0-9]{2,2}$")
     @Size(min = 1, max = 20)
     @Schema(name = "LEI", example = "IZ9Q00LZEVUKWCQY6X15", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
@@ -232,9 +231,8 @@ public class OBParty2 {
 
     /**
      * A flag to indicate a party's beneficial ownership of the related account
-     *
      * @return beneficialOwnership
-     */
+   */
 
     @Schema(name = "BeneficialOwnership", description = "A flag to indicate a party's beneficial ownership of the related account", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("BeneficialOwnership")
@@ -253,9 +251,8 @@ public class OBParty2 {
 
     /**
      * A party’s role with respect to the related account. For a full list refer to `OBInternalAccountRole1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return accountRole
-     */
+   */
 
     @Schema(name = "AccountRole", description = "A party’s role with respect to the related account. For a full list refer to `OBInternalAccountRole1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AccountRole")
@@ -274,9 +271,8 @@ public class OBParty2 {
 
     /**
      * Address for electronic mail (e-mail).
-     *
      * @return emailAddress
-     */
+   */
     @Size(min = 1, max = 256)
     @Schema(name = "EmailAddress", example = "d.user@semiotec.co.jp", description = "Address for electronic mail (e-mail).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("EmailAddress")
@@ -295,9 +291,8 @@ public class OBParty2 {
 
     /**
      * Collection of information that identifies a phone number, as defined by telecom services.
-     *
      * @return phone
-     */
+   */
     @Pattern(regexp = "\\+[0-9]{1,3}-[0-9()+\\-]{1,30}")
     @Schema(name = "Phone", example = "+44-2079460000", description = "Collection of information that identifies a phone number, as defined by telecom services.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Phone")
@@ -316,9 +311,8 @@ public class OBParty2 {
 
     /**
      * Collection of information that identifies a mobile phone number, as defined by telecom services.
-     *
      * @return mobile
-     */
+   */
     @Pattern(regexp = "\\+[0-9]{1,3}-[0-9()+\\-]{1,30}")
     @Schema(name = "Mobile", example = "+44-7700900000", description = "Collection of information that identifies a mobile phone number, as defined by telecom services.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Mobile")
@@ -337,9 +331,8 @@ public class OBParty2 {
 
     /**
      * Get relationships
-     *
      * @return relationships
-     */
+   */
     @Valid
     @Schema(name = "Relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Relationships")
@@ -366,9 +359,8 @@ public class OBParty2 {
 
     /**
      * Get address
-     *
      * @return address
-     */
+   */
     @Valid
     @Schema(name = "Address", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Address")

@@ -15,18 +15,27 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.FeeChargeCapInner;
+import uk.org.openbanking.datamodel.v4.account.FeeChargeDetailInner;
+import uk.org.openbanking.datamodel.v4.account.OtherTariffType;
+import uk.org.openbanking.datamodel.v4.account.TariffType;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Contains details of fees and charges which are not associated with either Overdraft or features/benefits
@@ -67,9 +76,8 @@ public class OtherFeesChargesInner {
 
     /**
      * Get tariffType
-     *
      * @return tariffType
-     */
+   */
     @Valid
     @Schema(name = "TariffType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TariffType")
@@ -88,9 +96,8 @@ public class OtherFeesChargesInner {
 
     /**
      * Name of the tariff
-     *
      * @return tariffName
-     */
+   */
     @Size(min = 1, max = 350)
     @Schema(name = "TariffName", description = "Name of the tariff", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TariffName")
@@ -109,9 +116,8 @@ public class OtherFeesChargesInner {
 
     /**
      * Get otherTariffType
-     *
      * @return otherTariffType
-     */
+   */
     @Valid
     @Schema(name = "OtherTariffType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherTariffType")
@@ -138,12 +144,9 @@ public class OtherFeesChargesInner {
 
     /**
      * Other fees/charges details
-     *
      * @return feeChargeDetail
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
+   */
+    @NotNull @Valid @Size(min = 1)
     @Schema(name = "FeeChargeDetail", description = "Other fees/charges details", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FeeChargeDetail")
     public List<@Valid FeeChargeDetailInner> getFeeChargeDetail() {
@@ -169,9 +172,8 @@ public class OtherFeesChargesInner {
 
     /**
      * Details about any caps (maximum charges) that apply to a particular or group of fee/charge
-     *
      * @return feeChargeCap
-     */
+   */
     @Valid
     @Schema(name = "FeeChargeCap", description = "Details about any caps (maximum charges) that apply to a particular or group of fee/charge", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeChargeCap")

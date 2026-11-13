@@ -15,18 +15,24 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeCapInner;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Contains details of fees and charges which are not associated with either LoanRepayment or features/benefits
@@ -69,12 +75,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInter
 
     /**
      * Get loanInterestFeeChargeDetail
-     *
      * @return loanInterestFeeChargeDetail
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
+   */
+    @NotNull @Valid @Size(min = 1)
     @Schema(name = "LoanInterestFeeChargeDetail", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("LoanInterestFeeChargeDetail")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeDetailInner> getLoanInterestFeeChargeDetail() {
@@ -100,9 +103,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInter
 
     /**
      * Get loanInterestFeeChargeCap
-     *
      * @return loanInterestFeeChargeCap
-     */
+   */
     @Valid
     @Schema(name = "LoanInterestFeeChargeCap", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LoanInterestFeeChargeCap")

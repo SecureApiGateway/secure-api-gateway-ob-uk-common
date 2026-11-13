@@ -15,18 +15,27 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.CalculationMethod;
+import uk.org.openbanking.datamodel.v4.account.Destination1;
+import uk.org.openbanking.datamodel.v4.account.TierBandInner1;
+import uk.org.openbanking.datamodel.v4.account.TierBandMethod2;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The group of tiers or bands for which credit interest can be applied.
@@ -44,7 +53,7 @@ public class TierBandSetInner1 {
     private Destination1 destination;
 
     @Valid
-    private List<@Size(min = 1, max = 2000) String> notes;
+    private List<@Size(min = 1, max = 2000)String> notes;
 
     @Valid
     private List<@Valid TierBandInner1> tierBand = new ArrayList<>();
@@ -68,9 +77,8 @@ public class TierBandSetInner1 {
 
     /**
      * Get tierBandMethod
-     *
      * @return tierBandMethod
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "TierBandMethod", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -90,9 +98,8 @@ public class TierBandSetInner1 {
 
     /**
      * Get calculationMethod
-     *
      * @return calculationMethod
-     */
+   */
     @Valid
     @Schema(name = "CalculationMethod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CalculationMethod")
@@ -111,9 +118,8 @@ public class TierBandSetInner1 {
 
     /**
      * Get destination
-     *
      * @return destination
-     */
+   */
     @Valid
     @Schema(name = "Destination", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Destination")
@@ -125,7 +131,7 @@ public class TierBandSetInner1 {
         this.destination = destination;
     }
 
-    public TierBandSetInner1 notes(List<@Size(min = 1, max = 2000) String> notes) {
+    public TierBandSetInner1 notes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
         return this;
     }
@@ -140,17 +146,16 @@ public class TierBandSetInner1 {
 
     /**
      * Optional additional notes to supplement the Tier Band Set details
-     *
      * @return notes
-     */
+   */
 
     @Schema(name = "Notes", description = "Optional additional notes to supplement the Tier Band Set details", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000) String> getNotes() {
+    public List<@Size(min = 1, max = 2000)String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
     }
 
@@ -169,12 +174,9 @@ public class TierBandSetInner1 {
 
     /**
      * Tier Band Details
-     *
      * @return tierBand
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
+   */
+    @NotNull @Valid @Size(min = 1)
     @Schema(name = "TierBand", description = "Tier Band Details", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("TierBand")
     public List<@Valid TierBandInner1> getTierBand() {

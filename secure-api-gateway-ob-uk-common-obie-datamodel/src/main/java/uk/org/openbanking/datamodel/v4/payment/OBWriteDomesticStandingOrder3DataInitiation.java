@@ -15,21 +15,33 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
+import uk.org.openbanking.datamodel.v4.payment.OBMandateRelatedInformation1;
+import uk.org.openbanking.datamodel.v4.payment.OBRegulatoryReporting1;
+import uk.org.openbanking.datamodel.v4.payment.OBRemittanceInformation2;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3DataInitiationFinalPaymentAmount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3DataInitiationFirstPaymentAmount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3DataInitiationRecurringPaymentAmount;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a domestic standing order.
@@ -85,9 +97,8 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     /**
      * Get remittanceInformation
-     *
      * @return remittanceInformation
-     */
+   */
     @Valid
     @Schema(name = "RemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RemittanceInformation")
@@ -106,9 +117,8 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     /**
      * Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.
-     *
      * @return numberOfPayments
-     */
+   */
     @Size(min = 1, max = 35)
     @Schema(name = "NumberOfPayments", description = "Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("NumberOfPayments")
@@ -127,9 +137,8 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     /**
      * Get firstPaymentAmount
-     *
      * @return firstPaymentAmount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "FirstPaymentAmount", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -149,9 +158,8 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     /**
      * Get recurringPaymentAmount
-     *
      * @return recurringPaymentAmount
-     */
+   */
     @Valid
     @Schema(name = "RecurringPaymentAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RecurringPaymentAmount")
@@ -170,9 +178,8 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     /**
      * Get finalPaymentAmount
-     *
      * @return finalPaymentAmount
-     */
+   */
     @Valid
     @Schema(name = "FinalPaymentAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FinalPaymentAmount")
@@ -191,9 +198,8 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     /**
      * Get debtorAccount
-     *
      * @return debtorAccount
-     */
+   */
     @Valid
     @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DebtorAccount")
@@ -212,9 +218,8 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     /**
      * Get creditorAccount
-     *
      * @return creditorAccount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "CreditorAccount", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -234,9 +239,8 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     /**
      * Get ultimateCreditor
-     *
      * @return ultimateCreditor
-     */
+   */
     @Valid
     @Schema(name = "UltimateCreditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateCreditor")
@@ -255,9 +259,8 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     /**
      * Get ultimateDebtor
-     *
      * @return ultimateDebtor
-     */
+   */
     @Valid
     @Schema(name = "UltimateDebtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateDebtor")
@@ -284,9 +287,8 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     /**
      * Get regulatoryReporting
-     *
      * @return regulatoryReporting
-     */
+   */
     @Valid
     @Size(max = 10)
     @Schema(name = "RegulatoryReporting", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
@@ -306,9 +308,8 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     /**
      * Get mandateRelatedInformation
-     *
      * @return mandateRelatedInformation
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "MandateRelatedInformation", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -328,9 +329,8 @@ public class OBWriteDomesticStandingOrder3DataInitiation {
 
     /**
      * Get supplementaryData
-     *
      * @return supplementaryData
-     */
+   */
     @Valid
     @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")

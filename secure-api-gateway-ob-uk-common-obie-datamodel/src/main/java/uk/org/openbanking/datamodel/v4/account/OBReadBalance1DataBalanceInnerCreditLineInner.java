@@ -15,15 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import uk.org.openbanking.datamodel.v4.account.OBReadBalance1DataBalanceInnerCreditLineInnerAmount;
+import uk.org.openbanking.datamodel.v4.account.OBReadBalance1DataBalanceInnerCreditLineInnerType;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Set of elements used to provide details on the credit line.
@@ -58,9 +65,8 @@ public class OBReadBalance1DataBalanceInnerCreditLineInner {
 
     /**
      * Indicates whether or not the credit line is included in the balance of the account. Usage: If not present, credit line is not included in the balance amount of the account.
-     *
      * @return included
-     */
+   */
     @NotNull
     @Schema(name = "Included", description = "Indicates whether or not the credit line is included in the balance of the account. Usage: If not present, credit line is not included in the balance amount of the account.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Included")
@@ -79,9 +85,8 @@ public class OBReadBalance1DataBalanceInnerCreditLineInner {
 
     /**
      * Get type
-     *
      * @return type
-     */
+   */
     @Valid
     @Schema(name = "Type", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Type")
@@ -100,9 +105,8 @@ public class OBReadBalance1DataBalanceInnerCreditLineInner {
 
     /**
      * Get amount
-     *
      * @return amount
-     */
+   */
     @Valid
     @Schema(name = "Amount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Amount")
