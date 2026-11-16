@@ -33,7 +33,7 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBFrequency6 {
 
-    private OBFrequency6Code type;
+    private OBFrequency6Type type;
 
     private Integer countPerPeriod;
 
@@ -46,11 +46,11 @@ public class OBFrequency6 {
     /**
      * Constructor with only required parameters
      */
-    public OBFrequency6(OBFrequency6Code type) {
+    public OBFrequency6(OBFrequency6Type type) {
         this.type = type;
     }
 
-    public OBFrequency6 type(OBFrequency6Code type) {
+    public OBFrequency6 type(OBFrequency6Type type) {
         this.type = type;
         return this;
     }
@@ -64,11 +64,11 @@ public class OBFrequency6 {
     @Valid
     @Schema(name = "Type", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
-    public OBFrequency6Code getType() {
+    public OBFrequency6Type getType() {
         return type;
     }
 
-    public void setType(OBFrequency6Code type) {
+    public void setType(OBFrequency6Type type) {
         this.type = type;
     }
 

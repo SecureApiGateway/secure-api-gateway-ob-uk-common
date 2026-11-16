@@ -35,7 +35,7 @@ import jakarta.validation.constraints.NotNull;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteDomesticConsentDataAuthorisation {
 
-    private OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType;
+    private OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType authorisationType;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime completionDateTime;
@@ -47,11 +47,11 @@ public class OBWriteDomesticConsentDataAuthorisation {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticConsentDataAuthorisation(OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType) {
+    public OBWriteDomesticConsentDataAuthorisation(OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType authorisationType) {
         this.authorisationType = authorisationType;
     }
 
-    public OBWriteDomesticConsentDataAuthorisation authorisationType(OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType) {
+    public OBWriteDomesticConsentDataAuthorisation authorisationType(OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType authorisationType) {
         this.authorisationType = authorisationType;
         return this;
     }
@@ -65,11 +65,11 @@ public class OBWriteDomesticConsentDataAuthorisation {
     @Valid
     @Schema(name = "AuthorisationType", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("AuthorisationType")
-    public OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType getAuthorisationType() {
+    public OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType getAuthorisationType() {
         return authorisationType;
     }
 
-    public void setAuthorisationType(OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType authorisationType) {
+    public void setAuthorisationType(OBWriteDomesticStandingOrderConsentResponse6DataAuthorisationAuthorisationType authorisationType) {
         this.authorisationType = authorisationType;
     }
 
