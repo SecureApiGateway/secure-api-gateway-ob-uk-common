@@ -139,29 +139,40 @@ into the matching source package. The templates in `src/main/resources/openapi-t
 
 The committed classes intentionally differ from raw generator output. After a regen, the
 following must be applied (or verified) before the tree matches the committed baseline.
-Steps 1–3 are mechanical and scripted-able; steps 4–7 are deliberate curation decisions
+Steps 1–6 are mechanical and scripted-able; steps 7–10 are deliberate curation decisions
 carried forward from the original v4 generation (provenance: branch `ob-v4`, Jul–Nov 2024).
 
 1. **License headers** — added automatically by the build (`license:format` at process-sources).
 2. **Whitespace-only lines** — the 7.2.0 enum templates emit space-only lines between enum
    constants; strip lines that contain only spaces.
-3. **`OBSupplementaryData1` initialiser** — replace
+3. **Getter javadoc layout** — the generator emits `* @return` immediately after the
+   description and a misaligned `*/` closer. The committed style is a blank ` *` line before
+   `* @return` and the closer aligned with the opener (`     */`). No stock openapi-generator
+   template produces this — it is a project-wide convention (v3 and v4).
+4. **Annotation layout** — the generator joins field annotations onto one line
+   (`@NotNull @Valid @Size(min = 1)`); the committed style is one annotation per line.
+5. **Import layout** — the generator emits redundant same-package imports, wildcard imports
+   (`jakarta.validation.constraints.*`, `java.util.*`), and a single ungrouped block. The
+   committed style (IntelliJ Optimize Imports): no same-package imports, explicit per-class
+   imports (no wildcards), four blank-line-separated groups — `java.*`, then third-party
+   (joda/spring, jackson), then swagger/jakarta — alphabetical within each group.
+6. **`OBSupplementaryData1` initialiser** — replace
    `private OBSupplementaryData1 supplementaryData = new HashMap<>();`
    with `private OBSupplementaryData1 supplementaryData;` (raw output does not compile).
-4. **`OBWritePaymentDetails1` (and `OBWritePaymentDetailsResponse1` family)** — the generator
+7. **`OBWritePaymentDetails1` (and `OBWritePaymentDetailsResponse1` family)** — the generator
    nests the inline `PaymentStatus` object (`OBWritePaymentDetails1PaymentStatus paymentStatus`);
    the committed tree promotes its properties onto the parent (`paymentTransactionId`, `status`,
    `statusUpdateDateTime`, `statusDetail`) and extracts inline enums to top-level classes.
    Keep the promoted shape; the nested class output is an orphan and must not be copied.
-5. **x-namespaced-enum codesets** — some codesets (e.g. `OBInternalAccountIdentification4Code`)
+8. **x-namespaced-enum codesets** — some codesets (e.g. `OBInternalAccountIdentification4Code`)
    are `x-namespaced-enum` in the newer spec revisions, which the generator ignores and
    resolves as plain `String`. This matches the committed tree — do not "fix" these to enums.
-6. **Shared-type resolution** — the generator resolves shared `$ref`s to common classes (e.g.
+9. **Shared-type resolution** — the generator resolves shared `$ref`s to common classes (e.g.
    `OBWriteDomesticResponse5DataMultiAuthorisation`) where the committed tree has per-site
    duplicates, and may emit new classes (`OBBranchAndFinancialInstitutionIdentification60`).
    Either accept the new names (one-time rename, update FR converters accordingly) or pin the
    old names via `inlineSchemaNameMappings` in the pom.
-7. **Upstream spec bug corrections** — where OB's spec is wrong, the committed code may
+10. **Upstream spec bug corrections** — where OB's spec is wrong, the committed code may
    deliberately diverge (e.g. `OBTransactionCashBalance.type` uses `OBBalanceType1Code` where
    the spec erroneously refs `OBInternalAccountIdentification4Code`). Check the diff for
    such fields before assuming the regen is correct.
