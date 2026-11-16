@@ -139,8 +139,9 @@ into the matching source package. The templates in `src/main/resources/openapi-t
 
 The committed classes intentionally differ from raw generator output. After a regen, the
 following must be applied (or verified) before the tree matches the committed baseline.
-Steps 1–6 are mechanical and scripted-able; steps 7–10 are deliberate curation decisions
-carried forward from the original v4 generation (provenance: branch `ob-v4`, Jul–Nov 2024).
+Steps 1–6 and 9–10 are mechanical and scripted-able; steps 7, 8, 11 and 12 are deliberate
+curation decisions carried forward from the original v4 generation (provenance: branch
+`ob-v4`, Jul–Nov 2024).
 
 1. **License headers** — added automatically by the build (`license:format` at process-sources).
 2. **Whitespace-only lines** — the 7.2.0 enum templates emit space-only lines between enum
@@ -167,12 +168,25 @@ carried forward from the original v4 generation (provenance: branch `ob-v4`, Jul
 8. **x-namespaced-enum codesets** — some codesets (e.g. `OBInternalAccountIdentification4Code`)
    are `x-namespaced-enum` in the newer spec revisions, which the generator ignores and
    resolves as plain `String`. This matches the committed tree — do not "fix" these to enums.
-9. **Shared-type resolution** — the generator resolves shared `$ref`s to common classes (e.g.
-   `OBWriteDomesticResponse5DataMultiAuthorisation`) where the committed tree has per-site
-   duplicates, and may emit new classes (`OBBranchAndFinancialInstitutionIdentification60`).
-   Either accept the new names (one-time rename, update FR converters accordingly) or pin the
-   old names via `inlineSchemaNameMappings` in the pom.
-10. **Upstream spec bug corrections** — where OB's spec is wrong, the committed code may
+9. **BigDecimal `equals` (`isEqual`)** — the generator emits `Objects.equals` for BigDecimal
+   fields, which compares scale. The committed tree rewrites those comparisons to
+   `EqualityVerificationUtil.BigDecimalUtil.isEqual` and adds the static import (see the
+   step 8.2/8.3 instructions above for the manual recipe; currently six v4 classes:
+   `OBCurrencyExchange5`, `OBStatement2StatementFeeInner`, `OBStatement2StatementInterestInner`,
+   `OBWriteFile2DataInitiation`, `OBWriteInternational3DataInitiationExchangeRateInformation`,
+   `OBWriteInternationalConsentResponse6DataExchangeRateInformation`).
+10. **VRP empty `SupplementaryData`** — the VRP specs define `SupplementaryData` as an empty
+    inline object, which the generator types as `Object`. The committed tree types it as
+    `OBSupplementaryData1` (wire-identical; both serialise as `{}`). Apply in
+    `OBDomesticVRPControlParameters` and `OBDomesticVRPInstruction`.
+11. **Shared-type resolution** — the generator resolves shared `$ref`s to common classes (e.g.
+    `OBWriteDomesticResponse5DataMultiAuthorisation`) where the committed tree has per-site
+    duplicates, and may emit new classes (`OBBranchAndFinancialInstitutionIdentification60`).
+    Either accept the new names (one-time rename, update FR converters accordingly) or pin the
+    old names via `inlineSchemaNameMappings` in the pom. Known mapping gaps in the current pom
+    (add these to restore committed names): `OBWriteInternationalConsent5_Data_Initiation_Creditor`
+    → `OBWriteInternational3DataInitiationCreditor`.
+12. **Upstream spec bug corrections** — where OB's spec is wrong, the committed code may
    deliberately diverge (e.g. `OBTransactionCashBalance.type` uses `OBBalanceType1Code` where
    the spec erroneously refs `OBInternalAccountIdentification4Code`). Check the diff for
    such fields before assuming the regen is correct.
