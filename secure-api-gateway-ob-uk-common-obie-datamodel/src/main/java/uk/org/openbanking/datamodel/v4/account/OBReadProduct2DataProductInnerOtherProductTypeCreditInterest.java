@@ -15,18 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInner;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Details about the interest that may be payable to the Account holders
@@ -66,12 +71,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterest {
 
     /**
      * Get tierBandSet
-     *
      * @return tierBandSet
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
+   */
+    @NotNull @Valid @Size(min = 1)
     @Schema(name = "TierBandSet", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("TierBandSet")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInner> getTierBandSet() {

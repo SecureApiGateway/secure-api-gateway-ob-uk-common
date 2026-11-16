@@ -15,17 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import uk.org.openbanking.datamodel.v4.common.Links;
 import uk.org.openbanking.datamodel.v4.common.Meta;
 import uk.org.openbanking.datamodel.v4.common.OBRisk1;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPResponseData;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBDomesticVRPResponse
@@ -63,9 +68,8 @@ public class OBDomesticVRPResponse {
 
     /**
      * Get data
-     *
      * @return data
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -85,9 +89,8 @@ public class OBDomesticVRPResponse {
 
     /**
      * Get risk
-     *
      * @return risk
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Risk", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -107,9 +110,8 @@ public class OBDomesticVRPResponse {
 
     /**
      * Get links
-     *
      * @return links
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Links", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -129,9 +131,8 @@ public class OBDomesticVRPResponse {
 
     /**
      * Get meta
-     *
      * @return meta
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Meta", requiredMode = Schema.RequiredMode.REQUIRED)

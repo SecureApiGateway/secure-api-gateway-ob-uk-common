@@ -15,15 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticResponse5DataRefundAccount;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Unambiguous identification of the refund account to which a refund will be made as a result of the transaction.
@@ -54,9 +59,8 @@ public class OBWriteDomesticResponse5DataRefund {
 
     /**
      * Get account
-     *
      * @return account
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Account", requiredMode = Schema.RequiredMode.REQUIRED)

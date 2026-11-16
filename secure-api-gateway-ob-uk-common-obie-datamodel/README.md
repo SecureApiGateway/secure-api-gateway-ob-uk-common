@@ -106,6 +106,93 @@ When a new version of OB API is released, the following steps should be performe
    swagger spec (and repeat for each new swagger YAML file).
 10. Commit and raise PR.
 
+### Which spec revision to regenerate from
+
+OB publishes rolling updates to a released spec version as `v4.0 Update N` branches
+(imported here as `specification/4.0.0/*-4rN.yaml`). The suffixed files are byte-identical
+copies of OB's published merges; the unsuffixed (canonical) files are the original release cut.
+**Always regenerate from the highest-numbered revision present** (e.g. `-4r4` for 4.0.0) — the
+committed classes track the latest revision, and regenerating from an older cut introduces
+spurious field differences (e.g. `NumberOfPayments` was absent in the base 4.0.0 dist,
+restored in 4r2+, and the classes follow the later cut).
+
+For 4.0.0, revision 4 (`-4r4`) is the final OB published cut of that version; later OB work
+became the 4.0.1 programme.
+
+### Regeneration command line
+
+The `code-gen` profile reads the spec and target package from Maven properties, so a regen
+pass does not require pom edits:
+
+```
+mvn clean generate-sources -Pcode-gen \
+  -Dregen.inputSpec=$PWD/src/main/resources/specification/4.0.0/payment-initiation-openapi-4r4.yaml \
+  -Dregen.modelPackage=uk.org.openbanking.datamodel.v4.payment
+```
+
+Run one pass per spec, copying `target/generated-sources/swagger/src/main/java/uk/org/openbanking/datamodel/v4/<pkg>`
+into the matching source package. The templates in `src/main/resources/openapi-templates/`
+(4-space indentation, pinned to the openapi-generator version) are used automatically via
+`<templateDirectory>`.
+
+### Known post-generation steps (baseline vs regen diff)
+
+The committed classes intentionally differ from raw generator output. After a regen, the
+following must be applied (or verified) before the tree matches the committed baseline.
+Steps 1–6 and 9–10 are mechanical and scripted-able; steps 7, 8, 11 and 12 are deliberate
+curation decisions carried forward from the original v4 generation (provenance: branch
+`ob-v4`, Jul–Nov 2024).
+
+1. **License headers** — added automatically by the build (`license:format` at process-sources).
+2. **Whitespace-only lines** — the 7.2.0 enum templates emit space-only lines between enum
+   constants; strip lines that contain only spaces.
+3. **Getter javadoc layout** — the generator emits `* @return` immediately after the
+   description and a misaligned `*/` closer. The committed style is a blank ` *` line before
+   `* @return` and the closer aligned with the opener (`     */`). No stock openapi-generator
+   template produces this — it is a project-wide convention (v3 and v4).
+4. **Annotation layout** — the generator joins field annotations onto one line
+   (`@NotNull @Valid @Size(min = 1)`); the committed style is one annotation per line.
+5. **Import layout** — the generator emits redundant same-package imports, wildcard imports
+   (`jakarta.validation.constraints.*`, `java.util.*`), and a single ungrouped block. The
+   committed style (IntelliJ Optimize Imports): no same-package imports, explicit per-class
+   imports (no wildcards), four blank-line-separated groups — `java.*`, then third-party
+   (joda/spring, jackson), then swagger/jakarta — alphabetical within each group.
+6. **`OBSupplementaryData1` initialiser** — replace
+   `private OBSupplementaryData1 supplementaryData = new HashMap<>();`
+   with `private OBSupplementaryData1 supplementaryData;` (raw output does not compile).
+7. **`OBWritePaymentDetails1` (and `OBWritePaymentDetailsResponse1` family)** — the generator
+   nests the inline `PaymentStatus` object (`OBWritePaymentDetails1PaymentStatus paymentStatus`);
+   the committed tree promotes its properties onto the parent (`paymentTransactionId`, `status`,
+   `statusUpdateDateTime`, `statusDetail`) and extracts inline enums to top-level classes.
+   Keep the promoted shape; the nested class output is an orphan and must not be copied.
+8. **x-namespaced-enum codesets** — some codesets (e.g. `OBInternalAccountIdentification4Code`)
+   are `x-namespaced-enum` in the newer spec revisions, which the generator ignores and
+   resolves as plain `String`. This matches the committed tree — do not "fix" these to enums.
+9. **BigDecimal `equals` (`isEqual`)** — the generator emits `Objects.equals` for BigDecimal
+   fields, which compares scale. The committed tree rewrites those comparisons to
+   `EqualityVerificationUtil.BigDecimalUtil.isEqual` and adds the static import (see the
+   step 8.2/8.3 instructions above for the manual recipe; currently six v4 classes:
+   `OBCurrencyExchange5`, `OBStatement2StatementFeeInner`, `OBStatement2StatementInterestInner`,
+   `OBWriteFile2DataInitiation`, `OBWriteInternational3DataInitiationExchangeRateInformation`,
+   `OBWriteInternationalConsentResponse6DataExchangeRateInformation`).
+10. **VRP empty `SupplementaryData`** — the VRP specs define `SupplementaryData` as an empty
+    inline object, which the generator types as `Object`. The committed tree types it as
+    `OBSupplementaryData1` (wire-identical; both serialise as `{}`). Apply in
+    `OBDomesticVRPControlParameters` and `OBDomesticVRPInstruction`.
+11. **Shared-type resolution** — the generator resolves shared `$ref`s to common classes (e.g.
+    `OBWriteDomesticResponse5DataMultiAuthorisation`) where the committed tree has per-site
+    duplicates, and may emit new classes (`OBBranchAndFinancialInstitutionIdentification60`).
+    Either accept the new names (one-time rename, update FR converters accordingly) or pin the
+    old names via `inlineSchemaNameMappings` in the pom. Known mapping gaps in the current pom
+    (add these to restore committed names): `OBWriteInternationalConsent5_Data_Initiation_Creditor`
+    → `OBWriteInternational3DataInitiationCreditor`.
+12. **Upstream spec bug corrections** — where OB's spec is wrong, the committed code may
+   deliberately diverge (e.g. `OBTransactionCashBalance.type` uses `OBBalanceType1Code` where
+   the spec erroneously refs `OBInternalAccountIdentification4Code`). Check the diff for
+   such fields before assuming the regen is correct.
+
+After applying: `mvn clean install` must pass, and a repeat regen must produce an empty diff.
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

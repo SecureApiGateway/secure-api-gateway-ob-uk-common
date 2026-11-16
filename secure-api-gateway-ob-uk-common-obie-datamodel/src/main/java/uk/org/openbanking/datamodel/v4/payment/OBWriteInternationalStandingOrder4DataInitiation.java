@@ -15,23 +15,35 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.v4.common.OBInternalChargeBearerType1Code;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
+import uk.org.openbanking.datamodel.v4.payment.OBMandateRelatedInformation1;
+import uk.org.openbanking.datamodel.v4.payment.OBRegulatoryReporting1;
+import uk.org.openbanking.datamodel.v4.payment.OBRemittanceInformation2;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationInstructedAmount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3DataInitiationDebtorAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalConsent5DataInitiationCreditor;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrder4DataInitiationCreditorAgent;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for an international standing order.
@@ -96,9 +108,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Get remittanceInformation
-     *
      * @return remittanceInformation
-     */
+   */
     @Valid
     @Schema(name = "RemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RemittanceInformation")
@@ -117,9 +128,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.
-     *
      * @return numberOfPayments
-     */
+   */
     @Size(min = 1, max = 35)
     @Schema(name = "NumberOfPayments", description = "Number of the payments that will be made in completing this frequency sequence including any executed since the sequence start date.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("NumberOfPayments")
@@ -138,9 +148,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Specifies the purpose of an international payment, when there is no corresponding 4 character code available in the ISO20022 list of Purpose Codes.
-     *
      * @return extendedPurpose
-     */
+   */
     @Size(min = 1, max = 140)
     @Schema(name = "ExtendedPurpose", description = "Specifies the purpose of an international payment, when there is no corresponding 4 character code available in the ISO20022 list of Purpose Codes.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExtendedPurpose")
@@ -159,9 +168,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Get chargeBearer
-     *
      * @return chargeBearer
-     */
+   */
     @Valid
     @Schema(name = "ChargeBearer", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ChargeBearer")
@@ -180,9 +188,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Specifies the currency of the to be transferred amount, which is different from the currency of the debtor's account.
-     *
      * @return currencyOfTransfer
-     */
+   */
     @NotNull
     @Pattern(regexp = "^[A-Z]{3,3}$")
     @Schema(name = "CurrencyOfTransfer", description = "Specifies the currency of the to be transferred amount, which is different from the currency of the debtor's account.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -202,9 +209,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Country in which Credit Account is domiciled. Code to identify a country, a dependency, or another area of particular geopolitical interest, on the basis of country names obtained from the United Nations (ISO 3166, Alpha-2 code).
-     *
      * @return destinationCountryCode
-     */
+   */
     @Pattern(regexp = "[A-Z]{2,2}")
     @Schema(name = "DestinationCountryCode", description = "Country in which Credit Account is domiciled. Code to identify a country, a dependency, or another area of particular geopolitical interest, on the basis of country names obtained from the United Nations (ISO 3166, Alpha-2 code).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DestinationCountryCode")
@@ -223,9 +229,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Get instructedAmount
-     *
      * @return instructedAmount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "InstructedAmount", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -245,9 +250,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Get debtorAccount
-     *
      * @return debtorAccount
-     */
+   */
     @Valid
     @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DebtorAccount")
@@ -266,9 +270,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Get creditor
-     *
      * @return creditor
-     */
+   */
     @Valid
     @Schema(name = "Creditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Creditor")
@@ -287,9 +290,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Get creditorAgent
-     *
      * @return creditorAgent
-     */
+   */
     @Valid
     @Schema(name = "CreditorAgent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorAgent")
@@ -308,9 +310,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Get creditorAccount
-     *
      * @return creditorAccount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "CreditorAccount", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -330,9 +331,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Get ultimateCreditor
-     *
      * @return ultimateCreditor
-     */
+   */
     @Valid
     @Schema(name = "UltimateCreditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateCreditor")
@@ -351,9 +351,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Get ultimateDebtor
-     *
      * @return ultimateDebtor
-     */
+   */
     @Valid
     @Schema(name = "UltimateDebtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateDebtor")
@@ -380,9 +379,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Get regulatoryReporting
-     *
      * @return regulatoryReporting
-     */
+   */
     @Valid
     @Size(max = 10)
     @Schema(name = "RegulatoryReporting", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
@@ -402,9 +400,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Get mandateRelatedInformation
-     *
      * @return mandateRelatedInformation
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "MandateRelatedInformation", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -424,9 +421,8 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     /**
      * Get supplementaryData
-     *
      * @return supplementaryData
-     */
+   */
     @Valid
     @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")

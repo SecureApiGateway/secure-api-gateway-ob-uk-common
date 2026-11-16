@@ -15,16 +15,21 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1StatusDetailStatus;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Payment status details as per underlying Payment Rail.
@@ -61,9 +66,8 @@ public class OBWritePaymentDetails1StatusDetail {
 
     /**
      * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return localInstrument
-     */
+   */
 
     @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LocalInstrument")
@@ -82,9 +86,8 @@ public class OBWritePaymentDetails1StatusDetail {
 
     /**
      * Get status
-     *
      * @return status
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -104,9 +107,8 @@ public class OBWritePaymentDetails1StatusDetail {
 
     /**
      * Reason Code provided for the status of a transfer. For a full list of values see code values for `OBExternalStatusReason1Code` in *ISO_External_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return statusReason
-     */
+   */
     @Size(min = 1, max = 4)
     @Schema(name = "StatusReason", description = "Reason Code provided for the status of a transfer. For a full list of values see code values for `OBExternalStatusReason1Code` in *ISO_External_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusReason")
@@ -125,9 +127,8 @@ public class OBWritePaymentDetails1StatusDetail {
 
     /**
      * Reason provided for the status of a transfer. For a full list of values see the code name entries for `OBExternalStatusReason1Code` in *ISO_External_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets).
-     *
      * @return statusReasonDescription
-     */
+   */
     @Size(min = 1, max = 256)
     @Schema(name = "StatusReasonDescription", description = "Reason provided for the status of a transfer. For a full list of values see the code name entries for `OBExternalStatusReason1Code` in *ISO_External_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusReasonDescription")

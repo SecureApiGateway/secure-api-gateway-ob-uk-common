@@ -15,16 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 
 /**
  * Set of elements used to provide details of a generic rate related to the statement resource.
@@ -58,12 +61,9 @@ public class OBStatement2StatementRateInner {
 
     /**
      * Rate associated with the statement rate type.
-     *
      * @return rate
-     */
-    @NotNull
-    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
-    @Size(max = 40)
+   */
+    @NotNull @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$") @Size(max = 40)
     @Schema(name = "Rate", example = "0.224", description = "Rate associated with the statement rate type.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Rate")
     public String getRate() {
@@ -81,9 +81,8 @@ public class OBStatement2StatementRateInner {
 
     /**
      * Statement rate type, in a coded form. For a full list of values see `OBInternalStatementRateType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return type
-     */
+   */
     @NotNull
     @Schema(name = "Type", example = "UK.OBIE.AnnualCash", description = "Statement rate type, in a coded form. For a full list of values see `OBInternalStatementRateType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")

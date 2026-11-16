@@ -15,15 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticResponse5DataRefundAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalResponse5DataRefundAgent;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalResponse5DataRefundCreditor;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBWriteInternationalScheduledResponse6DataRefund
@@ -57,9 +64,8 @@ public class OBWriteInternationalScheduledResponse6DataRefund {
 
     /**
      * Get creditor
-     *
      * @return creditor
-     */
+   */
     @Valid
     @Schema(name = "Creditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Creditor")
@@ -78,9 +84,8 @@ public class OBWriteInternationalScheduledResponse6DataRefund {
 
     /**
      * Get agent
-     *
      * @return agent
-     */
+   */
     @Valid
     @Schema(name = "Agent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Agent")
@@ -99,9 +104,8 @@ public class OBWriteInternationalScheduledResponse6DataRefund {
 
     /**
      * Get account
-     *
      * @return account
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Account", requiredMode = Schema.RequiredMode.REQUIRED)

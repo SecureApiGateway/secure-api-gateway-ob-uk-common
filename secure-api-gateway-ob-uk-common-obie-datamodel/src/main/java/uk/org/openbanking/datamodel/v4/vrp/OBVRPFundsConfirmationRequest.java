@@ -15,14 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import uk.org.openbanking.datamodel.v4.vrp.OBVRPFundsConfirmationRequestData;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The OBVRPFundsConfirmationRequest object must be used to request funds availability for a specific amount in the Debtor Account included in the VRP consents.
@@ -52,9 +57,8 @@ public class OBVRPFundsConfirmationRequest {
 
     /**
      * Get data
-     *
      * @return data
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)

@@ -15,16 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPInitiation;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPInstruction;
+import uk.org.openbanking.datamodel.v4.vrp.OBVRPInteractionTypes;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBDomesticVRPRequestData
@@ -68,9 +74,8 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Identifier for the Domestic VRP Consent that this payment is made under.
-     *
      * @return consentId
-     */
+   */
     @NotNull
     @Size(min = 1, max = 128)
     @Schema(name = "ConsentId", description = "Identifier for the Domestic VRP Consent that this payment is made under.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -90,9 +95,8 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get psUAuthenticationMethod
-     *
      * @return psUAuthenticationMethod
-     */
+   */
     @NotNull
     @Schema(name = "PSUAuthenticationMethod", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("PSUAuthenticationMethod")
@@ -111,9 +115,8 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get psUInteractionType
-     *
      * @return psUInteractionType
-     */
+   */
     @Valid
     @Schema(name = "PSUInteractionType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PSUInteractionType")
@@ -132,9 +135,8 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get vrPType
-     *
      * @return vrPType
-     */
+   */
     @NotNull
     @Schema(name = "VRPType", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("VRPType")
@@ -153,9 +155,8 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get initiation
-     *
      * @return initiation
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -175,9 +176,8 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get instruction
-     *
      * @return instruction
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Instruction", requiredMode = Schema.RequiredMode.REQUIRED)

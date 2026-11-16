@@ -15,16 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.fund;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmation1DataInstructedAmount;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBFundsConfirmation1Data
@@ -60,9 +64,8 @@ public class OBFundsConfirmation1Data {
 
     /**
      * Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.
-     *
      * @return consentId
-     */
+   */
     @NotNull
     @Size(min = 1, max = 128)
     @Schema(name = "ConsentId", description = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -82,9 +85,8 @@ public class OBFundsConfirmation1Data {
 
     /**
      * Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.
-     *
      * @return reference
-     */
+   */
     @NotNull
     @Size(min = 1, max = 35)
     @Schema(name = "Reference", description = "Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -104,9 +106,8 @@ public class OBFundsConfirmation1Data {
 
     /**
      * Get instructedAmount
-     *
      * @return instructedAmount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "InstructedAmount", requiredMode = Schema.RequiredMode.REQUIRED)

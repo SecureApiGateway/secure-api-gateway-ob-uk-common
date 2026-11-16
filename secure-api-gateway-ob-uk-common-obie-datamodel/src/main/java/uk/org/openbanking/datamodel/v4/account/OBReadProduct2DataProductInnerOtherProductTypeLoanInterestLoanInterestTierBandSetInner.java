@@ -15,18 +15,28 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OBInterestCalculationMethod1Code;
+import uk.org.openbanking.datamodel.v4.account.OBOtherCodeType10;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInner;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInner;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerTierBandMethod;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The group of tiers or bands for which debit interest can be applied.
@@ -44,7 +54,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInter
     private OBInterestCalculationMethod1Code calculationMethod;
 
     @Valid
-    private List<@Size(min = 1, max = 2000) String> notes;
+    private List<@Size(min = 1, max = 2000)String> notes;
 
     private OBOtherCodeType10 otherCalculationMethod;
 
@@ -74,9 +84,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInter
 
     /**
      * Get tierBandMethod
-     *
      * @return tierBandMethod
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "TierBandMethod", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -96,9 +105,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInter
 
     /**
      * Loan interest tierbandset identification. Used by  loan providers for internal use purpose.
-     *
      * @return identification
-     */
+   */
     @Size(min = 1, max = 35)
     @Schema(name = "Identification", description = "Loan interest tierbandset identification. Used by  loan providers for internal use purpose.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
@@ -117,9 +125,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInter
 
     /**
      * Get calculationMethod
-     *
      * @return calculationMethod
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "CalculationMethod", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -132,7 +139,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInter
         this.calculationMethod = calculationMethod;
     }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInner notes(List<@Size(min = 1, max = 2000) String> notes) {
+    public OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInner notes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
         return this;
     }
@@ -147,17 +154,16 @@ public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInter
 
     /**
      * Get notes
-     *
      * @return notes
-     */
+   */
 
     @Schema(name = "Notes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000) String> getNotes() {
+    public List<@Size(min = 1, max = 2000)String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
     }
 
@@ -168,9 +174,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInter
 
     /**
      * Get otherCalculationMethod
-     *
      * @return otherCalculationMethod
-     */
+   */
     @Valid
     @Schema(name = "OtherCalculationMethod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherCalculationMethod")
@@ -197,12 +202,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInter
 
     /**
      * Get loanInterestTierBand
-     *
      * @return loanInterestTierBand
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
+   */
+    @NotNull @Valid @Size(min = 1)
     @Schema(name = "LoanInterestTierBand", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("LoanInterestTierBand")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInner> getLoanInterestTierBand() {
@@ -228,9 +230,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInter
 
     /**
      * Get loanInterestFeesCharges
-     *
      * @return loanInterestFeesCharges
-     */
+   */
     @Valid
     @Schema(name = "LoanInterestFeesCharges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LoanInterestFeesCharges")

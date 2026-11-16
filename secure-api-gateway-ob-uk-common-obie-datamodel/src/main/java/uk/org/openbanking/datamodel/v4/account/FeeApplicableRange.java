@@ -15,13 +15,18 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.Pattern;
 
 /**
  * Range or amounts or rates for which the fee/charge applies
@@ -46,9 +51,8 @@ public class FeeApplicableRange {
 
     /**
      * Minimum Amount on which fee/charge is applicable (where it is expressed as an amount)
-     *
      * @return minimumAmount
-     */
+   */
     @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "MinimumAmount", description = "Minimum Amount on which fee/charge is applicable (where it is expressed as an amount)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MinimumAmount")
@@ -67,9 +71,8 @@ public class FeeApplicableRange {
 
     /**
      * Maximum Amount on which fee is applicable (where it is expressed as an amount)
-     *
      * @return maximumAmount
-     */
+   */
     @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "MaximumAmount", description = "Maximum Amount on which fee is applicable (where it is expressed as an amount)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MaximumAmount")
@@ -88,9 +91,8 @@ public class FeeApplicableRange {
 
     /**
      * Minimum rate on which fee/charge is applicable(where it is expressed as an rate)
-     *
      * @return minimumRate
-     */
+   */
     @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "MinimumRate", description = "Minimum rate on which fee/charge is applicable(where it is expressed as an rate)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MinimumRate")
@@ -109,9 +111,8 @@ public class FeeApplicableRange {
 
     /**
      * Maximum rate on which fee/charge is applicable(where it is expressed as an rate)
-     *
      * @return maximumRate
-     */
+   */
     @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "MaximumRate", description = "Maximum rate on which fee/charge is applicable(where it is expressed as an rate)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MaximumRate")

@@ -15,15 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 /**
  * Party that manages the account on behalf of the account owner, that is manages the registration and booking of entries on the account, calculates balances on the account and provides information about the account.
@@ -59,9 +63,8 @@ public class OBBranchAndFinancialInstitutionIdentification50 {
 
     /**
      * Name of the identification scheme, in a coded form as published in an external list.<br/> For a full list of enumeration values refer to `OBInternalFinancialInstitutionIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return schemeName
-     */
+   */
     @NotNull
     @Schema(name = "SchemeName", example = "UK.OBIE.BICFI", description = "Name of the identification scheme, in a coded form as published in an external list.<br/> For a full list of enumeration values refer to `OBInternalFinancialInstitutionIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("SchemeName")
@@ -80,9 +83,8 @@ public class OBBranchAndFinancialInstitutionIdentification50 {
 
     /**
      * Unique and unambiguous identification of the servicing institution.
-     *
      * @return identification
-     */
+   */
     @NotNull
     @Size(min = 1, max = 35)
     @Schema(name = "Identification", example = "80200112344562", description = "Unique and unambiguous identification of the servicing institution.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -102,9 +104,8 @@ public class OBBranchAndFinancialInstitutionIdentification50 {
 
     /**
      * Name by which an agent is known and which is usually used to identify that agent.
-     *
      * @return name
-     */
+   */
     @Size(min = 1, max = 140)
     @Schema(name = "Name", example = "Agent Name", description = "Name by which an agent is known and which is usually used to identify that agent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")

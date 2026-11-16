@@ -15,14 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import uk.org.openbanking.datamodel.v4.account.OBBalanceType1Code;
+import uk.org.openbanking.datamodel.v4.account.OBCreditDebitCode2;
+import uk.org.openbanking.datamodel.v4.account.OBTransactionCashBalanceAmount;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Set of elements used to define the balance as a numerical representation of the net increases and decreases in an account after a transaction entry is applied to the account.
@@ -58,9 +66,8 @@ public class OBTransactionCashBalance {
 
     /**
      * Get creditDebitIndicator
-     *
      * @return creditDebitIndicator
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "CreditDebitIndicator", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -80,9 +87,8 @@ public class OBTransactionCashBalance {
 
     /**
      * Get type
-     *
      * @return type
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Type", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -102,9 +108,8 @@ public class OBTransactionCashBalance {
 
     /**
      * Get amount
-     *
      * @return amount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)

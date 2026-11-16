@@ -15,24 +15,32 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
+import uk.org.openbanking.datamodel.v4.payment.OBRegulatoryReporting1;
+import uk.org.openbanking.datamodel.v4.payment.OBRemittanceInformation2;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationCreditorAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationDebtorAccount;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationInstructedAmount;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a single scheduled domestic payment.
@@ -91,9 +99,8 @@ public class OBWriteDomesticScheduled2DataInitiation {
 
     /**
      * Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction. Usage: the  instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.
-     *
      * @return instructionIdentification
-     */
+   */
     @NotNull
     @Size(min = 1, max = 35)
     @Schema(name = "InstructionIdentification", description = "Unique identification as assigned by an instructing party for an instructed party to unambiguously identify the instruction. Usage: the  instruction identification is a point to point reference that can be used between the instructing party and the instructed party to refer to the individual instruction. It can be included in several messages related to the instruction.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -113,9 +120,8 @@ public class OBWriteDomesticScheduled2DataInitiation {
 
     /**
      * Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain. Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction. OB: The Faster Payments Scheme can only access 31 characters for the EndToEndIdentification field.
-     *
      * @return endToEndIdentification
-     */
+   */
     @Size(min = 1, max = 35)
     @Schema(name = "EndToEndIdentification", description = "Unique identification assigned by the initiating party to unambiguously identify the transaction. This identification is passed on, unchanged, throughout the entire end-to-end chain. Usage: The end-to-end identification can be used for reconciliation or to link tasks relating to the transaction. It can be included in several messages related to the transaction. OB: The Faster Payments Scheme can only access 31 characters for the EndToEndIdentification field.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("EndToEndIdentification")
@@ -134,9 +140,8 @@ public class OBWriteDomesticScheduled2DataInitiation {
 
     /**
      * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return localInstrument
-     */
+   */
 
     @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LocalInstrument")
@@ -155,9 +160,8 @@ public class OBWriteDomesticScheduled2DataInitiation {
 
     /**
      * Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return requestedExecutionDateTime
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "RequestedExecutionDateTime", description = "Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -177,9 +181,8 @@ public class OBWriteDomesticScheduled2DataInitiation {
 
     /**
      * Get instructedAmount
-     *
      * @return instructedAmount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "InstructedAmount", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -199,9 +202,8 @@ public class OBWriteDomesticScheduled2DataInitiation {
 
     /**
      * Get debtorAccount
-     *
      * @return debtorAccount
-     */
+   */
     @Valid
     @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DebtorAccount")
@@ -220,9 +222,8 @@ public class OBWriteDomesticScheduled2DataInitiation {
 
     /**
      * Get creditorAccount
-     *
      * @return creditorAccount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "CreditorAccount", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -242,9 +243,8 @@ public class OBWriteDomesticScheduled2DataInitiation {
 
     /**
      * Get creditorPostalAddress
-     *
      * @return creditorPostalAddress
-     */
+   */
     @Valid
     @Schema(name = "CreditorPostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorPostalAddress")
@@ -263,9 +263,8 @@ public class OBWriteDomesticScheduled2DataInitiation {
 
     /**
      * Get ultimateCreditor
-     *
      * @return ultimateCreditor
-     */
+   */
     @Valid
     @Schema(name = "UltimateCreditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateCreditor")
@@ -284,9 +283,8 @@ public class OBWriteDomesticScheduled2DataInitiation {
 
     /**
      * Get ultimateDebtor
-     *
      * @return ultimateDebtor
-     */
+   */
     @Valid
     @Schema(name = "UltimateDebtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateDebtor")
@@ -313,9 +311,8 @@ public class OBWriteDomesticScheduled2DataInitiation {
 
     /**
      * Get regulatoryReporting
-     *
      * @return regulatoryReporting
-     */
+   */
     @Valid
     @Size(max = 10)
     @Schema(name = "RegulatoryReporting", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
@@ -335,9 +332,8 @@ public class OBWriteDomesticScheduled2DataInitiation {
 
     /**
      * Get remittanceInformation
-     *
      * @return remittanceInformation
-     */
+   */
     @Valid
     @Schema(name = "RemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RemittanceInformation")
@@ -356,9 +352,8 @@ public class OBWriteDomesticScheduled2DataInitiation {
 
     /**
      * Get supplementaryData
-     *
      * @return supplementaryData
-     */
+   */
     @Valid
     @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")

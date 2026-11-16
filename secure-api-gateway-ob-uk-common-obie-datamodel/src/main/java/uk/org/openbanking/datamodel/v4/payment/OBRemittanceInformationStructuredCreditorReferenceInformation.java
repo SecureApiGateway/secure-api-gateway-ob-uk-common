@@ -15,16 +15,21 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonValue;
 import uk.org.openbanking.datamodel.v4.common.ExternalCreditorReferenceType1Code;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Reference information provided by the creditor to allow the identification of the underlying documents.
@@ -48,9 +53,8 @@ public class OBRemittanceInformationStructuredCreditorReferenceInformation {
 
     /**
      * Get code
-     *
      * @return code
-     */
+   */
     @Valid
     @Schema(name = "Code", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Code")
@@ -69,9 +73,8 @@ public class OBRemittanceInformationStructuredCreditorReferenceInformation {
 
     /**
      * Entity that assigns the identification.
-     *
      * @return issuer
-     */
+   */
     @Size(min = 1, max = 35)
     @Schema(name = "Issuer", description = "Entity that assigns the identification.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Issuer")
@@ -90,9 +93,8 @@ public class OBRemittanceInformationStructuredCreditorReferenceInformation {
 
     /**
      * Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction.
-     *
      * @return reference
-     */
+   */
     @Size(min = 1, max = 35)
     @Schema(name = "Reference", description = "Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Reference")

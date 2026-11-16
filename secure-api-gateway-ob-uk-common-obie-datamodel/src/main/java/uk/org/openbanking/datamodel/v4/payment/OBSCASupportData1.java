@@ -15,14 +15,21 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import uk.org.openbanking.datamodel.v4.payment.OBSCASupportData1AppliedAuthenticationApproach;
+import uk.org.openbanking.datamodel.v4.payment.OBSCASupportData1RequestedSCAExemptionType;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Supporting Data provided by TPP, when requesting SCA Exemption.
@@ -45,9 +52,8 @@ public class OBSCASupportData1 {
 
     /**
      * Get requestedSCAExemptionType
-     *
      * @return requestedSCAExemptionType
-     */
+   */
     @Valid
     @Schema(name = "RequestedSCAExemptionType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RequestedSCAExemptionType")
@@ -66,9 +72,8 @@ public class OBSCASupportData1 {
 
     /**
      * Get appliedAuthenticationApproach
-     *
      * @return appliedAuthenticationApproach
-     */
+   */
     @Valid
     @Schema(name = "AppliedAuthenticationApproach", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AppliedAuthenticationApproach")
@@ -87,9 +92,8 @@ public class OBSCASupportData1 {
 
     /**
      * If the payment is recurring, then this field is populated with the transaction identifier of the previous payment occurrence so that the ASPSP can verify that the PISP, amount and the payee are the same as the previous occurrence. The value here refers to the payment id e.g. DomesticPaymentId
-     *
      * @return referencePaymentOrderId
-     */
+   */
     @Size(min = 1, max = 40)
     @Schema(name = "ReferencePaymentOrderId", description = "If the payment is recurring, then this field is populated with the transaction identifier of the previous payment occurrence so that the ASPSP can verify that the PISP, amount and the payee are the same as the previous occurrence. The value here refers to the payment id e.g. DomesticPaymentId  ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReferencePaymentOrderId")

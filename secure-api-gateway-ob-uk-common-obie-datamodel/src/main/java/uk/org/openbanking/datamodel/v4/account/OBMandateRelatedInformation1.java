@@ -15,19 +15,24 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.account.OBExternalMandateClassification1Code;
+import uk.org.openbanking.datamodel.v4.account.OBFrequency6;
 import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Provides further details of the mandate signed between the creditor and the debtor.
@@ -74,9 +79,8 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
-     *
      * @return mandateIdentification
-     */
+   */
     @Size(min = 1, max = 35)
     @Schema(name = "MandateIdentification", example = "Golfers", description = "Unique identification, as assigned by the creditor, to unambiguously identify the mandate.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MandateIdentification")
@@ -95,9 +99,8 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * Get classification
-     *
      * @return classification
-     */
+   */
     @Valid
     @Schema(name = "Classification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Classification")
@@ -116,9 +119,8 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * Get categoryPurposeCode
-     *
      * @return categoryPurposeCode
-     */
+   */
     @Valid
     @Schema(name = "CategoryPurposeCode", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CategoryPurposeCode")
@@ -137,9 +139,8 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * The date on which the first payment for a recurrent credit transfer will be made.
-     *
      * @return firstPaymentDateTime
-     */
+   */
     @Valid
     @Schema(name = "FirstPaymentDateTime", example = "2024-04-25T12:46:49.425Z", description = "The date on which the first payment for a recurrent credit transfer will be made.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FirstPaymentDateTime")
@@ -158,9 +159,8 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * The date on which the first recurring payment for a Standing Order schedule will be made.  Usage: This must be populated only if the first recurring date is different to the first payment date. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return recurringPaymentDateTime
-     */
+   */
     @Valid
     @Schema(name = "RecurringPaymentDateTime", example = "2024-04-25T12:46:49.425Z", description = "The date on which the first recurring payment for a Standing Order schedule will be made.  Usage: This must be populated only if the first recurring date is different to the first payment date. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RecurringPaymentDateTime")
@@ -179,9 +179,8 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * The date on which the final payment for a recurrent credit transfer will be made.
-     *
      * @return finalPaymentDateTime
-     */
+   */
     @Valid
     @Schema(name = "FinalPaymentDateTime", example = "2024-04-25T12:46:49.425Z", description = "The date on which the final payment for a recurrent credit transfer will be made.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FinalPaymentDateTime")
@@ -200,9 +199,8 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * Get frequency
-     *
      * @return frequency
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "Frequency", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -222,9 +220,8 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * Reason for the setup of the credit transfer mandate.
-     *
      * @return reason
-     */
+   */
     @Size(min = 1, max = 256)
     @Schema(name = "Reason", example = "To pay monthly memebership", description = "Reason for the setup of the credit transfer mandate.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Reason")

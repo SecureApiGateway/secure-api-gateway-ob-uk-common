@@ -15,19 +15,35 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OBFeeCategory1Code;
+import uk.org.openbanking.datamodel.v4.account.OBFeeFrequency1Code2;
+import uk.org.openbanking.datamodel.v4.account.OBFeeFrequency1Code3;
+import uk.org.openbanking.datamodel.v4.account.OBFeeType1Code;
+import uk.org.openbanking.datamodel.v4.account.OBInterestRateType1Code1;
+import uk.org.openbanking.datamodel.v4.account.OBOtherCodeType10;
+import uk.org.openbanking.datamodel.v4.account.OBOtherCodeType16;
+import uk.org.openbanking.datamodel.v4.account.OBOtherCodeType17;
+import uk.org.openbanking.datamodel.v4.account.OBOtherCodeType18;
+import uk.org.openbanking.datamodel.v4.account.OBOtherFeeChargeDetailType;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerFeeChargeDetailInnerFeeApplicableRange;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerFeeChargeDetailInnerFeeChargeCapInner;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Other fees/charges details
@@ -55,7 +71,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
     private OBFeeFrequency1Code3 calculationFrequency;
 
     @Valid
-    private List<@Size(min = 1, max = 2000) String> notes;
+    private List<@Size(min = 1, max = 2000)String> notes;
 
     @Valid
     private List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerFeeChargeDetailInnerFeeChargeCapInner> feeChargeCap;
@@ -92,9 +108,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get feeCategory
-     *
      * @return feeCategory
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "FeeCategory", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -114,9 +129,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get feeType
-     *
      * @return feeType
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "FeeType", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -136,9 +150,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Fee/charge which is usually negotiable rather than a fixed amount
-     *
      * @return negotiableIndicator
-     */
+   */
 
     @Schema(name = "NegotiableIndicator", description = "Fee/charge which is usually negotiable rather than a fixed amount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("NegotiableIndicator")
@@ -157,9 +170,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Fee Amount charged for a fee/charge (where it is charged in terms of an amount rather than a rate)
-     *
      * @return feeAmount
-     */
+   */
     @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "FeeAmount", description = "Fee Amount charged for a fee/charge (where it is charged in terms of an amount rather than a rate)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeAmount")
@@ -178,9 +190,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Rate charged for Fee/Charge (where it is charged in terms of a rate rather than an amount)
-     *
      * @return feeRate
-     */
+   */
     @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "FeeRate", description = "Rate charged for Fee/Charge (where it is charged in terms of a rate rather than an amount)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeRate")
@@ -199,9 +210,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get feeRateType
-     *
      * @return feeRateType
-     */
+   */
     @Valid
     @Schema(name = "FeeRateType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeRateType")
@@ -220,9 +230,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get applicationFrequency
-     *
      * @return applicationFrequency
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "ApplicationFrequency", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -242,9 +251,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get calculationFrequency
-     *
      * @return calculationFrequency
-     */
+   */
     @Valid
     @Schema(name = "CalculationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CalculationFrequency")
@@ -256,7 +264,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
         this.calculationFrequency = calculationFrequency;
     }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerFeeChargeDetailInner notes(List<@Size(min = 1, max = 2000) String> notes) {
+    public OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerFeeChargeDetailInner notes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
         return this;
     }
@@ -271,17 +279,16 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get notes
-     *
      * @return notes
-     */
+   */
 
     @Schema(name = "Notes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000) String> getNotes() {
+    public List<@Size(min = 1, max = 2000)String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
     }
 
@@ -300,9 +307,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get feeChargeCap
-     *
      * @return feeChargeCap
-     */
+   */
     @Valid
     @Schema(name = "FeeChargeCap", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeChargeCap")
@@ -321,9 +327,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get otherFeeCategoryType
-     *
      * @return otherFeeCategoryType
-     */
+   */
     @Valid
     @Schema(name = "OtherFeeCategoryType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeeCategoryType")
@@ -342,9 +347,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get otherFeeType
-     *
      * @return otherFeeType
-     */
+   */
     @Valid
     @Schema(name = "OtherFeeType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeeType")
@@ -363,9 +367,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get otherFeeRateType
-     *
      * @return otherFeeRateType
-     */
+   */
     @Valid
     @Schema(name = "OtherFeeRateType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeeRateType")
@@ -384,9 +387,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get otherApplicationFrequency
-     *
      * @return otherApplicationFrequency
-     */
+   */
     @Valid
     @Schema(name = "OtherApplicationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherApplicationFrequency")
@@ -405,9 +407,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get otherCalculationFrequency
-     *
      * @return otherCalculationFrequency
-     */
+   */
     @Valid
     @Schema(name = "OtherCalculationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherCalculationFrequency")
@@ -426,9 +427,8 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get feeApplicableRange
-     *
      * @return feeApplicableRange
-     */
+   */
     @Valid
     @Schema(name = "FeeApplicableRange", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeApplicableRange")

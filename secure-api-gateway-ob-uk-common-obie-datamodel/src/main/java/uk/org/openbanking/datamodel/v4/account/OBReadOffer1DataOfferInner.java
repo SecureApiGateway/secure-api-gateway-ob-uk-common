@@ -15,20 +15,25 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.account.OBReadOffer1DataOfferInnerAmount;
+import uk.org.openbanking.datamodel.v4.account.OBReadOffer1DataOfferInnerFee;
+import uk.org.openbanking.datamodel.v4.account.OBReadOffer1DataOfferInnerOfferType;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBReadOffer1DataOfferInner
@@ -82,9 +87,8 @@ public class OBReadOffer1DataOfferInner {
 
     /**
      * A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.
-     *
      * @return accountId
-     */
+   */
     @NotNull
     @Size(min = 1, max = 40)
     @Schema(name = "AccountId", example = "22289", description = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -104,9 +108,8 @@ public class OBReadOffer1DataOfferInner {
 
     /**
      * A unique and immutable identifier used to identify the offer resource. This identifier has no meaning to the account owner.
-     *
      * @return offerId
-     */
+   */
     @Size(min = 1, max = 40)
     @Schema(name = "OfferId", example = "Offer1", description = "A unique and immutable identifier used to identify the offer resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OfferId")
@@ -125,9 +128,8 @@ public class OBReadOffer1DataOfferInner {
 
     /**
      * Get offerType
-     *
      * @return offerType
-     */
+   */
     @Valid
     @Schema(name = "OfferType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OfferType")
@@ -146,9 +148,8 @@ public class OBReadOffer1DataOfferInner {
 
     /**
      * Further details of the offer.
-     *
      * @return description
-     */
+   */
     @Size(min = 1, max = 500)
     @Schema(name = "Description", example = "Credit limit increase for the account up to £10000.00", description = "Further details of the offer.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Description")
@@ -167,9 +168,8 @@ public class OBReadOffer1DataOfferInner {
 
     /**
      * Date and time at which the offer starts. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return startDateTime
-     */
+   */
     @Valid
     @Schema(name = "StartDateTime", example = "2024-05-29T00:00Z", description = "Date and time at which the offer starts. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StartDateTime")
@@ -188,9 +188,8 @@ public class OBReadOffer1DataOfferInner {
 
     /**
      * Date and time at which the offer ends. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return endDateTime
-     */
+   */
     @Valid
     @Schema(name = "EndDateTime", example = "2024-06-29T00:00Z", description = "Date and time at which the offer ends. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("EndDateTime")
@@ -209,9 +208,8 @@ public class OBReadOffer1DataOfferInner {
 
     /**
      * Rate associated with the offer type.
-     *
      * @return rate
-     */
+   */
     @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "Rate", example = "100.00", description = "Rate associated with the offer type.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Rate")
@@ -230,9 +228,8 @@ public class OBReadOffer1DataOfferInner {
 
     /**
      * Value associated with the offer type.
-     *
      * @return value
-     */
+   */
 
     @Schema(name = "Value", example = "10", description = "Value associated with the offer type.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Value")
@@ -251,9 +248,8 @@ public class OBReadOffer1DataOfferInner {
 
     /**
      * Further details of the term of the offer.
-     *
      * @return term
-     */
+   */
     @Size(min = 1, max = 500)
     @Schema(name = "Term", example = "Starting first of the month and ending at the end of year", description = "Further details of the term of the offer.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Term")
@@ -272,9 +268,8 @@ public class OBReadOffer1DataOfferInner {
 
     /**
      * URL (Uniform Resource Locator) where documentation on the offer can be found
-     *
      * @return URL
-     */
+   */
     @Size(min = 1, max = 256)
     @Schema(name = "URL", example = "http://modelbank.com/offer/offer1", description = "URL (Uniform Resource Locator) where documentation on the offer can be found", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("URL")
@@ -293,9 +288,8 @@ public class OBReadOffer1DataOfferInner {
 
     /**
      * Get amount
-     *
      * @return amount
-     */
+   */
     @Valid
     @Schema(name = "Amount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Amount")
@@ -314,9 +308,8 @@ public class OBReadOffer1DataOfferInner {
 
     /**
      * Get fee
-     *
      * @return fee
-     */
+   */
     @Valid
     @Schema(name = "Fee", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Fee")

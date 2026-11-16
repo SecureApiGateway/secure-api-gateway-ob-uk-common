@@ -15,19 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.fund;
 
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmation1DataInstructedAmount;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBFundsConfirmationResponse1Data
@@ -73,9 +76,8 @@ public class OBFundsConfirmationResponse1Data {
 
     /**
      * Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation resource.
-     *
      * @return fundsConfirmationId
-     */
+   */
     @NotNull
     @Size(min = 1, max = 40)
     @Schema(name = "FundsConfirmationId", description = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation resource.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -95,9 +97,8 @@ public class OBFundsConfirmationResponse1Data {
 
     /**
      * Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.
-     *
      * @return consentId
-     */
+   */
     @NotNull
     @Size(min = 1, max = 128)
     @Schema(name = "ConsentId", description = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -117,9 +118,8 @@ public class OBFundsConfirmationResponse1Data {
 
     /**
      * Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return creationDateTime
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -139,9 +139,8 @@ public class OBFundsConfirmationResponse1Data {
 
     /**
      * Flag to indicate the result of a confirmation of funds check.
-     *
      * @return fundsAvailable
-     */
+   */
     @NotNull
     @Schema(name = "FundsAvailable", description = "Flag to indicate the result of a confirmation of funds check.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FundsAvailable")
@@ -160,9 +159,8 @@ public class OBFundsConfirmationResponse1Data {
 
     /**
      * Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.
-     *
      * @return reference
-     */
+   */
     @NotNull
     @Size(min = 1, max = 35)
     @Schema(name = "Reference", description = "Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -182,9 +180,8 @@ public class OBFundsConfirmationResponse1Data {
 
     /**
      * Get instructedAmount
-     *
      * @return instructedAmount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "InstructedAmount", requiredMode = Schema.RequiredMode.REQUIRED)

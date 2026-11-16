@@ -15,18 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.SegmentInner1;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * ProductDetails1
@@ -42,7 +47,7 @@ public class ProductDetails1 {
     private String monthlyMaximumCharge;
 
     @Valid
-    private List<@Size(min = 1, max = 2000) String> notes;
+    private List<@Size(min = 1, max = 2000)String> notes;
 
     public ProductDetails1 segment(List<@Valid SegmentInner1> segment) {
         this.segment = segment;
@@ -59,9 +64,8 @@ public class ProductDetails1 {
 
     /**
      * Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another. Read more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd  With respect to PCA products, they are segmented in relation to different markets that they wish to focus on.
-     *
      * @return segment
-     */
+   */
     @Valid
     @Schema(name = "Segment", description = "Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another. Read more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd  With respect to PCA products, they are segmented in relation to different markets that they wish to focus on. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Segment")
@@ -80,9 +84,8 @@ public class ProductDetails1 {
 
     /**
      * The maximum relevant charges that could accrue as defined fully in Part 7 of the CMA order
-     *
      * @return monthlyMaximumCharge
-     */
+   */
     @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "MonthlyMaximumCharge", description = "The maximum relevant charges that could accrue as defined fully in Part 7 of the CMA order", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MonthlyMaximumCharge")
@@ -94,7 +97,7 @@ public class ProductDetails1 {
         this.monthlyMaximumCharge = monthlyMaximumCharge;
     }
 
-    public ProductDetails1 notes(List<@Size(min = 1, max = 2000) String> notes) {
+    public ProductDetails1 notes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
         return this;
     }
@@ -109,17 +112,16 @@ public class ProductDetails1 {
 
     /**
      * Optional additional notes to supplement the Core product details
-     *
      * @return notes
-     */
+   */
 
     @Schema(name = "Notes", description = "Optional additional notes to supplement the Core product details", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000) String> getNotes() {
+    public List<@Size(min = 1, max = 2000)String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
     }
 

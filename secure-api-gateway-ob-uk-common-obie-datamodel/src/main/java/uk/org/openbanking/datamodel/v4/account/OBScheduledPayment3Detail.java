@@ -15,18 +15,25 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount1;
+import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionIdentification51;
+import uk.org.openbanking.datamodel.v4.account.OBCashAccount51;
+import uk.org.openbanking.datamodel.v4.account.OBInternalScheduleType1Code;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBScheduledPayment3Detail
@@ -76,9 +83,8 @@ public class OBScheduledPayment3Detail {
 
     /**
      * A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.
-     *
      * @return accountId
-     */
+   */
     @NotNull
     @Size(min = 1, max = 40)
     @Schema(name = "AccountId", example = "22289", description = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -98,9 +104,8 @@ public class OBScheduledPayment3Detail {
 
     /**
      * A unique and immutable identifier used to identify the scheduled payment resource. This identifier has no meaning to the account owner.
-     *
      * @return scheduledPaymentId
-     */
+   */
     @Size(min = 1, max = 40)
     @Schema(name = "ScheduledPaymentId", example = "SP03", description = "A unique and immutable identifier used to identify the scheduled payment resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ScheduledPaymentId")
@@ -119,9 +124,8 @@ public class OBScheduledPayment3Detail {
 
     /**
      * The date on which the scheduled payment will be made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return scheduledPaymentDateTime
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "ScheduledPaymentDateTime", example = "2017-07-12T00:00Z", description = "The date on which the scheduled payment will be made. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -141,9 +145,8 @@ public class OBScheduledPayment3Detail {
 
     /**
      * Get scheduledType
-     *
      * @return scheduledType
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "ScheduledType", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -163,9 +166,8 @@ public class OBScheduledPayment3Detail {
 
     /**
      * Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. Usage: If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money. If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.
-     *
      * @return reference
-     */
+   */
     @Size(min = 1, max = 35)
     @Schema(name = "Reference", example = "Towbar Club", description = "Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. Usage: If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money. If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Reference")
@@ -184,9 +186,8 @@ public class OBScheduledPayment3Detail {
 
     /**
      * A reference value provided by the PSU to the PISP while setting up the scheduled payment.
-     *
      * @return debtorReference
-     */
+   */
     @Size(min = 1, max = 35)
     @Schema(name = "DebtorReference", example = "REF51561806", description = "A reference value provided by the PSU to the PISP while setting up the scheduled payment.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DebtorReference")
@@ -205,9 +206,8 @@ public class OBScheduledPayment3Detail {
 
     /**
      * Get instructedAmount
-     *
      * @return instructedAmount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "InstructedAmount", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -227,9 +227,8 @@ public class OBScheduledPayment3Detail {
 
     /**
      * Get creditorAgent
-     *
      * @return creditorAgent
-     */
+   */
     @Valid
     @Schema(name = "CreditorAgent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorAgent")
@@ -248,9 +247,8 @@ public class OBScheduledPayment3Detail {
 
     /**
      * Get creditorAccount
-     *
      * @return creditorAccount
-     */
+   */
     @NotNull
     @Valid
     @Schema(name = "CreditorAccount", requiredMode = Schema.RequiredMode.REQUIRED)

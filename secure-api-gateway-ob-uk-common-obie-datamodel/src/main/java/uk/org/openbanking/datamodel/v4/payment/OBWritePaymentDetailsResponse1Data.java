@@ -15,16 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBWritePaymentDetailsResponse1Data
@@ -52,9 +59,8 @@ public class OBWritePaymentDetailsResponse1Data {
 
     /**
      * Get paymentStatus
-     *
      * @return paymentStatus
-     */
+   */
     @Valid
     @Schema(name = "PaymentStatus", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PaymentStatus")

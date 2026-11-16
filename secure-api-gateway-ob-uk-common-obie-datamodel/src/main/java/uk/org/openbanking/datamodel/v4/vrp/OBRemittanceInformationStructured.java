@@ -15,16 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.vrp.OBReferredDocumentInformation;
+import uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformationStructuredCreditorReferenceInformation;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBRemittanceInformationStructured
@@ -47,7 +54,7 @@ public class OBRemittanceInformationStructured {
     private String taxRemittance;
 
     @Valid
-    private List<@Size(min = 1, max = 140) String> additionalRemittanceInformation;
+    private List<@Size(min = 1, max = 140)String> additionalRemittanceInformation;
 
     public OBRemittanceInformationStructured referredDocumentInformation(List<@Valid OBReferredDocumentInformation> referredDocumentInformation) {
         this.referredDocumentInformation = referredDocumentInformation;
@@ -64,9 +71,8 @@ public class OBRemittanceInformationStructured {
 
     /**
      * Provides the identification and the content of the referred document.
-     *
      * @return referredDocumentInformation
-     */
+   */
     @Valid
     @Schema(name = "ReferredDocumentInformation", description = "Provides the identification and the content of the referred document.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReferredDocumentInformation")
@@ -85,9 +91,8 @@ public class OBRemittanceInformationStructured {
 
     /**
      * Get referredDocumentAmount
-     *
      * @return referredDocumentAmount
-     */
+   */
 
     @Schema(name = "ReferredDocumentAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReferredDocumentAmount")
@@ -106,9 +111,8 @@ public class OBRemittanceInformationStructured {
 
     /**
      * Get creditorReferenceInformation
-     *
      * @return creditorReferenceInformation
-     */
+   */
     @Valid
     @Schema(name = "CreditorReferenceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorReferenceInformation")
@@ -127,9 +131,8 @@ public class OBRemittanceInformationStructured {
 
     /**
      * Identification of the organisation issuing the invoice, when it is different from the creditor or ultimate creditor
-     *
      * @return invoicer
-     */
+   */
     @Size(max = 256)
     @Schema(name = "Invoicer", description = "Identification of the organisation issuing the invoice, when it is different from the creditor or ultimate creditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Invoicer")
@@ -148,9 +151,8 @@ public class OBRemittanceInformationStructured {
 
     /**
      * Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.
-     *
      * @return invoicee
-     */
+   */
     @Size(max = 256)
     @Schema(name = "Invoicee", description = "Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Invoicee")
@@ -169,9 +171,8 @@ public class OBRemittanceInformationStructured {
 
     /**
      * Get taxRemittance
-     *
      * @return taxRemittance
-     */
+   */
     @Size(min = 1, max = 140)
     @Schema(name = "TaxRemittance", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TaxRemittance")
@@ -183,7 +184,7 @@ public class OBRemittanceInformationStructured {
         this.taxRemittance = taxRemittance;
     }
 
-    public OBRemittanceInformationStructured additionalRemittanceInformation(List<@Size(min = 1, max = 140) String> additionalRemittanceInformation) {
+    public OBRemittanceInformationStructured additionalRemittanceInformation(List<@Size(min = 1, max = 140)String> additionalRemittanceInformation) {
         this.additionalRemittanceInformation = additionalRemittanceInformation;
         return this;
     }
@@ -198,17 +199,16 @@ public class OBRemittanceInformationStructured {
 
     /**
      * Get additionalRemittanceInformation
-     *
      * @return additionalRemittanceInformation
-     */
+   */
     @Size(max = 3)
     @Schema(name = "AdditionalRemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AdditionalRemittanceInformation")
-    public List<@Size(min = 1, max = 140) String> getAdditionalRemittanceInformation() {
+    public List<@Size(min = 1, max = 140)String> getAdditionalRemittanceInformation() {
         return additionalRemittanceInformation;
     }
 
-    public void setAdditionalRemittanceInformation(List<@Size(min = 1, max = 140) String> additionalRemittanceInformation) {
+    public void setAdditionalRemittanceInformation(List<@Size(min = 1, max = 140)String> additionalRemittanceInformation) {
         this.additionalRemittanceInformation = additionalRemittanceInformation;
     }
 

@@ -15,17 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.event;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.event.OBEventLink1;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The resource-update event.
@@ -65,9 +70,8 @@ public class OBEventSubject1 {
 
     /**
      * Subject type for the updated resource.
-     *
      * @return subjectType
-     */
+   */
     @NotNull
     @Size(min = 1, max = 128)
     @Schema(name = "subject_type", description = "Subject type for the updated resource. ", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -87,9 +91,8 @@ public class OBEventSubject1 {
 
     /**
      * Resource Id for the updated resource.
-     *
      * @return httpColonOpenbankingOrgUkRid
-     */
+   */
     @NotNull
     @Size(min = 1, max = 128)
     @Schema(name = "http://openbanking.org.uk/rid", description = "Resource Id for the updated resource.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -109,9 +112,8 @@ public class OBEventSubject1 {
 
     /**
      * Resource Type for the updated resource.
-     *
      * @return httpColonOpenbankingOrgUkRty
-     */
+   */
     @NotNull
     @Size(min = 1, max = 128)
     @Schema(name = "http://openbanking.org.uk/rty", description = "Resource Type for the updated resource.", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -139,12 +141,9 @@ public class OBEventSubject1 {
 
     /**
      * Resource links to other available versions of the resource.
-     *
      * @return httpColonOpenbankingOrgUkRlk
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
+   */
+    @NotNull @Valid @Size(min = 1)
     @Schema(name = "http://openbanking.org.uk/rlk", description = "Resource links to other available versions of the resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("http://openbanking.org.uk/rlk")
     public List<@Valid OBEventLink1> getHttpColonOpenbankingOrgUkRlk() {
