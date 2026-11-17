@@ -15,9 +15,11 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.annotation.Generated;
 
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
+@JsonDeserialize(using = OBFrequency6TypeDeserializer.class)
 public interface OBFrequency6Type {
 }

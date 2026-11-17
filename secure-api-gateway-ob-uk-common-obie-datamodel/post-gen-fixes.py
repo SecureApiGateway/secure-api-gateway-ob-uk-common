@@ -314,6 +314,26 @@ def fix_frequency6_implements(text):
     return text
 
 
+def fix_frequency6_type_jsondeserialize(text, pkg):
+    """Step 11b: annotate the OBFrequency6Type interface with a custom
+    deserialiser. OB's oneOf schemas carry no discriminator, so the generator
+    emits an empty interface that Jackson cannot deserialise, and type-info
+    annotations would change the wire format (verified empirically). The
+    deserialiser classes (OBFrequency6TypeDeserializer) are hand-written in
+    the same package and preserve the plain-string wire format."""
+    if "public interface OBFrequency6Type {" not in text:
+        return text
+    if "@JsonDeserialize" in text:
+        return text
+    text = text.replace(
+        "import jakarta.annotation.Generated;",
+        "import com.fasterxml.jackson.databind.annotation.JsonDeserialize;\nimport jakarta.annotation.Generated;", 1)
+    text = text.replace(
+        "public interface OBFrequency6Type {",
+        "@JsonDeserialize(using = OBFrequency6TypeDeserializer.class)\npublic interface OBFrequency6Type {", 1)
+    return text
+
+
 def fix_big_decimal_equals(text):
     """Step 9: BigDecimal comparisons -> isEqual (scale-safe)."""
     if "private BigDecimal" not in text or "isEqual" in text:
@@ -399,6 +419,7 @@ def main():
                 ("generic-annotation-space", fix_generic_annotation_space),
                 ("supplementary-init", fix_supplementary_init),
                 ("frequency6-implements", fix_frequency6_implements),
+                ("frequency6-jsondeserialize", lambda t: fix_frequency6_type_jsondeserialize(t, pkg)),
                 ("vrp-supplementary", fix_vrp_supplementary),
                 ("bigdecimal-isEqual", fix_big_decimal_equals),
                 ("imports", lambda t: fix_imports(t, fqn_prefix)),
