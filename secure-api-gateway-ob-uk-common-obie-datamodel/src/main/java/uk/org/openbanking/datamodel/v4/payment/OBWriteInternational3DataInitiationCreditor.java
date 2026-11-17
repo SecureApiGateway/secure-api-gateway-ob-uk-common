@@ -18,7 +18,6 @@ package uk.org.openbanking.datamodel.v4.payment;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
@@ -31,8 +30,7 @@ import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
  * Party to which an amount of money is due.
  */
 
-@Schema(name = "OBWriteInternational3_Data_Initiation_Creditor", description = "Party to which an amount of money is due.")
-@JsonTypeName("OBWriteInternational3_Data_Initiation_Creditor")
+@Schema(name = "OBWriteInternational3DataInitiationCreditor", description = "Party to which an amount of money is due.")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternational3DataInitiationCreditor {
 
@@ -52,7 +50,7 @@ public class OBWriteInternational3DataInitiationCreditor {
      *
      * @return name
      */
-    @Size(min = 1, max = 140)
+    @Size(min = 1, max = 350)
     @Schema(name = "Name", description = "Name by which a party is known and which is usually used to identify that party.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
     public String getName() {
