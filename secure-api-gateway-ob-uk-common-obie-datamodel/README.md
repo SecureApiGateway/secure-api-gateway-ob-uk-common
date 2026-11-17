@@ -139,9 +139,9 @@ into the matching source package. The templates in `src/main/resources/openapi-t
 
 The committed classes intentionally differ from raw generator output. After a regen, the
 following must be applied (or verified) before the tree matches the committed baseline.
-Steps 1–6 and 9–10 are mechanical and scripted-able; steps 7, 8, 11 and 12 are deliberate
-curation decisions carried forward from the original v4 generation (provenance: branch
-`ob-v4`, Jul–Nov 2024).
+Most steps are mechanical and scripted (see `post-gen-fixes.py`); the curation decisions
+(step 7 and the items in the "Pinning vs accepting" table below) are deliberate and carried
+forward from the original v4 generation (provenance: branch `ob-v4`, Jul–Nov 2024).
 
 1. **License headers** — added automatically by the build (`license:format` at process-sources).
 2. **Whitespace-only lines** — the 7.2.0 enum templates emit space-only lines between enum
@@ -179,19 +179,84 @@ curation decisions carried forward from the original v4 generation (provenance: 
     inline object, which the generator types as `Object`. The committed tree types it as
     `OBSupplementaryData1` (wire-identical; both serialise as `{}`). Apply in
     `OBDomesticVRPControlParameters` and `OBDomesticVRPInstruction`.
-11. **Shared-type resolution** — the generator resolves shared `$ref`s to common classes (e.g.
-    `OBWriteDomesticResponse5DataMultiAuthorisation`) where the committed tree has per-site
-    duplicates, and may emit new classes (`OBBranchAndFinancialInstitutionIdentification60`).
-    Either accept the new names (one-time rename, update FR converters accordingly) or pin the
-    old names via `inlineSchemaNameMappings` in the pom. Known mapping gaps in the current pom
-    (add these to restore committed names): `OBWriteInternationalConsent5_Data_Initiation_Creditor`
-    → `OBWriteInternational3DataInitiationCreditor`.
+11. **`OBFrequency6` oneOf (`implements`)** — from 4r4 onward, `OBFrequency6.Type` is a
+    `oneOf` of `OBFrequency6Code` and `Frequency_1`. The generator emits the
+    `OBFrequency6Type` interface but does **not** make the `OBFrequency6Code` enum implement
+    it (verified with stock 7.2.0 templates — this is not template-related). The FR
+    converters and `FRModelMapper` need the enum to be an `OBFrequency6Type`, so add
+    `implements OBFrequency6Type` to the generated `OBFrequency6Code` enum in the `account`
+    and `payment` packages, and keep the
+    `FRFrequencyCode6 -> OBFrequency6Type` type-map converters in `FRModelMapper`.
+
+    **Reading the OB-side value in converters: use `toString()`, not `getValue()`.**
+    `OBFrequency6.getType()` returns the `OBFrequency6Type` interface, which is empty —
+    `getValue()` does not compile on it. `OBFrequency6Code.toString()` returns exactly the
+    same string as `getValue()` (both yield the enum's `value`), so `toString()` is safe for
+    every value in use today and remains correct if a `Frequency_1`-style value ever arrives
+    (it degrades to that string, which `FRFrequencyType.fromFrequencyString` will then
+    reject loudly, as it already does for malformed input). This matches the approach taken
+    in the 4.0.1 branch (PR #286). Note the asymmetry is expected: in the FR→OB direction,
+    the source is our `FRFrequencyCode6` enum, which has a real `getValue()` — use it there.
 12. **Upstream spec bug corrections** — where OB's spec is wrong, the committed code may
    deliberately diverge (e.g. `OBTransactionCashBalance.type` uses `OBBalanceType1Code` where
-   the spec erroneously refs `OBInternalAccountIdentification4Code`). Check the diff for
-   such fields before assuming the regen is correct.
+   the spec erroneously refs `OBInternalAccountIdentification4Code` — OB fixed this
+   themselves in 4r4). Check the diff for such fields before assuming the regen is correct.
 
 After applying: `mvn clean install` must pass, and a repeat regen must produce an empty diff.
+
+### Pinning vs accepting: how we decide what a regen may rename
+
+When OB changes how a schema is written (inlines it, moves it, or restructures it), the
+generator produces a different Java class name than the one in our tree, even though the
+JSON on the wire is unchanged. For each such difference there are two ways to reconcile the
+regen with the committed tree:
+
+**Pinning** means telling the generator, in the pom's `inlineSchemaNameMappings`, to keep
+using our existing class name for that schema. The regen then produces the old name and
+nothing outside the data model changes.
+
+- Pros: zero changes for downstream code (FR converters, RS); the Java API of the data model
+  stays stable while the team is still building familiarity with it; trivially reversible
+  (delete the mapping line and regen).
+- Cons: the mapping is permanent pom configuration encoding our history rather than OB's
+  structure; if a future OB update makes the mapped schemas *diverge* (e.g. a property added
+  to one of two previously-identical blocks), the pin silently merges them and masks the
+  difference — the regen-diff review is the only safety net; each mapping is one more thing
+  to carry across every future spec version.
+
+**Accepting** means adopting the generator's new name and updating the FR converters (and
+any call sites) in the same PR.
+
+- Pros: the model mirrors the current OB spec structure, so future regens need no mapping
+  upkeep and there is no silent-merge trap.
+- Cons: a one-time rename ripple through the FR converter layer (and rarely RS), which is
+  review overhead in an area of the codebase we have not touched much.
+
+**How we choose, in practice:** pin when the two classes are *semantically identical* and
+the rename is pure naming churn (the old name is arbitrary, the new name is arbitrary — keep
+the one downstream code already knows). Accept when the change is *structural* (the spec
+changed the type, not just the name) or when the new shape is a genuine improvement, such as
+deduplicating several identical copies of a block into one shared class. Never pin across
+schemas that are merely *currently* identical — if they later diverge, a pin hides it.
+
+Register pins in **`inlineSchemaNameMappings` only**. Adding the same mapping to
+`schemaMappings` as well changes how the generator resolves the parent inline schemas and
+deletes unrelated classes (verified: a three-pin double-registration removed ~100 classes).
+
+### The 4r4 regeneration decisions (recorded 2026-11, OPENIG-9982)
+
+| Difference vs committed tree | Decision | Why |
+|---|---|---|
+| `OBFrequency6.type`: enum → `oneOf` interface (`OBFrequency6Type`) | **Accept** (no choice — the spec changed the type) | 4r4 made the field a oneOf of `OBFrequency6Code` and the ISO `Frequency_1` codeset. A oneOf cannot be a single enum in Java. FR contract unchanged: the FR model's `frequency` is a plain `String`, so `FrequencyService` in RS and `FRFrequencyType` are unaffected. Requires the step-11 fixes above (also present in the 4.0.1 branch). |
+| `AuthorisationType` inline enum renamed by the generator | **Pin** (`OBWriteDomesticStandingOrderConsentResponse6_Data_Authorisation_AuthorisationType` → committed name) | Pure naming churn: the generator names the inline enum after whichever host schema it processes first. Not referenced outside ob-uk-common. |
+| `Creditor` inline class renamed | **Pin** (`OBWriteInternationalConsent5_Data_Initiation_Creditor` → committed name) | Same reasoning. RS/RCS untouched. |
+| `MultiAuthorisation` per-response classes deduplicated to two shared classes | **Accept** | The 4r4 spec inlines the identical block 7 times (verified: structurally identical, only one description string differs). The dedup to shared classes is a genuine improvement; nothing referenced the old per-site names, so no converter changes were needed. |
+| File-payment response `Initiation` gets its own class (`OBWriteFileResponse3DataInitiation`) | **Accept** | 4.0.1 keeps this structure (verified in the 4.0.1 spec), and the 4.0.1 branch already accepted it — pinning here would create a review surprise in the 4.0.1 PR. The request-side class remains in use for requests; the response-side copy is currently unused by converters. A pin would silently merge the two if OB ever diverges them. |
+| 25 classes no longer generated (old per-site duplicates, orphan nested classes) | **Accept** (retained in tree where still referenced) | Shared-type resolution and the `OBWritePaymentDetails1` promote. Stale imports they carried are dropped by the regen. |
+| Constraint changes, e.g. `Creditor.Name` in the international initiation: `@Size(max = 140)` → `max = 350` | **Accept** (spec-driven) | OB raised the limit themselves in commit [`e9bba3ff`](https://github.com/OpenBankingUK/read-write-api-specs/commit/e9bba3ff) (Aug 2024, "Fixed Creditor Name length in Int", carried into 4r2+ and 4.0.1); master's class was generated from the pre-fix revision. A widened `maxLength` is a relaxation — bean validation only, no serialisation change, no downstream work. **Template for the next person:** when a changed `@Size`/`@Pattern` looks odd, check the upstream spec history (`gh api repos/OpenBankingUK/read-write-api-specs/commits`) before assuming it's a generator artefact or a hand-edit. |
+
+The net effect of these decisions: a fresh 4r4 regen + `post-gen-fixes.py` reproduces the
+committed tree except for the small, intentional set of changes listed in the table.
 
 ## Contributing
 
