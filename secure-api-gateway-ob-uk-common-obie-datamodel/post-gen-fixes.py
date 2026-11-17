@@ -298,6 +298,22 @@ def fix_vrp_supplementary(text):
     return changed
 
 
+def fix_frequency6_implements(text):
+    """Step 11: OBFrequency6.oneOf — the generator emits the OBFrequency6Type
+    interface but NOT 'implements' on the OBFrequency6Code enum (verified with
+    stock 7.2.0 templates). The converters and ModelMapper need the enum to be
+    an OBFrequency6Type. PR #286 carries the same manual fix.
+
+    Note: the converter-side counterpart (reading getType() via toString(),
+    NOT getValue() — the interface is empty) lives in the hand-written FR
+    converters, which are never regenerated, so it cannot be automated here.
+    See README step 11."""
+    if "public enum OBFrequency6Code {" in text and "OBFrequency6Type" in text.replace("public enum OBFrequency6Code implements OBFrequency6Type", ""):
+        return text.replace("public enum OBFrequency6Code {",
+                            "public enum OBFrequency6Code implements OBFrequency6Type {")
+    return text
+
+
 def fix_big_decimal_equals(text):
     """Step 9: BigDecimal comparisons -> isEqual (scale-safe)."""
     if "private BigDecimal" not in text or "isEqual" in text:
@@ -321,6 +337,34 @@ def fix_big_decimal_equals(text):
         lines.insert(first_imp, IS_EQUAL_IMPORT)
         changed = "\n".join(lines)
     return changed
+
+
+# Test-support sources: not generated, but they reference the generated
+# classes and are hand-edited whenever a type is renamed/pinned — which is
+# exactly when duplicate imports appear (a rename can collide with an import
+# that already exists). Deduplicated as a safety net in main().
+TESTSUPPORT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                "src", "test", "java", "uk", "org", "openbanking",
+                                "testsupport")
+
+
+def dedupe_imports(text):
+    """Remove duplicate import lines (keeps first occurrence, preserves order).
+
+    Same-package imports are kept as-is; this is a pure duplicate-removal pass
+    for hand-edited files (e.g. after a rename that collides with an existing
+    import)."""
+    seen, out, removed = set(), [], 0
+    for line in text.split("\n"):
+        m = re.match(r"^import (static )?([\w.]+(?:\.[A-Za-z*]+)?)(?:\.\*)?;$", line)
+        if m:
+            key = line.rstrip()  # full line = unique key (covers static member imports)
+            if key in seen:
+                removed += 1
+                continue
+            seen.add(key)
+        out.append(line)
+    return "\n".join(out), removed
 
 
 # ---------------------------------------------------------------------------
@@ -354,6 +398,7 @@ def main():
                 ("annotations", fix_annotations),
                 ("generic-annotation-space", fix_generic_annotation_space),
                 ("supplementary-init", fix_supplementary_init),
+                ("frequency6-implements", fix_frequency6_implements),
                 ("vrp-supplementary", fix_vrp_supplementary),
                 ("bigdecimal-isEqual", fix_big_decimal_equals),
                 ("imports", lambda t: fix_imports(t, fqn_prefix)),
@@ -373,6 +418,25 @@ def main():
     if args.dry_run:
         print("(dry run — no files written)")
     print("steps applied:", {k: v for k, v in sorted(step_counts.items())} or "{}")
+
+    # Safety net for hand-edited test-support files: remove duplicate imports
+    # (a rename can collide with an import that already exists).
+    if os.path.isdir(TESTSUPPORT_ROOT):
+        for dirpath, _, files in os.walk(TESTSUPPORT_ROOT):
+            for name in sorted(files):
+                if not name.endswith(".java"):
+                    continue
+                path = os.path.join(dirpath, name)
+                text = read(path)
+                new, removed = dedupe_imports(text)
+                if removed:
+                    if args.dry_run:
+                        print(f"would dedupe {removed} import(s) in "
+                              f"{os.path.relpath(path, SRC_ROOT)}")
+                    else:
+                        write(path, new)
+                        print(f"deduped {removed} import(s) in "
+                              f"{os.path.relpath(path, SRC_ROOT)}")
 
 
 if __name__ == "__main__":

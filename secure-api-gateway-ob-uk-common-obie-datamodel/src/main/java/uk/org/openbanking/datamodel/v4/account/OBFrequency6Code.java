@@ -25,7 +25,7 @@ import jakarta.annotation.Generated;
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBFrequency6Code {
+public enum OBFrequency6Code implements OBFrequency6Type {
 
     ADHO("ADHO"),
 

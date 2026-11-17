@@ -61,7 +61,7 @@ public class FRDirectDebitConverter {
     public static OBFrequency6 toOBFrequency6(FRStandingOrderFrequency frStandingOrderFrequency) {
         return frStandingOrderFrequency == null ? null : new OBFrequency6()
                 .countPerPeriod(frStandingOrderFrequency.getCountPerPeriod())
-                .type(toOBFrequency6Code(frStandingOrderFrequency.getType()))
+                .type((OBFrequency6Type) toOBFrequency6Code(frStandingOrderFrequency.getType()))
                 .pointInTime(frStandingOrderFrequency.getPointInTime());
     }
 
@@ -108,7 +108,7 @@ public class FRDirectDebitConverter {
         return obFrequency6 == null ? null : FRStandingOrderFrequency.builder()
                 .countPerPeriod(obFrequency6.getCountPerPeriod())
                 .pointInTime(obFrequency6.getPointInTime())
-                .type(toFRStandingOrderFrequencyCode(obFrequency6.getType()))
+                .type(toFRStandingOrderFrequencyCode(obFrequency6.getType().toString()))
                 .build();
     }
 
@@ -124,8 +124,8 @@ public class FRDirectDebitConverter {
         return externalMandateClassification1Code == null ? null : FRMandateRelatedInformation.FRExternalMandateClassificationCode.fromValue(externalMandateClassification1Code.name());
     }
 
-    public static FRStandingOrderFrequencyCode toFRStandingOrderFrequencyCode(OBFrequency6Code obFrequency6Code) {
-        return obFrequency6Code == null ? null : FRStandingOrderFrequencyCode.fromValue(obFrequency6Code.name());
+    public static FRStandingOrderFrequencyCode toFRStandingOrderFrequencyCode(String obFrequency6CodeValue) {
+        return obFrequency6CodeValue == null ? null : FRStandingOrderFrequencyCode.fromValue(obFrequency6CodeValue);
     }
 
 }
