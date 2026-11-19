@@ -308,7 +308,7 @@ def fix_frequency6_implements(text):
     NOT getValue() — the interface is empty) lives in the hand-written FR
     converters, which are never regenerated, so it cannot be automated here.
     See README step 11."""
-    if "public enum OBFrequency6Code {" in text and "OBFrequency6Type" in text.replace("public enum OBFrequency6Code implements OBFrequency6Type", ""):
+    if "public enum OBFrequency6Code {" in text:
         return text.replace("public enum OBFrequency6Code {",
                             "public enum OBFrequency6Code implements OBFrequency6Type {")
     return text
