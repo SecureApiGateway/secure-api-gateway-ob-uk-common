@@ -127,12 +127,12 @@ public class OBTransaction6Basic {
     }
 
     /**
-     * Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.
+     * Unique identifier for the transaction within a servicing institution. This identifier is both unique and immutable.
      *
      * @return transactionId
      */
     @Size(min = 1, max = 210)
-    @Schema(name = "TransactionId", description = "Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "TransactionId", description = "Unique identifier for the transaction within a servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TransactionId")
     public String getTransactionId() {
         return transactionId;

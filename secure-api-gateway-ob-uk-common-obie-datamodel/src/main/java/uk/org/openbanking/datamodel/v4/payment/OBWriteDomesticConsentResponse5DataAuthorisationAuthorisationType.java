@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * Type of authorisation flow requested. For a full list of values refer to `OBInternalAuthorisation1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+ * Type of authorisation flow requested.
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")

@@ -681,7 +681,9 @@ public enum OBExternalPurpose1Code {
 
     RETL("RETL"),
 
-    DEBT("DEBT");
+    DEBT("DEBT"),
+
+    CRYP("CRYP");
 
     private String value;
 

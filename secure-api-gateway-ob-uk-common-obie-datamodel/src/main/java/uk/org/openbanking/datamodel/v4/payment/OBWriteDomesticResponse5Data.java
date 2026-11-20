@@ -47,7 +47,7 @@ public class OBWriteDomesticResponse5Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBWriteDomesticResponse5DataStatus status;
+    private ExternalPaymentTransactionStatus3Code status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -61,7 +61,7 @@ public class OBWriteDomesticResponse5Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime expectedSettlementDateTime;
 
-    private OBWriteDomesticResponse5DataRefund refund;
+    private OBDomesticRefundAccount1 refund;
 
     @Valid
     private List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges;
@@ -79,7 +79,7 @@ public class OBWriteDomesticResponse5Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticResponse5Data(String domesticPaymentId, String consentId, DateTime creationDateTime, OBWriteDomesticResponse5DataStatus status, DateTime statusUpdateDateTime, OBWriteDomestic2DataInitiation initiation) {
+    public OBWriteDomesticResponse5Data(String domesticPaymentId, String consentId, DateTime creationDateTime, ExternalPaymentTransactionStatus3Code status, DateTime statusUpdateDateTime, OBWriteDomestic2DataInitiation initiation) {
         this.domesticPaymentId = domesticPaymentId;
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
@@ -154,7 +154,7 @@ public class OBWriteDomesticResponse5Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteDomesticResponse5Data status(OBWriteDomesticResponse5DataStatus status) {
+    public OBWriteDomesticResponse5Data status(ExternalPaymentTransactionStatus3Code status) {
         this.status = status;
         return this;
     }
@@ -168,11 +168,11 @@ public class OBWriteDomesticResponse5Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWriteDomesticResponse5DataStatus getStatus() {
+    public ExternalPaymentTransactionStatus3Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWriteDomesticResponse5DataStatus status) {
+    public void setStatus(ExternalPaymentTransactionStatus3Code status) {
         this.status = status;
     }
 
@@ -269,7 +269,7 @@ public class OBWriteDomesticResponse5Data {
         this.expectedSettlementDateTime = expectedSettlementDateTime;
     }
 
-    public OBWriteDomesticResponse5Data refund(OBWriteDomesticResponse5DataRefund refund) {
+    public OBWriteDomesticResponse5Data refund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
         return this;
     }
@@ -282,11 +282,11 @@ public class OBWriteDomesticResponse5Data {
     @Valid
     @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Refund")
-    public OBWriteDomesticResponse5DataRefund getRefund() {
+    public OBDomesticRefundAccount1 getRefund() {
         return refund;
     }
 
-    public void setRefund(OBWriteDomesticResponse5DataRefund refund) {
+    public void setRefund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
     }
 

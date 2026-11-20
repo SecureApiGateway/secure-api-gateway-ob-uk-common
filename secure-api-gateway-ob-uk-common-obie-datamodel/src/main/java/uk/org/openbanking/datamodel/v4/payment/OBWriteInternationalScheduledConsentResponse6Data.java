@@ -46,7 +46,7 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBWriteInternationalConsentResponse6DataStatus status;
+    private OBInternalConsentStatus2Code status;
 
     @Valid
     private List<@Valid OBStatusReason> statusReason;
@@ -87,7 +87,7 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteInternationalScheduledConsentResponse6Data(String consentId, DateTime creationDateTime, OBWriteInternationalConsentResponse6DataStatus status, DateTime statusUpdateDateTime, OBWriteInternationalScheduledConsent5DataPermission permission, OBWriteInternationalScheduled3DataInitiation initiation) {
+    public OBWriteInternationalScheduledConsentResponse6Data(String consentId, DateTime creationDateTime, OBInternalConsentStatus2Code status, DateTime statusUpdateDateTime, OBWriteInternationalScheduledConsent5DataPermission permission, OBWriteInternationalScheduled3DataInitiation initiation) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -140,7 +140,7 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteInternationalScheduledConsentResponse6Data status(OBWriteInternationalConsentResponse6DataStatus status) {
+    public OBWriteInternationalScheduledConsentResponse6Data status(OBInternalConsentStatus2Code status) {
         this.status = status;
         return this;
     }
@@ -154,11 +154,11 @@ public class OBWriteInternationalScheduledConsentResponse6Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWriteInternationalConsentResponse6DataStatus getStatus() {
+    public OBInternalConsentStatus2Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWriteInternationalConsentResponse6DataStatus status) {
+    public void setStatus(OBInternalConsentStatus2Code status) {
         this.status = status;
     }
 

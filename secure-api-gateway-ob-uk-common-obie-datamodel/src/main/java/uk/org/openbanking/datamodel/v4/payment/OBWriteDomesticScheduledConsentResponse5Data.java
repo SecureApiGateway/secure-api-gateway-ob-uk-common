@@ -46,7 +46,7 @@ public class OBWriteDomesticScheduledConsentResponse5Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBPaymentConsentStatus status;
+    private OBInternalConsentStatus2Code status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -85,7 +85,7 @@ public class OBWriteDomesticScheduledConsentResponse5Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticScheduledConsentResponse5Data(String consentId, DateTime creationDateTime, OBPaymentConsentStatus status, DateTime statusUpdateDateTime, OBWriteDomesticScheduledConsent4DataPermission permission, OBWriteDomesticScheduled2DataInitiation initiation) {
+    public OBWriteDomesticScheduledConsentResponse5Data(String consentId, DateTime creationDateTime, OBInternalConsentStatus2Code status, DateTime statusUpdateDateTime, OBWriteDomesticScheduledConsent4DataPermission permission, OBWriteDomesticScheduled2DataInitiation initiation) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -138,7 +138,7 @@ public class OBWriteDomesticScheduledConsentResponse5Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteDomesticScheduledConsentResponse5Data status(OBPaymentConsentStatus status) {
+    public OBWriteDomesticScheduledConsentResponse5Data status(OBInternalConsentStatus2Code status) {
         this.status = status;
         return this;
     }
@@ -152,11 +152,11 @@ public class OBWriteDomesticScheduledConsentResponse5Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBPaymentConsentStatus getStatus() {
+    public OBInternalConsentStatus2Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBPaymentConsentStatus status) {
+    public void setStatus(OBInternalConsentStatus2Code status) {
         this.status = status;
     }
 

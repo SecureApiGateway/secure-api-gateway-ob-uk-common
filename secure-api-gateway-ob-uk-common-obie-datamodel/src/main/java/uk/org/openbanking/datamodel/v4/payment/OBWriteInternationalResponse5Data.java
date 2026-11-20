@@ -47,7 +47,7 @@ public class OBWriteInternationalResponse5Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBWriteInternationalResponse5DataStatus status;
+    private ExternalPaymentTransactionStatus3Code status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -61,7 +61,7 @@ public class OBWriteInternationalResponse5Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime expectedSettlementDateTime;
 
-    private OBWriteInternationalResponse5DataRefund refund;
+    private OBDomesticRefundAccount1 refund;
 
     @Valid
     private List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges;
@@ -70,7 +70,7 @@ public class OBWriteInternationalResponse5Data {
 
     private OBWriteInternational3DataInitiation initiation;
 
-    private OBWriteFileResponse3DataMultiAuthorisation multiAuthorisation;
+    private OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation;
 
     private OBCashAccountDebtor4 debtor;
 
@@ -81,7 +81,7 @@ public class OBWriteInternationalResponse5Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteInternationalResponse5Data(String internationalPaymentId, String consentId, DateTime creationDateTime, OBWriteInternationalResponse5DataStatus status, DateTime statusUpdateDateTime, OBWriteInternational3DataInitiation initiation) {
+    public OBWriteInternationalResponse5Data(String internationalPaymentId, String consentId, DateTime creationDateTime, ExternalPaymentTransactionStatus3Code status, DateTime statusUpdateDateTime, OBWriteInternational3DataInitiation initiation) {
         this.internationalPaymentId = internationalPaymentId;
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
@@ -156,7 +156,7 @@ public class OBWriteInternationalResponse5Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteInternationalResponse5Data status(OBWriteInternationalResponse5DataStatus status) {
+    public OBWriteInternationalResponse5Data status(ExternalPaymentTransactionStatus3Code status) {
         this.status = status;
         return this;
     }
@@ -170,11 +170,11 @@ public class OBWriteInternationalResponse5Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWriteInternationalResponse5DataStatus getStatus() {
+    public ExternalPaymentTransactionStatus3Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWriteInternationalResponse5DataStatus status) {
+    public void setStatus(ExternalPaymentTransactionStatus3Code status) {
         this.status = status;
     }
 
@@ -271,7 +271,7 @@ public class OBWriteInternationalResponse5Data {
         this.expectedSettlementDateTime = expectedSettlementDateTime;
     }
 
-    public OBWriteInternationalResponse5Data refund(OBWriteInternationalResponse5DataRefund refund) {
+    public OBWriteInternationalResponse5Data refund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
         return this;
     }
@@ -284,11 +284,11 @@ public class OBWriteInternationalResponse5Data {
     @Valid
     @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Refund")
-    public OBWriteInternationalResponse5DataRefund getRefund() {
+    public OBDomesticRefundAccount1 getRefund() {
         return refund;
     }
 
-    public void setRefund(OBWriteInternationalResponse5DataRefund refund) {
+    public void setRefund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
     }
 
@@ -364,7 +364,7 @@ public class OBWriteInternationalResponse5Data {
         this.initiation = initiation;
     }
 
-    public OBWriteInternationalResponse5Data multiAuthorisation(OBWriteFileResponse3DataMultiAuthorisation multiAuthorisation) {
+    public OBWriteInternationalResponse5Data multiAuthorisation(OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation) {
         this.multiAuthorisation = multiAuthorisation;
         return this;
     }
@@ -377,11 +377,11 @@ public class OBWriteInternationalResponse5Data {
     @Valid
     @Schema(name = "MultiAuthorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MultiAuthorisation")
-    public OBWriteFileResponse3DataMultiAuthorisation getMultiAuthorisation() {
+    public OBWriteDomesticScheduledResponse5DataMultiAuthorisation getMultiAuthorisation() {
         return multiAuthorisation;
     }
 
-    public void setMultiAuthorisation(OBWriteFileResponse3DataMultiAuthorisation multiAuthorisation) {
+    public void setMultiAuthorisation(OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation) {
         this.multiAuthorisation = multiAuthorisation;
     }
 

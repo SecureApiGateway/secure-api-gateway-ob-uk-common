@@ -37,7 +37,7 @@ public class OBWritePaymentDetails1StatusDetail {
 
     private String localInstrument;
 
-    private OBWritePaymentDetails1StatusDetailStatus status;
+    private ExternalPaymentTransactionStatus1Code status;
 
     private String statusReason;
 
@@ -50,7 +50,7 @@ public class OBWritePaymentDetails1StatusDetail {
     /**
      * Constructor with only required parameters
      */
-    public OBWritePaymentDetails1StatusDetail(OBWritePaymentDetails1StatusDetailStatus status) {
+    public OBWritePaymentDetails1StatusDetail(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
     }
 
@@ -75,7 +75,7 @@ public class OBWritePaymentDetails1StatusDetail {
         this.localInstrument = localInstrument;
     }
 
-    public OBWritePaymentDetails1StatusDetail status(OBWritePaymentDetails1StatusDetailStatus status) {
+    public OBWritePaymentDetails1StatusDetail status(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
         return this;
     }
@@ -89,11 +89,11 @@ public class OBWritePaymentDetails1StatusDetail {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWritePaymentDetails1StatusDetailStatus getStatus() {
+    public ExternalPaymentTransactionStatus1Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWritePaymentDetails1StatusDetailStatus status) {
+    public void setStatus(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
     }
 

@@ -31,7 +31,7 @@ import jakarta.validation.constraints.NotNull;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBFundsConfirmationConsent1 {
 
-    private OBFundsConfirmationConsent1Data data;
+    private OBFundsConfirmationConsentData1 data;
 
     public OBFundsConfirmationConsent1() {
         super();
@@ -40,11 +40,11 @@ public class OBFundsConfirmationConsent1 {
     /**
      * Constructor with only required parameters
      */
-    public OBFundsConfirmationConsent1(OBFundsConfirmationConsent1Data data) {
+    public OBFundsConfirmationConsent1(OBFundsConfirmationConsentData1 data) {
         this.data = data;
     }
 
-    public OBFundsConfirmationConsent1 data(OBFundsConfirmationConsent1Data data) {
+    public OBFundsConfirmationConsent1 data(OBFundsConfirmationConsentData1 data) {
         this.data = data;
         return this;
     }
@@ -58,11 +58,11 @@ public class OBFundsConfirmationConsent1 {
     @Valid
     @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Data")
-    public OBFundsConfirmationConsent1Data getData() {
+    public OBFundsConfirmationConsentData1 getData() {
         return data;
     }
 
-    public void setData(OBFundsConfirmationConsent1Data data) {
+    public void setData(OBFundsConfirmationConsentData1 data) {
         this.data = data;
     }
 

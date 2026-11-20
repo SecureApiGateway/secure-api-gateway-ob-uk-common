@@ -29,7 +29,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class FRRemittanceInformationStructured {
     private List<@Valid FRReferredDocumentInformation> referredDocumentInformation;
-    private Integer referredDocumentAmount;
+    private String referredDocumentAmount;
     private FRRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation;
     private String invoicer;
     private String invoicee;

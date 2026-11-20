@@ -8,3 +8,6 @@ pom.xml.releaseBackup
 pom.xml.tag
 .polaris/
 **/*.iml
+
+__pycache__/
+*.pyc

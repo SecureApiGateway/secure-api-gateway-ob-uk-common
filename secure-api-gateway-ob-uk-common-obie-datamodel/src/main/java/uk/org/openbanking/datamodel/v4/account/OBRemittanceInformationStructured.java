@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 /**
@@ -36,7 +37,7 @@ public class OBRemittanceInformationStructured {
     @Valid
     private List<@Valid OBReferredDocumentInformation> referredDocumentInformation;
 
-    private Integer referredDocumentAmount;
+    private String referredDocumentAmount;
 
     private OBRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation;
 
@@ -78,24 +79,24 @@ public class OBRemittanceInformationStructured {
         this.referredDocumentInformation = referredDocumentInformation;
     }
 
-    public OBRemittanceInformationStructured referredDocumentAmount(Integer referredDocumentAmount) {
+    public OBRemittanceInformationStructured referredDocumentAmount(String referredDocumentAmount) {
         this.referredDocumentAmount = referredDocumentAmount;
         return this;
     }
 
     /**
-     * Provides details on the amounts of the referred document.
+     * A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.
      *
      * @return referredDocumentAmount
      */
-
-    @Schema(name = "ReferredDocumentAmount", description = "Provides details on the amounts of the referred document.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$")
+    @Schema(name = "ReferredDocumentAmount", example = "1209.06", description = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReferredDocumentAmount")
-    public Integer getReferredDocumentAmount() {
+    public String getReferredDocumentAmount() {
         return referredDocumentAmount;
     }
 
-    public void setReferredDocumentAmount(Integer referredDocumentAmount) {
+    public void setReferredDocumentAmount(String referredDocumentAmount) {
         this.referredDocumentAmount = referredDocumentAmount;
     }
 
@@ -147,12 +148,12 @@ public class OBRemittanceInformationStructured {
     }
 
     /**
-     * dentification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.
+     * Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.
      *
      * @return invoicee
      */
     @Size(min = 1, max = 256)
-    @Schema(name = "Invoicee", example = "80200112344562", description = "dentification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Invoicee", example = "80200112344562", description = "Identification of the party to whom an invoice is issued, when it is different from the debtor or ultimate debtor.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Invoicee")
     public String getInvoicee() {
         return invoicee;

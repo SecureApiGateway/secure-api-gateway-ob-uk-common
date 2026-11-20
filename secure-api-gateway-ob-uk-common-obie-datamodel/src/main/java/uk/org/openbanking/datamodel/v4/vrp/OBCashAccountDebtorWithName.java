@@ -50,10 +50,9 @@ public class OBCashAccountDebtorWithName {
     /**
      * Constructor with only required parameters
      */
-    public OBCashAccountDebtorWithName(String schemeName, String identification, String name) {
+    public OBCashAccountDebtorWithName(String schemeName, String identification) {
         this.schemeName = schemeName;
         this.identification = identification;
-        this.name = name;
     }
 
     public OBCashAccountDebtorWithName schemeName(String schemeName) {
@@ -109,9 +108,8 @@ public class OBCashAccountDebtorWithName {
      *
      * @return name
      */
-    @NotNull
-    @Size(min = 1, max = 70)
-    @Schema(name = "Name", description = "^ Name of the account, as assigned by the account servicing institution.  Usage The account name is the name or names of the account owner(s) represented at an account level. The account name is not the product name or the nickname of the account.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Size(min = 1, max = 350)
+    @Schema(name = "Name", description = "^ Name of the account, as assigned by the account servicing institution.  Usage The account name is the name or names of the account owner(s) represented at an account level. The account name is not the product name or the nickname of the account.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
     public String getName() {
         return name;

@@ -28,6 +28,8 @@ class OBVersionTest {
         assertThat(OBVersion.v3_1_10.getCanonicalName()).isEqualTo("v3.1.10");
         assertThat(OBVersion.v4_0_0.getCanonicalVersion()).isEqualTo("4.0.0");
         assertThat(OBVersion.v4_0_0.getCanonicalName()).isEqualTo("v4.0.0");
+        assertThat(OBVersion.v4_0_1.getCanonicalVersion()).isEqualTo("4.0.1");
+        assertThat(OBVersion.v4_0_1.getCanonicalName()).isEqualTo("v4.0.1");
     }
 
     @Test
@@ -37,9 +39,11 @@ class OBVersionTest {
         assertTrue(OBVersion.v3_1_8.isBeforeVersion(OBVersion.v3_1_10));
         assertTrue(OBVersion.v3_1_8.isBeforeVersion(OBVersion.v3_1_11));
         assertTrue(OBVersion.v3_1_8.isBeforeVersion(OBVersion.v4_0_0));
+        assertTrue(OBVersion.v4_0_0.isBeforeVersion(OBVersion.v4_0_1));
 
         assertFalse(OBVersion.v3_1_10.isBeforeVersion(OBVersion.v3_1_10));
         assertFalse(OBVersion.v4_0_0.isBeforeVersion(OBVersion.v3_1_10));
+        assertFalse(OBVersion.v4_0_1.isBeforeVersion(OBVersion.v4_0_0));
     }
 
     @Test
@@ -47,9 +51,11 @@ class OBVersionTest {
         assertTrue(OBVersion.v4_0_0.isAfterVersion(OBVersion.v3_1_11));
         assertTrue(OBVersion.v4_0_0.isAfterVersion(OBVersion.v3_1_10));
         assertTrue(OBVersion.v3_1_11.isAfterVersion(OBVersion.v3_1_10));
+        assertTrue(OBVersion.v4_0_1.isAfterVersion(OBVersion.v4_0_0));
 
         assertFalse(OBVersion.v3_1_10.isAfterVersion(OBVersion.v3_1_11));
         assertFalse(OBVersion.v3_1_10.isAfterVersion(OBVersion.v3_1_10));
+        assertFalse(OBVersion.v4_0_0.isAfterVersion(OBVersion.v4_0_1));
     }
 
     @Test
@@ -58,6 +64,8 @@ class OBVersionTest {
         assertThat(OBVersion.fromString("3.1.10")).isEqualTo(OBVersion.v3_1_10);
         assertThat(OBVersion.fromString("v4.0.0")).isEqualTo(OBVersion.v4_0_0);
         assertThat(OBVersion.fromString("4.0.0")).isEqualTo(OBVersion.v4_0_0);
+        assertThat(OBVersion.fromString("v4.0.1")).isEqualTo(OBVersion.v4_0_1);
+        assertThat(OBVersion.fromString("4.0.1")).isEqualTo(OBVersion.v4_0_1);
 
         assertThat(OBVersion.fromString("")).isNull();
         assertThat(OBVersion.fromString(" ")).isNull();

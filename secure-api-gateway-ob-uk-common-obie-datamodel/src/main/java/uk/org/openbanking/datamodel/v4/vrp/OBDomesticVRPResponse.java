@@ -49,11 +49,9 @@ public class OBDomesticVRPResponse {
     /**
      * Constructor with only required parameters
      */
-    public OBDomesticVRPResponse(OBDomesticVRPResponseData data, OBRisk1 risk, Links links, Meta meta) {
+    public OBDomesticVRPResponse(OBDomesticVRPResponseData data, OBRisk1 risk) {
         this.data = data;
         this.risk = risk;
-        this.links = links;
-        this.meta = meta;
     }
 
     public OBDomesticVRPResponse data(OBDomesticVRPResponseData data) {
@@ -110,9 +108,8 @@ public class OBDomesticVRPResponse {
      *
      * @return links
      */
-    @NotNull
     @Valid
-    @Schema(name = "Links", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Links")
     public Links getLinks() {
         return links;
@@ -132,9 +129,8 @@ public class OBDomesticVRPResponse {
      *
      * @return meta
      */
-    @NotNull
     @Valid
-    @Schema(name = "Meta", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Meta")
     public Meta getMeta() {
         return meta;

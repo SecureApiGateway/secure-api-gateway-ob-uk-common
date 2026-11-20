@@ -48,7 +48,7 @@ public class OBDomesticVRPConsentResponseData {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBDomesticVRPConsentStatus status;
+    private OBInternalConsentStatus1Code status;
 
     @Valid
     private List<@Valid OBStatusReason> statusReason;
@@ -69,7 +69,7 @@ public class OBDomesticVRPConsentResponseData {
     /**
      * Constructor with only required parameters
      */
-    public OBDomesticVRPConsentResponseData(String consentId, DateTime creationDateTime, OBDomesticVRPConsentStatus status, DateTime statusUpdateDateTime, OBDomesticVRPControlParameters controlParameters, OBDomesticVRPInitiation initiation) {
+    public OBDomesticVRPConsentResponseData(String consentId, DateTime creationDateTime, OBInternalConsentStatus1Code status, DateTime statusUpdateDateTime, OBDomesticVRPControlParameters controlParameters, OBDomesticVRPInitiation initiation) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -143,7 +143,7 @@ public class OBDomesticVRPConsentResponseData {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBDomesticVRPConsentResponseData status(OBDomesticVRPConsentStatus status) {
+    public OBDomesticVRPConsentResponseData status(OBInternalConsentStatus1Code status) {
         this.status = status;
         return this;
     }
@@ -157,11 +157,11 @@ public class OBDomesticVRPConsentResponseData {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBDomesticVRPConsentStatus getStatus() {
+    public OBInternalConsentStatus1Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBDomesticVRPConsentStatus status) {
+    public void setStatus(OBInternalConsentStatus1Code status) {
         this.status = status;
     }
 

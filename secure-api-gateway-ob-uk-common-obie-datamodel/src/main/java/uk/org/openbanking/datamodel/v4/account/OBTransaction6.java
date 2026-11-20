@@ -104,6 +104,12 @@ public class OBTransaction6 {
 
     private OBUltimateDebtor1 ultimateDebtor;
 
+    private OBIntermediaryAgent intermediaryAgent1;
+
+    private OBIntermediaryAgent intermediaryAgent2;
+
+    private OBIntermediaryAgent intermediaryAgent3;
+
     public OBTransaction6() {
         super();
     }
@@ -147,12 +153,12 @@ public class OBTransaction6 {
     }
 
     /**
-     * Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.
+     * Unique identifier for the transaction within a servicing institution. This identifier is both unique and immutable.
      *
      * @return transactionId
      */
     @Size(min = 1, max = 210)
-    @Schema(name = "TransactionId", description = "Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "TransactionId", description = "Unique identifier for the transaction within a servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TransactionId")
     public String getTransactionId() {
         return transactionId;
@@ -749,6 +755,69 @@ public class OBTransaction6 {
         this.ultimateDebtor = ultimateDebtor;
     }
 
+    public OBTransaction6 intermediaryAgent1(OBIntermediaryAgent intermediaryAgent1) {
+        this.intermediaryAgent1 = intermediaryAgent1;
+        return this;
+    }
+
+    /**
+     * Get intermediaryAgent1
+     *
+     * @return intermediaryAgent1
+     */
+    @Valid
+    @Schema(name = "IntermediaryAgent1", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("IntermediaryAgent1")
+    public OBIntermediaryAgent getIntermediaryAgent1() {
+        return intermediaryAgent1;
+    }
+
+    public void setIntermediaryAgent1(OBIntermediaryAgent intermediaryAgent1) {
+        this.intermediaryAgent1 = intermediaryAgent1;
+    }
+
+    public OBTransaction6 intermediaryAgent2(OBIntermediaryAgent intermediaryAgent2) {
+        this.intermediaryAgent2 = intermediaryAgent2;
+        return this;
+    }
+
+    /**
+     * Get intermediaryAgent2
+     *
+     * @return intermediaryAgent2
+     */
+    @Valid
+    @Schema(name = "IntermediaryAgent2", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("IntermediaryAgent2")
+    public OBIntermediaryAgent getIntermediaryAgent2() {
+        return intermediaryAgent2;
+    }
+
+    public void setIntermediaryAgent2(OBIntermediaryAgent intermediaryAgent2) {
+        this.intermediaryAgent2 = intermediaryAgent2;
+    }
+
+    public OBTransaction6 intermediaryAgent3(OBIntermediaryAgent intermediaryAgent3) {
+        this.intermediaryAgent3 = intermediaryAgent3;
+        return this;
+    }
+
+    /**
+     * Get intermediaryAgent3
+     *
+     * @return intermediaryAgent3
+     */
+    @Valid
+    @Schema(name = "IntermediaryAgent3", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("IntermediaryAgent3")
+    public OBIntermediaryAgent getIntermediaryAgent3() {
+        return intermediaryAgent3;
+    }
+
+    public void setIntermediaryAgent3(OBIntermediaryAgent intermediaryAgent3) {
+        this.intermediaryAgent3 = intermediaryAgent3;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -786,12 +855,15 @@ public class OBTransaction6 {
                 Objects.equals(this.categoryPurposeCode, obTransaction6.categoryPurposeCode) &&
                 Objects.equals(this.paymentPurposeCode, obTransaction6.paymentPurposeCode) &&
                 Objects.equals(this.ultimateCreditor, obTransaction6.ultimateCreditor) &&
-                Objects.equals(this.ultimateDebtor, obTransaction6.ultimateDebtor);
+                Objects.equals(this.ultimateDebtor, obTransaction6.ultimateDebtor) &&
+                Objects.equals(this.intermediaryAgent1, obTransaction6.intermediaryAgent1) &&
+                Objects.equals(this.intermediaryAgent2, obTransaction6.intermediaryAgent2) &&
+                Objects.equals(this.intermediaryAgent3, obTransaction6.intermediaryAgent3);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, transactionId, transactionReference, statementReference, creditDebitIndicator, status, transactionMutability, bookingDateTime, valueDateTime, transactionInformation, addressLine, amount, chargeAmount, currencyExchange, bankTransactionCode, proprietaryBankTransactionCode, extendedProprietaryBankTransactionCodes, balance, merchantDetails, creditorAgent, creditorAccount, debtorAgent, debtorAccount, cardInstrument, supplementaryData, categoryPurposeCode, paymentPurposeCode, ultimateCreditor, ultimateDebtor);
+        return Objects.hash(accountId, transactionId, transactionReference, statementReference, creditDebitIndicator, status, transactionMutability, bookingDateTime, valueDateTime, transactionInformation, addressLine, amount, chargeAmount, currencyExchange, bankTransactionCode, proprietaryBankTransactionCode, extendedProprietaryBankTransactionCodes, balance, merchantDetails, creditorAgent, creditorAccount, debtorAgent, debtorAccount, cardInstrument, supplementaryData, categoryPurposeCode, paymentPurposeCode, ultimateCreditor, ultimateDebtor, intermediaryAgent1, intermediaryAgent2, intermediaryAgent3);
     }
 
     @Override
@@ -827,6 +899,9 @@ public class OBTransaction6 {
         sb.append("    paymentPurposeCode: ").append(toIndentedString(paymentPurposeCode)).append("\n");
         sb.append("    ultimateCreditor: ").append(toIndentedString(ultimateCreditor)).append("\n");
         sb.append("    ultimateDebtor: ").append(toIndentedString(ultimateDebtor)).append("\n");
+        sb.append("    intermediaryAgent1: ").append(toIndentedString(intermediaryAgent1)).append("\n");
+        sb.append("    intermediaryAgent2: ").append(toIndentedString(intermediaryAgent2)).append("\n");
+        sb.append("    intermediaryAgent3: ").append(toIndentedString(intermediaryAgent3)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -73,12 +73,12 @@ public class OBWriteInternationalScheduled3DataInitiationCreditorAgent {
     }
 
     /**
-     * Unique and unambiguous identification of a financial institution or a branch of a financial institution.
+     * Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
      *
      * @return identification
      */
     @Size(min = 1, max = 35)
-    @Schema(name = "Identification", description = "Unique and unambiguous identification of a financial institution or a branch of a financial institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Identification", description = "Unique identification, as assigned by the creditor, to unambiguously identify the mandate.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
         return identification;
@@ -98,9 +98,9 @@ public class OBWriteInternationalScheduled3DataInitiationCreditorAgent {
      *
      * @return LEI
      */
-    @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
+    @Pattern(regexp = "^[A-Z0-9]{18,18}[0-9]{2,2}$")
     @Size(min = 1, max = 20)
-    @Schema(name = "LEI", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "LEI", example = "IZ9Q00LZEVUKWCQY6X15", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LEI")
     public String getLEI() {
         return LEI;

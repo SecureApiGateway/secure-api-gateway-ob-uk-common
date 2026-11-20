@@ -38,7 +38,7 @@ public class FRRemittanceInformationTestDataFactory {
                                 .issuer("ab")
                                 .reference("ref")
                                 .build())
-                        .referredDocumentAmount(2)
+                        .referredDocumentAmount("2")
                         .creditorReferenceInformation(FRRemittanceInformationStructuredCreditorReferenceInformation.builder()
                                 .code(FRExternalCreditorReferenceTypeCode.DISP)
                                 .issuer("ab")

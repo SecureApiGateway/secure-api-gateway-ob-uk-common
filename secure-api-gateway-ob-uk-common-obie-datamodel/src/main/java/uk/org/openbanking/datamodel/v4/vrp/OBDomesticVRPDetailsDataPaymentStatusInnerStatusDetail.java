@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -35,7 +36,7 @@ public class OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail {
 
     private String localInstrument;
 
-    private String status;
+    private ExternalPaymentTransactionStatus1Code status;
 
     private String statusReason;
 
@@ -48,7 +49,7 @@ public class OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail {
     /**
      * Constructor with only required parameters
      */
-    public OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail(String status) {
+    public OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
     }
 
@@ -73,25 +74,25 @@ public class OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail {
         this.localInstrument = localInstrument;
     }
 
-    public OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail status(String status) {
+    public OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail status(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
         return this;
     }
 
     /**
-     * Status of a transfer, as assigned by the transaction administrator.
+     * Get status
      *
      * @return status
      */
     @NotNull
-    @Size(min = 1, max = 128)
-    @Schema(name = "Status", description = "Status of a transfer, as assigned by the transaction administrator.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Valid
+    @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public String getStatus() {
+    public ExternalPaymentTransactionStatus1Code getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
     }
 

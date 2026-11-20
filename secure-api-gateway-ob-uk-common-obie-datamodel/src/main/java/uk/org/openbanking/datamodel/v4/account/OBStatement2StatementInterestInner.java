@@ -156,12 +156,12 @@ public class OBStatement2StatementInterestInner {
     }
 
     /**
-     * Interest amount type, in a coded form. For a full list of values see `OBInternalStatementInterestType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+     * This code specifies the type of interest (e.g., BOE Base Rate, Fixed Rate, Gross).
      *
      * @return rateType
      */
 
-    @Schema(name = "RateType", example = "UK.OBIE.Total", description = "Interest amount type, in a coded form. For a full list of values see `OBInternalStatementInterestType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "RateType", example = "UK.OBIE.FixedRate", description = "This code specifies the type of interest (e.g., BOE Base Rate, Fixed Rate, Gross).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RateType")
     public String getRateType() {
         return rateType;

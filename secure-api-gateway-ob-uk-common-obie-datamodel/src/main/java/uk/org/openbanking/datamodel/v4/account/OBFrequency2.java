@@ -43,7 +43,11 @@ public enum OBFrequency2 {
 
     MOVE("MOVE"),
 
-    WEEK("WEEK");
+    WEEK("WEEK"),
+
+    NONE("NONE"),
+
+    SLCT("SLCT");
 
     private String value;
 

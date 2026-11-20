@@ -89,12 +89,12 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
     }
 
     /**
-     * Minimum rate on which fee/charge is applicable(where it is expressed as an rate)
+     * Minimum rate on which fee/charge is applicable(where it is expressed as a rate)
      *
      * @return minimumRate
      */
     @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
-    @Schema(name = "MinimumRate", description = "Minimum rate on which fee/charge is applicable(where it is expressed as an rate)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "MinimumRate", description = "Minimum rate on which fee/charge is applicable(where it is expressed as a rate)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MinimumRate")
     public String getMinimumRate() {
         return minimumRate;
@@ -110,12 +110,12 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
     }
 
     /**
-     * Maximum rate on which fee/charge is applicable(where it is expressed as an rate)
+     * Maximum rate on which fee/charge is applicable(where it is expressed as a rate)
      *
      * @return maximumRate
      */
     @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
-    @Schema(name = "MaximumRate", description = "Maximum rate on which fee/charge is applicable(where it is expressed as an rate)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "MaximumRate", description = "Maximum rate on which fee/charge is applicable(where it is expressed as a rate)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MaximumRate")
     public String getMaximumRate() {
         return maximumRate;

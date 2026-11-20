@@ -247,12 +247,12 @@ public class OBDomesticVRPInstruction {
     }
 
     /**
-     * Additional information that can not be captured in the structured fields and/or any other specific block.
+     * Additional information that cannot be captured in the structured fields and/or any other specific block.
      *
      * @return supplementaryData
      */
 
-    @Schema(name = "SupplementaryData", description = "Additional information that can not be captured in the structured fields and/or any other specific block. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "SupplementaryData", description = "Additional information that cannot be captured in the structured fields and/or any other specific block. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")
     public OBSupplementaryData1 getSupplementaryData() {
         return supplementaryData;

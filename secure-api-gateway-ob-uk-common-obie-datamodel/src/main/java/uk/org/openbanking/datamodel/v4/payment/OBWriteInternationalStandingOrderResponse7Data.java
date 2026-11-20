@@ -47,7 +47,7 @@ public class OBWriteInternationalStandingOrderResponse7Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBWriteInternationalStandingOrderResponse7DataStatus status;
+    private ExternalPaymentTransactionStatus1Code status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -55,7 +55,7 @@ public class OBWriteInternationalStandingOrderResponse7Data {
     @Valid
     private List<@Valid OBStatusReason> statusReason;
 
-    private OBWriteInternationalStandingOrderResponse7DataRefund refund;
+    private OBDomesticRefundAccount1 refund;
 
     @Valid
     private List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges;
@@ -73,7 +73,7 @@ public class OBWriteInternationalStandingOrderResponse7Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteInternationalStandingOrderResponse7Data(String internationalStandingOrderId, String consentId, DateTime creationDateTime, OBWriteInternationalStandingOrderResponse7DataStatus status, DateTime statusUpdateDateTime, OBWriteInternationalStandingOrder4DataInitiation initiation) {
+    public OBWriteInternationalStandingOrderResponse7Data(String internationalStandingOrderId, String consentId, DateTime creationDateTime, ExternalPaymentTransactionStatus1Code status, DateTime statusUpdateDateTime, OBWriteInternationalStandingOrder4DataInitiation initiation) {
         this.internationalStandingOrderId = internationalStandingOrderId;
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
@@ -148,7 +148,7 @@ public class OBWriteInternationalStandingOrderResponse7Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteInternationalStandingOrderResponse7Data status(OBWriteInternationalStandingOrderResponse7DataStatus status) {
+    public OBWriteInternationalStandingOrderResponse7Data status(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
         return this;
     }
@@ -162,11 +162,11 @@ public class OBWriteInternationalStandingOrderResponse7Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWriteInternationalStandingOrderResponse7DataStatus getStatus() {
+    public ExternalPaymentTransactionStatus1Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWriteInternationalStandingOrderResponse7DataStatus status) {
+    public void setStatus(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
     }
 
@@ -221,7 +221,7 @@ public class OBWriteInternationalStandingOrderResponse7Data {
         this.statusReason = statusReason;
     }
 
-    public OBWriteInternationalStandingOrderResponse7Data refund(OBWriteInternationalStandingOrderResponse7DataRefund refund) {
+    public OBWriteInternationalStandingOrderResponse7Data refund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
         return this;
     }
@@ -234,11 +234,11 @@ public class OBWriteInternationalStandingOrderResponse7Data {
     @Valid
     @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Refund")
-    public OBWriteInternationalStandingOrderResponse7DataRefund getRefund() {
+    public OBDomesticRefundAccount1 getRefund() {
         return refund;
     }
 
-    public void setRefund(OBWriteInternationalStandingOrderResponse7DataRefund refund) {
+    public void setRefund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
     }
 

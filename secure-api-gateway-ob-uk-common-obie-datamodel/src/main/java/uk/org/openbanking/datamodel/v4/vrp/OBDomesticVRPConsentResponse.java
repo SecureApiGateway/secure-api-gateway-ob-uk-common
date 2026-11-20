@@ -49,11 +49,9 @@ public class OBDomesticVRPConsentResponse {
     /**
      * Constructor with only required parameters
      */
-    public OBDomesticVRPConsentResponse(OBDomesticVRPConsentResponseData data, OBRisk1 risk, Links links, Meta meta) {
+    public OBDomesticVRPConsentResponse(OBDomesticVRPConsentResponseData data, OBRisk1 risk) {
         this.data = data;
         this.risk = risk;
-        this.links = links;
-        this.meta = meta;
     }
 
     public OBDomesticVRPConsentResponse data(OBDomesticVRPConsentResponseData data) {
@@ -110,9 +108,8 @@ public class OBDomesticVRPConsentResponse {
      *
      * @return links
      */
-    @NotNull
     @Valid
-    @Schema(name = "Links", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Links")
     public Links getLinks() {
         return links;
@@ -132,9 +129,8 @@ public class OBDomesticVRPConsentResponse {
      *
      * @return meta
      */
-    @NotNull
     @Valid
-    @Schema(name = "Meta", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Meta")
     public Meta getMeta() {
         return meta;

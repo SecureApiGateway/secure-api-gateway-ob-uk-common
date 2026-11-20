@@ -46,7 +46,7 @@ public class OBWriteDomesticConsentResponse5Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBPaymentConsentStatus status;
+    private OBInternalConsentStatus2Code status;
 
     @Valid
     private List<@Valid OBStatusReason> statusReason;
@@ -83,7 +83,7 @@ public class OBWriteDomesticConsentResponse5Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticConsentResponse5Data(String consentId, DateTime creationDateTime, OBPaymentConsentStatus status, DateTime statusUpdateDateTime, OBWriteDomestic2DataInitiation initiation) {
+    public OBWriteDomesticConsentResponse5Data(String consentId, DateTime creationDateTime, OBInternalConsentStatus2Code status, DateTime statusUpdateDateTime, OBWriteDomestic2DataInitiation initiation) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -135,7 +135,7 @@ public class OBWriteDomesticConsentResponse5Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteDomesticConsentResponse5Data status(OBPaymentConsentStatus status) {
+    public OBWriteDomesticConsentResponse5Data status(OBInternalConsentStatus2Code status) {
         this.status = status;
         return this;
     }
@@ -149,11 +149,11 @@ public class OBWriteDomesticConsentResponse5Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBPaymentConsentStatus getStatus() {
+    public OBInternalConsentStatus2Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBPaymentConsentStatus status) {
+    public void setStatus(OBInternalConsentStatus2Code status) {
         this.status = status;
     }
 

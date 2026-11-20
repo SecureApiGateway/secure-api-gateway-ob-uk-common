@@ -26,10 +26,10 @@ import jakarta.validation.Valid;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
 
 /**
- * Frequency and format of statments for an account
+ * Frequency and format of statements for an account
  */
 
-@Schema(name = "StatementFrequencyAndFormat_inner", description = "Frequency and format of statments for an account")
+@Schema(name = "StatementFrequencyAndFormat_inner", description = "Frequency and format of statements for an account")
 @JsonTypeName("StatementFrequencyAndFormat_inner")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class StatementFrequencyAndFormatInner {

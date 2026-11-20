@@ -226,7 +226,7 @@ public class OBMandateRelatedInformation1 {
      * @return reason
      */
     @Size(min = 1, max = 256)
-    @Schema(name = "Reason", example = "To pay monthly memebership", description = "Reason for the setup of the credit transfer mandate.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Reason", example = "To pay monthly membership", description = "Reason for the setup of the credit transfer mandate.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Reason")
     public String getReason() {
         return reason;

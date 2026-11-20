@@ -29,7 +29,9 @@ public enum OBWriteDomesticConsent4DataAuthorisationAuthorisationType {
 
     ANY("Any"),
 
-    SINGLE("Single");
+    SINGLE("Single"),
+
+    MULTIPLE("Multiple");
 
     private String value;
 

@@ -45,7 +45,7 @@ public class OBWriteFileConsentResponse4Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBWriteFileConsentResponse4DataStatus status;
+    private OBInternalConsentStatus3Code status;
 
     @Valid
     private List<@Valid OBStatusReason> statusReason;
@@ -74,7 +74,7 @@ public class OBWriteFileConsentResponse4Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteFileConsentResponse4Data(String consentId, DateTime creationDateTime, OBWriteFileConsentResponse4DataStatus status, DateTime statusUpdateDateTime, OBWriteFile2DataInitiation initiation) {
+    public OBWriteFileConsentResponse4Data(String consentId, DateTime creationDateTime, OBInternalConsentStatus3Code status, DateTime statusUpdateDateTime, OBWriteFile2DataInitiation initiation) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -126,7 +126,7 @@ public class OBWriteFileConsentResponse4Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteFileConsentResponse4Data status(OBWriteFileConsentResponse4DataStatus status) {
+    public OBWriteFileConsentResponse4Data status(OBInternalConsentStatus3Code status) {
         this.status = status;
         return this;
     }
@@ -140,11 +140,11 @@ public class OBWriteFileConsentResponse4Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWriteFileConsentResponse4DataStatus getStatus() {
+    public OBInternalConsentStatus3Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWriteFileConsentResponse4DataStatus status) {
+    public void setStatus(OBInternalConsentStatus3Code status) {
         this.status = status;
     }
 

@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 /**
@@ -36,7 +37,7 @@ public class OBRemittanceInformationStructured {
     @Valid
     private List<@Valid OBReferredDocumentInformation> referredDocumentInformation;
 
-    private Integer referredDocumentAmount;
+    private String referredDocumentAmount;
 
     private OBRemittanceInformationStructuredCreditorReferenceInformation creditorReferenceInformation;
 
@@ -78,24 +79,24 @@ public class OBRemittanceInformationStructured {
         this.referredDocumentInformation = referredDocumentInformation;
     }
 
-    public OBRemittanceInformationStructured referredDocumentAmount(Integer referredDocumentAmount) {
+    public OBRemittanceInformationStructured referredDocumentAmount(String referredDocumentAmount) {
         this.referredDocumentAmount = referredDocumentAmount;
         return this;
     }
 
     /**
-     * Provides details on the amounts of the referred document.
+     * A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.
      *
      * @return referredDocumentAmount
      */
-
-    @Schema(name = "ReferredDocumentAmount", description = "Provides details on the amounts of the referred document.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$")
+    @Schema(name = "ReferredDocumentAmount", description = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReferredDocumentAmount")
-    public Integer getReferredDocumentAmount() {
+    public String getReferredDocumentAmount() {
         return referredDocumentAmount;
     }
 
-    public void setReferredDocumentAmount(Integer referredDocumentAmount) {
+    public void setReferredDocumentAmount(String referredDocumentAmount) {
         this.referredDocumentAmount = referredDocumentAmount;
     }
 

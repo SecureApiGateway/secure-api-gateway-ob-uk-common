@@ -48,7 +48,7 @@ public class OBDomesticVRPResponseData {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBDomesticVRPResponseDataStatus status;
+    private ExternalPaymentTransactionStatus5Code status;
 
     @Valid
     private List<@Valid OBStatusReason> statusReason;
@@ -62,7 +62,7 @@ public class OBDomesticVRPResponseData {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime expectedSettlementDateTime;
 
-    private OBCashAccountDebtorWithName refund;
+    private OBDomesticRefundAccount1 refund;
 
     @Valid
     private List<@Valid OBDomesticVRPResponseDataChargesInner> charges;
@@ -80,7 +80,7 @@ public class OBDomesticVRPResponseData {
     /**
      * Constructor with only required parameters
      */
-    public OBDomesticVRPResponseData(String domesticVRPId, String consentId, DateTime creationDateTime, OBDomesticVRPResponseDataStatus status, DateTime statusUpdateDateTime, OBDomesticVRPInitiation initiation, OBDomesticVRPInstruction instruction) {
+    public OBDomesticVRPResponseData(String domesticVRPId, String consentId, DateTime creationDateTime, ExternalPaymentTransactionStatus5Code status, DateTime statusUpdateDateTime, OBDomesticVRPInitiation initiation, OBDomesticVRPInstruction instruction) {
         this.domesticVRPId = domesticVRPId;
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
@@ -156,7 +156,7 @@ public class OBDomesticVRPResponseData {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBDomesticVRPResponseData status(OBDomesticVRPResponseDataStatus status) {
+    public OBDomesticVRPResponseData status(ExternalPaymentTransactionStatus5Code status) {
         this.status = status;
         return this;
     }
@@ -170,11 +170,11 @@ public class OBDomesticVRPResponseData {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBDomesticVRPResponseDataStatus getStatus() {
+    public ExternalPaymentTransactionStatus5Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBDomesticVRPResponseDataStatus status) {
+    public void setStatus(ExternalPaymentTransactionStatus5Code status) {
         this.status = status;
     }
 
@@ -271,7 +271,7 @@ public class OBDomesticVRPResponseData {
         this.expectedSettlementDateTime = expectedSettlementDateTime;
     }
 
-    public OBDomesticVRPResponseData refund(OBCashAccountDebtorWithName refund) {
+    public OBDomesticVRPResponseData refund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
         return this;
     }
@@ -284,11 +284,11 @@ public class OBDomesticVRPResponseData {
     @Valid
     @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Refund")
-    public OBCashAccountDebtorWithName getRefund() {
+    public OBDomesticRefundAccount1 getRefund() {
         return refund;
     }
 
-    public void setRefund(OBCashAccountDebtorWithName refund) {
+    public void setRefund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
     }
 

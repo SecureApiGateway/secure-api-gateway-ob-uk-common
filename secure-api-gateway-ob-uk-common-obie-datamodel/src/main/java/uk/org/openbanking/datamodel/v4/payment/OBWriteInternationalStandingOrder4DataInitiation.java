@@ -58,7 +58,7 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
 
     private OBWriteDomesticStandingOrder3DataInitiationDebtorAccount debtorAccount;
 
-    private OBWriteInternationalConsent5DataInitiationCreditor creditor;
+    private OBWriteInternational3DataInitiationCreditor creditor;
 
     private OBWriteInternationalStandingOrder4DataInitiationCreditorAgent creditorAgent;
 
@@ -205,7 +205,7 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
      *
      * @return destinationCountryCode
      */
-    @Pattern(regexp = "[A-Z]{2,2}")
+    @Pattern(regexp = "^[A-Z]{2,2}$")
     @Schema(name = "DestinationCountryCode", description = "Country in which Credit Account is domiciled. Code to identify a country, a dependency, or another area of particular geopolitical interest, on the basis of country names obtained from the United Nations (ISO 3166, Alpha-2 code).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DestinationCountryCode")
     public String getDestinationCountryCode() {
@@ -259,7 +259,7 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
         this.debtorAccount = debtorAccount;
     }
 
-    public OBWriteInternationalStandingOrder4DataInitiation creditor(OBWriteInternationalConsent5DataInitiationCreditor creditor) {
+    public OBWriteInternationalStandingOrder4DataInitiation creditor(OBWriteInternational3DataInitiationCreditor creditor) {
         this.creditor = creditor;
         return this;
     }
@@ -272,11 +272,11 @@ public class OBWriteInternationalStandingOrder4DataInitiation {
     @Valid
     @Schema(name = "Creditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Creditor")
-    public OBWriteInternationalConsent5DataInitiationCreditor getCreditor() {
+    public OBWriteInternational3DataInitiationCreditor getCreditor() {
         return creditor;
     }
 
-    public void setCreditor(OBWriteInternationalConsent5DataInitiationCreditor creditor) {
+    public void setCreditor(OBWriteInternational3DataInitiationCreditor creditor) {
         this.creditor = creditor;
     }
 

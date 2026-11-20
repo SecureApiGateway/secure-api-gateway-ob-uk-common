@@ -47,7 +47,7 @@ public class OBWriteFileResponse3Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBWriteFileResponse3DataStatus status;
+    private ExternalPaymentTransactionStatus4Code status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -58,9 +58,9 @@ public class OBWriteFileResponse3Data {
     @Valid
     private List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges;
 
-    private OBWriteFile2DataInitiation initiation;
+    private OBWriteFileResponse3DataInitiation initiation;
 
-    private OBWriteFileResponse3DataMultiAuthorisation multiAuthorisation;
+    private OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation;
 
     private OBCashAccountDebtor4 debtor;
 
@@ -71,7 +71,7 @@ public class OBWriteFileResponse3Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteFileResponse3Data(String filePaymentId, String consentId, DateTime creationDateTime, OBWriteFileResponse3DataStatus status, DateTime statusUpdateDateTime, OBWriteFile2DataInitiation initiation) {
+    public OBWriteFileResponse3Data(String filePaymentId, String consentId, DateTime creationDateTime, ExternalPaymentTransactionStatus4Code status, DateTime statusUpdateDateTime, OBWriteFileResponse3DataInitiation initiation) {
         this.filePaymentId = filePaymentId;
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
@@ -146,7 +146,7 @@ public class OBWriteFileResponse3Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteFileResponse3Data status(OBWriteFileResponse3DataStatus status) {
+    public OBWriteFileResponse3Data status(ExternalPaymentTransactionStatus4Code status) {
         this.status = status;
         return this;
     }
@@ -160,11 +160,11 @@ public class OBWriteFileResponse3Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWriteFileResponse3DataStatus getStatus() {
+    public ExternalPaymentTransactionStatus4Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWriteFileResponse3DataStatus status) {
+    public void setStatus(ExternalPaymentTransactionStatus4Code status) {
         this.status = status;
     }
 
@@ -248,7 +248,7 @@ public class OBWriteFileResponse3Data {
         this.charges = charges;
     }
 
-    public OBWriteFileResponse3Data initiation(OBWriteFile2DataInitiation initiation) {
+    public OBWriteFileResponse3Data initiation(OBWriteFileResponse3DataInitiation initiation) {
         this.initiation = initiation;
         return this;
     }
@@ -262,15 +262,15 @@ public class OBWriteFileResponse3Data {
     @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
-    public OBWriteFile2DataInitiation getInitiation() {
+    public OBWriteFileResponse3DataInitiation getInitiation() {
         return initiation;
     }
 
-    public void setInitiation(OBWriteFile2DataInitiation initiation) {
+    public void setInitiation(OBWriteFileResponse3DataInitiation initiation) {
         this.initiation = initiation;
     }
 
-    public OBWriteFileResponse3Data multiAuthorisation(OBWriteFileResponse3DataMultiAuthorisation multiAuthorisation) {
+    public OBWriteFileResponse3Data multiAuthorisation(OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation) {
         this.multiAuthorisation = multiAuthorisation;
         return this;
     }
@@ -283,11 +283,11 @@ public class OBWriteFileResponse3Data {
     @Valid
     @Schema(name = "MultiAuthorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MultiAuthorisation")
-    public OBWriteFileResponse3DataMultiAuthorisation getMultiAuthorisation() {
+    public OBWriteDomesticScheduledResponse5DataMultiAuthorisation getMultiAuthorisation() {
         return multiAuthorisation;
     }
 
-    public void setMultiAuthorisation(OBWriteFileResponse3DataMultiAuthorisation multiAuthorisation) {
+    public void setMultiAuthorisation(OBWriteDomesticScheduledResponse5DataMultiAuthorisation multiAuthorisation) {
         this.multiAuthorisation = multiAuthorisation;
     }
 

@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * For a full list of enumeration values refer to `ExternalDocumentFormat1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_internal_CodeSets)
+ * For a full list of enumeration values refer to `ExternalDocumentFormat1Code` in *ISO_External_CodeSet* [here](https://github.com/OpenBankingUK/External_internal_CodeSets)
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
@@ -35,7 +35,9 @@ public enum OBFileFormat {
 
     WORD("WORD"),
 
-    XSLT("XSLT");
+    XSLT("XSLT"),
+
+    DCSV("DCSV");
 
     private String value;
 

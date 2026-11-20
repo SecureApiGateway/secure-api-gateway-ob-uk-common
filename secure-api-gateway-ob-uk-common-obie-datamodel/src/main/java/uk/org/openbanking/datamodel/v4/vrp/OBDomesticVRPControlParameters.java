@@ -184,13 +184,13 @@ public class OBDomesticVRPControlParameters {
     }
 
     /**
-     * ^ The types of payments that can be made under this VRP consent. This can be used to indicate whether this include sweeping payment or other ecommerce payments.
+     * ^ The types of payments that can be made under this VRP consent. This can be used to indicate whether this includes sweeping payments or other ecommerce payments.
      *
      * @return vrPType
      */
     @NotNull
     @Size(min = 1)
-    @Schema(name = "VRPType", description = "^ The types of payments that can be made under this VRP consent. This can be used to indicate whether this include sweeping payment or other ecommerce payments.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "VRPType", description = "^ The types of payments that can be made under this VRP consent. This can be used to indicate whether this includes sweeping payments or other ecommerce payments.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("VRPType")
     public List<@Valid String> getVrPType() {
         return vrPType;
@@ -265,12 +265,12 @@ public class OBDomesticVRPControlParameters {
     }
 
     /**
-     * ^ Additional information that can not be captured in the structured fields and/or any other specific block
+     * ^ Additional information that cannot be captured in the structured fields and/or any other specific block
      *
      * @return supplementaryData
      */
 
-    @Schema(name = "SupplementaryData", description = "^ Additional information that can not be captured in the structured fields and/or any other specific block", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "SupplementaryData", description = "^ Additional information that cannot be captured in the structured fields and/or any other specific block", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")
     public OBSupplementaryData1 getSupplementaryData() {
         return supplementaryData;

@@ -72,12 +72,12 @@ public class OBMandateRelatedInformation1 {
     }
 
     /**
-     * Unique and unambiguous identification of a financial institution or a branch of a financial institution.
+     * Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
      *
      * @return mandateIdentification
      */
     @Size(min = 1, max = 35)
-    @Schema(name = "MandateIdentification", description = "Unique and unambiguous identification of a financial institution or a branch of a financial institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "MandateIdentification", description = "Unique identification, as assigned by the creditor, to unambiguously identify the mandate.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MandateIdentification")
     public String getMandateIdentification() {
         return mandateIdentification;

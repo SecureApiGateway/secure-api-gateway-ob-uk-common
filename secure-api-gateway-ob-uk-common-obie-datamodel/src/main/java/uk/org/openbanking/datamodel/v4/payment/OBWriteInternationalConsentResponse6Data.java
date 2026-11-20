@@ -46,7 +46,7 @@ public class OBWriteInternationalConsentResponse6Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBWriteInternationalConsentResponse6DataStatus status;
+    private OBInternalConsentStatus2Code status;
 
     @Valid
     private List<@Valid OBStatusReason> statusReason;
@@ -85,7 +85,7 @@ public class OBWriteInternationalConsentResponse6Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteInternationalConsentResponse6Data(String consentId, DateTime creationDateTime, OBWriteInternationalConsentResponse6DataStatus status, DateTime statusUpdateDateTime, OBWriteInternational3DataInitiation initiation) {
+    public OBWriteInternationalConsentResponse6Data(String consentId, DateTime creationDateTime, OBInternalConsentStatus2Code status, DateTime statusUpdateDateTime, OBWriteInternational3DataInitiation initiation) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -137,7 +137,7 @@ public class OBWriteInternationalConsentResponse6Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteInternationalConsentResponse6Data status(OBWriteInternationalConsentResponse6DataStatus status) {
+    public OBWriteInternationalConsentResponse6Data status(OBInternalConsentStatus2Code status) {
         this.status = status;
         return this;
     }
@@ -151,11 +151,11 @@ public class OBWriteInternationalConsentResponse6Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWriteInternationalConsentResponse6DataStatus getStatus() {
+    public OBInternalConsentStatus2Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWriteInternationalConsentResponse6DataStatus status) {
+    public void setStatus(OBInternalConsentStatus2Code status) {
         this.status = status;
     }
 

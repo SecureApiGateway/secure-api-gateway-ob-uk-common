@@ -37,7 +37,7 @@ public class OBWritePaymentDetails1 {
 
     private String paymentTransactionId;
 
-    private OBWritePaymentDetails1Status status;
+    private ExternalPaymentTransactionStatus1Code status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -51,7 +51,7 @@ public class OBWritePaymentDetails1 {
     /**
      * Constructor with only required parameters
      */
-    public OBWritePaymentDetails1(String paymentTransactionId, OBWritePaymentDetails1Status status, DateTime statusUpdateDateTime) {
+    public OBWritePaymentDetails1(String paymentTransactionId, ExternalPaymentTransactionStatus1Code status, DateTime statusUpdateDateTime) {
         this.paymentTransactionId = paymentTransactionId;
         this.status = status;
         this.statusUpdateDateTime = statusUpdateDateTime;
@@ -63,13 +63,13 @@ public class OBWritePaymentDetails1 {
     }
 
     /**
-     * Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.
+     * Unique identifier for the transaction within a servicing institution. This identifier is both unique and immutable.
      *
      * @return paymentTransactionId
      */
     @NotNull
     @Size(min = 1, max = 210)
-    @Schema(name = "PaymentTransactionId", description = "Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(name = "PaymentTransactionId", description = "Unique identifier for the transaction within a servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("PaymentTransactionId")
     public String getPaymentTransactionId() {
         return paymentTransactionId;
@@ -79,7 +79,7 @@ public class OBWritePaymentDetails1 {
         this.paymentTransactionId = paymentTransactionId;
     }
 
-    public OBWritePaymentDetails1 status(OBWritePaymentDetails1Status status) {
+    public OBWritePaymentDetails1 status(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
         return this;
     }
@@ -93,11 +93,11 @@ public class OBWritePaymentDetails1 {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWritePaymentDetails1Status getStatus() {
+    public ExternalPaymentTransactionStatus1Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWritePaymentDetails1Status status) {
+    public void setStatus(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
     }
 

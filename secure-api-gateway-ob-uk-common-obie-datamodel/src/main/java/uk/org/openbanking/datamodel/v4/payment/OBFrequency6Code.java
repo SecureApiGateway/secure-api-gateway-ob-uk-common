@@ -21,11 +21,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.annotation.Generated;
 
 /**
- * `OBFrequency6Code` on External Codset Repo
+ * For a full list of values see `OBFrequency6Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBFrequency6Code {
+public enum OBFrequency6Code implements OBFrequency6Type {
 
     ADHO("ADHO"),
 
@@ -45,8 +45,6 @@ public enum OBFrequency6Code {
 
     WEEK("WEEK"),
 
-    WEEK2("WEEK"),
-
     WODL("WODL"),
 
     FOWK("FOWK"),
@@ -59,7 +57,13 @@ public enum OBFrequency6Code {
 
     ALMH("ALMH"),
 
-    NONE("NONE");
+    NONE("NONE"),
+
+    LWMH("LWMH"),
+
+    LXMH("LXMH"),
+
+    TWYR("TWYR");
 
     private String value;
 

@@ -45,7 +45,7 @@ public class OBReadConsentResponse1Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBReadConsentStatus status;
+    private OBInternalConsentStatus1Code status;
 
     @Valid
     private List<@Valid OBStatusReason> statusReason;
@@ -72,7 +72,7 @@ public class OBReadConsentResponse1Data {
     /**
      * Constructor with only required parameters
      */
-    public OBReadConsentResponse1Data(String consentId, DateTime creationDateTime, OBReadConsentStatus status, DateTime statusUpdateDateTime, List<@Valid OBInternalPermissions1Code> permissions) {
+    public OBReadConsentResponse1Data(String consentId, DateTime creationDateTime, OBInternalConsentStatus1Code status, DateTime statusUpdateDateTime, List<@Valid OBInternalPermissions1Code> permissions) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -124,7 +124,7 @@ public class OBReadConsentResponse1Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBReadConsentResponse1Data status(OBReadConsentStatus status) {
+    public OBReadConsentResponse1Data status(OBInternalConsentStatus1Code status) {
         this.status = status;
         return this;
     }
@@ -138,11 +138,11 @@ public class OBReadConsentResponse1Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBReadConsentStatus getStatus() {
+    public OBInternalConsentStatus1Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBReadConsentStatus status) {
+    public void setStatus(OBInternalConsentStatus1Code status) {
         this.status = status;
     }
 

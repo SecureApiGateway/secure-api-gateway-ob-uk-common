@@ -47,7 +47,7 @@ public class OBWriteDomesticScheduledResponse5Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBWriteDomesticScheduledResponse5DataStatus status;
+    private ExternalPaymentTransactionStatus2Code status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -61,7 +61,7 @@ public class OBWriteDomesticScheduledResponse5Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime expectedSettlementDateTime;
 
-    private OBWriteDomesticResponse5DataRefund refund;
+    private OBDomesticRefundAccount1 refund;
 
     @Valid
     private List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges;
@@ -79,7 +79,7 @@ public class OBWriteDomesticScheduledResponse5Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticScheduledResponse5Data(String domesticScheduledPaymentId, String consentId, DateTime creationDateTime, OBWriteDomesticScheduledResponse5DataStatus status, DateTime statusUpdateDateTime, OBWriteDomesticScheduled2DataInitiation initiation) {
+    public OBWriteDomesticScheduledResponse5Data(String domesticScheduledPaymentId, String consentId, DateTime creationDateTime, ExternalPaymentTransactionStatus2Code status, DateTime statusUpdateDateTime, OBWriteDomesticScheduled2DataInitiation initiation) {
         this.domesticScheduledPaymentId = domesticScheduledPaymentId;
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
@@ -154,7 +154,7 @@ public class OBWriteDomesticScheduledResponse5Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteDomesticScheduledResponse5Data status(OBWriteDomesticScheduledResponse5DataStatus status) {
+    public OBWriteDomesticScheduledResponse5Data status(ExternalPaymentTransactionStatus2Code status) {
         this.status = status;
         return this;
     }
@@ -168,11 +168,11 @@ public class OBWriteDomesticScheduledResponse5Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWriteDomesticScheduledResponse5DataStatus getStatus() {
+    public ExternalPaymentTransactionStatus2Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWriteDomesticScheduledResponse5DataStatus status) {
+    public void setStatus(ExternalPaymentTransactionStatus2Code status) {
         this.status = status;
     }
 
@@ -269,7 +269,7 @@ public class OBWriteDomesticScheduledResponse5Data {
         this.expectedSettlementDateTime = expectedSettlementDateTime;
     }
 
-    public OBWriteDomesticScheduledResponse5Data refund(OBWriteDomesticResponse5DataRefund refund) {
+    public OBWriteDomesticScheduledResponse5Data refund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
         return this;
     }
@@ -282,11 +282,11 @@ public class OBWriteDomesticScheduledResponse5Data {
     @Valid
     @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Refund")
-    public OBWriteDomesticResponse5DataRefund getRefund() {
+    public OBDomesticRefundAccount1 getRefund() {
         return refund;
     }
 
-    public void setRefund(OBWriteDomesticResponse5DataRefund refund) {
+    public void setRefund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
     }
 

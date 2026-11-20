@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
@@ -36,7 +37,8 @@ import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a single international payment.
  */
 
-@Schema(name = "OBWriteInternational3DataInitiation", description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a single international payment.")
+@Schema(name = "OBWriteInternational3_Data_Initiation", description = "The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds from the debtor account to a creditor for a single international payment.")
+@JsonTypeName("OBWriteInternational3_Data_Initiation")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternational3DataInitiation {
 
@@ -254,7 +256,7 @@ public class OBWriteInternational3DataInitiation {
      *
      * @return destinationCountryCode
      */
-    @Pattern(regexp = "[A-Z]{2,2}")
+    @Pattern(regexp = "^[A-Z]{2,2}$")
     @Schema(name = "DestinationCountryCode", description = "Country in which Credit Account is domiciled. Code to identify a country, a dependency, or another area of particular geopolitical interest, on the basis of country names obtained from the United Nations (ISO 3166, Alpha-2 code).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DestinationCountryCode")
     public String getDestinationCountryCode() {

@@ -23,6 +23,7 @@ import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFileCons
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFileConsentData;
 import com.forgerock.sapi.gateway.ob.uk.common.datamodel.payment.FRWriteFileDataInitiation;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteFile2DataInitiation;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteFileResponse3DataInitiation;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteFileConsent3;
 import uk.org.openbanking.datamodel.v4.payment.OBWriteFileConsent3Data;
 
@@ -70,6 +71,26 @@ public class FRWriteFileConsentConverter {
     // FR to OB
     public static OBWriteFile2DataInitiation toOBWriteFile2DataInitiation(FRWriteFileDataInitiation initiation) {
         return initiation == null ? null : new OBWriteFile2DataInitiation()
+                .fileType(initiation.getFileType())
+                .fileHash(initiation.getFileHash())
+                .fileReference(initiation.getFileReference())
+                .numberOfTransactions(initiation.getNumberOfTransactions())
+                .controlSum(initiation.getControlSum())
+                .requestedExecutionDateTime(initiation.getRequestedExecutionDateTime())
+                .localInstrument(initiation.getLocalInstrument())
+                .debtorAccount(FRAccountIdentifierConverter.toOBWriteDomestic2DataInitiationDebtorAccount(initiation.getDebtorAccount()))
+                .remittanceInformation(FRRemittanceInformationConverter.toOBRemittanceInformation2(initiation.getRemittanceInformation()))
+                .supplementaryData(FRSupplementaryDataConverter.toOBSupplementaryData1(initiation.getSupplementaryData()))
+                .creditorAgent(toOBWriteDomestic2DataInitiationCreditorAgent(initiation.getCreditorAgent()))
+                .ultimateDebtor(toOBUltimateDebtor1(initiation.getUltimateDebtor()));
+    }
+
+    // The file-payment RESPONSE carries its own Initiation class from 4r4 onward
+    // (identical fields to the request-side OBWriteFile2DataInitiation; OB inlines
+    // both in the spec). Kept as a separate method so the two can diverge if OB
+    // ever differentiates them.
+    public static OBWriteFileResponse3DataInitiation toOBWriteFileResponse3DataInitiation(FRWriteFileDataInitiation initiation) {
+        return initiation == null ? null : new OBWriteFileResponse3DataInitiation()
                 .fileType(initiation.getFileType())
                 .fileHash(initiation.getFileHash())
                 .fileReference(initiation.getFileReference())

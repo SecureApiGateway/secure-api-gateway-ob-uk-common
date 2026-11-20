@@ -46,7 +46,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBPaymentConsentStatus status;
+    private OBInternalConsentStatus2Code status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -79,7 +79,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticStandingOrderConsentResponse6Data(String consentId, DateTime creationDateTime, OBPaymentConsentStatus status, DateTime statusUpdateDateTime, OBWriteDomesticScheduledConsent4DataPermission permission, OBWriteDomesticStandingOrderConsentResponse6DataInitiation initiation) {
+    public OBWriteDomesticStandingOrderConsentResponse6Data(String consentId, DateTime creationDateTime, OBInternalConsentStatus2Code status, DateTime statusUpdateDateTime, OBWriteDomesticScheduledConsent4DataPermission permission, OBWriteDomesticStandingOrderConsentResponse6DataInitiation initiation) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -132,7 +132,7 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteDomesticStandingOrderConsentResponse6Data status(OBPaymentConsentStatus status) {
+    public OBWriteDomesticStandingOrderConsentResponse6Data status(OBInternalConsentStatus2Code status) {
         this.status = status;
         return this;
     }
@@ -146,11 +146,11 @@ public class OBWriteDomesticStandingOrderConsentResponse6Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBPaymentConsentStatus getStatus() {
+    public OBInternalConsentStatus2Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBPaymentConsentStatus status) {
+    public void setStatus(OBInternalConsentStatus2Code status) {
         this.status = status;
     }
 

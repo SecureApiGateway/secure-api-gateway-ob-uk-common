@@ -23,14 +23,15 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBProxy1;
 
 /**
- * Unambiguous identification of the account of the debtor, in the case of a crebit transaction.
+ * Unambiguous identification of the account of the debtor, in the case of a credit transaction.
  */
 
-@Schema(name = "OBCashAccount6_1", description = "Unambiguous identification of the account of the debtor, in the case of a crebit transaction.")
+@Schema(name = "OBCashAccount6_1", description = "Unambiguous identification of the account of the debtor, in the case of a credit transaction.")
 @JsonTypeName("OBCashAccount6_1")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBCashAccount61 {
@@ -45,6 +46,18 @@ public class OBCashAccount61 {
 
     private OBProxy1 proxy;
 
+    public OBCashAccount61() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBCashAccount61(String schemeName, String identification) {
+        this.schemeName = schemeName;
+        this.identification = identification;
+    }
+
     public OBCashAccount61 schemeName(String schemeName) {
         this.schemeName = schemeName;
         return this;
@@ -55,8 +68,8 @@ public class OBCashAccount61 {
      *
      * @return schemeName
      */
-
-    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @NotNull
+    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("SchemeName")
     public String getSchemeName() {
         return schemeName;
@@ -76,8 +89,9 @@ public class OBCashAccount61 {
      *
      * @return identification
      */
+    @NotNull
     @Size(min = 1, max = 256)
-    @Schema(name = "Identification", example = "80200112344562", description = "Identification assigned by an institution to identify an account. This identification is known by the account owner.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "Identification", example = "80200112344562", description = "Identification assigned by an institution to identify an account. This identification is known by the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
         return identification;

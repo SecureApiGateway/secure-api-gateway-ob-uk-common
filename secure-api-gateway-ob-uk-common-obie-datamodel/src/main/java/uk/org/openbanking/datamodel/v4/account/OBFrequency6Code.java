@@ -25,7 +25,7 @@ import jakarta.annotation.Generated;
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public enum OBFrequency6Code {
+public enum OBFrequency6Code implements OBFrequency6Type {
 
     ADHO("ADHO"),
 
@@ -57,7 +57,13 @@ public enum OBFrequency6Code {
 
     ALMH("ALMH"),
 
-    NONE("NONE");
+    NONE("NONE"),
+
+    LWMH("LWMH"),
+
+    LXMH("LXMH"),
+
+    TWYR("TWYR");
 
     private String value;
 

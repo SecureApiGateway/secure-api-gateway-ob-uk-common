@@ -124,12 +124,12 @@ public class OBStatement2 {
     }
 
     /**
-     * Unique identifier for the statement resource within an servicing institution. This identifier is both unique and immutable.
+     * Unique identifier for the statement resource within a servicing institution. This identifier is both unique and immutable.
      *
      * @return statementId
      */
     @Size(min = 1, max = 40)
-    @Schema(name = "StatementId", example = "8sfhke-sifhkeuf-97813", description = "Unique identifier for the statement resource within an servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "StatementId", example = "8sfhke-sifhkeuf-97813", description = "Unique identifier for the statement resource within a servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatementId")
     public String getStatementId() {
         return statementId;

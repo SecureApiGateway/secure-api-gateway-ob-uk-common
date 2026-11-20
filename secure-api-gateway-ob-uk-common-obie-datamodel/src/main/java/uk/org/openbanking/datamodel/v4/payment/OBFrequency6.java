@@ -33,7 +33,7 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBFrequency6 {
 
-    private OBFrequency6Code type;
+    private OBFrequency6Type type;
 
     private Integer countPerPeriod;
 
@@ -46,11 +46,11 @@ public class OBFrequency6 {
     /**
      * Constructor with only required parameters
      */
-    public OBFrequency6(OBFrequency6Code type) {
+    public OBFrequency6(OBFrequency6Type type) {
         this.type = type;
     }
 
-    public OBFrequency6 type(OBFrequency6Code type) {
+    public OBFrequency6 type(OBFrequency6Type type) {
         this.type = type;
         return this;
     }
@@ -64,11 +64,11 @@ public class OBFrequency6 {
     @Valid
     @Schema(name = "Type", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
-    public OBFrequency6Code getType() {
+    public OBFrequency6Type getType() {
         return type;
     }
 
-    public void setType(OBFrequency6Code type) {
+    public void setType(OBFrequency6Type type) {
         this.type = type;
     }
 
@@ -99,12 +99,12 @@ public class OBFrequency6 {
     }
 
     /**
-     * Exact2NumericText - Further information on the exact point in time the event should take place. Specifies a frequency in terms of an exact point in time or moment within a specified frequency type. Note: should not be used alongside `CountPerSide`
+     * Exact2NumericText - Further information on the exact point in time the event should take place. Specifies a frequency in terms of an exact point in time or moment within a specified frequency type. Note: should not be used alongside `CountPerPeriod`.
      *
      * @return pointInTime
      */
     @Size(max = 2)
-    @Schema(name = "PointInTime", example = "00", description = "Exact2NumericText - Further information on the exact point in time the event should take place. Specifies a frequency in terms of an exact point in time or moment within a specified frequency type. Note: should not be used alongside `CountPerSide`", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @Schema(name = "PointInTime", example = "00", description = "Exact2NumericText - Further information on the exact point in time the event should take place. Specifies a frequency in terms of an exact point in time or moment within a specified frequency type. Note: should not be used alongside `CountPerPeriod`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PointInTime")
     public String getPointInTime() {
         return pointInTime;

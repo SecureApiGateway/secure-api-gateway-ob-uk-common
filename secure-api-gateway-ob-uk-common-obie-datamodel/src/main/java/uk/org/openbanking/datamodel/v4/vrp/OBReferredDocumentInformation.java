@@ -47,7 +47,7 @@ public class OBReferredDocumentInformation {
     private DateTime relatedDate;
 
     @Valid
-    private List<String> lineDetails;
+    private List<@Size(min = 1, max = 2048) String> lineDetails;
 
     public OBReferredDocumentInformation code(ExternalDocumentType1Code code) {
         this.code = code;
@@ -133,7 +133,7 @@ public class OBReferredDocumentInformation {
         this.relatedDate = relatedDate;
     }
 
-    public OBReferredDocumentInformation lineDetails(List<String> lineDetails) {
+    public OBReferredDocumentInformation lineDetails(List<@Size(min = 1, max = 2048) String> lineDetails) {
         this.lineDetails = lineDetails;
         return this;
     }
@@ -154,11 +154,11 @@ public class OBReferredDocumentInformation {
 
     @Schema(name = "LineDetails", description = "Set of elements used to provide the content of the referred document line.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LineDetails")
-    public List<String> getLineDetails() {
+    public List<@Size(min = 1, max = 2048) String> getLineDetails() {
         return lineDetails;
     }
 
-    public void setLineDetails(List<String> lineDetails) {
+    public void setLineDetails(List<@Size(min = 1, max = 2048) String> lineDetails) {
         this.lineDetails = lineDetails;
     }
 

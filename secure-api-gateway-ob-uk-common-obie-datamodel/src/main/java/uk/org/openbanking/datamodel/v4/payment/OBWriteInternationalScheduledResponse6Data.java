@@ -47,7 +47,7 @@ public class OBWriteInternationalScheduledResponse6Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBWriteInternationalScheduledResponse6DataStatus status;
+    private ExternalPaymentTransactionStatus2Code status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -61,7 +61,7 @@ public class OBWriteInternationalScheduledResponse6Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime expectedSettlementDateTime;
 
-    private OBWriteInternationalScheduledResponse6DataRefund refund;
+    private OBDomesticRefundAccount1 refund;
 
     @Valid
     private List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges;
@@ -81,7 +81,7 @@ public class OBWriteInternationalScheduledResponse6Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteInternationalScheduledResponse6Data(String internationalScheduledPaymentId, String consentId, DateTime creationDateTime, OBWriteInternationalScheduledResponse6DataStatus status, DateTime statusUpdateDateTime, OBWriteInternationalScheduled3DataInitiation initiation) {
+    public OBWriteInternationalScheduledResponse6Data(String internationalScheduledPaymentId, String consentId, DateTime creationDateTime, ExternalPaymentTransactionStatus2Code status, DateTime statusUpdateDateTime, OBWriteInternationalScheduled3DataInitiation initiation) {
         this.internationalScheduledPaymentId = internationalScheduledPaymentId;
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
@@ -156,7 +156,7 @@ public class OBWriteInternationalScheduledResponse6Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteInternationalScheduledResponse6Data status(OBWriteInternationalScheduledResponse6DataStatus status) {
+    public OBWriteInternationalScheduledResponse6Data status(ExternalPaymentTransactionStatus2Code status) {
         this.status = status;
         return this;
     }
@@ -170,11 +170,11 @@ public class OBWriteInternationalScheduledResponse6Data {
     @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWriteInternationalScheduledResponse6DataStatus getStatus() {
+    public ExternalPaymentTransactionStatus2Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWriteInternationalScheduledResponse6DataStatus status) {
+    public void setStatus(ExternalPaymentTransactionStatus2Code status) {
         this.status = status;
     }
 
@@ -271,7 +271,7 @@ public class OBWriteInternationalScheduledResponse6Data {
         this.expectedSettlementDateTime = expectedSettlementDateTime;
     }
 
-    public OBWriteInternationalScheduledResponse6Data refund(OBWriteInternationalScheduledResponse6DataRefund refund) {
+    public OBWriteInternationalScheduledResponse6Data refund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
         return this;
     }
@@ -284,11 +284,11 @@ public class OBWriteInternationalScheduledResponse6Data {
     @Valid
     @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Refund")
-    public OBWriteInternationalScheduledResponse6DataRefund getRefund() {
+    public OBDomesticRefundAccount1 getRefund() {
         return refund;
     }
 
-    public void setRefund(OBWriteInternationalScheduledResponse6DataRefund refund) {
+    public void setRefund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
     }
 
