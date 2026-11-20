@@ -129,6 +129,11 @@
         <profile>
             <!-- Swagger code generation. Note that instructions for this profile are in the main README.md and must be kept in sync. -->
             <id>code-gen</id>
+            <properties>
+                <!-- Defaults for the one-shot regen; override on the command line with -Dregen.inputSpec / -Dregen.modelPackage -->
+                <regen.inputSpec>${project.basedir}/src/main/resources/specification/4.0.0/vrp-openapi.yaml</regen.inputSpec>
+                <regen.modelPackage>uk.org.openbanking.datamodel.v4.vrp</regen.modelPackage>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -150,7 +155,17 @@
                                     <output>${project.build.directory}/generated-sources/swagger</output>
                                     <generatorName>spring</generatorName>
                                     <!-- Change the package here as per the chosen spec above -->
-                                    <modelPackage>uk.org.openbanking.datamodel.v4.vrp</modelPackage>
+                                    <!-- Regeneration convenience: both can be overridden on the command line, e.g.
+                                         mvn generate-sources -Pcode-gen -Dregen.inputSpec=... -Dregen.modelPackage=...
+                                         without editing this file. Keep the commented examples below in sync. -->
+                                    <inputSpec>${regen.inputSpec}</inputSpec>
+                                    <modelPackage>${regen.modelPackage}</modelPackage>
+                                    <!-- Custom copies of the spring generator templates with 4-space indentation
+                                         (upstream templates hard-code 2-space). Kept in sync with the pinned
+                                         openapi-generator version; re-port on generator upgrades.
+                                         Only the model-related templates are overridden; missing templates fall
+                                         back to the ones bundled in the generator jar. -->
+                                    <templateDirectory>${project.basedir}/src/main/resources/openapi-templates</templateDirectory>
                                     <generateApis>false</generateApis>
                                     <!-- Override the default name for inline schemas
                                          This should be used when we want to give complex inner schema names a more
@@ -170,11 +185,13 @@
                                         OBWriteDomesticConsent4_Data_Authorisation=OBWriteDomesticConsentDataAuthorisation,
                                         OBWriteDomesticConsentResponse5_Data_Authorisation=OBWriteDomesticConsentDataAuthorisation,
                                         OBWriteDomesticStandingOrderConsentResponse6_Data_Authorisation=OBWriteDomesticConsentDataAuthorisation,
+                                        OBWriteDomesticStandingOrderConsentResponse6_Data_Authorisation_AuthorisationType=OBWriteDomesticConsentResponse5DataAuthorisationAuthorisationType,
                                         OBWriteDomesticStandingOrderConsentResponse6_Data_ReadRefundAccount=OBReadRefundAccount,
                                         OBWriteDomesticScheduledConsent4_Data_ReadRefundAccount=OBReadRefundAccount,
                                         OBWriteDomesticConsentResponse5_Data_ReadRefundAccount=OBReadRefundAccount,
                                         OBWriteDomesticScheduledConsent4_Data_Initiation=OBWriteDomesticScheduled2DataInitiation,
                                         OBWriteInternationalConsent5_Data_Initiation=OBWriteInternational3DataInitiation,
+                                        OBWriteInternationalConsent5_Data_Initiation_Creditor=OBWriteInternational3DataInitiationCreditor,
                                         OBFundsConfirmationConsent1_Data_DebtorAccount=OBFundsConfirmationConsent1DataDebtorAccount,
                                         OBFundsConfirmationConsentResponse1_Data_DebtorAccount=OBFundsConfirmationConsent1DataDebtorAccount,
                                         OBDomesticVRPConsentRequest_Data_ReadRefundAccount=OBReadRefundAccount,

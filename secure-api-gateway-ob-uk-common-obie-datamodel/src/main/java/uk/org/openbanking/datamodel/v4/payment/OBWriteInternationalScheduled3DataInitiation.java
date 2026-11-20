@@ -70,7 +70,7 @@ public class OBWriteInternationalScheduled3DataInitiation {
 
     private OBWriteDomestic2DataInitiationDebtorAccount debtorAccount;
 
-    private OBWriteInternationalConsent5DataInitiationCreditor creditor;
+    private OBWriteInternational3DataInitiationCreditor creditor;
 
     private OBWriteInternationalScheduled3DataInitiationCreditorAgent creditorAgent;
 
@@ -358,7 +358,7 @@ public class OBWriteInternationalScheduled3DataInitiation {
         this.debtorAccount = debtorAccount;
     }
 
-    public OBWriteInternationalScheduled3DataInitiation creditor(OBWriteInternationalConsent5DataInitiationCreditor creditor) {
+    public OBWriteInternationalScheduled3DataInitiation creditor(OBWriteInternational3DataInitiationCreditor creditor) {
         this.creditor = creditor;
         return this;
     }
@@ -371,11 +371,11 @@ public class OBWriteInternationalScheduled3DataInitiation {
     @Valid
     @Schema(name = "Creditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Creditor")
-    public OBWriteInternationalConsent5DataInitiationCreditor getCreditor() {
+    public OBWriteInternational3DataInitiationCreditor getCreditor() {
         return creditor;
     }
 
-    public void setCreditor(OBWriteInternationalConsent5DataInitiationCreditor creditor) {
+    public void setCreditor(OBWriteInternational3DataInitiationCreditor creditor) {
         this.creditor = creditor;
     }
 

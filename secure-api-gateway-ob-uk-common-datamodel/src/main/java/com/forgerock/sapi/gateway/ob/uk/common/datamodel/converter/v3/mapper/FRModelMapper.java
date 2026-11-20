@@ -49,6 +49,16 @@ public class FRModelMapper {
         // Set project wide config here
         modelMapper.getConfiguration().setSkipNullEnabled(true);
 
+        // v4.0 (4r4+): OBFrequency6/Type is an interface (oneOf OBFrequency6Code | Frequency_1); ModelMapper cannot
+        // assign an enum to the interface-typed property, so convert it explicitly.
+        // FRFrequencyCode6 (enum) -> OBFrequency6Type (oneOf interface): convert via the shared value string
+        modelMapper.createTypeMap(com.forgerock.sapi.gateway.uk.common.shared.api.meta.forgerock.FRFrequencyCode6.class, uk.org.openbanking.datamodel.v4.account.OBFrequency6Type.class)
+                   .setConverter(ctx -> ctx.getSource() == null ? null
+                           : uk.org.openbanking.datamodel.v4.account.OBFrequency6Code.fromValue(ctx.getSource().getValue()));
+        modelMapper.createTypeMap(com.forgerock.sapi.gateway.uk.common.shared.api.meta.forgerock.FRFrequencyCode6.class, uk.org.openbanking.datamodel.v4.payment.OBFrequency6Type.class)
+                   .setConverter(ctx -> ctx.getSource() == null ? null
+                           : uk.org.openbanking.datamodel.v4.payment.OBFrequency6Code.fromValue(ctx.getSource().getValue()));
+
         // Custom mapping to handle OBRisk1 typo contractPresentInidicator property
         modelMapper.createTypeMap(OBRisk1.class, FRPaymentRisk.class).addMapping(OBRisk1::getContractPresentInidicator, FRPaymentRisk::setContractPresentIndicator);
         modelMapper.createTypeMap(FRPaymentRisk.class, OBRisk1.class).addMapping(FRPaymentRisk::getContractPresentIndicator, OBRisk1::setContractPresentInidicator);
