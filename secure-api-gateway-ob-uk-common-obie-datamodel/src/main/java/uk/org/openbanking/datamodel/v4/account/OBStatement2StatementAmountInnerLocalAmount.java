@@ -15,16 +15,21 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import uk.org.openbanking.datamodel.v4.account.OBStatement2StatementAmountInnerLocalAmountSubType;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Optional component providing the equivalent of Amount in local currency.
@@ -60,11 +65,9 @@ public class OBStatement2StatementAmountInnerLocalAmount {
 
     /**
      * A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.
-     *
      * @return amount
-     */
-    @NotNull
-    @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$")
+   */
+    @NotNull @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$") 
     @Schema(name = "Amount", example = "1209.06", description = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Amount")
     public String getAmount() {
@@ -82,11 +85,9 @@ public class OBStatement2StatementAmountInnerLocalAmount {
 
     /**
      * A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".
-     *
      * @return currency
-     */
-    @NotNull
-    @Pattern(regexp = "^[A-Z]{3,3}$")
+   */
+    @NotNull @Pattern(regexp = "^[A-Z]{3,3}$") 
     @Schema(name = "Currency", example = "GBP", description = "A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Currency")
     public String getCurrency() {
@@ -104,10 +105,9 @@ public class OBStatement2StatementAmountInnerLocalAmount {
 
     /**
      * Get subType
-     *
      * @return subType
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "SubType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SubType")
     public OBStatement2StatementAmountInnerLocalAmountSubType getSubType() {

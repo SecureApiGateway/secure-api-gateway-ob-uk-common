@@ -15,16 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 
 /**
  * Provides the details to identify an account.
@@ -64,10 +67,9 @@ public class OBAccount6AccountInner {
 
     /**
      * Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return schemeName
-     */
-    @NotNull
+   */
+    @NotNull 
     @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("SchemeName")
     public String getSchemeName() {
@@ -85,11 +87,9 @@ public class OBAccount6AccountInner {
 
     /**
      * Identification assigned by an institution to identify an account. This identification is known by the account owner.
-     *
      * @return identification
-     */
-    @NotNull
-    @Size(min = 1, max = 256)
+   */
+    @NotNull @Size(min = 1, max = 256) 
     @Schema(name = "Identification", example = "80200112344562", description = "Identification assigned by an institution to identify an account. This identification is known by the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
@@ -107,10 +107,9 @@ public class OBAccount6AccountInner {
 
     /**
      * The account name is the name or names of the account owner(s) represented at an account level, as displayed by the ASPSP's online channels. Note, the account name is not the product name or the nickname of the account.
-     *
      * @return name
-     */
-    @Size(min = 1, max = 350)
+   */
+    @Size(min = 1, max = 350) 
     @Schema(name = "Name", example = "Jane Smith", description = "The account name is the name or names of the account owner(s) represented at an account level, as displayed by the ASPSP's online channels. Note, the account name is not the product name or the nickname of the account.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
     public String getName() {
@@ -128,11 +127,9 @@ public class OBAccount6AccountInner {
 
     /**
      * Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".
-     *
      * @return LEI
-     */
-    @Pattern(regexp = "^[A-Z0-9]{18,18}[0-9]{2,2}$")
-    @Size(min = 1, max = 20)
+   */
+    @Pattern(regexp = "^[A-Z0-9]{18,18}[0-9]{2,2}$") @Size(min = 1, max = 20) 
     @Schema(name = "LEI", example = "IZ9Q00LZEVUKWCQY6X15", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LEI")
     public String getLEI() {
@@ -150,10 +147,9 @@ public class OBAccount6AccountInner {
 
     /**
      * This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).
-     *
      * @return secondaryIdentification
-     */
-    @Size(min = 1, max = 34)
+   */
+    @Size(min = 1, max = 34) 
     @Schema(name = "SecondaryIdentification", example = "87562298675897", description = "This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SecondaryIdentification")
     public String getSecondaryIdentification() {

@@ -15,20 +15,25 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.ExternalDocumentType1Code;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts&#39; receivable system.
@@ -48,7 +53,7 @@ public class OBVRPRemittanceInformation {
     private DateTime relatedDate;
 
     @Valid
-    private List<@Size(min = 1, max = 256) String> lineDetails;
+    private List<@Size(min = 1, max = 256)String> lineDetails;
 
     public OBVRPRemittanceInformation code(ExternalDocumentType1Code code) {
         this.code = code;
@@ -57,10 +62,9 @@ public class OBVRPRemittanceInformation {
 
     /**
      * Get code
-     *
      * @return code
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Code", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Code")
     public ExternalDocumentType1Code getCode() {
@@ -78,10 +82,9 @@ public class OBVRPRemittanceInformation {
 
     /**
      * Get issuer
-     *
      * @return issuer
-     */
-    @Size(min = 1, max = 140)
+   */
+    @Size(min = 1, max = 140) 
     @Schema(name = "Issuer", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Issuer")
     public String getIssuer() {
@@ -99,10 +102,9 @@ public class OBVRPRemittanceInformation {
 
     /**
      * Get number
-     *
      * @return number
-     */
-    @Size(min = 1, max = 140)
+   */
+    @Size(min = 1, max = 140) 
     @Schema(name = "Number", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Number")
     public String getNumber() {
@@ -120,10 +122,9 @@ public class OBVRPRemittanceInformation {
 
     /**
      * All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return relatedDate
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "RelatedDate", description = "All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RelatedDate")
     public DateTime getRelatedDate() {
@@ -134,7 +135,7 @@ public class OBVRPRemittanceInformation {
         this.relatedDate = relatedDate;
     }
 
-    public OBVRPRemittanceInformation lineDetails(List<@Size(min = 1, max = 256) String> lineDetails) {
+    public OBVRPRemittanceInformation lineDetails(List<@Size(min = 1, max = 256)String> lineDetails) {
         this.lineDetails = lineDetails;
         return this;
     }
@@ -149,17 +150,16 @@ public class OBVRPRemittanceInformation {
 
     /**
      * Get lineDetails
-     *
      * @return lineDetails
-     */
-
+   */
+    
     @Schema(name = "LineDetails", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LineDetails")
-    public List<@Size(min = 1, max = 256) String> getLineDetails() {
+    public List<@Size(min = 1, max = 256)String> getLineDetails() {
         return lineDetails;
     }
 
-    public void setLineDetails(List<@Size(min = 1, max = 256) String> lineDetails) {
+    public void setLineDetails(List<@Size(min = 1, max = 256)String> lineDetails) {
         this.lineDetails = lineDetails;
     }
 

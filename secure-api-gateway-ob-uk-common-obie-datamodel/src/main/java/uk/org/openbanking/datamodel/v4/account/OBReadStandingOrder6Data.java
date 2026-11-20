@@ -15,16 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OBStandingOrder6;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBReadStandingOrder6Data
@@ -52,10 +59,9 @@ public class OBReadStandingOrder6Data {
 
     /**
      * Get standingOrder
-     *
      * @return standingOrder
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "StandingOrder", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StandingOrder")
     public List<@Valid OBStandingOrder6> getStandingOrder() {

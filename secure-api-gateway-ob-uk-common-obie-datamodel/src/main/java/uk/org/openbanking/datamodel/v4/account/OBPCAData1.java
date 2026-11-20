@@ -15,13 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import uk.org.openbanking.datamodel.v4.account.CreditInterest1;
+import uk.org.openbanking.datamodel.v4.account.OtherFeesCharges;
+import uk.org.openbanking.datamodel.v4.account.Overdraft1;
+import uk.org.openbanking.datamodel.v4.account.ProductDetails1;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBPCAData1
@@ -45,10 +54,9 @@ public class OBPCAData1 {
 
     /**
      * Get productDetails
-     *
      * @return productDetails
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "ProductDetails", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ProductDetails")
     public ProductDetails1 getProductDetails() {
@@ -66,10 +74,9 @@ public class OBPCAData1 {
 
     /**
      * Get creditInterest
-     *
      * @return creditInterest
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "CreditInterest", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditInterest")
     public CreditInterest1 getCreditInterest() {
@@ -87,10 +94,9 @@ public class OBPCAData1 {
 
     /**
      * Get overdraft
-     *
      * @return overdraft
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Overdraft", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Overdraft")
     public Overdraft1 getOverdraft() {
@@ -108,10 +114,9 @@ public class OBPCAData1 {
 
     /**
      * Get otherFeesCharges
-     *
      * @return otherFeesCharges
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OtherFeesCharges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeesCharges")
     public OtherFeesCharges getOtherFeesCharges() {

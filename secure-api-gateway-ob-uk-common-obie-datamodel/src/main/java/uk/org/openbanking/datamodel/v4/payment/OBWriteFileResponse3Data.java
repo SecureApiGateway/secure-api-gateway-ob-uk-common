@@ -15,22 +15,31 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
+import uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus4Code;
+import uk.org.openbanking.datamodel.v4.payment.OBCashAccountDebtor4;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsentResponse5DataChargesInner;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticScheduledResponse5DataMultiAuthorisation;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteFileResponse3DataInitiation;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBWriteFileResponse3Data
@@ -47,7 +56,7 @@ public class OBWriteFileResponse3Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBWriteFileResponse3DataStatus status;
+    private ExternalPaymentTransactionStatus4Code status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -71,7 +80,7 @@ public class OBWriteFileResponse3Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteFileResponse3Data(String filePaymentId, String consentId, DateTime creationDateTime, OBWriteFileResponse3DataStatus status, DateTime statusUpdateDateTime, OBWriteFileResponse3DataInitiation initiation) {
+    public OBWriteFileResponse3Data(String filePaymentId, String consentId, DateTime creationDateTime, ExternalPaymentTransactionStatus4Code status, DateTime statusUpdateDateTime, OBWriteFileResponse3DataInitiation initiation) {
         this.filePaymentId = filePaymentId;
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
@@ -87,11 +96,9 @@ public class OBWriteFileResponse3Data {
 
     /**
      * OB: Unique identification as assigned by the ASPSP to uniquely identify the file payment resource.
-     *
      * @return filePaymentId
-     */
-    @NotNull
-    @Size(min = 1, max = 40)
+   */
+    @NotNull @Size(min = 1, max = 40) 
     @Schema(name = "FilePaymentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the file payment resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FilePaymentId")
     public String getFilePaymentId() {
@@ -109,11 +116,9 @@ public class OBWriteFileResponse3Data {
 
     /**
      * OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.
-     *
      * @return consentId
-     */
-    @NotNull
-    @Size(min = 1, max = 128)
+   */
+    @NotNull @Size(min = 1, max = 128) 
     @Schema(name = "ConsentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ConsentId")
     public String getConsentId() {
@@ -131,11 +136,9 @@ public class OBWriteFileResponse3Data {
 
     /**
      * Date and time at which the message was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return creationDateTime
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "CreationDateTime", description = "Date and time at which the message was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
@@ -146,25 +149,23 @@ public class OBWriteFileResponse3Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteFileResponse3Data status(OBWriteFileResponse3DataStatus status) {
+    public OBWriteFileResponse3Data status(ExternalPaymentTransactionStatus4Code status) {
         this.status = status;
         return this;
     }
 
     /**
      * Get status
-     *
      * @return status
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWriteFileResponse3DataStatus getStatus() {
+    public ExternalPaymentTransactionStatus4Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWriteFileResponse3DataStatus status) {
+    public void setStatus(ExternalPaymentTransactionStatus4Code status) {
         this.status = status;
     }
 
@@ -175,11 +176,9 @@ public class OBWriteFileResponse3Data {
 
     /**
      * Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return statusUpdateDateTime
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
@@ -205,10 +204,9 @@ public class OBWriteFileResponse3Data {
 
     /**
      * Get statusReason
-     *
      * @return statusReason
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "StatusReason", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusReason")
     public List<@Valid OBStatusReason> getStatusReason() {
@@ -234,10 +232,9 @@ public class OBWriteFileResponse3Data {
 
     /**
      * Get charges
-     *
      * @return charges
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Charges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Charges")
     public List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> getCharges() {
@@ -255,11 +252,9 @@ public class OBWriteFileResponse3Data {
 
     /**
      * Get initiation
-     *
      * @return initiation
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
     public OBWriteFileResponse3DataInitiation getInitiation() {
@@ -277,10 +272,9 @@ public class OBWriteFileResponse3Data {
 
     /**
      * Get multiAuthorisation
-     *
      * @return multiAuthorisation
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "MultiAuthorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MultiAuthorisation")
     public OBWriteDomesticScheduledResponse5DataMultiAuthorisation getMultiAuthorisation() {
@@ -298,10 +292,9 @@ public class OBWriteFileResponse3Data {
 
     /**
      * Get debtor
-     *
      * @return debtor
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Debtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Debtor")
     public OBCashAccountDebtor4 getDebtor() {

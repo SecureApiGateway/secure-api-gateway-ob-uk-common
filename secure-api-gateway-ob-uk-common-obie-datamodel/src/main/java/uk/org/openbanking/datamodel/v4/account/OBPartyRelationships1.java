@@ -15,13 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import uk.org.openbanking.datamodel.v4.account.OBPartyRelationships1Account;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The Party&#39;s relationships with other resources.
@@ -40,10 +46,9 @@ public class OBPartyRelationships1 {
 
     /**
      * Get account
-     *
      * @return account
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Account", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Account")
     public OBPartyRelationships1Account getAccount() {

@@ -15,16 +15,24 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import uk.org.openbanking.datamodel.v4.account.OBBCAData1;
+import uk.org.openbanking.datamodel.v4.account.OBPCAData1;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductType;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerProductType;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Product details associated with the Account
@@ -72,10 +80,9 @@ public class OBReadProduct2DataProductInner {
 
     /**
      * The name of the Product used for marketing purposes from a customer perspective. I.e. what the customer would recognise.
-     *
      * @return productName
-     */
-    @Size(min = 1, max = 350)
+   */
+    @Size(min = 1, max = 350) 
     @Schema(name = "ProductName", example = "321 Product", description = "The name of the Product used for marketing purposes from a customer perspective. I.e. what the customer would recognise.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ProductName")
     public String getProductName() {
@@ -93,10 +100,9 @@ public class OBReadProduct2DataProductInner {
 
     /**
      * Identifier within the parent organisation for the product. Must be unique in the organisation
-     *
      * @return productId
-     */
-    @Size(min = 1, max = 40)
+   */
+    @Size(min = 1, max = 40) 
     @Schema(name = "ProductId", example = "51B", description = "Identifier within the parent organisation for the product. Must be unique in the organisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ProductId")
     public String getProductId() {
@@ -114,11 +120,9 @@ public class OBReadProduct2DataProductInner {
 
     /**
      * A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.
-     *
      * @return accountId
-     */
-    @NotNull
-    @Size(min = 1, max = 40)
+   */
+    @NotNull @Size(min = 1, max = 40) 
     @Schema(name = "AccountId", example = "22289", description = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("AccountId")
     public String getAccountId() {
@@ -136,10 +140,9 @@ public class OBReadProduct2DataProductInner {
 
     /**
      * Any secondary Identification which supports Product Identifier to uniquely identify the current account banking products.
-     *
      * @return secondaryProductId
-     */
-    @Size(min = 1, max = 70)
+   */
+    @Size(min = 1, max = 70) 
     @Schema(name = "SecondaryProductId", example = "CA78", description = "Any secondary Identification which supports Product Identifier to uniquely identify the current account banking products.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SecondaryProductId")
     public String getSecondaryProductId() {
@@ -157,11 +160,9 @@ public class OBReadProduct2DataProductInner {
 
     /**
      * Get productType
-     *
      * @return productType
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "ProductType", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ProductType")
     public OBReadProduct2DataProductInnerProductType getProductType() {
@@ -179,10 +180,9 @@ public class OBReadProduct2DataProductInner {
 
     /**
      * Unique and unambiguous identification of a Product Marketing State.
-     *
      * @return marketingStateId
-     */
-    @Size(min = 1, max = 35)
+   */
+    @Size(min = 1, max = 35) 
     @Schema(name = "MarketingStateId", example = "22878123", description = "Unique and unambiguous identification of a Product Marketing State.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MarketingStateId")
     public String getMarketingStateId() {
@@ -200,10 +200,9 @@ public class OBReadProduct2DataProductInner {
 
     /**
      * Get otherProductType
-     *
      * @return otherProductType
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OtherProductType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherProductType")
     public OBReadProduct2DataProductInnerOtherProductType getOtherProductType() {
@@ -221,10 +220,9 @@ public class OBReadProduct2DataProductInner {
 
     /**
      * Get BCA
-     *
      * @return BCA
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "BCA", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("BCA")
     public OBBCAData1 getBCA() {
@@ -242,10 +240,9 @@ public class OBReadProduct2DataProductInner {
 
     /**
      * Get PCA
-     *
      * @return PCA
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "PCA", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PCA")
     public OBPCAData1 getPCA() {

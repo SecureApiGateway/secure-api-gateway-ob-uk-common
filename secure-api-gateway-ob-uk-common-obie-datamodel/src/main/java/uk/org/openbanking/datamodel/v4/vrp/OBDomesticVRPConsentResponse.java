@@ -15,17 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import uk.org.openbanking.datamodel.v4.common.Links;
 import uk.org.openbanking.datamodel.v4.common.Meta;
 import uk.org.openbanking.datamodel.v4.common.OBRisk1;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPConsentResponseData;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBDomesticVRPConsentResponse
@@ -49,11 +54,9 @@ public class OBDomesticVRPConsentResponse {
     /**
      * Constructor with only required parameters
      */
-    public OBDomesticVRPConsentResponse(OBDomesticVRPConsentResponseData data, OBRisk1 risk, Links links, Meta meta) {
+    public OBDomesticVRPConsentResponse(OBDomesticVRPConsentResponseData data, OBRisk1 risk) {
         this.data = data;
         this.risk = risk;
-        this.links = links;
-        this.meta = meta;
     }
 
     public OBDomesticVRPConsentResponse data(OBDomesticVRPConsentResponseData data) {
@@ -63,11 +66,9 @@ public class OBDomesticVRPConsentResponse {
 
     /**
      * Get data
-     *
      * @return data
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Data")
     public OBDomesticVRPConsentResponseData getData() {
@@ -85,11 +86,9 @@ public class OBDomesticVRPConsentResponse {
 
     /**
      * Get risk
-     *
      * @return risk
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Risk", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Risk")
     public OBRisk1 getRisk() {
@@ -107,12 +106,10 @@ public class OBDomesticVRPConsentResponse {
 
     /**
      * Get links
-     *
      * @return links
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Links", requiredMode = Schema.RequiredMode.REQUIRED)
+   */
+    @Valid 
+    @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Links")
     public Links getLinks() {
         return links;
@@ -129,12 +126,10 @@ public class OBDomesticVRPConsentResponse {
 
     /**
      * Get meta
-     *
      * @return meta
-     */
-    @NotNull
-    @Valid
-    @Schema(name = "Meta", requiredMode = Schema.RequiredMode.REQUIRED)
+   */
+    @Valid 
+    @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Meta")
     public Meta getMeta() {
         return meta;

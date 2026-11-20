@@ -15,18 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInner;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Details about the interest that may be payable to the SME Loan holders
@@ -38,7 +43,7 @@ import jakarta.validation.constraints.Size;
 public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterest {
 
     @Valid
-    private List<@Size(min = 1, max = 2000) String> notes;
+    private List<@Size(min = 1, max = 2000)String> notes;
 
     @Valid
     private List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInner> loanInterestTierBandSet = new ArrayList<>();
@@ -54,7 +59,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterest {
         this.loanInterestTierBandSet = loanInterestTierBandSet;
     }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeLoanInterest notes(List<@Size(min = 1, max = 2000) String> notes) {
+    public OBReadProduct2DataProductInnerOtherProductTypeLoanInterest notes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
         return this;
     }
@@ -69,17 +74,16 @@ public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterest {
 
     /**
      * Get notes
-     *
      * @return notes
-     */
-
+   */
+    
     @Schema(name = "Notes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000) String> getNotes() {
+    public List<@Size(min = 1, max = 2000)String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
     }
 
@@ -98,12 +102,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeLoanInterest {
 
     /**
      * Get loanInterestTierBandSet
-     *
      * @return loanInterestTierBandSet
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
+   */
+    @NotNull @Valid @Size(min = 1) 
     @Schema(name = "LoanInterestTierBandSet", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("LoanInterestTierBandSet")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInner> getLoanInterestTierBandSet() {

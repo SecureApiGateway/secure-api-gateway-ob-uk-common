@@ -15,17 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OverdraftTierBandSetInner;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Borrowing details
@@ -36,7 +41,7 @@ import jakarta.validation.constraints.Size;
 public class Overdraft {
 
     @Valid
-    private List<@Size(min = 1, max = 2000) String> notes;
+    private List<@Size(min = 1, max = 2000)String> notes;
 
     @Valid
     private List<@Valid OverdraftTierBandSetInner> overdraftTierBandSet = new ArrayList<>();
@@ -52,7 +57,7 @@ public class Overdraft {
         this.overdraftTierBandSet = overdraftTierBandSet;
     }
 
-    public Overdraft notes(List<@Size(min = 1, max = 2000) String> notes) {
+    public Overdraft notes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
         return this;
     }
@@ -67,17 +72,16 @@ public class Overdraft {
 
     /**
      * Associated Notes about the overdraft rates
-     *
      * @return notes
-     */
-
+   */
+    
     @Schema(name = "Notes", description = "Associated Notes about the overdraft rates", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000) String> getNotes() {
+    public List<@Size(min = 1, max = 2000)String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
     }
 
@@ -96,12 +100,9 @@ public class Overdraft {
 
     /**
      * Tier band set details
-     *
      * @return overdraftTierBandSet
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
+   */
+    @NotNull @Valid @Size(min = 1) 
     @Schema(name = "OverdraftTierBandSet", description = "Tier band set details", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("OverdraftTierBandSet")
     public List<@Valid OverdraftTierBandSetInner> getOverdraftTierBandSet() {

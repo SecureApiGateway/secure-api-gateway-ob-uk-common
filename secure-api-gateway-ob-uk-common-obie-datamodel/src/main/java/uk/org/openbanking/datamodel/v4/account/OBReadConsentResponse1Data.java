@@ -15,22 +15,28 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.account.OBInternalConsentStatus1Code;
+import uk.org.openbanking.datamodel.v4.account.OBInternalPermissions1Code;
 import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBReadConsentResponse1Data
@@ -45,7 +51,7 @@ public class OBReadConsentResponse1Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBReadConsentStatus status;
+    private OBInternalConsentStatus1Code status;
 
     @Valid
     private List<@Valid OBStatusReason> statusReason;
@@ -72,7 +78,7 @@ public class OBReadConsentResponse1Data {
     /**
      * Constructor with only required parameters
      */
-    public OBReadConsentResponse1Data(String consentId, DateTime creationDateTime, OBReadConsentStatus status, DateTime statusUpdateDateTime, List<@Valid OBInternalPermissions1Code> permissions) {
+    public OBReadConsentResponse1Data(String consentId, DateTime creationDateTime, OBInternalConsentStatus1Code status, DateTime statusUpdateDateTime, List<@Valid OBInternalPermissions1Code> permissions) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -87,11 +93,9 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Unique identification as assigned to identify the account access consent resource.
-     *
      * @return consentId
-     */
-    @NotNull
-    @Size(min = 1, max = 128)
+   */
+    @NotNull @Size(min = 1, max = 128) 
     @Schema(name = "ConsentId", description = "Unique identification as assigned to identify the account access consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ConsentId")
     public String getConsentId() {
@@ -109,11 +113,9 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return creationDateTime
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "CreationDateTime", example = "2024-05-29T00:00Z", description = "Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
@@ -124,25 +126,23 @@ public class OBReadConsentResponse1Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBReadConsentResponse1Data status(OBReadConsentStatus status) {
+    public OBReadConsentResponse1Data status(OBInternalConsentStatus1Code status) {
         this.status = status;
         return this;
     }
 
     /**
      * Get status
-     *
      * @return status
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBReadConsentStatus getStatus() {
+    public OBInternalConsentStatus1Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBReadConsentStatus status) {
+    public void setStatus(OBInternalConsentStatus1Code status) {
         this.status = status;
     }
 
@@ -161,10 +161,9 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Specifies the status reason.
-     *
      * @return statusReason
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "StatusReason", description = "Specifies the status reason.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusReason")
     public List<@Valid OBStatusReason> getStatusReason() {
@@ -182,11 +181,9 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return statusUpdateDateTime
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
@@ -212,12 +209,9 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Get permissions
-     *
      * @return permissions
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
+   */
+    @NotNull @Valid @Size(min = 1) 
     @Schema(name = "Permissions", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Permissions")
     public List<@Valid OBInternalPermissions1Code> getPermissions() {
@@ -235,10 +229,9 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Specified date and time the permissions will expire. If this is not populated, the permissions will be open ended. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return expirationDateTime
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "ExpirationDateTime", description = "Specified date and time the permissions will expire. If this is not populated, the permissions will be open ended. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExpirationDateTime")
     public DateTime getExpirationDateTime() {
@@ -256,10 +249,9 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Specified start date and time for the transaction query period. If this is not populated, the start date will be open ended, and data will be returned from the earliest available transaction. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return transactionFromDateTime
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "TransactionFromDateTime", description = "Specified start date and time for the transaction query period. If this is not populated, the start date will be open ended, and data will be returned from the earliest available transaction. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TransactionFromDateTime")
     public DateTime getTransactionFromDateTime() {
@@ -277,10 +269,9 @@ public class OBReadConsentResponse1Data {
 
     /**
      * Specified end date and time for the transaction query period. If this is not populated, the end date will be open ended, and data will be returned to the latest available transaction. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return transactionToDateTime
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "TransactionToDateTime", description = "Specified end date and time for the transaction query period. If this is not populated, the end date will be open ended, and data will be returned to the latest available transaction. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TransactionToDateTime")
     public DateTime getTransactionToDateTime() {

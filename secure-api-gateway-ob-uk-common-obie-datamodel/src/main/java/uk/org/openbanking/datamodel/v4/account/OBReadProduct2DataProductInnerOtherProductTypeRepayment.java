@@ -15,17 +15,31 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeRepaymentAmountType;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeRepaymentOtherAmountType;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeRepaymentOtherRepaymentFrequency;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeRepaymentOtherRepaymentType;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFeeCharges;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFrequency;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentHolidayInner;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentType;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Repayment details of the Loan product
@@ -43,7 +57,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepayment {
     private OBReadProduct2DataProductInnerOtherProductTypeRepaymentAmountType amountType;
 
     @Valid
-    private List<@Size(min = 1, max = 2000) String> notes;
+    private List<@Size(min = 1, max = 2000)String> notes;
 
     private OBReadProduct2DataProductInnerOtherProductTypeRepaymentOtherRepaymentType otherRepaymentType;
 
@@ -63,10 +77,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepayment {
 
     /**
      * Get repaymentType
-     *
      * @return repaymentType
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "RepaymentType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RepaymentType")
     public OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentType getRepaymentType() {
@@ -84,10 +97,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepayment {
 
     /**
      * Get repaymentFrequency
-     *
      * @return repaymentFrequency
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "RepaymentFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RepaymentFrequency")
     public OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFrequency getRepaymentFrequency() {
@@ -105,10 +117,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepayment {
 
     /**
      * Get amountType
-     *
      * @return amountType
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "AmountType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AmountType")
     public OBReadProduct2DataProductInnerOtherProductTypeRepaymentAmountType getAmountType() {
@@ -119,7 +130,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepayment {
         this.amountType = amountType;
     }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeRepayment notes(List<@Size(min = 1, max = 2000) String> notes) {
+    public OBReadProduct2DataProductInnerOtherProductTypeRepayment notes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
         return this;
     }
@@ -134,17 +145,16 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepayment {
 
     /**
      * Get notes
-     *
      * @return notes
-     */
-
+   */
+    
     @Schema(name = "Notes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000) String> getNotes() {
+    public List<@Size(min = 1, max = 2000)String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
     }
 
@@ -155,10 +165,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepayment {
 
     /**
      * Get otherRepaymentType
-     *
      * @return otherRepaymentType
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OtherRepaymentType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherRepaymentType")
     public OBReadProduct2DataProductInnerOtherProductTypeRepaymentOtherRepaymentType getOtherRepaymentType() {
@@ -176,10 +185,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepayment {
 
     /**
      * Get otherRepaymentFrequency
-     *
      * @return otherRepaymentFrequency
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OtherRepaymentFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherRepaymentFrequency")
     public OBReadProduct2DataProductInnerOtherProductTypeRepaymentOtherRepaymentFrequency getOtherRepaymentFrequency() {
@@ -197,10 +205,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepayment {
 
     /**
      * Get otherAmountType
-     *
      * @return otherAmountType
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OtherAmountType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherAmountType")
     public OBReadProduct2DataProductInnerOtherProductTypeRepaymentOtherAmountType getOtherAmountType() {
@@ -218,10 +225,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepayment {
 
     /**
      * Get repaymentFeeCharges
-     *
      * @return repaymentFeeCharges
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "RepaymentFeeCharges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RepaymentFeeCharges")
     public OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFeeCharges getRepaymentFeeCharges() {
@@ -247,10 +253,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepayment {
 
     /**
      * Get repaymentHoliday
-     *
      * @return repaymentHoliday
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "RepaymentHoliday", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RepaymentHoliday")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentHolidayInner> getRepaymentHoliday() {

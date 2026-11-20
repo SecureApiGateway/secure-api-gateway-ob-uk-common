@@ -15,15 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import uk.org.openbanking.datamodel.v4.payment.OBFrequency6Type;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Regularity with which credit transfer instructions are to be created and processed
@@ -57,11 +61,9 @@ public class OBFrequency6 {
 
     /**
      * Get type
-     *
      * @return type
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Type", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
     public OBFrequency6Type getType() {
@@ -79,10 +81,9 @@ public class OBFrequency6 {
 
     /**
      * Number of instructions to be created and processed during the specified period .Specifies a frequency in terms of a count per period within a specified frequency type. Note: should not be used alongside `PointInTime`
-     *
      * @return countPerPeriod
-     */
-
+   */
+    
     @Schema(name = "CountPerPeriod", example = "1", description = "Number of instructions to be created and processed during the specified period .Specifies a frequency in terms of a count per period within a specified frequency type. Note: should not be used alongside `PointInTime`", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CountPerPeriod")
     public Integer getCountPerPeriod() {
@@ -99,12 +100,11 @@ public class OBFrequency6 {
     }
 
     /**
-     * Exact2NumericText - Further information on the exact point in time the event should take place. Specifies a frequency in terms of an exact point in time or moment within a specified frequency type. Note: should not be used alongside `CountPerSide`
-     *
+     * Exact2NumericText - Further information on the exact point in time the event should take place. Specifies a frequency in terms of an exact point in time or moment within a specified frequency type. Note: should not be used alongside `CountPerPeriod`.
      * @return pointInTime
-     */
-    @Size(max = 2)
-    @Schema(name = "PointInTime", example = "00", description = "Exact2NumericText - Further information on the exact point in time the event should take place. Specifies a frequency in terms of an exact point in time or moment within a specified frequency type. Note: should not be used alongside `CountPerSide`", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+   */
+    @Size(max = 2) 
+    @Schema(name = "PointInTime", example = "00", description = "Exact2NumericText - Further information on the exact point in time the event should take place. Specifies a frequency in terms of an exact point in time or moment within a specified frequency type. Note: should not be used alongside `CountPerPeriod`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PointInTime")
     public String getPointInTime() {
         return pointInTime;

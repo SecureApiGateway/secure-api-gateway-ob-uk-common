@@ -15,19 +15,25 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OverdraftFeesChargesInner2;
+import uk.org.openbanking.datamodel.v4.account.OverdraftInterestChargingCoverage1;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Provides overdraft details for a specific tier or band
@@ -53,7 +59,7 @@ public class OverdraftTierBandInner1 {
     private String representativeAPR;
 
     @Valid
-    private List<@Size(min = 1, max = 2000) String> notes;
+    private List<@Size(min = 1, max = 2000)String> notes;
 
     @Valid
     private List<@Valid OverdraftFeesChargesInner2> overdraftFeesCharges;
@@ -76,10 +82,9 @@ public class OverdraftTierBandInner1 {
 
     /**
      * Unique and unambiguous identification of a  Tier Band for a overdraft.
-     *
      * @return identification
-     */
-    @Size(min = 1, max = 35)
+   */
+    @Size(min = 1, max = 35) 
     @Schema(name = "Identification", description = "Unique and unambiguous identification of a  Tier Band for a overdraft.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
@@ -97,11 +102,9 @@ public class OverdraftTierBandInner1 {
 
     /**
      * Minimum value of Overdraft Tier/Band
-     *
      * @return tierValueMin
-     */
-    @NotNull
-    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
+   */
+    @NotNull @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
     @Schema(name = "TierValueMin", description = "Minimum value of Overdraft Tier/Band", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("TierValueMin")
     public String getTierValueMin() {
@@ -119,10 +122,9 @@ public class OverdraftTierBandInner1 {
 
     /**
      * Maximum value of Overdraft Tier/Band
-     *
      * @return tierValueMax
-     */
-    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
+   */
+    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
     @Schema(name = "TierValueMax", description = "Maximum value of Overdraft Tier/Band", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TierValueMax")
     public String getTierValueMax() {
@@ -140,10 +142,9 @@ public class OverdraftTierBandInner1 {
 
     /**
      * Get overdraftInterestChargingCoverage
-     *
      * @return overdraftInterestChargingCoverage
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OverdraftInterestChargingCoverage", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OverdraftInterestChargingCoverage")
     public OverdraftInterestChargingCoverage1 getOverdraftInterestChargingCoverage() {
@@ -161,10 +162,9 @@ public class OverdraftTierBandInner1 {
 
     /**
      * Indicates that a bank provides the overdraft limit up to TierValueMIn to all customers automatically
-     *
      * @return bankGuaranteedIndicator
-     */
-
+   */
+    
     @Schema(name = "BankGuaranteedIndicator", description = "Indicates that a bank provides the overdraft limit up to TierValueMIn to all customers automatically", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("BankGuaranteedIndicator")
     public Boolean getBankGuaranteedIndicator() {
@@ -182,10 +182,9 @@ public class OverdraftTierBandInner1 {
 
     /**
      * EAR means Effective Annual Rate and/or Equivalent Annual Rate (frequently used interchangeably), being the actual annual interest rate of an Overdraft.
-     *
      * @return EAR
-     */
-    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
+   */
+    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$") 
     @Schema(name = "EAR", description = "EAR means Effective Annual Rate and/or Equivalent Annual Rate (frequently used interchangeably), being the actual annual interest rate of an Overdraft.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("EAR")
     public String getEAR() {
@@ -203,10 +202,9 @@ public class OverdraftTierBandInner1 {
 
     /**
      * An annual percentage rate (APR) is the annual rate charged for borrowing or earned through an investment. APR is expressed as a percentage that represents the actual yearly cost of funds over the term of a loan. This includes any fees or additional costs associated with the transaction but does not take compounding into account.
-     *
      * @return representativeAPR
-     */
-    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
+   */
+    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$") 
     @Schema(name = "RepresentativeAPR", description = "An annual percentage rate (APR) is the annual rate charged for borrowing or earned through an investment. APR is expressed as a percentage that represents the actual yearly cost of funds over the term of a loan. This includes any fees or additional costs associated with the transaction but does not take compounding into account.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RepresentativeAPR")
     public String getRepresentativeAPR() {
@@ -217,7 +215,7 @@ public class OverdraftTierBandInner1 {
         this.representativeAPR = representativeAPR;
     }
 
-    public OverdraftTierBandInner1 notes(List<@Size(min = 1, max = 2000) String> notes) {
+    public OverdraftTierBandInner1 notes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
         return this;
     }
@@ -232,17 +230,16 @@ public class OverdraftTierBandInner1 {
 
     /**
      * Optional additional notes to supplement the Tier/band details
-     *
      * @return notes
-     */
-
+   */
+    
     @Schema(name = "Notes", description = "Optional additional notes to supplement the Tier/band details", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000) String> getNotes() {
+    public List<@Size(min = 1, max = 2000)String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
     }
 
@@ -261,10 +258,9 @@ public class OverdraftTierBandInner1 {
 
     /**
      * Overdraft fees and charges
-     *
      * @return overdraftFeesCharges
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OverdraftFeesCharges", description = "Overdraft fees and charges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OverdraftFeesCharges")
     public List<@Valid OverdraftFeesChargesInner2> getOverdraftFeesCharges() {

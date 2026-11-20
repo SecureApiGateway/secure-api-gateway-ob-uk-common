@@ -15,16 +15,21 @@
  */
 package uk.org.openbanking.datamodel.v4.fund;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import uk.org.openbanking.datamodel.v4.common.Links;
 import uk.org.openbanking.datamodel.v4.common.Meta;
+import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmationDataResponse1;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBFundsConfirmationResponse1
@@ -33,7 +38,7 @@ import uk.org.openbanking.datamodel.v4.common.Meta;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBFundsConfirmationResponse1 {
 
-    private OBFundsConfirmationResponse1Data data;
+    private OBFundsConfirmationDataResponse1 data;
 
     private Links links;
 
@@ -46,29 +51,27 @@ public class OBFundsConfirmationResponse1 {
     /**
      * Constructor with only required parameters
      */
-    public OBFundsConfirmationResponse1(OBFundsConfirmationResponse1Data data) {
+    public OBFundsConfirmationResponse1(OBFundsConfirmationDataResponse1 data) {
         this.data = data;
     }
 
-    public OBFundsConfirmationResponse1 data(OBFundsConfirmationResponse1Data data) {
+    public OBFundsConfirmationResponse1 data(OBFundsConfirmationDataResponse1 data) {
         this.data = data;
         return this;
     }
 
     /**
      * Get data
-     *
      * @return data
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Data")
-    public OBFundsConfirmationResponse1Data getData() {
+    public OBFundsConfirmationDataResponse1 getData() {
         return data;
     }
 
-    public void setData(OBFundsConfirmationResponse1Data data) {
+    public void setData(OBFundsConfirmationDataResponse1 data) {
         this.data = data;
     }
 
@@ -79,10 +82,9 @@ public class OBFundsConfirmationResponse1 {
 
     /**
      * Get links
-     *
      * @return links
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Links")
     public Links getLinks() {
@@ -100,10 +102,9 @@ public class OBFundsConfirmationResponse1 {
 
     /**
      * Get meta
-     *
      * @return meta
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Meta")
     public Meta getMeta() {

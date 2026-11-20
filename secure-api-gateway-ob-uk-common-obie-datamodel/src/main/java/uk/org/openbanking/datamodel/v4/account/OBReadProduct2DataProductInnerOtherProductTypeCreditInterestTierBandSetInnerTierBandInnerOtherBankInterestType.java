@@ -15,16 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 
 /**
  * Other interest rate types which are not available in the standard code list
@@ -60,10 +63,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * The four letter Mnemonic used within an XML file to identify a code
-     *
      * @return code
-     */
-    @Pattern(regexp = "^\\\\w{0,4}$")
+   */
+    @Pattern(regexp = "^\\w{0,4}$") 
     @Schema(name = "Code", description = "The four letter Mnemonic used within an XML file to identify a code", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Code")
     public String getCode() {
@@ -81,11 +83,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Long name associated with the code
-     *
      * @return name
-     */
-    @NotNull
-    @Size(min = 1, max = 70)
+   */
+    @NotNull @Size(min = 1, max = 70) 
     @Schema(name = "Name", description = "Long name associated with the code", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Name")
     public String getName() {
@@ -103,11 +103,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Description to describe the purpose of the code
-     *
      * @return description
-     */
-    @NotNull
-    @Size(min = 1, max = 350)
+   */
+    @NotNull @Size(min = 1, max = 350) 
     @Schema(name = "Description", description = "Description to describe the purpose of the code", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Description")
     public String getDescription() {

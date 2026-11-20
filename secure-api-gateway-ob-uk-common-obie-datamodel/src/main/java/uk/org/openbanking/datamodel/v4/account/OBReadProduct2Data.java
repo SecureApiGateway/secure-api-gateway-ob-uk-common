@@ -15,16 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInner;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Aligning with the read write specs structure.
@@ -53,10 +60,9 @@ public class OBReadProduct2Data {
 
     /**
      * Get product
-     *
      * @return product
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Product", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Product")
     public List<@Valid OBReadProduct2DataProductInner> getProduct() {

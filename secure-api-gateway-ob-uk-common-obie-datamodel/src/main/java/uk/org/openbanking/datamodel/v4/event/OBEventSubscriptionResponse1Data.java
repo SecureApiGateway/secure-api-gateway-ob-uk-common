@@ -16,18 +16,22 @@
 package uk.org.openbanking.datamodel.v4.event;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBEventSubscriptionResponse1Data
@@ -65,11 +69,9 @@ public class OBEventSubscriptionResponse1Data {
 
     /**
      * Unique identification as assigned by the ASPSP to uniquely identify the callback URL resource.
-     *
      * @return eventSubscriptionId
-     */
-    @NotNull
-    @Size(min = 1, max = 40)
+   */
+    @NotNull @Size(min = 1, max = 40) 
     @Schema(name = "EventSubscriptionId", description = "Unique identification as assigned by the ASPSP to uniquely identify the callback URL resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("EventSubscriptionId")
     public String getEventSubscriptionId() {
@@ -87,10 +89,9 @@ public class OBEventSubscriptionResponse1Data {
 
     /**
      * Callback URL for a TPP hosted service. Will be used by ASPSPs, in conjunction with the resource name, to construct a URL to send event notifications to.
-     *
      * @return callbackUrl
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "CallbackUrl", description = "Callback URL for a TPP hosted service. Will be used by ASPSPs, in conjunction with the resource name, to construct a URL to send event notifications to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CallbackUrl")
     public URI getCallbackUrl() {
@@ -108,11 +109,9 @@ public class OBEventSubscriptionResponse1Data {
 
     /**
      * Version for the event notification.
-     *
      * @return version
-     */
-    @NotNull
-    @Size(min = 1, max = 10)
+   */
+    @NotNull @Size(min = 1, max = 10) 
     @Schema(name = "Version", description = "Version for the event notification.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Version")
     public String getVersion() {
@@ -138,10 +137,9 @@ public class OBEventSubscriptionResponse1Data {
 
     /**
      * Get eventTypes
-     *
      * @return eventTypes
-     */
-
+   */
+    
     @Schema(name = "EventTypes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("EventTypes")
     public List<String> getEventTypes() {

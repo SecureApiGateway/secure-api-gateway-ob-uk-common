@@ -15,19 +15,35 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.ApplicationFrequency2;
+import uk.org.openbanking.datamodel.v4.account.CalculationFrequency2;
+import uk.org.openbanking.datamodel.v4.account.FeeApplicableRange;
+import uk.org.openbanking.datamodel.v4.account.FeeCategory;
+import uk.org.openbanking.datamodel.v4.account.FeeChargeCapInner;
+import uk.org.openbanking.datamodel.v4.account.FeeRateType1;
+import uk.org.openbanking.datamodel.v4.account.FeeType1;
+import uk.org.openbanking.datamodel.v4.account.OtherApplicationFrequency1;
+import uk.org.openbanking.datamodel.v4.account.OtherCalculationFrequency1;
+import uk.org.openbanking.datamodel.v4.account.OtherFeeCategoryType;
+import uk.org.openbanking.datamodel.v4.account.OtherFeeRateType1;
+import uk.org.openbanking.datamodel.v4.account.OtherFeeType1;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Other fees/charges details
@@ -55,7 +71,7 @@ public class FeeChargeDetailInner {
     private CalculationFrequency2 calculationFrequency;
 
     @Valid
-    private List<@Size(min = 1, max = 2000) String> notes;
+    private List<@Size(min = 1, max = 2000)String> notes;
 
     @Valid
     private List<@Valid FeeChargeCapInner> feeChargeCap;
@@ -92,11 +108,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Get feeCategory
-     *
      * @return feeCategory
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "FeeCategory", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FeeCategory")
     public FeeCategory getFeeCategory() {
@@ -114,11 +128,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Get feeType
-     *
      * @return feeType
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "FeeType", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FeeType")
     public FeeType1 getFeeType() {
@@ -136,10 +148,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Fee/charge which is usually negotiable rather than a fixed amount
-     *
      * @return negotiableIndicator
-     */
-
+   */
+    
     @Schema(name = "NegotiableIndicator", description = "Fee/charge which is usually negotiable rather than a fixed amount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("NegotiableIndicator")
     public Boolean getNegotiableIndicator() {
@@ -157,10 +168,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Fee Amount charged for a fee/charge (where it is charged in terms of an amount rather than a rate)
-     *
      * @return feeAmount
-     */
-    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
+   */
+    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
     @Schema(name = "FeeAmount", description = "Fee Amount charged for a fee/charge (where it is charged in terms of an amount rather than a rate)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeAmount")
     public String getFeeAmount() {
@@ -178,10 +188,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Rate charged for Fee/Charge (where it is charged in terms of a rate rather than an amount)
-     *
      * @return feeRate
-     */
-    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
+   */
+    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$") 
     @Schema(name = "FeeRate", description = "Rate charged for Fee/Charge (where it is charged in terms of a rate rather than an amount)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeRate")
     public String getFeeRate() {
@@ -199,10 +208,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Get feeRateType
-     *
      * @return feeRateType
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "FeeRateType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeRateType")
     public FeeRateType1 getFeeRateType() {
@@ -220,11 +228,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Get applicationFrequency
-     *
      * @return applicationFrequency
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "ApplicationFrequency", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ApplicationFrequency")
     public ApplicationFrequency2 getApplicationFrequency() {
@@ -242,10 +248,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Get calculationFrequency
-     *
      * @return calculationFrequency
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "CalculationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CalculationFrequency")
     public CalculationFrequency2 getCalculationFrequency() {
@@ -256,7 +261,7 @@ public class FeeChargeDetailInner {
         this.calculationFrequency = calculationFrequency;
     }
 
-    public FeeChargeDetailInner notes(List<@Size(min = 1, max = 2000) String> notes) {
+    public FeeChargeDetailInner notes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
         return this;
     }
@@ -271,17 +276,16 @@ public class FeeChargeDetailInner {
 
     /**
      * Optional additional notes to supplement the fee/charge details.
-     *
      * @return notes
-     */
-
+   */
+    
     @Schema(name = "Notes", description = "Optional additional notes to supplement the fee/charge details.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000) String> getNotes() {
+    public List<@Size(min = 1, max = 2000)String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
     }
 
@@ -300,10 +304,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Details about any caps (maximum charges) that apply to a particular or group of fee/charge
-     *
      * @return feeChargeCap
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "FeeChargeCap", description = "Details about any caps (maximum charges) that apply to a particular or group of fee/charge", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeChargeCap")
     public List<@Valid FeeChargeCapInner> getFeeChargeCap() {
@@ -321,10 +324,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Get otherFeeCategoryType
-     *
      * @return otherFeeCategoryType
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OtherFeeCategoryType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeeCategoryType")
     public OtherFeeCategoryType getOtherFeeCategoryType() {
@@ -342,10 +344,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Get otherFeeType
-     *
      * @return otherFeeType
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OtherFeeType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeeType")
     public OtherFeeType1 getOtherFeeType() {
@@ -363,10 +364,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Get otherFeeRateType
-     *
      * @return otherFeeRateType
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OtherFeeRateType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeeRateType")
     public OtherFeeRateType1 getOtherFeeRateType() {
@@ -384,10 +384,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Get otherApplicationFrequency
-     *
      * @return otherApplicationFrequency
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OtherApplicationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherApplicationFrequency")
     public OtherApplicationFrequency1 getOtherApplicationFrequency() {
@@ -405,10 +404,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Get otherCalculationFrequency
-     *
      * @return otherCalculationFrequency
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OtherCalculationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherCalculationFrequency")
     public OtherCalculationFrequency1 getOtherCalculationFrequency() {
@@ -426,10 +424,9 @@ public class FeeChargeDetailInner {
 
     /**
      * Get feeApplicableRange
-     *
      * @return feeApplicableRange
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "FeeApplicableRange", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeApplicableRange")
     public FeeApplicableRange getFeeApplicableRange() {

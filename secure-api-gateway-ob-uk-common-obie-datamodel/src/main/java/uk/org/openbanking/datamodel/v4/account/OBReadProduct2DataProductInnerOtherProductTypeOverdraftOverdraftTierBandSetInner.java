@@ -15,19 +15,27 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftFeesChargesInner;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInner;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftType;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerTierBandMethod;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Tier band set details
@@ -49,7 +57,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
     private String bufferAmount;
 
     @Valid
-    private List<@Size(min = 1, max = 2000) String> notes;
+    private List<@Size(min = 1, max = 2000)String> notes;
 
     @Valid
     private List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInner> overdraftTierBand = new ArrayList<>();
@@ -76,11 +84,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Get tierBandMethod
-     *
      * @return tierBandMethod
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "TierBandMethod", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("TierBandMethod")
     public OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerTierBandMethod getTierBandMethod() {
@@ -98,10 +104,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Get overdraftType
-     *
      * @return overdraftType
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OverdraftType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OverdraftType")
     public OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftType getOverdraftType() {
@@ -119,10 +124,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Unique and unambiguous identification of a  Tier Band for a overdraft product.
-     *
      * @return identification
-     */
-    @Size(min = 1, max = 35)
+   */
+    @Size(min = 1, max = 35) 
     @Schema(name = "Identification", description = "Unique and unambiguous identification of a  Tier Band for a overdraft product.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
@@ -140,10 +144,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Indicates if the Overdraft is authorised (Y) or unauthorised (N)
-     *
      * @return authorisedIndicator
-     */
-
+   */
+    
     @Schema(name = "AuthorisedIndicator", description = "Indicates if the Overdraft is authorised (Y) or unauthorised (N)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AuthorisedIndicator")
     public Boolean getAuthorisedIndicator() {
@@ -161,10 +164,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * When a customer exceeds their credit limit, a financial institution will not charge the customer unauthorised overdraft charges if they do not exceed by more than the buffer amount. Note: Authorised overdraft charges may still apply.
-     *
      * @return bufferAmount
-     */
-    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
+   */
+    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
     @Schema(name = "BufferAmount", description = "When a customer exceeds their credit limit, a financial institution will not charge the customer unauthorised overdraft charges if they do not exceed by more than the buffer amount. Note: Authorised overdraft charges may still apply.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("BufferAmount")
     public String getBufferAmount() {
@@ -175,7 +177,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
         this.bufferAmount = bufferAmount;
     }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner notes(List<@Size(min = 1, max = 2000) String> notes) {
+    public OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInner notes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
         return this;
     }
@@ -190,17 +192,16 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Get notes
-     *
      * @return notes
-     */
-
+   */
+    
     @Schema(name = "Notes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000) String> getNotes() {
+    public List<@Size(min = 1, max = 2000)String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
     }
 
@@ -219,12 +220,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Get overdraftTierBand
-     *
      * @return overdraftTierBand
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
+   */
+    @NotNull @Valid @Size(min = 1) 
     @Schema(name = "OverdraftTierBand", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("OverdraftTierBand")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInner> getOverdraftTierBand() {
@@ -250,10 +248,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Get overdraftFeesCharges
-     *
      * @return overdraftFeesCharges
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OverdraftFeesCharges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OverdraftFeesCharges")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftFeesChargesInner> getOverdraftFeesCharges() {

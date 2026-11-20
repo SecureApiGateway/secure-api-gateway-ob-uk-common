@@ -15,17 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import uk.org.openbanking.datamodel.v4.common.Links;
 import uk.org.openbanking.datamodel.v4.common.Meta;
 import uk.org.openbanking.datamodel.v4.common.OBRisk1;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsentResponse5Data;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBWriteDomesticConsentResponse5
@@ -61,11 +66,9 @@ public class OBWriteDomesticConsentResponse5 {
 
     /**
      * Get data
-     *
      * @return data
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Data")
     public OBWriteDomesticConsentResponse5Data getData() {
@@ -83,11 +86,9 @@ public class OBWriteDomesticConsentResponse5 {
 
     /**
      * Get risk
-     *
      * @return risk
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Risk", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Risk")
     public OBRisk1 getRisk() {
@@ -105,10 +106,9 @@ public class OBWriteDomesticConsentResponse5 {
 
     /**
      * Get links
-     *
      * @return links
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Links")
     public Links getLinks() {
@@ -126,10 +126,9 @@ public class OBWriteDomesticConsentResponse5 {
 
     /**
      * Get meta
-     *
      * @return meta
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Meta")
     public Meta getMeta() {

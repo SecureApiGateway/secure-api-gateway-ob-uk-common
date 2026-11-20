@@ -15,17 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Financial institution servicing an account for the creditor.
@@ -53,10 +56,9 @@ public class OBWriteDomestic2DataInitiationCreditorAgent {
 
     /**
      * Name of the identification scheme, in a coded form as published in an external list.
-     *
      * @return schemeName
-     */
-
+   */
+    
     @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SchemeName")
     public String getSchemeName() {
@@ -73,12 +75,11 @@ public class OBWriteDomestic2DataInitiationCreditorAgent {
     }
 
     /**
-     * Unique and unambiguous identification of a financial institution or a branch of a financial institution.
-     *
+     * Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
      * @return identification
-     */
-    @Size(min = 1, max = 35)
-    @Schema(name = "Identification", description = "Unique and unambiguous identification of a financial institution or a branch of a financial institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+   */
+    @Size(min = 1, max = 35) 
+    @Schema(name = "Identification", description = "Unique identification, as assigned by the creditor, to unambiguously identify the mandate.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
         return identification;
@@ -95,10 +96,9 @@ public class OBWriteDomestic2DataInitiationCreditorAgent {
 
     /**
      * Name by which an agent is known and which is usually used to identify that agent.
-     *
      * @return name
-     */
-    @Size(min = 1, max = 140)
+   */
+    @Size(min = 1, max = 140) 
     @Schema(name = "Name", description = "Name by which an agent is known and which is usually used to identify that agent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
     public String getName() {
@@ -116,12 +116,10 @@ public class OBWriteDomestic2DataInitiationCreditorAgent {
 
     /**
      * Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".
-     *
      * @return LEI
-     */
-    @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
-    @Size(min = 1, max = 20)
-    @Schema(name = "LEI", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+   */
+    @Pattern(regexp = "^[A-Z0-9]{18,18}[0-9]{2,2}$") @Size(min = 1, max = 20) 
+    @Schema(name = "LEI", example = "IZ9Q00LZEVUKWCQY6X15", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LEI")
     public String getLEI() {
         return LEI;
@@ -138,10 +136,9 @@ public class OBWriteDomestic2DataInitiationCreditorAgent {
 
     /**
      * Get postalAddress
-     *
      * @return postalAddress
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "PostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PostalAddress")
     public OBPostalAddress7 getPostalAddress() {

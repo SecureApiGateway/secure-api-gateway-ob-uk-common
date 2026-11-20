@@ -15,21 +15,30 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
+import com.fasterxml.jackson.annotation.JsonValue;
+import uk.org.openbanking.datamodel.v4.account.OBCommunicationMethod;
+import uk.org.openbanking.datamodel.v4.account.OBFileFormat;
+import uk.org.openbanking.datamodel.v4.account.OBFrequency2;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
- * Frequency and format of statments for an account
+ * Frequency and format of statements for an account
  */
 
-@Schema(name = "StatementFrequencyAndFormat_inner", description = "Frequency and format of statments for an account")
+@Schema(name = "StatementFrequencyAndFormat_inner", description = "Frequency and format of statements for an account")
 @JsonTypeName("StatementFrequencyAndFormat_inner")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class StatementFrequencyAndFormatInner {
@@ -49,10 +58,9 @@ public class StatementFrequencyAndFormatInner {
 
     /**
      * Get frequency
-     *
      * @return frequency
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Frequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Frequency")
     public OBFrequency2 getFrequency() {
@@ -70,10 +78,9 @@ public class StatementFrequencyAndFormatInner {
 
     /**
      * Get communicationMethod
-     *
      * @return communicationMethod
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "CommunicationMethod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CommunicationMethod")
     public OBCommunicationMethod getCommunicationMethod() {
@@ -91,10 +98,9 @@ public class StatementFrequencyAndFormatInner {
 
     /**
      * Get format
-     *
      * @return format
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Format", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Format")
     public OBFileFormat getFormat() {
@@ -112,10 +118,9 @@ public class StatementFrequencyAndFormatInner {
 
     /**
      * Get deliveryAddress
-     *
      * @return deliveryAddress
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "DeliveryAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DeliveryAddress")
     public OBPostalAddress7 getDeliveryAddress() {

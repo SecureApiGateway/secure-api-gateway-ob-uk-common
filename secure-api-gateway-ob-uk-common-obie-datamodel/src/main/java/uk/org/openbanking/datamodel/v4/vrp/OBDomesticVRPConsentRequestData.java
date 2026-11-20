@@ -15,16 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonValue;
 import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPControlParameters;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPInitiation;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBDomesticVRPConsentRequestData
@@ -59,10 +66,9 @@ public class OBDomesticVRPConsentRequestData {
 
     /**
      * Get readRefundAccount
-     *
      * @return readRefundAccount
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReadRefundAccount")
     public OBReadRefundAccount getReadRefundAccount() {
@@ -80,11 +86,9 @@ public class OBDomesticVRPConsentRequestData {
 
     /**
      * Get controlParameters
-     *
      * @return controlParameters
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "ControlParameters", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ControlParameters")
     public OBDomesticVRPControlParameters getControlParameters() {
@@ -102,11 +106,9 @@ public class OBDomesticVRPConsentRequestData {
 
     /**
      * Get initiation
-     *
      * @return initiation
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
     public OBDomesticVRPInitiation getInitiation() {

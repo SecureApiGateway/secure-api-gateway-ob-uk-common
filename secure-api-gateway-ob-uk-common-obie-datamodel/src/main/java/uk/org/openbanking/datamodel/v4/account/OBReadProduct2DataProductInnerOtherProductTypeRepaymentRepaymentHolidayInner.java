@@ -15,17 +15,24 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentHolidayInnerMaxHolidayPeriod;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Details of capital repayment holiday if any
@@ -41,7 +48,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentHol
     private OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentHolidayInnerMaxHolidayPeriod maxHolidayPeriod;
 
     @Valid
-    private List<@Size(min = 1, max = 2000) String> notes;
+    private List<@Size(min = 1, max = 2000)String> notes;
 
     public OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentHolidayInner maxHolidayLength(Integer maxHolidayLength) {
         this.maxHolidayLength = maxHolidayLength;
@@ -50,10 +57,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentHol
 
     /**
      * The maximum length/duration of a Repayment Holiday
-     *
      * @return maxHolidayLength
-     */
-
+   */
+    
     @Schema(name = "MaxHolidayLength", description = "The maximum length/duration of a Repayment Holiday", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MaxHolidayLength")
     public Integer getMaxHolidayLength() {
@@ -71,10 +77,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentHol
 
     /**
      * Get maxHolidayPeriod
-     *
      * @return maxHolidayPeriod
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "MaxHolidayPeriod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MaxHolidayPeriod")
     public OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentHolidayInnerMaxHolidayPeriod getMaxHolidayPeriod() {
@@ -85,7 +90,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentHol
         this.maxHolidayPeriod = maxHolidayPeriod;
     }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentHolidayInner notes(List<@Size(min = 1, max = 2000) String> notes) {
+    public OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentHolidayInner notes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
         return this;
     }
@@ -100,17 +105,16 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentHol
 
     /**
      * Get notes
-     *
      * @return notes
-     */
-
+   */
+    
     @Schema(name = "Notes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000) String> getNotes() {
+    public List<@Size(min = 1, max = 2000)String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
     }
 

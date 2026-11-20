@@ -15,15 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.event;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 /**
  * OBEventPolling1SetErrsValue
@@ -56,11 +60,9 @@ public class OBEventPolling1SetErrsValue {
 
     /**
      * A value from the IANA \"Security Event Token Delivery Error Codes\" registry that identifies the error as defined here  https://tools.ietf.org/id/draft-ietf-secevent-http-push-03.html#error_codes
-     *
      * @return err
-     */
-    @NotNull
-    @Size(min = 1, max = 40)
+   */
+    @NotNull @Size(min = 1, max = 40) 
     @Schema(name = "err", description = "A value from the IANA \"Security Event Token Delivery Error Codes\" registry that identifies the error as defined here  https://tools.ietf.org/id/draft-ietf-secevent-http-push-03.html#error_codes", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("err")
     public String getErr() {
@@ -78,11 +80,9 @@ public class OBEventPolling1SetErrsValue {
 
     /**
      * A human-readable string that provides additional diagnostic information
-     *
      * @return description
-     */
-    @NotNull
-    @Size(min = 1, max = 256)
+   */
+    @NotNull @Size(min = 1, max = 256) 
     @Schema(name = "description", description = "A human-readable string that provides additional diagnostic information", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("description")
     public String getDescription() {

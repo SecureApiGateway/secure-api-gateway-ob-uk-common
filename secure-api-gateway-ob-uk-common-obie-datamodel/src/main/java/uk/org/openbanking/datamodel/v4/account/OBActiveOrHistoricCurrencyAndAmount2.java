@@ -15,15 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 
 /**
  * The amount of the first Standing Order
@@ -57,11 +61,9 @@ public class OBActiveOrHistoricCurrencyAndAmount2 {
 
     /**
      * A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.
-     *
      * @return amount
-     */
-    @NotNull
-    @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$")
+   */
+    @NotNull @Pattern(regexp = "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$") 
     @Schema(name = "Amount", example = "1209.06", description = "A number of monetary units specified in an active currency where the unit of currency is explicit and compliant with ISO 4217.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Amount")
     public String getAmount() {
@@ -79,11 +81,9 @@ public class OBActiveOrHistoricCurrencyAndAmount2 {
 
     /**
      * A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".
-     *
      * @return currency
-     */
-    @NotNull
-    @Pattern(regexp = "^[A-Z]{3,3}$")
+   */
+    @NotNull @Pattern(regexp = "^[A-Z]{3,3}$") 
     @Schema(name = "Currency", example = "GBP", description = "A code allocated to a currency by a Maintenance Agency under an international identification scheme, as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\".", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Currency")
     public String getCurrency() {

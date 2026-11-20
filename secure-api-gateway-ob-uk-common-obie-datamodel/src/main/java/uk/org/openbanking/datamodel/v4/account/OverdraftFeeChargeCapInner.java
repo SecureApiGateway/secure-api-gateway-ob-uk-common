@@ -15,19 +15,27 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.CappingPeriod;
+import uk.org.openbanking.datamodel.v4.account.FeeTypeInner;
+import uk.org.openbanking.datamodel.v4.account.MinMaxType;
+import uk.org.openbanking.datamodel.v4.account.OtherFeeTypeInner;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Details about any caps (maximum charges) that apply to a particular fee/charge. Capping can either be based on an amount (in gbp), an amount (in items) or a rate.
@@ -50,7 +58,7 @@ public class OverdraftFeeChargeCapInner {
     private CappingPeriod cappingPeriod;
 
     @Valid
-    private List<@Size(min = 1, max = 2000) String> notes;
+    private List<@Size(min = 1, max = 2000)String> notes;
 
     @Valid
     private List<@Valid OtherFeeTypeInner> otherFeeType;
@@ -82,12 +90,9 @@ public class OverdraftFeeChargeCapInner {
 
     /**
      * Fee/charge type which is being capped
-     *
      * @return feeType
-     */
-    @NotNull
-    @Valid
-    @Size(min = 1)
+   */
+    @NotNull @Valid @Size(min = 1) 
     @Schema(name = "FeeType", description = "Fee/charge type which is being capped", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FeeType")
     public List<@Valid FeeTypeInner> getFeeType() {
@@ -105,11 +110,9 @@ public class OverdraftFeeChargeCapInner {
 
     /**
      * Get minMaxType
-     *
      * @return minMaxType
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "MinMaxType", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("MinMaxType")
     public MinMaxType getMinMaxType() {
@@ -127,10 +130,9 @@ public class OverdraftFeeChargeCapInner {
 
     /**
      * Indicates whether the advertised overdraft rate is guaranteed to be offered to a borrower by the bank e.g. if it’s part of a government scheme, or whether the rate may vary dependent on the applicant’s circumstances.
-     *
      * @return feeCapOccurrence
-     */
-
+   */
+    
     @Schema(name = "FeeCapOccurrence", description = "Indicates whether the advertised overdraft rate is guaranteed to be offered to a borrower by the bank e.g. if it’s part of a government scheme, or whether the rate may vary dependent on the applicant’s circumstances.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeCapOccurrence")
     public Float getFeeCapOccurrence() {
@@ -148,10 +150,9 @@ public class OverdraftFeeChargeCapInner {
 
     /**
      * Cap amount charged for a fee/charge
-     *
      * @return feeCapAmount
-     */
-    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
+   */
+    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
     @Schema(name = "FeeCapAmount", description = "Cap amount charged for a fee/charge", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeCapAmount")
     public String getFeeCapAmount() {
@@ -169,10 +170,9 @@ public class OverdraftFeeChargeCapInner {
 
     /**
      * Get cappingPeriod
-     *
      * @return cappingPeriod
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "CappingPeriod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CappingPeriod")
     public CappingPeriod getCappingPeriod() {
@@ -183,7 +183,7 @@ public class OverdraftFeeChargeCapInner {
         this.cappingPeriod = cappingPeriod;
     }
 
-    public OverdraftFeeChargeCapInner notes(List<@Size(min = 1, max = 2000) String> notes) {
+    public OverdraftFeeChargeCapInner notes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
         return this;
     }
@@ -198,17 +198,16 @@ public class OverdraftFeeChargeCapInner {
 
     /**
      * Notes related to Overdraft fee charge cap
-     *
      * @return notes
-     */
-
+   */
+    
     @Schema(name = "Notes", description = "Notes related to Overdraft fee charge cap", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000) String> getNotes() {
+    public List<@Size(min = 1, max = 2000)String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
     }
 
@@ -227,10 +226,9 @@ public class OverdraftFeeChargeCapInner {
 
     /**
      * Other fee type code which is not available in the standard code set
-     *
      * @return otherFeeType
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OtherFeeType", description = "Other fee type code which is not available in the standard code set", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeeType")
     public List<@Valid OtherFeeTypeInner> getOtherFeeType() {

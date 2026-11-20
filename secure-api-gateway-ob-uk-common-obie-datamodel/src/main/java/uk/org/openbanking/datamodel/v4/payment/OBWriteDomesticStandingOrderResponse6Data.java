@@ -15,22 +15,32 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
+import uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code;
+import uk.org.openbanking.datamodel.v4.payment.OBCashAccountDebtor4;
+import uk.org.openbanking.datamodel.v4.payment.OBDomesticRefundAccount1;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsentResponse5DataChargesInner;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticScheduledResponse5DataMultiAuthorisation;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticStandingOrder3DataInitiation;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBWriteDomesticStandingOrderResponse6Data
@@ -47,7 +57,7 @@ public class OBWriteDomesticStandingOrderResponse6Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBWriteDomesticStandingOrderResponse6DataStatus status;
+    private ExternalPaymentTransactionStatus1Code status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -55,7 +65,7 @@ public class OBWriteDomesticStandingOrderResponse6Data {
     @Valid
     private List<@Valid OBStatusReason> statusReason;
 
-    private OBWriteDomesticResponse5DataRefund refund;
+    private OBDomesticRefundAccount1 refund;
 
     @Valid
     private List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges;
@@ -73,7 +83,7 @@ public class OBWriteDomesticStandingOrderResponse6Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticStandingOrderResponse6Data(String domesticStandingOrderId, String consentId, DateTime creationDateTime, OBWriteDomesticStandingOrderResponse6DataStatus status, DateTime statusUpdateDateTime, OBWriteDomesticStandingOrder3DataInitiation initiation) {
+    public OBWriteDomesticStandingOrderResponse6Data(String domesticStandingOrderId, String consentId, DateTime creationDateTime, ExternalPaymentTransactionStatus1Code status, DateTime statusUpdateDateTime, OBWriteDomesticStandingOrder3DataInitiation initiation) {
         this.domesticStandingOrderId = domesticStandingOrderId;
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
@@ -89,11 +99,9 @@ public class OBWriteDomesticStandingOrderResponse6Data {
 
     /**
      * OB: Unique identification as assigned by the ASPSP to uniquely identify the domestic standing order resource.
-     *
      * @return domesticStandingOrderId
-     */
-    @NotNull
-    @Size(min = 1, max = 40)
+   */
+    @NotNull @Size(min = 1, max = 40) 
     @Schema(name = "DomesticStandingOrderId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the domestic standing order resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("DomesticStandingOrderId")
     public String getDomesticStandingOrderId() {
@@ -111,11 +119,9 @@ public class OBWriteDomesticStandingOrderResponse6Data {
 
     /**
      * OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.
-     *
      * @return consentId
-     */
-    @NotNull
-    @Size(min = 1, max = 128)
+   */
+    @NotNull @Size(min = 1, max = 128) 
     @Schema(name = "ConsentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ConsentId")
     public String getConsentId() {
@@ -133,11 +139,9 @@ public class OBWriteDomesticStandingOrderResponse6Data {
 
     /**
      * Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return creationDateTime
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
@@ -148,25 +152,23 @@ public class OBWriteDomesticStandingOrderResponse6Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteDomesticStandingOrderResponse6Data status(OBWriteDomesticStandingOrderResponse6DataStatus status) {
+    public OBWriteDomesticStandingOrderResponse6Data status(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
         return this;
     }
 
     /**
      * Get status
-     *
      * @return status
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWriteDomesticStandingOrderResponse6DataStatus getStatus() {
+    public ExternalPaymentTransactionStatus1Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWriteDomesticStandingOrderResponse6DataStatus status) {
+    public void setStatus(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
     }
 
@@ -177,11 +179,9 @@ public class OBWriteDomesticStandingOrderResponse6Data {
 
     /**
      * Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return statusUpdateDateTime
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
@@ -207,10 +207,9 @@ public class OBWriteDomesticStandingOrderResponse6Data {
 
     /**
      * Get statusReason
-     *
      * @return statusReason
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "StatusReason", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusReason")
     public List<@Valid OBStatusReason> getStatusReason() {
@@ -221,24 +220,23 @@ public class OBWriteDomesticStandingOrderResponse6Data {
         this.statusReason = statusReason;
     }
 
-    public OBWriteDomesticStandingOrderResponse6Data refund(OBWriteDomesticResponse5DataRefund refund) {
+    public OBWriteDomesticStandingOrderResponse6Data refund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
         return this;
     }
 
     /**
      * Get refund
-     *
      * @return refund
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Refund")
-    public OBWriteDomesticResponse5DataRefund getRefund() {
+    public OBDomesticRefundAccount1 getRefund() {
         return refund;
     }
 
-    public void setRefund(OBWriteDomesticResponse5DataRefund refund) {
+    public void setRefund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
     }
 
@@ -257,10 +255,9 @@ public class OBWriteDomesticStandingOrderResponse6Data {
 
     /**
      * Get charges
-     *
      * @return charges
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Charges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Charges")
     public List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> getCharges() {
@@ -278,11 +275,9 @@ public class OBWriteDomesticStandingOrderResponse6Data {
 
     /**
      * Get initiation
-     *
      * @return initiation
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
     public OBWriteDomesticStandingOrder3DataInitiation getInitiation() {
@@ -300,10 +295,9 @@ public class OBWriteDomesticStandingOrderResponse6Data {
 
     /**
      * Get multiAuthorisation
-     *
      * @return multiAuthorisation
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "MultiAuthorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MultiAuthorisation")
     public OBWriteDomesticScheduledResponse5DataMultiAuthorisation getMultiAuthorisation() {
@@ -321,10 +315,9 @@ public class OBWriteDomesticStandingOrderResponse6Data {
 
     /**
      * Get debtor
-     *
      * @return debtor
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Debtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Debtor")
     public OBCashAccountDebtor4 getDebtor() {

@@ -15,13 +15,18 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.Size;
 
 /**
  * OBPaymentStatusReason
@@ -43,10 +48,9 @@ public class OBPaymentStatusReason {
 
     /**
      * Specifies the status reason in a code form   For more information and enum values see `OBExternalStatusReason1Code [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return statusReasonCode
-     */
-    @Size(min = 1, max = 4)
+   */
+    @Size(min = 1, max = 4) 
     @Schema(name = "StatusReasonCode", example = "ERIN", description = "Specifies the status reason in a code form   For more information and enum values see `OBExternalStatusReason1Code [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusReasonCode")
     public String getStatusReasonCode() {
@@ -64,10 +68,9 @@ public class OBPaymentStatusReason {
 
     /**
      * Description supporting the StatusReasonCode.
-     *
      * @return statusReasonDescription
-     */
-    @Size(min = 1, max = 500)
+   */
+    @Size(min = 1, max = 500) 
     @Schema(name = "StatusReasonDescription", description = "Description supporting the StatusReasonCode.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusReasonDescription")
     public String getStatusReasonDescription() {
@@ -85,10 +88,9 @@ public class OBPaymentStatusReason {
 
     /**
      * Recommended but optional reference to the JSON Path of the field with error, e.g., Data.Initiation.InstructedAmount.Currency
-     *
      * @return path
-     */
-    @Size(min = 1, max = 500)
+   */
+    @Size(min = 1, max = 500) 
     @Schema(name = "Path", description = "Recommended but optional reference to the JSON Path of the field with error, e.g., Data.Initiation.InstructedAmount.Currency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Path")
     public String getPath() {

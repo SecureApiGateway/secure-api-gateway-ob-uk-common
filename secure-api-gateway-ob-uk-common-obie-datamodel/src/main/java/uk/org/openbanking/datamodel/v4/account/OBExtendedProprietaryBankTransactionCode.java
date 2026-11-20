@@ -15,14 +15,18 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 /**
  * Additional proprietary bank transaction codes used by the ASPSP for the underlying transaction
@@ -56,11 +60,9 @@ public class OBExtendedProprietaryBankTransactionCode {
 
     /**
      * Proprietary bank transaction code to identify the underlying transaction.
-     *
      * @return code
-     */
-    @NotNull
-    @Size(min = 1, max = 35)
+   */
+    @NotNull @Size(min = 1, max = 35) 
     @Schema(name = "Code", description = "Proprietary bank transaction code to identify the underlying transaction.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Code")
     public String getCode() {
@@ -78,10 +80,9 @@ public class OBExtendedProprietaryBankTransactionCode {
 
     /**
      * Identification of the issuer of the proprietary bank transaction code.
-     *
      * @return issuer
-     */
-    @Size(min = 1, max = 35)
+   */
+    @Size(min = 1, max = 35) 
     @Schema(name = "Issuer", description = "Identification of the issuer of the proprietary bank transaction code.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Issuer")
     public String getIssuer() {
@@ -99,10 +100,9 @@ public class OBExtendedProprietaryBankTransactionCode {
 
     /**
      * Description of the code and its usage on the ASPSP channel
-     *
      * @return description
-     */
-    @Size(min = 1, max = 500)
+   */
+    @Size(min = 1, max = 500) 
     @Schema(name = "Description", description = "Description of the code and its usage on the ASPSP channel", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Description")
     public String getDescription() {

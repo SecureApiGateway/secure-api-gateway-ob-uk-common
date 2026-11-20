@@ -15,23 +15,31 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
 import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
+import uk.org.openbanking.datamodel.v4.vrp.OBCashAccountDebtorWithName;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPControlParameters;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPInitiation;
+import uk.org.openbanking.datamodel.v4.vrp.OBInternalConsentStatus1Code;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBDomesticVRPConsentResponseData
@@ -48,7 +56,7 @@ public class OBDomesticVRPConsentResponseData {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBDomesticVRPConsentStatus status;
+    private OBInternalConsentStatus1Code status;
 
     @Valid
     private List<@Valid OBStatusReason> statusReason;
@@ -69,7 +77,7 @@ public class OBDomesticVRPConsentResponseData {
     /**
      * Constructor with only required parameters
      */
-    public OBDomesticVRPConsentResponseData(String consentId, DateTime creationDateTime, OBDomesticVRPConsentStatus status, DateTime statusUpdateDateTime, OBDomesticVRPControlParameters controlParameters, OBDomesticVRPInitiation initiation) {
+    public OBDomesticVRPConsentResponseData(String consentId, DateTime creationDateTime, OBInternalConsentStatus1Code status, DateTime statusUpdateDateTime, OBDomesticVRPControlParameters controlParameters, OBDomesticVRPInitiation initiation) {
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
         this.status = status;
@@ -85,10 +93,9 @@ public class OBDomesticVRPConsentResponseData {
 
     /**
      * Get readRefundAccount
-     *
      * @return readRefundAccount
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReadRefundAccount")
     public OBReadRefundAccount getReadRefundAccount() {
@@ -105,12 +112,10 @@ public class OBDomesticVRPConsentResponseData {
     }
 
     /**
-     * Unique identification as assigned by the ASPSP to uniquely identify the consent resource.
-     *
+     * Unique identification as assigned by the ASPSP to uniquely identify the consent resource. 
      * @return consentId
-     */
-    @NotNull
-    @Size(min = 1, max = 128)
+   */
+    @NotNull @Size(min = 1, max = 128) 
     @Schema(name = "ConsentId", description = "Unique identification as assigned by the ASPSP to uniquely identify the consent resource. ", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ConsentId")
     public String getConsentId() {
@@ -127,12 +132,10 @@ public class OBDomesticVRPConsentResponseData {
     }
 
     /**
-     * Date and time at which the resource was created.
-     *
+     * Date and time at which the resource was created. 
      * @return creationDateTime
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created. ", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
@@ -143,25 +146,23 @@ public class OBDomesticVRPConsentResponseData {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBDomesticVRPConsentResponseData status(OBDomesticVRPConsentStatus status) {
+    public OBDomesticVRPConsentResponseData status(OBInternalConsentStatus1Code status) {
         this.status = status;
         return this;
     }
 
     /**
      * Get status
-     *
      * @return status
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBDomesticVRPConsentStatus getStatus() {
+    public OBInternalConsentStatus1Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBDomesticVRPConsentStatus status) {
+    public void setStatus(OBInternalConsentStatus1Code status) {
         this.status = status;
     }
 
@@ -180,10 +181,9 @@ public class OBDomesticVRPConsentResponseData {
 
     /**
      * Get statusReason
-     *
      * @return statusReason
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "StatusReason", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusReason")
     public List<@Valid OBStatusReason> getStatusReason() {
@@ -200,12 +200,10 @@ public class OBDomesticVRPConsentResponseData {
     }
 
     /**
-     * Date and time at which the resource status was updated.
-     *
+     * Date and time at which the resource status was updated. 
      * @return statusUpdateDateTime
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. ", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
@@ -223,11 +221,9 @@ public class OBDomesticVRPConsentResponseData {
 
     /**
      * Get controlParameters
-     *
      * @return controlParameters
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "ControlParameters", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ControlParameters")
     public OBDomesticVRPControlParameters getControlParameters() {
@@ -245,11 +241,9 @@ public class OBDomesticVRPConsentResponseData {
 
     /**
      * Get initiation
-     *
      * @return initiation
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
     public OBDomesticVRPInitiation getInitiation() {
@@ -267,10 +261,9 @@ public class OBDomesticVRPConsentResponseData {
 
     /**
      * Get debtorAccount
-     *
      * @return debtorAccount
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DebtorAccount")
     public OBCashAccountDebtorWithName getDebtorAccount() {

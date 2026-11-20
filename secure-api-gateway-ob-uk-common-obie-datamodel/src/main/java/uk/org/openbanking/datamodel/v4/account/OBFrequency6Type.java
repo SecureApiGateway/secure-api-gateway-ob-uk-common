@@ -15,12 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import uk.org.openbanking.datamodel.v4.account.OBFrequency6Code;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
 
+
+import java.util.*;
 import jakarta.annotation.Generated;
 
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-@JsonDeserialize(using = OBFrequency6TypeDeserializer.class)
 public interface OBFrequency6Type {
 }

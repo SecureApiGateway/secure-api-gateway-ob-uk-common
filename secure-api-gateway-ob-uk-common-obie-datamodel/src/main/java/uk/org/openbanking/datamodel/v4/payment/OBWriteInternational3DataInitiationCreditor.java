@@ -15,22 +15,27 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Party to which an amount of money is due.
  */
 
-@Schema(name = "OBWriteInternational3DataInitiationCreditor", description = "Party to which an amount of money is due.")
+@Schema(name = "OBWriteInternational3_Data_Initiation_Creditor", description = "Party to which an amount of money is due.")
+@JsonTypeName("OBWriteInternational3_Data_Initiation_Creditor")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBWriteInternational3DataInitiationCreditor {
 
@@ -47,10 +52,9 @@ public class OBWriteInternational3DataInitiationCreditor {
 
     /**
      * Name by which a party is known and which is usually used to identify that party.
-     *
      * @return name
-     */
-    @Size(min = 1, max = 350)
+   */
+    @Size(min = 1, max = 350) 
     @Schema(name = "Name", description = "Name by which a party is known and which is usually used to identify that party.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
     public String getName() {
@@ -68,12 +72,10 @@ public class OBWriteInternational3DataInitiationCreditor {
 
     /**
      * Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".
-     *
      * @return LEI
-     */
-    @Pattern(regexp = "^[0-9]{4}[0]{2}[A-Z0-9]{12}[0-9]{2}")
-    @Size(min = 1, max = 20)
-    @Schema(name = "LEI", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+   */
+    @Pattern(regexp = "^[A-Z0-9]{18,18}[0-9]{2,2}$") @Size(min = 1, max = 20) 
+    @Schema(name = "LEI", example = "IZ9Q00LZEVUKWCQY6X15", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LEI")
     public String getLEI() {
         return LEI;
@@ -90,10 +92,9 @@ public class OBWriteInternational3DataInitiationCreditor {
 
     /**
      * Get postalAddress
-     *
      * @return postalAddress
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "PostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PostalAddress")
     public OBPostalAddress7 getPostalAddress() {

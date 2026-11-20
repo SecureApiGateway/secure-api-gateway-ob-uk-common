@@ -15,19 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
-
-import java.math.BigDecimal;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
+import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount7;
+import uk.org.openbanking.datamodel.v4.account.OBCreditDebitCode0;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Set of elements used to provide details of a generic interest amount related to the statement resource.
@@ -72,10 +76,9 @@ public class OBStatement2StatementInterestInner {
 
     /**
      * Description that may be available for the statement interest.
-     *
      * @return description
-     */
-    @Size(min = 1, max = 128)
+   */
+    @Size(min = 1, max = 128) 
     @Schema(name = "Description", example = "Interest occurred over statement duration", description = "Description that may be available for the statement interest.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Description")
     public String getDescription() {
@@ -93,11 +96,9 @@ public class OBStatement2StatementInterestInner {
 
     /**
      * Get creditDebitIndicator
-     *
      * @return creditDebitIndicator
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "CreditDebitIndicator", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreditDebitIndicator")
     public OBCreditDebitCode0 getCreditDebitIndicator() {
@@ -115,10 +116,9 @@ public class OBStatement2StatementInterestInner {
 
     /**
      * Interest amount type, in a coded form. For a full list of values see `OBInternalStatementInterestType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return type
-     */
-    @NotNull
+   */
+    @NotNull 
     @Schema(name = "Type", example = "UK.OBIE.Total", description = "Interest amount type, in a coded form. For a full list of values see `OBInternalStatementInterestType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
     public String getType() {
@@ -136,10 +136,9 @@ public class OBStatement2StatementInterestInner {
 
     /**
      * Rate for Statement Interest (where it is applicable in terms of a rate rather than an amount)
-     *
      * @return rate
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Rate", example = "0.05", description = "Rate for Statement Interest (where it is applicable in terms of a rate rather than an amount)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Rate")
     public BigDecimal getRate() {
@@ -156,12 +155,11 @@ public class OBStatement2StatementInterestInner {
     }
 
     /**
-     * Interest amount type, in a coded form. For a full list of values see `OBInternalStatementInterestType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
+     * This code specifies the type of interest (e.g., BOE Base Rate, Fixed Rate, Gross).
      * @return rateType
-     */
-
-    @Schema(name = "RateType", example = "UK.OBIE.Total", description = "Interest amount type, in a coded form. For a full list of values see `OBInternalStatementInterestType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+   */
+    
+    @Schema(name = "RateType", example = "UK.OBIE.FixedRate", description = "This code specifies the type of interest (e.g., BOE Base Rate, Fixed Rate, Gross).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RateType")
     public String getRateType() {
         return rateType;
@@ -178,10 +176,9 @@ public class OBStatement2StatementInterestInner {
 
     /**
      * Specifies the statement fee type requested. For a full list of values see `OBInternalStatementInterestFrequency1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return frequency
-     */
-
+   */
+    
     @Schema(name = "Frequency", example = "UK.OBIE.Monthly", description = "Specifies the statement fee type requested. For a full list of values see `OBInternalStatementInterestFrequency1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Frequency")
     public String getFrequency() {
@@ -199,11 +196,9 @@ public class OBStatement2StatementInterestInner {
 
     /**
      * Get amount
-     *
      * @return amount
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Amount")
     public OBActiveOrHistoricCurrencyAndAmount7 getAmount() {
@@ -226,7 +221,7 @@ public class OBStatement2StatementInterestInner {
         return Objects.equals(this.description, obStatement2StatementInterestInner.description) &&
                 Objects.equals(this.creditDebitIndicator, obStatement2StatementInterestInner.creditDebitIndicator) &&
                 Objects.equals(this.type, obStatement2StatementInterestInner.type) &&
-                isEqual(this.rate, obStatement2StatementInterestInner.rate) &&
+                Objects.equals(this.rate, obStatement2StatementInterestInner.rate) &&
                 Objects.equals(this.rateType, obStatement2StatementInterestInner.rateType) &&
                 Objects.equals(this.frequency, obStatement2StatementInterestInner.frequency) &&
                 Objects.equals(this.amount, obStatement2StatementInterestInner.amount);

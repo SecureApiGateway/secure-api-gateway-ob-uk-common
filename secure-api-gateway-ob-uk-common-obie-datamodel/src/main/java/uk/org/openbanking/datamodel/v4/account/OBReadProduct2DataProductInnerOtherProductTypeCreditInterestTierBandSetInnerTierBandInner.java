@@ -15,19 +15,31 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import uk.org.openbanking.datamodel.v4.account.OBInterestFixedVariableType1Code;
+import uk.org.openbanking.datamodel.v4.account.OBOtherCodeType11;
+import uk.org.openbanking.datamodel.v4.account.OBOtherCodeType12;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerApplicationFrequency;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerBankInterestRateType;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerCalculationFrequency;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerDepositInterestAppliedCoverage;
+import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerOtherBankInterestType;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Tier Band Details
@@ -59,7 +71,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
     private String bankInterestRate;
 
     @Valid
-    private List<@Size(min = 1, max = 2000) String> notes;
+    private List<@Size(min = 1, max = 2000)String> notes;
 
     private OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerOtherBankInterestType otherBankInterestType;
 
@@ -88,10 +100,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Unique and unambiguous identification of a  Tier Band for the Product.
-     *
      * @return identification
-     */
-    @Size(min = 1, max = 35)
+   */
+    @Size(min = 1, max = 35) 
     @Schema(name = "Identification", description = "Unique and unambiguous identification of a  Tier Band for the Product.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
@@ -109,11 +120,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Minimum deposit value for which the credit interest tier applies.
-     *
      * @return tierValueMinimum
-     */
-    @NotNull
-    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
+   */
+    @NotNull @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
     @Schema(name = "TierValueMinimum", description = "Minimum deposit value for which the credit interest tier applies.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("TierValueMinimum")
     public String getTierValueMinimum() {
@@ -131,10 +140,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Maximum deposit value for which the credit interest tier applies.
-     *
      * @return tierValueMaximum
-     */
-    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
+   */
+    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
     @Schema(name = "TierValueMaximum", description = "Maximum deposit value for which the credit interest tier applies.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TierValueMaximum")
     public String getTierValueMaximum() {
@@ -152,10 +160,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get calculationFrequency
-     *
      * @return calculationFrequency
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "CalculationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CalculationFrequency")
     public OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerCalculationFrequency getCalculationFrequency() {
@@ -173,11 +180,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get applicationFrequency
-     *
      * @return applicationFrequency
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "ApplicationFrequency", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ApplicationFrequency")
     public OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerApplicationFrequency getApplicationFrequency() {
@@ -195,10 +200,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get depositInterestAppliedCoverage
-     *
      * @return depositInterestAppliedCoverage
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "DepositInterestAppliedCoverage", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DepositInterestAppliedCoverage")
     public OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerDepositInterestAppliedCoverage getDepositInterestAppliedCoverage() {
@@ -216,11 +220,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get fixedVariableInterestRateType
-     *
      * @return fixedVariableInterestRateType
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "FixedVariableInterestRateType", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FixedVariableInterestRateType")
     public OBInterestFixedVariableType1Code getFixedVariableInterestRateType() {
@@ -238,11 +240,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * The annual equivalent rate (AER) is interest that is calculated under the assumption that any interest paid is combined with the original balance and the next interest payment will be based on the slightly higher account balance. Overall, this means that interest can be compounded several times in a year depending on the number of times that interest payments are made.  Read more: Annual Equivalent Rate (AER) http://www.investopedia.com/terms/a/aer.asp#ixzz4gfR7IO1A
-     *
      * @return AER
-     */
-    @NotNull
-    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
+   */
+    @NotNull @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$") 
     @Schema(name = "AER", description = "The annual equivalent rate (AER) is interest that is calculated under the assumption that any interest paid is combined with the original balance and the next interest payment will be based on the slightly higher account balance. Overall, this means that interest can be compounded several times in a year depending on the number of times that interest payments are made.  Read more: Annual Equivalent Rate (AER) http://www.investopedia.com/terms/a/aer.asp#ixzz4gfR7IO1A", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("AER")
     public String getAER() {
@@ -260,10 +260,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get bankInterestRateType
-     *
      * @return bankInterestRateType
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "BankInterestRateType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("BankInterestRateType")
     public OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerBankInterestRateType getBankInterestRateType() {
@@ -281,10 +280,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Bank Interest for the product
-     *
      * @return bankInterestRate
-     */
-    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
+   */
+    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$") 
     @Schema(name = "BankInterestRate", description = "Bank Interest for the product", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("BankInterestRate")
     public String getBankInterestRate() {
@@ -295,7 +293,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
         this.bankInterestRate = bankInterestRate;
     }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInner notes(List<@Size(min = 1, max = 2000) String> notes) {
+    public OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInner notes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
         return this;
     }
@@ -310,17 +308,16 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get notes
-     *
      * @return notes
-     */
-
+   */
+    
     @Schema(name = "Notes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000) String> getNotes() {
+    public List<@Size(min = 1, max = 2000)String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
         this.notes = notes;
     }
 
@@ -331,10 +328,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get otherBankInterestType
-     *
      * @return otherBankInterestType
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OtherBankInterestType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherBankInterestType")
     public OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInnerOtherBankInterestType getOtherBankInterestType() {
@@ -352,10 +348,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get otherApplicationFrequency
-     *
      * @return otherApplicationFrequency
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OtherApplicationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherApplicationFrequency")
     public OBOtherCodeType11 getOtherApplicationFrequency() {
@@ -373,10 +368,9 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get otherCalculationFrequency
-     *
      * @return otherCalculationFrequency
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "OtherCalculationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherCalculationFrequency")
     public OBOtherCodeType12 getOtherCalculationFrequency() {

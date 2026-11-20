@@ -15,18 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code;
+import uk.org.openbanking.datamodel.v4.payment.OBWritePaymentDetails1StatusDetail;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBWritePaymentDetails1
@@ -37,7 +42,7 @@ public class OBWritePaymentDetails1 {
 
     private String paymentTransactionId;
 
-    private OBWritePaymentDetails1Status status;
+    private ExternalPaymentTransactionStatus1Code status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -51,7 +56,7 @@ public class OBWritePaymentDetails1 {
     /**
      * Constructor with only required parameters
      */
-    public OBWritePaymentDetails1(String paymentTransactionId, OBWritePaymentDetails1Status status, DateTime statusUpdateDateTime) {
+    public OBWritePaymentDetails1(String paymentTransactionId, ExternalPaymentTransactionStatus1Code status, DateTime statusUpdateDateTime) {
         this.paymentTransactionId = paymentTransactionId;
         this.status = status;
         this.statusUpdateDateTime = statusUpdateDateTime;
@@ -63,13 +68,11 @@ public class OBWritePaymentDetails1 {
     }
 
     /**
-     * Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.
-     *
+     * Unique identifier for the transaction within a servicing institution. This identifier is both unique and immutable.
      * @return paymentTransactionId
-     */
-    @NotNull
-    @Size(min = 1, max = 210)
-    @Schema(name = "PaymentTransactionId", description = "Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.REQUIRED)
+   */
+    @NotNull @Size(min = 1, max = 210) 
+    @Schema(name = "PaymentTransactionId", description = "Unique identifier for the transaction within a servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("PaymentTransactionId")
     public String getPaymentTransactionId() {
         return paymentTransactionId;
@@ -79,25 +82,23 @@ public class OBWritePaymentDetails1 {
         this.paymentTransactionId = paymentTransactionId;
     }
 
-    public OBWritePaymentDetails1 status(OBWritePaymentDetails1Status status) {
+    public OBWritePaymentDetails1 status(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
         return this;
     }
 
     /**
      * Get status
-     *
      * @return status
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWritePaymentDetails1Status getStatus() {
+    public ExternalPaymentTransactionStatus1Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWritePaymentDetails1Status status) {
+    public void setStatus(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
     }
 
@@ -107,12 +108,10 @@ public class OBWritePaymentDetails1 {
     }
 
     /**
-     * Date and time at which the status was assigned to the transfer.
-     *
+     * Date and time at which the status was assigned to the transfer. 
      * @return statusUpdateDateTime
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the status was assigned to the transfer. ", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
@@ -130,10 +129,9 @@ public class OBWritePaymentDetails1 {
 
     /**
      * Get statusDetail
-     *
      * @return statusDetail
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "StatusDetail", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusDetail")
     public OBWritePaymentDetails1StatusDetail getStatusDetail() {

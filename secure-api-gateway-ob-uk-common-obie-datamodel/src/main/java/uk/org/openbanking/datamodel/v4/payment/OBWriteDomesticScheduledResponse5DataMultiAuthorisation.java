@@ -15,18 +15,23 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticScheduledResponse5DataMultiAuthorisationStatus;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The multiple authorisation flow response from the ASPSP.
@@ -67,11 +72,9 @@ public class OBWriteDomesticScheduledResponse5DataMultiAuthorisation {
 
     /**
      * Get status
-     *
      * @return status
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
     public OBWriteDomesticScheduledResponse5DataMultiAuthorisationStatus getStatus() {
@@ -89,10 +92,9 @@ public class OBWriteDomesticScheduledResponse5DataMultiAuthorisation {
 
     /**
      * Number of authorisations required for payment order (total required at the start of the multi authorisation journey).
-     *
      * @return numberRequired
-     */
-
+   */
+    
     @Schema(name = "NumberRequired", description = "Number of authorisations required for payment order (total required at the start of the multi authorisation journey).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("NumberRequired")
     public Integer getNumberRequired() {
@@ -110,10 +112,9 @@ public class OBWriteDomesticScheduledResponse5DataMultiAuthorisation {
 
     /**
      * Number of authorisations received.
-     *
      * @return numberReceived
-     */
-
+   */
+    
     @Schema(name = "NumberReceived", description = "Number of authorisations received.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("NumberReceived")
     public Integer getNumberReceived() {
@@ -131,10 +132,9 @@ public class OBWriteDomesticScheduledResponse5DataMultiAuthorisation {
 
     /**
      * Last date and time at the authorisation flow was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return lastUpdateDateTime
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "LastUpdateDateTime", description = "Last date and time at the authorisation flow was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LastUpdateDateTime")
     public DateTime getLastUpdateDateTime() {
@@ -152,10 +152,9 @@ public class OBWriteDomesticScheduledResponse5DataMultiAuthorisation {
 
     /**
      * Date and time at which the requested authorisation flow must be completed. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return expirationDateTime
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "ExpirationDateTime", description = "Date and time at which the requested authorisation flow must be completed. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExpirationDateTime")
     public DateTime getExpirationDateTime() {

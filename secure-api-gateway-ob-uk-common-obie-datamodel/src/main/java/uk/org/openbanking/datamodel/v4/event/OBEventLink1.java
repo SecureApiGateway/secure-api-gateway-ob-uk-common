@@ -15,14 +15,18 @@
  */
 package uk.org.openbanking.datamodel.v4.event;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 /**
  * Resource links to other available versions of the resource.
@@ -55,11 +59,9 @@ public class OBEventLink1 {
 
     /**
      * Resource version.
-     *
      * @return version
-     */
-    @NotNull
-    @Size(min = 1, max = 10)
+   */
+    @NotNull @Size(min = 1, max = 10) 
     @Schema(name = "version", description = "Resource version.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("version")
     public String getVersion() {
@@ -77,10 +79,9 @@ public class OBEventLink1 {
 
     /**
      * Resource link.
-     *
      * @return link
-     */
-    @NotNull
+   */
+    @NotNull 
     @Schema(name = "link", description = "Resource link.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("link")
     public String getLink() {

@@ -15,19 +15,24 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus1Code;
+import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBDomesticVRPDetailsDataPaymentStatusInner
@@ -39,7 +44,7 @@ public class OBDomesticVRPDetailsDataPaymentStatusInner {
 
     private String paymentTransactionId;
 
-    private OBDomesticVRPDetailsDataPaymentStatusInnerStatus status;
+    private ExternalPaymentTransactionStatus1Code status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -53,7 +58,7 @@ public class OBDomesticVRPDetailsDataPaymentStatusInner {
     /**
      * Constructor with only required parameters
      */
-    public OBDomesticVRPDetailsDataPaymentStatusInner(String paymentTransactionId, OBDomesticVRPDetailsDataPaymentStatusInnerStatus status, DateTime statusUpdateDateTime) {
+    public OBDomesticVRPDetailsDataPaymentStatusInner(String paymentTransactionId, ExternalPaymentTransactionStatus1Code status, DateTime statusUpdateDateTime) {
         this.paymentTransactionId = paymentTransactionId;
         this.status = status;
         this.statusUpdateDateTime = statusUpdateDateTime;
@@ -65,13 +70,11 @@ public class OBDomesticVRPDetailsDataPaymentStatusInner {
     }
 
     /**
-     * Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.
-     *
+     * Unique identifier for the transaction within a servicing institution. This identifier is both unique and immutable.
      * @return paymentTransactionId
-     */
-    @NotNull
-    @Size(min = 1, max = 210)
-    @Schema(name = "PaymentTransactionId", description = "Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.REQUIRED)
+   */
+    @NotNull @Size(min = 1, max = 210) 
+    @Schema(name = "PaymentTransactionId", description = "Unique identifier for the transaction within a servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("PaymentTransactionId")
     public String getPaymentTransactionId() {
         return paymentTransactionId;
@@ -81,25 +84,23 @@ public class OBDomesticVRPDetailsDataPaymentStatusInner {
         this.paymentTransactionId = paymentTransactionId;
     }
 
-    public OBDomesticVRPDetailsDataPaymentStatusInner status(OBDomesticVRPDetailsDataPaymentStatusInnerStatus status) {
+    public OBDomesticVRPDetailsDataPaymentStatusInner status(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
         return this;
     }
 
     /**
      * Get status
-     *
      * @return status
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBDomesticVRPDetailsDataPaymentStatusInnerStatus getStatus() {
+    public ExternalPaymentTransactionStatus1Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBDomesticVRPDetailsDataPaymentStatusInnerStatus status) {
+    public void setStatus(ExternalPaymentTransactionStatus1Code status) {
         this.status = status;
     }
 
@@ -109,12 +110,10 @@ public class OBDomesticVRPDetailsDataPaymentStatusInner {
     }
 
     /**
-     * Date and time at which the status was assigned to the transfer.
-     *
+     * Date and time at which the status was assigned to the transfer. 
      * @return statusUpdateDateTime
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the status was assigned to the transfer. ", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
@@ -132,10 +131,9 @@ public class OBDomesticVRPDetailsDataPaymentStatusInner {
 
     /**
      * Get statusDetail
-     *
      * @return statusDetail
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "StatusDetail", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusDetail")
     public OBDomesticVRPDetailsDataPaymentStatusInnerStatusDetail getStatusDetail() {

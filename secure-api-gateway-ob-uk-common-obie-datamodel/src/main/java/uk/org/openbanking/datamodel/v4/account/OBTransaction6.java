@@ -15,24 +15,46 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v4.account.ExternalEntryStatus1Code;
+import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount10;
+import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount9;
+import uk.org.openbanking.datamodel.v4.account.OBBankTransactionCodeStructure1;
+import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionIdentification61;
+import uk.org.openbanking.datamodel.v4.account.OBBranchAndFinancialInstitutionIdentification62;
+import uk.org.openbanking.datamodel.v4.account.OBCashAccount60;
+import uk.org.openbanking.datamodel.v4.account.OBCashAccount61;
+import uk.org.openbanking.datamodel.v4.account.OBCreditDebitCode1;
+import uk.org.openbanking.datamodel.v4.account.OBCurrencyExchange5;
+import uk.org.openbanking.datamodel.v4.account.OBExtendedProprietaryBankTransactionCode;
+import uk.org.openbanking.datamodel.v4.account.OBExternalPurpose1Code;
+import uk.org.openbanking.datamodel.v4.account.OBIntermediaryAgent;
+import uk.org.openbanking.datamodel.v4.account.OBInternalTransactionMutability1Code;
+import uk.org.openbanking.datamodel.v4.account.OBMerchantDetails1;
+import uk.org.openbanking.datamodel.v4.account.OBTransactionCardInstrument1;
+import uk.org.openbanking.datamodel.v4.account.OBTransactionCashBalance;
+import uk.org.openbanking.datamodel.v4.account.ProprietaryBankTransactionCodeStructure1;
 import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Provides further details on an entry in the report.
@@ -94,7 +116,7 @@ public class OBTransaction6 {
 
     private OBTransactionCardInstrument1 cardInstrument;
 
-    private OBSupplementaryData1 supplementaryData;
+    private OBSupplementaryData1 supplementaryData = new HashMap<>();
 
     private ExternalCategoryPurpose1Code categoryPurposeCode;
 
@@ -103,6 +125,12 @@ public class OBTransaction6 {
     private OBUltimateCreditor1 ultimateCreditor;
 
     private OBUltimateDebtor1 ultimateDebtor;
+
+    private OBIntermediaryAgent intermediaryAgent1;
+
+    private OBIntermediaryAgent intermediaryAgent2;
+
+    private OBIntermediaryAgent intermediaryAgent3;
 
     public OBTransaction6() {
         super();
@@ -126,11 +154,9 @@ public class OBTransaction6 {
 
     /**
      * A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.
-     *
      * @return accountId
-     */
-    @NotNull
-    @Size(min = 1, max = 40)
+   */
+    @NotNull @Size(min = 1, max = 40) 
     @Schema(name = "AccountId", example = "22289", description = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("AccountId")
     public String getAccountId() {
@@ -147,12 +173,11 @@ public class OBTransaction6 {
     }
 
     /**
-     * Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.
-     *
+     * Unique identifier for the transaction within a servicing institution. This identifier is both unique and immutable.
      * @return transactionId
-     */
-    @Size(min = 1, max = 210)
-    @Schema(name = "TransactionId", description = "Unique identifier for the transaction within an servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+   */
+    @Size(min = 1, max = 210) 
+    @Schema(name = "TransactionId", description = "Unique identifier for the transaction within a servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TransactionId")
     public String getTransactionId() {
         return transactionId;
@@ -169,10 +194,9 @@ public class OBTransaction6 {
 
     /**
      * Unique reference for the transaction. This reference is optionally populated, and may as an example be the FPID in the Faster Payments context.
-     *
      * @return transactionReference
-     */
-    @Size(min = 1, max = 210)
+   */
+    @Size(min = 1, max = 210) 
     @Schema(name = "TransactionReference", description = "Unique reference for the transaction. This reference is optionally populated, and may as an example be the FPID in the Faster Payments context.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TransactionReference")
     public String getTransactionReference() {
@@ -198,10 +222,9 @@ public class OBTransaction6 {
 
     /**
      * Get statementReference
-     *
      * @return statementReference
-     */
-
+   */
+    
     @Schema(name = "StatementReference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatementReference")
     public List<@Valid String> getStatementReference() {
@@ -219,11 +242,9 @@ public class OBTransaction6 {
 
     /**
      * Get creditDebitIndicator
-     *
      * @return creditDebitIndicator
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "CreditDebitIndicator", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreditDebitIndicator")
     public OBCreditDebitCode1 getCreditDebitIndicator() {
@@ -241,11 +262,9 @@ public class OBTransaction6 {
 
     /**
      * Get status
-     *
      * @return status
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
     public ExternalEntryStatus1Code getStatus() {
@@ -263,10 +282,9 @@ public class OBTransaction6 {
 
     /**
      * Get transactionMutability
-     *
      * @return transactionMutability
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "TransactionMutability", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TransactionMutability")
     public OBInternalTransactionMutability1Code getTransactionMutability() {
@@ -284,11 +302,9 @@ public class OBTransaction6 {
 
     /**
      * Date and time when a transaction entry is posted to an account on the account servicer's books. Usage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return bookingDateTime
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "BookingDateTime", description = "Date and time when a transaction entry is posted to an account on the account servicer's books. Usage: Booking date is the expected booking date, unless the status is booked, in which case it is the actual booking date. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("BookingDateTime")
     public DateTime getBookingDateTime() {
@@ -306,10 +322,9 @@ public class OBTransaction6 {
 
     /**
      * Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit transaction entry. Usage: If transaction entry status is pending and value date is present, then the value date refers to an expected/requested value date. For transaction entries subject to availability/float and for which availability information is provided, the value date must not be used. In this case the availability component identifies the number of availability days. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return valueDateTime
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "ValueDateTime", description = "Date and time at which assets become available to the account owner in case of a credit entry, or cease to be available to the account owner in case of a debit transaction entry. Usage: If transaction entry status is pending and value date is present, then the value date refers to an expected/requested value date. For transaction entries subject to availability/float and for which availability information is provided, the value date must not be used. In this case the availability component identifies the number of availability days. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ValueDateTime")
     public DateTime getValueDateTime() {
@@ -327,10 +342,9 @@ public class OBTransaction6 {
 
     /**
      * Further details of the transaction.  This is the transaction narrative, which is unstructured text.
-     *
      * @return transactionInformation
-     */
-    @Size(min = 1, max = 500)
+   */
+    @Size(min = 1, max = 500) 
     @Schema(name = "TransactionInformation", description = "Further details of the transaction.  This is the transaction narrative, which is unstructured text.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TransactionInformation")
     public String getTransactionInformation() {
@@ -348,10 +362,9 @@ public class OBTransaction6 {
 
     /**
      * Information that locates and identifies a specific address for a transaction entry, that is presented in free format text.
-     *
      * @return addressLine
-     */
-    @Size(min = 1, max = 70)
+   */
+    @Size(min = 1, max = 70) 
     @Schema(name = "AddressLine", description = "Information that locates and identifies a specific address for a transaction entry, that is presented in free format text.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AddressLine")
     public String getAddressLine() {
@@ -369,11 +382,9 @@ public class OBTransaction6 {
 
     /**
      * Get amount
-     *
      * @return amount
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Amount")
     public OBActiveOrHistoricCurrencyAndAmount9 getAmount() {
@@ -391,10 +402,9 @@ public class OBTransaction6 {
 
     /**
      * Get chargeAmount
-     *
      * @return chargeAmount
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "ChargeAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ChargeAmount")
     public OBActiveOrHistoricCurrencyAndAmount10 getChargeAmount() {
@@ -412,10 +422,9 @@ public class OBTransaction6 {
 
     /**
      * Get currencyExchange
-     *
      * @return currencyExchange
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "CurrencyExchange", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CurrencyExchange")
     public OBCurrencyExchange5 getCurrencyExchange() {
@@ -433,10 +442,9 @@ public class OBTransaction6 {
 
     /**
      * Get bankTransactionCode
-     *
      * @return bankTransactionCode
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "BankTransactionCode", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("BankTransactionCode")
     public OBBankTransactionCodeStructure1 getBankTransactionCode() {
@@ -454,10 +462,9 @@ public class OBTransaction6 {
 
     /**
      * Get proprietaryBankTransactionCode
-     *
      * @return proprietaryBankTransactionCode
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "ProprietaryBankTransactionCode", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ProprietaryBankTransactionCode")
     public ProprietaryBankTransactionCodeStructure1 getProprietaryBankTransactionCode() {
@@ -483,10 +490,9 @@ public class OBTransaction6 {
 
     /**
      * Get extendedProprietaryBankTransactionCodes
-     *
      * @return extendedProprietaryBankTransactionCodes
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "ExtendedProprietaryBankTransactionCodes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExtendedProprietaryBankTransactionCodes")
     public List<@Valid OBExtendedProprietaryBankTransactionCode> getExtendedProprietaryBankTransactionCodes() {
@@ -504,10 +510,9 @@ public class OBTransaction6 {
 
     /**
      * Get balance
-     *
      * @return balance
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Balance", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Balance")
     public OBTransactionCashBalance getBalance() {
@@ -525,10 +530,9 @@ public class OBTransaction6 {
 
     /**
      * Get merchantDetails
-     *
      * @return merchantDetails
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "MerchantDetails", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MerchantDetails")
     public OBMerchantDetails1 getMerchantDetails() {
@@ -546,10 +550,9 @@ public class OBTransaction6 {
 
     /**
      * Get creditorAgent
-     *
      * @return creditorAgent
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "CreditorAgent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorAgent")
     public OBBranchAndFinancialInstitutionIdentification61 getCreditorAgent() {
@@ -567,10 +570,9 @@ public class OBTransaction6 {
 
     /**
      * Get creditorAccount
-     *
      * @return creditorAccount
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "CreditorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorAccount")
     public OBCashAccount60 getCreditorAccount() {
@@ -588,10 +590,9 @@ public class OBTransaction6 {
 
     /**
      * Get debtorAgent
-     *
      * @return debtorAgent
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "DebtorAgent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DebtorAgent")
     public OBBranchAndFinancialInstitutionIdentification62 getDebtorAgent() {
@@ -609,10 +610,9 @@ public class OBTransaction6 {
 
     /**
      * Get debtorAccount
-     *
      * @return debtorAccount
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DebtorAccount")
     public OBCashAccount61 getDebtorAccount() {
@@ -630,10 +630,9 @@ public class OBTransaction6 {
 
     /**
      * Get cardInstrument
-     *
      * @return cardInstrument
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "CardInstrument", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CardInstrument")
     public OBTransactionCardInstrument1 getCardInstrument() {
@@ -651,10 +650,9 @@ public class OBTransaction6 {
 
     /**
      * Get supplementaryData
-     *
      * @return supplementaryData
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")
     public OBSupplementaryData1 getSupplementaryData() {
@@ -672,10 +670,9 @@ public class OBTransaction6 {
 
     /**
      * Get categoryPurposeCode
-     *
      * @return categoryPurposeCode
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "CategoryPurposeCode", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CategoryPurposeCode")
     public ExternalCategoryPurpose1Code getCategoryPurposeCode() {
@@ -693,10 +690,9 @@ public class OBTransaction6 {
 
     /**
      * Get paymentPurposeCode
-     *
      * @return paymentPurposeCode
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "PaymentPurposeCode", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PaymentPurposeCode")
     public OBExternalPurpose1Code getPaymentPurposeCode() {
@@ -714,10 +710,9 @@ public class OBTransaction6 {
 
     /**
      * Get ultimateCreditor
-     *
      * @return ultimateCreditor
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "UltimateCreditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateCreditor")
     public OBUltimateCreditor1 getUltimateCreditor() {
@@ -735,10 +730,9 @@ public class OBTransaction6 {
 
     /**
      * Get ultimateDebtor
-     *
      * @return ultimateDebtor
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "UltimateDebtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateDebtor")
     public OBUltimateDebtor1 getUltimateDebtor() {
@@ -747,6 +741,66 @@ public class OBTransaction6 {
 
     public void setUltimateDebtor(OBUltimateDebtor1 ultimateDebtor) {
         this.ultimateDebtor = ultimateDebtor;
+    }
+
+    public OBTransaction6 intermediaryAgent1(OBIntermediaryAgent intermediaryAgent1) {
+        this.intermediaryAgent1 = intermediaryAgent1;
+        return this;
+    }
+
+    /**
+     * Get intermediaryAgent1
+     * @return intermediaryAgent1
+   */
+    @Valid 
+    @Schema(name = "IntermediaryAgent1", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("IntermediaryAgent1")
+    public OBIntermediaryAgent getIntermediaryAgent1() {
+        return intermediaryAgent1;
+    }
+
+    public void setIntermediaryAgent1(OBIntermediaryAgent intermediaryAgent1) {
+        this.intermediaryAgent1 = intermediaryAgent1;
+    }
+
+    public OBTransaction6 intermediaryAgent2(OBIntermediaryAgent intermediaryAgent2) {
+        this.intermediaryAgent2 = intermediaryAgent2;
+        return this;
+    }
+
+    /**
+     * Get intermediaryAgent2
+     * @return intermediaryAgent2
+   */
+    @Valid 
+    @Schema(name = "IntermediaryAgent2", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("IntermediaryAgent2")
+    public OBIntermediaryAgent getIntermediaryAgent2() {
+        return intermediaryAgent2;
+    }
+
+    public void setIntermediaryAgent2(OBIntermediaryAgent intermediaryAgent2) {
+        this.intermediaryAgent2 = intermediaryAgent2;
+    }
+
+    public OBTransaction6 intermediaryAgent3(OBIntermediaryAgent intermediaryAgent3) {
+        this.intermediaryAgent3 = intermediaryAgent3;
+        return this;
+    }
+
+    /**
+     * Get intermediaryAgent3
+     * @return intermediaryAgent3
+   */
+    @Valid 
+    @Schema(name = "IntermediaryAgent3", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+    @JsonProperty("IntermediaryAgent3")
+    public OBIntermediaryAgent getIntermediaryAgent3() {
+        return intermediaryAgent3;
+    }
+
+    public void setIntermediaryAgent3(OBIntermediaryAgent intermediaryAgent3) {
+        this.intermediaryAgent3 = intermediaryAgent3;
     }
 
     @Override
@@ -786,12 +840,15 @@ public class OBTransaction6 {
                 Objects.equals(this.categoryPurposeCode, obTransaction6.categoryPurposeCode) &&
                 Objects.equals(this.paymentPurposeCode, obTransaction6.paymentPurposeCode) &&
                 Objects.equals(this.ultimateCreditor, obTransaction6.ultimateCreditor) &&
-                Objects.equals(this.ultimateDebtor, obTransaction6.ultimateDebtor);
+                Objects.equals(this.ultimateDebtor, obTransaction6.ultimateDebtor) &&
+                Objects.equals(this.intermediaryAgent1, obTransaction6.intermediaryAgent1) &&
+                Objects.equals(this.intermediaryAgent2, obTransaction6.intermediaryAgent2) &&
+                Objects.equals(this.intermediaryAgent3, obTransaction6.intermediaryAgent3);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, transactionId, transactionReference, statementReference, creditDebitIndicator, status, transactionMutability, bookingDateTime, valueDateTime, transactionInformation, addressLine, amount, chargeAmount, currencyExchange, bankTransactionCode, proprietaryBankTransactionCode, extendedProprietaryBankTransactionCodes, balance, merchantDetails, creditorAgent, creditorAccount, debtorAgent, debtorAccount, cardInstrument, supplementaryData, categoryPurposeCode, paymentPurposeCode, ultimateCreditor, ultimateDebtor);
+        return Objects.hash(accountId, transactionId, transactionReference, statementReference, creditDebitIndicator, status, transactionMutability, bookingDateTime, valueDateTime, transactionInformation, addressLine, amount, chargeAmount, currencyExchange, bankTransactionCode, proprietaryBankTransactionCode, extendedProprietaryBankTransactionCodes, balance, merchantDetails, creditorAgent, creditorAccount, debtorAgent, debtorAccount, cardInstrument, supplementaryData, categoryPurposeCode, paymentPurposeCode, ultimateCreditor, ultimateDebtor, intermediaryAgent1, intermediaryAgent2, intermediaryAgent3);
     }
 
     @Override
@@ -827,6 +884,9 @@ public class OBTransaction6 {
         sb.append("    paymentPurposeCode: ").append(toIndentedString(paymentPurposeCode)).append("\n");
         sb.append("    ultimateCreditor: ").append(toIndentedString(ultimateCreditor)).append("\n");
         sb.append("    ultimateDebtor: ").append(toIndentedString(ultimateDebtor)).append("\n");
+        sb.append("    intermediaryAgent1: ").append(toIndentedString(intermediaryAgent1)).append("\n");
+        sb.append("    intermediaryAgent2: ").append(toIndentedString(intermediaryAgent2)).append("\n");
+        sb.append("    intermediaryAgent3: ").append(toIndentedString(intermediaryAgent3)).append("\n");
         sb.append("}");
         return sb.toString();
     }

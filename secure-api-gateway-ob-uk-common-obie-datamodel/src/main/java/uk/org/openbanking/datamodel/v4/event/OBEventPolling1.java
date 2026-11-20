@@ -15,18 +15,24 @@
  */
 package uk.org.openbanking.datamodel.v4.event;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import uk.org.openbanking.datamodel.v4.event.OBEventPolling1SetErrsValue;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBEventPolling1
@@ -40,7 +46,7 @@ public class OBEventPolling1 {
     private Boolean returnImmediately;
 
     @Valid
-    private List<@Size(min = 1, max = 128) String> ack;
+    private List<@Size(min = 1, max = 128)String> ack;
 
     @Valid
     private Map<String, OBEventPolling1SetErrsValue> setErrs = new HashMap<>();
@@ -52,10 +58,9 @@ public class OBEventPolling1 {
 
     /**
      * Maximum number of events to be returned. A value of zero indicates the ASPSP should not return events even if available
-     *
      * @return maxEvents
-     */
-
+   */
+    
     @Schema(name = "maxEvents", description = "Maximum number of events to be returned. A value of zero indicates the ASPSP should not return events even if available", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("maxEvents")
     public Integer getMaxEvents() {
@@ -73,10 +78,9 @@ public class OBEventPolling1 {
 
     /**
      * Indicates whether an ASPSP should return a response immediately or provide a long poll
-     *
      * @return returnImmediately
-     */
-
+   */
+    
     @Schema(name = "returnImmediately", description = "Indicates whether an ASPSP should return a response immediately or provide a long poll", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("returnImmediately")
     public Boolean getReturnImmediately() {
@@ -87,7 +91,7 @@ public class OBEventPolling1 {
         this.returnImmediately = returnImmediately;
     }
 
-    public OBEventPolling1 ack(List<@Size(min = 1, max = 128) String> ack) {
+    public OBEventPolling1 ack(List<@Size(min = 1, max = 128)String> ack) {
         this.ack = ack;
         return this;
     }
@@ -102,17 +106,16 @@ public class OBEventPolling1 {
 
     /**
      * Get ack
-     *
      * @return ack
-     */
-
+   */
+    
     @Schema(name = "ack", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ack")
-    public List<@Size(min = 1, max = 128) String> getAck() {
+    public List<@Size(min = 1, max = 128)String> getAck() {
         return ack;
     }
 
-    public void setAck(List<@Size(min = 1, max = 128) String> ack) {
+    public void setAck(List<@Size(min = 1, max = 128)String> ack) {
         this.ack = ack;
     }
 
@@ -131,10 +134,9 @@ public class OBEventPolling1 {
 
     /**
      * An object that encapsulates all negative acknowledgements transmitted by the TPP
-     *
      * @return setErrs
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "setErrs", description = "An object that encapsulates all negative acknowledgements transmitted by the TPP", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("setErrs")
     public Map<String, OBEventPolling1SetErrsValue> getSetErrs() {

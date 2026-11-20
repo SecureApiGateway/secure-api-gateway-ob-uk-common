@@ -15,16 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.event;
 
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBEventPollingResponse1
@@ -57,10 +61,9 @@ public class OBEventPollingResponse1 {
 
     /**
      * A JSON boolean value that indicates if more unacknowledged event notifications are available to be returned.
-     *
      * @return moreAvailable
-     */
-    @NotNull
+   */
+    @NotNull 
     @Schema(name = "moreAvailable", description = "A JSON boolean value that indicates if more unacknowledged event notifications are available to be returned.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("moreAvailable")
     public Boolean getMoreAvailable() {
@@ -86,10 +89,9 @@ public class OBEventPollingResponse1 {
 
     /**
      * A JSON object that contains zero or more nested JSON attributes. If there are no outstanding event notifications to be transmitted, the JSON object SHALL be empty.
-     *
      * @return sets
-     */
-    @NotNull
+   */
+    @NotNull 
     @Schema(name = "sets", description = "A JSON object that contains zero or more nested JSON attributes. If there are no outstanding event notifications to be transmitted, the JSON object SHALL be empty.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("sets")
     public Map<String, String> getSets() {

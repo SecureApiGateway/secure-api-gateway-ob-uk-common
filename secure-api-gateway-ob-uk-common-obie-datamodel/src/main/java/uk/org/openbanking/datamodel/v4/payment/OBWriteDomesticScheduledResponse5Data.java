@@ -15,22 +15,32 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
+import uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus2Code;
+import uk.org.openbanking.datamodel.v4.payment.OBCashAccountDebtor4;
+import uk.org.openbanking.datamodel.v4.payment.OBDomesticRefundAccount1;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsentResponse5DataChargesInner;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticScheduled2DataInitiation;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticScheduledResponse5DataMultiAuthorisation;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBWriteDomesticScheduledResponse5Data
@@ -47,7 +57,7 @@ public class OBWriteDomesticScheduledResponse5Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime creationDateTime;
 
-    private OBWriteDomesticScheduledResponse5DataStatus status;
+    private ExternalPaymentTransactionStatus2Code status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime statusUpdateDateTime;
@@ -61,7 +71,7 @@ public class OBWriteDomesticScheduledResponse5Data {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private DateTime expectedSettlementDateTime;
 
-    private OBWriteDomesticResponse5DataRefund refund;
+    private OBDomesticRefundAccount1 refund;
 
     @Valid
     private List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> charges;
@@ -79,7 +89,7 @@ public class OBWriteDomesticScheduledResponse5Data {
     /**
      * Constructor with only required parameters
      */
-    public OBWriteDomesticScheduledResponse5Data(String domesticScheduledPaymentId, String consentId, DateTime creationDateTime, OBWriteDomesticScheduledResponse5DataStatus status, DateTime statusUpdateDateTime, OBWriteDomesticScheduled2DataInitiation initiation) {
+    public OBWriteDomesticScheduledResponse5Data(String domesticScheduledPaymentId, String consentId, DateTime creationDateTime, ExternalPaymentTransactionStatus2Code status, DateTime statusUpdateDateTime, OBWriteDomesticScheduled2DataInitiation initiation) {
         this.domesticScheduledPaymentId = domesticScheduledPaymentId;
         this.consentId = consentId;
         this.creationDateTime = creationDateTime;
@@ -95,11 +105,9 @@ public class OBWriteDomesticScheduledResponse5Data {
 
     /**
      * OB: Unique identification as assigned by the ASPSP to uniquely identify the domestic schedule payment resource.
-     *
      * @return domesticScheduledPaymentId
-     */
-    @NotNull
-    @Size(min = 1, max = 40)
+   */
+    @NotNull @Size(min = 1, max = 40) 
     @Schema(name = "DomesticScheduledPaymentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the domestic schedule payment resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("DomesticScheduledPaymentId")
     public String getDomesticScheduledPaymentId() {
@@ -117,11 +125,9 @@ public class OBWriteDomesticScheduledResponse5Data {
 
     /**
      * OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.
-     *
      * @return consentId
-     */
-    @NotNull
-    @Size(min = 1, max = 128)
+   */
+    @NotNull @Size(min = 1, max = 128) 
     @Schema(name = "ConsentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ConsentId")
     public String getConsentId() {
@@ -139,11 +145,9 @@ public class OBWriteDomesticScheduledResponse5Data {
 
     /**
      * Date and time at which the message was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return creationDateTime
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "CreationDateTime", description = "Date and time at which the message was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
@@ -154,25 +158,23 @@ public class OBWriteDomesticScheduledResponse5Data {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBWriteDomesticScheduledResponse5Data status(OBWriteDomesticScheduledResponse5DataStatus status) {
+    public OBWriteDomesticScheduledResponse5Data status(ExternalPaymentTransactionStatus2Code status) {
         this.status = status;
         return this;
     }
 
     /**
      * Get status
-     *
      * @return status
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
-    public OBWriteDomesticScheduledResponse5DataStatus getStatus() {
+    public ExternalPaymentTransactionStatus2Code getStatus() {
         return status;
     }
 
-    public void setStatus(OBWriteDomesticScheduledResponse5DataStatus status) {
+    public void setStatus(ExternalPaymentTransactionStatus2Code status) {
         this.status = status;
     }
 
@@ -183,11 +185,9 @@ public class OBWriteDomesticScheduledResponse5Data {
 
     /**
      * Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return statusUpdateDateTime
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
@@ -213,10 +213,9 @@ public class OBWriteDomesticScheduledResponse5Data {
 
     /**
      * Get statusReason
-     *
      * @return statusReason
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "StatusReason", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusReason")
     public List<@Valid OBStatusReason> getStatusReason() {
@@ -234,10 +233,9 @@ public class OBWriteDomesticScheduledResponse5Data {
 
     /**
      * Expected execution date and time for the payment resource. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return expectedExecutionDateTime
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "ExpectedExecutionDateTime", description = "Expected execution date and time for the payment resource. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExpectedExecutionDateTime")
     public DateTime getExpectedExecutionDateTime() {
@@ -255,10 +253,9 @@ public class OBWriteDomesticScheduledResponse5Data {
 
     /**
      * Expected settlement date and time for the payment resource. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return expectedSettlementDateTime
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "ExpectedSettlementDateTime", description = "Expected settlement date and time for the payment resource. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExpectedSettlementDateTime")
     public DateTime getExpectedSettlementDateTime() {
@@ -269,24 +266,23 @@ public class OBWriteDomesticScheduledResponse5Data {
         this.expectedSettlementDateTime = expectedSettlementDateTime;
     }
 
-    public OBWriteDomesticScheduledResponse5Data refund(OBWriteDomesticResponse5DataRefund refund) {
+    public OBWriteDomesticScheduledResponse5Data refund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
         return this;
     }
 
     /**
      * Get refund
-     *
      * @return refund
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Refund")
-    public OBWriteDomesticResponse5DataRefund getRefund() {
+    public OBDomesticRefundAccount1 getRefund() {
         return refund;
     }
 
-    public void setRefund(OBWriteDomesticResponse5DataRefund refund) {
+    public void setRefund(OBDomesticRefundAccount1 refund) {
         this.refund = refund;
     }
 
@@ -305,10 +301,9 @@ public class OBWriteDomesticScheduledResponse5Data {
 
     /**
      * Get charges
-     *
      * @return charges
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Charges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Charges")
     public List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> getCharges() {
@@ -326,11 +321,9 @@ public class OBWriteDomesticScheduledResponse5Data {
 
     /**
      * Get initiation
-     *
      * @return initiation
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
     public OBWriteDomesticScheduled2DataInitiation getInitiation() {
@@ -348,10 +341,9 @@ public class OBWriteDomesticScheduledResponse5Data {
 
     /**
      * Get multiAuthorisation
-     *
      * @return multiAuthorisation
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "MultiAuthorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MultiAuthorisation")
     public OBWriteDomesticScheduledResponse5DataMultiAuthorisation getMultiAuthorisation() {
@@ -369,10 +361,9 @@ public class OBWriteDomesticScheduledResponse5Data {
 
     /**
      * Get debtor
-     *
      * @return debtor
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Debtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Debtor")
     public OBCashAccountDebtor4 getDebtor() {

@@ -15,25 +15,27 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
-
-import java.math.BigDecimal;
+import java.net.URI;
 import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.math.BigDecimal;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
+import uk.org.openbanking.datamodel.v4.payment.OBRemittanceInformation2;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationCreditorAgent;
+import uk.org.openbanking.datamodel.v4.payment.OBWriteDomestic2DataInitiationDebtorAccount;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The Initiation payload is sent by the initiating party to the ASPSP. It is used to request movement of funds using a payment file.
@@ -67,7 +69,7 @@ public class OBWriteFileResponse3DataInitiation {
 
     private OBRemittanceInformation2 remittanceInformation;
 
-    private OBSupplementaryData1 supplementaryData;
+    private OBSupplementaryData1 supplementaryData = new HashMap<>();
 
     public OBWriteFileResponse3DataInitiation() {
         super();
@@ -88,10 +90,9 @@ public class OBWriteFileResponse3DataInitiation {
 
     /**
      * Specifies the payment file type.
-     *
      * @return fileType
-     */
-    @NotNull
+   */
+    @NotNull 
     @Schema(name = "FileType", description = "Specifies the payment file type.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FileType")
     public String getFileType() {
@@ -109,11 +110,9 @@ public class OBWriteFileResponse3DataInitiation {
 
     /**
      * A base64 encoding of a SHA256 hash of the file to be uploaded.
-     *
      * @return fileHash
-     */
-    @NotNull
-    @Size(min = 1, max = 44)
+   */
+    @NotNull @Size(min = 1, max = 44) 
     @Schema(name = "FileHash", description = "A base64 encoding of a SHA256 hash of the file to be uploaded.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FileHash")
     public String getFileHash() {
@@ -131,10 +130,9 @@ public class OBWriteFileResponse3DataInitiation {
 
     /**
      * Reference for the file.
-     *
      * @return fileReference
-     */
-    @Size(min = 1, max = 40)
+   */
+    @Size(min = 1, max = 40) 
     @Schema(name = "FileReference", description = "Reference for the file.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FileReference")
     public String getFileReference() {
@@ -152,10 +150,9 @@ public class OBWriteFileResponse3DataInitiation {
 
     /**
      * Number of individual transactions contained in the payment information group.
-     *
      * @return numberOfTransactions
-     */
-    @Pattern(regexp = "[0-9]{1,15}")
+   */
+    @Pattern(regexp = "[0-9]{1,15}") 
     @Schema(name = "NumberOfTransactions", description = "Number of individual transactions contained in the payment information group.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("NumberOfTransactions")
     public String getNumberOfTransactions() {
@@ -173,10 +170,9 @@ public class OBWriteFileResponse3DataInitiation {
 
     /**
      * Total of all individual amounts included in the group, irrespective of currencies.
-     *
      * @return controlSum
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "ControlSum", description = "Total of all individual amounts included in the group, irrespective of currencies.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ControlSum")
     public BigDecimal getControlSum() {
@@ -194,10 +190,9 @@ public class OBWriteFileResponse3DataInitiation {
 
     /**
      * Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
-     *
      * @return requestedExecutionDateTime
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "RequestedExecutionDateTime", description = "Date at which the initiating party requests the clearing agent to process the payment.  Usage: This is the date on which the debtor's account is to be debited. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RequestedExecutionDateTime")
     public DateTime getRequestedExecutionDateTime() {
@@ -215,10 +210,9 @@ public class OBWriteFileResponse3DataInitiation {
 
     /**
      * User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return localInstrument
-     */
-
+   */
+    
     @Schema(name = "LocalInstrument", description = "User community specific instrument. Usage: This element is used to specify a local instrument, local clearing option and/or further qualify the service or service level. For a full list of values refer to `OBInternalLocalInstrument1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LocalInstrument")
     public String getLocalInstrument() {
@@ -236,10 +230,9 @@ public class OBWriteFileResponse3DataInitiation {
 
     /**
      * Get debtorAccount
-     *
      * @return debtorAccount
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DebtorAccount")
     public OBWriteDomestic2DataInitiationDebtorAccount getDebtorAccount() {
@@ -257,10 +250,9 @@ public class OBWriteFileResponse3DataInitiation {
 
     /**
      * Get creditorAgent
-     *
      * @return creditorAgent
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "CreditorAgent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorAgent")
     public OBWriteDomestic2DataInitiationCreditorAgent getCreditorAgent() {
@@ -278,10 +270,9 @@ public class OBWriteFileResponse3DataInitiation {
 
     /**
      * Get ultimateDebtor
-     *
      * @return ultimateDebtor
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "UltimateDebtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateDebtor")
     public OBUltimateDebtor1 getUltimateDebtor() {
@@ -299,10 +290,9 @@ public class OBWriteFileResponse3DataInitiation {
 
     /**
      * Get remittanceInformation
-     *
      * @return remittanceInformation
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "RemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RemittanceInformation")
     public OBRemittanceInformation2 getRemittanceInformation() {
@@ -320,10 +310,9 @@ public class OBWriteFileResponse3DataInitiation {
 
     /**
      * Get supplementaryData
-     *
      * @return supplementaryData
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")
     public OBSupplementaryData1 getSupplementaryData() {
@@ -347,7 +336,7 @@ public class OBWriteFileResponse3DataInitiation {
                 Objects.equals(this.fileHash, obWriteFileResponse3DataInitiation.fileHash) &&
                 Objects.equals(this.fileReference, obWriteFileResponse3DataInitiation.fileReference) &&
                 Objects.equals(this.numberOfTransactions, obWriteFileResponse3DataInitiation.numberOfTransactions) &&
-                isEqual(this.controlSum, obWriteFileResponse3DataInitiation.controlSum) &&
+                Objects.equals(this.controlSum, obWriteFileResponse3DataInitiation.controlSum) &&
                 Objects.equals(this.requestedExecutionDateTime, obWriteFileResponse3DataInitiation.requestedExecutionDateTime) &&
                 Objects.equals(this.localInstrument, obWriteFileResponse3DataInitiation.localInstrument) &&
                 Objects.equals(this.debtorAccount, obWriteFileResponse3DataInitiation.debtorAccount) &&

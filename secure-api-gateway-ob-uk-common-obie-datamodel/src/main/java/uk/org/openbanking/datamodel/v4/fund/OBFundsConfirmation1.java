@@ -15,14 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.fund;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import uk.org.openbanking.datamodel.v4.fund.OBFundsConfirmationData1;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * OBFundsConfirmation1
@@ -31,7 +36,7 @@ import jakarta.validation.constraints.NotNull;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBFundsConfirmation1 {
 
-    private OBFundsConfirmation1Data data;
+    private OBFundsConfirmationData1 data;
 
     public OBFundsConfirmation1() {
         super();
@@ -40,29 +45,27 @@ public class OBFundsConfirmation1 {
     /**
      * Constructor with only required parameters
      */
-    public OBFundsConfirmation1(OBFundsConfirmation1Data data) {
+    public OBFundsConfirmation1(OBFundsConfirmationData1 data) {
         this.data = data;
     }
 
-    public OBFundsConfirmation1 data(OBFundsConfirmation1Data data) {
+    public OBFundsConfirmation1 data(OBFundsConfirmationData1 data) {
         this.data = data;
         return this;
     }
 
     /**
      * Get data
-     *
      * @return data
-     */
-    @NotNull
-    @Valid
+   */
+    @NotNull @Valid 
     @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Data")
-    public OBFundsConfirmation1Data getData() {
+    public OBFundsConfirmationData1 getData() {
         return data;
     }
 
-    public void setData(OBFundsConfirmation1Data data) {
+    public void setData(OBFundsConfirmationData1 data) {
         this.data = data;
     }
 

@@ -15,22 +15,26 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
+import java.net.URI;
 import java.util.Objects;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBProxy1;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
- * Unambiguous identification of the account of the debtor, in the case of a crebit transaction.
+ * Unambiguous identification of the account of the debtor, in the case of a credit transaction.
  */
 
-@Schema(name = "OBCashAccount6_1", description = "Unambiguous identification of the account of the debtor, in the case of a crebit transaction.")
+@Schema(name = "OBCashAccount6_1", description = "Unambiguous identification of the account of the debtor, in the case of a credit transaction.")
 @JsonTypeName("OBCashAccount6_1")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class OBCashAccount61 {
@@ -45,6 +49,18 @@ public class OBCashAccount61 {
 
     private OBProxy1 proxy;
 
+    public OBCashAccount61() {
+        super();
+    }
+
+    /**
+     * Constructor with only required parameters
+     */
+    public OBCashAccount61(String schemeName, String identification) {
+        this.schemeName = schemeName;
+        this.identification = identification;
+    }
+
     public OBCashAccount61 schemeName(String schemeName) {
         this.schemeName = schemeName;
         return this;
@@ -52,11 +68,10 @@ public class OBCashAccount61 {
 
     /**
      * Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
-     *
      * @return schemeName
-     */
-
-    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+   */
+    @NotNull 
+    @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. <br /> For a full list of enumeration values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("SchemeName")
     public String getSchemeName() {
         return schemeName;
@@ -73,11 +88,10 @@ public class OBCashAccount61 {
 
     /**
      * Identification assigned by an institution to identify an account. This identification is known by the account owner.
-     *
      * @return identification
-     */
-    @Size(min = 1, max = 256)
-    @Schema(name = "Identification", example = "80200112344562", description = "Identification assigned by an institution to identify an account. This identification is known by the account owner.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+   */
+    @NotNull @Size(min = 1, max = 256) 
+    @Schema(name = "Identification", example = "80200112344562", description = "Identification assigned by an institution to identify an account. This identification is known by the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
         return identification;
@@ -94,10 +108,9 @@ public class OBCashAccount61 {
 
     /**
      * The account name is the name or names of the account owner(s) represented at an account level, as displayed by the ASPSP's online channels. Note, the account name is not the product name or the nickname of the account.
-     *
      * @return name
-     */
-    @Size(min = 1, max = 350)
+   */
+    @Size(min = 1, max = 350) 
     @Schema(name = "Name", example = "Jane Smith", description = "The account name is the name or names of the account owner(s) represented at an account level, as displayed by the ASPSP's online channels. Note, the account name is not the product name or the nickname of the account.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
     public String getName() {
@@ -115,10 +128,9 @@ public class OBCashAccount61 {
 
     /**
      * This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).
-     *
      * @return secondaryIdentification
-     */
-    @Size(min = 1, max = 34)
+   */
+    @Size(min = 1, max = 34) 
     @Schema(name = "SecondaryIdentification", example = "87562298675897", description = "This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SecondaryIdentification")
     public String getSecondaryIdentification() {
@@ -136,10 +148,9 @@ public class OBCashAccount61 {
 
     /**
      * Get proxy
-     *
      * @return proxy
-     */
-    @Valid
+   */
+    @Valid 
     @Schema(name = "Proxy", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Proxy")
     public OBProxy1 getProxy() {
