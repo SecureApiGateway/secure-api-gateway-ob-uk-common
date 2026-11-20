@@ -16,6 +16,7 @@
 package uk.org.openbanking.datamodel.v4.account;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import jakarta.annotation.Generated;
 
 
