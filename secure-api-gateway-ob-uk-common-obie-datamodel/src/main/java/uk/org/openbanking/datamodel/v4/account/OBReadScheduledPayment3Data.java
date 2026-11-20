@@ -15,23 +15,16 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.OBScheduledPayment3;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 
 /**
  * OBReadScheduledPayment3Data
@@ -59,9 +52,10 @@ public class OBReadScheduledPayment3Data {
 
     /**
      * Get scheduledPayment
+     *
      * @return scheduledPayment
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "ScheduledPayment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ScheduledPayment")
     public List<@Valid OBScheduledPayment3> getScheduledPayment() {

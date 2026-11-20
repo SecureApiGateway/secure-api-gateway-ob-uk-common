@@ -15,18 +15,14 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Set of elements to fully identify a proprietary bank transaction code.
@@ -58,9 +54,11 @@ public class ProprietaryBankTransactionCodeStructure1 {
 
     /**
      * Proprietary bank transaction code to identify the underlying transaction.
+     *
      * @return code
-   */
-    @NotNull @Size(min = 1, max = 35) 
+     */
+    @NotNull
+    @Size(min = 1, max = 35)
     @Schema(name = "Code", description = "Proprietary bank transaction code to identify the underlying transaction.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Code")
     public String getCode() {
@@ -78,9 +76,10 @@ public class ProprietaryBankTransactionCodeStructure1 {
 
     /**
      * Identification of the issuer of the proprietary bank transaction code.
+     *
      * @return issuer
-   */
-    @Size(min = 1, max = 35) 
+     */
+    @Size(min = 1, max = 35)
     @Schema(name = "Issuer", description = "Identification of the issuer of the proprietary bank transaction code.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Issuer")
     public String getIssuer() {

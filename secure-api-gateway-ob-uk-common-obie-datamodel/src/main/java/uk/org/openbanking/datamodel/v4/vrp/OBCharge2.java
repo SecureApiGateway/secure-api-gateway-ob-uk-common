@@ -15,20 +15,15 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import uk.org.openbanking.datamodel.v4.common.OBInternalChargeBearerType1Code;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import uk.org.openbanking.datamodel.v4.common.OBInternalChargeBearerType1Code;
 
 /**
  * OBCharge2
@@ -57,9 +52,11 @@ public class OBCharge2 {
 
     /**
      * Get chargeBearer
+     *
      * @return chargeBearer
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "ChargeBearer", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ChargeBearer")
     public OBInternalChargeBearerType1Code getChargeBearer() {

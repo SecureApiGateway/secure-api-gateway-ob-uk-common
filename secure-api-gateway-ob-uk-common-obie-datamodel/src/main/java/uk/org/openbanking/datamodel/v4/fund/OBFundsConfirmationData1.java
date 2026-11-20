@@ -15,19 +15,16 @@
  */
 package uk.org.openbanking.datamodel.v4.fund;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import uk.org.openbanking.datamodel.v4.common.OBActiveOrHistoricCurrencyAndAmount;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.OBActiveOrHistoricCurrencyAndAmount;
 
 /**
  * OBFundsConfirmationData1
@@ -62,9 +59,11 @@ public class OBFundsConfirmationData1 {
 
     /**
      * Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.
+     *
      * @return consentId
-   */
-    @NotNull @Size(min = 1, max = 128) 
+     */
+    @NotNull
+    @Size(min = 1, max = 128)
     @Schema(name = "ConsentId", example = "FCC-20260401-0001", description = "Unique identification as assigned by the ASPSP to uniquely identify the funds confirmation consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ConsentId")
     public String getConsentId() {
@@ -82,9 +81,11 @@ public class OBFundsConfirmationData1 {
 
     /**
      * Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.
+     *
      * @return reference
-   */
-    @NotNull @Size(min = 1, max = 35) 
+     */
+    @NotNull
+    @Size(min = 1, max = 35)
     @Schema(name = "Reference", example = "CARD-PURCHASE-001", description = "Unique reference, as assigned by the CBPII, to unambiguously refer to the request related to the payment transaction.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Reference")
     public String getReference() {
@@ -102,9 +103,11 @@ public class OBFundsConfirmationData1 {
 
     /**
      * Get instructedAmount
+     *
      * @return instructedAmount
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "InstructedAmount", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("InstructedAmount")
     public OBActiveOrHistoricCurrencyAndAmount getInstructedAmount() {

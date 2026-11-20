@@ -15,30 +15,21 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-import uk.org.openbanking.datamodel.v4.account.OBBalanceType1Code;
-import uk.org.openbanking.datamodel.v4.account.OBCreditDebitCode2;
-import uk.org.openbanking.datamodel.v4.account.OBReadBalance1DataBalanceInnerAmount;
-import uk.org.openbanking.datamodel.v4.account.OBReadBalance1DataBalanceInnerCreditLineInner;
-import uk.org.openbanking.datamodel.v4.account.OBReadBalance1DataBalanceInnerLocalAmount;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Set of elements used to define the balance details.
@@ -87,9 +78,11 @@ public class OBReadBalance1DataBalanceInner {
 
     /**
      * A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.
+     *
      * @return accountId
-   */
-    @NotNull @Size(min = 1, max = 40) 
+     */
+    @NotNull
+    @Size(min = 1, max = 40)
     @Schema(name = "AccountId", example = "22289", description = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("AccountId")
     public String getAccountId() {
@@ -107,9 +100,11 @@ public class OBReadBalance1DataBalanceInner {
 
     /**
      * Get creditDebitIndicator
+     *
      * @return creditDebitIndicator
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "CreditDebitIndicator", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreditDebitIndicator")
     public OBCreditDebitCode2 getCreditDebitIndicator() {
@@ -127,9 +122,11 @@ public class OBReadBalance1DataBalanceInner {
 
     /**
      * Get type
+     *
      * @return type
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Type", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
     public OBBalanceType1Code getType() {
@@ -147,9 +144,11 @@ public class OBReadBalance1DataBalanceInner {
 
     /**
      * Indicates the date (and time) of the balance. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return dateTime
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "DateTime", description = "Indicates the date (and time) of the balance. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("DateTime")
     public DateTime getDateTime() {
@@ -167,9 +166,11 @@ public class OBReadBalance1DataBalanceInner {
 
     /**
      * Get amount
+     *
      * @return amount
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Amount")
     public OBReadBalance1DataBalanceInnerAmount getAmount() {
@@ -195,9 +196,10 @@ public class OBReadBalance1DataBalanceInner {
 
     /**
      * Get creditLine
+     *
      * @return creditLine
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "CreditLine", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditLine")
     public List<@Valid OBReadBalance1DataBalanceInnerCreditLineInner> getCreditLine() {
@@ -215,9 +217,10 @@ public class OBReadBalance1DataBalanceInner {
 
     /**
      * Get localAmount
+     *
      * @return localAmount
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "LocalAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LocalAmount")
     public OBReadBalance1DataBalanceInnerLocalAmount getLocalAmount() {

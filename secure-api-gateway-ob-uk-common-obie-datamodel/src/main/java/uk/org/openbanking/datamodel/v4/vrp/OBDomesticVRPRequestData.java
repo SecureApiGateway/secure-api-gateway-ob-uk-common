@@ -15,22 +15,16 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPInitiation;
-import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPInstruction;
-import uk.org.openbanking.datamodel.v4.vrp.OBVRPInteractionTypes;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * OBDomesticVRPRequestData
@@ -74,9 +68,11 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Identifier for the Domestic VRP Consent that this payment is made under.
+     *
      * @return consentId
-   */
-    @NotNull @Size(min = 1, max = 128) 
+     */
+    @NotNull
+    @Size(min = 1, max = 128)
     @Schema(name = "ConsentId", description = "Identifier for the Domestic VRP Consent that this payment is made under.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ConsentId")
     public String getConsentId() {
@@ -94,9 +90,10 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get psUAuthenticationMethod
+     *
      * @return psUAuthenticationMethod
-   */
-    @NotNull 
+     */
+    @NotNull
     @Schema(name = "PSUAuthenticationMethod", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("PSUAuthenticationMethod")
     public String getPsUAuthenticationMethod() {
@@ -114,9 +111,10 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get psUInteractionType
+     *
      * @return psUInteractionType
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "PSUInteractionType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PSUInteractionType")
     public OBVRPInteractionTypes getPsUInteractionType() {
@@ -134,9 +132,10 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get vrPType
+     *
      * @return vrPType
-   */
-    @NotNull 
+     */
+    @NotNull
     @Schema(name = "VRPType", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("VRPType")
     public String getVrPType() {
@@ -154,9 +153,11 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get initiation
+     *
      * @return initiation
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
     public OBDomesticVRPInitiation getInitiation() {
@@ -174,9 +175,11 @@ public class OBDomesticVRPRequestData {
 
     /**
      * Get instruction
+     *
      * @return instruction
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Instruction", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Instruction")
     public OBDomesticVRPInstruction getInstruction() {

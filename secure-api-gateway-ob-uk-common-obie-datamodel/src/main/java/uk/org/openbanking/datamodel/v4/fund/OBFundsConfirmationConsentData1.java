@@ -15,21 +15,17 @@
  */
 package uk.org.openbanking.datamodel.v4.fund;
 
-import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
+
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-import uk.org.openbanking.datamodel.v4.fund.OBCashAccountDebtorWithName;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * OBFundsConfirmationConsentData1
@@ -61,9 +57,10 @@ public class OBFundsConfirmationConsentData1 {
 
     /**
      * Specified date and time the funds confirmation authorisation will expire.  If this is not populated, the authorisation will be open ended. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below:  `2017-04-05T10:43:07+00:00`
+     *
      * @return expirationDateTime
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "ExpirationDateTime", example = "2026-10-01T10:15:30Z", description = "Specified date and time the funds confirmation authorisation will expire.  If this is not populated, the authorisation will be open ended. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below:  `2017-04-05T10:43:07+00:00`", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExpirationDateTime")
     public DateTime getExpirationDateTime() {
@@ -81,9 +78,11 @@ public class OBFundsConfirmationConsentData1 {
 
     /**
      * Get debtorAccount
+     *
      * @return debtorAccount
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("DebtorAccount")
     public OBCashAccountDebtorWithName getDebtorAccount() {

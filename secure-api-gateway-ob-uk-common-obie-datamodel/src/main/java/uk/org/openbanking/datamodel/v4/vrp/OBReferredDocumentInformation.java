@@ -15,25 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-import uk.org.openbanking.datamodel.v4.common.ExternalDocumentType1Code;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.ExternalDocumentType1Code;
 
 /**
  * OBReferredDocumentInformation
@@ -52,7 +47,7 @@ public class OBReferredDocumentInformation {
     private DateTime relatedDate;
 
     @Valid
-    private List<@Size(min = 1, max = 2048)String> lineDetails;
+    private List<@Size(min = 1, max = 2048) String> lineDetails;
 
     public OBReferredDocumentInformation code(ExternalDocumentType1Code code) {
         this.code = code;
@@ -61,9 +56,10 @@ public class OBReferredDocumentInformation {
 
     /**
      * Get code
+     *
      * @return code
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Code", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Code")
     public ExternalDocumentType1Code getCode() {
@@ -81,9 +77,10 @@ public class OBReferredDocumentInformation {
 
     /**
      * Identification of the issuer of the reference document type.
+     *
      * @return issuer
-   */
-    @Size(min = 1, max = 35) 
+     */
+    @Size(min = 1, max = 35)
     @Schema(name = "Issuer", description = "Identification of the issuer of the reference document type.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Issuer")
     public String getIssuer() {
@@ -101,9 +98,10 @@ public class OBReferredDocumentInformation {
 
     /**
      * Identification of the type specified for the referred document line.
+     *
      * @return number
-   */
-    @Size(min = 1, max = 35) 
+     */
+    @Size(min = 1, max = 35)
     @Schema(name = "Number", description = "Identification of the type specified for the referred document line.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Number")
     public String getNumber() {
@@ -121,9 +119,10 @@ public class OBReferredDocumentInformation {
 
     /**
      * All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return relatedDate
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "RelatedDate", description = "All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RelatedDate")
     public DateTime getRelatedDate() {
@@ -134,7 +133,7 @@ public class OBReferredDocumentInformation {
         this.relatedDate = relatedDate;
     }
 
-    public OBReferredDocumentInformation lineDetails(List<@Size(min = 1, max = 2048)String> lineDetails) {
+    public OBReferredDocumentInformation lineDetails(List<@Size(min = 1, max = 2048) String> lineDetails) {
         this.lineDetails = lineDetails;
         return this;
     }
@@ -149,16 +148,17 @@ public class OBReferredDocumentInformation {
 
     /**
      * Set of elements used to provide the content of the referred document line.
+     *
      * @return lineDetails
-   */
-    
+     */
+
     @Schema(name = "LineDetails", description = "Set of elements used to provide the content of the referred document line.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LineDetails")
-    public List<@Size(min = 1, max = 2048)String> getLineDetails() {
+    public List<@Size(min = 1, max = 2048) String> getLineDetails() {
         return lineDetails;
     }
 
-    public void setLineDetails(List<@Size(min = 1, max = 2048)String> lineDetails) {
+    public void setLineDetails(List<@Size(min = 1, max = 2048) String> lineDetails) {
         this.lineDetails = lineDetails;
     }
 

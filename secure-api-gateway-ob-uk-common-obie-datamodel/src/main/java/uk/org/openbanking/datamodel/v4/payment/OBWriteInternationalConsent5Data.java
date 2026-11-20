@@ -15,24 +15,16 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
-import uk.org.openbanking.datamodel.v4.payment.OBSCASupportData1;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsentDataAuthorisation;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteInternational3DataInitiation;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import uk.org.openbanking.datamodel.v4.common.OBReadRefundAccount;
 
 /**
  * OBWriteInternationalConsent5Data
@@ -68,9 +60,10 @@ public class OBWriteInternationalConsent5Data {
 
     /**
      * Get readRefundAccount
+     *
      * @return readRefundAccount
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "ReadRefundAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ReadRefundAccount")
     public OBReadRefundAccount getReadRefundAccount() {
@@ -88,9 +81,11 @@ public class OBWriteInternationalConsent5Data {
 
     /**
      * Get initiation
+     *
      * @return initiation
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
     public OBWriteInternational3DataInitiation getInitiation() {
@@ -108,9 +103,10 @@ public class OBWriteInternationalConsent5Data {
 
     /**
      * Get authorisation
+     *
      * @return authorisation
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Authorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Authorisation")
     public OBWriteDomesticConsentDataAuthorisation getAuthorisation() {
@@ -128,9 +124,10 @@ public class OBWriteInternationalConsent5Data {
 
     /**
      * Get scASupportData
+     *
      * @return scASupportData
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "SCASupportData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SCASupportData")
     public OBSCASupportData1 getScASupportData() {

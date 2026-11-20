@@ -15,27 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.OBMinMaxType1Code;
-import uk.org.openbanking.datamodel.v4.account.OBPeriod1Code;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeCapInnerFeeTypeInner;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInnerOverdraftFeesChargesInnerOverdraftFeeChargeCapInnerOtherFeeTypeInner;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 /**
  * Details about any caps (maximum charges) that apply to a particular or group of fee/charge
@@ -58,7 +50,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
     private OBPeriod1Code cappingPeriod;
 
     @Valid
-    private List<@Size(min = 1, max = 2000)String> notes;
+    private List<@Size(min = 1, max = 2000) String> notes;
 
     @Valid
     private List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInnerOverdraftFeesChargesInnerOverdraftFeeChargeCapInnerOtherFeeTypeInner> otherFeeType;
@@ -90,9 +82,12 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get feeType
+     *
      * @return feeType
-   */
-    @NotNull @Valid @Size(min = 1) 
+     */
+    @NotNull
+    @Valid
+    @Size(min = 1)
     @Schema(name = "FeeType", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FeeType")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeLoanInterestLoanInterestTierBandSetInnerLoanInterestTierBandInnerLoanInterestFeesChargesInnerLoanInterestFeeChargeCapInnerFeeTypeInner> getFeeType() {
@@ -110,9 +105,11 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get minMaxType
+     *
      * @return minMaxType
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "MinMaxType", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("MinMaxType")
     public OBMinMaxType1Code getMinMaxType() {
@@ -130,9 +127,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * fee/charges are captured dependent on the number of occurrences rather than capped at a particular amount
+     *
      * @return feeCapOccurrence
-   */
-    
+     */
+
     @Schema(name = "FeeCapOccurrence", description = "fee/charges are captured dependent on the number of occurrences rather than capped at a particular amount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeCapOccurrence")
     public Integer getFeeCapOccurrence() {
@@ -150,9 +148,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Cap amount charged for a fee/charge (where it is charged in terms of an amount rather than a rate)
+     *
      * @return feeCapAmount
-   */
-    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
+     */
+    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "FeeCapAmount", description = "Cap amount charged for a fee/charge (where it is charged in terms of an amount rather than a rate)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeCapAmount")
     public String getFeeCapAmount() {
@@ -170,9 +169,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get cappingPeriod
+     *
      * @return cappingPeriod
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "CappingPeriod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CappingPeriod")
     public OBPeriod1Code getCappingPeriod() {
@@ -183,7 +183,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
         this.cappingPeriod = cappingPeriod;
     }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerFeeChargeDetailInnerFeeChargeCapInner notes(List<@Size(min = 1, max = 2000)String> notes) {
+    public OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInnerFeeChargeDetailInnerFeeChargeCapInner notes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
         return this;
     }
@@ -198,16 +198,17 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get notes
+     *
      * @return notes
-   */
-    
+     */
+
     @Schema(name = "Notes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000)String> getNotes() {
+    public List<@Size(min = 1, max = 2000) String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
     }
 
@@ -226,9 +227,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner
 
     /**
      * Get otherFeeType
+     *
      * @return otherFeeType
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherFeeType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeeType")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInnerOverdraftFeesChargesInnerOverdraftFeeChargeCapInnerOtherFeeTypeInner> getOtherFeeType() {

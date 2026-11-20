@@ -15,22 +15,17 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import uk.org.openbanking.datamodel.v3.account.OBRisk2;
-import uk.org.openbanking.datamodel.v4.account.OBReadConsentResponse1Data;
 import uk.org.openbanking.datamodel.v4.common.Links;
 import uk.org.openbanking.datamodel.v4.common.Meta;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
  * OBReadConsentResponse1
@@ -66,9 +61,11 @@ public class OBReadConsentResponse1 {
 
     /**
      * Get data
+     *
      * @return data
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Data")
     public OBReadConsentResponse1Data getData() {
@@ -86,9 +83,11 @@ public class OBReadConsentResponse1 {
 
     /**
      * Get risk
+     *
      * @return risk
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Risk", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Risk")
     public OBRisk2 getRisk() {
@@ -106,9 +105,10 @@ public class OBReadConsentResponse1 {
 
     /**
      * Get links
+     *
      * @return links
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Links", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Links")
     public Links getLinks() {
@@ -126,9 +126,10 @@ public class OBReadConsentResponse1 {
 
     /**
      * Get meta
+     *
      * @return meta
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Meta", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Meta")
     public Meta getMeta() {

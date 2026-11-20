@@ -15,21 +15,18 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Result of a funds availability check.
@@ -64,9 +61,11 @@ public class OBWriteFundsConfirmationResponse1DataFundsAvailableResult {
 
     /**
      * Date and time at which the funds availability check was generated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return fundsAvailableDateTime
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "FundsAvailableDateTime", description = "Date and time at which the funds availability check was generated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FundsAvailableDateTime")
     public DateTime getFundsAvailableDateTime() {
@@ -84,9 +83,10 @@ public class OBWriteFundsConfirmationResponse1DataFundsAvailableResult {
 
     /**
      * Flag to indicate the availability of funds given the Amount in the consent request.
+     *
      * @return fundsAvailable
-   */
-    @NotNull 
+     */
+    @NotNull
     @Schema(name = "FundsAvailable", description = "Flag to indicate the availability of funds given the Amount in the consent request.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FundsAvailable")
     public Boolean getFundsAvailable() {

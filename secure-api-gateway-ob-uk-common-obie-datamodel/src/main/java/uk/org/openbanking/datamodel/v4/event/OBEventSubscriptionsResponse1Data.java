@@ -15,23 +15,16 @@
  */
 package uk.org.openbanking.datamodel.v4.event;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.event.OBEventSubscriptionsResponse1DataEventSubscriptionInner;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 
 /**
  * OBEventSubscriptionsResponse1Data
@@ -59,9 +52,10 @@ public class OBEventSubscriptionsResponse1Data {
 
     /**
      * Get eventSubscription
+     *
      * @return eventSubscription
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "EventSubscription", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("EventSubscription")
     public List<@Valid OBEventSubscriptionsResponse1DataEventSubscriptionInner> getEventSubscription() {

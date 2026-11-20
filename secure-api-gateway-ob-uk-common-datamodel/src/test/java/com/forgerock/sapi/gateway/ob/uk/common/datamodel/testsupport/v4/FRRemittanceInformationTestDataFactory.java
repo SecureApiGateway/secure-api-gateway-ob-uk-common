@@ -32,7 +32,7 @@ public class FRRemittanceInformationTestDataFactory {
         return FRRemittanceInformation.builder()
                 .reference("123456")
                 .structured(Collections.singletonList(FRRemittanceInformationStructured.builder()
-                        .referredDocumentAmount(2)
+                        .referredDocumentAmount("2")
                         .creditorReferenceInformation(FRRemittanceInformationStructuredCreditorReferenceInformation.builder()
                                 .code(FRExternalCreditorReferenceTypeCode.DISP)
                                 .issuer("ab")

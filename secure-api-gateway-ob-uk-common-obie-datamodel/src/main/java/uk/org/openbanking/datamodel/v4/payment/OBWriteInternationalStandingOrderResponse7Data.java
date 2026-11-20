@@ -15,32 +15,22 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
-import uk.org.openbanking.datamodel.v4.payment.ExternalPaymentTransactionStatus1Code;
-import uk.org.openbanking.datamodel.v4.payment.OBCashAccountDebtor4;
-import uk.org.openbanking.datamodel.v4.payment.OBDomesticRefundAccount1;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticConsentResponse5DataChargesInner;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteDomesticScheduledResponse5DataMultiAuthorisation;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrder4DataInitiation;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
 
 /**
  * OBWriteInternationalStandingOrderResponse7Data
@@ -99,9 +89,11 @@ public class OBWriteInternationalStandingOrderResponse7Data {
 
     /**
      * OB: Unique identification as assigned by the ASPSP to uniquely identify the international standing order resource.
+     *
      * @return internationalStandingOrderId
-   */
-    @NotNull @Size(min = 1, max = 40) 
+     */
+    @NotNull
+    @Size(min = 1, max = 40)
     @Schema(name = "InternationalStandingOrderId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the international standing order resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("InternationalStandingOrderId")
     public String getInternationalStandingOrderId() {
@@ -119,9 +111,11 @@ public class OBWriteInternationalStandingOrderResponse7Data {
 
     /**
      * OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.
+     *
      * @return consentId
-   */
-    @NotNull @Size(min = 1, max = 128) 
+     */
+    @NotNull
+    @Size(min = 1, max = 128)
     @Schema(name = "ConsentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ConsentId")
     public String getConsentId() {
@@ -139,9 +133,11 @@ public class OBWriteInternationalStandingOrderResponse7Data {
 
     /**
      * Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return creationDateTime
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
@@ -159,9 +155,11 @@ public class OBWriteInternationalStandingOrderResponse7Data {
 
     /**
      * Get status
+     *
      * @return status
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
     public ExternalPaymentTransactionStatus1Code getStatus() {
@@ -179,9 +177,11 @@ public class OBWriteInternationalStandingOrderResponse7Data {
 
     /**
      * Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return statusUpdateDateTime
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
@@ -207,9 +207,10 @@ public class OBWriteInternationalStandingOrderResponse7Data {
 
     /**
      * Get statusReason
+     *
      * @return statusReason
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "StatusReason", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusReason")
     public List<@Valid OBStatusReason> getStatusReason() {
@@ -227,9 +228,10 @@ public class OBWriteInternationalStandingOrderResponse7Data {
 
     /**
      * Get refund
+     *
      * @return refund
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Refund")
     public OBDomesticRefundAccount1 getRefund() {
@@ -255,9 +257,10 @@ public class OBWriteInternationalStandingOrderResponse7Data {
 
     /**
      * Get charges
+     *
      * @return charges
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Charges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Charges")
     public List<@Valid OBWriteDomesticConsentResponse5DataChargesInner> getCharges() {
@@ -275,9 +278,11 @@ public class OBWriteInternationalStandingOrderResponse7Data {
 
     /**
      * Get initiation
+     *
      * @return initiation
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
     public OBWriteInternationalStandingOrder4DataInitiation getInitiation() {
@@ -295,9 +300,10 @@ public class OBWriteInternationalStandingOrderResponse7Data {
 
     /**
      * Get multiAuthorisation
+     *
      * @return multiAuthorisation
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "MultiAuthorisation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MultiAuthorisation")
     public OBWriteDomesticScheduledResponse5DataMultiAuthorisation getMultiAuthorisation() {
@@ -315,9 +321,10 @@ public class OBWriteInternationalStandingOrderResponse7Data {
 
     /**
      * Get debtor
+     *
      * @return debtor
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Debtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Debtor")
     public OBCashAccountDebtor4 getDebtor() {

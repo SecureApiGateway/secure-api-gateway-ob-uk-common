@@ -15,25 +15,15 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.vrp.OBRegulatoryAuthority2;
-import uk.org.openbanking.datamodel.v4.vrp.OBRegulatoryReporting1DebitCreditReportingIndicator;
-import uk.org.openbanking.datamodel.v4.vrp.OBStructuredRegulatoryReporting3;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 
 /**
  * Information needed due to regulatory and statutory requirements
@@ -57,9 +47,10 @@ public class OBRegulatoryReporting1 {
 
     /**
      * Get debitCreditReportingIndicator
+     *
      * @return debitCreditReportingIndicator
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "DebitCreditReportingIndicator", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DebitCreditReportingIndicator")
     public OBRegulatoryReporting1DebitCreditReportingIndicator getDebitCreditReportingIndicator() {
@@ -77,9 +68,10 @@ public class OBRegulatoryReporting1 {
 
     /**
      * Get authority
+     *
      * @return authority
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Authority", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Authority")
     public OBRegulatoryAuthority2 getAuthority() {
@@ -105,9 +97,10 @@ public class OBRegulatoryReporting1 {
 
     /**
      * Set of elements used to provide details on the regulatory reporting information.
+     *
      * @return details
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Details", description = "Set of elements used to provide details on the regulatory reporting information.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Details")
     public List<@Valid OBStructuredRegulatoryReporting3> getDetails() {

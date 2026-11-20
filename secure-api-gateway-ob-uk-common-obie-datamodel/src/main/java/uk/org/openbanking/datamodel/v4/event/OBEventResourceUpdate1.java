@@ -15,19 +15,14 @@
  */
 package uk.org.openbanking.datamodel.v4.event;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import uk.org.openbanking.datamodel.v4.event.OBEventSubject1;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Resource-Update Event.
@@ -57,9 +52,11 @@ public class OBEventResourceUpdate1 {
 
     /**
      * Get subject
+     *
      * @return subject
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "subject", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("subject")
     public OBEventSubject1 getSubject() {

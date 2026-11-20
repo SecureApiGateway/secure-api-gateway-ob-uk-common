@@ -15,26 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInnerAgreementPeriod;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInnerOverdraftFeesChargesInner;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInnerOverdraftInterestChargingCoverage;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 /**
  * Provides overdraft details for a specific tier or band
@@ -64,7 +57,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
     private Boolean bankGuaranteedIndicator;
 
     @Valid
-    private List<@Size(min = 1, max = 2000)String> notes;
+    private List<@Size(min = 1, max = 2000) String> notes;
 
     @Valid
     private List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInnerOverdraftFeesChargesInner> overdraftFeesCharges;
@@ -87,9 +80,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Unique and unambiguous identification of a  Tier Band for a overdraft.
+     *
      * @return identification
-   */
-    @Size(min = 1, max = 35) 
+     */
+    @Size(min = 1, max = 35)
     @Schema(name = "Identification", description = "Unique and unambiguous identification of a  Tier Band for a overdraft.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
@@ -107,9 +101,11 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Minimum value of Overdraft Tier/Band
+     *
      * @return tierValueMin
-   */
-    @NotNull @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
+     */
+    @NotNull
+    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "TierValueMin", description = "Minimum value of Overdraft Tier/Band", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("TierValueMin")
     public String getTierValueMin() {
@@ -127,9 +123,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Maximum value of Overdraft Tier/Band
+     *
      * @return tierValueMax
-   */
-    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
+     */
+    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "TierValueMax", description = "Maximum value of Overdraft Tier/Band", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TierValueMax")
     public String getTierValueMax() {
@@ -147,9 +144,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * EAR means Effective Annual Rate and/or Equivalent Annual Rate (frequently used interchangeably), being the actual annual interest rate of an Overdraft.
+     *
      * @return EAR
-   */
-    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$") 
+     */
+    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "EAR", description = "EAR means Effective Annual Rate and/or Equivalent Annual Rate (frequently used interchangeably), being the actual annual interest rate of an Overdraft.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("EAR")
     public String getEAR() {
@@ -167,9 +165,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Specifies the minimum length of a band for a fixed overdraft agreement
+     *
      * @return agreementLengthMin
-   */
-    
+     */
+
     @Schema(name = "AgreementLengthMin", description = "Specifies the minimum length of a band for a fixed overdraft agreement", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AgreementLengthMin")
     public Integer getAgreementLengthMin() {
@@ -187,9 +186,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Specifies the maximum length of a band for a fixed overdraft agreement
+     *
      * @return agreementLengthMax
-   */
-    
+     */
+
     @Schema(name = "AgreementLengthMax", description = "Specifies the maximum length of a band for a fixed overdraft agreement", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AgreementLengthMax")
     public Integer getAgreementLengthMax() {
@@ -207,9 +207,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Get agreementPeriod
+     *
      * @return agreementPeriod
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "AgreementPeriod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AgreementPeriod")
     public OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInnerAgreementPeriod getAgreementPeriod() {
@@ -227,9 +228,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Get overdraftInterestChargingCoverage
+     *
      * @return overdraftInterestChargingCoverage
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OverdraftInterestChargingCoverage", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OverdraftInterestChargingCoverage")
     public OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInnerOverdraftInterestChargingCoverage getOverdraftInterestChargingCoverage() {
@@ -247,9 +249,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Indicates whether the advertised overdraft rate is guaranteed to be offered to a borrower by the bank e.g. if it s part of a government scheme, or whether the rate may vary dependent on the applicant s circumstances.
+     *
      * @return bankGuaranteedIndicator
-   */
-    
+     */
+
     @Schema(name = "BankGuaranteedIndicator", description = "Indicates whether the advertised overdraft rate is guaranteed to be offered to a borrower by the bank e.g. if it s part of a government scheme, or whether the rate may vary dependent on the applicant s circumstances.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("BankGuaranteedIndicator")
     public Boolean getBankGuaranteedIndicator() {
@@ -260,7 +263,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
         this.bankGuaranteedIndicator = bankGuaranteedIndicator;
     }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInner notes(List<@Size(min = 1, max = 2000)String> notes) {
+    public OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInner notes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
         return this;
     }
@@ -275,16 +278,17 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Get notes
+     *
      * @return notes
-   */
-    
+     */
+
     @Schema(name = "Notes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000)String> getNotes() {
+    public List<@Size(min = 1, max = 2000) String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
     }
 
@@ -303,9 +307,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Get overdraftFeesCharges
+     *
      * @return overdraftFeesCharges
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OverdraftFeesCharges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OverdraftFeesCharges")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInnerOverdraftFeesChargesInner> getOverdraftFeesCharges() {

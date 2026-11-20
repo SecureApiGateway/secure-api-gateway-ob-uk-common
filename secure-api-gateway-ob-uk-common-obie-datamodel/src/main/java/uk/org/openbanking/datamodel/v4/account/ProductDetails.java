@@ -15,24 +15,16 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.FeeFreeLengthPeriod;
-import uk.org.openbanking.datamodel.v4.account.SegmentInner;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 
 /**
  * ProductDetails
@@ -49,7 +41,7 @@ public class ProductDetails {
     private FeeFreeLengthPeriod feeFreeLengthPeriod;
 
     @Valid
-    private List<@Size(min = 1, max = 2000)String> notes;
+    private List<@Size(min = 1, max = 2000) String> notes;
 
     public ProductDetails segment(List<@Valid SegmentInner> segment) {
         this.segment = segment;
@@ -65,10 +57,11 @@ public class ProductDetails {
     }
 
     /**
-     * Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another. Read more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd  With respect to BCA products, they are segmented in relation to different markets that they wish to focus on. 
+     * Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another. Read more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd  With respect to BCA products, they are segmented in relation to different markets that they wish to focus on.
+     *
      * @return segment
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Segment", description = "Market segmentation is a marketing term referring to the aggregating of prospective buyers into groups, or segments, that have common needs and respond similarly to a marketing action. Market segmentation enables companies to target different categories of consumers who perceive the full value of certain products and services differently from one another. Read more: Market Segmentation http://www.investopedia.com/terms/m/marketsegmentation.asp#ixzz4gfEEalTd  With respect to BCA products, they are segmented in relation to different markets that they wish to focus on. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Segment")
     public List<@Valid SegmentInner> getSegment() {
@@ -86,9 +79,10 @@ public class ProductDetails {
 
     /**
      * The length/duration of the fee free period
+     *
      * @return feeFreeLength
-   */
-    
+     */
+
     @Schema(name = "FeeFreeLength", description = "The length/duration of the fee free period", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeFreeLength")
     public Float getFeeFreeLength() {
@@ -106,9 +100,10 @@ public class ProductDetails {
 
     /**
      * Get feeFreeLengthPeriod
+     *
      * @return feeFreeLengthPeriod
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "FeeFreeLengthPeriod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeFreeLengthPeriod")
     public FeeFreeLengthPeriod getFeeFreeLengthPeriod() {
@@ -119,7 +114,7 @@ public class ProductDetails {
         this.feeFreeLengthPeriod = feeFreeLengthPeriod;
     }
 
-    public ProductDetails notes(List<@Size(min = 1, max = 2000)String> notes) {
+    public ProductDetails notes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
         return this;
     }
@@ -134,16 +129,17 @@ public class ProductDetails {
 
     /**
      * Optional additional notes to supplement the Core product details
+     *
      * @return notes
-   */
-    
+     */
+
     @Schema(name = "Notes", description = "Optional additional notes to supplement the Core product details", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000)String> getNotes() {
+    public List<@Size(min = 1, max = 2000) String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
     }
 

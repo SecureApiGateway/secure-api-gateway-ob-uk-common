@@ -15,24 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-import uk.org.openbanking.datamodel.v4.account.OBExternalAccountSubType1Code;
-import uk.org.openbanking.datamodel.v4.account.OBInternalAccountStatus1Code;
-import uk.org.openbanking.datamodel.v4.account.OBInternalAccountType1Code;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 /**
  * Unambiguous identification of the account to which credit and debit entries are made.
@@ -85,9 +80,11 @@ public class OBAccount6Basic {
 
     /**
      * A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.
+     *
      * @return accountId
-   */
-    @NotNull @Size(min = 1, max = 40) 
+     */
+    @NotNull
+    @Size(min = 1, max = 40)
     @Schema(name = "AccountId", example = "22289", description = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("AccountId")
     public String getAccountId() {
@@ -105,9 +102,10 @@ public class OBAccount6Basic {
 
     /**
      * Get status
+     *
      * @return status
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Status")
     public OBInternalAccountStatus1Code getStatus() {
@@ -125,9 +123,10 @@ public class OBAccount6Basic {
 
     /**
      * Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return statusUpdateDateTime
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
@@ -145,9 +144,10 @@ public class OBAccount6Basic {
 
     /**
      * Identification of the currency in which the account is held.  Usage: Currency should only be used in case one and the same account number covers several currencies and the initiating party needs to identify which currency needs to be used for settlement on the account.
+     *
      * @return currency
-   */
-    @Pattern(regexp = "^[A-Z]{3,3}$") 
+     */
+    @Pattern(regexp = "^[A-Z]{3,3}$")
     @Schema(name = "Currency", description = "Identification of the currency in which the account is held.  Usage: Currency should only be used in case one and the same account number covers several currencies and the initiating party needs to identify which currency needs to be used for settlement on the account.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Currency")
     public String getCurrency() {
@@ -165,9 +165,10 @@ public class OBAccount6Basic {
 
     /**
      * Get accountCategory
+     *
      * @return accountCategory
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "AccountCategory", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AccountCategory")
     public OBInternalAccountType1Code getAccountCategory() {
@@ -185,9 +186,10 @@ public class OBAccount6Basic {
 
     /**
      * Get accountTypeCode
+     *
      * @return accountTypeCode
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "AccountTypeCode", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AccountTypeCode")
     public OBExternalAccountSubType1Code getAccountTypeCode() {
@@ -205,9 +207,10 @@ public class OBAccount6Basic {
 
     /**
      * Specifies the description of the account type.
+     *
      * @return description
-   */
-    @Size(min = 1, max = 35) 
+     */
+    @Size(min = 1, max = 35)
     @Schema(name = "Description", description = "Specifies the description of the account type.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Description")
     public String getDescription() {
@@ -225,9 +228,10 @@ public class OBAccount6Basic {
 
     /**
      * The nickname of the account, assigned by the account owner in order to provide an additional means of identification of the account.
+     *
      * @return nickname
-   */
-    @Size(min = 1, max = 70) 
+     */
+    @Size(min = 1, max = 70)
     @Schema(name = "Nickname", description = "The nickname of the account, assigned by the account owner in order to provide an additional means of identification of the account.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Nickname")
     public String getNickname() {
@@ -245,9 +249,10 @@ public class OBAccount6Basic {
 
     /**
      * Date on which the account and related basic services are effectively operational for the account owner. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return openingDate
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OpeningDate", description = "Date on which the account and related basic services are effectively operational for the account owner. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OpeningDate")
     public DateTime getOpeningDate() {
@@ -265,9 +270,10 @@ public class OBAccount6Basic {
 
     /**
      * Maturity date of the account. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return maturityDate
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "MaturityDate", description = "Maturity date of the account. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MaturityDate")
     public DateTime getMaturityDate() {
@@ -285,9 +291,10 @@ public class OBAccount6Basic {
 
     /**
      * Specifies the switch status for the account, in a coded form. <br /> For a full list of enumeration values refer to `OBInternalSwitchStatusCode` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+     *
      * @return switchStatus
-   */
-    
+     */
+
     @Schema(name = "SwitchStatus", description = "Specifies the switch status for the account, in a coded form. <br /> For a full list of enumeration values refer to `OBInternalSwitchStatusCode` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SwitchStatus")
     public String getSwitchStatus() {

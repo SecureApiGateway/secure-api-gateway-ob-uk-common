@@ -15,24 +15,18 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.OverdraftFeeChargeCapInner1;
-import uk.org.openbanking.datamodel.v4.account.OverdraftFeeChargeDetailInner1;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Overdraft fees and charges
@@ -75,9 +69,10 @@ public class OverdraftFeesChargesInner2 {
 
     /**
      * Details about any caps (maximum charges) that apply to a particular fee/charge
+     *
      * @return overdraftFeeChargeCap
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OverdraftFeeChargeCap", description = "Details about any caps (maximum charges) that apply to a particular fee/charge", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OverdraftFeeChargeCap")
     public List<@Valid OverdraftFeeChargeCapInner1> getOverdraftFeeChargeCap() {
@@ -103,9 +98,12 @@ public class OverdraftFeesChargesInner2 {
 
     /**
      * Details about the fees/charges
+     *
      * @return overdraftFeeChargeDetail
-   */
-    @NotNull @Valid @Size(min = 1) 
+     */
+    @NotNull
+    @Valid
+    @Size(min = 1)
     @Schema(name = "OverdraftFeeChargeDetail", description = "Details about the fees/charges", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("OverdraftFeeChargeDetail")
     public List<@Valid OverdraftFeeChargeDetailInner1> getOverdraftFeeChargeDetail() {

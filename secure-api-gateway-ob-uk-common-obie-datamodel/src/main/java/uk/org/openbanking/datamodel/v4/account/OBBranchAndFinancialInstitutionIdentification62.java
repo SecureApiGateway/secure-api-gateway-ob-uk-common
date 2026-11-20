@@ -15,20 +15,17 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
 
 /**
  * Financial institution servicing an account for the debtor.
@@ -56,9 +53,10 @@ public class OBBranchAndFinancialInstitutionIdentification62 {
 
     /**
      * Name of the identification scheme, in a coded form as published in an external list.<br/> For a full list of enumeration values refer to `OBInternalFinancialInstitutionIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+     *
      * @return schemeName
-   */
-    
+     */
+
     @Schema(name = "SchemeName", example = "UK.OBIE.BICFI", description = "Name of the identification scheme, in a coded form as published in an external list.<br/> For a full list of enumeration values refer to `OBInternalFinancialInstitutionIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SchemeName")
     public String getSchemeName() {
@@ -76,9 +74,10 @@ public class OBBranchAndFinancialInstitutionIdentification62 {
 
     /**
      * Unique and unambiguous identification of a financial institution or a branch of a financial institution.
+     *
      * @return identification
-   */
-    @Size(min = 1, max = 35) 
+     */
+    @Size(min = 1, max = 35)
     @Schema(name = "Identification", description = "Unique and unambiguous identification of a financial institution or a branch of a financial institution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
@@ -96,9 +95,10 @@ public class OBBranchAndFinancialInstitutionIdentification62 {
 
     /**
      * Name by which an agent is known and which is usually used to identify that agent.
+     *
      * @return name
-   */
-    @Size(min = 1, max = 140) 
+     */
+    @Size(min = 1, max = 140)
     @Schema(name = "Name", example = "Agent Name", description = "Name by which an agent is known and which is usually used to identify that agent.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
     public String getName() {
@@ -116,9 +116,11 @@ public class OBBranchAndFinancialInstitutionIdentification62 {
 
     /**
      * Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".
+     *
      * @return LEI
-   */
-    @Pattern(regexp = "^[A-Z0-9]{18,18}[0-9]{2,2}$") @Size(min = 1, max = 20) 
+     */
+    @Pattern(regexp = "^[A-Z0-9]{18,18}[0-9]{2,2}$")
+    @Size(min = 1, max = 20)
     @Schema(name = "LEI", example = "IZ9Q00LZEVUKWCQY6X15", description = "Legal entity identification as an alternate identification for a party. Legal Entity Identifier is a code allocated to a party as described in ISO 17442 \"Financial Services - Legal Entity Identifier (LEI)\".", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LEI")
     public String getLEI() {
@@ -136,9 +138,10 @@ public class OBBranchAndFinancialInstitutionIdentification62 {
 
     /**
      * Get postalAddress
+     *
      * @return postalAddress
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "PostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PostalAddress")
     public OBPostalAddress7 getPostalAddress() {

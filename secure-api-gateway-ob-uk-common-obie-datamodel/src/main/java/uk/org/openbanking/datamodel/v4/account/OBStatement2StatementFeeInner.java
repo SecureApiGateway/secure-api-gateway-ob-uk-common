@@ -15,23 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import static uk.org.openbanking.datamodel.utils.EqualityVerificationUtil.BigDecimalUtil.isEqual;
+
 import java.math.BigDecimal;
-import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount6;
-import uk.org.openbanking.datamodel.v4.account.OBCreditDebitCode0;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Set of elements used to provide details of a fee for the statement resource.
@@ -76,9 +72,10 @@ public class OBStatement2StatementFeeInner {
 
     /**
      * Description that may be available for the statement fee.
+     *
      * @return description
-   */
-    @Size(min = 1, max = 128) 
+     */
+    @Size(min = 1, max = 128)
     @Schema(name = "Description", example = "International usage charge", description = "Description that may be available for the statement fee.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Description")
     public String getDescription() {
@@ -96,9 +93,11 @@ public class OBStatement2StatementFeeInner {
 
     /**
      * Get creditDebitIndicator
+     *
      * @return creditDebitIndicator
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "CreditDebitIndicator", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreditDebitIndicator")
     public OBCreditDebitCode0 getCreditDebitIndicator() {
@@ -116,9 +115,10 @@ public class OBStatement2StatementFeeInner {
 
     /**
      * Fee type, in a coded form. For a full list of values see `OBInternalStatementFeeType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+     *
      * @return type
-   */
-    @NotNull 
+     */
+    @NotNull
     @Schema(name = "Type", example = "UK.OBIE.Annual", description = "Fee type, in a coded form. For a full list of values see `OBInternalStatementFeeType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
     public String getType() {
@@ -136,9 +136,10 @@ public class OBStatement2StatementFeeInner {
 
     /**
      * Rate charged for Statement Fee (where it is charged in terms of a rate rather than an amount)
+     *
      * @return rate
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Rate", example = "0.05", description = "Rate charged for Statement Fee (where it is charged in terms of a rate rather than an amount)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Rate")
     public BigDecimal getRate() {
@@ -156,9 +157,10 @@ public class OBStatement2StatementFeeInner {
 
     /**
      * This code indicates the specific type of fee rate (e.g., AER, EAR). For a full list of values see `OBInternalStatementFeeRateType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+     *
      * @return rateType
-   */
-    
+     */
+
     @Schema(name = "RateType", example = "UK.OBIE.AER", description = "This code indicates the specific type of fee rate (e.g., AER, EAR). For a full list of values see `OBInternalStatementFeeRateType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RateType")
     public String getRateType() {
@@ -176,9 +178,10 @@ public class OBStatement2StatementFeeInner {
 
     /**
      * How frequently the fee is applied to the Account. For a full list of values see `OBInternalStatementFeeFrequency1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+     *
      * @return frequency
-   */
-    
+     */
+
     @Schema(name = "Frequency", example = "UK.OBIE.StatementMonthly", description = "How frequently the fee is applied to the Account. For a full list of values see `OBInternalStatementFeeFrequency1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Frequency")
     public String getFrequency() {
@@ -196,9 +199,11 @@ public class OBStatement2StatementFeeInner {
 
     /**
      * Get amount
+     *
      * @return amount
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Amount")
     public OBActiveOrHistoricCurrencyAndAmount6 getAmount() {
@@ -221,7 +226,7 @@ public class OBStatement2StatementFeeInner {
         return Objects.equals(this.description, obStatement2StatementFeeInner.description) &&
                 Objects.equals(this.creditDebitIndicator, obStatement2StatementFeeInner.creditDebitIndicator) &&
                 Objects.equals(this.type, obStatement2StatementFeeInner.type) &&
-                Objects.equals(this.rate, obStatement2StatementFeeInner.rate) &&
+                isEqual(this.rate, obStatement2StatementFeeInner.rate) &&
                 Objects.equals(this.rateType, obStatement2StatementFeeInner.rateType) &&
                 Objects.equals(this.frequency, obStatement2StatementFeeInner.frequency) &&
                 Objects.equals(this.amount, obStatement2StatementFeeInner.amount);

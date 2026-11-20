@@ -15,29 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeCreditInterest;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeLoanInterest;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeOverdraft;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeProductDetails;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeRepayment;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
 
 /**
  * This field provides extension to the ProductType enumeration. If ProductType - \&quot;Other\&quot; is chosen, this field must be populated with name, and description for ASPSP specific product type.
@@ -65,7 +55,7 @@ public class OBReadProduct2DataProductInnerOtherProductType {
     @Valid
     private List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner> otherFeesCharges;
 
-    private OBSupplementaryData1 supplementaryData = new HashMap<>();
+    private OBSupplementaryData1 supplementaryData;
 
     public OBReadProduct2DataProductInnerOtherProductType() {
         super();
@@ -86,9 +76,11 @@ public class OBReadProduct2DataProductInnerOtherProductType {
 
     /**
      * Name of \"Other\" product type.
+     *
      * @return name
-   */
-    @NotNull @Size(min = 1, max = 350) 
+     */
+    @NotNull
+    @Size(min = 1, max = 350)
     @Schema(name = "Name", example = "e-Wallet", description = "Name of \"Other\" product type.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Name")
     public String getName() {
@@ -106,9 +98,11 @@ public class OBReadProduct2DataProductInnerOtherProductType {
 
     /**
      * Description of \"Other\" product type
+     *
      * @return description
-   */
-    @NotNull @Size(min = 1, max = 350) 
+     */
+    @NotNull
+    @Size(min = 1, max = 350)
     @Schema(name = "Description", example = "Virtual wallet", description = "Description of \"Other\" product type", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Description")
     public String getDescription() {
@@ -126,9 +120,10 @@ public class OBReadProduct2DataProductInnerOtherProductType {
 
     /**
      * Get productDetails
+     *
      * @return productDetails
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "ProductDetails", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ProductDetails")
     public OBReadProduct2DataProductInnerOtherProductTypeProductDetails getProductDetails() {
@@ -146,9 +141,10 @@ public class OBReadProduct2DataProductInnerOtherProductType {
 
     /**
      * Get creditInterest
+     *
      * @return creditInterest
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "CreditInterest", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditInterest")
     public OBReadProduct2DataProductInnerOtherProductTypeCreditInterest getCreditInterest() {
@@ -166,9 +162,10 @@ public class OBReadProduct2DataProductInnerOtherProductType {
 
     /**
      * Get overdraft
+     *
      * @return overdraft
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Overdraft", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Overdraft")
     public OBReadProduct2DataProductInnerOtherProductTypeOverdraft getOverdraft() {
@@ -186,9 +183,10 @@ public class OBReadProduct2DataProductInnerOtherProductType {
 
     /**
      * Get loanInterest
+     *
      * @return loanInterest
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "LoanInterest", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("LoanInterest")
     public OBReadProduct2DataProductInnerOtherProductTypeLoanInterest getLoanInterest() {
@@ -206,9 +204,10 @@ public class OBReadProduct2DataProductInnerOtherProductType {
 
     /**
      * Get repayment
+     *
      * @return repayment
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Repayment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Repayment")
     public OBReadProduct2DataProductInnerOtherProductTypeRepayment getRepayment() {
@@ -234,9 +233,10 @@ public class OBReadProduct2DataProductInnerOtherProductType {
 
     /**
      * Get otherFeesCharges
+     *
      * @return otherFeesCharges
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherFeesCharges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeesCharges")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOtherFeesChargesInner> getOtherFeesCharges() {
@@ -254,9 +254,10 @@ public class OBReadProduct2DataProductInnerOtherProductType {
 
     /**
      * Get supplementaryData
+     *
      * @return supplementaryData
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")
     public OBSupplementaryData1 getSupplementaryData() {

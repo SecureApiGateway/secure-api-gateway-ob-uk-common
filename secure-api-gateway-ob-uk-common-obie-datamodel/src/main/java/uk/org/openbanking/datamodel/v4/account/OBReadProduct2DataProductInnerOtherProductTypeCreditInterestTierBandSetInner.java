@@ -15,28 +15,18 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.OBInterestCalculationMethod1Code;
-import uk.org.openbanking.datamodel.v4.account.OBOtherCodeType10;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerDestination;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInner;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandMethod;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * The group of tiers or bands for which credit interest can be applied.
@@ -54,7 +44,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
     private OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerDestination destination;
 
     @Valid
-    private List<@Size(min = 1, max = 2000)String> notes;
+    private List<@Size(min = 1, max = 2000) String> notes;
 
     private OBOtherCodeType10 otherCalculationMethod;
 
@@ -83,9 +73,11 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get tierBandMethod
+     *
      * @return tierBandMethod
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "TierBandMethod", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("TierBandMethod")
     public OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandMethod getTierBandMethod() {
@@ -103,9 +95,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get calculationMethod
+     *
      * @return calculationMethod
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "CalculationMethod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CalculationMethod")
     public OBInterestCalculationMethod1Code getCalculationMethod() {
@@ -123,9 +116,11 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get destination
+     *
      * @return destination
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Destination", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Destination")
     public OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerDestination getDestination() {
@@ -136,7 +131,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
         this.destination = destination;
     }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInner notes(List<@Size(min = 1, max = 2000)String> notes) {
+    public OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInner notes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
         return this;
     }
@@ -151,16 +146,17 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get notes
+     *
      * @return notes
-   */
-    
+     */
+
     @Schema(name = "Notes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000)String> getNotes() {
+    public List<@Size(min = 1, max = 2000) String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
     }
 
@@ -171,9 +167,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get otherCalculationMethod
+     *
      * @return otherCalculationMethod
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherCalculationMethod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherCalculationMethod")
     public OBOtherCodeType10 getOtherCalculationMethod() {
@@ -191,9 +188,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get otherDestination
+     *
      * @return otherDestination
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherDestination", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherDestination")
     public OBOtherCodeType10 getOtherDestination() {
@@ -219,9 +217,12 @@ public class OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBan
 
     /**
      * Get tierBand
+     *
      * @return tierBand
-   */
-    @NotNull @Valid @Size(min = 1) 
+     */
+    @NotNull
+    @Valid
+    @Size(min = 1)
     @Schema(name = "TierBand", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("TierBand")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeCreditInterestTierBandSetInnerTierBandInner> getTierBand() {

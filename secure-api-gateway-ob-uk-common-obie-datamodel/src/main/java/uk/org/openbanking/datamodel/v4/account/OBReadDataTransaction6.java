@@ -15,22 +15,15 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.OBTransaction6;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 
 /**
  * OBReadDataTransaction6
@@ -57,9 +50,10 @@ public class OBReadDataTransaction6 {
 
     /**
      * Get transaction
+     *
      * @return transaction
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Transaction", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Transaction")
     public List<@Valid OBTransaction6> getTransaction() {

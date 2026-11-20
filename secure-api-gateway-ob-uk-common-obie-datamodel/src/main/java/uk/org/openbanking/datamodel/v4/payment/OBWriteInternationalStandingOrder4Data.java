@@ -15,20 +15,16 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrder4DataInitiation;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * OBWriteInternationalStandingOrder4Data
@@ -61,9 +57,11 @@ public class OBWriteInternationalStandingOrder4Data {
 
     /**
      * OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.
+     *
      * @return consentId
-   */
-    @NotNull @Size(min = 1, max = 128) 
+     */
+    @NotNull
+    @Size(min = 1, max = 128)
     @Schema(name = "ConsentId", description = "OB: Unique identification as assigned by the ASPSP to uniquely identify the consent resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ConsentId")
     public String getConsentId() {
@@ -81,9 +79,11 @@ public class OBWriteInternationalStandingOrder4Data {
 
     /**
      * Get initiation
+     *
      * @return initiation
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
     public OBWriteInternationalStandingOrder4DataInitiation getInitiation() {

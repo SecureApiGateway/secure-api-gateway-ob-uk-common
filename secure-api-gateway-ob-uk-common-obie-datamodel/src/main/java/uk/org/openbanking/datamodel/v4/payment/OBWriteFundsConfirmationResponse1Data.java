@@ -15,21 +15,15 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteFundsConfirmationResponse1DataFundsAvailableResult;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
 
 /**
  * OBWriteFundsConfirmationResponse1Data
@@ -41,7 +35,7 @@ public class OBWriteFundsConfirmationResponse1Data {
 
     private OBWriteFundsConfirmationResponse1DataFundsAvailableResult fundsAvailableResult;
 
-    private OBSupplementaryData1 supplementaryData = new HashMap<>();
+    private OBSupplementaryData1 supplementaryData;
 
     public OBWriteFundsConfirmationResponse1Data fundsAvailableResult(OBWriteFundsConfirmationResponse1DataFundsAvailableResult fundsAvailableResult) {
         this.fundsAvailableResult = fundsAvailableResult;
@@ -50,9 +44,10 @@ public class OBWriteFundsConfirmationResponse1Data {
 
     /**
      * Get fundsAvailableResult
+     *
      * @return fundsAvailableResult
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "FundsAvailableResult", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FundsAvailableResult")
     public OBWriteFundsConfirmationResponse1DataFundsAvailableResult getFundsAvailableResult() {
@@ -70,9 +65,10 @@ public class OBWriteFundsConfirmationResponse1Data {
 
     /**
      * Get supplementaryData
+     *
      * @return supplementaryData
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")
     public OBSupplementaryData1 getSupplementaryData() {

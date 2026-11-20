@@ -15,28 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import uk.org.openbanking.datamodel.v4.common.OBCashAccountCreditor3;
 import uk.org.openbanking.datamodel.v4.common.OBPostalAddress7;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateCreditor1;
 import uk.org.openbanking.datamodel.v4.common.OBUltimateDebtor1;
-import uk.org.openbanking.datamodel.v4.vrp.OBCashAccountDebtorWithName;
-import uk.org.openbanking.datamodel.v4.vrp.OBRegulatoryReporting1;
-import uk.org.openbanking.datamodel.v4.vrp.OBRemittanceInformation2;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
  * OBDomesticVRPInitiation
@@ -67,9 +59,10 @@ public class OBDomesticVRPInitiation {
 
     /**
      * Get debtorAccount
+     *
      * @return debtorAccount
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DebtorAccount")
     public OBCashAccountDebtorWithName getDebtorAccount() {
@@ -87,9 +80,10 @@ public class OBDomesticVRPInitiation {
 
     /**
      * Get creditorAccount
+     *
      * @return creditorAccount
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "CreditorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorAccount")
     public OBCashAccountCreditor3 getCreditorAccount() {
@@ -107,9 +101,10 @@ public class OBDomesticVRPInitiation {
 
     /**
      * Get creditorPostalAddress
+     *
      * @return creditorPostalAddress
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "CreditorPostalAddress", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorPostalAddress")
     public OBPostalAddress7 getCreditorPostalAddress() {
@@ -127,9 +122,10 @@ public class OBDomesticVRPInitiation {
 
     /**
      * Get ultimateCreditor
+     *
      * @return ultimateCreditor
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "UltimateCreditor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateCreditor")
     public OBUltimateCreditor1 getUltimateCreditor() {
@@ -147,9 +143,10 @@ public class OBDomesticVRPInitiation {
 
     /**
      * Get ultimateDebtor
+     *
      * @return ultimateDebtor
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "UltimateDebtor", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("UltimateDebtor")
     public OBUltimateDebtor1 getUltimateDebtor() {
@@ -167,9 +164,10 @@ public class OBDomesticVRPInitiation {
 
     /**
      * Get remittanceInformation
+     *
      * @return remittanceInformation
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "RemittanceInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RemittanceInformation")
     public OBRemittanceInformation2 getRemittanceInformation() {
@@ -195,9 +193,11 @@ public class OBDomesticVRPInitiation {
 
     /**
      * Get regulatoryReporting
+     *
      * @return regulatoryReporting
-   */
-    @Valid @Size(max = 10) 
+     */
+    @Valid
+    @Size(max = 10)
     @Schema(name = "RegulatoryReporting", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RegulatoryReporting")
     public List<@Valid OBRegulatoryReporting1> getRegulatoryReporting() {

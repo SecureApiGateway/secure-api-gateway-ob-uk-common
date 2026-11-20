@@ -15,20 +15,14 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import uk.org.openbanking.datamodel.v4.account.OBParty2;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 
 /**
  * OBReadParty2Data
@@ -47,9 +41,10 @@ public class OBReadParty2Data {
 
     /**
      * Get party
+     *
      * @return party
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Party", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Party")
     public OBParty2 getParty() {

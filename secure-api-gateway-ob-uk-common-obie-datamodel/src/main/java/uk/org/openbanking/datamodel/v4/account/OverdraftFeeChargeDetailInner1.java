@@ -15,32 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.ApplicationFrequency4;
-import uk.org.openbanking.datamodel.v4.account.CalculationFrequency4;
-import uk.org.openbanking.datamodel.v4.account.FeeRateType2;
-import uk.org.openbanking.datamodel.v4.account.FeeType2;
-import uk.org.openbanking.datamodel.v4.account.OtherApplicationFrequency;
-import uk.org.openbanking.datamodel.v4.account.OtherCalculationFrequency;
-import uk.org.openbanking.datamodel.v4.account.OtherFeeRateType;
-import uk.org.openbanking.datamodel.v4.account.OtherFeeType;
-import uk.org.openbanking.datamodel.v4.account.OverdraftFeeChargeCap;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 /**
  * Details about the fees/charges
@@ -68,7 +55,7 @@ public class OverdraftFeeChargeDetailInner1 {
     private CalculationFrequency4 calculationFrequency;
 
     @Valid
-    private List<@Size(min = 1, max = 2000)String> notes;
+    private List<@Size(min = 1, max = 2000) String> notes;
 
     private OtherFeeType otherFeeType;
 
@@ -99,9 +86,11 @@ public class OverdraftFeeChargeDetailInner1 {
 
     /**
      * Get feeType
+     *
      * @return feeType
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "FeeType", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FeeType")
     public FeeType2 getFeeType() {
@@ -119,9 +108,10 @@ public class OverdraftFeeChargeDetailInner1 {
 
     /**
      * Specifies for the overdraft control feature/benefit
+     *
      * @return overdraftControlIndicator
-   */
-    
+     */
+
     @Schema(name = "OverdraftControlIndicator", description = "Specifies for the overdraft control feature/benefit", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OverdraftControlIndicator")
     public Boolean getOverdraftControlIndicator() {
@@ -139,9 +129,10 @@ public class OverdraftFeeChargeDetailInner1 {
 
     /**
      * Every additional tranche of an overdraft balance to which an overdraft fee is applied
+     *
      * @return incrementalBorrowingAmount
-   */
-    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
+     */
+    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "IncrementalBorrowingAmount", description = "Every additional tranche of an overdraft balance to which an overdraft fee is applied", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("IncrementalBorrowingAmount")
     public String getIncrementalBorrowingAmount() {
@@ -159,9 +150,10 @@ public class OverdraftFeeChargeDetailInner1 {
 
     /**
      * Amount charged for an overdraft fee/charge (where it is charged in terms of an amount rather than a rate)
+     *
      * @return feeAmount
-   */
-    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
+     */
+    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "FeeAmount", description = "Amount charged for an overdraft fee/charge (where it is charged in terms of an amount rather than a rate)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeAmount")
     public String getFeeAmount() {
@@ -179,9 +171,10 @@ public class OverdraftFeeChargeDetailInner1 {
 
     /**
      * Rate charged for overdraft fee/charge (where it is charged in terms of a rate rather than an amount)
+     *
      * @return feeRate
-   */
-    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$") 
+     */
+    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "FeeRate", description = "Rate charged for overdraft fee/charge (where it is charged in terms of a rate rather than an amount)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeRate")
     public String getFeeRate() {
@@ -199,9 +192,10 @@ public class OverdraftFeeChargeDetailInner1 {
 
     /**
      * Get feeRateType
+     *
      * @return feeRateType
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "FeeRateType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeRateType")
     public FeeRateType2 getFeeRateType() {
@@ -219,9 +213,11 @@ public class OverdraftFeeChargeDetailInner1 {
 
     /**
      * Get applicationFrequency
+     *
      * @return applicationFrequency
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "ApplicationFrequency", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ApplicationFrequency")
     public ApplicationFrequency4 getApplicationFrequency() {
@@ -239,9 +235,10 @@ public class OverdraftFeeChargeDetailInner1 {
 
     /**
      * Get calculationFrequency
+     *
      * @return calculationFrequency
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "CalculationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CalculationFrequency")
     public CalculationFrequency4 getCalculationFrequency() {
@@ -252,7 +249,7 @@ public class OverdraftFeeChargeDetailInner1 {
         this.calculationFrequency = calculationFrequency;
     }
 
-    public OverdraftFeeChargeDetailInner1 notes(List<@Size(min = 1, max = 2000)String> notes) {
+    public OverdraftFeeChargeDetailInner1 notes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
         return this;
     }
@@ -267,16 +264,17 @@ public class OverdraftFeeChargeDetailInner1 {
 
     /**
      * Free text for capturing any other info related to Overdraft Fees Charge Details
+     *
      * @return notes
-   */
-    
+     */
+
     @Schema(name = "Notes", description = "Free text for capturing any other info related to Overdraft Fees Charge Details", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000)String> getNotes() {
+    public List<@Size(min = 1, max = 2000) String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
     }
 
@@ -287,9 +285,10 @@ public class OverdraftFeeChargeDetailInner1 {
 
     /**
      * Get otherFeeType
+     *
      * @return otherFeeType
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherFeeType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeeType")
     public OtherFeeType getOtherFeeType() {
@@ -307,9 +306,10 @@ public class OverdraftFeeChargeDetailInner1 {
 
     /**
      * Get otherFeeRateType
+     *
      * @return otherFeeRateType
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherFeeRateType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeeRateType")
     public OtherFeeRateType getOtherFeeRateType() {
@@ -327,9 +327,10 @@ public class OverdraftFeeChargeDetailInner1 {
 
     /**
      * Get otherApplicationFrequency
+     *
      * @return otherApplicationFrequency
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherApplicationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherApplicationFrequency")
     public OtherApplicationFrequency getOtherApplicationFrequency() {
@@ -347,9 +348,10 @@ public class OverdraftFeeChargeDetailInner1 {
 
     /**
      * Get otherCalculationFrequency
+     *
      * @return otherCalculationFrequency
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherCalculationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherCalculationFrequency")
     public OtherCalculationFrequency getOtherCalculationFrequency() {
@@ -367,9 +369,10 @@ public class OverdraftFeeChargeDetailInner1 {
 
     /**
      * Get overdraftFeeChargeCap
+     *
      * @return overdraftFeeChargeCap
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OverdraftFeeChargeCap", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OverdraftFeeChargeCap")
     public OverdraftFeeChargeCap getOverdraftFeeChargeCap() {

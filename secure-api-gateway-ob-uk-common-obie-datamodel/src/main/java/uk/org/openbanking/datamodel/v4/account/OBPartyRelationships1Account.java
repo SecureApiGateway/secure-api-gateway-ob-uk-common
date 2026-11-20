@@ -17,18 +17,15 @@ package uk.org.openbanking.datamodel.v4.account;
 
 import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import java.net.URI;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Relationship to the Account resource.
@@ -62,9 +59,11 @@ public class OBPartyRelationships1Account {
 
     /**
      * Absolute URI to the related resource.
+     *
      * @return related
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Related", example = "https://api.alphabank.com/open-banking/v4.0/aisp/accounts/89019", description = "Absolute URI to the related resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Related")
     public URI getRelated() {
@@ -82,9 +81,11 @@ public class OBPartyRelationships1Account {
 
     /**
      * Unique identification as assigned by the ASPSP to uniquely identify the related resource.
+     *
      * @return id
-   */
-    @NotNull @Size(min = 1, max = 40) 
+     */
+    @NotNull
+    @Size(min = 1, max = 40)
     @Schema(name = "Id", example = "89019", description = "Unique identification as assigned by the ASPSP to uniquely identify the related resource.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Id")
     public String getId() {

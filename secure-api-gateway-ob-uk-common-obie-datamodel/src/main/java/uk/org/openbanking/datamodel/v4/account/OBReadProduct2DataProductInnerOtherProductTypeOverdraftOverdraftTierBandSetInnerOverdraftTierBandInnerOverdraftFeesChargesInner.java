@@ -15,24 +15,18 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInnerOverdraftFeesChargesInnerOverdraftFeeChargeCapInner;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInnerOverdraftFeesChargesInnerOverdraftFeeChargeDetailInner;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Overdraft fees and charges
@@ -75,9 +69,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Get overdraftFeeChargeCap
+     *
      * @return overdraftFeeChargeCap
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OverdraftFeeChargeCap", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OverdraftFeeChargeCap")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInnerOverdraftFeesChargesInnerOverdraftFeeChargeCapInner> getOverdraftFeeChargeCap() {
@@ -103,9 +98,12 @@ public class OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTie
 
     /**
      * Get overdraftFeeChargeDetail
+     *
      * @return overdraftFeeChargeDetail
-   */
-    @NotNull @Valid @Size(min = 1) 
+     */
+    @NotNull
+    @Valid
+    @Size(min = 1)
     @Schema(name = "OverdraftFeeChargeDetail", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("OverdraftFeeChargeDetail")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeOverdraftOverdraftTierBandSetInnerOverdraftTierBandInnerOverdraftFeesChargesInnerOverdraftFeeChargeDetailInner> getOverdraftFeeChargeDetail() {

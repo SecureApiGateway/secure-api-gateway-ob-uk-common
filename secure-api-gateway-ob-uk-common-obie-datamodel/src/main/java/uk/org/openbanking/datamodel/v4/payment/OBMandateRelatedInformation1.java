@@ -15,24 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
-import uk.org.openbanking.datamodel.v4.payment.OBExternalMandateClassification1Code;
-import uk.org.openbanking.datamodel.v4.payment.OBFrequency6;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.ExternalCategoryPurpose1Code;
 
 /**
  * OBMandateRelatedInformation1
@@ -78,9 +73,10 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * Unique identification, as assigned by the creditor, to unambiguously identify the mandate.
+     *
      * @return mandateIdentification
-   */
-    @Size(min = 1, max = 35) 
+     */
+    @Size(min = 1, max = 35)
     @Schema(name = "MandateIdentification", description = "Unique identification, as assigned by the creditor, to unambiguously identify the mandate.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MandateIdentification")
     public String getMandateIdentification() {
@@ -98,9 +94,10 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * Get classification
+     *
      * @return classification
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Classification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Classification")
     public OBExternalMandateClassification1Code getClassification() {
@@ -118,9 +115,10 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * Get categoryPurposeCode
+     *
      * @return categoryPurposeCode
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "CategoryPurposeCode", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CategoryPurposeCode")
     public ExternalCategoryPurpose1Code getCategoryPurposeCode() {
@@ -138,9 +136,10 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * Get firstPaymentDateTime
+     *
      * @return firstPaymentDateTime
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "FirstPaymentDateTime", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FirstPaymentDateTime")
     public DateTime getFirstPaymentDateTime() {
@@ -158,9 +157,10 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * The date on which the first recurring payment for a Standing Order schedule will be made.  Usage: This must be populated only if the first recurring date is different to the first payment date. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return recurringPaymentDateTime
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "RecurringPaymentDateTime", description = "The date on which the first recurring payment for a Standing Order schedule will be made.  Usage: This must be populated only if the first recurring date is different to the first payment date. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RecurringPaymentDateTime")
     public DateTime getRecurringPaymentDateTime() {
@@ -178,9 +178,10 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * Get finalPaymentDateTime
+     *
      * @return finalPaymentDateTime
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "FinalPaymentDateTime", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FinalPaymentDateTime")
     public DateTime getFinalPaymentDateTime() {
@@ -198,9 +199,11 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * Get frequency
+     *
      * @return frequency
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Frequency", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Frequency")
     public OBFrequency6 getFrequency() {
@@ -218,9 +221,10 @@ public class OBMandateRelatedInformation1 {
 
     /**
      * Reason for the direct debit mandate to allow the user to distinguish between different mandates for the same creditor.
+     *
      * @return reason
-   */
-    @Size(min = 1, max = 256) 
+     */
+    @Size(min = 1, max = 256)
     @Schema(name = "Reason", description = "Reason for the direct debit mandate to allow the user to distinguish between different mandates for the same creditor.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Reason")
     public String getReason() {

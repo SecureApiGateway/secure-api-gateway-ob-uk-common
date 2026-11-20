@@ -15,22 +15,17 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-import uk.org.openbanking.datamodel.v4.vrp.OBPAFundsAvailableResult1FundsAvailable;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Availability result, clearly indicating the availability of funds given the Amount in the request.
@@ -64,9 +59,11 @@ public class OBPAFundsAvailableResult1 {
 
     /**
      * Date and time at which the funds availability check was generated.
+     *
      * @return fundsAvailableDateTime
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "FundsAvailableDateTime", description = "Date and time at which the funds availability check was generated.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FundsAvailableDateTime")
     public DateTime getFundsAvailableDateTime() {
@@ -84,9 +81,11 @@ public class OBPAFundsAvailableResult1 {
 
     /**
      * Get fundsAvailable
+     *
      * @return fundsAvailable
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "FundsAvailable", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FundsAvailable")
     public OBPAFundsAvailableResult1FundsAvailable getFundsAvailable() {

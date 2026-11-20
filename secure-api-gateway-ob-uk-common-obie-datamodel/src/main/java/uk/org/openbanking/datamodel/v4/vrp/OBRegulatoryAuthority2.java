@@ -15,21 +15,17 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 /**
- * Entity requiring the regulatory reporting information. 
+ * Entity requiring the regulatory reporting information.
  */
 
 @Schema(name = "OBRegulatoryAuthority2", description = "Entity requiring the regulatory reporting information. ")
@@ -47,9 +43,10 @@ public class OBRegulatoryAuthority2 {
 
     /**
      * Name of the entity requiring the regulatory reporting information.
+     *
      * @return name
-   */
-    @Size(min = 1, max = 140) 
+     */
+    @Size(min = 1, max = 140)
     @Schema(name = "Name", description = "Name of the entity requiring the regulatory reporting information.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
     public String getName() {
@@ -67,9 +64,10 @@ public class OBRegulatoryAuthority2 {
 
     /**
      * Nation with its own government.
+     *
      * @return countryCode
-   */
-    @Pattern(regexp = "^[A-Z]{2,2}$") 
+     */
+    @Pattern(regexp = "^[A-Z]{2,2}$")
     @Schema(name = "CountryCode", description = "Nation with its own government.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CountryCode")
     public String getCountryCode() {

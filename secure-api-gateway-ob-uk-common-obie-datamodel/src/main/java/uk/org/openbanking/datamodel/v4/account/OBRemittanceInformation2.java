@@ -15,22 +15,16 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.OBRemittanceInformationStructured;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 
 /**
  * Information supplied to enable the matching of an entry with the items that the transfer is intended to settle, such as commercial invoices in an accounts&#39; receivable system
@@ -44,7 +38,7 @@ public class OBRemittanceInformation2 {
     private List<@Valid OBRemittanceInformationStructured> structured;
 
     @Valid
-    private List<@Size(min = 1, max = 140)String> unstructured;
+    private List<@Size(min = 1, max = 140) String> unstructured;
 
     public OBRemittanceInformation2 structured(List<@Valid OBRemittanceInformationStructured> structured) {
         this.structured = structured;
@@ -61,9 +55,10 @@ public class OBRemittanceInformation2 {
 
     /**
      * Get structured
+     *
      * @return structured
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Structured", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Structured")
     public List<@Valid OBRemittanceInformationStructured> getStructured() {
@@ -74,7 +69,7 @@ public class OBRemittanceInformation2 {
         this.structured = structured;
     }
 
-    public OBRemittanceInformation2 unstructured(List<@Size(min = 1, max = 140)String> unstructured) {
+    public OBRemittanceInformation2 unstructured(List<@Size(min = 1, max = 140) String> unstructured) {
         this.unstructured = unstructured;
         return this;
     }
@@ -89,16 +84,17 @@ public class OBRemittanceInformation2 {
 
     /**
      * Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.
+     *
      * @return unstructured
-   */
-    
+     */
+
     @Schema(name = "Unstructured", description = "Information supplied to enable the matching/reconciliation of an entry with the items that the payment is intended to settle, such as commercial invoices in an accounts' receivable system, in an unstructured form.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Unstructured")
-    public List<@Size(min = 1, max = 140)String> getUnstructured() {
+    public List<@Size(min = 1, max = 140) String> getUnstructured() {
         return unstructured;
     }
 
-    public void setUnstructured(List<@Size(min = 1, max = 140)String> unstructured) {
+    public void setUnstructured(List<@Size(min = 1, max = 140) String> unstructured) {
         this.unstructured = unstructured;
     }
 

@@ -15,25 +15,15 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.CreditInterest;
-import uk.org.openbanking.datamodel.v4.account.OtherFeesChargesInner;
-import uk.org.openbanking.datamodel.v4.account.Overdraft;
-import uk.org.openbanking.datamodel.v4.account.ProductDetails;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 
 /**
  * OBBCAData1
@@ -58,9 +48,10 @@ public class OBBCAData1 {
 
     /**
      * Get productDetails
+     *
      * @return productDetails
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "ProductDetails", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ProductDetails")
     public ProductDetails getProductDetails() {
@@ -78,9 +69,10 @@ public class OBBCAData1 {
 
     /**
      * Get creditInterest
+     *
      * @return creditInterest
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "CreditInterest", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditInterest")
     public CreditInterest getCreditInterest() {
@@ -98,9 +90,10 @@ public class OBBCAData1 {
 
     /**
      * Get overdraft
+     *
      * @return overdraft
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Overdraft", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Overdraft")
     public Overdraft getOverdraft() {
@@ -126,9 +119,10 @@ public class OBBCAData1 {
 
     /**
      * Contains details of fees and charges which are not associated with either Overdraft or features/benefits
+     *
      * @return otherFeesCharges
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherFeesCharges", description = "Contains details of fees and charges which are not associated with either Overdraft or features/benefits", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeesCharges")
     public List<@Valid OtherFeesChargesInner> getOtherFeesCharges() {

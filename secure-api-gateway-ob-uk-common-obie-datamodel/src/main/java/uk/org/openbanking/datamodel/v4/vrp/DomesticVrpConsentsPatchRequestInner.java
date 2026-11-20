@@ -15,21 +15,15 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import uk.org.openbanking.datamodel.v4.vrp.DomesticVrpConsentsPatchRequestInnerOp;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * DomesticVrpConsentsPatchRequestInner
@@ -66,9 +60,11 @@ public class DomesticVrpConsentsPatchRequestInner {
 
     /**
      * Get op
+     *
      * @return op
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "op", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("op")
     public DomesticVrpConsentsPatchRequestInnerOp getOp() {
@@ -86,9 +82,10 @@ public class DomesticVrpConsentsPatchRequestInner {
 
     /**
      * The path to the element to operate on as per [RFC 6901](https://datatracker.ietf.org/doc/html/rfc6901)
+     *
      * @return path
-   */
-    @NotNull 
+     */
+    @NotNull
     @Schema(name = "path", description = "The path to the element to operate on as per [RFC 6901](https://datatracker.ietf.org/doc/html/rfc6901)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("path")
     public String getPath() {
@@ -106,9 +103,10 @@ public class DomesticVrpConsentsPatchRequestInner {
 
     /**
      * The path to move or copy from as per [RFC 6901](https://datatracker.ietf.org/doc/html/rfc6901)
+     *
      * @return from
-   */
-    
+     */
+
     @Schema(name = "from", description = "The path to move or copy from as per [RFC 6901](https://datatracker.ietf.org/doc/html/rfc6901)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("from")
     public String getFrom() {
@@ -126,9 +124,10 @@ public class DomesticVrpConsentsPatchRequestInner {
 
     /**
      * The value to add, replace, or test against. This may be a single string or an array of strings
+     *
      * @return value
-   */
-    
+     */
+
     @Schema(name = "value", description = "The value to add, replace, or test against. This may be a single string or an array of strings", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("value")
     public Object getValue() {

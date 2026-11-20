@@ -15,35 +15,25 @@
  */
 package uk.org.openbanking.datamodel.v4.vrp;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
-import uk.org.openbanking.datamodel.v4.vrp.ExternalPaymentTransactionStatus5Code;
-import uk.org.openbanking.datamodel.v4.vrp.OBCashAccountDebtorWithName;
-import uk.org.openbanking.datamodel.v4.vrp.OBDomesticRefundAccount1;
-import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPInitiation;
-import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPInstruction;
-import uk.org.openbanking.datamodel.v4.vrp.OBDomesticVRPResponseDataChargesInner;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.OBStatusReason;
 
 /**
- * &#x60;Data.Refund&#x60; only included in the response if &#x60;Data.ReadRefundAccount&#x60; is set to &#x60;Yes&#x60; in the consent. 
+ * &#x60;Data.Refund&#x60; only included in the response if &#x60;Data.ReadRefundAccount&#x60; is set to &#x60;Yes&#x60; in the consent.
  */
 
 @Schema(name = "OBDomesticVRPResponse_Data", description = "`Data.Refund` only included in the response if `Data.ReadRefundAccount` is set to `Yes` in the consent. ")
@@ -106,10 +96,12 @@ public class OBDomesticVRPResponseData {
     }
 
     /**
-     * Unique identification as assigned by the ASPSP to uniquely identify the domestic payment resource. 
+     * Unique identification as assigned by the ASPSP to uniquely identify the domestic payment resource.
+     *
      * @return domesticVRPId
-   */
-    @NotNull @Size(min = 1, max = 40) 
+     */
+    @NotNull
+    @Size(min = 1, max = 40)
     @Schema(name = "DomesticVRPId", description = "Unique identification as assigned by the ASPSP to uniquely identify the domestic payment resource. ", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("DomesticVRPId")
     public String getDomesticVRPId() {
@@ -126,10 +118,12 @@ public class OBDomesticVRPResponseData {
     }
 
     /**
-     * Identifier for the Domestic VRP Consent that this payment is made under. 
+     * Identifier for the Domestic VRP Consent that this payment is made under.
+     *
      * @return consentId
-   */
-    @NotNull @Size(min = 1, max = 128) 
+     */
+    @NotNull
+    @Size(min = 1, max = 128)
     @Schema(name = "ConsentId", description = "Identifier for the Domestic VRP Consent that this payment is made under. ", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ConsentId")
     public String getConsentId() {
@@ -146,10 +140,12 @@ public class OBDomesticVRPResponseData {
     }
 
     /**
-     * Date and time at which the resource was created. 
+     * Date and time at which the resource was created.
+     *
      * @return creationDateTime
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "CreationDateTime", description = "Date and time at which the resource was created. ", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
@@ -167,9 +163,11 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Get status
+     *
      * @return status
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Status", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Status")
     public ExternalPaymentTransactionStatus5Code getStatus() {
@@ -195,9 +193,10 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Get statusReason
+     *
      * @return statusReason
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "StatusReason", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatusReason")
     public List<@Valid OBStatusReason> getStatusReason() {
@@ -214,10 +213,12 @@ public class OBDomesticVRPResponseData {
     }
 
     /**
-     * Date and time at which the resource status was updated. 
+     * Date and time at which the resource status was updated.
+     *
      * @return statusUpdateDateTime
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "StatusUpdateDateTime", description = "Date and time at which the resource status was updated. ", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("StatusUpdateDateTime")
     public DateTime getStatusUpdateDateTime() {
@@ -234,10 +235,11 @@ public class OBDomesticVRPResponseData {
     }
 
     /**
-     * Expected execution date and time for the payment resource. 
+     * Expected execution date and time for the payment resource.
+     *
      * @return expectedExecutionDateTime
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "ExpectedExecutionDateTime", description = "Expected execution date and time for the payment resource. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExpectedExecutionDateTime")
     public DateTime getExpectedExecutionDateTime() {
@@ -254,10 +256,11 @@ public class OBDomesticVRPResponseData {
     }
 
     /**
-     * Expected settlement date and time for the payment resource. 
+     * Expected settlement date and time for the payment resource.
+     *
      * @return expectedSettlementDateTime
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "ExpectedSettlementDateTime", description = "Expected settlement date and time for the payment resource. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("ExpectedSettlementDateTime")
     public DateTime getExpectedSettlementDateTime() {
@@ -275,9 +278,10 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Get refund
+     *
      * @return refund
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Refund", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Refund")
     public OBDomesticRefundAccount1 getRefund() {
@@ -303,9 +307,10 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Get charges
+     *
      * @return charges
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Charges", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Charges")
     public List<@Valid OBDomesticVRPResponseDataChargesInner> getCharges() {
@@ -323,9 +328,11 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Get initiation
+     *
      * @return initiation
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Initiation", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Initiation")
     public OBDomesticVRPInitiation getInitiation() {
@@ -343,9 +350,11 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Get instruction
+     *
      * @return instruction
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Instruction", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Instruction")
     public OBDomesticVRPInstruction getInstruction() {
@@ -363,9 +372,10 @@ public class OBDomesticVRPResponseData {
 
     /**
      * Get debtorAccount
+     *
      * @return debtorAccount
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "DebtorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DebtorAccount")
     public OBCashAccountDebtorWithName getDebtorAccount() {

@@ -15,22 +15,17 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import uk.org.openbanking.datamodel.v4.common.OBActiveOrHistoricCurrencyAndAmount;
 import uk.org.openbanking.datamodel.v4.common.OBInternalChargeBearerType1Code;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-import jakarta.annotation.Generated;
 
 /**
  * Set of elements used to provide details of a charge for the payment initiation.
@@ -67,9 +62,11 @@ public class OBWriteDomesticConsentResponse5DataChargesInner {
 
     /**
      * Get chargeBearer
+     *
      * @return chargeBearer
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "ChargeBearer", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ChargeBearer")
     public OBInternalChargeBearerType1Code getChargeBearer() {
@@ -87,9 +84,10 @@ public class OBWriteDomesticConsentResponse5DataChargesInner {
 
     /**
      * Charge type, in a coded form. For a full list of values refer to `OBInternalPaymentChargeType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+     *
      * @return type
-   */
-    @NotNull 
+     */
+    @NotNull
     @Schema(name = "Type", description = "Charge type, in a coded form. For a full list of values refer to `OBInternalPaymentChargeType1Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
     public String getType() {
@@ -107,9 +105,11 @@ public class OBWriteDomesticConsentResponse5DataChargesInner {
 
     /**
      * Get amount
+     *
      * @return amount
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Amount", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Amount")
     public OBActiveOrHistoricCurrencyAndAmount getAmount() {

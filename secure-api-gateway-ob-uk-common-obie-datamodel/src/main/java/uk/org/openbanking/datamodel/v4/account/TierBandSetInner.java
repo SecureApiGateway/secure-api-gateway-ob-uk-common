@@ -15,27 +15,18 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.CalculationMethod;
-import uk.org.openbanking.datamodel.v4.account.Destination;
-import uk.org.openbanking.datamodel.v4.account.TierBandInner;
-import uk.org.openbanking.datamodel.v4.account.TierBandMethod;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * The group of tiers or bands for which credit interest can be applied.
@@ -53,7 +44,7 @@ public class TierBandSetInner {
     private Destination destination;
 
     @Valid
-    private List<@Size(min = 1, max = 2000)String> notes;
+    private List<@Size(min = 1, max = 2000) String> notes;
 
     @Valid
     private List<@Valid TierBandInner> tierBand = new ArrayList<>();
@@ -78,9 +69,11 @@ public class TierBandSetInner {
 
     /**
      * Get tierBandMethod
+     *
      * @return tierBandMethod
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "TierBandMethod", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("TierBandMethod")
     public TierBandMethod getTierBandMethod() {
@@ -98,9 +91,10 @@ public class TierBandSetInner {
 
     /**
      * Get calculationMethod
+     *
      * @return calculationMethod
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "CalculationMethod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CalculationMethod")
     public CalculationMethod getCalculationMethod() {
@@ -118,9 +112,11 @@ public class TierBandSetInner {
 
     /**
      * Get destination
+     *
      * @return destination
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Destination", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Destination")
     public Destination getDestination() {
@@ -131,7 +127,7 @@ public class TierBandSetInner {
         this.destination = destination;
     }
 
-    public TierBandSetInner notes(List<@Size(min = 1, max = 2000)String> notes) {
+    public TierBandSetInner notes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
         return this;
     }
@@ -146,16 +142,17 @@ public class TierBandSetInner {
 
     /**
      * Optional additional notes to supplement the Tier Band Set details
+     *
      * @return notes
-   */
-    
+     */
+
     @Schema(name = "Notes", description = "Optional additional notes to supplement the Tier Band Set details", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000)String> getNotes() {
+    public List<@Size(min = 1, max = 2000) String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
     }
 
@@ -174,9 +171,12 @@ public class TierBandSetInner {
 
     /**
      * Tier Band Details
+     *
      * @return tierBand
-   */
-    @NotNull @Valid @Size(min = 1) 
+     */
+    @NotNull
+    @Valid
+    @Size(min = 1)
     @Schema(name = "TierBand", description = "Tier Band Details", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("TierBand")
     public List<@Valid TierBandInner> getTierBand() {

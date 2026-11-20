@@ -15,20 +15,15 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import uk.org.openbanking.datamodel.v4.common.OBRisk1;
-import uk.org.openbanking.datamodel.v4.payment.OBWriteInternationalStandingOrderConsent6Data;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import uk.org.openbanking.datamodel.v4.common.OBRisk1;
 
 /**
  * OBWriteInternationalStandingOrderConsent6
@@ -60,9 +55,11 @@ public class OBWriteInternationalStandingOrderConsent6 {
 
     /**
      * Get data
+     *
      * @return data
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Data", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Data")
     public OBWriteInternationalStandingOrderConsent6Data getData() {
@@ -80,9 +77,11 @@ public class OBWriteInternationalStandingOrderConsent6 {
 
     /**
      * Get risk
+     *
      * @return risk
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Risk", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Risk")
     public OBRisk1 getRisk() {

@@ -15,21 +15,15 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import uk.org.openbanking.datamodel.v4.account.OBTransactionCardInstrument1AuthorisationType;
-import uk.org.openbanking.datamodel.v4.account.OBTransactionCardInstrument1CardSchemeName;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Set of elements to describe the card instrument used in the transaction. &lt;br /&gt; For a full list of enumeration values refer to &#x60;OBInternalCardSchemeType1Code&#x60; in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
@@ -65,9 +59,11 @@ public class OBTransactionCardInstrument1 {
 
     /**
      * Get cardSchemeName
+     *
      * @return cardSchemeName
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "CardSchemeName", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CardSchemeName")
     public OBTransactionCardInstrument1CardSchemeName getCardSchemeName() {
@@ -85,9 +81,10 @@ public class OBTransactionCardInstrument1 {
 
     /**
      * Get authorisationType
+     *
      * @return authorisationType
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "AuthorisationType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AuthorisationType")
     public OBTransactionCardInstrument1AuthorisationType getAuthorisationType() {
@@ -105,9 +102,10 @@ public class OBTransactionCardInstrument1 {
 
     /**
      * Name of the cardholder using the card instrument.
+     *
      * @return name
-   */
-    @Size(min = 1, max = 70) 
+     */
+    @Size(min = 1, max = 70)
     @Schema(name = "Name", description = "Name of the cardholder using the card instrument.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
     public String getName() {
@@ -125,9 +123,10 @@ public class OBTransactionCardInstrument1 {
 
     /**
      * Identification assigned by an institution to identify the card instrument used in the transaction. This identification is known by the account owner, and may be masked.
+     *
      * @return identification
-   */
-    @Size(min = 1, max = 34) 
+     */
+    @Size(min = 1, max = 34)
     @Schema(name = "Identification", description = "Identification assigned by an institution to identify the card instrument used in the transaction. This identification is known by the account owner, and may be masked.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {

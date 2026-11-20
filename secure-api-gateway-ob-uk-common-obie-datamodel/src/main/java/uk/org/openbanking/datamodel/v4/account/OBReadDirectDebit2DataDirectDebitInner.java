@@ -15,25 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-import uk.org.openbanking.datamodel.v4.account.ExternalMandateStatus1Code;
-import uk.org.openbanking.datamodel.v4.account.OBActiveOrHistoricCurrencyAndAmount0;
-import uk.org.openbanking.datamodel.v4.account.OBMandateRelatedInformation1;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Account to or from which a cash entry is made.
@@ -78,9 +72,11 @@ public class OBReadDirectDebit2DataDirectDebitInner {
 
     /**
      * A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.
+     *
      * @return accountId
-   */
-    @NotNull @Size(min = 1, max = 40) 
+     */
+    @NotNull
+    @Size(min = 1, max = 40)
     @Schema(name = "AccountId", example = "22289", description = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("AccountId")
     public String getAccountId() {
@@ -98,9 +94,10 @@ public class OBReadDirectDebit2DataDirectDebitInner {
 
     /**
      * A unique and immutable identifier used to identify the direct debit resource. This identifier has no meaning to the account owner.
+     *
      * @return directDebitId
-   */
-    @Size(min = 1, max = 40) 
+     */
+    @Size(min = 1, max = 40)
     @Schema(name = "DirectDebitId", description = "A unique and immutable identifier used to identify the direct debit resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DirectDebitId")
     public String getDirectDebitId() {
@@ -118,9 +115,10 @@ public class OBReadDirectDebit2DataDirectDebitInner {
 
     /**
      * Get directDebitStatusCode
+     *
      * @return directDebitStatusCode
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "DirectDebitStatusCode", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DirectDebitStatusCode")
     public ExternalMandateStatus1Code getDirectDebitStatusCode() {
@@ -138,9 +136,10 @@ public class OBReadDirectDebit2DataDirectDebitInner {
 
     /**
      * Get mandateRelatedInformation
+     *
      * @return mandateRelatedInformation
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "MandateRelatedInformation", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MandateRelatedInformation")
     public OBMandateRelatedInformation1 getMandateRelatedInformation() {
@@ -158,9 +157,11 @@ public class OBReadDirectDebit2DataDirectDebitInner {
 
     /**
      * Name of Service User.
+     *
      * @return name
-   */
-    @NotNull @Size(min = 1, max = 70) 
+     */
+    @NotNull
+    @Size(min = 1, max = 70)
     @Schema(name = "Name", description = "Name of Service User.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Name")
     public String getName() {
@@ -178,9 +179,10 @@ public class OBReadDirectDebit2DataDirectDebitInner {
 
     /**
      * Date of most recent direct debit collection. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return previousPaymentDateTime
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "PreviousPaymentDateTime", description = "Date of most recent direct debit collection. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PreviousPaymentDateTime")
     public DateTime getPreviousPaymentDateTime() {
@@ -198,9 +200,10 @@ public class OBReadDirectDebit2DataDirectDebitInner {
 
     /**
      * Get previousPaymentAmount
+     *
      * @return previousPaymentAmount
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "PreviousPaymentAmount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("PreviousPaymentAmount")
     public OBActiveOrHistoricCurrencyAndAmount0 getPreviousPaymentAmount() {

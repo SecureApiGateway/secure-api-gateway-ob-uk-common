@@ -15,23 +15,16 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
-import uk.org.openbanking.datamodel.v4.account.OBCashAccount50;
-import uk.org.openbanking.datamodel.v4.account.OBInternalBeneficiaryType1Code;
-import uk.org.openbanking.datamodel.v4.common.OBBranchAndFinancialInstitutionIdentification60;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v3.common.OBSupplementaryData1;
+import uk.org.openbanking.datamodel.v4.common.OBBranchAndFinancialInstitutionIdentification60;
 
 /**
  * OBBeneficiary5
@@ -48,7 +41,7 @@ public class OBBeneficiary5 {
 
     private String reference;
 
-    private OBSupplementaryData1 supplementaryData = new HashMap<>();
+    private OBSupplementaryData1 supplementaryData;
 
     private OBBranchAndFinancialInstitutionIdentification60 creditorAgent;
 
@@ -61,9 +54,10 @@ public class OBBeneficiary5 {
 
     /**
      * A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.
+     *
      * @return accountId
-   */
-    @Size(min = 1, max = 40) 
+     */
+    @Size(min = 1, max = 40)
     @Schema(name = "AccountId", example = "22289", description = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("AccountId")
     public String getAccountId() {
@@ -81,9 +75,10 @@ public class OBBeneficiary5 {
 
     /**
      * A unique and immutable identifier used to identify the beneficiary resource. This identifier has no meaning to the account owner.
+     *
      * @return beneficiaryId
-   */
-    @Size(min = 1, max = 40) 
+     */
+    @Size(min = 1, max = 40)
     @Schema(name = "BeneficiaryId", example = "Ben1", description = "A unique and immutable identifier used to identify the beneficiary resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("BeneficiaryId")
     public String getBeneficiaryId() {
@@ -101,9 +96,10 @@ public class OBBeneficiary5 {
 
     /**
      * Get beneficiaryType
+     *
      * @return beneficiaryType
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "BeneficiaryType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("BeneficiaryType")
     public OBInternalBeneficiaryType1Code getBeneficiaryType() {
@@ -121,9 +117,10 @@ public class OBBeneficiary5 {
 
     /**
      * Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. Usage: If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money. If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.
+     *
      * @return reference
-   */
-    @Size(min = 1, max = 35) 
+     */
+    @Size(min = 1, max = 35)
     @Schema(name = "Reference", example = "Towbar Club", description = "Unique reference, as assigned by the creditor, to unambiguously refer to the payment transaction. Usage: If available, the initiating party should provide this reference in the structured remittance information, to enable reconciliation by the creditor upon receipt of the amount of money. If the business context requires the use of a creditor reference or a payment remit identification, and only one identifier can be passed through the end-to-end chain, the creditor's reference or payment remittance identification should be quoted in the end-to-end transaction identification.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Reference")
     public String getReference() {
@@ -141,9 +138,10 @@ public class OBBeneficiary5 {
 
     /**
      * Get supplementaryData
+     *
      * @return supplementaryData
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "SupplementaryData", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SupplementaryData")
     public OBSupplementaryData1 getSupplementaryData() {
@@ -161,9 +159,10 @@ public class OBBeneficiary5 {
 
     /**
      * Get creditorAgent
+     *
      * @return creditorAgent
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "CreditorAgent", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorAgent")
     public OBBranchAndFinancialInstitutionIdentification60 getCreditorAgent() {
@@ -181,9 +180,10 @@ public class OBBeneficiary5 {
 
     /**
      * Get creditorAccount
+     *
      * @return creditorAccount
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "CreditorAccount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CreditorAccount")
     public OBCashAccount50 getCreditorAccount() {

@@ -15,26 +15,18 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.OBOtherCodeType10;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeProductDetailsFeeFreeLengthPeriod;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeProductDetailsSegmentInner;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 /**
  * OBReadProduct2DataProductInnerOtherProductTypeProductDetails
@@ -54,7 +46,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeProductDetails {
     private String monthlyMaximumCharge;
 
     @Valid
-    private List<@Size(min = 1, max = 2000)String> notes;
+    private List<@Size(min = 1, max = 2000) String> notes;
 
     private OBOtherCodeType10 otherSegment;
 
@@ -73,9 +65,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeProductDetails {
 
     /**
      * Get segment
+     *
      * @return segment
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Segment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Segment")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeProductDetailsSegmentInner> getSegment() {
@@ -93,9 +86,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeProductDetails {
 
     /**
      * The length/duration of the fee free period
+     *
      * @return feeFreeLength
-   */
-    
+     */
+
     @Schema(name = "FeeFreeLength", description = "The length/duration of the fee free period", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeFreeLength")
     public Integer getFeeFreeLength() {
@@ -113,9 +107,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeProductDetails {
 
     /**
      * Get feeFreeLengthPeriod
+     *
      * @return feeFreeLengthPeriod
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "FeeFreeLengthPeriod", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeFreeLengthPeriod")
     public OBReadProduct2DataProductInnerOtherProductTypeProductDetailsFeeFreeLengthPeriod getFeeFreeLengthPeriod() {
@@ -133,9 +128,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeProductDetails {
 
     /**
      * The maximum relevant charges that could accrue as defined fully in Part 7 of the CMA order
+     *
      * @return monthlyMaximumCharge
-   */
-    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
+     */
+    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "MonthlyMaximumCharge", description = "The maximum relevant charges that could accrue as defined fully in Part 7 of the CMA order", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("MonthlyMaximumCharge")
     public String getMonthlyMaximumCharge() {
@@ -146,7 +142,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeProductDetails {
         this.monthlyMaximumCharge = monthlyMaximumCharge;
     }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeProductDetails notes(List<@Size(min = 1, max = 2000)String> notes) {
+    public OBReadProduct2DataProductInnerOtherProductTypeProductDetails notes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
         return this;
     }
@@ -161,16 +157,17 @@ public class OBReadProduct2DataProductInnerOtherProductTypeProductDetails {
 
     /**
      * Get notes
+     *
      * @return notes
-   */
-    
+     */
+
     @Schema(name = "Notes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000)String> getNotes() {
+    public List<@Size(min = 1, max = 2000) String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
     }
 
@@ -181,9 +178,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeProductDetails {
 
     /**
      * Get otherSegment
+     *
      * @return otherSegment
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherSegment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherSegment")
     public OBOtherCodeType10 getOtherSegment() {

@@ -15,20 +15,17 @@
  */
 package uk.org.openbanking.datamodel.v4.payment;
 
-import java.net.URI;
 import java.util.Objects;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import uk.org.openbanking.datamodel.v4.common.OBProxy1;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import uk.org.openbanking.datamodel.v4.common.OBProxy1;
 
 /**
  * Provides the details to identify the debtor account.
@@ -68,9 +65,10 @@ public class OBWriteDomesticStandingOrder3DataInitiationDebtorAccount {
 
     /**
      * Name of the identification scheme, in a coded form as published in an external list. For a full list of values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)
+     *
      * @return schemeName
-   */
-    @NotNull 
+     */
+    @NotNull
     @Schema(name = "SchemeName", description = "Name of the identification scheme, in a coded form as published in an external list. For a full list of values refer to `OBInternalAccountIdentification4Code` in *OB_Internal_CodeSet* [here](https://github.com/OpenBankingUK/External_Internal_CodeSets)", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("SchemeName")
     public String getSchemeName() {
@@ -88,9 +86,11 @@ public class OBWriteDomesticStandingOrder3DataInitiationDebtorAccount {
 
     /**
      * Identification assigned by an institution to identify an account. This identification is known by the account owner.
+     *
      * @return identification
-   */
-    @NotNull @Size(min = 1, max = 256) 
+     */
+    @NotNull
+    @Size(min = 1, max = 256)
     @Schema(name = "Identification", description = "Identification assigned by an institution to identify an account. This identification is known by the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
@@ -108,9 +108,10 @@ public class OBWriteDomesticStandingOrder3DataInitiationDebtorAccount {
 
     /**
      * The account name is the name or names of the account owner(s) represented at an account level, as displayed by the ASPSP's online channels. Note, the account name is not the product name or the nickname of the account.
+     *
      * @return name
-   */
-    @Size(min = 1, max = 350) 
+     */
+    @Size(min = 1, max = 350)
     @Schema(name = "Name", description = "The account name is the name or names of the account owner(s) represented at an account level, as displayed by the ASPSP's online channels. Note, the account name is not the product name or the nickname of the account.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Name")
     public String getName() {
@@ -128,9 +129,10 @@ public class OBWriteDomesticStandingOrder3DataInitiationDebtorAccount {
 
     /**
      * This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).
+     *
      * @return secondaryIdentification
-   */
-    @Size(min = 1, max = 34) 
+     */
+    @Size(min = 1, max = 34)
     @Schema(name = "SecondaryIdentification", description = "This is secondary identification of the account, as assigned by the account servicing institution.  This can be used by building societies to additionally identify accounts with a roll number (in addition to a sort code and account number combination).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("SecondaryIdentification")
     public String getSecondaryIdentification() {
@@ -148,9 +150,10 @@ public class OBWriteDomesticStandingOrder3DataInitiationDebtorAccount {
 
     /**
      * Get proxy
+     *
      * @return proxy
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "Proxy", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Proxy")
     public OBProxy1 getProxy() {

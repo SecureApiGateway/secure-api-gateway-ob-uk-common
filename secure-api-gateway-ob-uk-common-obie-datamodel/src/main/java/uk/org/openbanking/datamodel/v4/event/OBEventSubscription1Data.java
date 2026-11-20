@@ -16,22 +16,18 @@
 package uk.org.openbanking.datamodel.v4.event;
 
 import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import java.net.URI;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * OBEventSubscription1Data
@@ -66,9 +62,10 @@ public class OBEventSubscription1Data {
 
     /**
      * Callback URL for a TPP hosted service. Will be used by ASPSPs, in conjunction with the resource name, to construct a URL to send event notifications to.
+     *
      * @return callbackUrl
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "CallbackUrl", description = "Callback URL for a TPP hosted service. Will be used by ASPSPs, in conjunction with the resource name, to construct a URL to send event notifications to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CallbackUrl")
     public URI getCallbackUrl() {
@@ -86,9 +83,11 @@ public class OBEventSubscription1Data {
 
     /**
      * Version for the event notification.
+     *
      * @return version
-   */
-    @NotNull @Size(min = 1, max = 10) 
+     */
+    @NotNull
+    @Size(min = 1, max = 10)
     @Schema(name = "Version", description = "Version for the event notification.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Version")
     public String getVersion() {
@@ -114,9 +113,10 @@ public class OBEventSubscription1Data {
 
     /**
      * Get eventTypes
+     *
      * @return eventTypes
-   */
-    
+     */
+
     @Schema(name = "EventTypes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("EventTypes")
     public List<String> getEventTypes() {

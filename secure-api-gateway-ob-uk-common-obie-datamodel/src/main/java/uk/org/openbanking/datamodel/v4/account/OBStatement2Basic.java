@@ -15,32 +15,20 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
-import uk.org.openbanking.datamodel.v4.account.OBInternalStatementType1Code;
-import uk.org.openbanking.datamodel.v4.account.OBReadBalance1DataTotalValue;
-import uk.org.openbanking.datamodel.v4.account.OBStatement2StatementBenefitInner;
-import uk.org.openbanking.datamodel.v4.account.OBStatement2StatementDateTimeInner;
-import uk.org.openbanking.datamodel.v4.account.OBStatement2StatementFeeInner;
-import uk.org.openbanking.datamodel.v4.account.OBStatement2StatementInterestInner;
-import uk.org.openbanking.datamodel.v4.account.OBStatement2StatementRateInner;
-import uk.org.openbanking.datamodel.v4.account.OBStatement2StatementValueInner;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Provides further details on a statement resource.
@@ -68,7 +56,7 @@ public class OBStatement2Basic {
     private DateTime creationDateTime;
 
     @Valid
-    private List<@Size(min = 1, max = 500)String> statementDescription;
+    private List<@Size(min = 1, max = 500) String> statementDescription;
 
     @Valid
     private List<@Valid OBStatement2StatementBenefitInner> statementBenefit;
@@ -112,9 +100,11 @@ public class OBStatement2Basic {
 
     /**
      * A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.
+     *
      * @return accountId
-   */
-    @NotNull @Size(min = 1, max = 40) 
+     */
+    @NotNull
+    @Size(min = 1, max = 40)
     @Schema(name = "AccountId", example = "22289", description = "A unique and immutable identifier used to identify the account resource. This identifier has no meaning to the account owner.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("AccountId")
     public String getAccountId() {
@@ -132,9 +122,10 @@ public class OBStatement2Basic {
 
     /**
      * Unique identifier for the statement resource within a servicing institution. This identifier is both unique and immutable.
+     *
      * @return statementId
-   */
-    @Size(min = 1, max = 40) 
+     */
+    @Size(min = 1, max = 40)
     @Schema(name = "StatementId", example = "8sfhke-sifhkeuf-97813", description = "Unique identifier for the statement resource within a servicing institution. This identifier is both unique and immutable.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatementId")
     public String getStatementId() {
@@ -152,9 +143,10 @@ public class OBStatement2Basic {
 
     /**
      * Unique reference for the statement. This reference may be optionally populated if available.
+     *
      * @return statementReference
-   */
-    @Size(min = 1, max = 35) 
+     */
+    @Size(min = 1, max = 35)
     @Schema(name = "StatementReference", example = "002", description = "Unique reference for the statement. This reference may be optionally populated if available.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatementReference")
     public String getStatementReference() {
@@ -172,9 +164,11 @@ public class OBStatement2Basic {
 
     /**
      * Get type
+     *
      * @return type
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "Type", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("Type")
     public OBInternalStatementType1Code getType() {
@@ -192,9 +186,11 @@ public class OBStatement2Basic {
 
     /**
      * Date and time at which the statement period starts. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return startDateTime
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "StartDateTime", example = "2017-07-12T00:00Z", description = "Date and time at which the statement period starts. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("StartDateTime")
     public DateTime getStartDateTime() {
@@ -212,9 +208,11 @@ public class OBStatement2Basic {
 
     /**
      * Date and time at which the statement period ends. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return endDateTime
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "EndDateTime", example = "2017-07-12T00:00Z", description = "Date and time at which the statement period ends. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("EndDateTime")
     public DateTime getEndDateTime() {
@@ -232,9 +230,11 @@ public class OBStatement2Basic {
 
     /**
      * Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+     *
      * @return creationDateTime
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "CreationDateTime", example = "2024-05-29T00:00Z", description = "Date and time at which the resource was created. All dates in the JSON payloads are represented in ISO 8601 date-time format.  All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CreationDateTime")
     public DateTime getCreationDateTime() {
@@ -245,7 +245,7 @@ public class OBStatement2Basic {
         this.creationDateTime = creationDateTime;
     }
 
-    public OBStatement2Basic statementDescription(List<@Size(min = 1, max = 500)String> statementDescription) {
+    public OBStatement2Basic statementDescription(List<@Size(min = 1, max = 500) String> statementDescription) {
         this.statementDescription = statementDescription;
         return this;
     }
@@ -260,16 +260,17 @@ public class OBStatement2Basic {
 
     /**
      * Get statementDescription
+     *
      * @return statementDescription
-   */
-    
+     */
+
     @Schema(name = "StatementDescription", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatementDescription")
-    public List<@Size(min = 1, max = 500)String> getStatementDescription() {
+    public List<@Size(min = 1, max = 500) String> getStatementDescription() {
         return statementDescription;
     }
 
-    public void setStatementDescription(List<@Size(min = 1, max = 500)String> statementDescription) {
+    public void setStatementDescription(List<@Size(min = 1, max = 500) String> statementDescription) {
         this.statementDescription = statementDescription;
     }
 
@@ -288,9 +289,10 @@ public class OBStatement2Basic {
 
     /**
      * Get statementBenefit
+     *
      * @return statementBenefit
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "StatementBenefit", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatementBenefit")
     public List<@Valid OBStatement2StatementBenefitInner> getStatementBenefit() {
@@ -316,9 +318,10 @@ public class OBStatement2Basic {
 
     /**
      * Get statementFee
+     *
      * @return statementFee
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "StatementFee", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatementFee")
     public List<@Valid OBStatement2StatementFeeInner> getStatementFee() {
@@ -344,9 +347,10 @@ public class OBStatement2Basic {
 
     /**
      * Get statementInterest
+     *
      * @return statementInterest
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "StatementInterest", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatementInterest")
     public List<@Valid OBStatement2StatementInterestInner> getStatementInterest() {
@@ -372,9 +376,10 @@ public class OBStatement2Basic {
 
     /**
      * Get statementDateTime
+     *
      * @return statementDateTime
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "StatementDateTime", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatementDateTime")
     public List<@Valid OBStatement2StatementDateTimeInner> getStatementDateTime() {
@@ -400,9 +405,10 @@ public class OBStatement2Basic {
 
     /**
      * Get statementRate
+     *
      * @return statementRate
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "StatementRate", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatementRate")
     public List<@Valid OBStatement2StatementRateInner> getStatementRate() {
@@ -428,9 +434,10 @@ public class OBStatement2Basic {
 
     /**
      * Get statementValue
+     *
      * @return statementValue
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "StatementValue", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("StatementValue")
     public List<@Valid OBStatement2StatementValueInner> getStatementValue() {
@@ -448,9 +455,10 @@ public class OBStatement2Basic {
 
     /**
      * Get totalValue
+     *
      * @return totalValue
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "TotalValue", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TotalValue")
     public OBReadBalance1DataTotalValue getTotalValue() {

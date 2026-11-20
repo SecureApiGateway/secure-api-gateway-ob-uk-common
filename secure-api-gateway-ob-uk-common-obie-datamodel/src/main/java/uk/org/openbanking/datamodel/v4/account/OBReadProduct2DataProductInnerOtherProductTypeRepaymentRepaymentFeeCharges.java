@@ -15,24 +15,18 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFeeChargesRepaymentFeeChargeCapInner;
-import uk.org.openbanking.datamodel.v4.account.OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFeeChargesRepaymentFeeChargeDetailInner;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * Applicable fee/charges for repayment such as prepayment, full early repayment or non repayment.
@@ -75,9 +69,12 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
 
     /**
      * Get repaymentFeeChargeDetail
+     *
      * @return repaymentFeeChargeDetail
-   */
-    @NotNull @Valid @Size(min = 1) 
+     */
+    @NotNull
+    @Valid
+    @Size(min = 1)
     @Schema(name = "RepaymentFeeChargeDetail", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("RepaymentFeeChargeDetail")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFeeChargesRepaymentFeeChargeDetailInner> getRepaymentFeeChargeDetail() {
@@ -103,9 +100,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
 
     /**
      * Get repaymentFeeChargeCap
+     *
      * @return repaymentFeeChargeCap
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "RepaymentFeeChargeCap", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("RepaymentFeeChargeCap")
     public List<@Valid OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFeeChargesRepaymentFeeChargeCapInner> getRepaymentFeeChargeCap() {

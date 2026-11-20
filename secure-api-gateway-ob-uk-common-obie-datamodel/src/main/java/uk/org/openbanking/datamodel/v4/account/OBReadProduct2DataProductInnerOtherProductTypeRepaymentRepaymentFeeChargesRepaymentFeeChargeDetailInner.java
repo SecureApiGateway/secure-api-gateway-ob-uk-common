@@ -15,31 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.OBFeeFrequency1Code2;
-import uk.org.openbanking.datamodel.v4.account.OBFeeFrequency1Code3;
-import uk.org.openbanking.datamodel.v4.account.OBFeeType1Code;
-import uk.org.openbanking.datamodel.v4.account.OBInterestRateType1Code1;
-import uk.org.openbanking.datamodel.v4.account.OBOtherCodeType16;
-import uk.org.openbanking.datamodel.v4.account.OBOtherCodeType17;
-import uk.org.openbanking.datamodel.v4.account.OBOtherCodeType18;
-import uk.org.openbanking.datamodel.v4.account.OBOtherFeeChargeDetailType;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 /**
  * Details about specific fees/charges that are applied for repayment
@@ -65,7 +53,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
     private OBFeeFrequency1Code3 calculationFrequency;
 
     @Valid
-    private List<@Size(min = 1, max = 2000)String> notes;
+    private List<@Size(min = 1, max = 2000) String> notes;
 
     private OBOtherFeeChargeDetailType otherFeeType;
 
@@ -95,9 +83,11 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
 
     /**
      * Get feeType
+     *
      * @return feeType
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "FeeType", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FeeType")
     public OBFeeType1Code getFeeType() {
@@ -115,9 +105,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
 
     /**
      * Fee/charge which is usually negotiable rather than a fixed amount
+     *
      * @return negotiableIndicator
-   */
-    
+     */
+
     @Schema(name = "NegotiableIndicator", description = "Fee/charge which is usually negotiable rather than a fixed amount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("NegotiableIndicator")
     public Boolean getNegotiableIndicator() {
@@ -135,9 +126,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
 
     /**
      * Fee Amount charged for a fee/charge (where it is charged in terms of an amount rather than a rate)
+     *
      * @return feeAmount
-   */
-    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
+     */
+    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "FeeAmount", description = "Fee Amount charged for a fee/charge (where it is charged in terms of an amount rather than a rate)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeAmount")
     public String getFeeAmount() {
@@ -155,9 +147,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
 
     /**
      * Rate charged for Fee/Charge (where it is charged in terms of a rate rather than an amount)
+     *
      * @return feeRate
-   */
-    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$") 
+     */
+    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "FeeRate", description = "Rate charged for Fee/Charge (where it is charged in terms of a rate rather than an amount)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeRate")
     public String getFeeRate() {
@@ -175,9 +168,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
 
     /**
      * Get feeRateType
+     *
      * @return feeRateType
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "FeeRateType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("FeeRateType")
     public OBInterestRateType1Code1 getFeeRateType() {
@@ -195,9 +189,11 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
 
     /**
      * Get applicationFrequency
+     *
      * @return applicationFrequency
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "ApplicationFrequency", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ApplicationFrequency")
     public OBFeeFrequency1Code2 getApplicationFrequency() {
@@ -215,9 +211,11 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
 
     /**
      * Get calculationFrequency
+     *
      * @return calculationFrequency
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "CalculationFrequency", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("CalculationFrequency")
     public OBFeeFrequency1Code3 getCalculationFrequency() {
@@ -228,7 +226,7 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
         this.calculationFrequency = calculationFrequency;
     }
 
-    public OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFeeChargesRepaymentFeeChargeDetailInner notes(List<@Size(min = 1, max = 2000)String> notes) {
+    public OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFeeChargesRepaymentFeeChargeDetailInner notes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
         return this;
     }
@@ -243,16 +241,17 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
 
     /**
      * Get notes
+     *
      * @return notes
-   */
-    
+     */
+
     @Schema(name = "Notes", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000)String> getNotes() {
+    public List<@Size(min = 1, max = 2000) String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
     }
 
@@ -263,9 +262,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
 
     /**
      * Get otherFeeType
+     *
      * @return otherFeeType
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherFeeType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeeType")
     public OBOtherFeeChargeDetailType getOtherFeeType() {
@@ -283,9 +283,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
 
     /**
      * Get otherFeeRateType
+     *
      * @return otherFeeRateType
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherFeeRateType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherFeeRateType")
     public OBOtherCodeType18 getOtherFeeRateType() {
@@ -303,9 +304,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
 
     /**
      * Get otherApplicationFrequency
+     *
      * @return otherApplicationFrequency
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherApplicationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherApplicationFrequency")
     public OBOtherCodeType16 getOtherApplicationFrequency() {
@@ -323,9 +325,10 @@ public class OBReadProduct2DataProductInnerOtherProductTypeRepaymentRepaymentFee
 
     /**
      * Get otherCalculationFrequency
+     *
      * @return otherCalculationFrequency
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherCalculationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherCalculationFrequency")
     public OBOtherCodeType17 getOtherCalculationFrequency() {

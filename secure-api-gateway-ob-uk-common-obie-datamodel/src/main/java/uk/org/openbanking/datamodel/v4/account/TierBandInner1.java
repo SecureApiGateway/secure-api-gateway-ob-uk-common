@@ -15,31 +15,19 @@
  */
 package uk.org.openbanking.datamodel.v4.account;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import uk.org.openbanking.datamodel.v4.account.ApplicationFrequency3;
-import uk.org.openbanking.datamodel.v4.account.BankInterestRateType1;
-import uk.org.openbanking.datamodel.v4.account.CalculationFrequency3;
-import uk.org.openbanking.datamodel.v4.account.DepositInterestAppliedCoverage1;
-import uk.org.openbanking.datamodel.v4.account.FixedVariableInterestRateType;
-import uk.org.openbanking.datamodel.v4.account.OtherApplicationFrequency;
-import uk.org.openbanking.datamodel.v4.account.OtherBankInterestType;
-import uk.org.openbanking.datamodel.v4.account.OtherCalculationFrequency;
-import java.time.OffsetDateTime;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
 import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 /**
  * Tier Band Details
@@ -71,7 +59,7 @@ public class TierBandInner1 {
     private String bankInterestRate;
 
     @Valid
-    private List<@Size(min = 1, max = 2000)String> notes;
+    private List<@Size(min = 1, max = 2000) String> notes;
 
     private OtherBankInterestType otherBankInterestType;
 
@@ -100,9 +88,10 @@ public class TierBandInner1 {
 
     /**
      * Unique and unambiguous identification of a  Tier Band for a PCA.
+     *
      * @return identification
-   */
-    @Size(min = 1, max = 35) 
+     */
+    @Size(min = 1, max = 35)
     @Schema(name = "Identification", description = "Unique and unambiguous identification of a  Tier Band for a PCA.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Identification")
     public String getIdentification() {
@@ -120,9 +109,11 @@ public class TierBandInner1 {
 
     /**
      * Minimum deposit value for which the credit interest tier applies.
+     *
      * @return tierValueMinimum
-   */
-    @NotNull @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
+     */
+    @NotNull
+    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "TierValueMinimum", description = "Minimum deposit value for which the credit interest tier applies.", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("TierValueMinimum")
     public String getTierValueMinimum() {
@@ -140,9 +131,10 @@ public class TierBandInner1 {
 
     /**
      * Maximum deposit value for which the credit interest tier applies.
+     *
      * @return tierValueMaximum
-   */
-    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$") 
+     */
+    @Pattern(regexp = "^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "TierValueMaximum", description = "Maximum deposit value for which the credit interest tier applies.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("TierValueMaximum")
     public String getTierValueMaximum() {
@@ -160,9 +152,10 @@ public class TierBandInner1 {
 
     /**
      * Get calculationFrequency
+     *
      * @return calculationFrequency
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "CalculationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("CalculationFrequency")
     public CalculationFrequency3 getCalculationFrequency() {
@@ -180,9 +173,11 @@ public class TierBandInner1 {
 
     /**
      * Get applicationFrequency
+     *
      * @return applicationFrequency
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "ApplicationFrequency", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("ApplicationFrequency")
     public ApplicationFrequency3 getApplicationFrequency() {
@@ -200,9 +195,10 @@ public class TierBandInner1 {
 
     /**
      * Get depositInterestAppliedCoverage
+     *
      * @return depositInterestAppliedCoverage
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "DepositInterestAppliedCoverage", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("DepositInterestAppliedCoverage")
     public DepositInterestAppliedCoverage1 getDepositInterestAppliedCoverage() {
@@ -220,9 +216,11 @@ public class TierBandInner1 {
 
     /**
      * Get fixedVariableInterestRateType
+     *
      * @return fixedVariableInterestRateType
-   */
-    @NotNull @Valid 
+     */
+    @NotNull
+    @Valid
     @Schema(name = "FixedVariableInterestRateType", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("FixedVariableInterestRateType")
     public FixedVariableInterestRateType getFixedVariableInterestRateType() {
@@ -240,9 +238,11 @@ public class TierBandInner1 {
 
     /**
      * The annual equivalent rate (AER) is interest that is calculated under the assumption that any interest paid is combined with the original balance and the next interest payment will be based on the slightly higher account balance. Overall, this means that interest can be compounded several times in a year depending on the number of times that interest payments are made.  Read more: Annual Equivalent Rate (AER) http://www.investopedia.com/terms/a/aer.asp#ixzz4gfR7IO1A
+     *
      * @return AER
-   */
-    @NotNull @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$") 
+     */
+    @NotNull
+    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "AER", description = "The annual equivalent rate (AER) is interest that is calculated under the assumption that any interest paid is combined with the original balance and the next interest payment will be based on the slightly higher account balance. Overall, this means that interest can be compounded several times in a year depending on the number of times that interest payments are made.  Read more: Annual Equivalent Rate (AER) http://www.investopedia.com/terms/a/aer.asp#ixzz4gfR7IO1A", requiredMode = Schema.RequiredMode.REQUIRED)
     @JsonProperty("AER")
     public String getAER() {
@@ -260,9 +260,10 @@ public class TierBandInner1 {
 
     /**
      * Get bankInterestRateType
+     *
      * @return bankInterestRateType
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "BankInterestRateType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("BankInterestRateType")
     public BankInterestRateType1 getBankInterestRateType() {
@@ -280,9 +281,10 @@ public class TierBandInner1 {
 
     /**
      * Bank Interest for the PCA product
+     *
      * @return bankInterestRate
-   */
-    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$") 
+     */
+    @Pattern(regexp = "^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")
     @Schema(name = "BankInterestRate", description = "Bank Interest for the PCA product", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("BankInterestRate")
     public String getBankInterestRate() {
@@ -293,7 +295,7 @@ public class TierBandInner1 {
         this.bankInterestRate = bankInterestRate;
     }
 
-    public TierBandInner1 notes(List<@Size(min = 1, max = 2000)String> notes) {
+    public TierBandInner1 notes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
         return this;
     }
@@ -308,16 +310,17 @@ public class TierBandInner1 {
 
     /**
      * Optional additional notes to supplement the Tier Band details
+     *
      * @return notes
-   */
-    
+     */
+
     @Schema(name = "Notes", description = "Optional additional notes to supplement the Tier Band details", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("Notes")
-    public List<@Size(min = 1, max = 2000)String> getNotes() {
+    public List<@Size(min = 1, max = 2000) String> getNotes() {
         return notes;
     }
 
-    public void setNotes(List<@Size(min = 1, max = 2000)String> notes) {
+    public void setNotes(List<@Size(min = 1, max = 2000) String> notes) {
         this.notes = notes;
     }
 
@@ -328,9 +331,10 @@ public class TierBandInner1 {
 
     /**
      * Get otherBankInterestType
+     *
      * @return otherBankInterestType
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherBankInterestType", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherBankInterestType")
     public OtherBankInterestType getOtherBankInterestType() {
@@ -348,9 +352,10 @@ public class TierBandInner1 {
 
     /**
      * Get otherApplicationFrequency
+     *
      * @return otherApplicationFrequency
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherApplicationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherApplicationFrequency")
     public OtherApplicationFrequency getOtherApplicationFrequency() {
@@ -368,9 +373,10 @@ public class TierBandInner1 {
 
     /**
      * Get otherCalculationFrequency
+     *
      * @return otherCalculationFrequency
-   */
-    @Valid 
+     */
+    @Valid
     @Schema(name = "OtherCalculationFrequency", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
     @JsonProperty("OtherCalculationFrequency")
     public OtherCalculationFrequency getOtherCalculationFrequency() {
